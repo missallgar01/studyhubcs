@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GCSE Theory — Knowledge Organisers</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header><h1>GCSE Theory — Knowledge Organisers</h1></header>
+  <main>
+    <section class="page-intro">
+      <p>Download the GCSE Computer Science Knowledge Organisers by topic below.</p>
+      <p class="meta">Each topic link opens the organiser as a PDF.</p>
+    </section>
+
+    <div class="sections ko-grid">
+      <section class="resource-section"><header><h2>Binary</h2></header><div class="body"><p>Number systems, binary, and data representation.</p></div><div class="links"><a class="btn" href="GKO/BinaryKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Computational Thinking</h2></header><div class="body"><p>Decomposition, abstraction, pattern recognition, and algorithms.</p></div><div class="links"><a class="btn" href="GKO/ComputationalThinkingKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Cyber Threats</h2></header><div class="body"><p>Security threats, prevention, and safe user practices.</p></div><div class="links"><a class="btn" href="GKO/CyberthreatsKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Data</h2></header><div class="body"><p>Data types, structures, and handling processes.</p></div><div class="links"><a class="btn" href="GKO/DataKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Ethics</h2></header><div class="body"><p>Ethical, legal, and environmental issues in computing.</p></div><div class="links"><a class="btn" href="GKO/EthicsKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Hardware</h2></header><div class="body"><p>Hardware components, CPU architecture, and performance factors.</p></div><div class="links"><a class="btn" href="GKO/HardwareKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Networks</h2></header><div class="body"><p>Network types, topologies, protocols, and security measures.</p></div><div class="links"><a class="btn" href="GKO/NetworksKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Programming Guide</h2></header><div class="body"><p>Python syntax and GCSE programming reference guide.</p></div><div class="links"><a class="btn" href="GKO/ProgrammingGuide.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Programming Languages</h2></header><div class="body"><p>High- and low-level languages, compilers, and translators.</p></div><div class="links"><a class="btn" href="GKO/ProgramminglanguagesKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Software</h2></header><div class="body"><p>Operating systems, applications, and utility programs.</p></div><div class="links"><a class="btn" href="GKO/SoftwareKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Sorting and Searching</h2></header><div class="body"><p>Sorting and searching algorithms with examples and flowcharts.</p></div><div class="links"><a class="btn" href="GKO/SortingSearchingKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+      <section class="resource-section"><header><h2>Utility Programs</h2></header><div class="body"><p>Maintenance and optimisation utilities for computer systems.</p></div><div class="links"><a class="btn" href="GKO/Utility_ProgramsKO.pdf" target="_blank" rel="noopener">View PDF</a></div></section>
+    </div>
+
+    <p style="margin-top:1rem;"><a href="../index.html">← Back to Index</a></p>
+  </main>
+
+  <!-- === PDF Preview Modal === -->
+  <div id="pdfModal" class="pdf-modal">
+    <div class="pdf-modal-content">
+      <button id="closePdf" class="close-btn">×</button>
+      <iframe id="pdfFrame" src="" title="PDF Preview"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('pdfModal');
+    const frame = document.getElementById('pdfFrame');
+    const closeBtn = document.getElementById('closePdf');
+    let lastPdf = null;
+    let lastScroll = 0;
+    document.querySelectorAll('a.btn[href$=".pdf"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        if (link.href === lastPdf) {
+          modal.style.display = 'flex';
+          frame.src = lastPdf;
+          setTimeout(() => frame.contentWindow.scrollTo(0, lastScroll), 400);
+        } else {
+          frame.src = link.href;
+          modal.style.display = 'flex';
+        }
+        lastPdf = link.href;
+      });
+    });
+    closeBtn.addEventListener('click', () => {
+      try { lastScroll = frame.contentWindow.scrollY || frame.contentDocument.documentElement.scrollTop; } catch { lastScroll = 0; }
+      modal.style.display = 'none';
+    });
+    window.addEventListener('click', e => {
+      if (e.target === modal) {
+        try { lastScroll = frame.contentWindow.scrollY || frame.contentDocument.documentElement.scrollTop; } catch { lastScroll = 0; }
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

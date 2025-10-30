@@ -1,0 +1,740 @@
+/* ========= MASTER BASE (source of truth) ========= */
+/* Base */
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f6f7fb; color: #222; }
+header { background: #1e3a8a; color: #fff; padding: 1rem; text-align: center; }
+main { max-width: 980px; margin: 2rem auto; padding: 0 1rem 2rem; }
+h1, h2, h3 { margin: 0 0 .5rem; }
+a { color: #1e3a8a; text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { list-style: none; padding: 0; margin: 0; }
+li { margin: .5rem 0; }
+footer { padding: 2rem 1rem; text-align: center; color: #666; }
+
+/* Index sections */
+.index-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.index-card { background: #fff; border-radius: 12px; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+.index-card h2 { font-size: 1.15rem; }
+.index-card li a { display:inline-block; padding:.15rem 0; }
+
+/* Resource page vertical layout */
+.page-intro { background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:1rem; box-shadow:0 2px 10px rgba(0,0,0,.04); margin-bottom:1rem; color:#444; }
+.sections { display: flex; flex-direction: column; gap: 1rem; }
+
+.resource-section { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+.resource-section header { background: transparent; color: inherit; text-align: left; padding: 0; }
+.resource-section h2 { font-size: 1.1rem; margin: 0 0 .25rem; }
+.resource-section .meta { color: #666; margin-bottom:.5rem; }
+.resource-section .body { color:#333; }
+.resource-section .links { margin-top:.5rem; display:flex; flex-wrap:wrap; gap:.5rem; }
+.btn { display:inline-block; padding:.5rem .75rem; border-radius:10px; border:1px solid #c7d2fe; background:#eef2ff; font-weight:600; }
+.btn:hover { background:#e0e7ff; text-decoration:none; }
+
+/* Pills / tags */
+.pills { display:flex; flex-wrap:wrap; gap:.4rem; margin:.5rem 0; }
+.pill { font-size:.75rem; padding:.15rem .5rem; border-radius:999px; border:1px solid #e5e7eb; background:#f8fafc; color:#475569; }
+
+
+/* ========= FAST4 QUIZ STYLES ========= */
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 25px; }
+.card { position: relative; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.yellow { background-color: #fff1a8; }
+.pink   { background-color: #ffd5d5; }
+.green  { background-color: #d8f5d2; }
+.blue   { background-color: #d8eaff; }
+.card h3 { margin: 0; font-style: italic; }
+.marks { position: absolute; top: 10px; right: 15px; background-color: #fff; color: #000; font-size: 0.9em; padding: 3px 8px; border-radius: 8px; border: 1px solid #ccc; }
+p { margin-top: 8px; }
+
+/* Inputs (generic + quiz) */
+textarea { width: 95%; margin-top: 10px; padding: 8px; font-size: 1em; border: 1px solid #ccc; border-radius: 8px; resize: none; height: 80px; }
+textarea.input { width: 95%; min-height: 70px; border-radius: 8px; border: 1px solid #c7d2fe; padding: 0.5rem; resize: vertical; font-family: inherit; font-size: 1rem; }
+
+/* Show answers button (single canonical definition) */
+#showAnswers { margin-top: 1rem; display: inline-block; padding: 0.6rem 1rem; border-radius: 8px; border: 1px solid #c7d2fe; background: #eef2ff; color: #1e3a8a; font-weight: 700; cursor: not-allowed; transition: background 0.2s ease, opacity .2s ease; opacity: .6; }
+#showAnswers.enabled { cursor: pointer; background: #1e3a8a; color: #fff; border-color: #1e3a8a; opacity: 1; }
+
+/* Answer reveal (single canonical definition) */
+.answer { display: none; margin-top: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid #c7d2fe; background: #eef2ff; color: #1e3a8a; }
+
+
+/* ======= Instructions banner (brand colour) ======= */
+.instructions{
+  background:#eef2ff;
+  border:1px solid #c7d2fe;
+  border-left:6px solid #1e3a8a; /* brand */
+  color:#1e3a8a;
+  padding:1rem 1.25rem;
+  border-radius:12px;
+  box-shadow:0 1px 4px rgba(0,0,0,.05);
+  margin:1rem 0 1.5rem;
+}
+.instructions ul{ margin:.25rem 0 .25rem 1.25rem; }
+.instructions li{ margin:.25rem 0; }
+
+/* ========= CHECKLIST TABLE (JUMP123) ========= */
+  .tabs {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin: 0 0 1rem;
+    }
+    .tab-btn {
+      appearance: none;
+      border: 1px solid #c7d2fe;
+      background: #eef2ff;
+      color: #1e3a8a;
+      padding: .55rem .9rem;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .tab-btn[aria-selected="true"] {
+      background: #1e3a8a;
+      color: #fff;
+      border-color: #1e3a8a;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    /* Keep header subtitle tidy */
+    header .subtitle { opacity: .9; margin-top: .25rem; font-size: .95rem; }
+/* ========= CHECKLIST TABLE (Modify section) ========= */
+.task-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.task-table th,
+.task-table td { padding: .75rem .9rem; vertical-align: top; border-bottom: 1px solid #e5e7eb; }
+.task-table thead th { background: #f8fafc; font-weight: 700; text-align: left; }
+.task-table tr:last-child td { border-bottom: 0; }
+.task-table td:last-child,
+.task-table th:last-child { width: 56px; text-align: center; }
+/* Place tick container properly when used in table cells */
+.task-table td { position: relative; }
+
+/* ========= INVESTIGATE TABLE ========= */
+.investigate-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.investigate-table th,
+.investigate-table td { padding: 0.75rem 0.9rem; border: 1px solid #e5e7eb; vertical-align: top; }
+.investigate-table thead th { background: #f8fafc; text-align: left; font-weight: 700; }
+.investigate-table code { background: #f3f4f6; padding: 0.1rem 0.35rem; border-radius: 6px; font-size: 0.95em; }
+/* Column widths */
+.investigate-table colgroup col:nth-child(1) { width: 20%; }
+.investigate-table colgroup col:nth-child(2) { width: 45%; }
+.investigate-table colgroup col:nth-child(3) { width: 35%; }
+
+
+/* ========= Reflection box ========= */
+.reflection-box {
+  background: #fefcf5;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.reflection-box p { margin: 0 0 1rem; }
+.reflection-box em { display: block; font-size: 0.9rem; color: #666; }
+
+/* ===== Assessment Table (Level 1–3) ===== */
+.assessment-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* ensures equal column widths */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin: 1.5rem 0;
+  background: #fff;
+}
+
+.assessment-table th {
+  background: #1e3a8a;          /* brand blue */
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.assessment-table td {
+  width: 33.33%;               /* equal column width */
+  text-align: center;
+  vertical-align: top;
+  padding: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.assessment-table .tick {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.assessment-table .level {
+  width: 90px;
+  max-width: 100%;
+  margin-top: 0.5rem;
+}
+
+.assessment-table .desc {
+  text-align: left;
+  font-size: 0.95rem;
+  color: #444;
+  padding: 0.75rem 1rem;
+}
+
+.assessment-table .desc p {
+  margin: 0.4rem 0;
+  line-height: 1.4;
+}
+
+/* Zebra shading for readability */
+.assessment-table tbody tr:nth-child(even) td {
+  background: #f9fafb;
+}
+
+
+/* ========= Utility media styles ========= */
+.media { display:flex; align-items:center; gap:12px; }
+.media img {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.code {
+  display: flex;
+  align-items: center;      /* vertical centering */
+  justify-content: center;  /* horizontal centering ✅ */
+  gap: 12px;
+}
+.code img {
+  width: 80%;
+  height: auto;
+}
+
+.hint {
+  background: #fff8d9;
+  border-left: 4px solid #fbbf24;
+  color: #7c6000;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0.75rem 0 1rem;
+}
+/* ========= Buttons ========= */
+button { display: block; margin: 25px auto; padding: 12px 25px; font-size: 1.1em; border: none; border-radius: 10px; background-color: #0078d7; color: white; opacity: 0.5; cursor: not-allowed; transition: opacity 0.3s, transform 0.2s; }
+button.enabled { opacity: 1; cursor: pointer; transform: scale(1.02); }
+/* Secondary button (print) */
+.secondary { background: #e5e7eb; color: #111; border: 1px solid #ccc; border-radius: 8px; padding: .6rem 1rem; font-weight: 600; cursor: pointer; display:inline-block; }
+.secondary:hover { background: #dbeafe; }
+
+/* === KO Grid Layout (3-column on desktop) === */
+.ko-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.resource-section {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.resource-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive tweak */
+@media (max-width: 900px) {
+  .ko-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .ko-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === PDF Icon for KO Links === */
+a.btn[href$=".pdf"]::before {
+  content: "📄";
+  margin-right: 0.4rem;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+/* === PDF Modal Styles === */
+.pdf-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 58, 138, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+.pdf-modal-content {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 900px;
+  height: 85%;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+}
+.pdf-modal-content iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  border-radius: 0 0 12px 12px;
+}
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: #1e3a8a;
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.close-btn:hover {
+  background: #3749ae;
+}
+
+
+/* ========= Responsive (mobile ≤700px) ========= */
+@media (max-width: 700px) {
+
+  /* General layout */
+  header {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  main {
+    margin: 1rem auto;
+    padding: 0 0.75rem 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .resource-section {
+    padding: 0.75rem;
+    border-radius: 10px;
+  }
+
+  /* Buttons */
+  .btn,
+  button,
+  .secondary {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.6rem 0.9rem;
+    text-align: center;
+  }
+
+  /* Investigate table */
+  .investigate-table,
+  .investigate-table thead,
+  .investigate-table tbody,
+  .investigate-table th,
+  .investigate-table td,
+  .investigate-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .investigate-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0.75rem;
+    background: #fff;
+  }
+
+  .investigate-table th {
+    display: none;
+  }
+
+  .investigate-table td {
+    border: none;
+    padding: 0.35rem 0;
+  }
+
+
+  /* Task tables (checklists / assessment) */
+  .task-table,
+  .task-table thead,
+  .task-table tbody,
+  .task-table tr,
+  .task-table td,
+  .task-table th {
+    display: block;
+    width: 100%;
+  }
+
+  .task-table tr {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background: #fff;
+    padding: 0.75rem;
+  }
+
+  .task-table th {
+    display: none;
+  }
+
+  .task-table td {
+    border: none;
+    padding: 0.4rem 0;
+    text-align: left;
+  }
+
+  /* Reflection box */
+  .reflection-box {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  textarea,
+  textarea.input {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  /* Fast4 grid → single column for mobile */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    font-size: 0.95rem;
+  }
+
+  /* Hide decorative media images if needed */
+  .media img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+  }
+
+}
+
+/* === Planet Weight Converter Guide Card === */
+.guide-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-left: 6px solid #1e3a8a; /* brand blue accent */
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  color: #222;
+}
+
+.guide-card h2 {
+  margin-top: 0;
+  color: #1e3a8a;
+  font-size: 1.35rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: .3rem;
+}
+
+.guide-card h3 {
+  color: #1e3a8a;
+  margin-top: 1.25rem;
+  font-size: 1.1rem;
+}
+
+.guide-card ul.steps {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: .5rem 0 1rem;
+}
+
+.guide-card ul.steps li {
+  margin: .4rem 0;
+}
+
+.guide-card .formula {
+  background: #f9fafb;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: .75rem 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .95rem;
+  margin: 1rem 0;
+  color: #1e3a8a;
+}
+
+.guide-card ul.ratios {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guide-card ul.ratios li {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: .4rem .75rem;
+  margin: .3rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: .95rem;
+}
+
+.guide-card .example {
+  margin-top: 1rem;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  padding: .75rem 1rem;
+  color: #1e3a8a;
+  font-size: .95rem;
+}
+
+.guide-card .example code {
+  background: #e0e7ff;
+  padding: .1rem .35rem;
+  border-radius: 4px;
+}
+
+/* Responsive tweak */
+@media (max-width: 700px) {
+
+     .assessment-table,
+  .assessment-table thead,
+  .assessment-table tbody,
+  .assessment-table tr,
+  .assessment-table td,
+  .assessment-table th {
+    display: block;
+    width: 100%;
+  }
+
+  .assessment-table thead {
+    display: none; /* hide header row */
+  }
+
+  .assessment-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .assessment-table td {
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .assessment-table .tick {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .assessment-table .level {
+    width: 70px;
+  }
+
+  .assessment-table .desc {
+    padding: 0.5rem 1rem 1rem;
+  }
+  .guide-card {
+    padding: 1rem;
+  }
+  .guide-card ul.ratios li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* === Iframe Styling (for embedded demos, code, or docs) === */
+iframe {
+  width: 100%;
+  height: 500px;              /* Adjust height as needed */
+  border: none;               /* Removes default browser border */
+  border-radius: 12px;        /* Matches card corners */
+  background: #fff;           /* White background for consistency */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06); /* Soft shadow like cards */
+  margin: 1rem 0;             /* Spacing from other content */
+}
+
+/* Optional: Frame caption style */
+.frame-caption {
+  text-align: center;
+  color: #475569;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.embed-placeholder {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+.embed-note {
+  color: #475569;
+  font-size: .9rem;
+  margin-top: .5rem;
+}
+/*========= Print-friendly layout ========= */
+@media print {
+
+  /* Use document colors (when supported) */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Base */
+  html, body {
+    background: #fff !important;
+    color: #111 !important;
+    font: 12pt/1.5 Arial, Helvetica, sans-serif;
+  }
+  header, footer {
+    background: none !important;
+    color: #111 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    text-align: center;
+  }
+  header h1 { margin: 0 0 .25rem; font-size: 1.5rem; }
+  main { max-width: none; margin: 0; padding: 0; }
+
+  /* Hide interactive / decorative elements */
+  .tabs,
+  .tab-btn,
+  .btn,
+  button,
+  .secondary,
+  #showAnswers,
+  .hint,
+  .steps,           /* if you use a steps UI elsewhere */
+  .embed-placeholder,
+  .tick input,
+  .toolbar {
+    display: none !important;
+  }
+
+  /* Show all tab contents in print */
+  .tab-content { display: block !important; }
+
+  /* Ensure “answers” are visible */
+  .answer { display: block !important; }
+
+  /* Cards / sections */
+  .resource-section,
+  .guide-card,
+  .page-intro {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    margin: 0 0 1.2cm 0;
+    padding: 0.75cm;
+    border-radius: 0;
+  }
+
+  /* Tables */
+  table,
+  .task-table,
+  .investigate-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #ccc !important;
+  }
+
+  .task-table thead th,
+  .investigate-table thead th {
+    background: #f1f5f9 !important;
+    color: #111 !important;
+    position: static !important; /* undo sticky headers for print */
+  }
+
+  .task-table th, .task-table td,
+  .investigate-table th, .investigate-table td {
+    border: 1px solid #ccc !important;
+    padding: 6pt 8pt !important;
+    vertical-align: top;
+  }
+
+  /* Avoid splitting table rows across pages */
+  .task-table tr,
+  .investigate-table tr {
+    page-break-inside: avoid;
+  }
+
+  /* Code & output boxes: switch to light scheme for legibility */
+  pre,
+  .output-box {
+    background: #fff !important;
+    color: #111 !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    white-space: pre-wrap;      /* wrap long lines */
+    word-break: break-word;
+    padding: 10pt !important;
+  }
+
+  /* Images */
+  img { max-width: 50% !important; height: auto !important; }
+  .media img { width: 100% !important; }
+
+  /* Hide iframes (or keep a caption if you provide one) */
+  iframe { display: none !important; }
+  .frame-caption { display: block !important; color: #555; font-size: 10pt; }
+
+  /* Typography niceties */
+  p, li { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+
+  /* Page margins */
+  @page { margin: 1.5cm; }
+}
