@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A‑Level — Fast Four / 3 a day</title>
-  <link rel="stylesheet" href="../styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A-Fast4 — Resource Index</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* === Group color themes === */
+.resource-section[data-group="1"] { border-left:6px solid #3a86ff; }
+.resource-section[data-group="2"] { border-left:6px solid #ff006e; }
+.resource-section[data-group="3"] { border-left:6px solid #06d6a0; }
+.resource-section[data-group="4"] { border-left:6px solid #ffb703; }
+.resource-section[data-group="5"] { border-left:6px solid #8338ec; }
+.resource-section[data-group="6"] { border-left:6px solid #00b4d8; }
+.resource-section[data-group="7"] { border-left:6px solid #ef476f; }
+.resource-section[data-group="8"] { border-left:6px solid #118ab2; }
+
+.resource-section[data-group="1"] .doodle-icon { color:#3a86ff; }
+.resource-section[data-group="2"] .doodle-icon { color:#ff006e; }
+.resource-section[data-group="3"] .doodle-icon { color:#06d6a0; }
+.resource-section[data-group="4"] .doodle-icon { color:#ffb703; }
+.resource-section[data-group="5"] .doodle-icon { color:#8338ec; }
+.resource-section[data-group="6"] .doodle-icon { color:#00b4d8; }
+.resource-section[data-group="7"] .doodle-icon { color:#ef476f; }
+.resource-section[data-group="8"] .doodle-icon { color:#118ab2; }
+
+.resource-section:hover {
+  transform:translateY(-4px);
+  box-shadow:0 6px 12px rgba(0,0,0,0.15);
+  transition:0.2s ease;
+}
+.btn:hover {
+  background-color:#444;
+  color:#fff;
+}
+</style>
 </head>
+
 <body>
-  <header><h1>A‑Level — Fast Four / 3 a day</h1></header>
-  <main>
-    <section class="page-intro">
-      <p>Short daily retrieval tasks.</p>
-      <p class="meta">Use the sections below—each resource has its own block with description and links.</p>
-    </section>
+<header><h1>A-Fast4 — Resource Index</h1></header>
 
-    <div class="sections">
-      <!-- Resource 1 -->
-      <section class="resource-section">
-        <header><h2>Resource A</h2></header>
-        <div class="meta">What this covers, when to use it, and estimated time.</div>
-        <div class="pills">
-          <span class="pill">Y10–Y11</span>
-          <span class="pill">Retrieval</span>
-          <span class="pill">Self‑study</span>
-        </div>
-        <div class="body">
-          <p>Short description of the resource. Replace the placeholder links with the real ones below.</p>
-        </div>
-        <div class="links">
-          <a class="btn" href="#" target="_blank" rel="noopener">Open</a>
-          <a class="btn" href="#" target="_blank" rel="noopener">Alternate</a>
-          <a class="btn" href="#" target="_blank" rel="noopener">Download / PDF</a>
-        </div>
-      </section>
+<main>
+<div class="sections ko-grid" id="resourceContainer"></div>
+</main>
 
-      <!-- Resource 2 -->
-      <section class="resource-section">
-        <header><h2>Resource B</h2></header>
-        <div class="meta">Skills focus, prerequisites, and typical pitfalls.</div>
-        <div class="pills">
-          <span class="pill">Practice</span>
-          <span class="pill">Homework</span>
-        </div>
-        <div class="body">
-          <p>Another resource block—duplicate this pattern to add more items.</p>
-        </div>
-        <div class="links">
-          <a class="btn" href="#" target="_blank" rel="noopener">Open</a>
-          <a class="btn" href="#" target="_blank" rel="noopener">Teacher notes</a>
-        </div>
-      </section>
+<script>
+// === Generate 79 resource cards dynamically ===
+const container = document.getElementById('resourceContainer');
+const colorsPerGroup = 10;  // new color every 10 sets
+for (let i = 1; i <= 79; i++) {
+  const group = Math.min(Math.ceil(i / colorsPerGroup), 8);
+  const section = document.createElement('section');
+  section.className = 'resource-section';
+  section.dataset.group = group;
+  section.innerHTML = `
+    <header>
+      <h2>
+        <svg class="doodle-icon" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="10" stroke="currentColor" fill="none" stroke-width="3"/>
+          <path d="M32 22v20M22 32h20" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        A-Fast4 Set ${i}
+      </h2>
+    </header>
+    <p>Explore dataset or resource number ${i}.</p>
+    <a class="btn" href="A-fast4/ocr_fast_set_${i}.html">Open Resource</a>
+  `;
+  container.appendChild(section);
+}
+</script>
 
-      <!-- Resource 3 -->
-      <section class="resource-section">
-        <header><h2>Resource C</h2></header>
-        <div class="meta">Assessment, extension tasks, or alternative pathway.</div>
-        <div class="pills">
-          <span class="pill">Extension</span>
-        </div>
-        <div class="body">
-          <p>Use this section for enrichment or higher‑tier practice.</p>
-        </div>
-        <div class="links">
-          <a class="btn" href="#" target="_blank" rel="noopener">Open</a>
-        </div>
-      </section>
-    </div>
-
-  <p style="margin-top:1rem;"><a href="../index.html">← Back to Index</a></p> </main>
 </body>
 </html>

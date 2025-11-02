@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. Describe</h3>
+      <div class="marks">[1]</div>
+      <p>Describe how data is stored on solid state storage</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> A description to include two from: 	•	Data is stored using electronic circuits / transistors (1) 	•	Electrons are trapped or released in a floating gate / memory cell (1) 	•	The presence or absence of charge represents binary 1s and 0s (1)</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>A backup of a server is made each night. Only the files changed that day are backed up. Identify the name of this type of backup.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Inremental</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Convert</h3>
+      <div class="marks">[2]</div>
+      <p>Convert the binary number 0100 1010 to hexadecimal.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> 4A</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Define</h3>
+      <div class="marks">[1]</div>
+      <p>Network speed is the current rate of data transmission, measured in bits per second.Define the term 'bandwidth'.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Award one mark for any of the following:• The maximum volume/amount of data that can be transmitted (in one second/unit of time) (1)• The full capacity of data that can be transmitted (in one second) (1)</div>
+    </div>
+  </div>
+
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

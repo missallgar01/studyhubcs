@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p> State the bus that carries a read signal to main memory</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Control Bus</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Name</h3>
+      <div class="marks">[1]</div>
+      <p>Name the characteristic of a wireless network that is measured in metres.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Range</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Describe</h3>
+      <div class="marks">[2]</div>
+      <p>Describe one way that changing the number of bits allocated to the colour depth determines how an image is represented.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> A description to include two from:• Increasing the number of bits used for each pixel (1) allows more colours to be represented in each pixel (1)OR• Increasing the number of bits allows more pixels to be used (1) providing a greater level of resolution (1)OR• Decreasing the number of bits used for each pixel (1) allows fewer colours to be represented in each pixel (1)OR• Decreasing the number of bits allows fewer pixels to be used (1) providing a reduced level of resolution (1)</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Explain</h3>
+      <div class="marks">[2]</div>
+      <p>Explain one reason why an employee who is logged on to the company network should not click on a link in an email from an unknown source.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> An explanation to include two from:It increases the risk to data / reduces cybersecurity (1) because the sender could be using social engineering techniques / the link could lead to a malicious website / could download malware (1)</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

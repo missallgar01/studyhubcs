@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JUMP123 – Joke Machine</title>
+  <meta name="description" content="Interactive JUMP123 activity page for the Joke Machine program." />
+  <link rel="icon" href="img/1.png" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+<header>
+  <h1>JUMP123 Joke Machine</h1>
+  <div class="subtitle">An interactive worksheet for <b>Judge</b>, <b>Unpack</b>, <b>Modify</b>, and <b>Program</b></div>
+</header>
+
+<main>
+  <nav class="tabs" role="tablist" aria-label="JUMP123 sections">
+    <button class="tab-btn" role="tab" id="tab-judge" aria-controls="panel-judge" aria-selected="true">Stage 1 Judge</button>
+    <button class="tab-btn" role="tab" id="tab-unpack" aria-controls="panel-unpack" aria-selected="false">Stage 2 Unpack</button>
+    <button class="tab-btn" role="tab" id="tab-modify" aria-controls="panel-modify" aria-selected="false">Stage 3 Modify</button>
+    <button class="tab-btn" role="tab" id="tab-program" aria-controls="panel-program" aria-selected="false">Stage 4 Program</button>
+  </nav>
+
+  <!-- ===== Stage 1: JUDGE (unchanged) ===== -->
+  <section id="panel-judge" class="tab-content active" role="tabpanel" aria-labelledby="tab-judge">
+    <section class="resource-section">
+      <div class="media"><img src="../../img/judge.png" alt="Judge icon"></div>
+      <div>
+        <h2>Predict, evaluate, and reflect</h2>
+        <div class="hint">Read (don’t run yet) and predict what the starter code will output. Then evaluate quality and potential issues.</div>
+        <div class="code"><img src="code_snips/joke_snip.png" alt="Starter code snippet"></div>
+        <div class="reflection-box">
+          <p><strong>What does the program do?</strong><br><em>(What happens when it runs?)</em></p>
+          <p><strong>What could make it better?</strong><br><em>(Is there anything you would change or add?)</em></p>
+          <p><strong>Why was it made like this?</strong><br><em>(What do you think the programmer wanted it to do?)</em></p>
+          <p><strong>Why might the program not work?</strong><br><em>(What could stop it from running properly?)</em></p>
+          <p><strong>What kind of mistake or error could happen?</strong><br><em>(Is it a typing error, logic error, or input problem?)</em></p>
+          <label for="answer">Your answer:</label>
+          <textarea id="answer" placeholder="Write your thoughts here..."></textarea>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===== Stage 2: UNPACK (Joke Machine) ===== -->
+  <section id="panel-unpack" class="tab-content" role="tabpanel" aria-labelledby="tab-unpack">
+    <section class="resource-section">
+      <div class="media"><img src="../../img/unpack.png" alt="Unpack icon"></div>
+      <div>
+        <h2>Investigate the program features</h2>
+        <div class="hint">Run/investigate the Joke Machine program. Capture findings for each focus area.</div>
+      </div>
+
+      <div id="trinket-wrap" class="embed-placeholder" data-src="https://trinket.io/embed/python3/093e5f13a017">
+        <button class="load-trinket">▶ Load Interactive Demo</button>
+        <p class="embed-note">Loads an interactive Python demo from trinket.io</p>
+      </div>
+
+      <table class="investigate-table" aria-label="Investigate">
+        <colgroup>
+          <col><!-- Focus -->
+          <col><!-- Question -->
+          <col><!-- Answer -->
+        </colgroup>
+          <thead>
+          <tr>
+            <th>Focus Area</th>
+            <th>Question</th>
+            <th>Answers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Variables</td>
+            <td>What variable is used to keep track of the score? (Where is it created, and how does it change?)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>Input</td>
+            <td>How does the program get answers from the user? (Look for input() and how it’s stored.)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>String Methods</td>
+            <td>Why does the program use .strip().lower() after input? (Think about spaces and capital letters.)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>If Statement</td>
+            <td>How does the program check if the user is right or wrong? (What line of code compares their answer?)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>Repetition</td>
+            <td>What parts of the program are repeated for each joke? (How do the jokes follow the same pattern?)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>Score Update</td>
+            <td>How does the score change when the player gets an answer right? (Find where score increases.)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>Output (f-string)</td>
+            <td>How does the program show the final score at the end? (Look at the print line with {score}.)</td>
+            <td><textarea></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+
+  <!-- ===== Stage 3: MODIFY (Checklist) ===== -->
+  <section id="panel-modify" class="tab-content" role="tabpanel" aria-labelledby="tab-modify">
+    <section class="resource-section">
+      <div class="media"><img src="../../img/modify.png" alt="Modify icon"></div>
+      <div>
+        <h2>Improve and extend the Joke Machine</h2>
+        <div class="hint">Modify your Joke Machine program following these tasks. Tick when complete.</div>
+      </div>
+
+      <div id="trinket-wrap2" class="embed-placeholder" data-src="https://trinket.io/embed/python3/093e5f13a017">
+        <button class="load-trinket">▶ Load Interactive Demo</button>
+        <p class="embed-note">Loads an interactive Python demo from trinket.io</p>
+      </div>
+
+      <table class="task-table" aria-label="Programming task checklist">
+        <thead>
+          <tr>
+            <th>Focus</th>
+            <th>Task</th>
+            <th>✓</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Change your program so that…</td>
+            <td>It asks the <strong>player for their name</strong> and uses it in messages. (Use input() and an f-string: <code>print(f"Hello, {name}!")</code>)</td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>What happens when you alter your program so that…?</td>
+            <td>Each correct answer gives <strong>2 points instead of 1</strong>. (Change how score increases in each if statement.)</td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>Add to the program so that…</td>
+            <td>It has <strong>two more jokes</strong> following the same pattern. (Copy one joke block and change the text and punchline.)</td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>Improve your program.</td>
+            <td>Make it <strong>more user-friendly</strong> by adding blank lines, emojis, or dividers (use \n or print("-" * 20)).</td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>Extension (Challenge)</td>
+            <td>Show the <strong>player’s score after each joke</strong> instead of only at the end.</td>
+            <td><input type="checkbox"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+
+  <!-- ===== Stage 4: PROGRAM ===== -->
+  <section id="panel-program" class="tab-content" role="tabpanel" aria-labelledby="tab-program">
+    <section class="resource-section">
+      <div class="media"><img src="../../img/program.png" alt="Program icon"></div>
+      <section class="guide-card">
+        <h2>Guess the Missing Word Quiz</h2>
+        <p>This one is ideal for practising <strong>strings, input, variables, and if statements</strong>.</p>
+
+        <ul class="steps">
+          <li>Create a global variable to track the score.</li>
+          <li>Display a welcome message that explains what to do.</li>
+          <li>Ask the first fill-in-the-blank question (e.g., “An apple a day keeps the _____ away”).</li>
+          <li>Use <code>lower()</code> and <code>strip()</code> on the answer.</li>
+          <li>Use an <code>if</code> statement to check the answer and update the score.</li>
+          <li>Add two more questions using the same pattern.</li>
+          <li>Show the player’s final score at the end.</li>
+          <li>Give friendly feedback based on their score.</li>
+        </ul>
+
+        <div id="trinket-wrap3" class="embed-placeholder" data-src="https://trinket.io/embed/python3/c7389c4aaf59">
+          <button class="load-trinket">▶ Load Starter Code</button>
+          <p class="embed-note">Loads an interactive Python demo from trinket.io</p>
+        </div>
+      </section>
+    </section>
+
+    <!-- ===== Assessment (unchanged) ===== -->
+    <section class="resource-section">
+      <h2>JUMP123 Assessment</h2>
+      <table class="assessment-table" aria-label="JUMP123 Assessment">
+        <thead>
+          <tr>
+            <th>Level 1</th>
+            <th>Level 2</th>
+            <th>Level 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <label class="tick"><input type="checkbox"> Tick</label><br>
+              <img src="../../img/1.png" alt="Level 1 badge" class="level">
+            </td>
+            <td>
+              <label class="tick"><input type="checkbox"> Tick</label><br>
+              <img src="../../img/2.png" alt="Level 2 badge" class="level">
+            </td>
+            <td>
+              <label class="tick"><input type="checkbox"> Tick</label><br>
+              <img src="../../img/3.png" alt="Level 3 badge" class="level">
+            </td>
+          </tr>
+          <tr>
+            <td class="desc"><p>The program uses <strong>basic code</strong> we’ve learned before.</p><p>Some parts work, but there are <strong>mistakes</strong> or things missing.</p><p>It <strong>doesn’t fully do</strong> what it should yet.</p></td>
+            <td class="desc"><p>The program has the <strong>main idea</strong> working (like a loop, input, or if statement).</p><p>It <strong>mostly works</strong>, but might still have a few small errors or need clearer output.</p></td>
+            <td class="desc"><p>The program <strong>works perfectly</strong> and does <strong>everything the task asked for</strong>.</p><p>It’s <strong>clear, correct, and easy to use</strong> — maybe even has extra features or nice touches.</p></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="toolbar">
+        <button class="secondary" onclick="window.print()">Print / Save as PDF</button>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script>
+(function() {
+  const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+  const panels = Array.from(document.querySelectorAll('.tab-content'));
+  function activate(id, pushHash=true) {
+    tabs.forEach(t => t.setAttribute('aria-selected', String(t.id === 'tab-' + id)));
+    panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + id));
+    if (pushHash) location.hash = id;
+  }
+  tabs.forEach(btn => btn.addEventListener('click', () => activate(btn.id.replace('tab-', ''))));
+  const initial = (location.hash || '#judge').slice(1);
+  if (['judge','unpack','modify','program'].includes(initial)) activate(initial, false);
+  document.querySelectorAll('.embed-placeholder').forEach(wrap => {
+    const btn = wrap.querySelector('.load-trinket');
+    if (btn) btn.addEventListener('click', () => {
+      const src = wrap.dataset.src;
+      wrap.innerHTML = `<iframe src="${src}" width="100%" height="600" loading="lazy" allowfullscreen></iframe>`;
+    });
+  });
+})();
+</script>
+</body>
+</html>

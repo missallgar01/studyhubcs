@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>Identify the reason computers are connected in a network.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> To share peripherals</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Advantages/Disadvantages</h3>
+      <div class="marks">[2]</div>
+      <p>A team of developers is using an audit trail when working on a program.  State two advantages of keeping an audit trail.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> One mark for each to a maximum of 2: 	•	There’s a record of who changed what when (1) 	•	Identifies the point at which an error/security issue was introduced (1) 	•	Enables the program to be rolled back to a previous state (1) 	•	Improve accountability/produces robust code (1)</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Describe</h3>
+      <div class="marks">[2]</div>
+      <p>Describe one difference between a syntax error and a logic error.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> 	•	A syntax error is caused by using the grammar/form/words of the programming language incorrectly (1), whereas a logic error is caused by an error in the design of the algorithm (1). 	•	A syntax error causes the program not to interpret/compile/translate, whereas a logic error produces an incorrect/wrong result (1).</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

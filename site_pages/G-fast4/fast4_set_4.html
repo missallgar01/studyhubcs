@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. Describe</h3>
+      <div class="marks">[1]</div>
+      <p>Describe how data is stored on a magnetic hard drive</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> A description to include two from: 	•	There is a magnetic/chemical coating on surface of the media (1) The magnetic state/polarity of the chemical can be changed (1) to represent a 0 or 1 (1)</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Explain</h3>
+      <div class="marks">[2]</div>
+      <p>Programmers use trace tables with algorithms. Explain the purpose of a trace table.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked explanation, such as: 	•	It helps the programmer visualise the steps in a program / find errors/bugs / check the algorithm gives the correct output (1) because they can see the value a variable holds at a given point in an algorithm (1).  For both marks, the expansion must associate with the statement.</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>Two images are displayed on the same screen. One image is 1280 × 720 pixels. The second image is 1920 × 1080 pixels.  The second image has a higher resolution. State one reason why the second image will be displayed in more detail.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Any one from:• The number of pixels per (square) inch is higher (1)• The density of pixels is higher (1)</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Give</h3>
+      <div class="marks">[1]</div>
+      <p>Identify the ethical issue associated with the use of artificial intelligence.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Algorithmic bias</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

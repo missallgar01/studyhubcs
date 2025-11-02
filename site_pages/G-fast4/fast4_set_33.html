@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>Identify the result of a single logical shift left on the 8-bit binary pattern 0101 0101.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong>  Multiplication</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Characteristics/Features</h3>
+      <div class="marks">[2]</div>
+      <p>An embedded computer system is part of a larger machine.  State two characteristics of embedded systems that make them different from general purpose computers. </p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Any two from: 	•	Limited processing resources 	•	Low power consumption 	•	Simple/robust operating system 	•	Low cost per unit 	•	Smaller in size 	•	Less storage 	•	Limited user interface  Additional Guidance Do not accept: ‘Carries out a specific task’: This is the opposite of ‘general purpose’, which is given in the question.</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Explain</h3>
+      <div class="marks">[2]</div>
+      <p>A company needs to secure its network from attacks by its employees. Explain the best choice of penetration testing the company should use.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> An explanation that includes the ideas:• Permission is given to a person (1) to carry out investigation of security issues (1) in the network• White-box / white-hat (1) because system information is provided to the tester (1)• The company should give a security expert an ID and password and details of how the network is configured (1), and ask them to try to find vulnerabilities that would enable an employee to access, delete and/or leak sensitive data or install malicious software (1)</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

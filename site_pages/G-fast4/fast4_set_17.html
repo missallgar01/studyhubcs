@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. Advantages/Disadvantages</h3>
+      <div class="marks">[1]</div>
+      <p>A code review is carried out by a programmer or an automated system and cost money. What is another  disadvantage of a code review by a programmer</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Adds additional/significant time (to the development cycle) (1)  Introduces human error (1)   Requires an extra person/resource/labour (1)   Requires more experienced programmer (1)</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>State the worst case for a linear search algorithm.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> The target item is not in the list / is at end of the list</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Give</h3>
+      <div class="marks">[2]</div>
+      <p>Give two disadvantages of a bus network topology.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Award one mark for any of the following, up to a maximum of two marks:• The whole network stops working if the backbone/cable is broken (1)• The number of collisions increases / the network will slow down as the number of devices/users increases (1)• A greater security risk (because all the nodes on the network see all the data packets) (1)• The network stops working if the terminators are missing/not working (1)• Only one device can transmit data at a time (1)</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Convert</h3>
+      <div class="marks">[2]</div>
+      <p>Convert the binary number 0010 1101 to hexadecimal.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> 2D</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

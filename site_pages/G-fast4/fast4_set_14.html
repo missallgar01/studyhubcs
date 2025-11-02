@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>Identify the feature of an optical disc that allows data to be read.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> nan</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Give</h3>
+      <div class="marks">[1]</div>
+      <p> The ASCII code 65 represents the letter A. Give the letter represented by the ASCII code 68.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> D</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Explain</h3>
+      <div class="marks">[4]</div>
+      <p>The performance of a network depends on speed, range, latency, and bandwidth. Bandwidth in a wireless network is constant because the capacity of the network is not affected by any other environmental factors. Explain two ways that the performance of a wireless network can be affected by its environment.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Any two from:• Wireless networks have a short range (1) because walls and floors can block the signal (1)OR• Wireless/radio signals may not go very far (1) because solid structures (thick walls, steel beams) block the signal (1)• Wireless networks can have high latency (1) because they suffer from interference from other wireless networks or devices (1)OR• The performance of a wireless network can be adversely affected by interference from other devices (1) because they can operate on the same frequency band / are high voltage, such as a microwave (1)• Wireless networks have low speed (1) because all the devices must share the available bandwidth (1)OR• The more devices that are connected to the network, the more likely bottlenecks are to occur (1) because they all want a share of the available bandwidth (1)</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Describe</h3>
+      <div class="marks">[2]</div>
+      <p>A replacement cycle is the time between the purchase of a device and the purchase of its replacement. Describe one impact the length of replacement cycles has on the environment.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked description, such as:• Shorter replacement cycles lead to devices being disposed of more often (1), which leads to more e-waste/landfill/pollution (1)• Shorter replacement cycles lead to more manufacturing (1), which incurs increased extraction of metals/increased use of water to manufacture chips/use of fossil fuels (1)• Long replacement cycles mean devices are not disposed of (1), which reduces the amount of e-waste/landfill/emissions (1)• Long replacement cycles mean fewer devices are manufactured (1), which reduces the need for extraction of metals/the need for water to manufacture chips/less energy required (1)</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

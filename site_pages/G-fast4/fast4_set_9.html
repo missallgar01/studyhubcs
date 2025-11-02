@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>Some low-level programming languages use mnemonics. State the purpose of a mnemonic.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> 	•	To represent an instruction/command 	•	To make an instruction/command easy to read/write/learn/remember/understand 	•	An instruction in a set of instructions  Additional Guidance Accept generic definitions of mnemonic such as: ‘To shorten a piece of information so it is easy to remember.’</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Describe</h3>
+      <div class="marks">[2]</div>
+      <p>Shifts are performed on binary patterns. A logical shift right is performed on a pattern. An arithmetic shift right is performed on the same original pattern. Describe the reason the results will be different.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked description, such as:• An arithmetic shift fills from the left with a copy of the most-significant bit (MSB) (1), whereas a logical shift fills from the left with a 0 (1)• An arithmetic shift keeps the most-significant bit (MSB) the same (1), whereas a logical shift always fills the MSB bit with a 0 (1)</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Explain</h3>
+      <div class="marks">[2]</div>
+      <p>Explain one reason why software should be patched regularly.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> An explanation to include two from:It helps prevent unauthorised access to data (1)• because security issues could be missed in development (1)• because there could be interactions with other software (1)• because a malicious user could have published a vulnerability on the web (1)• because sometimes vulnerabilities only become apparent after code has been released to the public (1)</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Define</h3>
+      <div class="marks">[1]</div>
+      <p>Define the term 'latency'.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> The delay / amount of time between data/signal being sent and it being received</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>
