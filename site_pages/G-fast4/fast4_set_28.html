@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. Describe</h3>
+      <div class="marks">[3]</div>
+      <p>A slow magnetic hard disk may be affected by file fragmentation. Describe fragmentation and the process of defragmentation.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> A description to include (to a maximum of 3, with at least one in each category):  Fragmentation: 	•	Files are written to disk in blocks (1). 	•	Blocks can be dispersed (1) across the disk.  Defragmentation: 	•	Defragmentation is when file blocks are rearranged (1) on the disk. 	•	All the blocks for one file are moved closer together (1). 	•	All the free space is moved to be together (1).  Additional Guidance 	•	Defragmentation does not ‘make’ more free space on the disk. It only rearranges what is already there.</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>The ASCII system is used to represent letters and symbols. (i)  State the number of bits used to represent each letter or symbol in ASCII.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> 7</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Name</h3>
+      <div class="marks">[1]</div>
+      <p>Network protocols control the rules of communication. (i)  Name a network protocol that transmissions from other electrical devices can interfere with and that can be blocked by walls.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Wi-fi Bluetooth</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

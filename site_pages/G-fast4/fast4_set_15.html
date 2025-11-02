@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. Describe</h3>
+      <div class="marks">[2]</div>
+      <p>Describe how an embedded system that uses a sensor could control car windscreen wipers.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> A description to include two from: If set pressure levels / moisture levels are reached (1) a switch could be turned on/off / windscreen wipers could be turned on/off / (wiper) motor speed altered (1).</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>State the name of an email protocol.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> POP3, IMAP or SMTP</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Construct</h3>
+      <div class="marks">[4]</div>
+      <p>Construct an expression to calculate the file size, in mebibytes, of a CD quality (44.1 KHz, bit depth of 16), two-channel stereo soundtrack that is 4 minutes long. You do not need to carry out the calculation.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> One mark for each:• Sample rate and bit depth = 44.1 × 1000 × 16 (1)• Channels and time = 2 × 4 × 60 (1)• Unit conversions = 8 × 1024 × 1024 (1)• Numerator and denominator the right way around (1)Example of an expression that gains full marks:((44.1 × 1000 × 16) × (2 × 4 × 60)) / (8 × 1024 × 1024)</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Define</h3>
+      <div class="marks">[1]</div>
+      <p>Define the term 'iteration'.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Looping over iterm in a data structure</div>
+    </div>
+  </div>
+
+  </div>
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

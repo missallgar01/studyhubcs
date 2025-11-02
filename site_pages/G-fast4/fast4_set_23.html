@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>State the reason why a higher clock speed is desirable.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> More instructions carried ot per second</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Describe</h3>
+      <div class="marks">[2]</div>
+      <p>Describe one difference between the POP3 and IMAP email protocols.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> POP3 deletes messages from the server when downloaded (1), whereas IMAP leaves them on the server when downloaded (1)</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Convert</h3>
+      <div class="marks">[2]</div>
+      <p>Convert the denary number 82 to 8-bit binary.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> 01010010</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Explain</h3>
+      <div class="marks">[2]</div>
+      <p>Explain a runtime error.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked explanation, such as: 	•	The program crashes/stops (1) because the operation the computer is asked to do is impossible (1) 	•	The program crashes (1) because the CPU cannot execute one of the instructions in the code (1)  For both marks, the expansion must follow/associate with the statement. Do not award credit for an example in isolation such as division by zero. Be careful not to award marks for syntax/logic error.</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

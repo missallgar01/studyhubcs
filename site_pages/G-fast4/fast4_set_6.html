@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. Describe</h3>
+      <div class="marks">[4]</div>
+      <p>Describe two ways an operating system manages processes. </p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Two linked descriptions from: 	•	Uses paging / allocates addresses/sections [of RAM] (1) to share memory between processes (1) 	•	Extends main memory (1) by using part of secondary storage (1) (as virtual memory) 	•	The memory of inactive processes (1) is stored in virtual memory and swapped back when the process becomes active (1) 	•	Uses scheduling algorithm (1) to share processing time between competing processes (1)</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Explain</h3>
+      <div class="marks">[2]</div>
+      <p>Explain one reason why files should be backed up regularly.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> A linked explanation such as:• It helps prevent loss of data (1) because malware could deliberately delete data / because data can be deleted/corrupted accidentally (1)• It helps minimise disruption following a system failure (1) because data can be restored (1)• Data can be restored (1) because physical hazards (fire/flood) can damage storage devices (1)</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Give</h3>
+      <div class="marks">[2]</div>
+      <p>Give two reasons for using a star topology rather than a bus topology.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Any two from:• A star is more scalable (1) than a bus because you can add extra devices without disrupting the network.• A star is more fault tolerant/reliable (1) because a damaged cable/faulty device can be replaced/removed without disrupting the rest of the network.• It is easier to troubleshoot/isolate faults (1) because all cables are attached to a central point.• A star is capable of handling higher volumes of network traffic (1) than a bus.</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Convert</h3>
+      <div class="marks">[2]</div>
+      <p>Convert the binary pattern 0101 1011 to hexadecimal.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> 5B</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

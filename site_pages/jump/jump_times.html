@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JUMP123 – Times Table Generator</title>
+  <meta name="description" content="Interactive JUMP123 activity page for the Times Table Generator program." />
+  <link rel="icon" href="img/1.png" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+<header>
+  <h1>JUMP123 Times Table Generator</h1>
+  <div class="subtitle">An interactive worksheet for <b>Judge</b>, <b>Unpack</b>, <b>Modify</b>, and <b>Program</b></div>
+</header>
+
+<main>
+  <nav class="tabs" role="tablist" aria-label="JUMP123 sections">
+    <button class="tab-btn" role="tab" id="tab-judge" aria-controls="panel-judge" aria-selected="true">Stage 1 Judge</button>
+    <button class="tab-btn" role="tab" id="tab-unpack" aria-controls="panel-unpack" aria-selected="false">Stage 2 Unpack</button>
+    <button class="tab-btn" role="tab" id="tab-modify" aria-controls="panel-modify" aria-selected="false">Stage 3 Modify</button>
+    <button class="tab-btn" role="tab" id="tab-program" aria-controls="panel-program" aria-selected="false">Stage 4 Program</button>
+  </nav>
+
+  <!-- ===== Stage 1: JUDGE (unchanged) ===== -->
+  <section id="panel-judge" class="tab-content active" role="tabpanel" aria-labelledby="tab-judge">
+    <section class="resource-section">
+      <div class="media"><img src="../../img/judge.png" alt="Judge icon"></div>
+      <div>
+        <h2>Predict, evaluate, and reflect</h2>
+        <div class="hint">Read (don’t run yet) and predict what the starter code will output. Then evaluate quality and potential issues.</div>
+        <div class="code"><img src="code_snips/timestable_snip.png" alt="Starter code snippet"></div>
+        <div class="reflection-box">
+          <p><strong>What does the program do?</strong><br><em>(What happens when it runs?)</em></p>
+          <p><strong>What could make it better?</strong><br><em>(Is there anything you would change or add?)</em></p>
+          <p><strong>Why was it made like this?</strong><br><em>(What do you think the programmer wanted it to do?)</em></p>
+          <p><strong>Why might the program not work?</strong><br><em>(What could stop it from running properly?)</em></p>
+          <p><strong>What kind of mistake or error could happen?</strong><br><em>(Is it a typing error, logic error, or input problem?)</em></p>
+          <label for="answer">Your answer:</label>
+          <textarea id="answer" placeholder="Write your thoughts here..."></textarea>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===== Stage 2: UNPACK ===== -->
+  <section id="panel-unpack" class="tab-content" role="tabpanel" aria-labelledby="tab-unpack">
+    <section class="resource-section">
+      <div class="media"><img src="../../img/unpack.png" alt="Unpack icon"></div>
+      <div>
+        <h2>Investigate the program features</h2>
+        <div class="hint">Explore how the Times Table Generator works. Fill in your answers below.</div>
+      </div>
+
+      <div id="trinket-wrap" class="embed-placeholder" data-src="https://trinket.io/embed/python3/e0645160523d">
+        <button class="load-trinket">▶ Load Interactive Demo</button>
+        <p class="embed-note">Loads an interactive Python demo from trinket.io</p>
+      </div>
+
+      <table class="investigate-table" aria-label="Investigate">
+        <colgroup>
+          <col><!-- Focus -->
+          <col><!-- Question -->
+          <col><!-- Answer -->
+        </colgroup>
+          <thead>
+          <tr>
+            <th>Focus Area</th>
+            <th>Question</th>
+            <th>Answers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Identify parts</td>
+            <td>What variables can you find in this program? (What are the names of the values that store data?)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>Understand process</td>
+            <td>What does the <code>for x in range(1,11):</code> line do? (How many times will the loop run?)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>Explore change</td>
+            <td>What would happen if you changed the range to (1,6) instead of (1,11)? (How would that affect the output?)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>Output formatting</td>
+            <td>What does the <code>f</code> in <code>print(f"...")</code> do? (How does it help display variable values in the text?)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>Debug</td>
+            <td>What kind of error might happen if you removed <code>answer = 0</code> at the start? (Would the program still run correctly? Why or why not?)</td>
+            <td><textarea></textarea></td>
+          </tr>
+          <tr>
+            <td>Predict & Reason</td>
+            <td>What would happen if <code>timesTable</code> was a word instead of a number? (Think about what Python would do when it tries to multiply.)</td>
+            <td><textarea></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+
+  <!-- ===== Stage 3: MODIFY ===== -->
+  <section id="panel-modify" class="tab-content" role="tabpanel" aria-labelledby="tab-modify">
+    <section class="resource-section">
+      <div class="media"><img src="../../img/modify.png" alt="Modify icon"></div>
+      <div>
+        <h2>Improve and extend the Times Table Generator</h2>
+        <div class="hint">Modify your program following these tasks. Tick each one when complete.</div>
+      </div>
+
+      <div id="trinket-wrap2" class="embed-placeholder" data-src="https://trinket.io/embed/python3/e0645160523d">
+        <button class="load-trinket">▶ Load Interactive Demo</button>
+        <p class="embed-note">Loads an interactive Python demo from trinket.io</p>
+      </div>
+
+      <table class="task-table" aria-label="Programming task checklist">
+        <thead>
+          <tr>
+            <th>Focus</th>
+            <th>Task</th>
+            <th>✓</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Change your previous program so that…</td>
+            <td>The user can choose which times table to display. (Use <code>input()</code> to let them type a number.)</td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>What happens when you alter your program so that…?</td>
+            <td>Change the values in <code>range</code> so the generator outputs from 1 to 12.</td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>Add to the program so that…</td>
+            <td>It shows the <strong>total sum</strong> of all answers at the end. (Add a variable to track the running total.)</td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>Improve your program.</td>
+            <td>Add functionality for the user to enter how far the times table should go. <br>
+              1. Create a variable called <code>maxValue</code><br>
+              2. Assign a value to <code>maxValue</code> through user input<br>
+              3. Add a message explaining what to enter<br>
+              4. Replace 13 in <code>range(1, maxValue + 1)</code> with <code>maxValue</code><br>
+              5. Test your code</td>
+            <td><input type="checkbox"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+
+  <!-- ===== Stage 4: PROGRAM ===== -->
+  <section id="panel-program" class="tab-content" role="tabpanel" aria-labelledby="tab-program">
+    <section class="resource-section">
+      <div class="media"><img src="../../img/program.png" alt="Program icon"></div>
+      <section class="guide-card">
+        <h2>Times Table Generator</h2>
+        <p>You will create a <strong>quiz program</strong> that tests a player’s knowledge of their times tables.</p>
+
+        <table class="steps-table" aria-label="Steps">
+          <thead>
+            <tr>
+              <th>Steps</th>
+              <th>Focus / Skill</th>
+              <th>Instructions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Create global variables</td><td>Make a variable for the times table number (<code>timesTable</code>) and how far to go (<code>maxValue</code>).</td></tr>
+            <tr><td>2</td><td>Output text</td><td>Print a welcome message and explain what the program will do.</td></tr>
+            <tr><td>3</td><td>Create inputs</td><td>Create inputs for the times table number and how far to go.</td></tr>
+            <tr><td>4</td><td>Use a for loop</td><td>Repeat each question for the chosen range of numbers.</td></tr>
+            <tr><td>5</td><td>Take input inside the loop</td><td>Ask the user for their answer each time.</td></tr>
+            <tr><td>6</td><td>Use variables in calculations</td><td>Work out the correct answer.</td></tr>
+            <tr><td>7</td><td>Use an if statement</td><td>Check if the user’s answer is correct or incorrect.</td></tr>
+            <tr><td>8</td><td>(Extension) Use a score variable</td><td>Add a score counter to track correct answers.</td></tr>
+            <tr><td>9</td><td>Output final score</td><td>At the end, show how many answers were correct.</td></tr>
+            <tr><td>10</td><td>Output a progress message</td><td>Add feedback based on score (e.g., Perfect score!, Great job!, or Keep practising!).</td></tr>
+          </tbody>
+        </table>
+
+          <iframe src="https://trinket.io/embed/python3/8c6e317f2350" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+
+        <div id="trinket-wrap3" class="embed-placeholder" data-src="https://trinket.io/embed/python3/8c6e317f2350">
+          <button class="load-trinket">▶ Load Starter Code</button>
+          <p class="embed-note">Loads an interactive Python demo from trinket.io</p>
+        </div>
+      </section>
+    </section>
+
+    <!-- ===== Assessment (unchanged) ===== -->
+    <section class="resource-section">
+      <h2>JUMP123 Assessment</h2>
+      <table class="assessment-table" aria-label="JUMP123 Assessment">
+        <thead>
+          <tr>
+            <th>Level 1</th>
+            <th>Level 2</th>
+            <th>Level 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><label class="tick"><input type="checkbox"> Tick</label><br><img src="../../img/1.png" alt="Level 1 badge" class="level"></td>
+            <td><label class="tick"><input type="checkbox"> Tick</label><br><img src="../../img/2.png" alt="Level 2 badge" class="level"></td>
+            <td><label class="tick"><input type="checkbox"> Tick</label><br><img src="../../img/3.png" alt="Level 3 badge" class="level"></td>
+          </tr>
+          <tr>
+            <td class="desc"><p>The program uses <strong>basic code</strong> we’ve learned before.</p><p>Some parts work, but there are <strong>mistakes</strong> or things missing.</p><p>It <strong>doesn’t fully do</strong> what it should yet.</p></td>
+            <td class="desc"><p>The program has the <strong>main idea</strong> working (like a loop, input, or if statement).</p><p>It <strong>mostly works</strong>, but might still have a few small errors or need clearer output.</p></td>
+            <td class="desc"><p>The program <strong>works perfectly</strong> and does <strong>everything the task asked for</strong>.</p><p>It’s <strong>clear, correct, and easy to use</strong> — maybe even has extra features or nice touches.</p></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="toolbar">
+        <button class="secondary" onclick="window.print()">Print / Save as PDF</button>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script>
+(function() {
+  const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+  const panels = Array.from(document.querySelectorAll('.tab-content'));
+  function activate(id, pushHash=true) {
+    tabs.forEach(t => t.setAttribute('aria-selected', String(t.id === 'tab-' + id)));
+    panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + id));
+    if (pushHash) location.hash = id;
+  }
+  tabs.forEach(btn => btn.addEventListener('click', () => activate(btn.id.replace('tab-', ''))));
+  const initial = (location.hash || '#judge').slice(1);
+  if (['judge','unpack','modify','program'].includes(initial)) activate(initial, false);
+  document.querySelectorAll('.embed-placeholder').forEach(wrap => {
+    const btn = wrap.querySelector('.load-trinket');
+    if (btn) btn.addEventListener('click', () => {
+      const src = wrap.dataset.src;
+      wrap.innerHTML = `<iframe src="${src}" width="100%" height="600" loading="lazy" allowfullscreen></iframe>`;
+    });
+  });
+})();
+</script>
+</body>
+</html>

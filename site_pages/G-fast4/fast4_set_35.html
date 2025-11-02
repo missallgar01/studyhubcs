@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. State/Identify</h3>
+      <div class="marks">[4]</div>
+      <p>The Internet of Things has allowed devices with embedded systems to function independently and to collect and exchange data without the need for humans.  One such device is a battery-powered mower for the garden.  (i)  Give one ways each category could be used by the mower.  Connectivity  Input  Process  Output  </p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Answer One mark for each to a maximum of 4, with at least one in each category  Connectivity: 	•	The mower could connect to a wireless/wired (1) network. 	•	The mower could have a GPS device (1).  Input: 	•	A phone/desktop/software application (1) could be used to schedule when it will work. 	•	A map of the garden would be stored (1) on the mower. 	•	The mower would have sensors (1) to know if it ran into things / if it was dark / if it were raining / if it ran outside the garden.  Process: 	•	The microcontroller (1) in the mower would run a program (1). 	•	A map of the garden would be read (1) by the program so the mower would know where to go. 	•	The program would monitor (1) the power status to know if it needed recharging.  Output: 	•	The program on the mower could upload (1) statistics/information back to the application. 	•	The mower could have a digital readout / flashing lights (1) to indicate status.</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

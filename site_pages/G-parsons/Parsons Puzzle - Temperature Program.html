@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parsons Puzzle - Temperature Program</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #puzzle-container { width: 500px; margin: 20px auto; border: 1px solid #000; padding: 10px; }
+        .code-block { padding: 10px; text-align: left; margin: 5px; background-color: #f3f3f3; cursor: grab; border: 1px solid #ccc; font-family: monospace; white-space: pre-wrap; }
+        .code-block.dragging { opacity: 0.5; }
+        button { margin-top: 10px; padding: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Parsons Puzzle - Temperature Program</h2>
+    <p>Arrange the code blocks in the correct order.</p>
+    <div id="puzzle-container"></div>
+    <button onclick="checkAnswer()">Check Answer</button>
+    <p id="result"></p>
+
+    <script>
+        const correctOrder = [
+            "moreTemperatures = True",
+            "total = 0",
+            "numberOfTemps = 0",
+            "maxTemp = 0",
+            "while moreTemperatures:",
+            "    temp = input(\"Enter the daily temperature: \")",
+            "    if temp == \"xxx\":",
+            "        moreTemperatures = False",
+            "    else:",
+            "        total = total + float(temp)",
+            "        numberOfTemps = numberOfTemps + 1",
+            "        if float(temp) > maxTemp:",
+            "            maxTemp = float(temp)",
+            "print(\"Max: \" + str(maxTemp))",
+            "print(\"Average: \" + str(total/numberOfTemps))"
+        ];
+
+        function shuffleArray(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        function createPuzzle() {
+            let container = document.getElementById("puzzle-container");
+            container.innerHTML = "";
+
+            let shuffledOrder = shuffleArray([...correctOrder]);
+            shuffledOrder.forEach((line, index) => {
+                let div = document.createElement("div");
+                div.classList.add("code-block");
+                div.draggable = true;
+                div.textContent = line;
+                div.dataset.index = index;
+
+                div.addEventListener("dragstart", dragStart);
+                div.addEventListener("dragover", dragOver);
+                div.addEventListener("drop", drop);
+                
+                container.appendChild(div);
+            });
+        }
+
+        let draggedItem = null;
+
+        function dragStart(event) {
+            draggedItem = event.target;
+            event.target.classList.add("dragging");
+        }
+
+        function dragOver(event) {
+            event.preventDefault();
+            const container = document.getElementById("puzzle-container");
+            const elements = [...container.children];
+            const afterElement = elements.find(element => event.clientY < element.getBoundingClientRect().top + element.offsetHeight / 2);
+            if (afterElement) {
+                container.insertBefore(draggedItem, afterElement);
+            } else {
+                container.appendChild(draggedItem);
+            }
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            draggedItem.classList.remove("dragging");
+            draggedItem = null;
+        }
+
+        function checkAnswer() {
+            let blocks = document.querySelectorAll(".code-block");
+            let userOrder = Array.from(blocks).map(block => block.textContent);
+
+            if (JSON.stringify(userOrder) === JSON.stringify(correctOrder)) {
+                document.getElementById("result").textContent = "✅ Correct!";
+            } else {
+                document.getElementById("result").textContent = "❌ Try again!";
+            }
+        }
+
+        createPuzzle();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. Explain</h3>
+      <div class="marks">[3]</div>
+      <p>How interrupts improve CPU performance (extended)</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> They let the CPU handle urgent events without constant polling.</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Describe</h3>
+      <div class="marks">[2]</div>
+      <p>What a stack is used for (extended)</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Stores return addresses and temporary data (LIFO).</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. State</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of using virtual memory.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Slower than RAM and may cause disk thrashing.</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Identify</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of modular software.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Extra time needed to design and integrate modules.</div>
+    </div>
+  </div>
+      <p>Identify the component inside the CPU that stores data.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Register</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Define</h3>
+      <div class="marks">[2]</div>
+      <p>Define the term 'syntax error'. Give an example.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Code that breaks the rules/grammar of the programming language (e.g., missing bracket or incorrect indentation).</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Define</h3>
+      <div class="marks">[2]</div>
+      <p>Define the term 'embedded system'.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Forms part of another device/system and performs a single, dedicated/specific task.</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Benefits</h3>
+      <div class="marks">[1]</div>
+      <p>Identify the component inside the CPU that provides timing signals to synchronise operations.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Clock</div>
+    </div>
+  </div>
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

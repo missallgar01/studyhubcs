@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Parsons Puzzle - Number Guessing Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #puzzle-container {width: 700px; max-width: 90vw; margin: 20px auto; border: 1px solid #000; padding: 10px; }
+        .code-block { padding: 10px; text-align: left; margin: 5px; background-color: #f3f3f3; cursor: grab; border: 1px solid #ccc; font-family: monospace; white-space: pre-wrap; }
+        .code-block.dragging { opacity: 0.5; }
+        button { margin-top: 10px; padding: 8px 12px; cursor: pointer; }
+        #instructions {text-align: left;}
+    </style>
+</head>
+<body>
+
+    <h2>Parsons Puzzle - Number Guessing Game</h2>
+    <p>Arrange the Python code blocks in the correct order to build a 1–100 number guessing game.</p>
+    <div id = "instructions">
+    <p>The program should:</p>
+    <ol>
+    <li>Produce a random number between 1 and 100. </li>
+    <li>The guess number should be set to 0.</li>
+<li>The program should keep asking the user to input a number, until their answer is right, between 1 and 100 </li>
+<li>Say if the number is too low or too high compared to the randomly generated number.</li>
+<li>If the user guesses the correct number they should be told they are correct and the correct number displayed for them to see.</li>
+    </ol>
+    </div>
+    
+    <div id="puzzle-container"></div>
+    <button onclick="checkAnswer()">Check Answer</button>
+    <p id="result"></p>
+
+    <script>
+        // The correct solution for the number guessing game (no try/except)
+        const correctOrder = [
+            "import random",
+            "secret_number = random.randint(1, 100)",
+            "guess = 0",
+            "print(\"I'm thinking of a number between 1 and 100.\")",
+            "while guess != secret_number:",
+            "    guess = int(input(\"Enter your guess: \"))",
+            "    if guess < 1 or guess > 100:",
+            "        print(\"Please enter a number between 1 and 100.\")",
+            "        continue",
+            "    if guess < secret_number:",
+            "        print(\"Too low! Try again.\")",
+            "    elif guess > secret_number:",
+            "        print(\"Too high! Try again.\")",
+            "    else:",
+            "        print(f\"Correct! The number was {secret_number}.\")"
+        ];
+
+        function shuffleArray(array) {
+            // Shallow copy then shuffle
+            const copy = [...array];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function createPuzzle() {
+            const container = document.getElementById("puzzle-container");
+            container.innerHTML = "";
+
+            const shuffledOrder = shuffleArray(correctOrder);
+            shuffledOrder.forEach((line, index) => {
+                const div = document.createElement("div");
+                div.classList.add("code-block");
+                div.draggable = true;
+                div.textContent = line;
+                div.dataset.index = index;
+
+                div.addEventListener("dragstart", dragStart);
+                div.addEventListener("dragover", dragOver);
+                div.addEventListener("drop", drop);
+
+                container.appendChild(div);
+            });
+        }
+
+        let draggedItem = null;
+
+        function dragStart(event) {
+            draggedItem = event.target;
+            event.dataTransfer.effectAllowed = "move";
+            event.target.classList.add("dragging");
+        }
+
+        function dragOver(event) {
+            event.preventDefault();
+            const container = document.getElementById("puzzle-container");
+            const elements = [...container.children].filter(el => el !== draggedItem);
+            const y = event.clientY;
+            let placed = false;
+
+            for (const el of elements) {
+                const rect = el.getBoundingClientRect();
+                const midpoint = rect.top + rect.height / 2;
+                if (y < midpoint) {
+                    container.insertBefore(draggedItem, el);
+                    placed = true;
+                    break;
+                }
+            }
+            if (!placed) container.appendChild(draggedItem);
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            if (draggedItem) draggedItem.classList.remove("dragging");
+            draggedItem = null;
+        }
+
+        function checkAnswer() {
+            const blocks = document.querySelectorAll(".code-block");
+            const userOrder = Array.from(blocks).map(block => block.textContent);
+
+            const correct = JSON.stringify(userOrder) === JSON.stringify(correctOrder);
+            const result = document.getElementById("result");
+            result.textContent = correct ? "✅ Correct!" : "❌ Try again!";
+        }
+
+        createPuzzle();
+    </script>
+
+</body>
+</html>

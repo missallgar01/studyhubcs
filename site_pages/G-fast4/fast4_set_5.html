@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>State the name of the high-level programming language translator that executes a line of code immediately after translating it.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Interpreter</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Explain</h3>
+      <div class="marks">[2]</div>
+      <p>A factory has two file servers installed in an office. A closed-circuit television system monitors the factory. Explain one other method of physical security that could be used to protect the servers.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked explanation such as:• (Digital/biometric) locks / magnetic card scanners / security personnel could be put on the office door (1) to prevent unauthorised access (1)• Movement sensors (1), to activate an alarm/light (1)• Security lights/alarms (1), so that intruders would be scared off/identified (1)• Alarms/alerts could trigger (1) because there is unauthorised access (1)• The servers/assets could have security tags (1), so that the owner can be tracked if stolen (1)• ID cards could be issued to all staff (1), to prevent impersonation/to allow unknown people to be challenged (1)• Warning posters could be positioned at entrances (1), to make people aware of shouldering/tailgating/two people entering together (1)</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Describe</h3>
+      <div class="marks">[2]</div>
+      <p>Describe one reason that lossless compression is preferred to lossy compression for transmitting word-processed documents over a network.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> A lossless compression will allow the exact contents of the word-processed document to be reconstructed (1)  whereas a lossy compression will permanently remove data from the file (1)</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Define</h3>
+      <div class="marks">[1]</div>
+      <p>Define the term 'syntax error'.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> • Code that breaks/violates the rules/grammar of the programming language (1) Do not award credit for an example in isolation such as missing colon, there must be a definition.</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

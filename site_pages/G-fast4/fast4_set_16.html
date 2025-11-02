@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+
+    <div class="card yellow">
+      <h3>1. State/Identify</h3>
+      <div class="marks">[1]</div>
+      <p>Identify the term that means breaking a problem or solution down into smaller parts.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Decomposition</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. Explain</h3>
+      <div class="marks">[2]</div>
+      <p> Explain the best choice of secondary storage for the battery-operated mower.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> The mower should use solid-state secondary storage (1) because it has no moving parts / can use very little power from the battery / is robust to bumps and knocks (1)</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Describe</h3>
+      <div class="marks">[2]</div>
+      <p>Describe one effect of using lossy compression to reduce the size of a file.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked description, such as:• (Removed) data (1) cannot be restored / means that the original file/information cannot be fully recreated/represented (1)• When data is removed (1) humans may perceive/interpret the image/sound/text/information differently (1)</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Construct</h3>
+      <div class="marks">[4]</div>
+      <p>Construct an expression to calculate the transmission rate, in megabits per second, required to transmit a 1.4 gibibyte file in 13 minutes. You do not need to do the calculation.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Award one mark for:• 13 × 60 or 780 (seconds) (1)• 1.4 × 8 × 1024³ (1)• 1000² (1)• Fully correct response (1)Example:  (1.4 × 8 × 1024³)  ———————————                   (13 × 60 × 1000²)</div>
+    </div>
+  </div>
+
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>

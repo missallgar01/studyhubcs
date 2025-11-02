@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fill in the Gaps – Algorithm (Doubling Until Negative)</title>
+  <style>
+    :root { --ok:#16a34a; --bad:#dc2626; --ink:#0f172a; --muted:#64748b; --border:#e5e7eb; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; background:#f8fafc; color:var(--ink); }
+    main { max-width: 900px; margin: 32px auto; padding: 0 16px 40px; }
+    h1 { font-size: clamp(20px, 3.5vw, 28px); margin: 0 0 8px; }
+    p.lead { color: var(--muted); margin: 0 0 16px; }
+    .card { background:#fff; border:1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 6px 18px rgba(2,6,23,.06); }
+    .controls { display:flex; gap:8px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom: 12px; }
+    .btn { border:1px solid #cbd5e1; background:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; }
+    .btn:hover { border-color:#94a3b8; }
+    .btn.primary { background:#2563eb; color:#fff; border-color:#2563eb; }
+    .pill { font-size:12px; padding:6px 10px; border-radius:999px; background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; }
+    pre { background:#0b1220; color:#e2e8f0; padding:16px; border-radius:12px; overflow:auto; line-height:1.6; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .gap { display:inline-block; min-width: 280px; max-width: 100%; }
+    select { width:100%; padding:8px 10px; border:1px solid #cbd5e1; border-radius:8px; background:#0b1220; color:#e2e8f0; }
+    select.ok { outline:2px solid var(--ok); }
+    select.bad { outline:2px solid var(--bad); }
+    .feedback { margin-top:10px; font-size: 14px; }
+    .feedback.ok { color: var(--ok); }
+    .feedback.bad { color: var(--bad); }
+    ul { margin: 0 0 12px 18px; }
+    label.inline { display:flex; align-items:center; gap:6px; color:#475569; font-size:14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Fill in the Gaps</h1>
+    
+    <div class="card">
+      <div class="controls">
+        <div class="pill" id="progress">0 / 4 correct</div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <label class="inline">
+            <input type="checkbox" id="instant" checked /> Instant check
+          </label>
+          <button class="btn" id="checkAll">Check all</button>
+          <button class="btn" id="reset">Reset</button>
+        </div>
+      </div>
+
+      <p><strong>Write an algorithm for this program. [5]</strong></p>
+      <ul>
+        <li>Input a number from the user</li>
+        <li>Double the number input</li>
+        <li>Print the result</li>
+        <li>Repeat bullets 1 and 2 until the user enters a number less than 0</li>
+      </ul>
+
+      <pre><code>num = <span class="gap">
+  <select id="g1">
+    <option value="" selected disabled>— select —</option>
+    <!-- correct -->
+    <option>int(input("Enter a number: "))</option>
+    <!-- wrong -->
+    <option>input(int("Enter a number: "))</option>
+    <option>int(input(Enter a number: ))</option>
+  </select>
+</span>
+while num &gt; 0:
+
+    calculation = <span class="gap">
+  <select id="g2">
+    <option value="" selected disabled>— select —</option>
+    <!-- correct -->
+    <option>num * 2</option>
+    <!-- wrong -->
+    <option>num ** 2</option>
+    <option>num = num * 2</option>
+  </select>
+</span>
+    
+    print <span class="gap">
+  <select id="g3">
+    <option value="" selected disabled>— select —</option>
+    <!-- correct -->
+    <option>print(calculation)</option>
+    <!-- wrong -->
+    <option>print calculation</option>
+    <option>print = calculation</option>
+  </select>
+</span>
+    
+    num = <span class="gap">
+  <select id="g4">
+    <option value="" selected disabled>— select —</option>
+    <!-- correct -->
+    <option>int(input("Enter a number: "))</option>
+    <!-- wrong -->
+    <option>input(int("Enter a number: "))</option>
+    <option>int(input(Enter a number: ))</option>
+  </select>
+</span></code></pre>
+
+      <div id="rowFeedback" class="feedback">Choose an option for each blank.</div>
+    </div>
+  </main>
+
+  <script>
+    const blanks = [
+      { id: "g1", correct: 'int(input("Enter a number: "))' },
+      { id: "g2", correct: "num * 2" },
+      { id: "g3", correct: "print(calculation)" },
+      { id: "g4", correct: 'int(input("Enter a number: "))' }
+    ];
+
+    function evaluateOne(selectEl, correct) {
+      const chosen = selectEl.value;
+      const ok = chosen && chosen === correct;
+      selectEl.classList.toggle("ok", ok);
+      selectEl.classList.toggle("bad", chosen && !ok);
+      return ok;
+    }
+
+    function evaluateAll() {
+      let correctCount = 0;
+      blanks.forEach(({ id, correct }) => {
+        const el = document.getElementById(id);
+        if (evaluateOne(el, correct)) correctCount++;
+      });
+      document.getElementById("progress").textContent =
+        `${correctCount} / ${blanks.length} correct`;
+      const fb = document.getElementById("rowFeedback");
+      fb.textContent = (correctCount === blanks.length)
+        ? "✅ All blanks correct. Great job!"
+        : "❌ Some blanks need work. Keep going!";
+      fb.className = "feedback " + (correctCount === blanks.length ? "ok" : "bad");
+    }
+
+    function softProgress() {
+      // Update count without changing feedback text
+      let correctCount = 0;
+      blanks.forEach(({ id, correct }) => {
+        const el = document.getElementById(id);
+        if (el.value && el.value === correct) correctCount++;
+      });
+      document.getElementById("progress").textContent =
+        `${correctCount} / ${blanks.length} correct`;
+    }
+
+    function resetAll() {
+      blanks.forEach(({ id }) => {
+        const el = document.getElementById(id);
+        el.selectedIndex = 0;
+        el.classList.remove("ok", "bad");
+      });
+      document.getElementById("progress").textContent = `0 / ${blanks.length} correct`;
+      const fb = document.getElementById("rowFeedback");
+      fb.textContent = "Choose an option for each blank.";
+      fb.className = "feedback";
+    }
+
+    // Event bindings
+    document.getElementById("checkAll").addEventListener("click", evaluateAll);
+    document.getElementById("reset").addEventListener("click", resetAll);
+
+    const instant = document.getElementById("instant");
+    function bindInstant() {
+      blanks.forEach(({ id, correct }) => {
+        const old = document.getElementById(id);
+        const clone = old.cloneNode(true);
+        clone.value = old.value; // keep current choice
+        old.parentNode.replaceChild(clone, old);
+        if (instant.checked) {
+          clone.addEventListener("change", () => {
+            evaluateOne(clone, correct);
+            softProgress();
+          });
+        }
+      });
+    }
+    instant.addEventListener("change", bindInstant);
+
+    // Initial bind
+    bindInstant();
+  </script>
+</body>
+</html>

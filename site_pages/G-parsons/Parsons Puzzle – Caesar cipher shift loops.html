@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parsons Puzzle – Next-Letter Translator</title>
+  <style>
+    :root { --gap: 8px; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 24px; background: #0b1020; color: #e9eef7; }
+    h1 { margin: 0 0 6px 0; font-size: 22px; }
+    p { margin: 0 0 12px 0; line-height: 1.4; }
+    .app { max-width: 920px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    .panel { background: #121a33; border: 1px solid #1f2b55; border-radius: 12px; padding: 14px; box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .panel h2 { margin: 0 0 10px 0; font-size: 16px; color: #b7c3e2; font-weight: 600; }
+    .bank, .workspace { min-height: 360px; }
+    .hint { font-size: 13px; color: #9fb0d6; }
+    .blocks { display: flex; flex-direction: column; gap: var(--gap); }
+    .block { padding: 10px 12px; background: #0e1530; border: 1px solid #2a3a75; border-radius: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; white-space: pre; cursor: grab; user-select: none; }
+    .block.dragging { opacity: .5; }
+    .placeholder { height: 36px; border: 1px dashed #3850a7; border-radius: 8px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    button { background: #2a3a75; border: 1px solid #3b55b7; color: #e9eef7; padding: 8px 12px; border-radius: 10px; cursor: pointer; font-weight: 600; }
+    button:hover { filter: brightness(1.1); }
+    .result { margin-top: 10px; font-weight: 700; }
+    .good { color: #6dffb7; }
+    .bad { color: #ff9aa2; }
+    .small { font-size: 12px; color: #9fb0d6; }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono"; background: #1a254d; border: 1px solid #33489d; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>Parsons Puzzle – Caesar cipher shift</h1>
+    <p>Goal: Ask the user for a word, then output each letter translated to the <em>next</em> letter in the alphabet on its own line. Wrap <span class="kbd">Z→A</span> and <span class="kbd">z→a</span>. Helpful: <span class="kbd">ord()</span> turns a character into a number; <span class="kbd">chr()</span> turns it back.</p>
+
+    <div class="grid">
+      <div class="panel bank">
+        <h2>Code Bank (drag into the workspace)</h2>
+        <p class="hint">Some lines are distractors and should be left out.</p>
+        <div id="bank" class="blocks" aria-label="code bank"></div>
+      </div>
+
+      <div class="panel workspace">
+        <h2>Your Solution</h2>
+        <p class="hint">Order and indentation matter. Place blocks top-to-bottom.</p>
+        <div id="workspace" class="blocks" aria-label="workspace"></div>
+        <div class="controls">
+          <button id="check">Check Answer</button>
+          <button id="reset">Reset</button>
+          <button id="indentGuides">Toggle Indentation Guides</button>
+        </div>
+        <div id="result" class="result"></div>
+        <p class="small">Tip: Indentation uses 4 spaces per level.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const correctOrder = [
+      "word = input(\"Enter a word: \")",
+      "for letter in word:",
+      "    if letter == \"Z\":",
+      "        letter = \"A\"",
+      "    elif letter == \"z\":",
+      "        letter = \"a\"",
+      "    else:",
+      "        letter = chr(ord(letter) + 1)",
+      "    print(letter)"
+    ];
+
+    const distractors = [
+      "print(word)",
+      "    print(letter, end=\"\")",
+      "for char in word:",
+      "        letter = chr(ord(letter) - 1)",
+      "    if letter == \"A\":",
+      "        letter = \"Z\"",
+      "while letter in word:",
+      "letter = ord(chr(letter) + 1)",
+      "    elif letter == \"z\": letter = \"Z\""
+    ];
+
+    function shuffle(arr){
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function makeBlock(text){
+      const el = document.createElement('div');
+      el.className = 'block';
+      el.textContent = text;
+      el.draggable = true;
+      el.addEventListener('dragstart', onDragStart);
+      el.addEventListener('dragend', onDragEnd);
+      return el;
+    }
+
+    let dragged = null;
+    function onDragStart(e){ dragged = e.target; e.dataTransfer.effectAllowed = 'move'; dragged.classList.add('dragging'); }
+    function onDragEnd(){ if(dragged){ dragged.classList.remove('dragging'); dragged=null; } }
+
+    function enableDrops(container){
+      container.addEventListener('dragover', (e)=>{
+        e.preventDefault();
+        const after = getDragAfterElement(container, e.clientY);
+        const placeholder = document.querySelector('.placeholder');
+        if (after == null) {
+          container.appendChild(placeholder);
+        } else {
+          container.insertBefore(placeholder, after);
+        }
+      });
+      container.addEventListener('drop', (e)=>{
+        e.preventDefault();
+        const placeholder = document.querySelector('.placeholder');
+        if (dragged && placeholder) {
+          container.insertBefore(dragged, placeholder);
+        }
+        placeholder?.remove();
+      });
+    }
+
+    function getDragAfterElement(container, y){
+      const els = [...container.querySelectorAll('.block:not(.dragging)')];
+      return els.reduce((closest, child)=>{
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height/2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset, element: child };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    function makePlaceholder(){
+      const p = document.createElement('div');
+      p.className = 'placeholder';
+      return p;
+    }
+
+    function mount(){
+      const bank = document.getElementById('bank');
+      const workspace = document.getElementById('workspace');
+      bank.innerHTML = workspace.innerHTML = '';
+
+      const all = shuffle([...correctOrder, ...distractors]);
+      all.forEach(line => bank.appendChild(makeBlock(line)));
+
+      enableDrops(bank);
+      enableDrops(workspace);
+      bank.appendChild(makePlaceholder());
+    }
+
+    function currentWorkspaceLines(){
+      return [...document.getElementById('workspace').querySelectorAll('.block')]
+        .map(b => b.textContent);
+    }
+
+    function check(){
+      const chosen = currentWorkspaceLines();
+      const result = document.getElementById('result');
+      const isExact = JSON.stringify(chosen) === JSON.stringify(correctOrder);
+      if (isExact){
+        result.innerHTML = '✅ <span class="good">Correct!</span>';
+      } else {
+        const missing = correctOrder.filter(l => !chosen.includes(l));
+        const extras = chosen.filter(l => !correctOrder.includes(l));
+        let msg = '❌ <span class="bad">Not quite.</span> ';
+        if (missing.length) msg += ` Missing ${missing.length} required line(s).`;
+        if (extras.length) msg += ` Remove ${extras.length} distractor(s).`;
+        if (missing.length===0 && extras.length===0){
+          for (let i=0;i<correctOrder.length;i++){
+            if (chosen[i] !== correctOrder[i]){ msg += ` First issue near line ${i+1}.`; break; }
+          }
+        }
+        result.innerHTML = msg;
+      }
+    }
+
+    function reset(){ mount(); document.getElementById('result').textContent=''; }
+
+    function toggleIndentGuides(){
+      const blocks = document.querySelectorAll('.block');
+      blocks.forEach(b => {
+        const text = b.textContent;
+        const indent = text.match(/^(\s*)/)[0].length;
+        if (!b.dataset.guided) {
+          if (indent>0) b.style.boxShadow = `inset ${indent * 0.4}ch 0 0 0 #1f2b55`;
+          b.dataset.guided = '1';
+        } else {
+          b.style.boxShadow = '';
+          delete b.dataset.guided;
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      mount();
+      document.getElementById('check').addEventListener('click', check);
+      document.getElementById('reset').addEventListener('click', reset);
+      document.getElementById('indentGuides').addEventListener('click', toggleIndentGuides);
+    });
+  </script>
+</body>
+</html>
