@@ -1,75 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>Identify the reason why all computers need a unique IP address.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Identifies devices on a network</div>
+        </div>
+        <div class="card pink">
+            <h3>2. Describe</h3>
+            <div class="marks">[2]</div>
+            <p>Describe one effect of using lossy compression to reduce the size of a file.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • (Removed) data cannot be restored / means that the original file/information cannot be fully recreated/represented<br>• When data is removed humans may perceive/interpret the image/sound/text/information differently</div>
+        </div>
+        <div class="card green">
+            <h3>3. Give</h3>
+            <div class="marks">[1]</div>
+            <p>Identify the ethical issue associated with the use of artificial intelligence.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Algorithmic bias</div>
+        </div>
+        <div class="card blue">
+            <h3>4. Explain</h3>
+            <div class="marks">[2]</div>
+            <p>Explain one reason why files should be backed up regularly.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • A linked explanation such as:<br>• It helps prevent loss of data because malware could deliberately delete data / because data can be deleted/corrupted accidentally<br>• It helps minimise disruption following a system failure because data can be restored<br>• Data can be restored because physical hazards (fire/flood) can damage storage devices</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>State the name of the high-level programming language translator that executes the entire program before it will run.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Compiler</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>Describe penetration testing.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked description, such as:• It is an authorised attack (black box / white box) on a network/system (1) to identify security vulnerabilities (1)• It is a network/system attack carried out with the knowledge of an organisation (1) to recommend measures that should be taken to improve security (1)</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Convert</h3>
-      <div class="marks">[2]</div>
-      <p>Convert the binary pattern 0100 0010 to denary.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 66</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Name</h3>
-      <div class="marks">[1]</div>
-      <p>Name the type of operator for each example    AND OR</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Logical</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

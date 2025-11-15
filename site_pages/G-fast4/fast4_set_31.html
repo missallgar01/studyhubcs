@@ -1,67 +1,68 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Define</h3>
+            <div class="marks">[1]</div>
+            <p>Sound waves are converted to binary using sample intervals.
+Define the term &#x27;sample interval&#x27;.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • The time / number of seconds / gap between samples / measurements</div>
+        </div>
+        <div class="card pink">
+            <h3>2. Describe</h3>
+            <div class="marks">[3]</div>
+            <p>A checksum works at the transport layer of TCP / IP.
+Describe how a checksum is used to identify packets that have been corrupted during transmission.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • One for each, to a maximum of 3:<br>• A checksum formula is applied to the packet before it leaves the source computer<br>• The source-calculated checksum is added to the packet header<br>• At the receiving end, the same checksum formula is reapplied<br>• The new checksum is compared to the received checksum in the packet header<br>• If the received checksum and the newly calculated checksum do not match, a resend request is issued</div>
+        </div>
+        <div class="card green">
+            <h3>3. State/Identify</h3>
+            <div class="marks">[2]</div>
+            <p>Identify the result of 5 / / 2</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> 2</div>
+        </div>
+        <div class="card blue">
+            <h3>4. Convert</h3>
+            <div class="marks">[2]</div>
+            <p>Convert the denary number –33 to 8-bit binary using two&#x27;s complement.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> 33</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>Identify the reason computers are connected in a network.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> To share peripherals</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. Advantages/Disadvantages</h3>
-      <div class="marks">[2]</div>
-      <p>A team of developers is using an audit trail when working on a program.  State two advantages of keeping an audit trail.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> One mark for each to a maximum of 2: 	•	There’s a record of who changed what when (1) 	•	Identifies the point at which an error/security issue was introduced (1) 	•	Enables the program to be rolled back to a previous state (1) 	•	Improve accountability/produces robust code (1)</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>Describe one difference between a syntax error and a logic error.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 	•	A syntax error is caused by using the grammar/form/words of the programming language incorrectly (1), whereas a logic error is caused by an error in the design of the algorithm (1). 	•	A syntax error causes the program not to interpret/compile/translate, whereas a logic error produces an incorrect/wrong result (1).</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

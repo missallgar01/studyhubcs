@@ -1,75 +1,69 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Explain</h3>
+            <div class="marks">[4]</div>
+            <p>The performance of a network depends on speed, range, latency, and bandwidth. Bandwidth in a wireless network is constant because the capacity of the network is not affected by any other environmental factors.
+Explain two ways that the performance of a wireless network can be affected by its environment.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • Wireless networks have a short range because walls and floors can block the signal OR<br>• Wireless/radio signals may not go very far because solid structures (thick walls, steel beams) block the signal<br>• Wireless networks can have high latency because they suffer from interference from other wireless networks or devices OR<br>• The performance of a wireless network can be adversely affected by interference from other devices because they can operate on the same frequency band / are high voltage, such as a microwave<br>• Wireless networks have low speed because all the devices must share the available bandwidth OR<br>• The more devices that are connected to the network, the more likely bottlenecks are to occur because they all want a share of the available bandwidth</div>
+        </div>
+        <div class="card pink">
+            <h3>2. State/identify</h3>
+            <div class="marks">[1]</div>
+            <p>State the bus that carries the memory location of a piece of data</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Address Bus</div>
+        </div>
+        <div class="card green">
+            <h3>3. State/Identify</h3>
+            <div class="marks">[2]</div>
+            <p>State the two items held in RAM according to the von Neumann architecture.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Data and Instructions</div>
+        </div>
+        <div class="card blue">
+            <h3>4. Characteristics/Features</h3>
+            <div class="marks">[2]</div>
+            <p>A compiler translates source code to machine code. If the source code is edited, it must be recompiled.
 
+Give two other characteristics of a compiler.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • Translates the whole program in one go<br>• Errors are reported at the end of translation<br>• The executable/machine code is architecture specific</div>
+        </div>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+</div>
+</main>
 
-    <div class="card yellow">
-      <h3>1. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>State the bus that carries an instruction from main memory to the CPU</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Data Bus</div>
-    </div>
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card pink">
-      <h3>2. Construct</h3>
-      <div class="marks">[2]</div>
-      <p>Construct an expression to convert 40 681 930 227 712 bytes to tebibytes.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Sight of 1024⁴ anywhere for number of bytes in a tebibyte (1)• 40 681 930 227 712 / 1024⁴ </div>
-    </div>
+<script>
 
-    <div class="card green">
-      <h3>3. Explain</h3>
-      <div class="marks">[2]</div>
-      <p>Explain one benefit to a user of using IMAP to access emails.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked explanation such as:• Emails can be accessed from multiple devices (1) because IMAP does not remove/delete emails from the server (1)• Emails can be accessed through a browser (1) because IMAP doesn’t need a client application to download messages (1)</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Give</h3>
-      <div class="marks">[2]</div>
-      <p>Consent must be obtained before organisations can use personal data. Give two pieces of information that organisations must tell people when requesting consent to use their personal data.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Any two from:• That they are giving consent• That they can say no / refuse• That they are not denied service if they say no• What the data is being collected for• What processing will be done on their data / purpose of the processing / how data will be processed• That they can withdraw consent at any time• That the data will be shared (with third parties)• How long it will be stored• That the data will be stored securely</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

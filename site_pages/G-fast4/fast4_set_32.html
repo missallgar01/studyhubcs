@@ -1,75 +1,67 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Define</h3>
+            <div class="marks">[1]</div>
+            <p>Define the term &#x27;latency&#x27;.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> The delay / amount of time between data/signal being sent and it being received</div>
+        </div>
+        <div class="card pink">
+            <h3>2. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>The address bus of a computer is 8-bits wide.
+State the number of unique addresses that can be accessed.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • 256<br>• 2⁸<br>• 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2</div>
+        </div>
+        <div class="card green">
+            <h3>3. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>State the worst case for a linear search algorithm.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> The target item is not in the list / is at end of the list</div>
+        </div>
+        <div class="card blue">
+            <h3>4. Convert</h3>
+            <div class="marks">[2]</div>
+            <p>Convert the hexadecimal number 2A to 8-bit binary.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> 00101010</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. Explain</h3>
-      <div class="marks">[2]</div>
-      <p>Some users are given administrator privileges.  Explain one way an operating system allows an administrator to manage users.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> A linked explanation such as: 	•	Users can be added/deleted (1) so multiple people can use the same computer (1) 	•	Edit user permissions (1) so only specific users can securely access their storage space (1) 	•	Control the amount of resources/storage each user can access (1) so the limited storage on the machine can be shared (1) 	•	Enforce user permissions (1) so only certain users are allowed to install programs / access certain files (1)</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. State/Identify</h3>
-      <div class="marks">[2]</div>
-      <p>State two ways that a user can increase the useful life of a smartphone rather than throwing it away.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> One mark each for a maximum of 2:• Use it as long as possible / don’t replace it (1)• Sell/give it to a company that will recondition it (1)• Give it away to a friend or charity (1)• Repair it if it breaks (1)• Keep the software updated (1)</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Construct</h3>
-      <div class="marks">[3]</div>
-      <p>Construct an expression to calculate the minimum transmission rate required to transmit a 250 MiB file in exactly one hour. There are 3600 seconds in an hour.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Total number of bits:• 250 × 1024 × 1024 (1)• × 8 (1)3600 as denominator (1)Award all marks for the correct answer (582,542 bps).Example expression:(250 × 1024 × 1024 × 8) ÷ 3600</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>Describe the process of converting a binary number to two's complement.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> A linked description such as: 	•	Flip all the bits (1) and add one (1) 	•	Copy/keep all the 0s from the right/LSB, up to and including the first 1 (1), then flip the remaining bits (1) 	•	Flip all the bits from the left/MSB (1) up to, but not including, the 1 nearest the right/LSB (1)</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

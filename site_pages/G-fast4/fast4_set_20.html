@@ -1,75 +1,66 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Describe</h3>
+            <div class="marks">[2]</div>
+            <p>Describe one reason that lossless compression is preferred to lossy compression for transmitting word-processed documents over a network.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> A lossless compression will allow the exact contents of the word-processed document to be reconstructed whereas a lossy compression will permanently remove data from the file</div>
+        </div>
+        <div class="card pink">
+            <h3>2. Define</h3>
+            <div class="marks">[1]</div>
+            <p>Define the term &#x27;decomposition&#x27;.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Breaking down a problem/solution/system/algorithm</div>
+        </div>
+        <div class="card green">
+            <h3>3. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>Identify the result of a single logical shift left on the 8-bit binary pattern 0101 0101.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Multiplication</div>
+        </div>
+        <div class="card blue">
+            <h3>4. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>State the name of the high-level programming language translator that executes the entire program before it will run.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Compiler</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. Describe</h3>
-      <div class="marks">[1]</div>
-      <p>Describe the purpose of an Analogue to Digital Converter (ADC).</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Converts analogue signals (1) into digital data that a computer can process (1)</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>State the network protocol used to request a webpage.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> HTTP/ HTTPS</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Convert</h3>
-      <div class="marks">[2]</div>
-      <p>Convert the denary value +112 to 8-bit binary representation.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 0111000</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Define</h3>
-      <div class="marks">[2]</div>
-      <p>Programmers use abstraction to model the real world. Define the term 'abstraction'.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> A definition to include: 	•	The process of removing or hiding unnecessary (1) details so that only the important points remain (1) 	•	Programmers can focus only on the important details of a problem (1) because abstraction allows them to ignore (1) any detail that is not relevant.</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

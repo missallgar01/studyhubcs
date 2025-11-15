@@ -48,7 +48,7 @@
 // === Generate 79 resource cards dynamically ===
 const container = document.getElementById('resourceContainer');
 const colorsPerGroup = 10;  // new color every 10 sets
-for (let i = 1; i <= 79; i++) {
+for (let i = 1; i <= 50; i++) {
   const group = Math.min(Math.ceil(i / colorsPerGroup), 8);
   const section = document.createElement('section');
   section.className = 'resource-section';
@@ -64,7 +64,7 @@ for (let i = 1; i <= 79; i++) {
       </h2>
     </header>
     <p>Explore dataset or resource number ${i}.</p>
-    <a class="btn" href="A-fast4/ocr_fast_set_${i}.html">Open Resource</a>
+    <a class="btn" href="A-fast4/ocr_fast_set${i}.html">Open Resource</a>
   `;
   container.appendChild(section);
 }

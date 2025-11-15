@@ -1,75 +1,83 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Characteristics/Features</h3>
+            <div class="marks">[3]</div>
+            <p>When using a compiler to translate source code to machine code, the translation only needs to be done once.
 
+Give three other features of a compiler.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • Translates the entire source file to machine code in one go / translates all the source code prior to execution<br>• Shows all syntax errors at the end of the translation process<br>• Produces a single executable/object code/platform-dependent output<br>• Separates the tasks of translation and execution</div>
+        </div>
+        <div class="card pink">
+            <h3>2. Describe</h3>
+            <div class="marks">[2]</div>
+            <p>Computer worms are a type of malware.
+Describe one way that a worm can move from machine to machine.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • Worms make copies of themselves and send them to everyone in the computer’s email contacts list / send them via previous connections used by the computer<br>• Worms can spread (themselves) through emails and do not need a user to unknowingly distribute/execute them<br>• Worms self-replicate and spread without the need for a host file</div>
+        </div>
+        <div class="card green">
+            <h3>3. Advantages/Disadvantages</h3>
+            <div class="marks">[1]</div>
+            <p>A code review is carried out by a programmer or an automated system and cost money. What is another  disadvantage of a code review by a programmer</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Adds additional/significant time (to the development cycle) Introduces human error Requires an extra person/resource/labour Requires more experienced programmer</div>
+        </div>
+        <div class="card blue">
+            <h3>4. State/Identify</h3>
+            <div class="marks">[4]</div>
+            <p>The Internet of Things has allowed devices with embedded systems to function independently and to collect and exchange data without the need for humans.
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+One such device is a battery-powered mower for the garden.
 
-    <div class="card yellow">
-      <h3>1. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>Identify the feature of an optical disc that allows data to be read.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> nan</div>
-    </div>
+(i)  Give one ways each category could be used by the mower.
 
-    <div class="card pink">
-      <h3>2. Give</h3>
-      <div class="marks">[1]</div>
-      <p> The ASCII code 65 represents the letter A. Give the letter represented by the ASCII code 68.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> D</div>
-    </div>
+Connectivity
 
-    <div class="card green">
-      <h3>3. Explain</h3>
-      <div class="marks">[4]</div>
-      <p>The performance of a network depends on speed, range, latency, and bandwidth. Bandwidth in a wireless network is constant because the capacity of the network is not affected by any other environmental factors. Explain two ways that the performance of a wireless network can be affected by its environment.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Any two from:• Wireless networks have a short range (1) because walls and floors can block the signal (1)OR• Wireless/radio signals may not go very far (1) because solid structures (thick walls, steel beams) block the signal (1)• Wireless networks can have high latency (1) because they suffer from interference from other wireless networks or devices (1)OR• The performance of a wireless network can be adversely affected by interference from other devices (1) because they can operate on the same frequency band / are high voltage, such as a microwave (1)• Wireless networks have low speed (1) because all the devices must share the available bandwidth (1)OR• The more devices that are connected to the network, the more likely bottlenecks are to occur (1) because they all want a share of the available bandwidth (1)</div>
-    </div>
+Input
 
-    <div class="card blue">
-      <h3>4. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>A replacement cycle is the time between the purchase of a device and the purchase of its replacement. Describe one impact the length of replacement cycles has on the environment.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked description, such as:• Shorter replacement cycles lead to devices being disposed of more often (1), which leads to more e-waste/landfill/pollution (1)• Shorter replacement cycles lead to more manufacturing (1), which incurs increased extraction of metals/increased use of water to manufacture chips/use of fossil fuels (1)• Long replacement cycles mean devices are not disposed of (1), which reduces the amount of e-waste/landfill/emissions (1)• Long replacement cycles mean fewer devices are manufactured (1), which reduces the need for extraction of metals/the need for water to manufacture chips/less energy required (1)</div>
-    </div>
-  </div>
+Process
 
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
+Output
 
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
+</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • Answer<br>One mark for each to a maximum of 4, with at least one in each category Connectivity:<br>• The mower could connect to a wireless/wired network<br>• The mower could have a GPS device . Input:<br>• A phone/desktop/software application could be used to schedule when it will work<br>• A map of the garden would be stored on the mower<br>• The mower would have sensors to know if it ran into things / if it was dark / if it were raining / if it ran outside the garden. Process:<br>• The microcontroller in the mower would run a program<br>• A map of the garden would be read by the program so the mower would know where to go<br>• The program would monitor the power status to know if it needed recharging. Output:<br>• The program on the mower could upload statistics/information back to the application<br>• The mower could have a digital readout / flashing lights to indicate status</div>
+        </div>
 
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
+</div>
+</main>
 
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
+<button id="showBtn" disabled>Show Answers</button>
 
+<script>
+
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

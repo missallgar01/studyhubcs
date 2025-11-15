@@ -1,75 +1,67 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Explain</h3>
+            <div class="marks">[2]</div>
+            <p> Explain the best choice of secondary storage for the battery-operated mower.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> The mower should use solid-state secondary storage because it has no moving parts / can use very little power from the battery / is robust to bumps and knocks</div>
+        </div>
+        <div class="card pink">
+            <h3>2. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>State the type of secondary storage that stores data as electric charges.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> SSD/ Solid State/ Flash</div>
+        </div>
+        <div class="card green">
+            <h3>3. Describe</h3>
+            <div class="marks">[2]</div>
+            <p>Describe how the link layer of the TCP/IP protocol stack works.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • It converts the data into a suitable signal/electrical/radio for transmission on the media (Ethernet cable/Wi-Fi)<br>• It uses/adds a physical/MAC address for a source/destination<br>• Receives data from the network layer to send via physical hardware</div>
+        </div>
+        <div class="card blue">
+            <h3>4. State/Identify</h3>
+            <div class="marks">[2]</div>
+            <p>Algorithmic bias could be caused by using inaccurate data to train a machine learning algorithm.
+State two other ways that the data used to train an algorithm could cause algorithmic bias.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • One mark each for a maximum of 2:<br>• Not enough / insufficient data<br>• Biased / prejudiced data / not representative<br>• Non-aspirational data</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. Explain</h3>
-      <div class="marks">[2]</div>
-      <p>Explain one way an audit trail helps programmers create robust software.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 	•	An audit trail improves accountability (1) because it keeps track of who makes changes / when changes are made (1) 	•	An audit trail makes going back to an earlier version easier (1) because changes are tracked (1)  Additional Guidance For both marks, the expansion must follow/associate with the statement.</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>A network has a speed of 17.08 megabits per second. Identify the equivalent speed in bits per second.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> B 17 080 000A 17 080 is not correct because it is 17.08 multiplied by 1000C 17 080 000 000 is not correct because it is 17.08 multiplied by 1000³D 17 080 000 000 000 is not correct because it is 17.08 multiplied by 1000⁴</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Describe</h3>
-      <div class="marks">[4]</div>
-      <p>A linear search algorithm can be used on both a sorted and an unsorted array. Describe how a linear search algorithm operates on an unsorted array.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 	•	Start at the first position / Iterate / Traverse (through the array) (1), compare the item with the target (1), stop when the target is matched (1), or stop when the end of the list is reached (and the item is not matched) (1).</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Convert</h3>
-      <div class="marks">[2]</div>
-      <p>Computers manipulate binary patterns. Patterns can represent signed or unsigned integers. Convert the denary number 57 to 8-bit binary.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 00111001</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

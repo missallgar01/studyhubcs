@@ -1,74 +1,68 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Describe</h3>
+            <div class="marks">[2]</div>
+            <p>Describe one disadvantage of using a bus topology.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • If the main cable fails / is damaged , the whole network will fail<br>• If more computers are connected , the transmission time is increased / increased chance of data collisions<br>• Every computer receives all of the data on the network , causing a security risk</div>
+        </div>
+        <div class="card pink">
+            <h3>2. Explain</h3>
+            <div class="marks">[2]</div>
+            <p>Robots use sensors to collect data about their surroundings in order to carry out actions independently.
+Explain one way that a modern car is a robot.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • The wipers/lights come on automatically because sensors detect rain/darkness<br>• Speed is automatically adjusted / brakes are applied automatically / alarm sounded because sensors detect distance from other cars / obstacles / people<br>• The temperature is adjusted automatically because a sensor/thermometer monitors the change in temperature of the passenger compartment / car interior</div>
+        </div>
+        <div class="card green">
+            <h3>3. Give</h3>
+            <div class="marks">[2]</div>
+            <p>Give two reasons for using a star topology rather than a bus topology.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • A star is more scalable than a bus because you can add extra devices without disrupting the network<br>• A star is more fault tolerant/reliable because a damaged cable/faulty device can be replaced/removed without disrupting the rest of the network<br>• It is easier to troubleshoot/isolate faults because all cables are attached to a central point<br>• A star is capable of handling higher volumes of network traffic than a bus</div>
+        </div>
+        <div class="card blue">
+            <h3>4. Name</h3>
+            <div class="marks">[1]</div>
+            <p>Network protocols control the rules of communication.
+(i)  Name a network protocol that transmissions from other electrical devices can interfere with and that can be blocked by walls.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Wi-fi Bluetooth</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. State/Identify</h3>
-      <div class="marks">[2]</div>
-      <p>Identify the result of 5 / / 2</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 2</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>Data can be encoded using ASCII. Describe ASCII.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> A description to include two from:• A standard• For representing text/characters• Allows data to be interchangeable between computers (from different manufacturers)• Each character is mapped to a unique number/binary equivalent• ASCII (encoding) uses 7/8 bits• There are 128 unique characters (allow 256 for 128)</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Explain</h3>
-      <div class="marks">[2]</div>
-      <p>Robots use sensors to collect data about their surroundings in order to carry out actions independently. Explain one way that a modern car is a robot.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked explanation such as:• The wipers/lights come on automatically (1) because sensors detect rain/darkness (1)• Speed is automatically adjusted / brakes are applied automatically / alarm sounded (1) because sensors detect distance from other cars / obstacles / people (1)• The temperature is adjusted automatically (1) because a sensor/thermometer monitors the change in temperature of the passenger compartment / car interior (1)</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Define</h3>
-      <div class="marks">[1]</div>
-      <p>Some program code requires translation. Define the term 'translation'.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Converting (human readable) code to binary/machine code</div>
-    </div>
-  </div>
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

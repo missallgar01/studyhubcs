@@ -1,75 +1,67 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Explain</h3>
+            <div class="marks">[2]</div>
+            <p>Explain one way an audit trail helps programmers create robust software.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • An audit trail improves accountability because it keeps track of who makes changes / when changes are made<br>• An audit trail makes going back to an earlier version easier because changes are tracked</div>
+        </div>
+        <div class="card pink">
+            <h3>2. Explain</h3>
+            <div class="marks">[2]</div>
+            <p>A company stores statistics about its business on a server.
+Explain one type of access to the statistics file a student on work experience at the company should be given.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • An explanation to include one mark for a type of access and one mark for a linked reason, such as:<br>• To recommend read only because the student cannot accidentally change/delete the data / because the student cannot share the data<br>• No access because the student cannot see any sensitive/irrelevant information</div>
+        </div>
+        <div class="card green">
+            <h3>3. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p> State the bus that carries a read signal to main memory</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Control Bus</div>
+        </div>
+        <div class="card blue">
+            <h3>4. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>Identify the component inside the CPU that stores data.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Register</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>Identify the component that stored data and instrutions of currently running programs.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Main memory</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>Algorithms use arrays and records to hold data. Describe a record.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 	•	A list / data structure / collection of elements/fields/values (1) where each element/field/value may be a different data type / is related to the others (1)  For both marks, the expansion must associate with the statement.</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Name</h3>
-      <div class="marks">[1]</div>
-      <p>Name the network protocol used to download a music file from a server.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> FTP</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Convert</h3>
-      <div class="marks">[2]</div>
-      <p>Convert the hexadecimal number 2A to 8-bit binary.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 00101010</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

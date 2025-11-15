@@ -1,74 +1,66 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. State/Identify</h3>
+            <div class="marks">[2]</div>
+            <p>Identify two reasons for using data compression.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Reduces required storage space Reduces data transfer times</div>
+        </div>
+        <div class="card pink">
+            <h3>2. Name</h3>
+            <div class="marks">[1]</div>
+            <p>Name the type of operator for each example.       + *</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Arithmetic</div>
+        </div>
+        <div class="card green">
+            <h3>3. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>Identify the purpose of defragmentation software.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Organising data</div>
+        </div>
+        <div class="card blue">
+            <h3>4. nan</h3>
+            <div class="marks">[1]</div>
+            <p>Define the term repetition</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Looping insturctions for a set number of times</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>Describe how an operating system organises files and folders.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked description, such as: 	•	Uses a hierarchical/tree structure (1) with a root node/directory (1) 	•	Each position on the tree/path (1) is a directory/sub-directory/folder, or file (1) 	•	Each file has a unique path (1) in relation to the root (1)  Additional Guidance For both marks, the expansion must follow/associate with the statement.</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>Identify the reason why all computers need a unique IP address.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Identifies devices on a network</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Construct</h3>
-      <div class="marks">[3]</div>
-      <p>A file format uses a 100 × 600 table of 32-bit integers. The file uses 1 kibibyte of additional data. Construct an expression to show the number of bytes of storage needed to store the file.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> (100 × 600 × 32 / 8)+1024 bytes </div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Explain</h3>
-      <div class="marks">[2]</div>
-      <p>Computer programs control some aeroplane landings. Explain one reason computers are not capable of safely controlling all aeroplane landings.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked explanation, such as:• The landing program may crash / display incorrect data / not deal with extreme scenarios (weather / wind / animal / visual / emergency) (1) because:– the system could be out of date / have errors / bugs / not been tested enough (1)– the scenario is beyond the range of what it has been programmed to respond to (1)• A computer’s input may be wrong/compromised (1) because of a sensor/hardware/mechanical error (1)• A computer cannot make moral/ethical judgements (1) because it is only capable of following instructions (1)</div>
-    </div>
-  </div>
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

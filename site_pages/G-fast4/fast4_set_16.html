@@ -1,75 +1,70 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Explain</h3>
+            <div class="marks">[2]</div>
+            <p>Explain the reason why at least nine bits are needed to store 300 different binary patterns.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • One from:<br>• 2⁹ gives 512 patterns whereas 2⁸ gives 256 patterns<br>• 2⁸ does not give enough patterns whereas 2⁹ gives more than enough patterns</div>
+        </div>
+        <div class="card pink">
+            <h3>2. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>The source code of a software application is automatically copyrighted.
+State one other method of intellectual property protection to control who can use a software application.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Licensing</div>
+        </div>
+        <div class="card green">
+            <h3>3. Explain</h3>
+            <div class="marks">[2]</div>
+            <p>A company needs to secure its network from attacks by its employees.
+Explain the best choice of penetration testing the company should use.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • An explanation that includes the ideas:<br>• Permission is given to a person to carry out investigation of security issues in the network<br>• White-box / white-hat because system information is provided to the tester<br>• The company should give a security expert an ID and password and details of how the network is configured , and ask them to try to find vulnerabilities that would enable an employee to access, delete and/or leak sensitive data or install malicious software</div>
+        </div>
+        <div class="card blue">
+            <h3>4. Explain</h3>
+            <div class="marks">[2]</div>
+            <p>A factory has two file servers installed in an office.
+A closed-circuit television system monitors the factory.
+Explain one other method of physical security that could be used to protect the servers.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • (Digital/biometric) locks / magnetic card scanners / security personnel could be put on the office door to prevent unauthorised access<br>• Movement sensors , to activate an alarm/light<br>• Security lights/alarms , so that intruders would be scared off/identified<br>• Alarms/alerts could trigger because there is unauthorised access<br>• The servers/assets could have security tags , so that the owner can be tracked if stolen<br>• ID cards could be issued to all staff , to prevent impersonation/to allow unknown people to be challenged<br>• Warning posters could be positioned at entrances , to make people aware of shouldering/tailgating/two people entering together</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>Identify the term that means breaking a problem or solution down into smaller parts.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Decomposition</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. Explain</h3>
-      <div class="marks">[2]</div>
-      <p> Explain the best choice of secondary storage for the battery-operated mower.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> The mower should use solid-state secondary storage (1) because it has no moving parts / can use very little power from the battery / is robust to bumps and knocks (1)</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>Describe one effect of using lossy compression to reduce the size of a file.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Award up to two marks for a linked description, such as:• (Removed) data (1) cannot be restored / means that the original file/information cannot be fully recreated/represented (1)• When data is removed (1) humans may perceive/interpret the image/sound/text/information differently (1)</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Construct</h3>
-      <div class="marks">[4]</div>
-      <p>Construct an expression to calculate the transmission rate, in megabits per second, required to transmit a 1.4 gibibyte file in 13 minutes. You do not need to do the calculation.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Award one mark for:• 13 × 60 or 780 (seconds) (1)• 1.4 × 8 × 1024³ (1)• 1000² (1)• Fully correct response (1)Example:  (1.4 × 8 × 1024³)  ———————————                   (13 × 60 × 1000²)</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

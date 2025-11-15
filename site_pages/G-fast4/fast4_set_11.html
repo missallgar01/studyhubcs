@@ -1,75 +1,67 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>A network has a speed of 17.08 megabits per second.
+Identify the equivalent speed in bits per second.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> B 17 080 000A 17 080 is not correct because it is 17.08 multiplied by 1000C 17 080 000 000 is not correct because it is 17.08 multiplied by 1000³D 17 080 000 000 000 is not correct because it is 17.08 multiplied by 1000⁴</div>
+        </div>
+        <div class="card pink">
+            <h3>2. Describe</h3>
+            <div class="marks">[4]</div>
+            <p>Describe two ways a compiler differs from an interpreter.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • Two linked descriptions from:<br>• A compiler carries out translation once prior to execution whereas an interpreter carries out translation every time the program executes<br>• A compiler produces a stand-alone executable file whereas an interpreter is required each time the code is run<br>• A compiler reports errors after translation is complete whereas an interpreter reports errors as they occur</div>
+        </div>
+        <div class="card green">
+            <h3>3. State/Identify</h3>
+            <div class="marks">[1]</div>
+            <p>State the bus that carries an instruction from main memory to the CPU</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> Data Bus</div>
+        </div>
+        <div class="card blue">
+            <h3>4. Describe</h3>
+            <div class="marks">[2]</div>
+            <p>Describe penetration testing.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • It is an authorised attack (black box / white box) on a network/system to identify security vulnerabilities<br>• It is a network/system attack carried out with the knowledge of an organisation to recommend measures that should be taken to improve security</div>
+        </div>
 
+</div>
+</main>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card yellow">
-      <h3>1. Describe</h3>
-      <div class="marks">[4]</div>
-      <p>Describe two ways that a high-level language differs from a low-level language.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Any two from: 	•	High-level languages use instructions that look like English (1), whereas a low-level language uses mnemonics/binary code (1). 	•	A high-level language statement generates many lines of machine code (1), whereas each line of low-level languages is/generates a single machine instruction (1). 	•	High-level languages are general purpose/exist across microprocessors/CPUs/machine-independent (1), whereas a low-level language is microprocessor/CPU/machine specific (1). 	•	High-level languages are abstracted from the hardware (1), whereas low-level languages manipulate the hardware directly (1).  Additional guidance 	•	Responses should be about the languages, not about the output of the language translators (efficiency) or other software based on the language (tools).</div>
-    </div>
+<script>
 
-    <div class="card pink">
-      <h3>2. State/Identify</h3>
-      <div class="marks">[1]</div>
-      <p>Each device on a network has a unique identifier that is used when sending or receiving packets of data. State the name of the unique identifier.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> IP/ MAC</div>
-    </div>
-
-    <div class="card green">
-      <h3>3. Give</h3>
-      <div class="marks">[1]</div>
-      <p>The file size can be optimised by changing the colour depth. Give the minimum number of bits that can store 5 colours.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> 3 bits</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Explain</h3>
-      <div class="marks">[2]</div>
-      <p>Explain one benefit of using subprograms.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> An explanation to include two from: 	•	The subprogram may be used more than once in a program (1) so that writing, debugging, testing will save time (1). 	•	The subprogram performs one specific/contained task (1) so it can be moved away from the main program code (1). 	•	Subprograms for common tasks can be stored in libraries and reused in other programs (1) so that they don’t have to be re-written (1).</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

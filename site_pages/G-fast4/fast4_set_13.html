@@ -1,75 +1,69 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+<meta charset="UTF-8">
+<title>Fast 4 Starter</title>
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+        <div class="card yellow">
+            <h3>1. Characteristics/Features</h3>
+            <div class="marks">[2]</div>
+            <p>An embedded computer system is part of a larger machine.
 
+State two characteristics of embedded systems that make them different from general purpose computers.
+</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • Limited processing resources<br>• Low power consumption<br>• Simple/robust operating system<br>• Low cost per unit<br>• Smaller in size<br>• Less storage<br>• Limited user interface</div>
+        </div>
+        <div class="card pink">
+            <h3>2. Explain</h3>
+            <div class="marks">[2]</div>
+            <p>Explain one benefit to a user of using IMAP to access emails.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • Emails can be accessed from multiple devices because IMAP does not remove/delete emails from the server<br>• Emails can be accessed through a browser because IMAP doesn’t need a client application to download messages</div>
+        </div>
+        <div class="card green">
+            <h3>3. State/Identify</h3>
+            <div class="marks">[2]</div>
+            <p>State one benefit and one drawback of increasing the bit depth of audio.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> • One mark for the benefit:<br>• Increases the accuracy of the representation One mark for a drawback from:<br>• Increases the amount of storage required<br>• Increases the time it takes to download the audio file</div>
+        </div>
+        <div class="card blue">
+            <h3>4. Describe</h3>
+            <div class="marks">[2]</div>
+            <p>Describe how an embedded system that uses a sensor could control car windscreen wipers.</p>
+            <textarea class="input"></textarea>
+            <div class="answer"><strong>Answer:</strong> A description to include two from:<br>If set pressure levels / moisture levels are reached a switch could be turned on/off / windscreen wipers could be turned on/off / (wiper) motor speed altered .</div>
+        </div>
 
-   <header><h1>FAST FOUR STARTER</h1></header>
-  <main class="index-grid">
-  <div class="grid">
+</div>
+</main>
 
-    <div class="card yellow">
-      <h3>1. State/Identify</h3>
-      <div class="marks">[2]</div>
-      <p>State the two items held in RAM according to the von Neumann architecture.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Data and Instructions</div>
-    </div>
+<button id="showBtn" disabled>Show Answers</button>
 
-    <div class="card pink">
-      <h3>2. Calculate</h3>
-      <div class="marks">[4]</div>
-      <p>In arithmetic, subtraction can be done by adding a negative number. Calculate 18 − 8, using 8-bit binary and two's complement. Convert the result back to denary. Show all your working.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> • 18 converted to 8-bit binary 0001 0010 (1)• −8 converted to two’s complement 8-bit binary 1111 1000 (1)• Addition performed correctly (1 mark for each nibble)○ 8-bit binary result of 0000 1010 (1)</div>
-    </div>
+<script>
 
-    <div class="card green">
-      <h3>3. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>Describe one disadvantage of using a bus topology.</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> • If the main cable fails / is damaged (1), the whole network will fail (1)• If more computers are connected (1), the transmission time is increased / increased chance of data collisions (1)• Every computer receives all of the data on the network (1), causing a security risk (1)</div>
-    </div>
-
-    <div class="card blue">
-      <h3>4. Explain</h3>
-      <div class="marks">[2]</div>
-      <p>Explain one way that a patent protects intellectual property (IP).</p>
-      <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> A patent prevents someone copying/using/selling an invention (1) because it gives the inventor the exclusive right to reproduce/use/sell it for 20 years (1)A person/organisation that infringes a patent can be prosecuted (1) because it gives the inventors the legal protection to defend their exclusive right (1)</div>
-    </div>
-  </div>
-
-  </main>
-  <button id="showBtn" disabled>Show Answers</button>
-
-  <script>
-    const inputs = document.querySelectorAll('.input');
-    const button = document.getElementById('showBtn');
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
-        button.disabled = !allFilled;
-        button.classList.toggle('enabled', allFilled);
-      });
-    });
-
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
-      button.textContent = "Answers Shown ✅";
-      button.disabled = true;
-      button.classList.remove('enabled');
-    });
-  </script>
-
+const inputs=document.querySelectorAll('.input');
+const button=document.getElementById('showBtn');
+inputs.forEach(i=>{
+  i.addEventListener('input',()=>{
+    const allFilled=Array.from(inputs).every(x=>x.value.trim()!=="");
+    button.disabled=!allFilled;
+    button.classList.toggle('enabled',allFilled);
+  });
+});
+button.addEventListener('click',()=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display='block');
+  button.textContent="Answers Shown ✅";
+  button.disabled=true;
+  button.classList.remove('enabled');
+});
+    
+</script>
 </body>
 </html>

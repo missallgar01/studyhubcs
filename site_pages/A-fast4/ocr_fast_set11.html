@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Four Starter</title>
+    <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body>
+
+
+   <header><h1>FAST FOUR STARTER</h1></header>
+  <main class="index-grid">
+  <div class="grid">
+    <div class="card yellow">
+      <h3>1. State</h3>
+      <div class="marks">[1]</div>
+      <p>One difference between RISC and CISC.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> RISC uses simple instructions; CISC uses complex ones.</div>
+    </div>
+
+    <div class="card pink">
+      <h3>2. State</h3>
+      <div class="marks">[1]</div>
+      <p>One benefit of defensive design.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Prevents errors and ensures system stability.</div>
+    </div>
+
+    <div class="card green">
+      <h3>3. Explain</h3>
+      <div class="marks">[3]</div>
+      <p>The benefit of high-level languages.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Simpler to write, read, and debug.</div>
+    </div>
+
+    <div class="card blue">
+      <h3>4. Identify</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of automation.</p>
+      <textarea class="input"></textarea>
+      <div class="answer"><strong>Answer:</strong> Can result in job displacement.</div>
+    </div>
+  </div>
+
+  
+  </main>
+  <button id="showBtn" disabled>Show Answers</button>
+
+  <script>
+    const inputs = document.querySelectorAll('.input');
+    const button = document.getElementById('showBtn');
+
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+        button.disabled = !allFilled;
+        button.classList.toggle('enabled', allFilled);
+      });
+    });
+
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      button.textContent = "Answers Shown ✅";
+      button.disabled = true;
+      button.classList.remove('enabled');
+    });
+  </script>
+
+</body>
+</html>
