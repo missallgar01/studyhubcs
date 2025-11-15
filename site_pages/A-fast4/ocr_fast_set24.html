@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
-      <h3>1. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>The difference between a compiler and an interpreter (extended)</p>
+      <h3>1. State</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of floating-point representation.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Compiler translates all code; interpreter runs line by line.</div>
+      <div class="answer"><strong>Answer:</strong> • Many decimal fractions cannot be represented exactly, leading to rounding errors<br>• Arithmetic operations can accumulate rounding errors over time<br>• Comparisons between floating‑point values can be unreliable if precision is not considered<br>• Implementation is more complex and slower than integer arithmetic</div>
     </div>
 
     <div class="card pink">
       <h3>2. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One disadvantage of Big O notation.</p>
+      <div class="marks">[1]</div>
+      <p>One benefit of recursion over iteration.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Gives only a rough comparison, not exact speed.</div>
+      <div class="answer"><strong>Answer:</strong> • Expresses some algorithms in a clearer and more concise way than loops<br>• Makes code for recursive data structures (like trees) easier to understand<br>• Avoids manual management of stack data structures in the program itself<br>• Can make correctness proofs easier using mathematical induction</div>
     </div>
 
     <div class="card green">
-      <h3>3. Identify</h3>
+      <h3>3. State</h3>
       <div class="marks">[1]</div>
-      <p>One ethical issue with AI (extended)</p>
+      <p>One disadvantage of virtualisation.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Job losses or bias in decision-making.</div>
+      <div class="answer"><strong>Answer:</strong> • Introduces overhead because multiple virtual machines share the same physical resources<br>• Performance may be lower than running directly on bare metal hardware<br>• Requires careful configuration to avoid resource contention between virtual machines<br>• Adds complexity to system management and security</div>
     </div>
 
     <div class="card blue">
-      <h3>4. Identify</h3>
+      <h3>4. State</h3>
       <div class="marks">[1]</div>
-      <p>One disadvantage of logic gates.</p>
+      <p>The purpose of a compiler.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Physical circuits take up chip space and power.</div>
+      <div class="answer"><strong>Answer:</strong> • Translates high‑level source code into machine code or an intermediate object code<br>• Performs lexical, syntax and semantic analysis to detect errors<br>• Applies optimisations to improve the performance and efficiency of the final executable<br>• Produces an executable file that can run independently of the compiler</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

@@ -47,8 +47,8 @@
 <script>
 // === Generate 79 resource cards dynamically ===
 const container = document.getElementById('resourceContainer');
-const colorsPerGroup = 10;  // new color every 10 sets
-for (let i = 1; i <= 50; i++) {
+const colorsPerGroup = 5;  // new color every 10 sets
+for (let i = 1; i <= 24; i++) {
   const group = Math.min(Math.ceil(i / colorsPerGroup), 8);
   const section = document.createElement('section');
   section.className = 'resource-section';

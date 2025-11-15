@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
-      <h3>1. State</h3>
+      <h3>1. Identify</h3>
       <div class="marks">[1]</div>
-      <p>One difference between RISC and CISC.</p>
+      <p>One ethical issue with AI.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> RISC uses simple instructions; CISC uses complex ones.</div>
+      <div class="answer"><strong>Answer:</strong> • AI systems may learn and reinforce existing biases in training data, leading to unfair or discriminatory decisions<br>• Decisions made by complex AI models can lack transparency, making it hard to explain or challenge outcomes<br>• Use of AI for surveillance can threaten privacy and civil liberties<br>• Automation driven by AI may displace jobs, raising social and economic concerns</div>
     </div>
 
     <div class="card pink">
-      <h3>2. State</h3>
+      <h3>2. Identify</h3>
       <div class="marks">[1]</div>
-      <p>One benefit of defensive design.</p>
+      <p>One disadvantage of logic gates.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Prevents errors and ensures system stability.</div>
+      <div class="answer"><strong>Answer:</strong> • Complex circuits require many gates, increasing cost, power usage and heat<br>• Physical limitations such as propagation delay restrict maximum speed<br>• Any single gate failure can affect the correctness of larger digital systems<br>• Designing and testing large gate‑level circuits is time‑consuming</div>
     </div>
 
     <div class="card green">
-      <h3>3. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>The benefit of high-level languages.</p>
+      <h3>3. State</h3>
+      <div class="marks">[1]</div>
+      <p>The purpose of a compiler</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Simpler to write, read, and debug.</div>
+      <div class="answer"><strong>Answer:</strong> • Translates high‑level source code into machine code or an intermediate object code<br>• Performs lexical, syntax and semantic analysis to detect errors<br>• Applies optimisations to improve the performance and efficiency of the final executable<br>• Produces an executable file that can run independently of the compiler</div>
     </div>
 
     <div class="card blue">
-      <h3>4. Identify</h3>
+      <h3>4. Describe</h3>
       <div class="marks">[1]</div>
-      <p>One drawback of automation.</p>
+      <p>How an operating system schedules processes.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can result in job displacement.</div>
+      <div class="answer"><strong>Answer:</strong> • Uses a scheduling algorithm (e.g. Round Robin, priority, FCFS) to choose which process runs next<br>• Allocates CPU time slices to each ready process<br>• Performs context switches, saving and restoring process state in registers and memory<br>• Aims to maximise CPU utilisation while maintaining fairness and responsiveness<br>• May adjust priorities dynamically (e.g. aging) to prevent starvation</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

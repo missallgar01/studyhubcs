@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
-      <h3>1. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One drawback of high-level languages.</p>
+      <h3>1. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of using encryption.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Less control over hardware and performance.</div>
+      <div class="answer"><strong>Answer:</strong> • Encrypting and decrypting data adds computational overhead and can slow systems down<br>• Key management is complex; lost or stolen keys can render data inaccessible or insecure<br>• Encrypted data is harder to inspect for debugging, monitoring or filtering<br>• Strong encryption can complicate lawful access or digital forensics</div>
     </div>
 
     <div class="card pink">
       <h3>2. State</h3>
       <div class="marks">[1]</div>
-      <p>One benefit of recursion.</p>
+      <p>One benefit of using cache memory.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Simplifies repetitive tasks elegantly.</div>
+      <div class="answer"><strong>Answer:</strong> • Stores copies of frequently accessed data closer to the CPU, reducing access time<br>• Decreases the average time to read from or write to main memory<br>• Improves performance for programs with good locality of reference (repeated access to nearby locations)<br>• Helps keep the CPU busy rather than waiting on slower RAM</div>
     </div>
 
     <div class="card green">
-      <h3>3. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>Why virtual memory is needed.</p>
+      <h3>3. State</h3>
+      <div class="marks">[1]</div>
+      <p>The purpose of the Program Counter (PC)</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Allows programs larger than RAM to run using disk space.</div>
+      <div class="answer"><strong>Answer:</strong> • Holds the memory address of the next instruction to be fetched<br>• Automatically increments after each fetch to keep program flow sequential<br>• Can be changed by branch/jump instructions to alter the flow of control<br>• Allows the CPU to track where it is in the current program</div>
     </div>
 
     <div class="card blue">
-      <h3>4. Identify</h3>
+      <h3>4. Describe</h3>
       <div class="marks">[1]</div>
-      <p>One benefit of modular programming.</p>
+      <p>One benefit of scheduling algorithms.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Easier debugging and maintenance.</div>
+      <div class="answer"><strong>Answer:</strong> • Improve overall CPU utilisation by reducing idle time<br>• Help provide fairness so no process is permanently starved of CPU time<br>• Can reduce average waiting and turnaround times for processes<br>• Allow different priorities to be enforced for different types of jobs</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

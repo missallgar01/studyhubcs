@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
-      <h3>1. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One benefit of automation in software testing.</p>
+      <h3>1. Identify</h3>
+      <div class="marks">[1]</div>
+      <p>One benefit of modular programming</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Reduces human error and increases consistency.</div>
+      <div class="answer"><strong>Answer:</strong> • Breaks a large program into smaller, self‑contained modules that are easier to understand<br>• Allows different programmers to work on separate modules in parallel<br>• Encourages code reuse, as modules can be used in other programs<br>• Makes testing and debugging easier because faults can be isolated to individual modules</div>
     </div>
 
     <div class="card pink">
-      <h3>2. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One benefit of user authentication systems.</p>
+      <h3>2. Identify</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of automation.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Improves security and prevents unauthorised access.</div>
+      <div class="answer"><strong>Answer:</strong> • Over‑reliance on automated processes can mean human operators lose skills or situational awareness<br>• Automated systems can propagate errors very quickly if they are misconfigured<br>• Introducing automation often requires significant up‑front cost and setup time<br>• Jobs and roles may be reduced or eliminated, leading to social and economic concerns</div>
     </div>
 
     <div class="card green">
-      <h3>3. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One disadvantage of open-source software.</p>
+      <h3>3. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of automation in testing.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> May lack official support or regular updates.</div>
+      <div class="answer"><strong>Answer:</strong> • Automated tests only check the cases that have been explicitly programmed, so unexpected edge cases may be missed<br>• Setting up and maintaining test frameworks and scripts can be time‑consuming and costly<br>• Fragile tests can frequently break when the user interface or system design changes<br>• May lead to over‑reliance on automated checks and reduced exploratory testing by humans</div>
     </div>
 
     <div class="card blue">
-      <h3>4. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One benefit of recursion over iteration.</p>
+      <h3>4. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>Why virtual memory is needed</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can make complex problems easier to express.</div>
+      <div class="answer"><strong>Answer:</strong> • Physical RAM is limited, but programs may require more memory than is physically available<br>• Allows many programs to appear to have their own large, contiguous address space<br>• Enables multitasking without each process having to fit entirely in RAM<br>• Provides memory protection so faulty processes are less likely to corrupt others</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

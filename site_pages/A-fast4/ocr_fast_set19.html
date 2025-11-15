@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
-      <h3>1. Identify</h3>
+      <h3>1. Explain</h3>
       <div class="marks">[1]</div>
-      <p>One drawback of automation.</p>
+      <p>Why virtual memory is needed.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can result in job displacement.</div>
+      <div class="answer"><strong>Answer:</strong> • Physical RAM is limited, but programs may require more memory than is physically available<br>• Allows many programs to appear to have their own large, contiguous address space<br>• Enables multitasking without each process having to fit entirely in RAM<br>• Provides memory protection so faulty processes are less likely to corrupt others</div>
     </div>
 
     <div class="card pink">
-      <h3>2. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>How paging and segmentation differ (extended)</p>
+      <h3>2. Identify</h3>
+      <div class="marks">[1]</div>
+      <p>One benefit of open-source software.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Paging uses fixed blocks; segmentation uses logical sections.</div>
+      <div class="answer"><strong>Answer:</strong> • Source code is available for inspection, modification and redistribution<br>• Encourages collaboration and peer review, which can lead to rapid improvement and bug fixing<br>• Reduces vendor lock‑in because users are not tied to a single company<br>• Often available at low or no cost, making it accessible to more users</div>
     </div>
 
     <div class="card green">
-      <h3>3. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One benefit of recursion over iteration.</p>
+      <h3>3. Identify</h3>
+      <div class="marks">[1]</div>
+      <p>One benefit of using SSDs over HDDs.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can make complex problems easier to express.</div>
+      <div class="answer"><strong>Answer:</strong> • Shorter boot and load times due to higher data transfer rates<br>• No mechanical latency or seek time because data is accessed electronically<br>• Quieter operation and reduced power usage<br>• Lower failure rates from mechanical wear compared with spinning disks</div>
     </div>
 
     <div class="card blue">
       <h3>4. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One disadvantage of recursion.</p>
+      <div class="marks">[1]</div>
+      <p>One drawback of object-oriented programming.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can cause stack overflow if not carefully designed.</div>
+      <div class="answer"><strong>Answer:</strong> • Abstraction layers, dynamic dispatch and indirection can introduce performance overhead<br>• Poorly designed class hierarchies can become deep and hard to maintain<br>• Can be more difficult for beginners to understand than simple procedural code<br>• Not always the best fit for very small programs or highly performance‑critical tasks</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

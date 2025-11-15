@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
       <h3>1. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>The benefit of high-level languages.</p>
+      <div class="marks">[1]</div>
+      <p>One benefit of a real-time operating system.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Simpler to write, read, and debug.</div>
+      <div class="answer"><strong>Answer:</strong> • Provides guaranteed response times to events within a specified deadline<br>• Suitable for safety‑critical applications such as medical devices, automotive systems and industrial control<br>• Schedules tasks so that high‑priority, time‑sensitive tasks are serviced predictably<br>• Helps ensure system reliability by avoiding unacceptable delays</div>
     </div>
 
     <div class="card pink">
-      <h3>2. State</h3>
+      <h3>2. Identify</h3>
       <div class="marks">[1]</div>
-      <p>The purpose of a compiler (extended)</p>
+      <p>One reason why recursion uses more memory</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Converts source code into machine code.</div>
+      <div class="answer"><strong>Answer:</strong> • Each recursive call creates a new stack frame on the call stack<br>• Stack frames store return addresses, parameters and local variables for that call<br>• Deep recursion leads to many active stack frames at once<br>• This can cause high memory usage and potentially a stack overflow if the recursion is too deep</div>
     </div>
 
     <div class="card green">
-      <h3>3. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>The Fetch‚ÄìDecode‚ÄìExecute cycle.</p>
+      <h3>3. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>One disadvantage of recursion.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> CPU fetches an instruction, decodes it, then executes it.</div>
+      <div class="answer"><strong>Answer:</strong> • Each recursive call uses a new stack frame, which can consume significant memory<br>• Deep or uncontrolled recursion risks a stack overflow error<br>• May be slower than an equivalent iterative solution due to call overhead<br>• Can be harder to trace and debug because control flow jumps between many call levels</div>
     </div>
 
     <div class="card blue">
-      <h3>4. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One benefit of binary representation.</p>
+      <h3>4. Describe</h3>
+      <div class="marks">[1]</div>
+      <p>One benefit of automation.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Simplifies hardware design using two voltage states.</div>
+      <div class="answer"><strong>Answer:</strong> • Allows repetitive tasks to be performed consistently and quickly with minimal human intervention<br>• Reduces the chance of human error in routine processes<br>• Can increase productivity and throughput in both software and industrial contexts<br>• Frees up human workers to focus on more complex or creative tasks</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

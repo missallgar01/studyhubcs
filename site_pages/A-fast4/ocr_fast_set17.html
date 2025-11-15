@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
       <h3>1. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>How paging and segmentation differ.</p>
+      <div class="marks">[1]</div>
+      <p>One benefit of automation in software testing.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Paging uses fixed blocks; segmentation uses logical sections.</div>
+      <div class="answer"><strong>Answer:</strong> • Allows large suites of tests to be run quickly and repeatedly with minimal manual effort<br>• Makes regression testing easier whenever code changes are made<br>• Improves consistency because the same tests are executed in the same way each time<br>• Frees testers to focus on exploratory and usability testing</div>
     </div>
 
     <div class="card pink">
-      <h3>2. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>How interrupts improve CPU performance.</p>
+      <h3>2. State</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of using virtual memory.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> They let the CPU handle urgent events without constant polling.</div>
+      <div class="answer"><strong>Answer:</strong> • Accessing pages from secondary storage (e.g. disk) is much slower than RAM, which can reduce performance<br>• Heavy use of paging can lead to thrashing, where the system spends most of its time swapping pages<br>• Requires extra hardware support (MMU) and operating system complexity<br>• Can make performance less predictable for time‑critical applications</div>
     </div>
 
     <div class="card green">
       <h3>3. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>How an operating system schedules processes (extended)</p>
+      <div class="marks">[1]</div>
+      <p>One benefit of open standards.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> It uses algorithms to allocate CPU time fairly.</div>
+      <div class="answer"><strong>Answer:</strong> • Promote interoperability, allowing products from different vendors to work together<br>• Reduce vendor lock‑in because users are not tied to proprietary formats or protocols<br>• Encourage competition and innovation by letting multiple companies implement the same standard<br>• Make it easier to integrate systems and share data across organisations</div>
     </div>
 
     <div class="card blue">
       <h3>4. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One ethical drawback of AI systems.</p>
+      <div class="marks">[1]</div>
+      <p>One benefit of virtual memory.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> AI can reflect human bias or make unfair decisions.</div>
+      <div class="answer"><strong>Answer:</strong> • Provides each process with a large, continuous logical address space regardless of physical RAM size<br>• Supports more concurrent processes by swapping inactive pages to secondary storage<br>• Increases system stability by isolating processes’ memory from each other<br>• Allows large applications to run on systems with limited physical memory</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

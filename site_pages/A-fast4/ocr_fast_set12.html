@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
       <h3>1. State</h3>
       <div class="marks">[1]</div>
       <p>One drawback of modular programming.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can require more memory due to function calls.</div>
+      <div class="answer"><strong>Answer:</strong> • Requires additional planning to design clear module interfaces<br>• Too many small modules can make the system structure more complex to understand<br>• Communication between modules (via parameters or messages) introduces some overhead<br>• Changes to shared interfaces can impact many modules at once</div>
     </div>
 
     <div class="card pink">
       <h3>2. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One benefit of data abstraction.</p>
+      <div class="marks">[1]</div>
+      <p>How merge sort works.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Hides complexity from the user.</div>
+      <div class="answer"><strong>Answer:</strong> • Uses a divide‑and‑conquer strategy to sort a list<br>• Recursively splits the list into smaller sublists until each sublist contains a single element<br>• Merges pairs of sorted sublists into larger sorted lists by repeatedly selecting the smallest head element<br>• Continues merging until one fully sorted list remains<br>• Has predictable time complexity of O(n log n) and is a stable sort</div>
     </div>
 
     <div class="card green">
-      <h3>3. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One drawback of recursion compared to iteration.</p>
+      <h3>3. Describe</h3>
+      <div class="marks">[1]</div>
+      <p>One disadvantage of open-source software.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Less efficient due to repeated stack use.</div>
+      <div class="answer"><strong>Answer:</strong> • May have less formal support; users may need to rely on community help<br>• Documentation quality can be inconsistent between projects<br>• Fragmentation can occur if many different versions or forks are created<br>• Some projects may be abandoned if maintainers lose interest</div>
     </div>
 
     <div class="card blue">
-      <h3>4. State</h3>
+      <h3>4. Explain</h3>
       <div class="marks">[1]</div>
-      <p>One drawback of open standards.</p>
+      <p>What the Control Unit does.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can slow innovation due to compatibility constraints.</div>
+      <div class="answer"><strong>Answer:</strong> • Fetches instructions from memory and decodes their opcodes<br>• Generates control signals to coordinate the ALU, registers, buses and memory<br>• Manages the timing and sequencing of operations within the CPU<br>• Ensures the steps of the fetch‑decode‑execute cycle occur in the correct order</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

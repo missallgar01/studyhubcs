@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
-      <h3>1. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One benefit of a real-time operating system.</p>
+      <h3>1. Identify</h3>
+      <div class="marks">[1]</div>
+      <p>One advantage of using cache memory.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Guarantees timely responses to critical inputs.</div>
+      <div class="answer"><strong>Answer:</strong> • Provides much faster access times than main memory (RAM)<br>• Stores recently used instructions and data so repeated accesses are quicker<br>• Reduces the average time the CPU must wait for memory accesses<br>• Improves performance of loops and frequently executed code sections</div>
     </div>
 
     <div class="card pink">
-      <h3>2. Identify</h3>
+      <h3>2. Describe</h3>
       <div class="marks">[1]</div>
-      <p>One reason why recursion uses more memory.</p>
+      <p>One disadvantage of using interrupts.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Each call adds to the call stack until complete.</div>
+      <div class="answer"><strong>Answer:</strong> • Frequent interrupts can lead to high context‑switching overhead and reduced performance<br>• Interrupt handling code (ISRs) must be carefully written to avoid race conditions and deadlocks<br>• Debugging interrupt‑driven systems can be more difficult than debugging simple polling loops<br>• Prioritising interrupts incorrectly may cause important tasks to be delayed</div>
     </div>
 
     <div class="card green">
-      <h3>3. State</h3>
+      <h3>3. Describe</h3>
       <div class="marks">[1]</div>
-      <p>One benefit of using cache memory.</p>
+      <p>What a stack is used for</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Reduces access time for frequently used data.</div>
+      <div class="answer"><strong>Answer:</strong> • Stores return addresses when subroutines and functions are called<br>• Holds local variables and parameters for active procedures<br>• Keeps track of nested and recursive function calls via stack frames<br>• Provides a last‑in, first‑out (LIFO) structure for temporary data storage<br>• Supports evaluation of arithmetic expressions and undo operations</div>
     </div>
 
     <div class="card blue">
-      <h3>4. Identify</h3>
+      <h3>4. Describe</h3>
       <div class="marks">[1]</div>
-      <p>One drawback of binary search.</p>
+      <p>One benefit of using recursion.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Requires sorted data to work properly.</div>
+      <div class="answer"><strong>Answer:</strong> • Encourages a divide‑and‑conquer approach by breaking problems into smaller subproblems<br>• Simplifies code for algorithms that are naturally recursive, such as tree traversal and quicksort<br>• Reduces the need for explicitly managed stacks in the source code<br>• Allows elegant definitions for mathematical functions like factorial</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
-      <h3>1. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One benefit of recursion over iteration.</p>
+      <h3>1. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>One benefit of user authentication systems.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can make complex problems easier to express.</div>
+      <div class="answer"><strong>Answer:</strong> • Restrict access to systems and data to authorised users only<br>• Help protect sensitive information from unauthorised disclosure<br>• Can support accountability by associating actions with specific user identities<br>• Form a core part of wider security measures such as access control and auditing</div>
     </div>
 
     <div class="card pink">
-      <h3>2. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>What a stack is used for (extended)</p>
+      <h3>2. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>How interrupts improve CPU performance.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Stores return addresses and temporary data (LIFO).</div>
+      <div class="answer"><strong>Answer:</strong> • Remove the need for constant polling loops that repeatedly check devices<br>• Allow the CPU to perform useful work until a device signals it needs attention<br>• Provide fast response to urgent events such as I/O completion or timer expiry<br>• Enable pre‑emptive multitasking by interrupting a running process when needed<br>• Help achieve higher overall CPU utilisation</div>
     </div>
 
     <div class="card green">
-      <h3>3. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One benefit of using virtualisation.</p>
+      <h3>3. Describe</h3>
+      <div class="marks">[1]</div>
+      <p>The Fetch‚ÄìDecode‚ÄìExecute cycle</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Allows multiple OSs to run on one machine safely.</div>
+      <div class="answer"><strong>Answer:</strong> • FETCH: The CPU uses the Program Counter to fetch the next instruction from memory into the Instruction Register<br>• The Program Counter is then incremented to point to the following instruction<br>• DECODE: The Control Unit decodes the opcode, identifies the addressing mode and required hardware resources<br>• EXECUTE: The instruction is carried out by the ALU, registers, or other components<br>• Any result is written back to registers or memory and the cycle repeats continuously while the CPU is running</div>
     </div>
 
     <div class="card blue">
-      <h3>4. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One drawback of binary representation.</p>
+      <h3>4. State</h3>
+      <div class="marks">[1]</div>
+      <p>One benefit of recursion in algorithms.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can be difficult for humans to read and interpret.</div>
+      <div class="answer"><strong>Answer:</strong> • Matches naturally with problems that have a recursive structure, such as tree traversal or divide‑and‑conquer<br>• Can lead to simpler and more elegant algorithm definitions<br>• Reduces the need for managing explicit stacks or complex loop constructs in code<br>• Helps break large problems into smaller, identical subproblems</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

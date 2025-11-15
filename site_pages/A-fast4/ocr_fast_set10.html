@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
-      <h3>1. State</h3>
+      <h3>1. Identify</h3>
       <div class="marks">[1]</div>
-      <p>One disadvantage of virtualisation.</p>
+      <p>One drawback of binary search.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Reduces performance compared to native systems.</div>
+      <div class="answer"><strong>Answer:</strong> • Requires the data to be sorted before searching, which has its own cost<br>• Maintaining a sorted data structure can be expensive when inserting or deleting items<br>• Harder to implement correctly than simple linear search<br>• Not suitable for data structures that do not support efficient random access</div>
     </div>
 
     <div class="card pink">
-      <h3>2. State</h3>
+      <h3>2. Describe</h3>
       <div class="marks">[1]</div>
-      <p>The purpose of the Program Counter (PC) (extended)</p>
+      <p>One drawback of using abstraction in design.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Holds the address of the next instruction to be fetched.</div>
+      <div class="answer"><strong>Answer:</strong> • Excessive abstraction can hide important implementation details from developers<br>• Too many abstraction layers can make systems difficult to trace and debug<br>• Poorly chosen abstractions may be hard to change later without affecting many components<br>• Abstraction layers can introduce extra overhead, slightly reducing performance</div>
     </div>
 
     <div class="card green">
-      <h3>3. State</h3>
+      <h3>3. Describe</h3>
       <div class="marks">[1]</div>
-      <p>One drawback of modular programming.</p>
+      <p>One benefit of using logic gates in hardware design.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can require more memory due to function calls.</div>
+      <div class="answer"><strong>Answer:</strong> • Allow Boolean logic to be implemented physically using electronic circuits<br>• Form the basic building blocks for more complex components such as adders, multiplexers and flip‑flops<br>• Enable designers to create predictable, digital systems from simple combinations<br>• Support reliable, binary operation that is resistant to small electrical noise</div>
     </div>
 
     <div class="card blue">
-      <h3>4. State</h3>
+      <h3>4. Identify</h3>
       <div class="marks">[1]</div>
-      <p>One use of ROM (extended)</p>
+      <p>One reason why recursion uses more memory.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Stores firmware or start-up instructions.</div>
+      <div class="answer"><strong>Answer:</strong> • Each recursive call creates a new stack frame on the call stack<br>• Stack frames store return addresses, parameters and local variables for that call<br>• Deep recursion leads to many active stack frames at once<br>• This can cause high memory usage and potentially a stack overflow if the recursion is too deep</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

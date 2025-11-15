@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
       <h3>1. Identify</h3>
       <div class="marks">[1]</div>
-      <p>One benefit of using Unicode.</p>
+      <p>One ethical issue with AI</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Supports international characters and symbols.</div>
+      <div class="answer"><strong>Answer:</strong> • AI systems may learn and reinforce existing biases in training data, leading to unfair or discriminatory decisions<br>• Decisions made by complex AI models can lack transparency, making it hard to explain or challenge outcomes<br>• Use of AI for surveillance can threaten privacy and civil liberties<br>• Automation driven by AI may displace jobs, raising social and economic concerns</div>
     </div>
 
     <div class="card pink">
-      <h3>2. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>How an operating system schedules processes.</p>
+      <h3>2. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>What the Control Unit does</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> It uses algorithms to allocate CPU time fairly.</div>
+      <div class="answer"><strong>Answer:</strong> • Fetches instructions from memory and decodes their opcodes<br>• Generates control signals to coordinate the ALU, registers, buses and memory<br>• Manages the timing and sequencing of operations within the CPU<br>• Ensures the steps of the fetch‑decode‑execute cycle occur in the correct order</div>
     </div>
 
     <div class="card green">
       <h3>3. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One benefit of scheduling algorithms.</p>
+      <div class="marks">[1]</div>
+      <p>How an operating system schedules processes</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Ensures fair and efficient CPU use.</div>
+      <div class="answer"><strong>Answer:</strong> • Uses a scheduling algorithm (e.g. Round Robin, priority, FCFS) to choose which process runs next<br>• Allocates CPU time slices to each ready process<br>• Performs context switches, saving and restoring process state in registers and memory<br>• Aims to maximise CPU utilisation while maintaining fairness and responsiveness<br>• May adjust priorities dynamically (e.g. aging) to prevent starvation</div>
     </div>
 
     <div class="card blue">
-      <h3>4. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One benefit of automation.</p>
+      <h3>4. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>One benefit of using version control.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Increases efficiency and reduces human error.</div>
+      <div class="answer"><strong>Answer:</strong> • Keeps a history of changes, allowing developers to revert to previous versions when necessary<br>• Supports collaboration by allowing multiple people to work on the same codebase simultaneously<br>• Facilitates branching and merging for developing features independently<br>• Provides traceability for who changed what and why via commit messages</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>

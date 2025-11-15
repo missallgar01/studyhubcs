@@ -1,56 +1,49 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fast Four Starter</title>
-    <link rel="stylesheet" href="../../styles.css" />
-
+  <link rel="stylesheet" href="../../styles.css" />
 </head>
 <body>
-
-
-   <header><h1>FAST FOUR STARTER</h1></header>
+  <header><h1>FAST FOUR STARTER</h1></header>
   <main class="index-grid">
-  <div class="grid">
+    <div class="grid">
     <div class="card yellow">
-      <h3>1. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One disadvantage of version control systems.</p>
+      <h3>1. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of caching.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can be confusing for beginners and require setup.</div>
+      <div class="answer"><strong>Answer:</strong> • Cache coherence and consistency can be difficult to maintain in multi‑core systems<br>• If a program has poor locality, the cache may provide little benefit but still consume resources<br>• Increases hardware complexity and cost<br>• Out‑of‑date cached data can cause incorrect behaviour if not managed correctly</div>
     </div>
 
     <div class="card pink">
       <h3>2. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One drawback of using encryption.</p>
+      <div class="marks">[1]</div>
+      <p>The benefit of high-level languages.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can slow down data processing.</div>
+      <div class="answer"><strong>Answer:</strong> • Provide constructs that are closer to human language and problem domains, making programs easier to write and understand<br>• Are generally portable across different hardware platforms once recompiled<br>• Include features such as data structures, libraries and automatic memory management that increase productivity<br>• Reduce the likelihood of low‑level errors compared with assembly language</div>
     </div>
 
     <div class="card green">
-      <h3>3. Explain</h3>
-      <div class="marks">[3]</div>
-      <p>One ethical drawback of AI systems.</p>
+      <h3>3. Describe</h3>
+      <div class="marks">[1]</div>
+      <p>How interrupts are handled by the CPU.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> AI can reflect human bias or make unfair decisions.</div>
+      <div class="answer"><strong>Answer:</strong> • The CPU finishes executing the current instruction before responding to the interrupt<br>• The current state, including the Program Counter and key registers, is saved (often on the stack)<br>• The CPU jumps to the address of the appropriate Interrupt Service Routine (ISR)<br>• The ISR runs to handle the event, such as servicing an I/O device or timer<br>• When the ISR completes, the saved state is restored and the interrupted program resumes from where it left off</div>
     </div>
 
     <div class="card blue">
-      <h3>4. Describe</h3>
-      <div class="marks">[2]</div>
-      <p>One drawback of binary representation.</p>
+      <h3>4. Explain</h3>
+      <div class="marks">[1]</div>
+      <p>One drawback of Unicode.</p>
       <textarea class="input"></textarea>
-      <div class="answer"><strong>Answer:</strong> Can be difficult for humans to read and interpret.</div>
+      <div class="answer"><strong>Answer:</strong> • Uses more storage and bandwidth than some older single‑byte encodings for texts using only ASCII characters<br>• Multiple encoding forms (UTF‑8, UTF‑16, UTF‑32) can cause compatibility and conversion issues<br>• Software must handle variable‑length encodings correctly, which adds complexity<br>• Legacy systems may not fully support Unicode, causing interoperability problems</div>
     </div>
-  </div>
-
-  
+    </div>
   </main>
   <button id="showBtn" disabled>Show Answers</button>
-
   <script>
     const inputs = document.querySelectorAll('.input');
     const button = document.getElementById('showBtn');
@@ -70,6 +63,5 @@
       button.classList.remove('enabled');
     });
   </script>
-
 </body>
 </html>
