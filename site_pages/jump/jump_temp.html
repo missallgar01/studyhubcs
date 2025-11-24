@@ -7,9 +7,17 @@
   <meta name="description" content="Interactive JUMP123 activity page with tabs for Judge, Unpack, Modify, and Program." />
   <link rel="icon" href="img/1.png" />
   <link rel="stylesheet" href="../../styles.css" />
-
+<style>
+        /* JUMP123 page: keep notebook background but use single-column layout */
+        body.notebook.jump-page main {
+            display: block;
+            max-width: 980px;
+            margin: 2rem auto;
+            padding: 0 1rem 2rem;
+        }
+    </style>
 </head>
-<body>
+<body class="notebook notebook-border notebook-margin jump-page">
 <header>
   <h1>JUMP123 Temperature Converter</h1>
   <div class="subtitle">An interactive worksheet for <b>Judge</b>, <b>Unpack</b>, <b>Modify</b>, and <b>Program</b></div>
@@ -39,7 +47,7 @@
           <p><strong>Why might the program not work?</strong><br><em>(What could stop it from running properly?)</em></p>
           <p><strong>What kind of mistake or error could happen?</strong><br><em>(Is it a typing error, logic error, or input problem?)</em></p>
           <label for="answer">Your answer:</label>
-          <textarea id="answer" placeholder="Write your thoughts here..."></textarea>
+          <textarea class="input" placeholder="Write your thoughts here..."></textarea>
         </div>
       </div>
     </section>
@@ -61,9 +69,9 @@
 
       <table class="investigate-table" aria-label="Investigate">
         <colgroup>
-          <col><!-- Focus -->
-          <col><!-- Question -->
-          <col><!-- Answer -->
+          <col style="width:10%"><!-- Focus -->
+          <col style="width:40%"> <!-- Question -->
+          <col style="width:50%"><!-- Answer -->
         </colgroup>
         <thead>
           <tr>
@@ -237,6 +245,11 @@
     <section class="resource-section">
       <h2>JUMP123 Assessment</h2>
       <table class="assessment-table" aria-label="JUMP123 Assessment">
+          <colgroup>
+          <col style="width:33%"><!-- 1 -->
+          <col style="width:33%"> <!-- 2 -->
+          <col style="width:33%"><!-- 3 -->
+        </colgroup>
         <thead>
           <tr>
             <th>Level 1</th>
@@ -247,16 +260,16 @@
         <tbody>
           <tr>
             <td>
-              <label class="tick"><input type="checkbox" aria-label="Level 1 achieved"> Tick</label><br>
-              <img src="../../img/1.png" alt="Level 1 badge" class="level">
+              <label><input type="checkbox" aria-label="Level 1 achieved"> Tick</label><br>
+              <img src="../../img/1.png" alt="Level 1 badge" >
             </td>
             <td>
-              <label class="tick"><input type="checkbox" aria-label="Level 2 achieved"> Tick</label><br>
-              <img src="../../img/2.png" alt="Level 2 badge" class="level">
+              <label><input type="checkbox" aria-label="Level 2 achieved"> Tick</label><br>
+              <img src="../../img/2.png" alt="Level 2 badge" >
             </td>
             <td>
-              <label class="tick"><input type="checkbox" aria-label="Level 3 achieved"> Tick</label><br>
-              <img src="../../img/3.png" alt="Level 3 badge" class="level">
+              <label><input type="checkbox" aria-label="Level 3 achieved"> Tick</label><br>
+              <img src="../../img/3.png" alt="Level 3 badge" >
             </td>
           </tr>
           <tr>
@@ -331,19 +344,31 @@
     activate(initial, false);
   }
 
-  // --- Unpack section: enable Show Answers when all inputs filled ---
-  const inputs = document.querySelectorAll('.input');
+  // --- Unpack section: enable Show Answers when all UNPACK inputs filled ---
+  const unpackPanel = document.getElementById('panel-unpack');
   const button = document.getElementById('showAnswers');
-  if (button && inputs.length) {
+  if (button && unpackPanel) {
+    const inputs = Array.from(unpackPanel.querySelectorAll('.input'));
+    const answers = Array.from(unpackPanel.querySelectorAll('.answer'));
+
+    // Hide answers initially
+    answers.forEach(a => {
+      a.style.display = 'none';
+    });
+
     const check = () => {
-      const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+      const allFilled = inputs.every(i => i.value.trim() !== "");
       button.disabled = !allFilled;
       button.classList.toggle('enabled', allFilled);
     };
+
     inputs.forEach(i => i.addEventListener('input', check));
     check();
+
     button.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+      answers.forEach(a => {
+        a.style.display = 'block';
+      });
       button.textContent = "Answers Shown ✅";
       button.disabled = true;
       button.classList.remove('enabled');

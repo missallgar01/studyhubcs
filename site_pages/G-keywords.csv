@@ -1,0 +1,319 @@
+topic,keyword,definition
+Topic 1-testing,Trace Table,A table used to record the values of variables as an algorithm runs to help find errors.
+Topic 1-testing,Test Data,Data used to check that a program works correctly.
+Topic 1-testing,Normal Data,Test data that is typical and should be accepted by the program.
+Topic 1-testing,Boundary Data,Test data at the extremes of acceptable ranges.
+Topic 1-testing,Validation,Automated checks to ensure data entered is reasonable and meets given rules.
+Topic 1-testing,Authentication,"Checking the identity of a user, for example with a username and password."
+Topic 1-testing,Syntax Error,An error where code breaks the rules (grammar) of the programming language.
+Topic 1-testing,Runtime Error,"An error that occurs while the program is running, such as dividing by zero."
+Topic 1-testing,Logical Error,An error where the program runs but produces an incorrect result.
+Topic 1-Computational Thinking-CT,Abstraction,Removing unnecessary detail so that only the important information remains.
+Topic 1-Computational Thinking-CT,Algorithm,A step-by-step set of instructions for solving a problem.
+Topic 1-Computational Thinking-CT,Decomposition,"Breaking a large problem down into smaller, more manageable parts."
+Topic 1-Computational Thinking-CT,Pattern Recognition,Identifying similarities or trends within data or problems.
+Topic 1-testing,Debugger,A tool that helps find and fix errors in code.
+Topic 1-testing,Maintainability,"How easy it is to understand, modify and test code."
+Topic 1-testing,Stepper,A debugging feature that allows code to be executed one line at a time.
+Topic 1-testing,Breakpoints,Markers set in code where execution will pause during debugging so variables can be inspected.
+Topic 1-validation,Length check,Validation that checks that input has the correct number of characters.
+Topic 1-validation,Presence check,Validation that checks that an input has actually been entered and is not blank.
+Topic 1-validation,Range check,Validation that checks that data falls within a specified range.
+Topic 1-validation,Type check,"Validation that checks that data is of the correct data type, such as a number not text."
+Topic 2-Data-Binary,Binary,The base-2 number system that uses only the digits 0 and 1; used internally by computers.
+Topic 2-Data-storage,Bit,The smallest unit of data; can store a 0 or 1.
+Topic 2-Data-storage,Nibble,A group of 4 bits.
+Topic 2-Data-storage,Byte,A group of 8 bits; often used to store a single character.
+Topic 2-Data-storage,Denary,The base-10 number system using digits 0–9.
+Topic 2-Data-storage,Kibibyte (KiB),"1,024 bytes"
+Topic 2-Data-storage,Mebibyte (MiB),"1,024 Kibibtyes"
+Topic 2-Data-storage,Gibibyte (GiB),"1,024 Mebibytes"
+Topic 2-Data-storage,Tebibyte (TiB),"1,024 Gibibytes"
+Topic 2-Data-binary,Hexadecimal,The base-16 number system using digits 0–9 and A–F.
+Topic 2-Data-binary,Unsigned Number,A binary number that can only represent positive values.
+Topic 2-Data-binary,Signed Number,"A binary number that can represent positive and negative values, often using two's complement."
+Topic 2-Data-binary,Two's Complement,A method for representing negative binary numbers by inverting bits and adding one.
+Topic 2-Data-binary,Overflow Error,An error that occurs when a calculation produces a value that is too large to store in the allocated bits.
+Topic 2-Data-binary,Binary Addition,Adding binary numbers using rules similar to denary addition with carrying.
+Topic 2-Data-binary,Binary Shift,"Moving all bits in a binary number left or right, effectively multiplying or dividing by powers of two."
+Topic 2-Data-binary,Logical Shift Left,Shifts all bits left and fills vacated bits with 0; multiplies the value by 2.
+Topic 2-Data-binary,Logical Shift Right,Shifts all bits right and fills vacated bits with 0; divides the value by 2 (for unsigned numbers).
+Topic 2-Data-binary,Most Significant Bit (MSB),The leftmost bit in a binary number; represents the highest value place and may store the sign.
+Topic 2-Data-bitmap,Bitmap Graphic,"An image made up of a grid of pixels, each storing a colour value."
+Topic 2-Data-bitmap,Pixel,The smallest addressable element of an image.
+Topic 2-Data-bitmap,Resolution,"The number of pixels in an image, usually width × height or pixels per inch."
+Topic 2-Data-bitmap,Colour Depth,The number of bits used to store the colour of each pixel.
+Topic 2-Data-bitmap,Image File Size,"Calculated by width × height × colour depth (in bits), often divided by 8 to get bytes."
+Topic 2-Data-char,Character Encoding,"A system that maps characters to binary values, such as ASCII or Unicode."
+Topic 2-Data-char,ASCII,"A character set that uses 7 or 8 bits to represent letters, digits and symbols."
+Topic 2-Data-char,Unicode,A character set that can represent characters from many languages using more bits than ASCII.
+Topic 2-Data-compression,Compression,Reducing the size of a file so that it takes up less storage space or transmits more quickly.
+Topic 2-Data-compression,Lossless Compression,Compression that does not lose any data; the original file can be perfectly reconstructed.
+Topic 2-Data-compression,Lossy Compression,"Compression that removes some data to reduce file size, reducing quality."
+Topic 2-Data-bitmap,Metadata,"Extra information stored with a file such as dimensions, colour depth or author."
+Topic 2-Data-sound,Analogue Signal,A continuous signal that can take any value within a range.
+Topic 2-Data-sound,Digital Signal,"A discrete signal that can only take certain values, such as 0 or 1."
+Topic 2-Data-sound,Amplitude,"The height of a wave; in sound, it relates to loudness."
+Topic 2-Data-sound,Sampling,Measuring the amplitude of an analogue signal at regular intervals.
+Topic 2-Data-sound,Sample Rate,"The number of samples taken per second, measured in Hertz."
+Topic 2-Data-sound,Sample Interval,The time between samples; the inverse of sample rate.
+Topic 2-Data-sound,Bit Depth (Audio),The number of bits used for each sample; higher bit depth gives more precise sound.
+Topic 2-Data-sound,Sound File Size,Calculated as sample rate × bit depth × number of channels × duration (in seconds).
+Topic 3-Computers,Control Unit (CU),Part of the CPU that coordinates the activities of the CPU and decodes instructions.
+Topic 3-Computers,Arithmetic Logic Unit (ALU),Part of the CPU that performs arithmetic calculations and logical operations.
+Topic 3-Computers,CPU Registers,Very fast small memory locations inside the CPU for temporarily storing data and instructions.
+Topic 3-Computers,Program Counter (PC),Register that holds the address of the next instruction to be fetched.
+Topic 3-Computers,Accumulator,Register that stores the result of calculations performed by the ALU.
+Topic 3-Computers,Address Bus,Carries memory addresses from the CPU to main memory; usually one-way.
+Topic 3-Computers,Data Bus,"Carries data between the CPU, memory and other components."
+Topic 3-Computers,Control Bus,Carries control signals used to coordinate the CPU and other components.
+Topic 3-Computers,Clock Speed,"Number of cycles the CPU can carry out per second, measured in Hertz."
+Topic 3-Computers,Clock Cycle,A single pulse of the CPU clock during which one or more operations may be carried out.
+Topic 3-Computers,Bus Width,The number of bits that can be transferred simultaneously on a bus.
+Topic 3-Computers,RAM,Volatile main memory used to store data and programs that are currently in use.
+Topic 3-Computers,ROM,"Non-volatile memory that stores data needed to start the computer, such as boot instructions."
+Topic 3-Computers-secondary,Secondary Storage,"Non-volatile storage such as hard drives, SSDs and optical discs used for long-term data storage."
+Topic 3-Computers,Fetch-Decode-Execute Cycle,"The process by which the CPU fetches an instruction from memory, decodes it and executes it."
+Topic 3-Computers-secondary,Magnetic Storage,Storage that uses magnetised areas on a disk to represent data.
+Topic 3-Computers-secondary,Optical Storage,Storage that uses lasers to read and write data on optical media such as CDs or DVDs.
+Topic 3-Computers-secondary,Solid-State Storage,"Storage that uses flash memory with no moving parts, such as SSDs and USB drives."
+Topic 3-Computers-embedded,Embedded System,A computer system built into another device to perform one dedicated task.
+Topic 3-Computers-embedded,General-Purpose Computer,A computer that can run many different programs and perform many tasks.
+Topic 3-Computers-embedded,Microcontroller,"A small computer on a single chip containing a CPU, memory and input/output."
+Topic 3-Computers-embedded,Actuator,A device that converts electrical signals into physical movement.
+Topic 3-Computers-embedded,Sensor,"A device that detects or measures a physical property and records, indicates or responds to it."
+Topic 3-Computers-progLang,High-Level Language,A programming language closer to natural language that is easier for humans to read and write.
+Topic 3-Computers-progLang,Low-Level Language,"A programming language close to machine code, giving more control over hardware."
+Topic 3-Computers-progLang,Machine Code,Binary instructions that can be executed directly by the CPU.
+Topic 3-Computers-progLang,Assembly Language,Low-level language using mnemonics that correspond to machine code instructions.
+Topic 3-Computers-progLang,Assembler,A translator that converts assembly language into machine code.
+Topic 3-Computers-progLang,Program Translator,"Software that converts source code into machine code, such as a compiler or interpreter."
+Topic 3-Computers-progLang,Compiler,Translates the whole source code into machine code before execution.
+Topic 3-Computers-progLang,Interpreter,Translates and executes a program line by line.
+Topic 3-Computers-progLang,Source Code,The original human-readable code written by a programmer.
+Topic 3-Computers-progLang,Executable Code,Machine code produced by a translator that can be run by the CPU.
+Topic 3-Computers-progLang,Operand,The part of an instruction that specifies the data or memory location to use.
+Topic 3-Computers-progLang,Operator (Instruction),The part of an instruction that specifies the operation to perform.
+Topic 3-Computers-progLang,Mnemonic,"Short human-readable codes used in assembly language, such as ADD or MOV."
+Topic 3-Computers-software,Proprietary Software,Software owned by an organisation; source code is not available to the public.
+Topic 3-Computers-software,Utility Software,"System software that performs maintenance tasks, such as backup or anti-virus."
+Topic 3-Computers-software,Anti-Virus Software,Utility that detects and removes malware.
+Topic 3-Computers-software,Compression Utility,Software used to reduce the size of files.
+Topic 3-Computers-software,Firewall,Software or hardware that monitors and controls incoming and outgoing network traffic.
+Topic 3-Computers-software,Backup Utility,Software that automates copying data to another location for safekeeping.
+Topic 3-Computers-software,System Software,Software that controls the hardware and provides a platform for applications.
+Topic 3-Computers-software,Operating System,"System software that manages hardware, provides a user interface and runs applications."
+Topic 3-Computers-software,Memory Management,The part of the OS that allocates and tracks use of main memory.
+Topic 3-Computers-software,Virtual Memory,Using part of secondary storage as if it were RAM when physical RAM is full.
+Topic 3-Computers-software,File Management,"Organising files into folders, copying, moving, renaming and deleting files."
+Topic 3-Computers-software,Multitasking,Using scheduling so the CPU appears to run many programs at once.
+Topic 3-Computers-software,Process Scheduling,Deciding which process the CPU should execute next.
+Topic 3-Computers-software,Peripheral Management,Controlling external devices such as printers and monitors using drivers.
+Topic 3-Computers-software,User Management,"Managing user accounts, logins and permissions."
+Topic 3-Computers-software,Authentication,Checking the identity of a user before allowing access.
+Topic 3-Computers-software,User Interface,"The way in which a user interacts with a computer system, such as a GUI or CLI."
+Topic 3-Computers-software,Device Driver,Software that allows the operating system to communicate with hardware devices.
+Topic 3-Computers-software,Code Review,Checking code written by others for errors and improvements.
+Topic 3-Computers-software,Robust Software,Software that can cope with errors or unexpected input without crashing.
+Topic 3-Computers-progLang,Assembly Language,A low-level programming language using mnemonics that map directly to machine code instructions.
+Topic 3-Computers-progLang,One-to-One Mapping (Assembly),Each assembly instruction corresponds directly to one machine code instruction.
+Topic 3-Computers-progLang,Benefits of Assembly Language,Easier for humans to read and write than binary; uses mnemonics instead of 0s and 1s.
+Topic 3-Computers-progLang,Advantages of Low-Level Languages,"Very fast execution and efficient memory use, giving direct control over hardware."
+Topic 3-Computers-progLang,Drawbacks of Low-Level Languages,"Harder to read, write and debug; often machine-specific."
+Topic 3-Computers-progLang,Examples of High-Level Languages,"Languages such as Python, Java, C++ and Visual Basic."
+Topic 3-Computers-progLang,Advantages of High-Level Languages,"Easier to write, debug and maintain; portable across many systems."
+Topic 3-Computers-progLang,Drawbacks of High-Level Languages,Less control over hardware and generally slower than low-level languages.
+Topic 4-Networks,Network,Two or more computers or devices connected together to share data and resources.
+Topic 4-Networks-internet,Internet,A global network of interconnected computers and networks.
+Topic 4-Networks,LAN,Local Area Network; covers a small geographical area such as a building or campus.
+Topic 4-Networks,WAN,Wide Area Network; covers a large geographical area and connects multiple LANs.
+Topic 4-Networks-connections,Wired Network,"A network that uses physical cables, such as Ethernet or fibre optic, to connect devices."
+Topic 4-Networks-connections,Wireless Network,A network that uses radio waves (Wi-Fi) to connect devices without cables.
+Topic 4-Networks,Switch,A device that connects devices on a LAN and forwards data to the correct device based on MAC address.
+Topic 4-Networks,Router,A device that forwards data packets between networks and connects a LAN to the internet.
+Topic 4-Networks-internet,Network Backbone,The main high-capacity links that connect parts of a network.
+Topic 4-Networks,Server,A powerful computer that provides services or resources to other computers on a network.
+Topic 4-Networks-connections,Bandwidth,"The maximum amount of data that can be transmitted over a network in a given time, usually in bits per second."
+Topic 4-Networks-connections,Latency,The time delay between sending data and receiving a response.
+Topic 4-Networks-topology,Star Topology,A network layout where all devices are connected to a central switch or hub.
+Topic 4-Networks-topology,Bus Topology,A network layout where all devices are connected to a single central cable.
+Topic 4-Networks-topology,Mesh Topology,"A network layout where devices are interconnected, often with multiple paths between them."
+Topic 4-Networks-internet,DNS,Domain Name System; translates domain names into IP addresses.
+Topic 4-Networks-internet,IP Address,A unique numerical address assigned to a device on a network using IP.
+Topic 4-Networks-addressing,IP Address,A unique numerical address assigned to a device on a network using IP.
+Topic 4-Networks-addressing,MAC Address,A unique hardware address assigned to a network interface card.
+Topic 4-Networks-packets,Packet,"A small chunk of data sent over a network, containing addressing and error-checking information."
+Topic 4-Networks-packets,Checksum,Data used to detect errors in a packet during transmission.
+Topic 4-Networks-packets,Packet Switching,Splitting data into packets which are sent independently and reassembled at the destination.
+Topic 4-Networks,Network Interface Card (NIC),Hardware that connects a computer to a network.
+Topic 4-Networks,Wireless Access Point,A device that allows wireless devices to connect to a wired network.
+Topic 4-Networks-layers,TCP/IP Model,A four-layer model describing how protocols work together to transmit data over networks.
+Topic 4-Networks-layers,Application Layer,Top layer of TCP/IP; chooses the correct protocol for an application.
+Topic 4-Networks-layers,Transport Layer,"Splits data into packets, adds port numbers and ensures reliable delivery."
+Topic 4-Networks-layers,Internet Layer,Adds source and destination IP addresses and routes packets.
+Topic 4-Networks-layers,Link Layer,Handles hardware addressing (MAC) and physical transmission of data.
+Topic 4-Networks-protocols,HTTP,Hypertext Transfer Protocol; used for transferring web pages.
+Topic 4-Networks-protocols,HTTPS,HTTP with encryption for secure communication over the internet.
+Topic 4-Networks-protocols,IMAP,Internet Message Access Protocol; retrieves email while keeping copies on the server.
+Topic 4-Networks-protocols,POP3,Post Office Protocol version 3; retrieves email and usually deletes it from the server.
+Topic 4-Networks-protocols,SMTP,Simple Mail Transfer Protocol; sends email between mail servers.
+Topic 4-Networks-protocols,TCP,"Transmission Control Protocol; provides reliable, ordered delivery of packets."
+Topic 4-Networks-protocols,IP,Internet Protocol; responsible for addressing and routing packets between networks.
+Topic 4-Networks-security,Firewall,Monitors and filters network traffic to prevent unauthorised access.
+Topic 4-Networks-security,Authentication,"Verifying the identity of a user, for example with a password or biometric."
+Topic 4-Networks-security,Access Levels,Permissions that control what resources users can access on a network.
+Topic 4-Networks-security,Encryption,Converting data into a coded form so that only authorised users can read it.
+Topic 4-Networks-security,Penetration Testing,Authorised simulated attacks on a network to find security weaknesses.
+Topic 4-Networks-security,Physical Security,"Protecting hardware using measures such as locks, alarms and secure rooms."
+Topic 4-Networks-protocols,Protocol,A set of rules governing how data is transmitted over a network.
+Topic 4-Networks-internet,Internet Backbone,The main high-speed routes that carry internet traffic across countries and continents.
+Topic 4-Networks-internet,ISP,Internet Service Provider; a company that provides users with internet access.
+Environmental Issues,Environmental Issues,"The impact of technology on the environment, such as energy use and electronic waste."
+Environmental Issues,Digital Responsibility,"The duty to use technology in a safe, legal and ethical way."
+Environmental Issues,E-Waste,Discarded electronic devices that can cause pollution if not disposed of properly.
+Environmental Issues,Sustainability,"Designing and using technology in a way that does not damage the environment or exhaust resources."
+Ethical & Legal Issues,Ethics,"The study of what is morally right or wrong, beyond what is legal."
+Ethical & Legal Issues,Digital Divide,The gap between people who have access to digital technologies and those who do not.
+Ethical & Legal Issues,Ethical Issues,"Moral questions raised by the use of technology, such as privacy or job losses."
+Ethical & Legal Issues,Censorship,Controlling or suppressing what information people can access.
+Ethical & Legal Issues,Privacy Issues,"Concerns about how personal data is collected, stored, used and shared."
+Ethical & Legal Issues,Freedom of Expression,"The right to express opinions without censorship, which can conflict with controlling harmful content."
+Ethical & Legal Issues,Surveillance,"Monitoring people's activities, often using technology such as CCTV or online tracking."
+Ethical & Legal Issues,Cultural Issues,"The effects of technology on traditions, behaviour and values in society."
+Ethical & Legal Issues,Trolling,"Posting messages online to deliberately upset or provoke others."
+Ethical & Legal Issues,Fake News,"False or misleading information presented as news."
+Ethical & Legal Issues,Data Protection Act 2018,"UK law that controls how personal data is collected, stored and used."
+Ethical & Legal Issues,Computer Misuse Act 1990,"UK law that makes unauthorised access to computer material a criminal offence."
+Emerging Technology,AI (Artificial Intelligence),"Computer systems that perform tasks normally requiring human intelligence."
+Emerging Technology,Machine Learning,"A type of AI where systems learn from data and improve over time without explicit programming."
+Emerging Technology,Deepfake,"AI-generated audio or video that convincingly mimics real people saying or doing things they did not do."
+Emerging Technology,Automation,"Using technology to perform tasks with little or no human input."
+Emerging Technology,AI Regulation,"Laws and rules designed to ensure AI is used safely and fairly."
+Emerging Technology,Bias in AI,"Unfair outcomes produced by AI systems because of biased training data or design."
+Emerging Technology,Accountability in AI,"Who is responsible for decisions made by AI systems."
+Intellectual Property,Open Source Software,"Software whose source code is freely available to use, modify and distribute."
+Intellectual Property,Proprietary Software,"Commercial software owned by a company; users buy a licence to use it but cannot modify it."
+Intellectual Property,Software Licence,"A legal agreement that sets out how software can be used, copied and distributed."
+Intellectual Property,Software Licences,"Rules governing how software may be used, including open source (free to modify) and proprietary (restricted use)."
+Intellectual Property,Intellectual Property,"Legal rights over creations of the mind such as software, music or designs."
+Intellectual Property,Copyright Designs and Patents Act 1988,"UK law that protects original creative works from being copied or used without permission."Topic 5-Issues & Impact-cyber,Cyberattack Consequences,"The financial, reputational and legal damage that can result from security breaches."
+Laws,Data Protection Act 2018,"UK law that controls how personal data is collected, stored and used."
+Laws,Computer Misuse Act 1990,"UK law that makes unauthorised access to computer material a criminal offence."
+Laws,Copyright Designs and Patents Act 1988,"UK law that protects original creative works from being copied or used without permission."
+Laws,Software Licences,"Rules governing how software may be used, including open source (free to modify) and proprietary (restricted use)."
+Topic 5-Issues & Impact-cyber,Information Theft,Stealing data for purposes such as identity theft or fraud.
+Topic 5-Issues & Impact-cyber,Malware,Malicious software designed to damage or disrupt computer systems.
+Topic 5-Issues & Impact-cyber,Spyware,Malware that secretly collects information about a user or their computer.
+Topic 5-Issues & Impact-cyber,Adware,Software that automatically displays or downloads unwanted advertising material.
+Topic 5-Issues & Impact-cyber,Ransomware,Malware that encrypts files and demands payment to restore access.
+Topic 5-Issues & Impact-cyber,Virus,Malware that attaches itself to programs or files and spreads when they are run.
+Topic 5-Issues & Impact-cyber,Worm,Malware that can copy itself and spread independently over networks.
+Topic 5-Issues & Impact-cyber,Trojan,"Malware disguised as legitimate software that, once installed, performs malicious actions."
+Topic 5-Issues & Impact-cyber,Anti-Malware Software,"Software designed to detect, block and remove malware."
+Topic 5-Issues & Impact-cyber,Heuristic Analysis,A technique used by security software to detect new malware by its behaviour.
+Topic 5-Issues & Impact-cyber,Malware Signatures,Patterns of code used by security software to identify known malware.
+Topic 5-Issues & Impact-cyber,Hacker,A person who gains unauthorised access to systems or data.
+Topic 5-Issues & Impact-cyber,Software Patch,An update released to fix vulnerabilities or bugs in software.
+Topic 5-Issues & Impact-cyber,Unpatched Software,Software that has not had the latest security updates applied and is vulnerable.
+Topic 5-Issues & Impact-cyber,Firewall,Hardware or software that controls incoming and outgoing network traffic based on security rules.
+Topic 5-Issues & Impact-cyber,Ethical Hacking,Using hacking skills legally to find and fix security weaknesses.
+Topic 5-Issues & Impact-cyber,Penetration Testing,Authorised simulated attacks used to test the security of a system.
+Topic 5-Issues & Impact-cyber,Black Hat Hacker,A hacker who uses skills for malicious or illegal purposes.
+Topic 5-Issues & Impact-cyber,White Hat Hacker,"A hacker who uses skills to improve security, with permission."
+Topic 5-Issues & Impact-cyber,Social Engineering,Tricking people into giving away confidential information.
+Topic 5-Issues & Impact-cyber,Phishing,Fraudulent emails or messages that try to persuade people to reveal information.
+Topic 5-Issues & Impact-cyber,Pretexting,Creating a false scenario to obtain sensitive information from someone.
+Topic 5-Issues & Impact-cyber,Baiting,"Offering something attractive to trick a victim into compromising security, for example an infected USB drive."
+Topic 1-Computational Thinking,Comment,Text in code that is ignored by the computer and used to explain the purpose of code.
+Topic 1-Computational Thinking,Float / Real,A number with a decimal point.
+Topic 1-Computational Thinking,Arithmetic Operators,"Symbols such as +, -, *, /, //, %, ** used for mathematical calculations."
+Topic 1-Computational Thinking,Subprogram,A self-contained block of code that performs a specific task.
+Topic 1-Computational Thinking,Input,Data sent into a program to be processed.
+Topic 1-Computational Thinking,Character,"A single letter, digit or symbol."
+Topic 1-Computational Thinking,Relational Operators,"==, !=, <, >, <=, >= used to compare values."
+Topic 1-Computational Thinking,Function,A subprogram that returns a value.
+Topic 1-Computational Thinking,Output,Processed data sent out from a program to the user or another system.
+Topic 1-Computational Thinking,String,A sequence of characters treated as text.
+Topic 1-Computational Thinking,Boolean Operators,"AND, OR, NOT used in logical expressions."
+Topic 1-Computational Thinking,Procedure,A subprogram that performs a task but does not return a value.
+Topic 1-Computational Thinking,Variable,A named memory location that stores a value that can change while the program runs.
+Topic 1-Computational Thinking,Boolean,A data type with only two possible values: True or False.
+Topic 1-Computational Thinking,Counter,A variable that increases or decreases by a fixed amount each time through a loop.
+Topic 1-Computational Thinking,Global Variable,A variable that can be accessed from any part of the program.
+Topic 1-Computational Thinking,Constant,A named value that does not change while the program runs.
+Topic 1-Computational Thinking,Selection,Using conditions (such as IF) so that different code runs depending on whether a condition is true or false.
+Topic 1-Computational Thinking,Flag,A Boolean variable used to signal that a condition or event has occurred.
+Topic 1-Computational Thinking,Local Variable,A variable that can only be accessed inside the subprogram in which it is declared.
+Topic 1-Computational Thinking,Identifier,"The name given to a variable, constant, subprogram or other program element."
+Topic 1-Computational Thinking,Sequence,A set of instructions that are executed one after another in order.
+Topic 1-Computational Thinking,Array,A fixed-size collection of elements of the same data type stored under one identifier.
+Topic 1-Computational Thinking,File Handling,"Opening, reading, writing and closing files in a program."
+Topic 1-Computational Thinking,Assignment,Giving a variable or constant a value using the assignment operator.
+Topic 1-Computational Thinking,Repetition,"Executing a block of code a fixed number of times (for example, a counted loop)."
+Topic 1-Computational Thinking,Record,A data structure that groups related items of different data types under one name.
+Topic 1-Computational Thinking,String Manipulation,"Operations performed on strings, such as concatenation, slicing or changing case."
+Topic 1-Computational Thinking,Integer,A whole number with no decimal part.
+Topic 1-Computational Thinking,Iteration,"Repeating a block of code, often using a loop structure."
+Topic 1-Computational Thinking,2D List (Array),"A list or array of lists, often visualised as rows and columns like a table."
+Topic 6-Problem Solving with Programming,Argument,"Data passed into a subprogram, written in brackets when the subprogram is called."
+Topic 6-Problem Solving with Programming,Array,A fixed-size data structure that stores items of the same type under one identifier.
+Topic 6-Problem Solving with Programming,Assign,Giving a variable or constant a value.
+Topic 6-Problem Solving with Programming,Block,"A section of code, usually grouped by indentation or braces."
+Topic 6-Problem Solving with Programming,Boolean,A data type with only two values: true or false.
+Topic 6-Problem Solving with Programming,Call,To execute the code inside a subprogram.
+Topic 6-Problem Solving with Programming,Casting,Converting a value from one data type to another.
+Topic 6-Problem Solving with Programming,Condition,A comparison that evaluates to true or false and controls selection or repetition.
+Topic 6-Problem Solving with Programming,Constant,A value that does not change while the program is running.
+Topic 6-Problem Solving with Programming,Data Type,"The kind of data stored, such as integer, real, Boolean or string."
+Topic 6-Problem Solving with Programming,Data Structure,"A way of organising and storing data, such as arrays, lists or records."
+Topic 6-Problem Solving with Programming,Decomposition,Breaking a large problem into smaller subproblems.
+Topic 6-Problem Solving with Programming,Decrement,"Reducing the value of a variable, often by 1."
+Topic 6-Problem Solving with Programming,Declare,"To introduce a new variable or data structure, often specifying its type."
+Topic 6-Problem Solving with Programming,File,A collection of data stored on secondary storage.
+Topic 6-Problem Solving with Programming,Flag,A Boolean variable used to indicate that a certain condition has been met.
+Topic 6-Problem Solving with Programming,Float,A number with a decimal point; also known as a real number.
+Topic 6-Problem Solving with Programming,Function,A subprogram that performs a task and returns a value.
+Topic 6-Problem Solving with Programming,Identifier,"The name of a variable, constant, subprogram or data structure."
+Topic 6-Problem Solving with Programming,Increment,"Increasing the value of a variable, often by 1."
+Topic 6-Problem Solving with Programming,Initialise,Giving a variable or data structure its first value.
+Topic 6-Problem Solving with Programming,Integer,A whole number with no fractional part.
+Topic 6-Problem Solving with Programming,Iteration,"Repeating a block of code, usually with a loop."
+Topic 6-Problem Solving with Programming,Library,A collection of pre-written functions and procedures that can be imported into programs.
+Topic 6-Problem Solving with Programming,List,"A variable-size data structure that can store multiple values, often of mixed types."
+Topic 6-Problem Solving with Programming,Logic Error,An error where the program runs but does not behave as intended.
+Topic 6-Problem Solving with Programming,Loop,A structure that repeats a block of code while a condition is met or for a fixed number of times.
+Topic 6-Problem Solving with Programming,Modulus,An operator that gives the remainder after integer division.
+Topic 6-Problem Solving with Programming,Nesting,"Putting one programming construct, such as a loop or selection, inside another."
+Topic 6-Problem Solving with Programming,Operator,"A symbol that tells the program to perform a specific operation, such as + or AND."
+Topic 6-Problem Solving with Programming,Parameter,A variable in the definition of a subprogram that receives an argument when called.
+Topic 6-Problem Solving with Programming,Parenthesis,Brackets used to group expressions or to enclose arguments.
+Topic 6-Problem Solving with Programming,Procedure,A subprogram that performs a task but does not return a value.
+Topic 6-Problem Solving with Programming,Repetition,A loop that continues until a condition is met.
+Topic 6-Problem Solving with Programming,Selection,A construct that chooses which code to execute based on conditions.
+Topic 6-Problem Solving with Programming,Sequence,Executing instructions one after another in a specific order.
+Topic 6-Problem Solving with Programming,String,Data type used to store text as a sequence of characters.
+Topic 6-Problem Solving with Programming,Syntax Error,An error where code breaks the rules of the programming language and will not run.
+Topic 6-Problem Solving with Programming,Real,A number that can have a fractional part; same as a float.
+Topic 6-Problem Solving with Programming,Return Value,The value a function sends back to the code that called it.
+Topic 6-Problem Solving with Programming,Run,To start executing a program.
+Topic 6-Problem Solving with Programming,Subprogram,"A smaller, reusable section of code, such as a function or procedure."
+Topic 6-Problem Solving with Programming,Variable,A named storage location in memory that can hold a value that may change while the program runs.
+Algorithms,Linear Search,A simple search method that checks each item in a list one by one until the target value is found or the end is reached.
+Algorithms,When Linear Search is Used,Linear search is used when the data is unsorted or small.
+Algorithms,Linear Search Efficiency,It is slow on large lists because every item may need to be checked.
+Algorithms,Binary Search,A search method that repeatedly halves a sorted list to find the target value.
+Algorithms,When Binary Search is Used,Binary search can only be used on lists that are already sorted.
+Algorithms,Binary Search Efficiency,It is more efficient than linear search because it reduces the search space quickly.
+Algorithms,Bubble Sort,A simple sorting algorithm that repeatedly compares and swaps adjacent items until the list is sorted.
+Algorithms,Bubble Sort Efficiency,Bubble sort is slow on large lists because it may require many passes through the data.
+Algorithms,Merge Sort,"A sorting algorithm that splits the list into smaller lists, sorts them, and then merges them back together."
+Algorithms,Merge Sort Method,Uses a divide-and-conquer approach to efficiently sort data.
+Algorithms,Merge Sort Efficiency,It is faster than bubble sort for large lists but uses more memory.
+Algorithms,Algorithm Efficiency,A measure of how quickly an algorithm runs and how much memory it uses.
+Algorithms,Time Complexity (GCSE),A way to compare how the running time of algorithms increases as the input size grows.
+Algorithms,Memory Use,Some algorithms use more memory because they store extra copies of data.
+Algorithms,Efficient Algorithm,An algorithm that completes its task quickly and uses minimal memory.
+Boolean Logic,AND Gate,Outputs 1 only when all inputs are 1.
+Boolean Logic,OR Gate,Outputs 1 when at least one input is 1.
+Boolean Logic,NOT Gate,"Outputs the opposite value of the input (1 becomes 0, and 0 becomes 1)."
+Boolean Logic,Truth Table,A table showing all possible input combinations and the resulting output for a logic gate.

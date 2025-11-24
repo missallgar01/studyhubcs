@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hardware Booklet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #283593;
+      color: #fff;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    h1, h2, h3, h4 {
+      color: #1a237e;
+      margin-top: 1.5rem;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    section {
+      background: #fff;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+
+    .highlight {
+      background: #e8eaf6;
+      border-left: 4px solid #3f51b5;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      border-radius: 4px;
+    }
+
+    ul {
+      margin-left: 1.2rem;
+    }
+
+    .inline-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .inline-list li::before {
+      content: "• ";
+    }
+
+    .question {
+      margin-top: 1rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+
+    .question h3 {
+      margin-top: 0;
+    }
+
+    .marks {
+      font-style: italic;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    textarea,
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    button.show-answer {
+      display: inline-block;
+      margin-top: 0.25rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
+      border: none;
+      background: #3f51b5;
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    button.show-answer:hover {
+      background: #303f9f;
+    }
+
+    .answer {
+      display: none;
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      background: #f3f4fd;
+      border-left: 3px solid #3f51b5;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.5rem;
+    }
+
+    img.diagram {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0.75rem auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.16);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    th {
+      background: #e8eaf6;
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Hardware Booklet</h1>
+  <p>CPU, Buses, Fetch–Decode–Execute Cycle &amp; Embedded Systems</p>
+</header>
+
+<main>
+
+  <!-- Recap / Notes -->
+  <section id="recap">
+    <h2>Recap</h2>
+
+    <h3>Main CPU Components</h3>
+    <div class="highlight">
+      <ul>
+        <li><strong>Control Unit (CU)</strong> – decodes instructions and sends signals to control how data moves around the CPU and memory.</li>
+        <li><strong>Arithmetic Logic Unit (ALU)</strong> – carries out calculations and logical comparisons (e.g. greater than, less than).</li>
+        <li><strong>Clock</strong> – a signal to synchronise tasks. A clock cycle is known as a <em>tick</em>. Each cycle has a high state and a low state. For each tick of the clock the CPU can process one or more instructions. The more clock ticks there are, the faster instructions can be processed.</li>
+      </ul>
+        <img src="images/clock.png"alt="Clock diagram" class="diagram"/>
+    </div>
+
+    <h3>CPU Registers (temporary stores for instructions being processed)</h3>
+    <ul>
+      <li><strong>Program Counter (PC)</strong> – keeps track of where the CPU is in the program, points to the next instruction in the cycle.</li>
+      <li><strong>Memory Address Register (MAR)</strong> – holds the address of the instruction to be fetched.</li>
+      <li><strong>Memory Data Register (MDR)</strong> – stores the instruction about to be executed.</li>
+      <li><strong>Accumulator (ACC)</strong> – stores the most recent result of processing.</li>
+    </ul>
+
+    <h3>Buses</h3>
+    <ul>
+      <li><strong>Address bus</strong> – carries memory addresses, <em>uni-directional</em>.</li>
+      <li><strong>Data bus</strong> – carries instructions and data items, <em>bi-directional</em>.</li>
+      <li><strong>Control bus</strong> – carries commands from the CPU and status messages of devices, <em>bi-directional</em>.</li>
+    </ul>
+    <img src="images/cpu.png" alt="CPU diagram" class="diagram">
+
+    <h3>Fetch–Decode–Execute (FDE) Cycle</h3>
+    <p>
+      The fetch–decode–execute cycle is the process of fetching instructions from memory,
+      decoding the instructions and executing them.
+    </p>
+
+    <!-- Placeholder for any diagram that was in the booklet -->
+    <img src="images/FDE.png" alt="Fetch–Decode–Execute cycle diagram" class="diagram">
+  </section>
+
+  <!-- Exam Style Questions -->
+  <section id="exam-style">
+    <h2>Exam Style Questions</h2>
+
+    <!-- Q1: CPU process -->
+    <div class="question" id="q1">
+      <h3>1. The CPU carries out a process.</h3>
+
+      <p>(i) Complete the diagram.</p>
+      <p class="marks">(2 marks)</p>
+
+      <img src="images/cpu-process-diagram.png" alt="CPU process diagram" class="diagram">
+
+      <label for="q1a-answer">Your answer:</label>
+      <textarea id="q1a-answer" placeholder="Describe or label the CPU process diagram..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> The exact model answer was not included in the original booklet. Refer to your teacher’s notes or mark scheme for the full diagram labels.</p>
+      </div>
+      <p class="note">This question is diagram-based; the booklet did not provide a written model answer.</p>
+
+      <hr>
+
+      <p>(ii) Identify the hardware component that carries instructions from memory to the CPU.</p>
+      <p>
+        <strong>A</strong> Binary shift<br>
+        <strong>B</strong> Control unit<br>
+        <strong>C</strong> Data bus<br>
+        <strong>D</strong> Register
+      </p>
+      <p class="marks">(1 mark)</p>
+
+      <label for="q1b-answer">Your answer:</label>
+      <input type="text" id="q1b-answer" placeholder="Write the letter and name, e.g. C – Data bus">
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> <strong>C – Data bus</strong></p>
+      </div>
+
+      <hr>
+
+      <p>(iii) State the component of the CPU that carries out additions and comparisons.</p>
+      <p class="marks">(1 mark)</p>
+
+      <label for="q1c-answer">Your answer:</label>
+      <input type="text" id="q1c-answer" placeholder="Component name">
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> ALU (Arithmetic Logic Unit)</p>
+      </div>
+    </div>
+
+    <!-- Q2: main memory flowchart -->
+    <div class="question" id="q2">
+      <h3>2. Main Memory and Buses</h3>
+      <p>Here is a representation of the contents of main memory.</p>
+
+      <img src="images/main-memory-representation.png" alt="Representation of main memory contents" class="diagram">
+
+      <p>
+        Draw a flowchart to show the process required to read the contents of memory location
+        <strong>0100</strong> into the CPU.
+      </p>
+      <p>You must include in your response:</p>
+      <ul>
+        <li>the buses used</li>
+        <li>the contents of each bus</li>
+      </ul>
+      <p class="marks">(6 marks)</p>
+
+      <label for="q2-answer">Your answer (describe your flowchart steps):</label>
+      <textarea id="q2-answer" placeholder="Describe each step of your flowchart, including which bus is used and what data it carries..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> The original booklet did not provide a written model answer for this flowchart question. Use your teacher’s mark scheme for detailed marking points (e.g. MAR loaded with 0100, address bus carries 0100, control bus sends read signal, etc.).</p>
+      </div>
+    </div>
+
+    <!-- Q3: Hardware component of CPU -->
+    <div class="question" id="q3">
+      <h3>3. Hardware Component of the CPU</h3>
+      <p>Identify which one of these is a hardware component of the CPU.</p>
+      <p>
+        <strong>A</strong> Clock<br>
+        <strong>B</strong> Control bus<br>
+        <strong>C</strong> Data bus<br>
+        <strong>D</strong> Register
+      </p>
+      <p class="marks">(1 mark)</p>
+
+      <label for="q3-answer">Your answer:</label>
+      <input type="text" id="q3-answer" placeholder="Write the letter and name, e.g. A – Clock">
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> <strong>A – Clock</strong></p>
+      </div>
+    </div>
+
+    <!-- Q4: von Neumann architecture -->
+    <div class="question" id="q4">
+      <h3>4. von Neumann Architecture</h3>
+      <p>State the two items held in RAM according to the von Neumann architecture.</p>
+      <p class="marks">(2 marks)</p>
+
+      <label for="q4-answer">Your answer:</label>
+      <textarea id="q4-answer" placeholder="List the two items held in RAM..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> Program <strong>instructions</strong> and <strong>data</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Q5: Bus table -->
+    <div class="question" id="q5">
+      <h3>5. Buses</h3>
+      <p>Complete the table about the buses used in a computer system.</p>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Description</th>
+          <th>Bus</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Transports signals that control the CPU and other parts of the computer system.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Carries the address of memory locations used to store data and program instructions.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Transfers the binary data and instructions around the computer.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Unidirectional</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Bidirectional</td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <p class="marks">(5 marks)</p>
+
+      <label for="q5-answer">Your answer (describe which bus fits each description):</label>
+      <textarea id="q5-answer" placeholder="Write which bus goes with each description..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answers:</strong></p>
+        <table>
+          <thead>
+          <tr>
+            <th>Description</th>
+            <th>Bus</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Transports signals that control the CPU and other parts of the computer system.</td>
+            <td><strong>Control bus</strong></td>
+          </tr>
+          <tr>
+            <td>Carries the address of memory locations used to store data and program instructions.</td>
+            <td><strong>Address bus</strong></td>
+          </tr>
+          <tr>
+            <td>Transfers the binary data and instructions around the computer.</td>
+            <td><strong>Data bus</strong></td>
+          </tr>
+          <tr>
+            <td>Unidirectional</td>
+            <td><strong>Address bus</strong></td>
+          </tr>
+          <tr>
+            <td>Bidirectional</td>
+            <td><strong>Control bus and Data bus</strong></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Q6: Role of buses and control unit -->
+    <div class="question" id="q6">
+      <h3>6. Fetching an Instruction from Memory</h3>
+      <p>Describe the role of the control unit, the control bus, the data bus and the address bus when fetching an instruction from memory.</p>
+      <p class="marks">(4 marks)</p>
+
+      <label for="q6-answer">Your answer:</label>
+      <textarea id="q6-answer" placeholder="Explain what each of these does during a fetch: control unit, control bus, data bus, address bus..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> The original booklet did not include a fully written model answer for this question. A typical answer would explain, for example, that the control unit places the address of the next instruction in the MAR, the address bus carries this address to memory, the control bus sends a read signal, and the data bus carries the instruction back to the CPU.</p>
+      </div>
+    </div>
+
+    <!-- Q7: CPU & main memory -->
+    <div class="question" id="q7">
+      <h3>7. CPU and Main Memory</h3>
+      <p>Describe how the CPU and main memory work together to run programs.</p>
+      <p class="marks">(4 marks)</p>
+
+      <p>Fill in the missing words in this sentence:</p>
+      <p><strong>INSTRUCTIONS &nbsp;&nbsp; WRITTEN &nbsp;&nbsp; DATA &nbsp;&nbsp; FETCHED &nbsp;&nbsp; DECODED</strong></p>
+
+      <p>
+        Program ________________ and ________ are stored in main memory are ____________ one at a time to the CPU, where they are ____________ and executed.<br>
+        Results of operations carried out in the CPU are _____________ to memory.
+      </p>
+
+      <label for="q7-answer">Your answer:</label>
+      <textarea id="q7-answer" placeholder="Rewrite the full sentence with the correct words..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p>
+          <strong>Completed sentence:</strong><br>
+          Program <strong>INSTRUCTIONS</strong> and <strong>DATA</strong> are stored in main memory are
+          <strong>FETCHED</strong> one at a time to the CPU, where they are <strong>DECODED</strong> and executed.
+        </p>
+        <p>
+          Results of operations carried out in the CPU are <strong>WRITTEN</strong> to memory.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q8: Data bus bi-directional -->
+    <div class="question" id="q8">
+      <h3>8. Data Bus</h3>
+      <p>Describe one reason the data bus needs to be bi-directional.</p>
+
+      <label for="q8-answer">Your answer:</label>
+      <textarea id="q8-answer" placeholder="Explain why the data bus must carry data both to and from the CPU..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> The CPU needs to be able to read program instructions and data from memory and write the results of operations to memory. The CPU consists of registers (which are temporary stores for instructions being worked on), the cache, the Control Unit and the ALU.</p>
+      </div>
+    </div>
+
+    <!-- Q9: Clock speed -->
+    <div class="question" id="q9">
+      <h3>9. Clock Speed</h3>
+      <p>State the reason why a higher clock speed is desirable.</p>
+      <p class="marks">(1 mark)</p>
+
+      <label for="q9-answer">Your answer:</label>
+      <input type="text" id="q9-answer" placeholder="Short explanation">
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> More instructions can be carried out per second.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Embedded Systems Questions -->
+  <section id="embedded-systems">
+    <h2>Embedded Systems Questions</h2>
+
+    <img src="images/robotic-vacuum.png" alt="Robotic vacuum cleaner" class="diagram">
+
+    <!-- ES Q1 -->
+    <div class="question" id="es1">
+      <h3>1. Embedded System Definition</h3>
+      <p>A robotic vacuum cleaner has an embedded system.</p>
+      <p>Describe the term embedded system.</p>
+      <p class="marks">(2 marks)</p>
+
+      <label for="es1-answer">Your answer:</label>
+      <textarea id="es1-answer" placeholder="Describe what an embedded system is..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Model answer:</strong></p>
+        <ul>
+          <li>Computer system that is part of other equipment (1)</li>
+          <li>Performs a specific function (1)</li>
+          <li>Includes processor and memory (1)</li>
+        </ul>
+        <p>(Any two valid points for 2 marks.)</p>
+      </div>
+    </div>
+
+    <!-- ES Q2 -->
+    <div class="question" id="es2">
+      <h3>2. Sensors in a Robotic Vacuum</h3>
+      <p>Suggest a sensor that might be used by the robotic vacuum and give an example of how it would be used.</p>
+      <p class="marks">(2 marks)</p>
+
+      <label for="es2-answer">Your answer:</label>
+      <textarea id="es2-answer" placeholder="Name a sensor and describe how the vacuum uses it..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Model answers:</strong></p>
+        <ul>
+          <li>Pressure sensor (1) to detect if it hits an object (1)</li>
+          <li>Infrared (1) to receive commands from a remote control (1)</li>
+        </ul>
+        <p>(Any valid sensor + use, up to 2 marks.)</p>
+      </div>
+    </div>
+
+    <!-- ES Q3 -->
+    <div class="question" id="es3">
+      <h3>3. Firmware</h3>
+      <p>The robotic vacuum cleaner has firmware installed.</p>
+      <p>Define the term firmware.</p>
+      <p class="marks">(1 mark)</p>
+
+      <label for="es3-answer">Your answer:</label>
+      <input type="text" id="es3-answer" placeholder="Short definition">
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> Software installed on ROM (1).</p>
+      </div>
+    </div>
+
+    <!-- ES Q4 -->
+    <div class="question" id="es4">
+      <h3>4. Processor Size</h3>
+      <p>Explain why the robotic vacuum only uses a small processor.</p>
+      <p class="marks">(4 marks)</p>
+
+      <label for="es4-answer">Your answer:</label>
+      <textarea id="es4-answer" placeholder="Explain why a small processor is sufficient for a robotic vacuum..."></textarea>
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Model answer:</strong></p>
+        <ul>
+          <li>It only uses a few instructions (1) so it’s not necessary to process millions at a time (1).</li>
+          <li>It runs on battery (1) and so mustn’t consume too much power (1).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ES Q5 -->
+    <div class="question" id="es5">
+      <h3>5. Other Embedded Systems</h3>
+      <p>Give an example of a different embedded system.</p>
+      <p class="marks">(1 mark)</p>
+
+      <label for="es5-answer">Your answer:</label>
+      <input type="text" id="es5-answer" placeholder="Example of an embedded system">
+      <button type="button" class="show-answer">Show answer</button>
+      <div class="answer">
+        <p><strong>Answer:</strong> Any valid system that uses an embedded microprocessor (e.g. washing machine, microwave, car engine management system, etc.).</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Loop through every question block
+  document.querySelectorAll('.question').forEach(function (question) {
+
+    const input = question.querySelector('textarea, input[type="text"]');
+    const button = question.querySelector('button.show-answer');
+    const answer = question.querySelector('.answer');
+
+    // If the question has no input or button, skip
+    if (!button || !input) return;
+
+    // Disable button by default
+    button.disabled = true;
+    button.style.opacity = "0.5";
+    button.style.cursor = "not-allowed";
+
+    // Enable only after typing
+    input.addEventListener('input', function () {
+      if (input.value.trim().length > 0) {
+        button.disabled = false;
+        button.style.opacity = "1";
+        button.style.cursor = "pointer";
+      } else {
+        button.disabled = true;
+        button.style.opacity = "0.5";
+        button.style.cursor = "not-allowed";
+      }
+    });
+
+    // Reveal answer when button clicked
+    button.addEventListener('click', function () {
+      if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+        button.textContent = 'Show answer';
+      } else {
+        answer.style.display = 'block';
+        button.textContent = 'Hide answer';
+      }
+    });
+  });
+
+});
+</script>
+</body>
+</html>

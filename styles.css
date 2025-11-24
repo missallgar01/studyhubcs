@@ -1,12 +1,3 @@
-/* =====================================================================
-   Modernized Stylesheet (Soft & Modern UI) — FULL FEATURE MERGE
-   Author: ChatGPT (2025)
-   Notes:
-   - Drop‑in compatible: all original class names preserved from styles1.css.
-   - Modernized with CSS variables, fluid type, soft depth, dark mode.
-   - Every feature from styles1.css is included (quiz/grid/tables/modal/print).
-   ===================================================================== */
-
 /* ==========================
    THEME VARIABLES
    ========================== */
@@ -60,6 +51,12 @@
 /* ==========================
    BASE
    ========================== */
+/* Ensure page is scrollable on all devices */
+html, body {
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -120,16 +117,6 @@ footer { padding: 2rem 1rem; text-align: center; color: var(--muted); }
 /* ==========================
    RESOURCE PAGE LAYOUT
    ========================== */
-.page-intro {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1rem;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 1rem;
-  color: #444;
-}
-
 .sections { display: flex; flex-direction: column; gap: 1rem; }
 
 .resource-section {
@@ -140,193 +127,143 @@ footer { padding: 2rem 1rem; text-align: center; color: var(--muted); }
   box-shadow: var(--shadow-sm);
   transition: transform .15s ease, box-shadow .15s ease;
 }
-.resource-section:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: #d1d5db; }
-.resource-section header { background: transparent; color: inherit; text-align: left; padding: 0; }
-.resource-section h2 { font-size: 1.1rem; margin: 0 0 .25rem; }
+.resource-section:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #d1d5db;
+}
+.resource-section header {
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 0;
+}
+.resource-section h2 {
+  font-size: 1.1rem;
+  margin: 0 0 .25rem;
+}
 .resource-section header h2 {
-  display: flex; align-items: center; gap: .6rem;
-  font-size: 1.15rem; font-weight: 600; color: #1e293b;
-  border-bottom: 1px solid #f0f0f0; padding-bottom: .5rem; margin-bottom: .75rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1e293b;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: .5rem;
+  margin-bottom: .75rem;
 }
-.resource-section p { font-size: .95rem; color: #444; line-height: 1.5; margin-bottom: .75rem; }
-.resource-section .meta { color: #666; margin-bottom:.5rem; }
-.resource-section .body { color:#333; }
-.resource-section .links { margin-top:.5rem; display:flex; flex-wrap:wrap; gap:.5rem; }
-
-/* ==========================
-   TAGS / PILLS
-   ========================== */
-.pills { display:flex; flex-wrap:wrap; gap:.4rem; margin:.5rem 0; }
-.pill  { font-size:.75rem; padding:.15rem .5rem; border-radius:999px; border:1px solid var(--border); background: #f8fafc; color:#475569; }
-
-/* ==========================
-   FAST4 QUIZ STYLES
-   ========================== */
-.grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 25px; }
-.card { position: relative; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); background: var(--card); }
-.yellow { background-color: #fff1a8; }
-.pink   { background-color: #ffd5d5; }
-.green  { background-color: #d8f5d2; }
-.blue   { background-color: #d8eaff; }
-.card h3 { margin: 0; font-style: italic; }
-.marks { position: absolute; top: 10px; right: 15px; background-color: #fff; color: #000; font-size: 0.9em; padding: 3px 8px; border-radius: 8px; border: 1px solid #ccc; }
-p { margin-top: 8px; }
-
-/* Inputs (generic + quiz) */
-textarea { width: 95%; margin-top: 10px; padding: 8px; font-size: 1em; border: 1px solid #ccc; border-radius: 8px; resize: none; height: 80px; background:#fff; color:inherit; }
-textarea.input { width: 95%; min-height: 150px; border-radius: 8px; border: 1px solid #c7d2fe; padding: 0.5rem; resize: vertical; font-family: inherit; font-size: 1rem; }
-
-/* Show answers button */
-#showAnswers { margin-top: 1rem; display: inline-block; padding: 0.6rem 1rem; border-radius: 8px; border: 1px solid #c7d2fe; background: var(--brand-tint); color: var(--brand-dark); font-weight: 700; cursor: not-allowed; transition: background 0.2s ease, opacity .2s ease; opacity: .6; }
-#showAnswers.enabled { cursor: pointer; background: var(--brand-dark); color: #fff; border-color: var(--brand-dark); opacity: 1; }
-
-/* Answer reveal */
-.answer { display: none; margin-top: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid #c7d2fe; background: var(--brand-tint); color: var(--brand-dark); }
-
-/* ==========================
-   INSTRUCTION BANNER
-   ========================== */
-.instructions{
-  background:var(--brand-tint);
-  border:1px solid #c7d2fe;
-  border-left:6px solid var(--brand-dark);
-  color:var(--brand-dark);
-  padding:1rem 1.25rem;
-  border-radius:12px;
-  box-shadow:var(--shadow-sm);
-  margin:1rem 0 1.5rem;
+.resource-section p {
+  font-size: .95rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: .75rem;
 }
-.instructions ul{ margin:.25rem 0 .25rem 1.25rem; }
-.instructions li{ margin:.25rem 0; }
 
-/* ==========================
-   TABS + CHECKLIST TABLE
-   ========================== */
-.tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin:0 0 1rem; }
-.tab-btn {
-  appearance:none; border:1px solid #c7d2fe; background: var(--brand-tint); color: var(--brand-dark);
-  padding:.55rem .9rem; border-radius:10px; font-weight:700; cursor:pointer; transition: all .2s ease;
+/* Media block inside resource sections (JUMP123, etc.) */
+.resource-section .media {
+  text-align: center;
+  margin-bottom: 0.75rem;
 }
-.tab-btn:hover { background: #e0e7ff; }
-.tab-btn[aria-selected="true"] { background: var(--brand-dark); color:#fff; border-color: var(--brand-dark); }
-.tab-content { display:none; }
-.tab-content.active { display:block; }
 
-/* Keep header subtitle tidy */
-header .subtitle { opacity:.9; margin-top:.25rem; font-size:.95rem; }
-
-/* Checklist table */
-.task-table {
-  width:100%; border-collapse:separate; border-spacing:0; background:var(--card);
-  border:1px solid var(--border); border-radius:12px; overflow:hidden;
-}
-.task-table th, .task-table td { padding:.75rem .9rem; vertical-align:top; border-bottom:1px solid var(--border); }
-.task-table thead th { background:#f8fafc; font-weight:700; text-align:left; }
-.task-table tr:last-child td { border-bottom:0; }
-.task-table td:last-child, .task-table th:last-child { width:56px; text-align:center; }
-.task-table td { position:relative; }
-
-/* Investigate table */
-.investigate-table {
-  width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:1rem;
-}
-.investigate-table th, .investigate-table td { padding:.75rem .9rem; border:1px solid var(--border); vertical-align:top; }
-.investigate-table thead th { background:#f8fafc; text-align:left; font-weight:700; }
-.investigate-table code { background:#f3f4f6; padding:.1rem .35rem; border-radius:6px; font-size:.95em; }
-/* Column widths */
-.investigate-table colgroup col:nth-child(1) { width:10%; }
-.investigate-table colgroup col:nth-child(2) { width:30%; }
-.investigate-table colgroup col:nth-child(3) { width:60%; }
-
-/* ==========================
-   ASSESSMENT TABLE
-   ========================== */
-.assessment-table {
-  width:100%; border-collapse:collapse; table-layout:fixed; border:1px solid var(--border);
-  border-radius:12px; overflow:hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin:1.5rem 0; background:var(--card);
-}
-.assessment-table th {
-  background: var(--brand-dark); color:#fff; text-align:center; padding:.75rem; font-weight:600; font-size:1rem;
-}
-.assessment-table td {
-  width:33.33%; text-align:center; vertical-align:top; padding:.75rem; border-top:1px solid var(--border);
-}
-.assessment-table .tick { display:inline-block; font-size:.9rem; color:#334155; margin-bottom:.5rem; }
-.assessment-table .level { width:90px; max-width:100%; margin-top:.5rem; }
-.assessment-table .desc { text-align:left; font-size:.95rem; color:#444; padding:.75rem 1rem; }
-.assessment-table .desc p { margin:.4rem 0; line-height:1.4; }
-/* Zebra shading */
-.assessment-table tbody tr:nth-child(even) td { background:#f9fafb; }
-
-/* ==========================
-   UTILITY MEDIA + HINT
-   ========================== */
-.media { display:flex; align-items:center; gap:12px; }
-.media img { width:50%; display:block; margin:0 auto; }
-.code { display:flex; align-items:center; justify-content:center; gap:12px; }
-.code img { width:80%; height:auto; }
-
-.hint {
-  background:#fff8d9; border-left:4px solid #fbbf24; color:#7c6000;
-  padding:.75rem 1rem; border-radius:8px; font-size:.95rem; line-height:1.5; margin:.75rem 0 1rem;
+/* Contain and resize icons/images in media */
+.resource-section .media img {
+  max-width: 140px;     /* cap size so it feels like an icon */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 /* ==========================
-   BUTTONS
+   FAST4 / CARD + BUTTON
    ========================== */
+.grid {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.card {
+  position: relative;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: var(--card);
+}
+.card h3 {
+  margin: 0;
+  font-style: italic;
+}
+
+/* ==========================
+   NOTEBOOK-STYLE BUTTONS
+   ========================== */
+
 button {
-  display:block; margin:25px auto; padding:12px 25px; font-size:1.1em;
-  border:none; border-radius:10px; background-color:#0078d7; color:white;
-  opacity:.5; cursor:not-allowed; transition: opacity .3s, transform .2s;
-}
-button.enabled { opacity:1; cursor:pointer; transform: scale(1.02); }
+  display: block;
+  margin: 25px auto;
+  padding: 0.7rem 1.4rem;
+  font-size: 1.1rem;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 3px 3px 0 #000;
+  cursor: not-allowed;
+  opacity: 0.5;
 
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  position: relative;
+}
+
+button.enabled {
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Hover effect when enabled */
+button.enabled:hover {
+  transform: translateY(-3px) rotate(1deg);
+  box-shadow: 5px 5px 0 #000;
+}
+
+/* Pressed state */
+button.enabled:active {
+  transform: translateY(0px);
+  box-shadow: 2px 2px 0 #000;
+}
 /* Secondary button (print) */
-.secondary { background:#e5e7eb; color:#111; border:1px solid #ccc; border-radius:8px; padding:.6rem 1rem; font-weight:600; cursor:pointer; display:inline-block; }
+.secondary {
+  background:#e5e7eb;
+  color:#111;
+  border:1px solid #ccc;
+  border-radius:8px;
+  padding:.6rem 1rem;
+  font-weight:600;
+  cursor:pointer;
+  display:inline-block;
+}
 .secondary:hover { background:#dbeafe; }
 
 /* ==========================
    IFRAMES & EMBEDS
    ========================== */
 iframe {
-  width:100%; height:500px; border:none; border-radius:12px;
-  background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,.06); margin:1rem 0;
+  width:100%;
+  height:500px;
+  border:none;
+  border-radius:12px;
+  background:#fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  margin:1rem 0;
 }
-.frame-caption { text-align:center; color:#475569; font-size:.9rem; margin-top:-.5rem; margin-bottom:1.5rem; }
-.embed-placeholder { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1rem; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,.06); }
-.embed-note { color:#475569; font-size:.9rem; margin-top:.5rem; }
 
 /* ==========================
-   GUIDE CARD
-   ========================== */
-.guide-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-left: 6px solid var(--brand-dark);
-  border-radius: 14px;
-  padding: 1.25rem 1.5rem;
-  margin: 1.5rem 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  color: #222;
-}
-.guide-card h2 { margin-top:0; color: var(--brand-dark); font-size:1.35rem; border-bottom: 2px solid #e5e7eb; padding-bottom:.3rem; }
-.guide-card h3 { color: var(--brand-dark); margin-top:1.25rem; font-size:1.1rem; }
-.guide-card ul.steps { list-style:disc; padding-left:1.5rem; margin:.5rem 0 1rem; }
-.guide-card ul.steps li { margin:.4rem 0; }
-.guide-card .formula {
-  background:#f9fafb; border:1px solid #cbd5e1; border-radius:8px; padding:.75rem 1rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.95rem; margin:1rem 0; color: var(--brand-dark);
-}
-.guide-card ul.ratios { list-style:none; padding:0; margin:0; }
-.guide-card ul.ratios li {
-  background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:.4rem .75rem; margin:.3rem 0;
-  display:flex; justify-content:space-between; font-size:.95rem;
-}
-.guide-card .example { margin-top:1rem; background: var(--brand-tint); border:1px solid #c7d2fe; border-radius:8px; padding:.75rem 1rem; color: var(--brand-dark); font-size:.95rem; }
-.guide-card .example code { background:#e0e7ff; padding:.1rem .35rem; border-radius:4px; }
-
-/* ==========================
-   KO GRID (two definitions consolidated)
+   KO GRID
    ========================== */
 .ko-grid {
   display:grid;
@@ -338,131 +275,92 @@ iframe {
 /* ==========================
    DOODLE ICON
    ========================== */
-.doodle-icon { width:24px; height:24px; stroke: var(--brand-dark); stroke-width:2; fill:none; }
+.doodle-icon {
+  width:24px;
+  height:24px;
+  stroke: var(--brand-dark);
+  stroke-width:2;
+  fill:none;
+}
 
 /* ==========================
-   PDF FULLSCREEN MODAL
+   PDF FULLSCREEN MODAL – NOTEBOOK STYLE
    ========================== */
 #pdfModal {
-  display:none; position:fixed; inset:0; z-index:999;
-  background: rgba(0,0,0,.65); backdrop-filter: blur(8px);
-  justify-content:center; align-items:center; opacity:0; transition: opacity .3s ease;
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
-#pdfModal.active { display:flex; opacity:1; }
+#pdfModal.active {
+  display: flex;
+  opacity: 1;
+}
+
 .pdf-modal-content {
-  background: var(--card); width:100%; height:100%; display:flex; flex-direction:column; position:relative;
-  animation: popIn .25s ease; box-shadow: 0 0 40px rgba(0,0,0,.4);
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: popIn 0.25s ease;
+
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000; /* notebook card style */
 }
+
 .pdf-modal-header {
-  position:relative; background: var(--brand-dark); color:#fff; padding:.7rem 3rem .7rem 1rem;
-  display:flex; align-items:center; justify-content:center; border-bottom:1px solid rgba(255,255,255,.15); font-weight:600; font-size:1rem;
+  position: relative;
+  background: #fffbeb; /* pale notebook strip */
+  color: #111827;
+  padding: 0.7rem 3rem 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #000;
+  font-weight: 700;
+  font-size: 1rem;
 }
-.pdf-modal-header h3 { margin:0; font-size:1rem; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#fff; }
-#closePdf {
-  position:absolute; top:5%; right:5px; transform: translateY(-50%); background:transparent; border:none; color:#fff;
-  font-size:1.6rem; line-height:1; cursor:pointer; z-index:10; transition: transform .15s ease, color .2s ease;
+.pdf-modal-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #111;
 }
-#closePdf:hover { transform: translateY(-50%) scale(1.15); color:#e2e8f0; }
+
 #pdfFrame {
-  flex:1; width:90%; height:90%; margin:0 auto; border:none; background:#000; box-shadow: 0 0 20px rgba(0,0,0,.4); border-radius:6px;
+  flex: 1;
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  border: 2px solid #000;
+  background: #000;
+  box-shadow: 3px 3px 0 #000;
+  border-radius: 0.6rem;
 }
-@keyframes popIn { from { opacity:0; transform: scale(.98); } to { opacity:1; transform: scale(1); } }
-@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
 
+/* Notebook-style pop animation */
+@keyframes popIn {
+  from { opacity: 0; transform: translate(-3px, -3px); }
+  to   { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
 /* ==========================
-   RESPONSIVE (≤700px)
-   ========================== */
-@media (max-width: 700px) {
-  body { font-size:.95rem; line-height:1.5; padding:0; }
-  header { padding:.75rem; font-size:1.1rem; }
-  main { margin:1rem auto; padding:0 .75rem; }
-
-  .index-grid, .ko-grid { grid-template-columns:1fr; gap:1rem; }
-
-  .index-card, .resource-section, .guide-card { padding:.75rem; border-radius:10px; }
-  .page-intro { padding:.75rem; }
-  .sections { gap:.75rem; }
-
-  .task-table, .investigate-table, .assessment-table {
-    font-size:.9rem; display:block; overflow-x:auto; border-radius:8px;
-  }
-
-  .media { flex-direction:column; text-align:center; }
-  .media img, .code img { width:100%; height:auto; }
-
-  .instructions { padding:.75rem; font-size:.9rem; }
-
-  .btn, button, .secondary { width:100%; font-size:1rem; }
-
-  iframe { height:300px; }
-  footer { font-size:.85rem; padding:1.5rem 1rem; }
-}
-
-/* ==========================
-   PRINT (friendly)
-   ========================== */
-@media print {
-  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-
-  html, body {
-    background:#fff !important; color:#111 !important;
-    font: 12pt/1.5 Arial, Helvetica, sans-serif;
-  }
-
-  header, footer {
-    background:none !important; color:#111 !important; border:0 !important; box-shadow:none !important; text-align:center;
-  }
-
-  header h1 { margin:0 0 .25rem; font-size:1.5rem; }
-
-  main { max-width:none; margin:0; padding:0; }
-
-  /* hide interactive */
-  .tabs, .tab-btn, .btn, button, .secondary, #showAnswers, .hint, .steps, .embed-placeholder, .tick input, .toolbar {
-    display:none !important;
-  }
-
-  .tab-content { display:block !important; }
-  .answer { display:block !important; }
-
-  .resource-section, .guide-card, .page-intro {
-    background:#fff !important; border:1px solid #ddd !important; box-shadow:none !important;
-    page-break-inside: avoid; margin:0 0 1.2cm 0; padding:.75cm; border-radius:0;
-  }
-
-  table, .task-table, .investigate-table {
-    width:100% !important; border-collapse:collapse !important; border:1px solid #ccc !important;
-  }
-
-  .task-table thead th, .investigate-table thead th {
-    background:#f1f5f9 !important; color:#111 !important; position:static !important;
-  }
-
-  .task-table th, .task-table td, .investigate-table th, .investigate-table td {
-    border:1px solid #ccc !important; padding:6pt 8pt !important; vertical-align:top;
-  }
-
-  .task-table tr, .investigate-table tr { page-break-inside: avoid; }
-
-  pre, .output-box {
-    background:#fff !important; color:#111 !important; border:1px solid #ccc !important; box-shadow:none !important;
-    white-space: pre-wrap; word-break: break-word; padding:10pt !important;
-  }
-
-  img { max-width:50% !important; height:auto !important; }
-  .media img { width:100% !important; }
-  iframe { display:none !important; }
-  .frame-caption { display:block !important; color:#555; font-size:10pt; }
-
-  p, li { orphans:3; widows:3; }
-  h2, h3 { page-break-after: avoid; }
-
-  @page { margin: 1.5cm; }
-}
-
-/* =====================================================================
    NOTEBOOK / SKETCH STYLE EXTENSION
-   ===================================================================== */
+   ========================== */
 
 /* Background: faint ruled paper */
 body.notebook {
@@ -471,9 +369,7 @@ body.notebook {
     #fff,
     #fff 24px,
     #f2f2f2 25px
-
   );
-
   background-attachment: fixed;
   color: #111;
 }
@@ -537,10 +433,7 @@ body.notebook .card::after {
   pointer-events: none;
   opacity: 0.5;
 }
-body.notebook .card:hover {
-  transform: translateY(-6px) rotate(1deg);
-  box-shadow: 5px 5px 0 #000;
-}
+
 body.notebook .card a {
   color: inherit;
   text-decoration: none;
@@ -562,15 +455,11 @@ body.notebook footer {
   margin-top: 2rem;
 }
 
-
-/* =====================================================================
-   OPTIONAL NOTEBOOK PAGE BORDER + HOLE EFFECT
-   ===================================================================== */
+/* Notebook border */
 body.notebook-border {
   position: relative;
   overflow: hidden;
 }
-
 body.notebook-border::before {
   content: "";
   position: fixed;
@@ -589,7 +478,6 @@ body.notebook-border::before {
   background-size: 100% 80px;
   opacity: 0.4;
 }
-
 body.notebook-border::after {
   content: "";
   position: fixed;
@@ -605,9 +493,7 @@ body.notebook-border::after {
   opacity: 0.7;
 }
 
-/* =====================================================================
-   NOTEBOOK MARGIN LINE (FAINT RED STRIPE ON LEFT EDGE)
-   ===================================================================== */
+/* Notebook margin line */
 body.notebook-margin {
   background:
     linear-gradient(to bottom, #fff 24px, #f2f2f2 25px),
@@ -619,9 +505,7 @@ body.notebook-margin {
   background-attachment: fixed;
 }
 
-/* =====================================================================
-   DARK MODE NOTEBOOK (CHALKBOARD STYLE)
-   ===================================================================== */
+/* Dark notebook theme */
 body.notebook-dark {
   background-color: #1a1a1a;
   background-image:
@@ -631,24 +515,20 @@ body.notebook-dark {
   color: #eee;
   font-family: 'Segoe UI', sans-serif;
 }
-
 body.notebook-dark header {
   color: #fff;
   text-align: center;
   padding: 2rem 1rem 1rem;
 }
-
 body.notebook-dark header h1 {
   font-family: "Comic Sans MS", "Marker Felt", "Segoe Print", cursive;
   font-size: 2.2rem;
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
 }
-
 body.notebook-dark .subtitle {
   color: #ccc;
   font-style: italic;
 }
-
 body.notebook-dark .card {
   background: #222;
   border: 2px solid #fff;
@@ -663,18 +543,14 @@ body.notebook-dark .card:hover {
   transform: translateY(-6px) rotate(1deg);
   box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.8);
 }
-
 body.notebook-dark .doodle-icon,
 body.notebook-dark .doodle {
   stroke: #fff;
 }
-
 body.notebook-dark footer {
   border-top: 2px dashed rgba(255, 255, 255, 0.7);
   color: #ccc;
 }
-
-/* Optional faint chalk smudge texture */
 body.notebook-dark::after {
   content: "";
   position: fixed;
@@ -685,9 +561,7 @@ body.notebook-dark::after {
   z-index: 0;
 }
 
-/* =====================================================================
-   NOTEBOOK THEME TOGGLE BUTTON
-   ===================================================================== */
+/* Theme toggle button */
 #themeToggle {
   position: fixed;
   bottom: 20px;
@@ -711,107 +585,564 @@ body.notebook-dark #themeToggle {
   background: #222;
   color: #fff;
   border-color: #fff;
-  box-shadow: 3px 3px 0 #fff;
+  box-shadow: 3px 3px 0 #000;
 }
-/* =====================================================================
-   REVISION MAT PAGE STYLES
-   ===================================================================== */
+
 /* ==========================
-   REVISION MAT — FULL-WIDTH, 2-COLUMN
+   KEYWORDS MODAL – NOTEBOOK STYLE
    ========================== */
-
-/* Make this page's <main> span the full viewport width */
-main.fullwidth {
-  max-width: none;          /* override the global main { max-width: 980px } */
-  width: 100%;
-  margin: 2rem 0;
-  padding: 0 2vw 3rem;      /* small breathable gutters */
+#keywordsModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+#keywordsModal.active {
+  display: flex;
 }
 
-/* 2 columns that fill the screen */
-.revision-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  width: 100%;
-}
-
-/* 1 column on small screens */
-@media (max-width: 800px) {
-  .revision-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Big “revision boxes” */
-.rev-card {
+.keywords-modal-content {
   background: #fff;
+  border-radius: 1rem;
+  max-width: 900px;
+  width: 95%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;  /* notebook card shadow */
+}
+
+.keywords-modal-header {
+  background: #fffbeb; /* pale notebook strip */
+  color: #111827;
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #000;
+}
+.keywords-modal-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.keywords-modal-header button {
+  margin: 0;
+  padding: 0.15rem 0.6rem;
+  font-size: 1.1rem;
+  background: #fff;
+  color: #111;
+  border-radius: 999px;
+  border: 2px solid #000;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #000;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.keywords-modal-header button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #000;
+}
+
+.keywords-modal-content .body {
+  padding: 1rem 1.2rem 1.2rem;
+  overflow-y: auto;
+  background: #fff;
+}
+#keywordsIntro {
+  margin: 0 0 0.75rem;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+/* ==========================
+   KEYWORD CARDS – NOTEBOOK STYLE
+   ========================== */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+}
+
+/* Notebook card container */
+.keyword-card {
+  perspective: 900px;
+}
+
+/* Shared front/back styling */
+.keyword-card .keyword-front,
+.keyword-card .keyword-back {
+  padding: 0.85rem;
+  border-radius: 1rem;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-size: 1rem;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+
+  transition: transform .4s ease;
+}
+
+/* FRONT */
+.keyword-card .keyword-front {
+  color: #111;
+}
+
+/* BACK (notebook darker panel) */
+.keyword-card .keyword-back {
+  background: #fffbeb; /* Pale yellow notebook look */
+  border-color: #000;
+  color: #111;
+  transform: rotateY(180deg);
+}
+
+/* HOVER – NO LIFTING / NO GLOW (kept notebook-flat) */
+.keyword-card:hover .keyword-front,
+.keyword-card:hover .keyword-back {
+  box-shadow: 3px 3px 0 #000; /* keep flat, no animation */
+}
+
+/* FLIP ANIMATION */
+.keyword-card.show .keyword-front {
+  transform: rotateY(180deg);
+}
+.keyword-card.show .keyword-back {
+  transform: rotateY(360deg);
+}
+
+/* ==========================
+   TOPIC TABLE – NOTEBOOK STYLE
+   ========================== */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0 1.5rem;
+  background: #fff;
+
   border: 2px solid #000;
   border-radius: 1rem;
   box-shadow: 3px 3px 0 #000;
-  padding: 1.5rem;
-  min-height: 300px;        /* taller cards */
-  display: flex;
-  flex-direction: column;
-  transition: transform .2s ease, box-shadow .2s ease;
+  overflow: hidden;
 }
-.rev-card:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 #000; }
-.rev-card h2 { margin: 0 0 .6rem; font-size: 1.2rem; }
-
-.rev-card ul {
-  list-style: disc;
-  padding-left: 1.2rem;
-  margin: .5rem 0 1rem;
-}
-
-/* Optional image placeholder you’ll replace later */
-.doodle-image {
-  width: 100%;
-  aspect-ratio: 16 / 9;           /* keeps a nice banner shape */
-  border: 2px dashed #000;        /* shows there’s a spot for an image */
-  border-radius: .75rem;
-  margin: 0 0 1rem;
-  background: repeating-linear-gradient(
-    -45deg,
-    #fafafa 0, #fafafa 8px,
-    #f2f2f2 8px, #f2f2f2 16px
-  );
-}
-
-/* Notes box fills width and sits at bottom nicely */
-.rev-card textarea {
-  width: 100%;
-  min-height: 400px;
-  resize: vertical;
+th, td {
   border: 1px solid #000;
-  border-radius: 8px;
-  padding: .6rem;
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+}
+th {
+  background: #fef3c7; /* soft yellow “tab” header */
+  font-weight: 700;
+}
+
+a.pdf-link {
+  color: var(--brand-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+a.pdf-link:hover {
+  text-decoration: underline;
+}
+
+/* Topic sections – collapsible (notebook cards) */
+.topic-section {
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+}
+.topic-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  border-bottom: 1px dashed #000;
+  background: #fffbeb; /* pale notebook tab */
+}
+.topic-arrow {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+  color: #111827;
+}
+.topic-section.expanded .topic-arrow {
+  transform: rotate(90deg);
+}
+.topic-body {
+  padding: 0.75rem 0.9rem 0.9rem;
+  background: #fff;
+}
+.topic-section.collapsed .topic-body {
+  display: none;
+}
+
+
+/* ==========================
+   JUMP123 CODE BLOCK IMAGE RESIZING
+   ========================== */
+.code {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.code img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  max-height: 800px;      /* prevents giant code images */
+  object-fit: contain;    /* scale without distortion */
+  margin: 0 auto;
+  border: 2px solid #000;
+  border-radius: 0.75rem;
+  box-shadow: 3px 3px 0 #000;
+  background: #fff;
+}
+/* ==========================
+   JUMP123 TABS – NOTEBOOK STYLE
+   ========================== */
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 1rem;
+  padding: 0 0 0.25rem;
+  border-bottom: 2px solid #000;
+}
+
+/* Override global button look for tab buttons */
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.55rem 1.1rem;
+
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-bottom: none;
+  border-radius: 0.75rem 0.75rem 0 0;
+
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 3px 3px 0 #000;
+  cursor: pointer;
+  opacity: 0.75;
+
+  position: relative;
+  top: 2px; /* so the active tab "sits" on the border line */
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease, top 0.15s ease;
+}
+
+/* Active tab (matches notebook/sketch vibe) */
+.tab-btn[aria-selected="true"] {
+  background: #fffbeb; /* pale yellow “tab” */
+  opacity: 1;
+  top: 0;
+  box-shadow: 4px 4px 0 #000;
+}
+
+/* Hover only on inactive tabs */
+.tab-btn[aria-selected="false"]:hover {
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: 4px 4px 0 #000;
+  opacity: 0.95;
+}
+
+/* Tab panels */
+.tab-content {
+  display: none;
+  margin-top: 0.5rem;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ==========================
+   JUMP123 TABLES – NOTEBOOK DIVIDERS
+   ========================== */
+
+.investigate-table,
+.task-table,
+.assessment-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0 1.5rem;
+  background: #fff;
+
+  border: 2px solid #000;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 0 #000;
+  overflow: hidden;
+}
+
+/* Header “tab strip” */
+.investigate-table thead th,
+.task-table thead th,
+.assessment-table thead th {
+  background: #fef3c7;            /* soft yellow divider tab */
+  border-bottom: 2px solid #000;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+}
+
+/* Cells */
+.investigate-table th,
+.investigate-table td,
+.task-table th,
+.task-table td,
+.assessment-table th,
+.assessment-table td {
+  border: 1px solid #000;
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+  font-size: 0.9rem;
+}
+
+/* Zebra rows for notebook “lines” */
+.investigate-table tbody tr:nth-child(even),
+.task-table tbody tr:nth-child(even),
+.assessment-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Last column (checkbox / answer) centering where appropriate */
+.task-table td:last-child,
+.assessment-table td:last-child {
+  text-align: center;
+  width: 3rem;
+}
+
+/* Textareas inside tables fill the cell but stay tidy */
+.investigate-table textarea,
+.task-table textarea {
+  width: 100%;
+  min-height: 60px;
+  border-radius: 0.5rem;
+  border: 1px dashed #9ca3af;
+  padding: 0.4rem 0.5rem;
   font-family: inherit;
-  margin-top: auto;               /* pushes textarea to the bottom so cards look even */
+  font-size: 0.9rem;
+  resize: vertical;
+  box-sizing: border-box;
 }
 
-/* Dark mode tweaks */
-body.notebook-dark .rev-card {
-  background: #222; color: #fff; border-color: #fff; box-shadow: 3px 3px 0 #fff;
-}
-body.notebook-dark .doodle-image {
-  border-color: #fff;
-  background: repeating-linear-gradient(
-    -45deg,
-    #2a2a2a 0, #2a2a2a 8px,
-    #222 8px, #222 16px
-  );
-}
-body.notebook-dark .rev-card textarea {
-  background: #111; color: #fff; border-color: #fff;
+/* Slight tighten on small screens */
+@media (max-width: 700px) {
+  .investigate-table,
+  .task-table,
+  .assessment-table {
+    font-size: 0.85rem;
+    box-shadow: 2px 2px 0 #000;
+  }
 }
 
-/* Keep page scrolling happy */
-html, body { overflow-y: auto; }
+/* ==========================
+   RESPONSIVE (≤700px)
+   ========================== */
+@media (max-width: 700px) {
+  body {
+    font-size:.95rem;
+    line-height:1.5;
+    padding:0;
+  }
+  header {
+    padding:.75rem;
+    font-size:1.1rem;
+  }
+  main {
+    margin:1rem auto;
+    padding:0 .75rem;
+  }
 
-/* Ensure scrolling works even with modal open */
-html, body {
-  overflow-y: auto;
-  scroll-behavior: smooth;
+  .index-grid, .ko-grid {
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+
+  .index-card, .resource-section, .card {
+    padding:.75rem;
+    border-radius:10px;
+  }
+
+  table {
+    font-size:.9rem;
+    display:block;
+    overflow-x:auto;
+    border-radius:8px;
+  }
+
+  iframe { height:300px; }
+  footer {
+    font-size:.85rem;
+    padding:1.5rem 1rem;
+  }
 }
 
+/* ==========================
+   FAST FOUR SET COLOURS & UI
+   ========================== */
+
+/* Colour variants for the Fast Four cards */
+.card.yellow {
+  border-top: 4px solid #facc15; /* amber */
+  background: linear-gradient(180deg, #fefce8, #fef9c3);
+}
+
+.card.pink {
+  border-top: 4px solid #f472b6;
+  background: linear-gradient(180deg, #fdf2f8, #fce7f3);
+}
+
+.card.green {
+  border-top: 4px solid #22c55e;
+  background: linear-gradient(180deg, #ecfdf3, #dcfce7);
+}
+
+.card.blue {
+  border-top: 4px solid #3b82f6;
+  background: linear-gradient(180deg, #eff6ff, #dbeafe);
+}
+
+/* Marks badge in top-right of each card */
+.card .marks {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Answer box (hidden until button pressed) */
+.card .answer {
+  display: none;            /* JS switches to block */
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(15, 118, 110, 0.05);
+  border: 1px dashed #cbd5e1;
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+/* Text areas for student responses */
+textarea.input {
+  width: 100%;
+  min-height: 80px;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+/* Give a subtle focus outline */
+textarea.input:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 1px;
+  border-color: #3b82f6;
+}
+
+/* Make the bottom "Show Answers" button sit nicely */
+#showBtn {
+  margin-top: 1.5rem;
+}
+
+/* ==========================
+   PRINT (friendly)
+   ========================== */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html, body {
+    background:#fff !important;
+    color:#111 !important;
+    font: 12pt/1.5 Arial, Helvetica, sans-serif;
+  }
+
+  header, footer {
+    background:none !important;
+    color:#111 !important;
+    border:0 !important;
+    box-shadow:none !important;
+    text-align:center;
+  }
+
+  header h1 {
+    margin:0 0 .25rem;
+    font-size:1.5rem;
+  }
+
+  main {
+    max-width:none;
+    margin:0;
+    padding:0;
+  }
+
+  .btn, button, .secondary, .hint, .toolbar {
+    display:none !important;
+  }
+
+  .topic-section,
+  .card {
+    background:#fff !important;
+    border:1px solid #ddd !important;
+    box-shadow:none !important;
+    page-break-inside: avoid;
+    margin:0 0 1.2cm 0;
+    padding:.75cm;
+    border-radius:0;
+  }
+
+  table {
+    width:100% !important;
+    border-collapse:collapse !important;
+    border:1px solid #ccc !important;
+  }
+
+  th, td {
+    border:1px solid #ccc !important;
+    padding:6pt 8pt !important;
+    vertical-align:top;
+  }
+
+  img {
+    max-width:50% !important;
+    height:auto !important;
+  }
+
+  p, li { orphans:3; widows:3; }
+  h2, h3 { page-break-after: avoid; }
+
+  @page {
+    margin: 1.5cm;
+  }
+}

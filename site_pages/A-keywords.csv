@@ -1,0 +1,549 @@
+topic,keyword,definition
+Computer Hardware,Hardware,The physical components of a computer system.
+Computer Hardware,Software,Programs and instructions that control the hardware and perform tasks.
+Computer Hardware,Input Device,"Hardware used to enter data into a computer (e.g. keyboard, mouse, scanner)."
+Computer Hardware,Output Device,"Hardware that presents processed data (e.g. monitor, printer, actuator)."
+Computer Hardware,Peripheral,"External device connected to a computer (e.g. printer, keyboard)."
+Computer Hardware,Control Unit (CU),Directs and coordinates operations of the CPU; manages the Fetch–Decode–Execute cycle.
+Computer Hardware,Memory Unit,"Stores data, instructions, and parts of the OS currently in use."
+Computer Hardware,Arithmetic Logic Unit (ALU),Performs arithmetic and logical operations within the CPU.
+Computer Hardware,Register,"A small, fast storage location within the CPU used to temporarily hold data or instructions."
+Computer Hardware,Program Counter (PC),Holds the address of the next instruction to be executed.
+Computer Hardware,Memory Address Register (MAR),Stores the memory address of data or an instruction to be accessed.
+Computer Hardware,Memory Data Register (MDR),Temporarily holds data being transferred to or from memory.
+Computer Hardware,Current Instruction Register (CIR),Holds the instruction currently being decoded or executed.
+Computer Hardware,Accumulator (ACC),Temporarily stores results of arithmetic and logical operations.
+Computer Hardware,Bus,"A set of parallel wires that carry data, addresses, or control signals between CPU components."
+Computer Hardware,Data Bus,Transfers data between CPU and memory.
+Computer Hardware,Address Bus,Carries the memory address of where data or instructions are located.
+Computer Hardware,Control Bus,Carries control signals like read/write and interrupt requests.
+Computer Hardware,Fetch–Decode–Execute Cycle,"Cycle by which the CPU retrieves, interprets, and executes instructions."
+Computer Hardware,RAM,Volatile memory used to store data and programs currently in use. Allows read/write access.
+Computer Hardware,ROM,Non-volatile memory containing permanent instructions like the bootstrap loader.
+Computer Hardware,Virtual Memory,Uses secondary storage as temporary RAM when physical memory is full; slower access.
+Computer Hardware,Von Neumann Architecture,Stores data and instructions together in one memory space using a single bus (causes bottleneck).
+Computer Hardware,Harvard Architecture,"Uses separate memories and buses for data and instructions, allowing concurrent access."
+Computer Hardware,Contemporary Processor,"Hybrid of Von Neumann and Harvard; uses cache, pipelining, and multiple cores."
+Computer Hardware,CISC,"Complex Instruction Set Computer; many complex instructions, slower but easier to program."
+Computer Hardware,RISC,"Reduced Instruction Set Computer; simple instructions, faster execution, efficient for embedded systems."
+Computer Hardware,Clock Speed,"Rate of instruction cycles per second, measured in hertz (Hz)."
+Computer Hardware,Cores,Independent processing units within a CPU that can run instructions simultaneously.
+Computer Hardware,Cache,"Small, fast memory near CPU storing frequently used instructions/data to improve performance."
+Computer Hardware,Pipelining,"Overlapping FDE stages to process multiple instructions simultaneously, increasing throughput."
+Computer Hardware,Parallel Processing,Using multiple processors or cores to execute tasks simultaneously for higher performance.
+Computer Hardware,Co-Processor,A secondary processor dedicated to specific tasks (e.g. GPU for graphics).
+Computer Hardware,Hyper-Threading,Technology allowing one physical core to handle multiple threads simultaneously.
+Computer Hardware,GPU,Graphics Processing Unit; performs parallel computations for graphics rendering and AI tasks.
+Computer Hardware,Magnetic Storage,Uses magnetized regions on spinning disks to represent binary data (e.g. HDD).
+Computer Hardware,Optical Storage,"Uses lasers to read/write data as pits and lands on discs (e.g. CD, DVD)."
+Computer Hardware,Solid State Storage (SSD),Uses NAND flash memory chips to store data electronically without moving parts.
+Software,Application Software,"Programs designed for end users to perform specific tasks such as word processing, databases, or web browsing."
+Software,Word Processor,"Software for creating, editing, formatting, and printing text documents (e.g. Microsoft Word, Google Docs)."
+Software,Database Management Software,"Used for storing, retrieving, and manipulating structured data (e.g. MySQL, Oracle)."
+Software,Web Browser,"Enables users to access and navigate the web (e.g. Google Chrome, Firefox)."
+Software,Graphics Manipulation Software,"Used to edit and manipulate images and graphics (e.g. Adobe Photoshop, GIMP)."
+Software,Spreadsheet Software,"Used to organize, calculate, and analyze numerical data (e.g. Excel, Google Sheets)."
+Software,Presentation Software,"Used for creating multimedia presentations (e.g. PowerPoint, Keynote)."
+Software,Antivirus Software,"Protects the computer from malware, viruses, and other threats (e.g. Norton, McAfee)."
+Software,Email Client,"Manages and accesses email from multiple providers (e.g. Outlook, Thunderbird)."
+Software,Video Editing Software,"Used for editing and producing videos (e.g. Adobe Premiere, Final Cut Pro)."
+Software,Integrated Development Environment (IDE),"Provides tools for developing, testing, and debugging software (e.g. Visual Studio, IntelliJ IDEA)."
+Software,Virtualisation Software,"Creates and runs virtual machines on a single physical computer (e.g. VMware, VirtualBox)."
+Software,Utility Software,"System tools that maintain, analyze, or optimize computer performance, supporting the OS."
+Software,Disk Defragmentation,Rearranges files on a hard drive to improve efficiency by minimizing empty spaces; improves file access speed.
+Software,File Management,"Allows users to create, rename, move, and delete files (e.g. Windows Explorer, Finder)."
+Software,Device Driver,"Software interface between hardware and OS, enabling communication with devices (e.g. printer driver)."
+Software,System Cleanup,"Removes temporary files and junk data to free up storage (e.g. Disk Cleanup, CCleaner)."
+Software,Security Utilities,Protects system from threats like malware or spyware (e.g. Windows Defender).
+Software,Open Source Software,"Software whose source code is freely available for use, modification, and redistribution (e.g. Linux, Apache)."
+Software,Closed Source Software,"Proprietary software with hidden source code (e.g. Microsoft Windows, Adobe Photoshop)."
+Software,Operating System (OS),"System software that manages hardware, software, and provides a user interface (e.g. Windows, Linux)."
+Software,Single-User OS,Allows only one user to operate the system at a time.
+Software,Multi-Tasking OS,Allows multiple programs to run simultaneously by allocating processor time to each.
+Software,Multi-User OS,Supports multiple users at the same time using time slices and security controls.
+Software,Distributed OS,Manages multiple computers working together on a shared task.
+Software,Embedded OS,A specialized OS designed for dedicated devices; limited and read-only.
+Software,Real-Time OS,"Executes tasks within a guaranteed time frame (used in self-driving cars, gaming, booking systems)."
+Software,Graphical User Interface (GUI),"Uses icons, windows, and menus; user interacts with mouse or touchscreen."
+Software,Menu-Based Interface,"Offers a list of options for users to choose from (e.g. ATMs, kiosks)."
+Software,Form-Based Interface,"Uses fields for structured data entry (e.g. databases, online forms)."
+Software,Natural Language Interface (NLI),"Allows user input in everyday language (e.g. Siri, Alexa)."
+Software,Compression Software,Reduces file size for storage or transmission (e.g. WinZip).
+Software,Backup Utilities,Create copies of data to prevent loss (e.g. cloud backups).
+Software,Interrupt,A signal that temporarily halts the CPU’s current task to handle an event (e.g. keyboard input).
+Software,Interrupt Service Routine (ISR),Software routine executed in response to an interrupt (e.g. timer or network interrupt).
+Software,Scheduling,Method for managing CPU time and task execution efficiently.
+Software,Round Robin Scheduling,Each job gets equal processor time slices in a cyclic order.
+Software,"First Come, First Served",Jobs are executed in the order they arrive.
+Software,Multi-Level Feedback Queues,Processes are grouped by priority and can move between queues.
+Software,Shortest Job First,Executes shortest tasks first for efficiency.
+Software,Shortest Time Remaining,Runs the process with the least time left (preemptive scheduling).
+Software,Memory Management,OS function that handles allocation and deallocation of main memory resources.
+Software,Paging,Divides memory into fixed-size pages to manage processes; may cause internal fragmentation.
+Software,Segmentation,Divides memory into variable-size segments based on logical divisions; may cause external fragmentation.
+Software,Virtual Memory,Uses part of the hard disk as temporary RAM when physical memory is full.
+Software,Disk Thrashing,Occurs when excessive swapping between RAM and virtual memory slows the system.
+Software,BIOS,Firmware that performs Power-On Self Test (POST) and loads the OS during startup.
+Software,Virtual Machine (VM),"A software-based emulation of a physical computer, allowing multiple OSs to run simultaneously."
+Software,Device Driver (detailed),"Specialized software that allows the OS to communicate with hardware components (e.g. printers, GPUs)."
+Exchanging Data,Compression,The process of reducing file size to speed up data transfer and save storage space. It improves transmission times and reduces bandwidth usage. Example: compressing images or videos for web streaming.
+Exchanging Data,Lossy Compression,"A compression method that discards some data to significantly reduce file size. It is irreversible and commonly used for media files like MP3s, JPEGs, or streaming video where perfect accuracy is not critical."
+Exchanging Data,Lossless Compression,"A method that compresses data without any loss of information, allowing it to be perfectly restored. Used for text files, databases, and applications where data integrity is essential (e.g., ZIP files)."
+Exchanging Data,Run Length Encoding (RLE),A simple lossless compression method that replaces consecutive repeating elements with a count and value. Example: 'AAAABBBCCDAA' becomes '4A3B2C1D2A'. Common in bitmap images where pixel colors repeat.
+Exchanging Data,Dictionary Coding,"Compression method that replaces recurring sequences with shorter, unique codes stored in a dictionary. Example: Replacing repeated words like 'QuickSort' with a single letter code. Widely used in text and data compression algorithms such as LZ77."
+Exchanging Data,Encryption,"The process of converting readable data (plaintext) into unreadable form (ciphertext) to prevent unauthorized access. Used in secure communication, banking, and data storage. Example: HTTPS encryption when sending web data."
+Exchanging Data,Symmetric Encryption,"Encryption where the same key is used for both encryption and decryption. It is fast and efficient for large data (e.g., AES) but requires secure key sharing between parties."
+Exchanging Data,Asymmetric Encryption,"Encryption that uses two keys: a public key for encryption and a private key for decryption. More secure but slower. Used in digital signatures, SSL/TLS, and secure communications like banking logins."
+Exchanging Data,Public Key,A key used in asymmetric encryption to encrypt data. It is shared openly and paired with a private key for decryption.
+Exchanging Data,Private Key,The secret key in asymmetric encryption used to decrypt data encrypted with the corresponding public key. Must be kept secure by the owner.
+Exchanging Data,Key Exchange Problem,A challenge in symmetric encryption where securely transmitting the shared key to both sender and receiver can expose data if intercepted.
+Exchanging Data,Hashing,A one-way process that converts input data into a fixed-length string (hash digest). Used for data verification and password storage. Example: hashing a password before storing it in a database.
+Exchanging Data,Hash Digest,"The fixed-size output string generated by a hash function, representing the input data in condensed form."
+Exchanging Data,MD5,Message Digest 5 — a hashing algorithm producing 128-bit hashes. Fast but insecure due to vulnerability to collisions. Historically used in checksums.
+Exchanging Data,SHA-1,Secure Hash Algorithm 1 — creates 160-bit hashes. Previously used in SSL and software verification but now deprecated due to security flaws.
+Exchanging Data,SHA-256,"Part of the SHA-2 family — generates a 256-bit hash. Commonly used in digital signatures, blockchain, and password protection."
+Exchanging Data,SHA-3,Newest member of the SHA family offering improved resistance to collision and preimage attacks. Suitable for modern cryptographic applications.
+Exchanging Data,Collision,"Occurs when two different inputs produce the same hash output, reducing hash function reliability. Strong algorithms minimize this risk."
+Exchanging Data,Password Hashing,"The practice of storing passwords as hash digests instead of plaintext. When users log in, their entered password is hashed and compared with the stored hash. Prevents exposure in data breaches."
+Exchanging Data,Data Integrity,Ensuring data remains accurate and unaltered during transfer or storage. Verified using hashing — matching hash digests confirm data authenticity.
+Exchanging Data,Hash Table,A data structure using hashing to enable fast data retrieval. Example: using email hash values to quickly find users in a database.
+Exchanging Data,Data Verification,"Checking data accuracy using hashing or checksums. For instance, comparing file hashes before and after transmission ensures integrity."
+Exchanging Data,Encryption vs Hashing,"Encryption is reversible (data can be decrypted) and used for confidentiality, while hashing is one-way and used for verification or authentication."
+Exchanging Data,Symmetric Encryption Use Cases,"Used for encrypting large files and databases efficiently, where both encryption and decryption are handled by the same entity."
+Exchanging Data,Asymmetric Encryption Use Cases,"Used for secure communication between parties, digital signatures, and authentication, such as SSL certificates and email encryption."
+Exchanging Data,Hashing in Databases,Used to speed up data lookups. Example: using hash digests of user emails as keys for faster retrieval in hash tables.
+Exchanging Data,Integrity Check,The process of verifying that data has not been altered during transmission. Achieved by comparing hash digests before and after transfer.
+Exchanging Data,Compression Ratio,A metric describing how much a file’s size is reduced through compression. Example: 4:1 means the compressed file is one-fourth the original size.
+Web Languages,HTML (HyperText Markup Language),The standard markup language for creating web pages and structuring content. Example: &lt;html&gt;...&lt;/html&gt; defines the structure of an HTML document.
+Web Languages,<html> Tag,The root element of an HTML page containing all other tags. Example: &lt;html&gt;...&lt;/html&gt;
+Web Languages,<head> Tag,"Contains metadata, title, styles, and links to external resources. Example: &lt;head&gt;&lt;title&gt;Home&lt;/title&gt;&lt;/head&gt;"
+Web Languages,<title> Tag,Sets the page title shown in the browser tab. Example: &lt;title&gt;Home&lt;/title&gt;
+Web Languages,<body> Tag,Holds all the visible page content. Example: &lt;body&gt;&lt;h1&gt;Welcome&lt;/h1&gt;&lt;/body&gt;
+Web Languages,<h1>–<h6> Tags,Heading tags used for page titles and section headings. &lt;h1&gt; is largest and &lt;h6&gt; is smallest. Example: &lt;h2&gt;Subheading&lt;/h2&gt;
+Web Languages,<p> Tag,Defines a paragraph. Example: &lt;p&gt;This is a paragraph.&lt;/p&gt;
+Web Languages,<a> Tag (Anchor),Creates a hyperlink to another page or site. Example: &lt;a href=&quot;https://example.com&quot;&gt;Visit Site&lt;/a&gt;
+Web Languages,<img> Tag,"Displays an image with attributes (src, alt, width/height). Example: &lt;img src=&quot;logo.png&quot; alt=&quot;Logo&quot; width=&quot;100&quot;&gt;"
+Web Languages,<div> Tag,Groups elements for styling or scripting. Example: &lt;div class=&quot;container&quot;&gt;&lt;/div&gt;
+Web Languages,<form> Tag,Collects user input. Example: &lt;form action=&quot;/submit&quot; method=&quot;post&quot;&gt;&lt;/form&gt;
+Web Languages,<input> Tag,Defines input fields. Example: &lt;input type=&quot;text&quot; name=&quot;user&quot;&gt; (also &lt;input type=&quot;submit&quot; value=&quot;Send&quot;&gt;)
+Web Languages,<ul> & <ol> Tags,Define unordered (bulleted) and ordered (numbered) lists. Example: &lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;
+Web Languages,<li> Tag,Defines an item inside a list. Example: &lt;li&gt;Item&lt;/li&gt;
+Web Languages,<script> Tag,Embeds or links JavaScript. Example: &lt;script&gt;alert(&quot;Hi!&quot;);&lt;/script&gt;
+Web Languages,CSS (Cascading Style Sheets),"Controls layout, color, and fonts of HTML elements. Example: h1 { color: blue; }"
+Web Languages,Inline CSS,CSS written directly in a tag’s style attribute. Example: &lt;p style=&quot;color:red;&quot;&gt;Text&lt;/p&gt;
+Web Languages,Internal CSS,CSS written inside a &lt;style&gt; tag in the &lt;head&gt;. Example: &lt;style&gt;body {background: yellow;}&lt;/style&gt;
+Web Languages,External CSS,CSS in a separate file linked to the HTML. Example: &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+Web Languages,.class Selector,Targets elements sharing a class attribute. Example: .note { color: green; }
+Web Languages,#id Selector,Targets a single unique element. Example: #header { background: gray; }
+Web Languages,Common CSS Properties,"background-color, border-style, border-color, border-width, color (named or hex), font-family, font-size, height, width."
+Web Languages,JavaScript,"A scripting language for dynamic, interactive web pages. Example: alert(&quot;Hello World!&quot;);"
+Web Languages,JavaScript Input,Reads user input from forms/DOM. Example: let name = document.getElementById(&quot;user&quot;).value;
+Web Languages,JavaScript Output (DOM),Updates page content dynamically. Example: document.getElementById(&quot;out&quot;).innerHTML = &quot;Hi!&quot;;
+Web Languages,document.write(),Writes text directly into the document stream. Example: document.write(&quot;Loaded&quot;);
+Web Languages,alert(),Shows a popup message to the user. Example: alert(&quot;Hello World!&quot;);
+Web Languages,DOCTYPE Declaration,Specifies the HTML version. Example: &lt;!DOCTYPE html&gt; (HTML5).
+Web Languages,HTML Structure Example,&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Page&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Welcome&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+Web Languages,Web Languages Integration,"HTML provides structure, CSS adds presentation, and JavaScript enables interactivity—together forming complete web apps."
+Networks,Network,"A group of interconnected computers that share resources, data, and services."
+Networks,Client,A computer that accesses resources or services provided by a server.
+Networks,Server,A central computer that manages network resources and services for clients.
+Networks,Peer-to-Peer (P2P),A network model where all computers have equal status and share resources directly.
+Networks,Client-Server Network,A network model where a central server manages resources and security for connected clients.
+Networks,Resource Sharing,"Users can share printers, files, and internet access."
+Networks,Centralized Management,"Administrators can manage users, permissions, and security from one location."
+Networks,Backup,Data can be backed up centrally at the server.
+Networks,High Setup Cost,"Requires servers, network cards, and cabling."
+Networks,Maintenance Complexity,Needs skilled professionals to manage.
+Networks,Security Risk,Connected systems are vulnerable to hackers.
+Networks,Network Failure,"If the server fails, all connected clients may lose access."
+Networks,Packet Switching,Data is divided into packets sent independently across the network and reassembled at the destination.
+Networks,Circuit Switching,A dedicated communication path is established for the duration of a connection.
+Networks,Header,Contains source and destination addresses and sequencing info.
+Networks,Payload,The actual data being transmitted.
+Networks,Footer (Trailer),Used for error-checking and marking the end of a packet.
+Networks,Checksum,A calculated value used to verify data integrity during transmission.
+Networks,Parity Bit,An extra bit added to detect transmission errors (even or odd parity).
+Networks,Serial Transmission,Sends bits one after another over a single channel (reliable over long distances).
+Networks,Parallel Transmission,Sends multiple bits simultaneously using several wires (faster but limited distance).
+Networks,Simplex Transmission,"One-way communication (e.g., keyboard to CPU)."
+Networks,Half Duplex,"Two-way communication, one direction at a time (e.g., walkie-talkie)."
+Networks,Full Duplex,"Two-way communication simultaneously (e.g., telephone)."
+Networks,Router,Connects networks and directs data packets based on IP addresses.
+Networks,Switch,Connects devices within a network and forwards data based on MAC addresses.
+Networks,Bridge,Connects and filters traffic between two local area networks.
+Networks,Gateway,Connects different types of networks and translates protocols.
+Networks,Repeater,Strengthens and retransmits weak signals.
+Networks,Firewall,Monitors and blocks unauthorized network traffic.
+Networks,Wireless Access Point (WAP),Enables wireless devices to connect to a wired network.
+Networks,Network Interface Card (NIC),Hardware that allows a computer to connect to a network and assigns a MAC address.
+Networks,Ethernet Cable,Physical cable used to connect devices in a wired network.
+Networks,Protocol,A set of rules governing data communication between devices.
+Networks,HTTP,Transfers web pages across the internet.
+Networks,HTTPS,Secure version of HTTP using encryption (SSL/TLS).
+Networks,FTP,Transfers files between systems.
+Networks,TCP,"Ensures reliable, ordered data delivery."
+Networks,UDP,"Fast, connectionless transmission ideal for streaming or gaming."
+Networks,IP,Handles addressing and routing of packets.
+Networks,SMTP,Sends emails between mail servers.
+Networks,POP3,Downloads emails from a mail server to a local device.
+Networks,IMAP,Allows email synchronization across multiple devices.
+Networks,Application Layer,"Determines which protocol to use based on the application (e.g., HTTP, FTP)."
+Networks,Transport Layer,Splits data into packets and ensures reliable delivery using TCP or UDP.
+Networks,Network Layer,Adds IP addresses for routing packets between devices.
+Networks,Link Layer,Manages the physical connection and includes MAC addressing.
+Networks,Malware,Harmful software that damages or steals data.
+Networks,Phishing,Fraudulent attempts to steal sensitive information via fake emails or websites.
+Networks,DDoS,Overwhelms a network with traffic to cause disruption.
+Networks,Man-in-the-Middle Attack (MITM),Interception and alteration of communication between two parties.
+Networks,Unauthorized Access,Intruders gaining access to systems or data without permission.
+Networks,Data Breach,Unauthorized access or disclosure of sensitive data.
+Networks,Ransomware,Malicious software that locks files until a ransom is paid.
+Networks,Wi-Fi Threats,Risks from unsecured wireless networks.
+Networks,Social Engineering,Manipulating people into revealing confidential information.
+Networks,VPN,Encrypts internet activity and hides IP addresses for secure browsing.
+Networks,Proxy Server,Acts as an intermediary to filter and manage network requests.
+Networks,DNS,Translates domain names (like www.example.com) into IP addresses.
+Networks,DNS Resolver,Checks local cache for stored IPs before querying servers.
+Networks,TLD Name Server,"Handles top-level domains like .com, .org."
+Networks,Authoritative Name Server,Holds the official IP address for a domain.
+Networks,DNS Caching,Temporary storage of resolved domain names for faster access.
+Boolean Logic,Boolean Logic,"A system of algebra for variables with two values (0/1, false/true) used to model logical operations and digital circuits."
+Boolean Logic,AND (∧),"Binary operator outputting 1 only if both inputs are 1. Truth table: (0,0→0), (0,1→0), (1,0→0), (1,1→1)."
+Boolean Logic,OR (∨),"Binary operator outputting 1 if at least one input is 1. Truth table: (0,0→0), (0,1→1), (1,0→1), (1,1→1)."
+Boolean Logic,"XOR (exclusive OR, ⊻)","Binary operator outputting 1 if exactly one input is 1 (not both). Truth table: (0,0→0), (0,1→1), (1,0→1), (1,1→0)."
+Boolean Logic,NOT (¬),"Unary operator that inverts the input: 0→1, 1→0."
+Boolean Logic,NAND,"NOT-AND; outputs 0 only when both inputs are 1. Truth table: (0,0→1), (0,1→1), (1,0→1), (1,1→0)."
+Boolean Logic,Equivalence (≡),Logical equality: A ≡ B is true when A and B have the same truth value.
+Boolean Logic,Truth Table,A tabular method listing all input combinations and corresponding output(s) for a logical expression or circuit.
+Boolean Logic,Logic Expression,"Algebraic form combining variables and operators (e.g., Q = ¬A ∨ (B ∧ C)); brackets evaluated first."
+Boolean Logic,Logic Diagram,Gate-level circuit representation corresponding to a Boolean expression; can be translated both ways.
+Boolean Logic,Constructing Expressions from Diagrams,"Identify sub-expressions at gate inputs (e.g., (A AND B), (B AND NOT C)) then combine via the output gate (OR): P = (A ∧ B) ∨ (B ∧ ¬C)."
+Boolean Logic,Problem Definition with Logic,"Real-world rules described with Boolean variables, e.g., valve closes (V) if temperature high (T) OR pressure high (P): V = T ∨ P."
+Boolean Logic,Karnaugh Map (K-Map),A visual simplification tool arranging truth values so adjacent cells differ by one bit; used to group 1s and minimize expressions (2–4 variables commonly).
+Boolean Logic,Simplifying Boolean Expressions,Apply algebraic laws to reduce expressions (fewer gates/inputs). Example factoring: (¬C ∧ ¬D) ∨ (C ∧ ¬D) = (¬D) ∧ (¬C ∨ C) = ¬D.
+Boolean Logic,General AND Laws,"X·0=0, X·1=X, X·X=X, ¬X·X=0."
+Boolean Logic,General OR Laws,"X+0=X, X+1=1, X+X=X, ¬X+X=1."
+Boolean Logic,De Morgan’s Laws,¬(X ∧ Y)=¬X ∨ ¬Y and ¬(X ∨ Y)=¬X ∧ ¬Y; used to push negations in/out and change operators.
+Boolean Logic,Distribution,X ∧ (Y ∨ Z) = (X ∧ Y) ∨ (X ∧ Z) and X ∨ (Y ∧ Z) = (X ∨ Y) ∧ (X ∨ Z).
+Boolean Logic,Reverse Distribution (Factoring),The inverse of distribution; factor common terms: (X∧Y) ∨ (X∧Z) = X ∧ (Y ∨ Z).
+Boolean Logic,Association,"Regrouping without changing meaning: (X ∨ Y) ∨ Z = X ∨ (Y ∨ Z), (X ∧ Y) ∧ Z = X ∧ (Y ∧ Z)."
+Boolean Logic,Commutation,Order of operands does not matter: X ∨ Y = Y ∨ X; X ∧ Y = Y ∧ X.
+Boolean Logic,Double Negation,¬(¬X) = X.
+Boolean Logic,Absorption,"X ∨ (X ∧ Y) = X and X ∧ (X ∨ Y) = X; if X is true the whole term is true (for OR), if X is false the whole term is false (for AND)."
+Boolean Logic,Half Adder,"Combinational circuit adding two 1-bit inputs A,B. Sum S = A ⊻ B; Carry C = A ∧ B."
+Boolean Logic,Full Adder,"Adds A, B, and carry-in (Cin). Sum S = A ⊻ B ⊻ Cin; Carry-out Cout = (A ∧ B) ∨ (Cin ∧ (A ⊻ B))."
+Boolean Logic,D-Type Flip-Flop,"Sequential circuit storing 1 bit; output Q takes input D on the active clock edge (rising edge), holding value until next edge."
+Boolean Logic,Clock (for Flip-Flops),Periodic timing signal controlling when state changes occur; D-type changes only on rising edge.
+Computational Methods,Backtracking,"A recursive algorithmic technique that incrementally builds a solution by exploring possible options. If a path is found invalid, the algorithm backtracks to the previous step to try another route. It’s considered an 'organised brute-force' approach, often used in maze-solving, constraint satisfaction problems like Sudoku, or pathfinding algorithms."
+Computational Methods,Data Mining,"The process of discovering patterns, correlations, or anomalies in large datasets, often from multiple sources (big data). Used in business, marketing, and science to make predictions and identify hidden trends. Example: analysing customer purchase data to recommend products or detect fraudulent activity."
+Computational Methods,Heuristics,"A problem-solving technique that uses experience-based rules or 'educated guesses' to find approximate solutions quickly. Used where an optimal solution would take too long to compute. Examples: used in route planning (A* algorithm), AI decision-making, and NP-hard problems like the Travelling Salesman."
+Computational Methods,Performance Modelling,A mathematical or computational approach used to simulate system behaviour under various loads before real-world implementation. Helps predict performance and identify bottlenecks. Used for safety-critical systems (like air traffic control or medical devices) where testing under failure conditions is impractical.
+Computational Methods,Pipelining,"A technique that divides a process into smaller stages executed in parallel, where the output of one stage becomes the input for the next. Commonly used in RISC processors to execute multiple instructions simultaneously during different parts of the Fetch-Decode-Execute cycle. Also used in data processing and manufacturing for efficiency."
+Computational Methods,Visualisation,"The graphical representation of data using charts, graphs, and other visuals to simplify interpretation. Helps identify trends, correlations, and outliers that are difficult to spot in raw data. Used in data analysis dashboards, scientific simulations, and business intelligence reporting."
+Programming,Variable,A named memory location used to store data that can change during runtime.
+Programming,Constant,A named memory location that stores data that remains unchanged throughout program execution.
+Programming,Local Variable,A variable accessible only within the subroutine where it is created.
+Programming,Global Variable,A variable accessible from any part of the program.
+Programming,Scope,The section of code where a variable can be accessed.
+Programming,Data Type,"Defines the kind of value a variable can hold (e.g., integer, string, boolean)."
+Programming,Integer,"Whole numbers (e.g., 10)."
+Programming,Float / Real,"Numbers with decimal points (e.g., 3.14)."
+Programming,Character,"A single letter, number, or symbol (e.g., ‘A’)."
+Programming,String,"A sequence of characters (e.g., “Hello”)."
+Programming,Boolean,Data type with only two values: True or False.
+Programming,Subroutine,A block of code designed to perform a specific task.
+Programming,Procedure,A subroutine that performs a task but does not return a value.
+Programming,Function,A subroutine that performs a task and returns a value.
+Programming,Parameter,A variable used to pass data into a subroutine.
+Programming,Argument,The actual value supplied to a parameter when a subroutine is called.
+Programming,Passing by Value,A copy of the data is passed; changes inside the subroutine do not affect the original value.
+Programming,Passing by Reference,The address of the data is passed; changes inside the subroutine affect the original value.
+Programming,Sequence,Executing statements one after another in order.
+Programming,Selection,"Using conditions (e.g., IF statements) to make decisions."
+Programming,Iteration,"Repeating a set of statements (e.g., FOR, WHILE loops)."
+Programming,Count-Controlled Loop,"Executes a fixed number of times (e.g., FOR loop)."
+Programming,Condition-Controlled Loop,"Repeats until a condition is met (e.g., WHILE loop)."
+Programming,Do Until Loop,"Executes code at least once, then checks the condition (not supported in Python)."
+Programming,Arithmetic Operators,"Perform math operations (+, -, *, /, %, **, //)."
+Programming,Relational Operators,"Compare values (<, >, ==, !=, <=, >=)."
+Programming,Boolean Operators,"Combine logical conditions (AND, OR, NOT)."
+Programming,Array,Stores multiple items of the same type under one name with fixed size.
+Programming,List,"Dynamic data structure that can grow or shrink, storing mixed data types."
+Programming,Tuple,Immutable sequence of elements; cannot be changed after creation.
+Programming,Record,Stores multiple related data items (of possibly different types) under one structure.
+Programming,Array of Records,A collection of multiple records stored in an array.
+Programming,Concatenation,Joining strings together.
+Programming,Substring,Extracting part of a string using slicing.
+Programming,len(),Returns string length.
+Programming,asc() / ord(),Converts a character to its ASCII code.
+Programming,chr(),Converts ASCII code to a character.
+Programming,"str(), int(), float()",Type conversion functions.
+Programming,"open(filename, mode)","Opens a file with a specific mode (r, w, a)."
+Programming,r (read),Opens a file for reading.
+Programming,w (write),Opens a file for writing (overwrites existing file).
+Programming,a (append),Adds data to the end of the file.
+Programming,read(),Reads the entire file as a string.
+Programming,readline(),Reads one line at a time.
+Programming,readlines(),Reads all lines into a list.
+Programming,write(),Writes data to a file.
+Programming,writelines(),Writes a list of strings to a file.
+Programming,Recursion,When a function calls itself to solve smaller instances of a problem.
+Programming,Base Case,The stopping condition for a recursive function.
+Programming,Stack Overflow,Error caused when recursion runs too deep.
+Programming,Normal Data,Expected valid inputs for testing.
+Programming,Erroneous Data,Clearly invalid inputs for testing.
+Programming,Boundary Data,Values on the edge of valid ranges for testing.
+Programming,Syntax Error,Prevents code from running due to incorrect syntax.
+Programming,Runtime Error,Occurs while the program is running.
+Programming,Logic Error,Program runs but gives incorrect output.
+Programming,Debugging,The process of finding and fixing program errors.
+Programming,Error Diagnostics,Identifies and describes code errors.
+Programming,Breakpoints,Stops execution at specific points to inspect variables.
+Programming,Syntax Highlighting,Color-coding for easy readability of code.
+Programming,Variable Watch Window,Monitors variable values during execution.
+Programming,Auto-complete,Suggests code as you type.
+Programming,Step-through Execution,Runs code line by line for debugging.
+Programming,Programming Standards,"Set of rules to make code readable, consistent, and maintainable (naming, indentation, commenting)."
+Object-Oriented Programming,Class,A blueprint for creating objects that defines attributes (data) and methods (behaviour).
+Object-Oriented Programming,Object,An instance of a class with specific values for its attributes.
+Object-Oriented Programming,Encapsulation,Hiding an object’s data and allowing controlled access only through methods (getters and setters).
+Object-Oriented Programming,Inheritance,"When a child class inherits attributes and methods from a parent class, promoting code reuse."
+Object-Oriented Programming,Polymorphism,The ability for methods to take multiple forms (via method overloading or overriding).
+Object-Oriented Programming,Abstraction,Hiding complex implementation details and exposing only essential features.
+Object-Oriented Programming,Method,A function defined inside a class that describes an object’s behaviour.
+Object-Oriented Programming,Constructor,A special method automatically called when an object is created; used to initialise attributes.
+Object-Oriented Programming,Getter (Accessor),A method that retrieves the value of an attribute.
+Object-Oriented Programming,Setter (Mutator),A method that updates the value of an attribute.
+Object-Oriented Programming,Method Overriding,When a child class redefines a method inherited from the parent class to change its behaviour.
+Object-Oriented Programming,Method Overloading,When multiple methods share the same name but have different parameters.
+Object-Oriented Programming,Public,Attributes or methods that can be accessed from anywhere in the program.
+Object-Oriented Programming,Private,Attributes or methods that can only be accessed within the same class.
+Object-Oriented Programming,Protected,Attributes or methods that can be accessed within the class and its subclasses.
+Object-Oriented Programming,Parent Class (Super Class),The class whose features are inherited by another class.
+Object-Oriented Programming,Child Class (Subclass),The class that inherits properties and methods from a parent class.
+Object-Oriented Programming,super(),A function used to call methods or constructors from the parent class within a child class.
+Object-Oriented Programming,Encapsulation (Principle),"Protects data from being directly modified, improving security and integrity."
+Object-Oriented Programming,Abstraction (Principle),Simplifies complexity by exposing only necessary parts of the code.
+Object-Oriented Programming,Inheritance (Principle),Promotes reusability and allows extension of existing code without rewriting.
+Object-Oriented Programming,Polymorphism (Principle),Enhances flexibility by allowing one interface to be used for multiple data types or actions.
+Object-Oriented Programming,Overriding Example,Occurs when a subclass provides a specific implementation of a method that is already defined in its superclass.
+Object-Oriented Programming,Overloading Example,Occurs when multiple methods have the same name but differ in parameter type or number.
+Object-Oriented Programming,Getter and Setter Example,Methods used to retrieve and update private attributes to maintain encapsulation.
+Object-Oriented Programming,Constructor Example,A special method that is automatically called when a new object is created to initialise data attributes.
+Data Structures,Array,A fixed-size data structure that stores multiple items of the same data type under one variable name. Each element is accessed using an index starting from 0.
+Data Structures,1D Array,"A one-dimensional array stores a list of data in a single line, such as [10, 20, 30, 40]. It allows easy sequential access but has a fixed length."
+Data Structures,2D Array,"A two-dimensional array is a collection of rows and columns, similar to a table or matrix. Each element is accessed using two indices, e.g., array[row][column]."
+Data Structures,Dynamic Array,"An array that can grow or shrink in size during runtime, allowing flexible memory use (as seen in languages like Python with lists)."
+Data Structures,Static Array,An array with a fixed size defined at creation time. Memory cannot be adjusted once allocated.
+Data Structures,Index,"The position of an element in an array or list. Indexing allows direct access to any element (e.g., array[2] retrieves the third item)."
+Data Structures,Traversal,"The process of visiting and accessing each element in a data structure sequentially, typically using a loop."
+Data Structures,Insertion (Array),"Adding a new element into an array at a specific index, which may require shifting elements to make space."
+Data Structures,Deletion (Array),"Removing an element from an array, followed by shifting the remaining elements to fill the gap."
+Data Structures,Advantages of Arrays,"Provide fast, direct access using indices and efficient storage for fixed-size collections."
+Data Structures,Disadvantages of Arrays,"Fixed size; adding or removing elements requires shifting, which can be slow for large arrays."
+Data Structures,List,"An ordered, dynamic collection of elements that can store different data types. Lists can grow or shrink as needed, unlike arrays."
+Data Structures,Advantages of Lists,"Dynamic resizing, can store mixed data types, and supports built-in functions for easy manipulation."
+Data Structures,Disadvantages of Lists,Slower access times compared to arrays due to dynamic memory management and type flexibility.
+Data Structures,Tuple,"An ordered, immutable collection of elements. Once created, its elements cannot be modified. Ideal for storing fixed data like coordinates (x, y)."
+Data Structures,Advantages of Tuples,"Faster than lists, use less memory, and are immutable for safety and reliability in fixed data storage."
+Data Structures,Disadvantages of Tuples,"Cannot change, add, or remove items once created, limiting flexibility."
+Data Structures,Record,"A data structure that stores related fields of possibly different data types under one name, e.g., a student record with name, age, and grade."
+Data Structures,Field,"An individual piece of data within a record, representing one attribute of an entity (e.g., ‘Name’ or ‘Age’)."
+Data Structures,Accessing Record Data,"Data is accessed using field names rather than indices, e.g., student.name or record['Age']."
+Data Structures,Advantages of Records,Allow grouping of related but different data types; easier to understand and maintain structured information.
+Data Structures,Disadvantages of Records,Cannot perform mathematical operations directly; less efficient for iterative numeric computations.
+Data Structures,Mutable Data Structure,"A data structure that allows modification of its content after creation (e.g., lists, arrays)."
+Data Structures,Immutable Data Structure,"A data structure whose content cannot be changed after creation (e.g., tuples, strings)."
+Data Structures,Array Traversal Example,"For i in range(0, length): print(array[i]) – accesses each element in order."
+Data Structures,Record Example,"student = {Name: 'Alice', Age: 17, Grade: 'A'} – demonstrates how different data types can be stored together."
+Data Structures,Real-world Example (Array),"Used in game leaderboards, image pixel storage, or mathematical computations."
+Data Structures,Real-world Example (Record),"Used in databases to represent entities such as employees, students, or customers."
+Data Structures,Nested List,"A list that contains other lists as elements, allowing for the representation of multidimensional data."
+Data Structures,Array vs List,Arrays are fixed-size and store elements of one type; lists are dynamic and can store multiple data types.
+Data Structures,Tuple vs List,Tuples are immutable and faster; lists are mutable and more flexible.
+Data Structures,Record vs Array,"Records can store mixed data types identified by field names, whereas arrays store elements of the same type using indices."
+Data Structures,Data Type Consistency,"Arrays enforce uniform data types, improving efficiency, while lists and records allow mixed types for flexibility."
+Data Structures,Graph,"A data structure made up of nodes (vertices) connected by edges. Graphs can represent networks such as roads, social media connections, or computer systems."
+Data Structures,Vertex (Node),"A fundamental unit in a graph that represents an entity, such as a city, user, or data point."
+Data Structures,Edge,A connection between two vertices that shows a relationship or path between them.
+Data Structures,Directed Graph (Digraph),"A graph where edges have a direction, indicating a one-way relationship (e.g., A → B)."
+Data Structures,Undirected Graph,"A graph where edges have no direction; connections go both ways (e.g., A—B)."
+Data Structures,Weighted Graph,"A graph in which each edge has a numerical weight representing cost, distance, or time."
+Data Structures,Unweighted Graph,"A graph where all edges are treated equally, without weights."
+Data Structures,Adjacent Nodes,Two nodes that are directly connected by an edge.
+Data Structures,Path,A sequence of connected nodes representing a route from one node to another.
+Data Structures,Cycle,A path that starts and ends at the same node without repeating other nodes along the way.
+Data Structures,Connected Graph,A graph where there is a path between every pair of vertices.
+Data Structures,Disconnected Graph,A graph containing at least two nodes that have no connecting path.
+Data Structures,Adjacency Matrix,"A 2D array representing graph connections; each cell stores 1 or weight if an edge exists, or 0 if not."
+Data Structures,Adjacency List,A dictionary or list of lists where each key (node) stores a list of its connected nodes. More memory-efficient than a matrix for sparse graphs.
+Data Structures,Traversal,The process of visiting all the nodes in a graph in a specific order to access or search for data.
+Data Structures,Breadth-First Search (BFS),A traversal algorithm that explores all neighbours of a node before moving to the next level; uses a queue data structure.
+Data Structures,Depth-First Search (DFS),A traversal algorithm that explores as far as possible along a branch before backtracking; uses a stack or recursion.
+Data Structures,Queue (in BFS),Stores nodes that have been discovered but not yet explored. Ensures level-by-level exploration.
+Data Structures,Stack (in DFS),"Stores nodes as they are visited; supports last-in, first-out (LIFO) traversal order."
+Data Structures,Tree,A special type of graph with a hierarchical structure where each node (except the root) has exactly one parent and no cycles exist.
+Data Structures,Root Node,The topmost node in a tree; all other nodes descend from it.
+Data Structures,Child Node,A node directly connected below another node (its parent).
+Data Structures,Parent Node,A node that has one or more child nodes connected beneath it.
+Data Structures,Leaf Node,A node with no children; represents the end of a branch in the tree.
+Data Structures,Subtree,"A smaller tree that exists within a larger tree, starting from any node as its root."
+Data Structures,Binary Tree,"A tree where each node has at most two children, commonly referred to as the left and right child."
+Data Structures,Full Binary Tree,A binary tree in which every node has either two children or none.
+Data Structures,Complete Binary Tree,"A binary tree where all levels are filled except possibly the last, which is filled from left to right."
+Data Structures,Binary Search Tree (BST),A type of binary tree where left child nodes contain smaller values and right child nodes contain larger values than the parent node.
+Data Structures,Balanced Tree,"A binary tree where the height difference between left and right subtrees of every node is minimal, improving search efficiency."
+Data Structures,Traversal (Tree),The process of visiting each node in a tree in a specific order to access or modify data.
+Data Structures,In-order Traversal,"Visits the left subtree, then the root node, and finally the right subtree; used to retrieve sorted data in a BST."
+Data Structures,Pre-order Traversal,"Visits the root node first, followed by the left subtree and then the right subtree; useful for copying a tree."
+Data Structures,Post-order Traversal,"Visits the left subtree, then the right subtree, and finally the root node; useful for deleting or freeing memory."
+Data Structures,Tree Height,The length of the longest path from the root node to a leaf node.
+Data Structures,Tree Depth,The distance (number of edges) from the root node to a specific node.
+Data Structures,Advantages of Trees,"Efficient searching, hierarchical data organisation, and fast insertion/deletion in BSTs."
+Data Structures,Disadvantages of Trees,"Can become unbalanced, leading to inefficient operations (O(n) time)."
+Data Structures,Graph vs Tree,"All trees are graphs, but not all graphs are trees. Trees have no cycles and exactly one path between any two nodes."
+Data Structures,Binary Tree Example,"Used in file systems, decision trees, and hierarchical databases."
+Data Structures,Graph Example,"Used in social networks, web page ranking, and shortest path algorithms like Dijkstra’s and A*."
+Data Structures,Hashing,The process of applying a mathematical algorithm (hash function) to a key field to transform it into a numerical address where data is stored in a table.
+Data Structures,Purpose of Hashing,"Allows data to be accessed quickly without scanning the entire dataset, ideal for databases and lookup operations."
+Data Structures,Hash Table,A data structure that stores key–value pairs. A hashing algorithm calculates the index in the table where each record is stored.
+Data Structures,Hash Function,"A formula that converts a key into an index in the hash table, such as key mod table size. It determines the storage location for each entry."
+Data Structures,Hash Address,"The result of applying the hash function, indicating where the record should be stored in the table."
+Data Structures,Key Field,A unique field (like an ID or name) used as input to the hash function to determine where the record is stored.
+Data Structures,Array Implementation,Hash tables are often implemented using arrays or lists where each index corresponds to a possible storage location.
+Data Structures,String Hashing Example,Strings can be hashed by converting each character to its ASCII value and combining them. Example: 'CAB' → (67+65+66) mod 11 = 9.
+Data Structures,Python Dictionary,Python’s built-in dictionary uses hashing to store key–value pairs for fast retrieval. Example: my_dict['name'] = 'Alice'.
+Data Structures,Search Process in a Hash Table,"Apply the hash function to the key, access the resulting index, check for the item, and handle collisions if necessary."
+Data Structures,Operations on Hash Tables,"Include creating a table, adding key–value pairs, searching for values, checking for existence, and calculating length."
+Data Structures,Collision,Occurs when two different keys produce the same hash address and attempt to occupy the same table location.
+Data Structures,Linear Probing,A collision resolution method where the algorithm checks the next available slot sequentially until it finds an empty one.
+Data Structures,Chaining,A collision resolution method where each hash index stores a linked list of items that share the same hash value.
+Data Structures,Load Factor,Indicates how full the hash table is. A high load factor increases the likelihood of collisions and reduces performance.
+Data Structures,Time Complexity – Search,"In the ideal case O(1), but in the worst case with many collisions, performance can degrade to O(n)."
+Data Structures,Time Complexity – Add,"Generally O(1), unless frequent collisions occur, which can increase lookup time."
+Data Structures,Advantages of Hash Tables,"Fast data retrieval and insertion, efficient key-based access, and good scalability for large datasets."
+Data Structures,Disadvantages of Hash Tables,"Susceptible to collisions, fixed size if not dynamically resized, and complex to implement compared to arrays or lists."
+Data Structures,Comparison – Linked List vs Hash Table,"Linked Lists require O(n) for searching; Hash Tables achieve O(1) with good hashing. Hash Tables use index-based storage, while Linked Lists rely on pointers."
+Data Structures,Example Use Cases,"Hash tables are used in databases, caches, symbol tables, and programming languages for variable lookup and memory management."
+Data Structures,Linked List,A dynamic data structure made up of nodes connected using pointers. It can grow or shrink during runtime and stores data in non-contiguous memory locations.
+Data Structures,Dynamic Data Structure,"A data structure that can change in size as elements are added or removed, unlike arrays which are fixed in size."
+Data Structures,Ordered Linked List,"A linked list where nodes are arranged in a specific order, such as numerical or alphabetical order."
+Data Structures,Unordered Linked List,"A linked list where elements are stored in the order they are inserted, without sorting."
+Data Structures,Pointer,"A variable that stores the address of another variable or node in memory, linking one node to the next in a linked list."
+Data Structures,Head (Start Pointer),A special pointer that always points to the first node in the list. Traversal begins here.
+Data Structures,Null Pointer,A pointer value that indicates the end of a linked list (commonly represented as NULL or None).
+Data Structures,Free Node Pointer,A pointer that keeps track of the next available memory location for a new node to be inserted.
+Data Structures,Node,A basic building block of a linked list containing two parts: data (the stored value) and a pointer to the next node.
+Data Structures,Getter and Setter Methods,Methods in object-oriented implementations used to access and modify the data and pointer fields of a node safely.
+Data Structures,Linked List vs Array,"Linked lists are dynamic, non-contiguous, and allow efficient insertion/deletion; arrays are fixed in size, contiguous, and support direct indexing."
+Data Structures,Insertion in Ordered List,Process of inserting a node at the correct position based on value order. Requires traversal and pointer adjustments to maintain order.
+Data Structures,Insertion in Unordered List,Simpler process where new nodes can be inserted at the head or tail without maintaining any order. Fast and flexible for unsorted data.
+Data Structures,Insertion at Head,"Creates a new node and links it to the current head, then updates the head pointer to this new node. Efficient with O(1) complexity."
+Data Structures,Insertion at End,Traverses to the end of the list and adds a new node by updating the last node’s pointer. Useful in queue-like structures.
+Data Structures,Deletion in Linked List,"Process of removing a node by updating the previous node’s pointer to skip over it, followed by freeing memory. No shifting required."
+Data Structures,Searching in Linked List,Performed using linear search; start at the head and check each node sequentially until the value is found or the end is reached (O(n) time).
+Data Structures,Traversal,"The process of visiting each node in a list sequentially to read or manipulate its data, usually starting from the head until NULL."
+Data Structures,Advantages of Linked Lists,"Dynamic memory use, efficient insertion/deletion operations, and flexible data ordering."
+Data Structures,Disadvantages of Linked Lists,"Extra memory overhead for pointers, no random access (must traverse sequentially), and more complex to implement than arrays."
+Data Structures,Example Use – Ordered List,Used in maintaining sorted datasets such as alphabetical name lists or priority queues.
+Data Structures,Example Use – Unordered List,"Used in situations where order doesn’t matter, such as managing recent activity logs or stacks."
+Data Structures,Real-world Example,"Linked lists are used in memory management, undo operations, and dynamic data storage systems."
+Data Structures,Linear Data Structure,"A structure where elements are arranged sequentially and processed in a specific order, such as stacks and queues."
+Data Structures,Dynamic Size,Allows the structure to grow or shrink as items are added or removed during runtime.
+Data Structures,Stack,"A LIFO (Last In, First Out) data structure where the most recently added element is the first to be removed."
+Data Structures,LIFO Principle,"Last In, First Out – the most recent item added to the stack is the first to be removed."
+Data Structures,Stack Pointer,A variable that indicates the position of the top element in the stack or the next free slot for insertion.
+Data Structures,Push Operation,Adds a new element to the top of the stack. Checks for overflow before insertion.
+Data Structures,Pop Operation,Removes and returns the element from the top of the stack. Checks for underflow before removal.
+Data Structures,Peek Operation,Returns the top element of the stack without removing it.
+Data Structures,isFull() (Stack),Checks whether the stack has reached its maximum capacity.
+Data Structures,isEmpty() (Stack),Checks whether the stack contains no elements.
+Data Structures,Stack Overflow,Occurs when a push operation is attempted on a full stack.
+Data Structures,Stack Underflow,Occurs when a pop operation is attempted on an empty stack.
+Data Structures,Stack PUSH Algorithm,"1. Check if full. 2. If not, increment top pointer. 3. Insert the new element at the top."
+Data Structures,Stack POP Algorithm,"1. Check if empty. 2. If not, remove the top element. 3. Decrement top pointer."
+Data Structures,Display Stack,"Loops from top to bottom, displaying all elements currently in the stack."
+Data Structures,Stack Use Case – Undo Function,"Stacks store previous states, allowing actions to be undone in reverse order (e.g., Ctrl+Z)."
+Data Structures,Queue,"A FIFO (First In, First Out) data structure where the first element added is the first to be removed."
+Data Structures,FIFO Principle,"First In, First Out – items are processed in the same order they were inserted."
+Data Structures,Front Pointer,Indicates where the next element will be removed in a queue.
+Data Structures,Rear Pointer,Indicates where the next element will be added in a queue.
+Data Structures,Enqueue Operation,Adds a new element to the rear of the queue after checking for overflow.
+Data Structures,Dequeue Operation,Removes and returns the element at the front of the queue after checking for underflow.
+Data Structures,isFull() (Queue),Checks if the queue has reached maximum capacity.
+Data Structures,isEmpty() (Queue),Checks if the queue contains no elements.
+Data Structures,Linear Queue,A basic queue where insertion happens at the rear and deletion happens at the front. Space can become wasted as elements are removed.
+Data Structures,Circular Queue,A queue that connects the rear of the array back to the front to reuse freed space efficiently.
+Data Structures,Circular Queue Enqueue,"If rear = max - 1, wrap around to 0. Insert new item and adjust pointers."
+Data Structures,Circular Queue Dequeue,"If front = max - 1, wrap around to 0. Remove the item and adjust pointers."
+Data Structures,Priority Queue,A queue where each element has a priority value. Higher priority items are dequeued first.
+Data Structures,Priority Queue Operations,Insert elements with priority; remove the element with the highest priority first.
+Data Structures,Priority Queue Use Case,"Used in CPU scheduling, network traffic control, and emergency systems."
+Data Structures,Stack vs Queue,Stack uses LIFO order; Queue uses FIFO order. Stacks handle reversals; Queues handle sequencing.
+Data Structures,Example – Stack in Programming,"Used in recursion, expression evaluation, and call stack management."
+Data Structures,Example – Queue in Programming,"Used in buffering, scheduling, and order processing systems."
+Data Structures,Big O – Stack Push/Pop,"Both operations are O(1) – constant time, as they affect only one end of the stack."
+Data Structures,Big O – Queue Enqueue/Dequeue,Both are O(1) – constant time operations affecting front and rear pointers.
+Data Structures,Search Complexity,"O(n) for both stacks and queues, as traversal is required to locate elements."
+Algorithms,Dijkstra’s Algorithm,A shortest path algorithm that finds the minimum distance between nodes in a weighted graph.
+Algorithms,Purpose of Dijkstra’s Algorithm,Calculates the shortest path from a starting node to all other nodes.
+Algorithms,Weighted Graph,A graph where each edge has a numerical value (weight) representing distance or cost.
+Algorithms,Visited Node,A node whose shortest distance from the start node has been finalised.
+Algorithms,Unvisited Node,A node that has not yet been processed in the algorithm.
+Algorithms,Current Node,The node currently being analysed in the algorithm.
+Algorithms,Neighbouring Node,A node directly connected by an edge to the current node.
+Algorithms,Infinity (∞),An initial placeholder value representing an unknown or infinitely large distance.
+Algorithms,Dijkstra’s Algorithm Steps,"1. Start with distance 0 for start node, ∞ for others. 2. Choose node with smallest distance. 3. Update neighbour distances if shorter path found. 4. Mark node as visited. 5. Repeat until destination is visited."
+Algorithms,A* (A-Star) Algorithm,An improvement on Dijkstra’s algorithm that adds a heuristic to estimate the remaining distance to the goal.
+Algorithms,Heuristic (h),An estimated distance or cost from a node to the final destination.
+Algorithms,g (Actual Distance),The total distance travelled from the start node to the current node.
+Algorithms,f (Estimated Total Cost),The sum of the actual distance and heuristic: f = g + h.
+Algorithms,A* Algorithm Steps,"1. Start at the beginning node. 2. For each neighbour, calculate f = g + h. 3. Add unvisited nodes to open list. 4. Choose node with lowest f value as current. 5. Stop when destination node is reached."
+Algorithms,Open List,Nodes that are discovered but not yet visited.
+Algorithms,Closed List,Nodes that have been visited and finalised.
+Algorithms,Heuristic Function,"Function used to estimate the cost from a node to the goal (e.g., straight-line distance)."
+Algorithms,Optimal Path,The path with the smallest total distance or cost.
+Algorithms,Node (Vertex),A point in a graph representing an entity such as a city or location.
+Algorithms,Edge,A connection between two nodes representing distance or cost.
+Algorithms,Path,A sequence of connected nodes from start to destination.
+Algorithms,Graph,A collection of nodes and edges representing a network of connections.
+Algorithms,Complexity,The level of difficulty or number of operations required by an algorithm.
+Algorithms,Comparison - Dijkstra vs A*,"Dijkstra: slower, no heuristic, checks all paths. A*: faster, uses heuristic, visits fewer nodes."
+Algorithms,Purpose of A* Algorithm,Finds the most efficient path to the destination by using both actual and estimated distances.
+Algorithms,Heuristic Advantage,Helps A* find a solution faster by guiding the search toward the goal.
+Algorithms,Practical Use,"Used in GPS, network routing, and AI pathfinding systems."
+Algorithms,Searching Algorithm,A method used by a computer to find a specific item in a data structure such as an array or list.
+Algorithms,Linear Search,Checks each element one by one until the target item is found or the list ends. Works on unsorted lists.
+Algorithms,Advantages of Linear Search,Simple and works on any list; efficient for small datasets.
+Algorithms,Disadvantages of Linear Search,Inefficient for large lists as it must check each item.
+Algorithms,Time Complexity of Linear Search,O(N) – Linear time.
+Algorithms,Binary Search,Efficient search for sorted lists; repeatedly divides the list in half until the target is found.
+Algorithms,Advantages of Binary Search,"Very efficient on large, sorted datasets."
+Algorithms,Disadvantages of Binary Search,Requires the list to be sorted first.
+Algorithms,Time Complexity of Binary Search,O(log N) – Logarithmic time.
+Algorithms,Sorting Algorithm,"A method used to arrange data into a specific order, such as ascending or descending."
+Algorithms,Bubble Sort,Compares and swaps adjacent items repeatedly until the list is sorted.
+Algorithms,Advantages of Bubble Sort,Simple and easy to implement; useful for small datasets.
+Algorithms,Disadvantages of Bubble Sort,Slow for large datasets; performs unnecessary passes even when sorted.
+Algorithms,Time Complexity of Bubble Sort,O(N²) – Quadratic time.
+Algorithms,Insertion Sort,Builds a sorted list one item at a time by inserting each new item into the correct position.
+Algorithms,Advantages of Insertion Sort,Fast for small or nearly sorted lists; simple to code.
+Algorithms,Disadvantages of Insertion Sort,Inefficient for large datasets; slower than merge sort.
+Algorithms,Time Complexity of Insertion Sort,O(N²) – Quadratic time.
+Algorithms,Merge Sort,"Uses divide and conquer to split, sort, and merge sublists into one sorted list."
+Algorithms,Advantages of Merge Sort,Efficient for large datasets and guarantees O(N log N) performance.
+Algorithms,Disadvantages of Merge Sort,Requires extra memory for temporary sublists.
+Algorithms,Time Complexity of Merge Sort,O(N log N) – Linearithmic time.
+Algorithms,Quick Sort,Uses divide and conquer with a pivot to partition data into smaller sublists which are recursively sorted.
+Algorithms,Advantages of Quick Sort,Very fast on average; efficient for large datasets.
+Algorithms,Disadvantages of Quick Sort,Can be inefficient with poor pivot selection; may cause stack overflow.
+Algorithms,Time Complexity of Quick Sort,"Best: O(N log N), Average: O(N log N), Worst: O(N²)."
+Algorithms,Big O Notation,Describes algorithm efficiency in terms of time or space as input size increases.
+Algorithms,O(1),Constant time – performance unaffected by input size.
+Algorithms,O(log N),"Logarithmic time – data size halves with each step (e.g., Binary Search)."
+Algorithms,O(N),"Linear time – performance decreases proportionally to input size (e.g., Linear Search)."
+Algorithms,O(N log N),"Linearithmic time – splits and sorts data efficiently (e.g., Merge Sort)."
+Algorithms,O(N²),"Quadratic time – performance decreases rapidly (e.g., Bubble Sort)."
+Algorithms,O(2ⁿ),"Exponential time – doubles with each additional input (e.g., recursive algorithms)."
+Algorithms,Divide and Conquer,"A problem-solving technique that splits data into smaller parts, solves them, and combines results."
+Algorithms,Algorithm Complexity,"A measure of an algorithm’s efficiency, considering time and memory usage."

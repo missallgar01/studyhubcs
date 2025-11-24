@@ -7,8 +7,17 @@
   <meta name="description" content="Interactive JUMP123 activity page for the Times Table Generator program." />
   <link rel="icon" href="img/1.png" />
   <link rel="stylesheet" href="../../styles.css" />
+    <style>
+        /* JUMP123 page: keep notebook background but use single-column layout */
+        body.notebook.jump-page main {
+            display: block;
+            max-width: 980px;
+            margin: 2rem auto;
+            padding: 0 1rem 2rem;
+        }
+    </style>
 </head>
-<body>
+<body class="notebook notebook-border notebook-margin jump-page">
 <header>
   <h1>JUMP123 Times Table Generator</h1>
   <div class="subtitle">An interactive worksheet for <b>Judge</b>, <b>Unpack</b>, <b>Modify</b>, and <b>Program</b></div>
@@ -37,7 +46,7 @@
           <p><strong>Why might the program not work?</strong><br><em>(What could stop it from running properly?)</em></p>
           <p><strong>What kind of mistake or error could happen?</strong><br><em>(Is it a typing error, logic error, or input problem?)</em></p>
           <label for="answer">Your answer:</label>
-          <textarea id="answer" placeholder="Write your thoughts here..."></textarea>
+          <textarea class="input" placeholder="Write your thoughts here..."></textarea>
         </div>
       </div>
     </section>
@@ -58,10 +67,10 @@
       </div>
 
       <table class="investigate-table" aria-label="Investigate">
-        <colgroup>
-          <col><!-- Focus -->
-          <col><!-- Question -->
-          <col><!-- Answer -->
+       <colgroup>
+          <col style="width:10%"><!-- Focus -->
+          <col style="width:40%"> <!-- Question -->
+          <col style="width:50%"><!-- Answer -->
         </colgroup>
           <thead>
           <tr>
@@ -70,39 +79,70 @@
             <th>Answers</th>
           </tr>
         </thead>
-        <tbody>
+                <tbody>
           <tr>
             <td>Identify parts</td>
             <td>What variables can you find in this program? (What are the names of the values that store data?)</td>
-            <td><textarea></textarea></td>
+            <td>
+              <textarea class="input"></textarea>
+              <div class="answer" style="display:none; margin-top:0.4rem; font-size:0.9rem; color:#0f172a; background:#eff6ff; border-radius:0.5rem; padding:0.4rem 0.55rem; border:1px dashed #93c5fd;">
+                Typical variables include <code>timesTable</code> (the number whose table you’re generating), <code>x</code> (the counter in the loop) and <code>answer</code> (the result of multiplying the two numbers).
+              </div>
+            </td>
           </tr>
           <tr>
             <td>Understand process</td>
             <td>What does the <code>for x in range(1,11):</code> line do? (How many times will the loop run?)</td>
-            <td><textarea></textarea></td>
+            <td>
+              <textarea class="input"></textarea>
+              <div class="answer" style="display:none; margin-top:0.4rem; font-size:0.9rem; color:#0f172a; background:#eff6ff; border-radius:0.5rem; padding:0.4rem 0.55rem; border:1px dashed #93c5fd;">
+                <code>for x in range(1,11):</code> repeats the code inside the loop 10 times, with <code>x</code> taking the values 1, 2, 3, …, 10 in turn.
+              </div>
+            </td>
           </tr>
           <tr>
             <td>Explore change</td>
             <td>What would happen if you changed the range to (1,6) instead of (1,11)? (How would that affect the output?)</td>
-            <td><textarea></textarea></td>
+            <td>
+              <textarea class="input"></textarea>
+              <div class="answer" style="display:none; margin-top:0.4rem; font-size:0.9rem; color:#0f172a; background:#eff6ff; border-radius:0.5rem; padding:0.4rem 0.55rem; border:1px dashed #93c5fd;">
+                The loop would run 5 times (x = 1 to 5), so you would only see the first five rows of the times table instead of 10.
+              </div>
+            </td>
           </tr>
           <tr>
             <td>Output formatting</td>
             <td>What does the <code>f</code> in <code>print(f"...")</code> do? (How does it help display variable values in the text?)</td>
-            <td><textarea></textarea></td>
+            <td>
+              <textarea class="input"></textarea>
+              <div class="answer" style="display:none; margin-top:0.4rem; font-size:0.9rem; color:#0f172a; background:#eff6ff; border-radius:0.5rem; padding:0.4rem 0.55rem; border:1px dashed #93c5fd;">
+                The <code>f</code> makes it an f-string, which lets you put variables straight into the text using <code>{curly_braces}</code>. For example, <code>print(f"{x} x {timesTable} = {answer}")</code> shows the actual values of <code>x</code>, <code>timesTable</code> and <code>answer</code>.
+              </div>
+            </td>
           </tr>
           <tr>
             <td>Debug</td>
             <td>What kind of error might happen if you removed <code>answer = 0</code> at the start? (Would the program still run correctly? Why or why not?)</td>
-            <td><textarea></textarea></td>
+            <td>
+              <textarea class="input"></textarea>
+              <div class="answer" style="display:none; margin-top:0.4rem; font-size:0.9rem; color:#0f172a; background:#eff6ff; border-radius:0.5rem; padding:0.4rem 0.55rem; border:1px dashed #93c5fd;">
+                If the program tries to use <code>answer</code> before it is given a value, Python will raise a <code>NameError</code> (variable not defined). Initialising it with <code>answer = 0</code> makes sure it exists before the loop starts.
+              </div>
+            </td>
           </tr>
           <tr>
-            <td>Predict & Reason</td>
+            <td>Predict &amp; Reason</td>
             <td>What would happen if <code>timesTable</code> was a word instead of a number? (Think about what Python would do when it tries to multiply.)</td>
-            <td><textarea></textarea></td>
+            <td>
+              <textarea class="input"></textarea>
+              <div class="answer" style="display:none; margin-top:0.4rem; font-size:0.9rem; color:#0f172a; background:#eff6ff; border-radius:0.5rem; padding:0.4rem 0.55rem; border:1px dashed #93c5fd;">
+                If <code>timesTable</code> is a string (a word) and the code expects a number, you’ll either get a type error or strange behaviour. For example, <code>"3" * 4</code> repeats the text (<code>"3333"</code>) instead of doing a multiplication, and mixing a word with a number (like <code>"cat" * "3"</code>) will cause an error.
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
+      <button id="showUnpackAnswers" disabled>Check answers</button>
     </section>
   </section>
 
@@ -203,6 +243,11 @@
     <section class="resource-section">
       <h2>JUMP123 Assessment</h2>
       <table class="assessment-table" aria-label="JUMP123 Assessment">
+          <colgroup>
+          <col style="width:33%"><!-- 1 -->
+          <col style="width:33%"> <!-- 2 -->
+          <col style="width:33%"><!-- 3 -->
+        </colgroup>
         <thead>
           <tr>
             <th>Level 1</th>
@@ -212,9 +257,9 @@
         </thead>
         <tbody>
           <tr>
-            <td><label class="tick"><input type="checkbox"> Tick</label><br><img src="../../img/1.png" alt="Level 1 badge" class="level"></td>
-            <td><label class="tick"><input type="checkbox"> Tick</label><br><img src="../../img/2.png" alt="Level 2 badge" class="level"></td>
-            <td><label class="tick"><input type="checkbox"> Tick</label><br><img src="../../img/3.png" alt="Level 3 badge" class="level"></td>
+            <td><label ><input type="checkbox"> Tick</label><br><img src="../../img/1.png" alt="Level 1 badge" ></td>
+            <td><label ><input type="checkbox"> Tick</label><br><img src="../../img/2.png" alt="Level 2 badge" ></td>
+            <td><label ><input type="checkbox"> Tick</label><br><img src="../../img/3.png" alt="Level 3 badge" ></td>
           </tr>
           <tr>
             <td class="desc"><p>The program uses <strong>basic code</strong> we’ve learned before.</p><p>Some parts work, but there are <strong>mistakes</strong> or things missing.</p><p>It <strong>doesn’t fully do</strong> what it should yet.</p></td>
@@ -248,6 +293,33 @@
       const src = wrap.dataset.src;
       wrap.innerHTML = `<iframe src="${src}" width="100%" height="600" loading="lazy" allowfullscreen></iframe>`;
     });
+  // --- Unpack: enable button when all UNPACK answers filled, then reveal model answers ---
+  const unpackPanel = document.getElementById('panel-unpack');
+  const showUnpackBtn = document.getElementById('showUnpackAnswers');
+  if (unpackPanel && showUnpackBtn) {
+    const unpackInputs = Array.from(unpackPanel.querySelectorAll('textarea.input'));
+    const unpackAnswers = Array.from(unpackPanel.querySelectorAll('.answer'));
+
+    // make sure answers start hidden
+    unpackAnswers.forEach(a => a.style.display = 'none');
+
+    const updateUnpackButton = () => {
+      const allFilled = unpackInputs.every(i => i.value.trim() !== '');
+      showUnpackBtn.disabled = !allFilled;
+      showUnpackBtn.classList.toggle('enabled', allFilled);
+    };
+
+    unpackInputs.forEach(i => i.addEventListener('input', updateUnpackButton));
+    updateUnpackButton();
+
+    showUnpackBtn.addEventListener('click', () => {
+      unpackAnswers.forEach(a => { a.style.display = 'block'; });
+      showUnpackBtn.disabled = true;
+      showUnpackBtn.classList.remove('enabled');
+      showUnpackBtn.textContent = 'Answers shown ✅';
+    });
+  }
+
   });
 })();
 </script>

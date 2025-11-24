@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revision Mat – Computational Methods</title>
+  <link rel="stylesheet" href="../../styles.css" />
+
+</head>
+<body class="notebook notebook-border notebook-margin">
+  <header>
+    <h1>Computational Methods Revision Mat</h1>
+      <h2>Write...Check...Amend</h2>
+    <p class="subtitle">Set yourself 10 mins to write about everything you know about this topic</p>
+     <p class="subtitle">Check your answers using the button below</p>
+      <p class="subtitle" >Using the KO amend and correct</p>
+      <p class="subtitle">Print your study notes</p>
+
+    <!-- Floating Doodles -->
+    <svg class="doodle gear" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="3" />
+      <path d="M4 12h2m12 0h2M12 4v2m0 12v2m-6.3-9.3l1.4 1.4m9.8 0l1.4-1.4" />
+    </svg>
+    <svg class="doodle chip" viewBox="0 0 24 24">
+      <rect x="5" y="5" width="14" height="14" />
+      <path
+        d="M9 9h6v6H9zM3 9h2m14 0h2M9 3v2m6-2v2M9 19v2m6-2v2"
+      />
+    </svg>
+    <svg class="doodle lightbulb" viewBox="0 0 24 24">
+      <path
+        d="M9 18h6M10 21h4M8 10a4 4 0 1 1 8 0c0 2-2 3-2 5h-4c0-2-2-3-2-5z"
+      />
+    </svg>
+  </header>
+
+  <main>
+    <div class="revision-grid">
+      <!-- 🧩 Backtracking -->
+      <div class="rev-card">
+        <h2>🧩 Backtracking</h2>
+        <!-- Image placeholder -->
+        <div class="doodle-image">
+        <!-- add your image later, e.g. <img src="images/backtracking.png" alt="Backtracking doodle"> -->
+        </div>
+        <ul>
+          <li>How does backtracking use recursion?</li>
+          <li>Why is it called “organised brute force”?</li>
+        </ul>
+        <textarea placeholder="Write your notes here..."></textarea>
+      </div>
+
+      <!-- 📊 Data Mining -->
+      <div class="rev-card">
+        <h2>📊 Data Mining</h2>
+       <!-- Image placeholder -->
+        <div class="doodle-image">
+            <!-- add your image later, e.g. <img src="images/backtracking.png" alt="Backtracking doodle"> -->
+        </div>
+        <ul>
+          <li>What patterns can data mining reveal?</li>
+          <li>How can it make business predictions?</li>
+        </ul>
+        <textarea placeholder="Write your notes here..."></textarea>
+      </div>
+
+      <!-- 💡 Heuristics -->
+      <div class="rev-card">
+        <h2>💡 Heuristics</h2>
+        <!-- Image placeholder -->
+          <div class="doodle-image">
+        <!-- add your image later, e.g. <img src="images/backtracking.png" alt="Backtracking doodle"> -->
+    </div>
+        <ul>
+          <li>What is a heuristic and when is it used?</li>
+          <li>Why might it not give a perfect solution?</li>
+        </ul>
+        <textarea placeholder="Write your notes here..."></textarea>
+      </div>
+
+      <!-- ⚙️ Performance Modelling -->
+      <div class="rev-card">
+        <h2>⚙️ Performance Modelling</h2>
+      <!-- Image placeholder -->
+      <div class="doodle-image">
+        <!-- add your image later, e.g. <img src="images/backtracking.png" alt="Backtracking doodle"> -->
+      </div>
+        <ul>
+          <li>Why model before real-world tests?</li>
+          <li>Advantages in safety-critical systems?</li>
+        </ul>
+        <textarea placeholder="Write your notes here..."></textarea>
+      </div>
+
+      <!-- 🚀 Pipelining -->
+      <div class="rev-card">
+        <h2>🚀 Pipelining</h2>
+      <!-- Image placeholder -->
+      <div class="doodle-image">
+        <!-- add your image later, e.g. <img src="images/backtracking.png" alt="Backtracking doodle"> -->
+      </div>
+        <ul>
+          <li>How does pipelining improve efficiency?</li>
+          <li>Why common in RISC architectures?</li>
+        </ul>
+        <textarea placeholder="Write your notes here..."></textarea>
+      </div>
+
+      <!-- 📈 Visualisation -->
+      <div class="rev-card">
+        <h2>📈 Visualisation</h2>
+      <!-- Image placeholder -->
+      <div class="doodle-image">
+        <!-- add your image later, e.g. <img src="images/backtracking.png" alt="Backtracking doodle"> -->
+      </div>
+        <ul>
+          <li>How does visualisation aid interpretation?</li>
+          <li>Why vital in decision-making?</li>
+        </ul>
+        <textarea placeholder="Write your notes here..."></textarea>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <button id="checkAnswers" class="enabled">Check Answers</button>
+    <button id="printPage" class="secondary">🖨️ Print This Page</button>
+    <p>&copy; 2025 A-Mats Revision Portal</p>
+  </footer>
+
+  <!-- PDF Modal -->
+  <div id="pdfModal">
+    <div class="pdf-modal-content">
+      <div class="pdf-modal-header">
+        <h3>Knowledge Organiser</h3>
+        <button id="closePdf">&times;</button>
+      </div>
+      <iframe id="pdfFrame" src=""></iframe>
+    </div>
+  </div>
+
+  <button id="themeToggle" title="Toggle notebook theme">🌓</button>
+
+  <script>
+    // Theme toggle
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('notebookTheme');
+    if (savedTheme === 'dark') {
+      body.classList.remove('notebook', 'notebook-margin');
+      body.classList.add('notebook-dark');
+    }
+    toggleBtn.addEventListener('click', () => {
+      const isDark = body.classList.contains('notebook-dark');
+      if (isDark) {
+        body.classList.remove('notebook-dark');
+        body.classList.add('notebook', 'notebook-margin');
+        localStorage.setItem('notebookTheme', 'light');
+      } else {
+        body.classList.remove('notebook', 'notebook-margin');
+        body.classList.add('notebook-dark');
+        localStorage.setItem('notebookTheme', 'dark');
+      }
+    });
+
+    // PDF modal
+    const checkBtn = document.getElementById('checkAnswers');
+    const modal = document.getElementById('pdfModal');
+    const pdfFrame = document.getElementById('pdfFrame');
+    const closePdf = document.getElementById('closePdf');
+
+    checkBtn.addEventListener('click', () => {
+      pdfFrame.src = 'knowledge_organiser.pdf';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closePdf.addEventListener('click', () => {
+      modal.classList.remove('active');
+      pdfFrame.src = '';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Print
+    document.getElementById('printPage').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

@@ -6,35 +6,18 @@
 <title>GCSE Computer Science -Fast4</title>
 <link rel="stylesheet" href="../styles.css">
 <style>
-/* === Group color themes === */
-.resource-section[data-group="1"] { border-left:6px solid #3a86ff; }
-.resource-section[data-group="2"] { border-left:6px solid #ff006e; }
-.resource-section[data-group="3"] { border-left:6px solid #06d6a0; }
-.resource-section[data-group="4"] { border-left:6px solid #ffb703; }
-.resource-section[data-group="5"] { border-left:6px solid #8338ec; }
-.resource-section[data-group="6"] { border-left:6px solid #00b4d8; }
-
-.resource-section[data-group="1"] .doodle-icon { color:#3a86ff; }
-.resource-section[data-group="2"] .doodle-icon { color:#ff006e; }
-.resource-section[data-group="3"] .doodle-icon { color:#06d6a0; }
-.resource-section[data-group="4"] .doodle-icon { color:#ffb703; }
-.resource-section[data-group="5"] .doodle-icon { color:#8338ec; }
-.resource-section[data-group="6"] .doodle-icon { color:#00b4d8; }
-
-.resource-section:hover {
-  transform:translateY(-4px);
-  box-shadow:0 6px 12px rgba(0,0,0,0.15);
-  transition:0.2s ease;
+/* === Neutral styling for resource sections (no colours) === */
+.resource-section {
+  border-left: 6px solid var(--border);
 }
-.btn:hover {
-  background-color:#444;
-  color:#fff;
+.resource-section .doodle-icon {
+  color: var(--text-muted);
 }
 </style>
 </head>
 
-<body>
-<header><h1>G-Fast4 — Resource Index</h1></header>
+<body class="notebook notebook-border notebook-margin">
+<header><h1>GCSE Fast4</h1></header>
 
 <main>
 <div class="sections ko-grid" id="resourceContainer"></div>
