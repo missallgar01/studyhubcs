@@ -14,100 +14,106 @@
             padding: 0 1rem 2rem;
         }
 </style>
-<script>
-function openPdf(path){
-  const modal=document.getElementById("pdfModal");
-  const frame=document.getElementById("pdfFrame");
-  const title=document.getElementById("pdfTitle");
-  frame.src=path;
-  title.textContent=path.split('/').pop();
+    /* -------------------- PDF MODAL -------------------- */
+
+function openPdf(path) {
+  const modal = document.getElementById("pdfModal");
+  const frame = document.getElementById("pdfFrame");
+  const title = document.getElementById("pdfTitle");
+
+  frame.src = path;
+  title.textContent = path.split("/").pop() || "Knowledge Organiser";
+
   modal.classList.add("active");
 }
-function closePdf(){
-  const modal=document.getElementById("pdfModal");
-  const frame=document.getElementById("pdfFrame");
-  frame.src="";
+
+function closePdf() {
+  const modal = document.getElementById("pdfModal");
+  const frame = document.getElementById("pdfFrame");
+
+  frame.src = "";
   modal.classList.remove("active");
 }
 
-/* COLLAPSIBLE TOPICS */
-function toggleTopic(id){
-  const section = document.getElementById(id);
-  if(!section) return;
-  if(section.classList.contains("collapsed")){
-    section.classList.remove("collapsed");
-    section.classList.add("expanded");
-  }else{
-    section.classList.remove("expanded");
-    section.classList.add("collapsed");
-  }
+/* -------------------- COLLAPSIBLE TOPICS -------------------- */
+function toggleTopic(id) {
+  const s = document.getElementById(id);
+  if (!s) return;
+
+  s.classList.toggle("collapsed");
+  s.classList.toggle("expanded");
 }
 
-/* === KEYWORDS POPUP USING G-keywords.csv === */
+/* -------------------- CSV PARSING -------------------- */
+function parseKeywordsCsv(text) {
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+  if (lines.length < 2) return [];
 
-let keywordRows = null; // cache
-
-function parseKeywordsCsv(text){
-  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length>0);
-  if(lines.length <= 1) return [];
   const header = lines[0].split(",").map(h => h.trim().toLowerCase());
-  const topicIdx      = header.indexOf("topic");
-  const keywordIdx    = header.indexOf("keyword");
-  const definitionIdx = header.indexOf("definition");
-  const rows = [];
+  const topicIdx = header.indexOf("topic");
+  const keywordIdx = header.indexOf("keyword");
+  const defIdx = header.indexOf("definition");
 
-  for(let i=1;i<lines.length;i++){
-    const parts = lines[i].split(",");
-    if(parts.length < 3) continue;
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const p = lines[i].split(",");
+    if (p.length < 3) continue;
+
     rows.push({
-      topic:(parts[topicIdx]||"").trim(),
-      keyword:(parts[keywordIdx]||"").trim(),
-      definition:(parts[definitionIdx]||"").trim()
+      topic: p[topicIdx]?.trim() || "",
+      keyword: p[keywordIdx]?.trim() || "",
+      definition: p[defIdx]?.trim() || ""
     });
   }
   return rows;
 }
 
-async function loadKeywordsCsv(){
-  if(keywordRows) return keywordRows;
-  try{
-    const resp = await fetch("G-keywords.csv");
-    const text = await resp.text();
-    keywordRows = parseKeywordsCsv(text);
+let keywordRows = null;
+
+async function loadKeywordsCsv() {
+  if (keywordRows) return keywordRows;
+
+  try {
+    const r = await fetch("G-keywords.csv");
+    const t = await r.text();
+    keywordRows = parseKeywordsCsv(t);
     return keywordRows;
-  }catch(e){
-    console.error("Error loading G-keywords.csv", e);
+  } catch (e) {
+    console.error("Could not load G-keywords.csv", e);
     keywordRows = [];
     return keywordRows;
   }
 }
 
-async function openKeywordsModal(topicName){
-  const modal   = document.getElementById("keywordsModal");
-  const titleEl = document.getElementById("keywordsTitle");
-  const introEl = document.getElementById("keywordsIntro");
-  const cardsEl = document.getElementById("keywordCards");
+/* -------------------- OPEN KEYWORDS MODAL -------------------- */
 
-  titleEl.textContent = "Keywords – " + topicName;
-  cardsEl.innerHTML = "<p>Loading keywords...</p>";
-  introEl.textContent = "";
+async function openKeywordsModal(topicName) {
+  const modal = document.getElementById("keywordsModal");
+  const title = document.getElementById("keywordsTitle");
+  const intro = document.getElementById("keywordsIntro");
+  const cards = document.getElementById("keywordCards");
 
   modal.classList.add("active");
+  title.textContent = "Keywords – " + topicName;
+  intro.textContent = "Loading keywords...";
+  cards.innerHTML = "";
 
   const rows = await loadKeywordsCsv();
-  const matching = rows.filter(r => r.topic === topicName);
-  cardsEl.innerHTML = "";
+  const matches = rows.filter(r => r.topic === topicName);
 
-  if(matching.length === 0){
-    introEl.textContent = "No keywords found for this topic in G-keywords.csv.";
+  cards.innerHTML = "";
+
+  if (matches.length === 0) {
+    intro.textContent = "No keywords found for this topic.";
     return;
   }
-  introEl.textContent = "Click a box to reveal the definition.";
 
-  matching.forEach(row => {
+  intro.textContent = "Click a box to reveal the definition.";
+
+  matches.forEach(row => {
     const card = document.createElement("div");
     card.className = "keyword-card";
-    card.onclick = function(){ toggleDefinition(card); };
+    card.addEventListener("click", () => card.classList.toggle("show"));
 
     const front = document.createElement("div");
     front.className = "keyword-front";
@@ -119,34 +125,55 @@ async function openKeywordsModal(topicName){
 
     card.appendChild(front);
     card.appendChild(back);
-    cardsEl.appendChild(card);
+    cards.appendChild(card);
   });
 }
 
-function closeKeywordsModal(){
+function closeKeywordsModal() {
   const modal = document.getElementById("keywordsModal");
   modal.classList.remove("active");
 }
 
-function toggleDefinition(card){
-  card.classList.toggle("show");
-}
+/* -------------------- EVENT WIRING (SAFE) -------------------- */
 
-/* Close modals when clicking the dark background */
-window.addEventListener('load', function(){
-  const pdfModal = document.getElementById('pdfModal');
-  if(pdfModal){
-    pdfModal.addEventListener('click', function(e){
-      if(e.target === pdfModal){ closePdf(); }
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* PDF modal close rules */
+  const pdfModal = document.getElementById("pdfModal");
+  const pdfContent = document.querySelector(".pdf-modal-content");
+
+  if (pdfModal) {
+    pdfModal.addEventListener("click", e => {
+      if (e.target === pdfModal) closePdf();
     });
   }
-  const kwModal = document.getElementById('keywordsModal');
-  if(kwModal){
-    kwModal.addEventListener('click', function(e){
-      if(e.target === kwModal){ closeKeywordsModal(); }
+  if (pdfContent) {
+    pdfContent.addEventListener("click", e => e.stopPropagation());
+  }
+
+  /* Keywords modal close rules */
+  const kwModal = document.getElementById("keywordsModal");
+  const kwContent = document.querySelector(".keywords-modal-content");
+
+  if (kwModal) {
+    kwModal.addEventListener("click", e => {
+      if (e.target === kwModal) closeKeywordsModal();
     });
   }
+  if (kwContent) {
+    kwContent.addEventListener("click", e => e.stopPropagation());
+  }
+
+  /* Escape key closes whichever modal is open */
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      closePdf();
+      closeKeywordsModal();
+    }
+  });
 });
+<script>
+
 </script>
 </head>
 

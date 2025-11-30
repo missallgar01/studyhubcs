@@ -13,21 +13,21 @@
             padding: 0 1rem 2rem;
         }
 </style>
-
 <script>
 /* ---------- PDF MODAL ---------- */
 function openPdf(path){
-  const modal=document.getElementById("pdfModal");
-  const frame=document.getElementById("pdfFrame");
-  const title=document.getElementById("pdfTitle");
-  frame.src=path;
-  title.textContent=path.split('/').pop();
+  const modal = document.getElementById("pdfModal");
+  const frame = document.getElementById("pdfFrame");
+  const title = document.getElementById("pdfTitle");
+  frame.src = path;
+  title.textContent = path.split('/').pop();
   modal.classList.add("active");
 }
+
 function closePdf(){
-  const modal=document.getElementById("pdfModal");
-  const frame=document.getElementById("pdfFrame");
-  frame.src="";
+  const modal = document.getElementById("pdfModal");
+  const frame = document.getElementById("pdfFrame");
+  frame.src = "";
   modal.classList.remove("active");
 }
 
@@ -90,18 +90,18 @@ function parseCsvToObjects(text){
   return objs;
 }
 
-/* ---------- KEYWORDS MODAL USING alevel_keywords_master_updated.csv ---------- */
+/* ---------- KEYWORDS MODAL USING A-keywords.csv ---------- */
 let alevelKeywordRows = null;
 
 async function loadAlevelKeywords(){
   if(alevelKeywordRows) return alevelKeywordRows;
   try{
-    const resp = await fetch("alevel_keywords_master_updated.csv");
+    const resp = await fetch("A-keywords.csv");
     const text = await resp.text();
     alevelKeywordRows = parseCsvToObjects(text);
     return alevelKeywordRows;
   }catch(e){
-    console.error("Error loading alevel_keywords_master_updated.csv", e);
+    console.error("Error loading A-keywords.csv", e);
     alevelKeywordRows = [];
     return alevelKeywordRows;
   }
@@ -124,7 +124,7 @@ async function openKeywordsModal(topicName){
 
   cardsEl.innerHTML = "";
   if(matching.length === 0){
-    introEl.textContent = "No keywords found for this topic in alevel_keywords_master_updated.csv.";
+    introEl.textContent = "No keywords found for this topic.";
     return;
   }
 
@@ -153,29 +153,14 @@ function closeKeywordsModal(){
   const modal = document.getElementById("keywordsModal");
   modal.classList.remove("active");
 }
+
 function toggleDefinition(card){
   card.classList.toggle("show");
 }
 
-/* Close modals when clicking the dark background */
-window.addEventListener('load', function(){
-  const pdfModal = document.getElementById('pdfModal');
-  if(pdfModal){
-    pdfModal.addEventListener('click', function(e){
-      if(e.target === pdfModal){ closePdf(); }
-    });
-  }
-  const kwModal = document.getElementById('keywordsModal');
-  if(kwModal){
-    kwModal.addEventListener('click', function(e){
-      if(e.target === kwModal){ closeKeywordsModal(); }
-    });
-  }
-});
-
 /* ---------- GLOBAL FILTER FOR TABLE ROWS ---------- */
 function applyGlobalFilter(){
-  const q = document.getElementById("globalFilter").value.toLowerCase();
+  const q = document.getElementById("globalFilter")?.value.toLowerCase() || "";
   const rows = document.querySelectorAll("table.topic-table tbody tr");
   let visibleCount = 0;
   rows.forEach(tr => {
@@ -188,19 +173,51 @@ function applyGlobalFilter(){
     }
   });
   const info = document.getElementById("filterInfo");
-  if(!q){
-    info.textContent = "";
-  }else{
-    info.textContent = visibleCount + " row(s) match \"" + q + "\"";
+  if(info){
+    info.textContent = q ? (visibleCount + ' row(s) match "' + q + '"') : "";
   }
 }
 
+/* ---------- WIRE UP MODALS & FILTER ON DOM READY ---------- */
 document.addEventListener("DOMContentLoaded", function(){
+  // PDF modal background click + stopPropagation
+  const pdfModal = document.getElementById("pdfModal");
+  const pdfContent = document.querySelector(".pdf-modal-content");
+  if(pdfModal){
+    pdfModal.addEventListener("click", function(e){
+      if(e.target === pdfModal){ closePdf(); }
+    });
+  }
+  if(pdfContent){
+    pdfContent.addEventListener("click", function(e){
+      e.stopPropagation();
+    });
+  }
+
+  // Keywords modal background click + stopPropagation
+  const kwModal = document.getElementById("keywordsModal");
+  const kwContent = document.querySelector(".keywords-modal-content");
+  if(kwModal){
+    kwModal.addEventListener("click", function(e){
+      if(e.target === kwModal){ closeKeywordsModal(); }
+    });
+  }
+  if(kwContent){
+    kwContent.addEventListener("click", function(e){
+      e.stopPropagation();
+    });
+  }
+
+  // Global filter input
   const filterInput = document.getElementById("globalFilter");
   if(filterInput){
     filterInput.addEventListener("input", applyGlobalFilter);
   }
 });
+</script>
+<script>
+
+
 </script>
 </head>
 <body class="notebook notebook-border notebook-margin topic-page">
