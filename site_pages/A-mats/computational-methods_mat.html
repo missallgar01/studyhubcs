@@ -7,16 +7,6 @@
   <link rel="stylesheet" href="../../styles.css" />
 
 </head>
-<style>
-
-        .doodle-image img {
-          max-width: 100%;
-          height: auto;
-          display: block;
-          margin: 0 auto 1rem;
-          border-radius: 10px;
-        }
-    </style>
 <body class="notebook notebook-border notebook-margin">
   <header>
     <h1>Computational Methods Revision Mat</h1>
@@ -133,8 +123,8 @@
   </main>
 
   <footer>
-    <button id="checkAnswers" class="enabled">Check Answers</button>
-    <button id="printPage" class="secondary">🖨️ Print This Page</button>
+<button id="checkAnswersBtn" class="btn enabled">Check Answers</button>
+      <button id="printPage" class="secondary">🖨️ Print This Page</button>
     <p>&copy; 2025 A-Mats Revision Portal</p>
   </footer>
 
@@ -142,8 +132,7 @@
   <div id="pdfModal">
     <div class="pdf-modal-content">
       <div class="pdf-modal-header">
-        <h3>Knowledge Organiser</h3>
-        <button id="closePdf">&times;</button>
+        <h3 id="pdfTitle">Knowledge Organiser</h3>
       </div>
       <iframe id="pdfFrame" src=""></iframe>
     </div>
@@ -152,47 +141,69 @@
   <button id="themeToggle" title="Toggle notebook theme">🌓</button>
 
   <script>
-    // Theme toggle
-    const toggleBtn = document.getElementById('themeToggle');
-    const body = document.body;
-    const savedTheme = localStorage.getItem('notebookTheme');
-    if (savedTheme === 'dark') {
-      body.classList.remove('notebook', 'notebook-margin');
-      body.classList.add('notebook-dark');
-    }
-    toggleBtn.addEventListener('click', () => {
-      const isDark = body.classList.contains('notebook-dark');
-      if (isDark) {
-        body.classList.remove('notebook-dark');
-        body.classList.add('notebook', 'notebook-margin');
-        localStorage.setItem('notebookTheme', 'light');
-      } else {
-        body.classList.remove('notebook', 'notebook-margin');
-        body.classList.add('notebook-dark');
-        localStorage.setItem('notebookTheme', 'dark');
+function openPdfModal(file, titleText) {
+  const modal  = document.getElementById("pdfModal");
+  const frame  = document.getElementById("pdfFrame");
+  const title  = document.getElementById("pdfTitle");
+
+  if (frame)  frame.src = file || "";
+  if (title)  title.textContent = titleText || "Knowledge Organiser";
+  if (modal)  modal.classList.add("active");
+}
+
+function closePdfModal() {
+  const modal = document.getElementById("pdfModal");
+  const frame = document.getElementById("pdfFrame");
+
+  if (frame) frame.src = "";
+  if (modal) modal.classList.remove("active");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  /* Check Answers button -> open KO */
+  const checkBtn = document.getElementById("checkAnswersBtn");
+  if (checkBtn) {
+    checkBtn.addEventListener("click", function () {
+      // Open the KO for this revision mat
+      openPdfModal("../A-KO/ComputationalmethodsKO.pdf", "Computational Methods KO");
+    });
+  }
+
+  /* Print button */
+  const printBtn = document.getElementById("printPage");
+  if (printBtn) {
+    printBtn.addEventListener("click", function () {
+      window.print();
+    });
+  }
+
+  /* Modal behaviour */
+  const modal   = document.getElementById("pdfModal");
+  const content = document.querySelector(".pdf-modal-content");
+
+  // Click background to close
+  if (modal) {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        closePdfModal();
       }
     });
+  }
 
-    // PDF modal
-    const checkBtn = document.getElementById('checkAnswers');
-    const modal = document.getElementById('pdfModal');
-    const pdfFrame = document.getElementById('pdfFrame');
-    const closePdf = document.getElementById('closePdf');
-
-    checkBtn.addEventListener('click', () => {
-      pdfFrame.src = 'knowledge_organiser.pdf';
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+  // Don't close when clicking inside the white card
+  if (content) {
+    content.addEventListener("click", function (e) {
+      e.stopPropagation();
     });
+  }
 
-    closePdf.addEventListener('click', () => {
-      modal.classList.remove('active');
-      pdfFrame.src = '';
-      document.body.style.overflow = 'auto';
-    });
-
-    // Print
-    document.getElementById('printPage').addEventListener('click', () => window.print());
-  </script>
+  // Escape key closes modal
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closePdfModal();
+    }
+  });
+});
+</script>
 </body>
 </html>

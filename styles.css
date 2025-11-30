@@ -305,8 +305,11 @@ iframe {
 
 .pdf-modal-content {
   background: #fff;
-  width: 100%;
-  height: 100%;
+  width: 95%;          /* leave space around for dark overlay */
+  max-width: 1100px;   /* keep it nicely sized on large screens */
+  height: 92vh;        /* take most of the height, not all */
+  border-radius: 1rem;
+
   display: flex;
   flex-direction: column;
   position: relative;
@@ -340,9 +343,9 @@ iframe {
 
 #pdfFrame {
   flex: 1;
-  width: 90%;
-  height: 90%;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   border: 2px solid #000;
   background: #000;
   box-shadow: 3px 3px 0 #000;
@@ -608,15 +611,15 @@ body.notebook-dark #themeToggle {
 .keywords-modal-content {
   background: #fff;
   border-radius: 1rem;
-  max-width: 900px;
   width: 95%;
-  max-height: 90vh;
+  max-width: 1100px;     /* wider modal so cards don't wrap too early */
+  height: 92vh;          /* taller modal so more rows fit */
   display: flex;
   flex-direction: column;
   overflow: hidden;
 
   border: 2px solid #000;
-  box-shadow: 4px 4px 0 #000;  /* notebook card shadow */
+  box-shadow: 4px 4px 0 #000;
 }
 
 .keywords-modal-header {
@@ -651,8 +654,9 @@ body.notebook-dark #themeToggle {
 }
 
 .keywords-modal-content .body {
-  padding: 1rem 1.2rem 1.2rem;
+  padding: 0.5rem 0.8rem;   /* tighter padding for more card space */
   overflow-y: auto;
+  flex: 1;                  /* ensures grid fills remaining modal space */
   background: #fff;
 }
 #keywordsIntro {
@@ -670,60 +674,62 @@ body.notebook-dark #themeToggle {
   gap: 0.9rem;
 }
 
-/* Notebook card container */
+/* --- CARD CONTAINER --- */
 .keyword-card {
+  width: 100%;
+  height: 140px;              /* FIX: consistent size */
+  position: relative;         /* allows absolute children */
   perspective: 900px;
+  cursor: pointer;
+    overflow-y: scroll;
+scrollbar-width: thin;
 }
 
-/* Shared front/back styling */
+/* --- BOTH FACES --- */
 .keyword-card .keyword-front,
 .keyword-card .keyword-back {
+  position: absolute;         /* FIX: stack perfectly */
+  inset: 0;                   /* top: 0; left: 0; right: 0; bottom: 0 */
+  width: 100%;
+  height: 100%;
+
   padding: 0.85rem;
   border-radius: 1rem;
   background: #fff;
   border: 2px solid #000;
   box-shadow: 3px 3px 0 #000;
 
-  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
-  font-size: 1rem;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-
-  transition: transform .4s ease;
+  transition: transform .45s ease;
+  font-size: 1rem;
 }
 
-/* FRONT */
+/* FRONT FACE */
 .keyword-card .keyword-front {
+  background: #fff;
   color: #111;
+  transform: rotateY(0deg);
 }
 
-/* BACK (notebook darker panel) */
+/* BACK FACE */
 .keyword-card .keyword-back {
-  background: #fffbeb; /* Pale yellow notebook look */
-  border-color: #000;
-  color: #111;
+  background: #fffbeb;
   transform: rotateY(180deg);
 }
 
-/* HOVER – NO LIFTING / NO GLOW (kept notebook-flat) */
-.keyword-card:hover .keyword-front,
-.keyword-card:hover .keyword-back {
-  box-shadow: 3px 3px 0 #000; /* keep flat, no animation */
-}
-
-/* FLIP ANIMATION */
+/* --- FLIP ANIMATION --- */
 .keyword-card.show .keyword-front {
   transform: rotateY(180deg);
 }
 .keyword-card.show .keyword-back {
   transform: rotateY(360deg);
 }
-
 /* ==========================
    TOPIC TABLE – NOTEBOOK STYLE
    ========================== */
@@ -948,57 +954,101 @@ a.pdf-link:hover {
   box-sizing: border-box;
 }
 
-/* Slight tighten on small screens */
-@media (max-width: 700px) {
-  .investigate-table,
-  .task-table,
-  .assessment-table {
-    font-size: 0.85rem;
-    box-shadow: 2px 2px 0 #000;
-  }
-}
-
-/* ==========================
-   RESPONSIVE (≤700px)
+  /* ==========================
+   REVISION MATS – TEXTAREA FULL WIDTH
    ========================== */
-@media (max-width: 700px) {
-  body {
-    font-size:.95rem;
-    line-height:1.5;
-    padding:0;
-  }
-  header {
-    padding:.75rem;
-    font-size:1.1rem;
-  }
-  main {
-    margin:1rem auto;
-    padding:0 .75rem;
-  }
 
-  .index-grid, .ko-grid {
-    grid-template-columns:1fr;
-    gap:1rem;
-  }
+.revision-grid {
+  /* vertical stack instead of multi-column grid */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
-  .index-card, .resource-section, .card {
-    padding:.75rem;
-    border-radius:10px;
-  }
-
-  table {
-    font-size:.9rem;
-    display:block;
-    overflow-x:auto;
-    border-radius:8px;
-  }
-
-  iframe { height:300px; }
-  footer {
-    font-size:.85rem;
-    padding:1.5rem 1rem;
-  }
+  /* optional: centre the column and give it a nice width */
+   width: 100%;
+  margin: 0 auto 2rem;
 }
+
+.rev-card {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 0 #000;
+  padding: 1.5rem;
+}
+
+/* Make revision mat textareas span the full card width */
+.rev-card textarea {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.8rem;
+
+  min-height: 120px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+/* Vertical layout for knowledge sections */
+    .vertical-knowledge {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .knowledge-card {
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 1rem;
+      box-shadow: 3px 3px 0 #000;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .knowledge-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Vertical layout for Q&A cards */
+    .vertical-qa {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .qa-card textarea.student-answer {
+      width: 100%;
+      min-height: 120px;
+      margin: 0.75rem 0 0.75rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      resize: vertical;
+      box-sizing: border-box;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .qa-card .answer {
+      display: none;               /* JS toggles this */
+      margin-top: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      background: rgba(59, 130, 246, 0.06);
+      border: 1px dashed #93c5fd;
+      font-size: 0.95rem;
+    }
+
+    .answer-toggle {
+      margin-top: 0.25rem;
+    }
 
 /* ==========================
    FAST FOUR SET COLOURS & UI
@@ -1049,16 +1099,21 @@ a.pdf-link:hover {
 
 /* Text areas for student responses */
 textarea.input {
-  width: 100%;
+  width: 100% !important;
+  max-width: 980px;
   min-height: 80px;
-  margin-top: 0.5rem;
-  padding: 0.5rem 0.6rem;
-  border-radius: 8px;
+
+  margin: 0.75rem auto;   /* centre full-width textarea */
+  padding: 0.6rem 0.8rem;
+
+  display: block;          /* ensures full-width */
+  border-radius: 10px;
   border: 1px solid #cbd5e1;
+  background: #fff;
+
   font-family: inherit;
   font-size: 0.95rem;
   resize: vertical;
-  box-sizing: border-box;
 }
 
 /* Give a subtle focus outline */
@@ -1073,76 +1128,139 @@ textarea.input:focus {
   margin-top: 1.5rem;
 }
 
+/* Slight tighten on small screens */
+@media (max-width: 700px) {
+  .investigate-table,
+  .task-table,
+  .assessment-table {
+    font-size: 0.85rem;
+    box-shadow: 2px 2px 0 #000;
+  }
+}
+
+/* ==========================
+   RESPONSIVE (≤700px)
+   ========================== */
+@media (max-width: 700px) {
+    body {
+        font-size: .95rem;
+        line-height: 1.5;
+        padding: 0;
+    }
+
+    header {
+        padding: .75rem;
+        font-size: 1.1rem;
+    }
+
+    main {
+        margin: 1rem auto;
+        padding: 0 .75rem;
+    }
+
+    .index-grid, .ko-grid {
+        grid-template-columns:1fr;
+        gap: 1rem;
+    }
+
+    .index-card, .resource-section, .card {
+        padding: .75rem;
+        border-radius: 10px;
+    }
+
+    table {
+        font-size: .9rem;
+        display: block;
+        overflow-x: auto;
+        border-radius: 8px;
+    }
+
+    iframe {
+        height: 300px;
+    }
+
+    footer {
+        font-size: .85rem;
+        padding: 1.5rem 1rem;
+    }
+
+}
 /* ==========================
    PRINT (friendly)
    ========================== */
 @media print {
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
 
-  html, body {
-    background:#fff !important;
-    color:#111 !important;
-    font: 12pt/1.5 Arial, Helvetica, sans-serif;
-  }
+    html, body {
+        background: #fff !important;
+        color: #111 !important;
+        font: 12pt/1.5 Arial, Helvetica, sans-serif;
+    }
 
-  header, footer {
-    background:none !important;
-    color:#111 !important;
-    border:0 !important;
-    box-shadow:none !important;
-    text-align:center;
-  }
+    header, footer {
+        background: none !important;
+        color: #111 !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        text-align: center;
+    }
 
-  header h1 {
-    margin:0 0 .25rem;
-    font-size:1.5rem;
-  }
+    header h1 {
+        margin: 0 0 .25rem;
+        font-size: 1.5rem;
+    }
 
-  main {
-    max-width:none;
-    margin:0;
-    padding:0;
-  }
+    main {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
 
-  .btn, button, .secondary, .hint, .toolbar {
-    display:none !important;
-  }
+    .btn, button, .secondary, .hint, .toolbar {
+        display: none !important;
+    }
 
-  .topic-section,
-  .card {
-    background:#fff !important;
-    border:1px solid #ddd !important;
-    box-shadow:none !important;
-    page-break-inside: avoid;
-    margin:0 0 1.2cm 0;
-    padding:.75cm;
-    border-radius:0;
-  }
+    .topic-section,
+    .card {
+        background: #fff !important;
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin: 0 0 1.2cm 0;
+        padding: .75cm;
+        border-radius: 0;
+    }
 
-  table {
-    width:100% !important;
-    border-collapse:collapse !important;
-    border:1px solid #ccc !important;
-  }
+    table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        border: 1px solid #ccc !important;
+    }
 
-  th, td {
-    border:1px solid #ccc !important;
-    padding:6pt 8pt !important;
-    vertical-align:top;
-  }
+    th, td {
+        border: 1px solid #ccc !important;
+        padding: 6pt 8pt !important;
+        vertical-align: top;
+    }
 
-  img {
-    max-width:50% !important;
-    height:auto !important;
-  }
+    img {
+        max-width: 50% !important;
+        height: auto !important;
+    }
 
-  p, li { orphans:3; widows:3; }
-  h2, h3 { page-break-after: avoid; }
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
 
-  @page {
-    margin: 1.5cm;
-  }
+    h2, h3 {
+        page-break-after: avoid;
+    }
+
+    @page {
+        margin: 1.5cm;
+    }
 }
