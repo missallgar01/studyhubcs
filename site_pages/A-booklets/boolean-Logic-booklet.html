@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boolean Expressions – Vertical Revision Page</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<body class="notebook notebook-border notebook-margin">
+<header>
+  <h1>Boolean Expressions – Revision Page</h1>
+  <h2>Read • Write • Check • Amend</h2>
+  <p class="subtitle">
+    Read the notes, write your own answers, then reveal the model answers to check and improve.
+  </p>
+</header>
+
+<main>
+
+  <!-- =========================
+       KNOWLEDGE SECTIONS (VERTICAL)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Boolean Expressions – Notes</h2>
+    </div>
+
+    <div class="topic-body vertical-knowledge">
+
+      <!-- Card 1: Boolean notation -->
+      <div class="knowledge-card">
+        <h3>Boolean Expressions & Notation</h3>
+        <p>Boolean expressions use logical operators to combine variables that can only be
+          <strong>0 (false)</strong> or <strong>1 (true)</strong>.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Symbol</th>
+              <th>Example</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AND</td>
+              <td>&and; or ∧</td>
+              <td>A ∧ B</td>
+              <td>True only when <strong>both</strong> inputs are 1.</td>
+            </tr>
+            <tr>
+              <td>OR</td>
+              <td>&or; or ∨</td>
+              <td>A ∨ B</td>
+              <td>True when <strong>at least one</strong> input is 1.</td>
+            </tr>
+            <tr>
+              <td>XOR</td>
+              <td>⊕</td>
+              <td>A ⊕ B</td>
+              <td>True when <strong>exactly one</strong> input is 1.</td>
+            </tr>
+            <tr>
+              <td>NOT</td>
+              <td>¬ or overbar</td>
+              <td>¬A</td>
+              <td>Flips the value of A (0 → 1, 1 → 0).</td>
+            </tr>
+            <tr>
+              <td>Equivalence</td>
+              <td>≡</td>
+              <td>A ≡ B</td>
+              <td>“A is the same as B” – both have the same truth value.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Difference between OR and XOR:</strong><br>
+           An OR gate outputs 1 if <em>at least one</em> input is 1; an XOR gate outputs 1
+           only if <em>exactly one</em> input is 1 (not both). </p>
+      </div>
+
+      <!-- Card 2: Truth tables / gates -->
+      <div class="knowledge-card">
+        <h3>Truth Tables & Logic Circuits</h3>
+        <p>Every logic gate or Boolean expression can be represented by a
+          <strong>truth table</strong> listing all possible inputs and the corresponding output.</p>
+        <ul>
+          <li>Use column(s) for each input (e.g. A, B, C) and one or more columns for outputs.</li>
+          <li>There are \(2^n\) rows for \(n\) inputs.</li>
+          <li>From a truth table you can derive a Boolean expression, and vice versa.</li>
+        </ul>
+        <p>For questions about circuits, you often need to:</p>
+        <ol>
+          <li>Work out the output of each gate step-by-step.</li>
+          <li>Fill the truth table.</li>
+          <li>Write expressions for each output.</li>
+        </ol>
+      </div>
+
+      <!-- Card 3: Simplifying Boolean expressions -->
+      <div class="knowledge-card">
+        <h3>Simplifying Boolean Expressions</h3>
+        <p>We can use Boolean algebra rules to make expressions shorter or easier to implement
+           as logic circuits.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>General AND rules</th>
+              <th>General OR rules</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>X · 0 = 0</td>
+              <td>X + 0 = X</td>
+            </tr>
+            <tr>
+              <td>X · 1 = X</td>
+              <td>X + 1 = 1</td>
+            </tr>
+            <tr>
+              <td>X · X = X</td>
+              <td>X + X = X</td>
+            </tr>
+            <tr>
+              <td>¬X · X = 0</td>
+              <td>¬X + X = 1</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul>
+          <li><strong>De&nbsp;Morgan’s Laws</strong> – break a NOT over brackets and flip AND/OR.<br>
+            ¬(A ∧ B) ≡ ¬A ∨ ¬B, &nbsp; ¬(A ∨ B) ≡ ¬A ∧ ¬B</li>
+          <li><strong>Distribution</strong> – expand: A(B + C) ≡ AB + AC</li>
+          <li><strong>Reverse distribution (factoring)</strong> – take out common factor:
+            AB + AC ≡ A(B + C)</li>
+          <li><strong>Absorption</strong> – e.g. A + A·B ≡ A</li>
+          <li><strong>Double negation</strong> – ¬(¬A) ≡ A</li>
+          <li><strong>Commutation / association</strong> – reorder and regroup terms.</li>
+        </ul>
+
+        <p><strong>Example:</strong> simplify (¬C ∧ ¬D) ∨ (C ∧ ¬D)</p>
+        <ol>
+          <li>Common factor is ¬D</li>
+          <li>Factor: ¬D ∧ (¬C ∨ C)</li>
+          <li>Use X ∨ ¬X = 1 ⇒ ¬D ∧ 1 ≡ ¬D</li>
+        </ol>
+      </div>
+
+      <!-- Card 4: Karnaugh maps -->
+      <div class="knowledge-card">
+        <h3>Karnaugh Maps (K-maps)</h3>
+        <p>A Karnaugh map is a grid representation of a truth table used to simplify Boolean
+           expressions, especially with 3 or 4 variables.</p>
+        <ul>
+          <li>Each cell represents one row of the truth table.</li>
+          <li>Cells are arranged so that neighbouring cells differ by only one bit (Gray code).</li>
+          <li>Group 1s in rectangles of size 1, 2, 4, 8… (powers of 2).</li>
+          <li>Each group corresponds to a simplified term; combine all terms with OR.</li>
+        </ul>
+        <p>Typical exam steps:</p>
+        <ol>
+          <li>Highlight the 1s correctly on the K-map.</li>
+          <li>Form the largest possible groups and write the simplified expression.</li>
+        </ol>
+      </div>
+
+      <!-- Card 5: Flip-flops -->
+      <div class="knowledge-card">
+        <h3>D-type Flip-Flops</h3>
+        <p>A flip-flop is a logic circuit that can <strong>store one bit</strong> of data.</p>
+        <ul>
+          <li>Inputs: data input D and a clock input.</li>
+          <li>Output: Q (and often ¬Q).</li>
+          <li>For a D-type flip-flop, Q takes the value of D only on the
+              <strong>rising edge</strong> of the clock pulse.</li>
+          <li>Between clock edges the output stays the same – this is how a single bit of memory
+              is implemented.</li>
+        </ul>
+        <p>Flip-flops are usually built from <strong>NAND gates</strong> (AND with an inverted output).</p>
+      </div>
+
+      <!-- Card 6: Half and full adders -->
+      <div class="knowledge-card">
+        <h3>Half Adders & Full Adders</h3>
+        <p>A <strong>half adder</strong> adds two 1-bit inputs A and B.</p>
+        <ul>
+          <li>Outputs: <strong>Sum (S)</strong> and <strong>Carry (C)</strong>.</li>
+          <li>S = A ⊕ B (XOR), C = A ∧ B (AND).</li>
+        </ul>
+
+        <p>A <strong>full adder</strong> also has a carry-in input \(C_{in}\): it adds A, B and \(C_{in}\).</p>
+        <ul>
+          <li>Outputs: <strong>Sum S</strong> and <strong>Carry out \(C_{out}\)</strong>.</li>
+          <li>S = A ⊕ B ⊕ C<sub>in</sub></li>
+          <li>C<sub>out</sub> = (A ∧ B) ∨ ((A ∨ B) ∧ C<sub>in</sub>)</li>
+          <li>The circuit therefore “adds two bits and a carry bit together” and outputs a
+              2-bit result (S and C<sub>out</sub>).</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       QUESTIONS & ANSWERS (VERTICAL)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check Your Understanding – Questions</h2>
+    </div>
+
+    <div class="topic-body">
+      <div class="vertical-qa">
+
+        <!-- Q1 -->
+        <div class="rev-card qa-card">
+          <h3>1. Writing Boolean expressions</h3>
+          <p>(a) Rewrite the expression <strong>NOT(A OR B) XOR C</strong> using symbolic
+             notation (¬, ∨, ⊕).<br>
+             (b) In words, describe what the expression does.</p>
+
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p><strong>(a)</strong> One suitable notation is:
+              <code>¬(A ∨ B) ⊕ C</code>.</p>
+            <p><strong>(b)</strong> First the OR gate outputs 1 if A or B is 1, then this is
+               inverted. The result is XORed with C, so the final output is 1 if C is different
+               from ¬(A ∨ B).</p>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="rev-card qa-card">
+          <h3>2. OR vs XOR</h3>
+          <p>Explain the difference in the function of an <strong>OR</strong> gate and an
+             <strong>XOR</strong> gate.</p>
+
+          <textarea class="student-answer" placeholder="Write your explanation here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p>An OR gate outputs 1 if <strong>at least one</strong> of its inputs is 1.
+               An XOR gate outputs 1 if <strong>exactly one</strong> input is 1 – it is 0 when
+               both inputs are 0 and also 0 when both are 1.</p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="rev-card qa-card">
+          <h3>3. Worked simplification</h3>
+          <p>Simplify the Boolean expression
+             <code>(¬C ∧ ¬D) ∨ (C ∧ ¬D)</code> and show your working, naming the rules you use.</p>
+
+          <textarea class="student-answer" placeholder="Show your steps here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <ol>
+              <li>Common factor ¬D in both terms:<br>
+                  (¬C ∧ ¬D) ∨ (C ∧ ¬D) ≡ ¬D ∧ (¬C ∨ C)</li>
+              <li>Use general OR rule ¬X ∨ X = 1:<br>
+                  ¬D ∧ (¬C ∨ C) ≡ ¬D ∧ 1</li>
+              <li>Use general AND rule X ∧ 1 = X:<br>
+                  ¬D ∧ 1 ≡ ¬D</li>
+            </ol>
+            <p><strong>Final answer:</strong> ¬D</p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="rev-card qa-card">
+          <h3>4. De Morgan’s law</h3>
+          <p>Simplify the expression so that it does not contain any negation over brackets:<br>
+             <strong>Q ≡ ¬(¬A ∧ ¬B)</strong><br>
+             Show each step and name the Boolean rule you use.</p>
+
+          <textarea class="student-answer" placeholder="Write your steps here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <ol>
+              <li>Apply De&nbsp;Morgan’s law:<br>
+                  ¬(¬A ∧ ¬B) ≡ ¬(¬A) ∨ ¬(¬B)</li>
+              <li>Use double negation:<br>
+                  ¬(¬A) ≡ A and ¬(¬B) ≡ B</li>
+            </ol>
+            <p><strong>So:</strong> Q ≡ A ∨ B</p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="rev-card qa-card">
+          <h3>5. Factoring an expression</h3>
+          <p>Using Boolean algebra rules, simplify the expression:<br>
+             <strong>(E ∧ F) ∨ (E ∧ G)</strong></p>
+
+          <textarea class="student-answer" placeholder="Write your simplification here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p>Factor out the common term E (reverse distribution):</p>
+            <p>(E ∧ F) ∨ (E ∧ G) ≡ E ∧ (F ∨ G)</p>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="rev-card qa-card">
+          <h3>6. Using absorption</h3>
+          <p>Using the rules for manipulating Boolean expressions, simplify:</p>
+          <p><strong>A ∧ B ∨ A ∧ (B ∨ C) ∨ B ∧ (B ∨ C)</strong></p>
+
+          <textarea class="student-answer" placeholder="Show your full working here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p>One possible route (summarised):</p>
+            <ol>
+              <li>Distribute where needed and combine like terms so that
+                  A∧B terms and B∧C terms are grouped.</li>
+              <li>Use absorption: (A ∧ B) ∨ B ≡ B and (B ∧ C) ∨ B ≡ B.</li>
+            </ol>
+            <p><strong>Final simplified expression:</strong> B ∨ (A ∧ C)</p>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="rev-card qa-card">
+          <h3>7. Challenge simplification</h3>
+          <p>
+            Simplify the following Boolean expression using De&nbsp;Morgan’s Laws and other
+            Boolean rules. Show enough steps to justify your answer:
+          </p>
+          <p><strong>¬(A ∧ B) ∨ ¬(A ∧ (B ∨ C)) ∨ (B ∧ (B ∨ C))</strong></p>
+
+          <textarea class="student-answer" placeholder="Write your challenge solution here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p>After applying De&nbsp;Morgan’s Laws, distribution, absorption and the general
+               AND/OR rules, every possible combination of A, B and C makes the expression
+               true.</p>
+            <p><strong>Final answer:</strong> 1 (the expression is always true)</p>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="rev-card qa-card">
+          <h3>8. D-type flip-flop</h3>
+          <p>(a) State what a D-type flip-flop does.<br>
+             (b) When can the output change?<br>
+             (c) Why is a flip-flop useful in digital systems?</p>
+
+          <textarea class="student-answer" placeholder="Write your answers here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p><strong>(a)</strong> It stores the value of one bit: the output Q copies the
+               input D at certain times and then holds that value.</p>
+            <p><strong>(b)</strong> In a D-type flip-flop, Q can only change on the
+               <strong>rising edge</strong> of the clock pulse.</p>
+            <p><strong>(c)</strong> Because it holds its value between clock ticks, it can be
+               used as a 1-bit memory cell or register stage inside counters, registers and
+               other sequential circuits.</p>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="rev-card qa-card">
+          <h3>9. Half adder</h3>
+          <p>(a) Complete the truth table for a half adder with inputs A and B and outputs
+             Sum S and Carry C.<br>
+             (b) Write Boolean expressions for S and C.</p>
+
+          <textarea class="student-answer" placeholder="Construct the table and expressions here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p><strong>Truth table:</strong></p>
+            <table>
+              <thead>
+                <tr><th>A</th><th>B</th><th>S</th><th>C</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Expressions:</strong></p>
+            <ul>
+              <li>S = A ⊕ B</li>
+              <li>C = A ∧ B</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="rev-card qa-card">
+          <h3>10. Full adder circuit</h3>
+          <p>A logic circuit has three inputs A, B and C<sub>in</sub> and two outputs S and
+             C<sub>out</sub>.</p>
+          <p>(a) Explain what the circuit does, referring to A, B, C<sub>in</sub>, S and
+             C<sub>out</sub> in your answer.<br>
+             (b) Write Boolean expressions for S and C<sub>out</sub>.</p>
+
+          <textarea class="student-answer" placeholder="Describe the circuit and give the expressions..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p><strong>(a)</strong> It is a <strong>full adder</strong>. It adds the three
+               1-bit inputs A, B and C<sub>in</sub> together. The output S is the least
+               significant bit of the sum, and C<sub>out</sub> is the carry-out bit produced
+               when the total is 2 or 3.</p>
+            <p><strong>(b)</strong> One common form is:</p>
+            <ul>
+              <li>S = A ⊕ B ⊕ C<sub>in</sub></li>
+              <li>C<sub>out</sub> = (A ∧ B) ∨ ((A ∨ B) ∧ C<sub>in</sub>)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Boolean Expressions Revision Portal</p>
+</footer>
+
+<script>
+  // Toggle topic sections open/closed
+  document.querySelectorAll('.topic-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+      section.classList.toggle('expanded');
+    });
+  });
+
+  // Show / hide individual answers
+  document.querySelectorAll('.answer-toggle').forEach(btn => {
+    const answer = btn.nextElementSibling;
+    if (!answer) return;
+
+    // ensure hidden initially (CSS also sets .answer display:none)
+    answer.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const open = answer.style.display === 'block';
+      answer.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Show answer' : 'Hide answer';
+    });
+  });
+</script>
+
+</body>
+</html>
