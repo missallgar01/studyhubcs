@@ -1,173 +1,541 @@
 /* ==========================
-   THEME VARIABLES
+   ROOT VARIABLES
    ========================== */
 :root {
-  /* Brand */
-  --brand-dark: #1e3a8a;   /* legacy blue retained */
-  --brand-blue: #2563eb;   /* refreshed primary */
-  --brand-accent: #3b82f6; /* lighter accent */
-  --brand-tint: #eef2ff;   /* light tint background */
+  --brand-blue: #2563eb;
+  --brand-accent: #3b82f6;
 
-  /* Base palette */
-  --bg: #f6f7fb;
-  --bg-alt: #f8fafc;
-  --card: #ffffff;
-  --text: #222;            /* body text */
-  --text-strong: #1e293b;  /* headings */
-  --text-muted: #475569;
-  --muted: #666;
-  --border: #e5e7eb;
+  --text-main: #111827;
+  --text-muted: #4b5563;
 
-  /* Effects */
-  --radius: 12px;
-  --radius-lg: 14px;
-  --shadow-sm: 0 1px 4px rgba(0,0,0,.05);
-  --shadow-md: 0 2px 10px rgba(0,0,0,.08);
-  --shadow-lg: 0 8px 20px rgba(0,0,0,.12);
+  --card-bg: #ffffff;
+  --border-strong: #000000;
 
-  /* Type */
-  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
-  --lh: 1.6;
+  --radius: 1rem;
+  --shadow-card: 3px 3px 0 #000;
+
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --fs-base: clamp(0.96rem, 0.9rem + 0.25vw, 1.05rem);
+  --lh: 1.6;
 }
-
 
 /* ==========================
    BASE
    ========================== */
-/* Ensure page is scrollable on all devices */
-html, body {
-  min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--font-base);
-  background: var(--bg);
-  color: var(--text);
-  line-height: var(--lh);
   font-size: var(--fs-base);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  line-height: var(--lh);
+  color: var(--text-main);
+
+  /* notebook paper + margin line */
+  background:
+    linear-gradient(to bottom, #fff 24px, #f2f2f2 25px),
+    linear-gradient(to right, #f88 2px, transparent 3px),
+    #fff;
+  background-repeat: repeat-y, no-repeat;
+  background-position: left 45px top, left top;
+  background-size: 100% 25px, 2px 100%;
+  background-attachment: fixed;
+
+  position: relative;
+  overflow-x: hidden;
 }
+
+/* punched holes + wonky border */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20px 50px, #000 2px, transparent 3px),
+    radial-gradient(circle at 20px 130px, #000 2px, transparent 3px),
+    radial-gradient(circle at 20px 210px, #000 2px, transparent 3px),
+    radial-gradient(circle at 20px 290px, #000 2px, transparent 3px);
+  background-repeat: repeat-y;
+  background-position: 0 0;
+  background-size: 100% 80px;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  border: 2px solid #000;
+  border-radius: 6px;
+  transform: rotate(-0.4deg);
+  box-shadow: 4px 4px 0 #000;
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+/* Layout shell */
 
 header {
-  background: linear-gradient(90deg, var(--brand-dark), var(--brand-accent));
-  color: #fff;
-  padding: 1.1rem 1rem;
+  background: none;
+  color: #000;
   text-align: center;
-  box-shadow: var(--shadow-sm);
+  padding: 2rem 1rem 1rem;
+  position: relative;
+  z-index: 1;
 }
 
-main { max-width: 980px; margin: 2rem auto; padding: 0 1rem 2rem; }
+header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 2.1rem;
+  font-family: "Marker Felt", "Comic Sans MS", "Segoe Print", cursive;
+}
 
-h1, h2, h3 {
-  margin: 0 0 .5rem;
-  color: var(--text-strong);
+header h2 {
+  margin: 0.25rem 0 0.2rem;
+  font-size: 1.2rem;
+}
+
+header p.subtitle {
+  margin: 0.4rem 0 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 1;
+}
+
+/* Basic text */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-main);
+  margin: 0 0 0.4rem;
   line-height: 1.3;
 }
 
-a { color: var(--brand-dark); text-decoration: none; transition: color .2s ease; }
-a:hover { text-decoration: underline; color: var(--brand-blue); }
+p {
+  margin: 0 0 0.5rem;
+}
 
-ul { list-style: none; padding: 0; margin: 0; }
-li { margin: .5rem 0; }
+ul {
+  margin: 0.25rem 0 0.5rem;
+  padding-left: 1.1rem;
+}
 
-footer { padding: 2rem 1rem; text-align: center; color: var(--muted); }
+li {
+  margin: 0.2rem 0;
+}
+
+/* ============================================
+   NOTEBOOK-STYLE LINKS (NO UNDERLINE)
+   ============================================ */
+
+a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.15s ease;
+}
+
+a:hover {
+  transform: rotate(-1deg);
+}
+
+a:visited {
+  color: #333;
+}
+
+/* keep card & button links neat, no wobble */
+.index-card a,
+.resource-section a {
+  transform: none !important;
+}
+
+.index-card a:hover,
+.resource-section a:hover {
+  transform: none !important;
+}
 
 /* ==========================
-   INDEX SECTIONS
+   INDEX GRIDS
    ========================== */
+
+/* default: responsive auto-fit grid */
 .index-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 }
 
-.index-card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 1rem;
-  box-shadow: var(--shadow-md);
-  transition: transform .18s ease, box-shadow .18s ease;
+/* vertical: always stacked */
+.index-grid-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.index-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-.index-card h2 { font-size: 1.15rem; color: var(--brand-dark); }
-.index-card li a { display:inline-block; padding:.15rem 0; }
+
+/* exactly 3 columns on wide screens */
+.index-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .index-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .index-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.index-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
+  padding: 1rem 1.1rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.index-card:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: 5px 5px 0 #000;
+}
+
+.index-card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.index-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.index-card li a {
+  display: inline-block;
+  padding: 0.15rem 0;
+}
 
 /* ==========================
-   RESOURCE PAGE LAYOUT
+   RESOURCE SECTIONS / KO GRID
    ========================== */
-.sections { display: flex; flex-direction: column; gap: 1rem; }
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ko-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
 
 .resource-section {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1rem;
-  box-shadow: var(--shadow-sm);
-  transition: transform .15s ease, box-shadow .15s ease;
+  background: #fff;
+  border-radius: var(--radius);
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
+  padding: 1rem 1.1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
 .resource-section:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: #d1d5db;
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: 5px 5px 0 #000;
 }
+
 .resource-section header {
-  background: transparent;
-  color: inherit;
-  text-align: left;
+  background: none;
   padding: 0;
+  margin-bottom: 0.3rem;
 }
-.resource-section h2 {
-  font-size: 1.1rem;
-  margin: 0 0 .25rem;
-}
+
 .resource-section header h2 {
   display: flex;
   align-items: center;
-  gap: .6rem;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #1e293b;
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: .5rem;
-  margin-bottom: .75rem;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  border-bottom: 1px dashed #000;
+  padding-bottom: 0.4rem;
 }
+
 .resource-section p {
-  font-size: .95rem;
-  color: #444;
-  line-height: 1.5;
-  margin-bottom: .75rem;
+  margin: 0.4rem 0 0.6rem;
 }
 
-/* Media block inside resource sections (JUMP123, etc.) */
-.resource-section .media {
-  text-align: center;
-  margin-bottom: 0.75rem;
+/* doodle icon */
+.doodle-icon {
+  width: 28px;
+  height: 28px;
+  stroke: #000;
+  stroke-width: 2;
+  fill: none;
 }
 
-/* Contain and resize icons/images in media */
-.resource-section .media img {
-  max-width: 140px;     /* cap size so it feels like an icon */
-  width: 100%;
-  height: auto;
+/* buttons / links */
+
+.btn {
   display: block;
-  margin: 0 auto;
-  object-fit: contain;
+  margin: 0.4rem auto 0;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #000;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.resource-section .doodle-icon {
-  color: var(--text-muted);
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0 #000;
+}
+
+
+/* ==========================
+   GLOBAL BUTTONS (ANSWER / PRINT)
+   ========================== */
+
+button {
+  display: block;
+  margin: 0.4rem auto 0;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.95rem;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 3px 3px 0 #000;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) rotate(-0.5deg);
+  box-shadow: 5px 5px 0 #000;
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.secondary {
+  background: #e5e7eb;
+  border-color: #111;
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* ==========================
+   DISABLED BUTTON (Notebook style)
+   ========================== */
+
+button:disabled,
+.btn:disabled {
+  background: #ddd !important;
+  color: #777 !important;
+  border-color: #555 !important;
+  box-shadow: 2px 2px 0 #555 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  opacity: 0.7;
+}
+
+/* prevent wobble on hover when disabled */
+button:disabled:hover,
+.btn:disabled:hover {
+  transform: none !important;
+  box-shadow: 2px 2px 0 #555 !important;
 }
 /* ==========================
-   FAST4 / CARD + BUTTON
+   TABLES
    ========================== */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0 1.5rem;
+  background: #fff;
+  border-radius: var(--radius);
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+  font-size: 0.95rem;
+}
+
+th {
+  background: #fef3c7;
+  font-weight: 700;
+}
+
+/* ==========================
+   TOPIC SECTIONS + REVISION CARDS
+   ========================== */
+
+/* collapsible wrapper */
+.topic-section {
+  border-radius: var(--radius);
+  margin-bottom: 1.3rem;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
+}
+
+.topic-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  border-bottom: 1px dashed #000;
+  background: #fffbeb;
+}
+
+.topic-header h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.topic-arrow {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.topic-section.expanded .topic-arrow {
+  transform: rotate(90deg);
+}
+
+.topic-section.collapsed .topic-body {
+  display: none;
+}
+
+.topic-body {
+  padding: 0.75rem 0.9rem 0.95rem;
+}
+
+/* knowledge stack */
+.vertical-knowledge {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.knowledge-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
+  padding: 1.1rem 1.3rem;
+}
+
+.knowledge-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+/* Q&A stack */
+.vertical-qa {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rev-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
+  padding: 1.1rem 1.3rem;
+}
+
+.qa-card textarea.student-answer,
+.rev-card textarea {
+  width: 100%;
+  min-height: 120px;
+  margin: 0.65rem 0 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.8rem;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+.qa-card .answer,
+.rev-card .answer {
+  display: none;
+  margin-top: 0.4rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.7rem;
+  background: rgba(59, 130, 246, 0.06);
+  border: 1px dashed #93c5fd;
+  font-size: 0.95rem;
+}
+
+/* ==========================
+   FAST4 GRID
+   ========================== */
+
 .grid {
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   margin-top: 25px;
@@ -177,103 +545,175 @@ footer { padding: 2rem 1rem; text-align: center; color: var(--muted); }
   position: relative;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  background: var(--card);
+  box-shadow: var(--shadow-card);
+  background: #fff;
+  border: 2px solid #000;
 }
+
 .card h3 {
   margin: 0;
   font-style: italic;
 }
 
-/* ==========================
-   NOTEBOOK-STYLE BUTTONS
-   ========================== */
-
-button {
-  display: block;
-  margin: 25px auto;
-  padding: 0.7rem 1.4rem;
-  font-size: 1.1rem;
-  background: #fff;
-  color: #000;
-  border: 2px solid #000;
-  border-radius: 0.75rem;
+.card .marks {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   font-weight: 600;
-  box-shadow: 3px 3px 0 #000;
-  cursor: not-allowed;
-  opacity: 0.5;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
 
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+.card .answer {
+  display: none;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(15, 118, 110, 0.05);
+  border: 1px dashed #cbd5e1;
+  font-size: 0.9rem;
+}
+
+/* student input on Fast4 */
+textarea.input {
+  width: 100%;
+  max-width: 980px;
+  min-height: 80px;
+  margin: 0.75rem auto;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  display: block;
+}
+
+/* ==========================
+   KEYWORDS MODAL & CARDS
+   ========================== */
+
+#keywordsModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#keywordsModal.active {
+  display: flex;
+}
+
+.keywords-modal-content {
+  background: #fff;
+  border-radius: 1rem;
+  width: 95%;
+  max-width: 1100px;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.keywords-modal-header {
+  background: #fffbeb;
+  color: #111827;
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #000;
+}
+
+.keywords-modal-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.keywords-modal-header button {
+  margin: 0;
+}
+
+.keywords-modal-content .body {
+  padding: 0.5rem 0.8rem;
+  overflow-y: auto;
+  flex: 1;
+  background: #fff;
+}
+
+#keywordsIntro {
+  margin: 0 0 0.75rem;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+/* keyword cards grid */
+.keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+}
+
+/* flip cards */
+.keyword-card {
+  width: 100%;
+  height: 140px;
   position: relative;
-}
-
-button.enabled {
+  perspective: 900px;
   cursor: pointer;
-  opacity: 1;
 }
 
-/* Hover effect when enabled */
-button.enabled:hover {
-  transform: translateY(-3px) rotate(1deg);
-  box-shadow: 5px 5px 0 #000;
+.keyword-card .keyword-front,
+.keyword-card .keyword-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0.85rem;
+  border-radius: 1rem;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease;
+  font-size: 0.95rem;
 }
 
-/* Pressed state */
-button.enabled:active {
-  transform: translateY(0px);
-  box-shadow: 2px 2px 0 #000;
-}
-/* Secondary button (print) */
-.secondary {
-  background:#e5e7eb;
-  color:#111;
-  border:1px solid #ccc;
-  border-radius:8px;
-  padding:.6rem 1rem;
-  font-weight:600;
-  cursor:pointer;
-  display:inline-block;
-}
-.secondary:hover { background:#dbeafe; }
-
-/* ==========================
-   IFRAMES & EMBEDS
-   ========================== */
-iframe {
-  width:100%;
-  height:500px;
-  border:none;
-  border-radius:12px;
-  background:#fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,.06);
-  margin:1rem 0;
+.keyword-card .keyword-front {
+  background: #fff;
+  color: #111;
+  transform: rotateY(0deg);
 }
 
-/* ==========================
-   KO GRID
-   ========================== */
-.ko-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+.keyword-card .keyword-back {
+  background: #fffbeb;
+  transform: rotateY(180deg);
 }
 
+.keyword-card.show .keyword-front {
+  transform: rotateY(180deg);
+}
 
-
-/* ==========================
-   DOODLE ICON
-   ========================== */
-.doodle-icon {
-  width:24px;
-  height:24px;
-  stroke: var(--brand-dark);
-  stroke-width:2;
-  fill:none;
+.keyword-card.show .keyword-back {
+  transform: rotateY(360deg);
 }
 
 /* ==========================
-   PDF FULLSCREEN MODAL – NOTEBOOK STYLE
+   PDF FULLSCREEN MODAL
    ========================== */
+
 #pdfModal {
   display: none;
   position: fixed;
@@ -286,6 +726,7 @@ iframe {
   opacity: 0;
   transition: opacity 0.25s ease;
 }
+
 #pdfModal.active {
   display: flex;
   opacity: 1;
@@ -293,23 +734,21 @@ iframe {
 
 .pdf-modal-content {
   background: #fff;
-  width: 95%;          /* leave space around for dark overlay */
-  max-width: 1100px;   /* keep it nicely sized on large screens */
-  height: 92vh;        /* take most of the height, not all */
+  width: 95%;
+  max-width: 1100px;
+  height: 92vh;
   border-radius: 1rem;
-
   display: flex;
   flex-direction: column;
   position: relative;
   animation: popIn 0.25s ease;
-
   border: 2px solid #000;
-  box-shadow: 4px 4px 0 #000; /* notebook card style */
+  box-shadow: 4px 4px 0 #000;
 }
 
 .pdf-modal-header {
   position: relative;
-  background: #fffbeb; /* pale notebook strip */
+  background: #fffbeb;
   color: #111827;
   padding: 0.7rem 3rem 0.7rem 1rem;
   display: flex;
@@ -319,6 +758,7 @@ iframe {
   font-weight: 700;
   font-size: 1rem;
 }
+
 .pdf-modal-header h3 {
   margin: 0;
   font-size: 1rem;
@@ -326,7 +766,6 @@ iframe {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #111;
 }
 
 #pdfFrame {
@@ -340,905 +779,141 @@ iframe {
   border-radius: 0.6rem;
 }
 
-/* Notebook-style pop animation */
 @keyframes popIn {
-  from { opacity: 0; transform: translate(-3px, -3px); }
-  to   { opacity: 1; transform: translate(0, 0); }
-}
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to   { opacity: 0; }
-}
-/* ==========================
-   NOTEBOOK / SKETCH STYLE EXTENSION
-   ========================== */
-
-/* Background: faint ruled paper */
-body.notebook {
-  background: repeating-linear-gradient(
-    to bottom,
-    #fff,
-    #fff 24px,
-    #f2f2f2 25px
-  );
-  background-attachment: fixed;
-  color: #111;
-}
-
-/* Header: handwritten look */
-body.notebook header {
-  background: none;
-  color: #000;
-  text-align: center;
-  padding: 2rem 1rem 1rem;
-  position: relative;
-}
-body.notebook header h1 {
-  font-family: "Marker Felt", cursive;
-  font-size: 2.2rem;
-  margin-bottom: 0.25rem;
-}
-body.notebook header p.subtitle {
-  font-style: italic;
-  color: #444;
-}
-
-/* Doodle SVGs */
-body.notebook .doodle {
-  position: absolute;
-  stroke: #000;
-  fill: none;
-  stroke-width: 2;
-  opacity: 0.3;
-}
-body.notebook .gear { top: 10px; left: 8%; width: 40px; height: 40px; }
-body.notebook .chip { top: 15px; right: 10%; width: 45px; height: 45px; }
-body.notebook .lightbulb { bottom: 10px; right: 12%; width: 35px; height: 35px; }
-
-/* Sketch-style cards */
-body.notebook main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
-}
-/* Re-enable grid layout on the homepage index */
-body.notebook main.index-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-}
-body.notebook .card {
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 1rem;
-  box-shadow: 3px 3px 0 #000;
-  padding: 1.5rem;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-}
-
-body.notebook .card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 2px solid #000;
-  border-radius: 1rem;
-  transform: rotate(-1.5deg);
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-body.notebook .card a {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-}
-body.notebook .doodle-icon {
-  width: 48px;
-  height: 48px;
-  stroke: #000;
-  fill: none;
-  stroke-width: 2;
-  margin-bottom: 0.8rem;
-}
-body.notebook footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  border-top: 2px dashed #000;
-  margin-top: 2rem;
-}
-
-/* Notebook border */
-body.notebook-border {
-  position: relative;
-  overflow: hidden;
-}
-body.notebook-border::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20px 50px, #000 2px, transparent 3px),
-    radial-gradient(circle at 20px 130px, #000 2px, transparent 3px),
-    radial-gradient(circle at 20px 210px, #000 2px, transparent 3px),
-    radial-gradient(circle at 20px 290px, #000 2px, transparent 3px);
-  background-repeat: repeat-y;
-  background-position: 0 0;
-  background-size: 100% 80px;
-  opacity: 0.4;
-}
-body.notebook-border::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 2px solid #000;
-  border-radius: 6px;
-  transform: rotate(-0.3deg);
-  box-shadow: 4px 4px 0 #000;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-/* Notebook margin line */
-body.notebook-margin {
-  background:
-    linear-gradient(to bottom, #fff 24px, #f2f2f2 25px),
-    linear-gradient(to right, #f88 2px, transparent 3px),
-    #fff;
-  background-repeat: repeat-y, no-repeat;
-  background-position: left 45px top, left top;
-  background-size: 100% 25px, 2px 100%;
-  background-attachment: fixed;
-}
-
-/* Dark notebook theme */
-body.notebook-dark {
-  background-color: #1a1a1a;
-  background-image:
-    repeating-linear-gradient(to bottom, #222 0px, #222 24px, #1a1a1a 25px),
-    repeating-linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 2px);
-  background-attachment: fixed;
-  color: #eee;
-  font-family: 'Segoe UI', sans-serif;
-}
-body.notebook-dark header {
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1rem 1rem;
-}
-body.notebook-dark header h1 {
-  font-family: "Comic Sans MS", "Marker Felt", "Segoe Print", cursive;
-  font-size: 2.2rem;
-  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
-}
-body.notebook-dark .subtitle {
-  color: #ccc;
-  font-style: italic;
-}
-body.notebook-dark .card {
-  background: #222;
-  border: 2px solid #fff;
-  border-radius: 1rem;
-  box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.6);
-  color: #fff;
-}
-body.notebook-dark .card::after {
-  border-color: rgba(255, 255, 255, 0.6);
-}
-body.notebook-dark .card:hover {
-  transform: translateY(-6px) rotate(1deg);
-  box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.8);
-}
-body.notebook-dark .doodle-icon,
-body.notebook-dark .doodle {
-  stroke: #fff;
-}
-body.notebook-dark footer {
-  border-top: 2px dashed rgba(255, 255, 255, 0.7);
-  color: #ccc;
-}
-body.notebook-dark::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.04), transparent 40%),
-              radial-gradient(circle at 70% 80%, rgba(255,255,255,0.03), transparent 40%);
-  z-index: 0;
-}
-
-/* ==========================
-   KEYWORDS MODAL – NOTEBOOK STYLE
-   ========================== */
-#keywordsModal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(2px);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-#keywordsModal.active {
-  display: flex;
-}
-
-.keywords-modal-content {
-  background: #fff;
-  border-radius: 1rem;
-  width: 95%;
-  max-width: 1100px;     /* wider modal so cards don't wrap too early */
-  height: 92vh;          /* taller modal so more rows fit */
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-
-  border: 2px solid #000;
-  box-shadow: 4px 4px 0 #000;
-}
-
-.keywords-modal-header {
-  background: #fffbeb; /* pale notebook strip */
-  color: #111827;
-  padding: 0.6rem 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid #000;
-}
-.keywords-modal-header h3 {
-  margin: 0;
-  font-size: 1.05rem;
-}
-
-.keywords-modal-header button {
-  margin: 0;
-  padding: 0.15rem 0.6rem;
-  font-size: 1.1rem;
-  background: #fff;
-  color: #111;
-  border-radius: 999px;
-  border: 2px solid #000;
-  cursor: pointer;
-  box-shadow: 2px 2px 0 #000;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.keywords-modal-header button:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 #000;
-}
-
-.keywords-modal-content .body {
-  padding: 0.5rem 0.8rem;   /* tighter padding for more card space */
-  overflow-y: auto;
-  flex: 1;                  /* ensures grid fills remaining modal space */
-  background: #fff;
-}
-#keywordsIntro {
-  margin: 0 0 0.75rem;
-  color: #374151;
-  font-size: 0.95rem;
-}
-
-/* ==========================
-   KEYWORD CARDS – NOTEBOOK STYLE
-   ========================== */
-.keyword-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.9rem;
-}
-
-/* --- CARD CONTAINER --- */
-.keyword-card {
-  width: 100%;
-  height: 140px;              /* FIX: consistent size */
-  position: relative;         /* allows absolute children */
-  perspective: 900px;
-  cursor: pointer;
-    overflow-y: scroll;
-scrollbar-width: thin;
-}
-
-/* --- BOTH FACES --- */
-.keyword-card .keyword-front,
-.keyword-card .keyword-back {
-  position: absolute;         /* FIX: stack perfectly */
-  inset: 0;                   /* top: 0; left: 0; right: 0; bottom: 0 */
-  width: 100%;
-  height: 100%;
-
-  padding: 0.85rem;
-  border-radius: 1rem;
-  background: #fff;
-  border: 2px solid #000;
-  box-shadow: 3px 3px 0 #000;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: transform .45s ease;
-  font-size: 1rem;
-}
-
-/* FRONT FACE */
-.keyword-card .keyword-front {
-  background: #fff;
-  color: #111;
-  transform: rotateY(0deg);
-}
-
-/* BACK FACE */
-.keyword-card .keyword-back {
-  background: #fffbeb;
-  transform: rotateY(180deg);
-}
-
-/* --- FLIP ANIMATION --- */
-.keyword-card.show .keyword-front {
-  transform: rotateY(180deg);
-}
-.keyword-card.show .keyword-back {
-  transform: rotateY(360deg);
-}
-/* ==========================
-   TOPIC TABLE – NOTEBOOK STYLE
-   ========================== */
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 1rem 0 1.5rem;
-  background: #fff;
-
-  border: 2px solid #000;
-  border-radius: 1rem;
-  box-shadow: 3px 3px 0 #000;
-  overflow: hidden;
-}
-th, td {
-  border: 1px solid #000;
-  padding: 0.5rem 0.75rem;
-  vertical-align: top;
-}
-th {
-  background: #fef3c7; /* soft yellow “tab” header */
-  font-weight: 700;
-}
-
-a.pdf-link {
-  color: var(--brand-dark);
-  font-weight: 600;
-  text-decoration: none;
-}
-a.pdf-link:hover {
-  text-decoration: underline;
-}
-
-/* Topic sections – collapsible (notebook cards) */
-.topic-section {
-  border-radius: 1rem;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  background: #fff;
-  border: 2px solid #000;
-  box-shadow: 3px 3px 0 #000;
-}
-.topic-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 0.9rem;
-  cursor: pointer;
-  border-bottom: 1px dashed #000;
-  background: #fffbeb; /* pale notebook tab */
-}
-.topic-arrow {
-  font-size: 0.9rem;
-  transition: transform 0.2s ease;
-  color: #111827;
-}
-.topic-section.expanded .topic-arrow {
-  transform: rotate(90deg);
-}
-.topic-body {
-  padding: 0.75rem 0.9rem 0.9rem;
-  background: #fff;
-}
-.topic-section.collapsed .topic-body {
-  display: none;
-}
-
-
-/* ==========================
-   JUMP123 CODE BLOCK IMAGE RESIZING
-   ========================== */
-.code {
-  text-align: center;
-  margin: 1rem 0;
-}
-
-.code img {
-  display: block;
-  max-width: 100%;
-  width: 100%;
-  max-height: 800px;      /* prevents giant code images */
-  object-fit: contain;    /* scale without distortion */
-  margin: 0 auto;
-  border: 2px solid #000;
-  border-radius: 0.75rem;
-  box-shadow: 3px 3px 0 #000;
-  background: #fff;
-}
-/* ==========================
-   JUMP123 TABS – NOTEBOOK STYLE
-   ========================== */
-
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1.5rem 0 1rem;
-  padding: 0 0 0.25rem;
-  border-bottom: 2px solid #000;
-}
-
-/* Override global button look for tab buttons */
-.tab-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0.55rem 1.1rem;
-
-  background: #fff;
-  color: #000;
-  border: 2px solid #000;
-  border-bottom: none;
-  border-radius: 0.75rem 0.75rem 0 0;
-
-  font-weight: 600;
-  font-size: 0.95rem;
-  box-shadow: 3px 3px 0 #000;
-  cursor: pointer;
-  opacity: 0.75;
-
-  position: relative;
-  top: 2px; /* so the active tab "sits" on the border line */
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease, top 0.15s ease;
-}
-
-/* Active tab (matches notebook/sketch vibe) */
-.tab-btn[aria-selected="true"] {
-  background: #fffbeb; /* pale yellow “tab” */
-  opacity: 1;
-  top: 0;
-  box-shadow: 4px 4px 0 #000;
-}
-
-/* Hover only on inactive tabs */
-.tab-btn[aria-selected="false"]:hover {
-  transform: translateY(-2px) rotate(-1deg);
-  box-shadow: 4px 4px 0 #000;
-  opacity: 0.95;
-}
-
-/* Tab panels */
-.tab-content {
-  display: none;
-  margin-top: 0.5rem;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-/* ==========================
-   JUMP123 TABLES – NOTEBOOK DIVIDERS
-   ========================== */
-
-.investigate-table,
-.task-table,
-.assessment-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 1rem 0 1.5rem;
-  background: #fff;
-
-  border: 2px solid #000;
-  border-radius: 1rem;
-  box-shadow: 3px 3px 0 #000;
-  overflow: hidden;
-}
-
-/* Header “tab strip” */
-.investigate-table thead th,
-.task-table thead th,
-.assessment-table thead th {
-  background: #fef3c7;            /* soft yellow divider tab */
-  border-bottom: 2px solid #000;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.65rem 0.75rem;
-  text-align: left;
-}
-
-/* Cells */
-.investigate-table th,
-.investigate-table td,
-.task-table th,
-.task-table td,
-.assessment-table th,
-.assessment-table td {
-  border: 1px solid #000;
-  padding: 0.5rem 0.75rem;
-  vertical-align: top;
-  font-size: 0.9rem;
-}
-
-/* Zebra rows for notebook “lines” */
-.investigate-table tbody tr:nth-child(even),
-.task-table tbody tr:nth-child(even),
-.assessment-table tbody tr:nth-child(even) {
-  background: #f9fafb;
-}
-
-/* Last column (checkbox / answer) centering where appropriate */
-.task-table td:last-child,
-.assessment-table td:last-child {
-  text-align: center;
-  width: 3rem;
-}
-
-/* Textareas inside tables fill the cell but stay tidy */
-.investigate-table textarea,
-.task-table textarea {
-  width: 100%;
-  min-height: 60px;
-  border-radius: 0.5rem;
-  border: 1px dashed #9ca3af;
-  padding: 0.4rem 0.5rem;
-  font-family: inherit;
-  font-size: 0.9rem;
-  resize: vertical;
-  box-sizing: border-box;
-}
-
-  /* ==========================
-   REVISION MATS – TEXTAREA FULL WIDTH
-   ========================== */
-
-.revision-grid {
-  /* vertical stack instead of multi-column grid */
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-
-  /* optional: centre the column and give it a nice width */
-   width: 100%;
-  margin: 0 auto 2rem;
-}
-
-.rev-card {
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 1rem;
-  box-shadow: 3px 3px 0 #000;
-  padding: 1.5rem;
-}
-
-/* Make revision mat textareas span the full card width */
-.rev-card textarea {
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
-
-  margin-top: 0.75rem;
-  padding: 0.6rem 0.8rem;
-
-  min-height: 120px;
-  border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  background: #fff;
-
-  font-family: inherit;
-  font-size: 0.95rem;
-  resize: vertical;
-}
-
-/* Vertical layout for knowledge sections */
-    .vertical-knowledge {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .knowledge-card {
-      background: #fff;
-      border: 2px solid #000;
-      border-radius: 1rem;
-      box-shadow: 3px 3px 0 #000;
-      padding: 1.25rem 1.5rem;
-    }
-
-    .knowledge-card h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Vertical layout for Q&A cards */
-    .vertical-qa {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .qa-card textarea.student-answer {
-      width: 100%;
-      min-height: 120px;
-      margin: 0.75rem 0 0.75rem;
-      padding: 0.6rem 0.8rem;
-      border-radius: 10px;
-      border: 1px solid #cbd5e1;
-      resize: vertical;
-      box-sizing: border-box;
-      font-size: 0.95rem;
-      font-family: inherit;
-    }
-
-    .qa-card .answer {
-      display: none;               /* JS toggles this */
-      margin-top: 0.5rem;
-      padding: 0.6rem 0.8rem;
-      border-radius: 8px;
-      background: rgba(59, 130, 246, 0.06);
-      border: 1px dashed #93c5fd;
-      font-size: 0.95rem;
-    }
-
-    .answer-toggle {
-      margin-top: 0.25rem;
-    }
-
-/* ==========================
-   FAST FOUR SET COLOURS & UI
-   ========================== */
-
-/* Colour variants for the Fast Four cards */
-.card.yellow {
-  border-top: 4px solid #facc15; /* amber */
-  background: linear-gradient(180deg, #fefce8, #fef9c3);
-}
-
-.card.pink {
-  border-top: 4px solid #f472b6;
-  background: linear-gradient(180deg, #fdf2f8, #fce7f3);
-}
-
-.card.green {
-  border-top: 4px solid #22c55e;
-  background: linear-gradient(180deg, #ecfdf3, #dcfce7);
-}
-
-.card.blue {
-  border-top: 4px solid #3b82f6;
-  background: linear-gradient(180deg, #eff6ff, #dbeafe);
-}
-
-/* Marks badge in top-right of each card */
-.card .marks {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-/* Answer box (hidden until button pressed) */
-.card .answer {
-  display: none;            /* JS switches to block */
-  margin-top: 0.75rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
-  background: rgba(15, 118, 110, 0.05);
-  border: 1px dashed #cbd5e1;
-  font-size: 0.9rem;
-  color: #111827;
-}
-
-/* Text areas for student responses */
-textarea.input {
-  width: 100% !important;
-  max-width: 980px;
-  min-height: 80px;
-
-  margin: 0.75rem auto;   /* centre full-width textarea */
-  padding: 0.6rem 0.8rem;
-
-  display: block;          /* ensures full-width */
-  border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  background: #fff;
-
-  font-family: inherit;
-  font-size: 0.95rem;
-  resize: vertical;
-}
-
-/* Give a subtle focus outline */
-textarea.input:focus {
-  outline: 2px solid #3b82f6;
-  outline-offset: 1px;
-  border-color: #3b82f6;
-}
-
-/* Make the bottom "Show Answers" button sit nicely */
-#showBtn {
-  margin-top: 1.5rem;
-}
-
-/* OVERRIDE notebook grid for vertical revision pages */
-body.notebook main,
-body.notebook-border main,
-body.notebook-margin main {
-  display: block !important;
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-/* Slight tighten on small screens */
-@media (max-width: 700px) {
-  .investigate-table,
-  .task-table,
-  .assessment-table {
-    font-size: 0.85rem;
-    box-shadow: 2px 2px 0 #000;
+  from {
+    opacity: 0;
+    transform: translate(-3px, -3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 }
 
 /* ==========================
-   RESPONSIVE (≤700px)
+   IFRAMES
    ========================== */
-@media (max-width: 700px) {
-    body {
-        font-size: .95rem;
-        line-height: 1.5;
-        padding: 0;
-    }
 
-    header {
-        padding: .75rem;
-        font-size: 1.1rem;
-    }
-
-    main {
-        margin: 1rem auto;
-        padding: 0 .75rem;
-    }
-
-    .index-grid, .ko-grid {
-        grid-template-columns:1fr;
-        gap: 1rem;
-    }
-
-    .index-card, .resource-section, .card {
-        padding: .75rem;
-        border-radius: 10px;
-    }
-
-    table {
-        font-size: .9rem;
-        display: block;
-        overflow-x: auto;
-        border-radius: 8px;
-    }
-
-    iframe {
-        height: 300px;
-    }
-
-    footer {
-        font-size: .85rem;
-        padding: 1.5rem 1rem;
-    }
-
+iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  margin: 1rem 0;
 }
+
 /* ==========================
-   PRINT (friendly)
+   RESPONSIVE
    ========================== */
+
+@media (max-width: 700px) {
+  body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  header {
+    padding: 1.25rem 0.75rem 0.75rem;
+  }
+
+  main {
+    margin: 1.25rem auto 1.5rem;
+    padding: 0 0.75rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    font-size: 0.9rem;
+    display: block;
+    overflow-x: auto;
+    border-radius: 8px;
+  }
+
+  iframe {
+    height: 320px;
+  }
+}
+
+/* ==========================
+   PRINT
+   ========================== */
+
 @media print {
-    * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 
-    html, body {
-        background: #fff !important;
-        color: #111 !important;
-        font: 12pt/1.5 Arial, Helvetica, sans-serif;
-    }
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font: 12pt/1.5 Arial, Helvetica, sans-serif;
+  }
 
-    header, footer {
-        background: none !important;
-        color: #111 !important;
-        border: 0 !important;
-        box-shadow: none !important;
-        text-align: center;
-    }
+  body::before,
+  body::after {
+    display: none !important;
+  }
 
-    header h1 {
-        margin: 0 0 .25rem;
-        font-size: 1.5rem;
-    }
+  header,
+  footer {
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    text-align: center;
+  }
 
-    main {
-        max-width: none;
-        margin: 0;
-        padding: 0;
-    }
+  main {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
 
-    .btn, button, .secondary, .hint, .toolbar {
-        display: none !important;
-    }
+  .btn,
+  button,
+  .secondary,
+  #pdfModal,
+  #keywordsModal {
+    display: none !important;
+  }
 
-    .topic-section,
-    .card {
-        background: #fff !important;
-        border: 1px solid #ddd !important;
-        box-shadow: none !important;
-        page-break-inside: avoid;
-        margin: 0 0 1.2cm 0;
-        padding: .75cm;
-        border-radius: 0;
-    }
+  .topic-section,
+  .card,
+  .resource-section {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    margin: 0 0 1.2cm 0;
+    padding: 0.75cm;
+    border-radius: 0;
+  }
 
-    table {
-        width: 100% !important;
-        border-collapse: collapse !important;
-        border: 1px solid #ccc !important;
-    }
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #ccc !important;
+  }
 
-    th, td {
-        border: 1px solid #ccc !important;
-        padding: 6pt 8pt !important;
-        vertical-align: top;
-    }
+  th,
+  td {
+    border: 1px solid #ccc !important;
+    padding: 6pt 8pt !important;
+  }
 
-    img {
-        max-width: 50% !important;
-        height: auto !important;
-    }
+  img {
+    max-width: 60% !important;
+    height: auto !important;
+  }
 
-    p, li {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2, h3 {
-        page-break-after: avoid;
-    }
-
-    @page {
-        margin: 1.5cm;
-    }
+  @page {
+    margin: 1.5cm;
+  }
 }
