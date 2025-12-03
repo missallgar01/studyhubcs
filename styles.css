@@ -31,22 +31,6 @@
   --fs-base: clamp(0.96rem, 0.9rem + 0.25vw, 1.05rem);
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f172a;
-    --bg-alt: #111827;
-    --card: #1f2937;
-    --text: #e5e7eb;
-    --text-strong: #f3f4f6;
-    --text-muted: #9ca3af;
-    --muted: #94a3b8;
-    --border: #334155;
-    --brand-blue: #3b82f6;
-    --brand-accent: #60a5fa;
-    --brand-tint: #1e3a8a0d;
-  }
-}
 
 /* ==========================
    BASE
@@ -176,6 +160,9 @@ footer { padding: 2rem 1rem; text-align: center; color: var(--muted); }
   object-fit: contain;
 }
 
+.resource-section .doodle-icon {
+  color: var(--text-muted);
+}
 /* ==========================
    FAST4 / CARD + BUTTON
    ========================== */
@@ -266,11 +253,12 @@ iframe {
    KO GRID
    ========================== */
 .ko-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  align-items: stretch;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
 }
+
+
 
 /* ==========================
    DOODLE ICON
@@ -416,6 +404,12 @@ body.notebook main {
   max-width: 1000px;
   margin: auto;
 }
+/* Re-enable grid layout on the homepage index */
+body.notebook main.index-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
 body.notebook .card {
   background: #fff;
   border: 2px solid #000;
@@ -426,6 +420,7 @@ body.notebook .card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
 }
+
 body.notebook .card::after {
   content: '';
   position: absolute;
@@ -562,33 +557,6 @@ body.notebook-dark::after {
   background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.04), transparent 40%),
               radial-gradient(circle at 70% 80%, rgba(255,255,255,0.03), transparent 40%);
   z-index: 0;
-}
-
-/* Theme toggle button */
-#themeToggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  box-shadow: 3px 3px 0 #000;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 9999;
-}
-#themeToggle:hover {
-  transform: translateY(-3px);
-  box-shadow: 5px 5px 0 #000;
-}
-body.notebook-dark #themeToggle {
-  background: #222;
-  color: #fff;
-  border-color: #fff;
-  box-shadow: 3px 3px 0 #000;
 }
 
 /* ==========================

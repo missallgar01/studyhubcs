@@ -24,6 +24,7 @@
 
   <main >
     <!-- Software Revision Notes -->
+       <div class="sections ko-grid">
     <div class="card">
       <a href="">
         <svg class="doodle-icon" viewBox="0 0 24 24">
@@ -34,40 +35,12 @@
         <p>Watch the video</p>
       </a>
     </div>
-
+       </div>
   </main>
 
   <footer>
     &copy; 2025 StudyHubCS
   </footer>
 
-  <!-- 🌓 Theme Toggle Button -->
-  <button id="themeToggle" title="Toggle notebook theme">🌓</button>
-
-  <script>
-    const toggleBtn = document.getElementById('themeToggle');
-    const body = document.body;
-
-    // Load saved theme on startup
-    const savedTheme = localStorage.getItem('notebookTheme');
-    if (savedTheme === 'dark') {
-      body.classList.remove('notebook', 'notebook-margin');
-      body.classList.add('notebook-dark');
-    }
-
-    // Toggle theme
-    toggleBtn.addEventListener('click', () => {
-      const isDark = body.classList.contains('notebook-dark');
-      if (isDark) {
-        body.classList.remove('notebook-dark');
-        body.classList.add('notebook', 'notebook-margin');
-        localStorage.setItem('notebookTheme', 'light');
-      } else {
-        body.classList.remove('notebook', 'notebook-margin');
-        body.classList.add('notebook-dark');
-        localStorage.setItem('notebookTheme', 'dark');
-      }
-    });
-  </script>
 </body>
 </html>
