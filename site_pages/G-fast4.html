@@ -5,15 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GCSE Computer Science -Fast4</title>
 <link rel="stylesheet" href="../styles.css">
-<style>
-/* === Neutral styling for resource sections (no colours) === */
-.resource-section {
-  border-left: 6px solid var(--border);
-}
-.resource-section .doodle-icon {
-  color: var(--text-muted);
-}
-</style>
+
 </head>
 
 <body class="notebook notebook-border notebook-margin">
@@ -26,7 +18,7 @@
 <script>
 // === Generate 59 resource cards dynamically ===
 const container = document.getElementById('resourceContainer');
-const colorsPerGroup = 5;  // new color every 10 sets
+const colorsPerGroup = 1;  // new color every 10 sets
 for (let i = 1; i <= 40; i++) {
   const group = Math.min(Math.ceil(i / colorsPerGroup), 6);
   const section = document.createElement('section');
