@@ -4,15 +4,7 @@
 <meta charset="UTF-8">
 <title>A-Level Computer Science Topics</title>
     <link rel="stylesheet" href="../styles.css">
-<style>
-      /* JUMP123 page: keep notebook background but use single-column layout */
-        body.notebook.topic-page main {
-            display: block;
-            max-width: 980px;
-            margin: 2rem auto;
-            padding: 0 1rem 2rem;
-        }
-</style>
+
 <script>
 /* ---------- PDF MODAL ---------- */
 function openPdf(path){
@@ -32,18 +24,31 @@ function closePdf(){
 }
 
 /* COLLAPSIBLE TOPICS (match G-topics behaviour) */
-function toggleTopic(id){
-  const section = document.getElementById(id);
-  if(!section) return;
-  if(section.classList.contains("collapsed")){
-    section.classList.remove("collapsed");
-    section.classList.add("expanded");
-  }else{
-    section.classList.remove("expanded");
-    section.classList.add("collapsed");
+function toggleTopic(id) {
+  const sections = document.querySelectorAll("section.topic-section");
+  const target   = document.getElementById(id);
+  if (!target) return;
+
+  const wasCollapsed = target.classList.contains("collapsed");
+
+  // 1) Collapse all sections
+  sections.forEach(s => {
+    s.classList.remove("expanded");
+    s.classList.add("collapsed");
+  });
+
+  // 2) If the clicked one *was* collapsed, expand it
+  //    (if it was already open, this leaves them all closed)
+  if (wasCollapsed) {
+    target.classList.remove("collapsed");
+    target.classList.add("expanded");
+
+    // Optional: keep the URL hash in sync
+    if (history && history.replaceState) {
+      history.replaceState(null, "", "#" + id);
+    }
   }
 }
-
 
 /* ---------- CSV PARSER (supports quotes) ---------- */
 function parseCsvToObjects(text){
@@ -215,14 +220,25 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 });
 </script>
-<script>
 
-
-</script>
 </head>
 <body>
-<header>
-  <h1>A-Level Computer Science Topic List</h1>
+
+  <div class="back-container">
+    <a href="../index.html">← Back</a>
+  </div>
+<header class="page-header">
+
+  <div class="page-title">
+    <h1>A-level Study Notes</h1>
+    <p class="subtitle"> Everything you need to know to master the key concepts and prepare confidently for your exams.
+</p>
+  </div>
+
+  <img src="../img/logo.svg"
+       alt="StudyHub CS logo"
+       class="page-logo">
+
 </header>
 
 <main>
@@ -870,6 +886,61 @@ document.addEventListener("DOMContentLoaded", function(){
     </div>
   </div>
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section.topic-section");
+
+  // 1) Add invisible anchors to each heading
+  sections.forEach(section => {
+    const id = section.id;
+    const h2 = section.querySelector(".topic-header h2");
+    if (id && h2 && !h2.querySelector(".anchor-link")) {
+      const a = document.createElement("a");
+      a.href = "#" + id;
+      a.className = "anchor-link";
+      a.textContent = "";        // no icon/text
+      a.style.display = "none";  // completely invisible
+      h2.appendChild(a);
+    }
+  });
+
+  // Helper: expand only this section, collapse all others
+  function expandSectionById(id) {
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target || !target.classList.contains("topic-section")) return;
+
+    // Collapse all sections
+    sections.forEach(s => {
+      s.classList.remove("expanded");
+      s.classList.add("collapsed");
+    });
+
+    // Expand the target section
+    target.classList.remove("collapsed");
+    target.classList.add("expanded");
+
+    // Scroll to it (small delay so layout can settle)
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  }
+
+  // 2) On first load: if URL already has a #hash, expand only that section
+  if (window.location.hash) {
+    expandSectionById(window.location.hash.substring(1)); // remove '#'
+  }
+
+  // 3) If hash changes later (clicking links within the page), expand only that one
+  window.addEventListener("hashchange", () => {
+    if (window.location.hash) {
+      expandSectionById(window.location.hash.substring(1));
+    }
+  });
+});
+</script>
 
 </body>
 </html>
