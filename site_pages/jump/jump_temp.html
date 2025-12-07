@@ -7,17 +7,12 @@
   <meta name="description" content="Interactive JUMP123 activity page with tabs for Judge, Unpack, Modify, and Program." />
   <link rel="icon" href="img/1.png" />
   <link rel="stylesheet" href="../../styles.css" />
-<style>
-        /* JUMP123 page: keep notebook background but use single-column layout */
-        body.notebook.jump-page main {
-            display: block;
-            max-width: 980px;
-            margin: 2rem auto;
-            padding: 0 1rem 2rem;
-        }
-    </style>
+
 </head>
-<body class="notebook notebook-border notebook-margin jump-page">
+<body>
+<div class="back-container">
+    <a href="../G-Jump123.html">← Back</a>
+  </div>
 <header>
   <h1>JUMP123 Temperature Converter</h1>
   <div class="subtitle">An interactive worksheet for <b>Judge</b>, <b>Unpack</b>, <b>Modify</b>, and <b>Program</b></div>
@@ -25,12 +20,20 @@
 
 <main>
   <!-- Tabs -->
-  <nav class="tabs" role="tablist" aria-label="JUMP123 sections">
-    <button class="tab-btn" role="tab" id="tab-judge"   aria-controls="panel-judge"   aria-selected="true">Stage 1 Judge</button>
-    <button class="tab-btn" role="tab" id="tab-unpack"  aria-controls="panel-unpack"  aria-selected="false">Stage 2 Unpack</button>
-    <button class="tab-btn" role="tab" id="tab-modify"  aria-controls="panel-modify"  aria-selected="false">Stage 3 Modify</button>
-    <button class="tab-btn" role="tab" id="tab-program" aria-controls="panel-program" aria-selected="false">Stage 4 Program</button>
-  </nav>
+   <nav class="tabs" role="tablist" aria-label="JUMP123 sections">
+  <button class="tab-btn" role="tab" id="tab-judge" aria-controls="panel-judge" aria-selected="true">
+    <span>Stage 1</span> Judge
+  </button>
+  <button class="tab-btn" role="tab" id="tab-unpack" aria-controls="panel-unpack" aria-selected="false">
+    <span>Stage 2</span> Unpack
+  </button>
+  <button class="tab-btn" role="tab" id="tab-modify" aria-controls="panel-modify" aria-selected="false">
+    <span>Stage 3</span> Modify
+  </button>
+  <button class="tab-btn" role="tab" id="tab-program" aria-controls="panel-program" aria-selected="false">
+    <span>Stage 4</span> Program
+  </button>
+</nav>
 
   <!-- ========== JUDGE ========== -->
   <section id="panel-judge" class="tab-content active" role="tabpanel" aria-labelledby="tab-judge">

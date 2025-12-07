@@ -4,16 +4,7 @@
 <meta charset="UTF-8">
 <title>GCSE Topics Table</title>
 <link rel="stylesheet" href="../styles.css">
-<style>
 
-        /* JUMP123 page: keep notebook background but use single-column layout */
-        body.notebook.topic-page main {
-            display: block;
-            max-width: 980px;
-            margin: 2rem auto;
-            padding: 0 1rem 2rem;
-        }
-</style>
 
 <script>
     /* -------------------- PDF MODAL -------------------- */
@@ -178,8 +169,26 @@ document.addEventListener("DOMContentLoaded", () => {
 </head>
 
 <body>
-<header>
-  <h1>GCSE Topic List</h1>
+  <div class="back-container">
+    <a href="../index.html">← Back</a>
+  </div>
+
+  <header class="topics-header">
+    <h1>GCSE Topic List</h1>
+  </header>
+
+<header class="page-header">
+
+  <div class="page-title">
+    <h1>GCSE Study Notes</h1>
+    <p class="subtitle"> Everything you need to know to master the key concepts and prepare confidently for your exams.
+</p>
+  </div>
+
+  <img src="../img/logo.svg"
+       alt="StudyHub CS logo"
+       class="page-logo">
+
 </header>
 
 <main>
@@ -212,6 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>Programming Constructs</td>
             <td>Define a range of programming constructs</td>
             <td></td>
+               <td></td>
             <td><a class="pdf-link" href="#" onclick="openKeywordsModal('Topic 1-Computational Thinking'); return false;">Keywords</a></td>
           </tr>
           <tr>
@@ -717,6 +727,75 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
 </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section.topic-section");
+
+  sections.forEach(section => {
+    const id = section.id;
+    const h2 = section.querySelector(".topic-header h2");
+    if (id && h2 && !h2.querySelector(".anchor-link")) {
+      const a = document.createElement("a");
+      a.href = "#" + id;
+      a.className = "anchor-link";
+      a.textContent = "";
+      a.style.display = "none";
+      h2.appendChild(a);
+    }
+  });
+
+  function expandSectionById(id) {
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    sections.forEach(s => {
+      s.classList.add("collapsed");
+      s.classList.remove("expanded");
+    });
+
+    target.classList.remove("collapsed");
+    target.classList.add("expanded");
+
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  }
+
+  if (window.location.hash) {
+    expandSectionById(window.location.hash.substring(1));
+  }
+
+  window.addEventListener("hashchange", () => {
+    if (window.location.hash) {
+      expandSectionById(window.location.hash.substring(1));
+    }
+  });
+
+  window.toggleTopic = function(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const wasCollapsed = target.classList.contains("collapsed");
+
+    sections.forEach(s => {
+      s.classList.add("collapsed");
+      s.classList.remove("expanded");
+    });
+
+    if (wasCollapsed) {
+      target.classList.remove("collapsed");
+      target.classList.add("expanded");
+
+      if (history.replaceState) {
+        history.replaceState(null, "", "#" + id);
+      }
+    }
+  };
+});
+</script>
 
 </body>
 </html>
