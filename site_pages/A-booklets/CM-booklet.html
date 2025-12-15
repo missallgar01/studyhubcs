@@ -1,0 +1,192 @@
+data-booklet.html<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-booklets.html">← Back</a>
+  </div>
+<header>
+  <h1>Revision Page</h1>
+  <h2>Read • Write • Check • Amend</h2>
+  <p class="subtitle">
+    Read the notes, write your own answers, then reveal the model answers to check and improve.
+  </p>
+</header>
+
+<main>
+
+  <!-- =========================
+       KNOWLEDGE SECTIONS (VERTICAL)
+       (unchanged, but you can tweak)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Software & Operating Systems – Notes</h2>
+    </div>
+    <div class="topic-body vertical-knowledge">
+
+<div class="knowledge-card">
+
+  <h3>Computational Methods</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Aspect</th>
+        <th>Exam Board Definition</th>
+        <th>Meaning</th>
+        <th>Positives / Negatives</th>
+        <th>Simple Illustrations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Problem Recognition</td>
+        <td>Knowing what the problem is</td>
+        <td>Identifying the key requirements of a solution</td>
+        <td>− Not all problems are suitable for computers</td>
+        <td>Identifying requirements of a mortgage calculator</td>
+      </tr>
+
+      <tr>
+        <td>Backtracking</td>
+        <td>Returning to a previous successful state</td>
+        <td>Trying alternative solutions when one fails</td>
+        <td>
+          + Useful in AI and logic problems<br>
+          − Only useful for sequential problems
+        </td>
+        <td>Checking Wi-Fi after email fails to send</td>
+      </tr>
+
+      <tr>
+        <td>Data Mining</td>
+        <td>Analysing large datasets to discover information</td>
+        <td>Finding hidden patterns and trends</td>
+        <td>
+          + Detects anomalies<br>
+          + Competitive advantage
+        </td>
+        <td>Placing beer next to nappies to increase sales</td>
+      </tr>
+
+      <tr>
+        <td>Heuristics</td>
+        <td>A best-guess approach to problem solving</td>
+        <td>Accepting a good-enough solution to save time</td>
+        <td>
+          + Reduces computation time<br>
+          − May not find the optimal solution
+        </td>
+        <td>Estimating congestion during route planning</td>
+      </tr>
+
+      <tr>
+        <td>Performance Modelling</td>
+        <td>Mathematical analysis to assess efficiency</td>
+        <td>Predicting performance before implementation</td>
+        <td>
+          + Cost-effective and safe<br>
+          − Requires accurate data
+        </td>
+        <td>Simulating exam systems or train networks</td>
+      </tr>
+
+      <tr>
+        <td>Pipelining</td>
+        <td>Output of one process becomes input to another</td>
+        <td>Queuing processes in sequence</td>
+        <td>
+          + Faster execution<br>
+          − Branching may reset pipeline
+        </td>
+        <td>Mixing, baking, cooling and icing a cake</td>
+      </tr>
+
+      <tr>
+        <td>Visualisation</td>
+        <td>Representing reality using diagrams and charts</td>
+        <td>Making data easier to analyse</td>
+        <td>
+          + Easier to spot patterns and relationships
+        </td>
+        <td>Flowcharts, system diagrams, class diagrams</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+      </div>
+  </section>
+
+  <!-- =========================
+       QUESTIONS & ANSWERS (BY TOPIC)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check Your Understanding – Questions</h2>
+    </div>
+    <div class="topic-body">
+      <div class="vertical-qa">
+
+       
+
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 </p>
+</footer>
+
+<script>
+  // Toggle topic sections open/closed
+  document.querySelectorAll('.topic-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+      section.classList.toggle('expanded');
+    });
+  });
+
+  // Show / hide individual answers
+  document.querySelectorAll('.answer-toggle').forEach(btn => {
+    const answer = btn.nextElementSibling;
+    if (!answer) return;
+
+    // ensure hidden initially (CSS also sets .answer display:none)
+    answer.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const open = answer.style.display === 'block';
+      answer.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Show answer' : 'Hide answer';
+    });
+  });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
+</script>
+
+</body>
+</html>

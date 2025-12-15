@@ -641,6 +641,17 @@
       btn.textContent = open ? 'Show answer' : 'Hide answer';
     });
   });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
 </script>
 
 </body>

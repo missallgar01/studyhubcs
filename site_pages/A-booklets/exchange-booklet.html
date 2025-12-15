@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-booklets.html">← Back</a>
+  </div>
+<header>
+  <h1>Revision Page</h1>
+  <h2>Read • Write • Check • Amend</h2>
+  <p class="subtitle">
+    Read the notes, write your own answers, then reveal the model answers to check and improve.
+  </p>
+</header>
+
+<main>
+
+  <!-- =========================
+       KNOWLEDGE SECTIONS (VERTICAL)
+       (unchanged, but you can tweak)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Software & Operating Systems – Notes</h2>
+    </div>
+    <div class="topic-body vertical-knowledge">
+
+    <div class="knowledge-card">
+  <h3>Why is Compression Needed in Data Transfer?</h3>
+  <ul>
+    <li>Compression is crucial for reducing file size to facilitate efficient data transfer over the Internet</li>
+    <li>Smaller files result in faster transmission times</li>
+    <li>Reduced file size lowers bandwidth consumption</li>
+  </ul>
+
+  <h3>Comparing Types of Compression</h3>
+  <p>In simplified terms:</p>
+  <ul>
+    <li><strong>Lossy:</strong> Some data is discarded</li>
+    <li><strong>Lossless:</strong> Ensures that nothing is permanently lost and everything can be restored to its original state</li>
+  </ul>
+
+  <h3>Compression Types: Benefits and Drawbacks</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Compression</th>
+        <th>Benefits</th>
+        <th>Drawbacks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Lossy</strong></td>
+        <td>
+          <ul>
+            <li>Greatly reduced file sizes</li>
+            <li>Suitable for media streaming where data loss is acceptable</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Irreversible loss of data quality</li>
+            <li>Not suitable for text or archival storage</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Lossless</strong></td>
+        <td>
+          <ul>
+            <li>Maintains original data</li>
+            <li>Best for text and data that require integrity</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Larger file sizes than lossy compression</li>
+            <li>Requires higher bandwidth when streaming</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Recommending a Type of Compression</h3>
+  <p>To recommend a compression type, evaluate the application’s requirements:</p>
+  <ul>
+    <li>If data integrity is imperative, recommend <strong>lossless compression</strong></li>
+    <li>If achieving a small file size or quick data transfer is prioritised, and some data loss is acceptable, choose <strong>lossy compression</strong></li>
+  </ul>
+
+  <h4>Examiner Tips and Tricks</h4>
+  <p>
+    When asked to recommend a compression type, the choice will always depend on the
+    specific scenario requirements.
+  </p>
+</div>
+
+
+
+<div class="knowledge-card">
+  <h3>What is Run Length Encoding (RLE)?</h3>
+
+  <ul>
+    <li>In A Level Computer Science, run length encoding (RLE) is a form of data compression that condenses identical elements into a single value with a count</li>
+    <li>For a text file, <code>AAAAABBBCCDAA</code> is compressed to <code>4A 3B 2C 1D 2A</code></li>
+    <li>The string <code>5A 3B 2C 1D 2A</code> shows this as ASCII</li>
+    <li>It is used in bitmap images to compress sequences of the same colour</li>
+    <li>For example, a line in an image with 5 red pixels followed by 3 blue pixels could be represented as <code>5R 3B</code></li>
+  </ul>
+
+  <h3>What is Dictionary Coding?</h3>
+
+  <ul>
+    <li>Dictionary coding replaces recurring sequences with shorter, unique codes</li>
+    <li>A dictionary is compiled to map original sequences to special codes</li>
+    <li>This method is effective for both text and binary data</li>
+  </ul>
+
+  <h4>Example of Dictionary Coding</h4>
+
+  <p>
+    Consider the sentence where some algorithm names are repeatedly mentioned:
+  </p>
+
+  <pre>
+QuickSort is faster than BubbleSort but MergeSort is more stable than QuickSort and BubbleSort
+  </pre>
+
+  <p>The repeated words are:</p>
+  <ul>
+    <li>QuickSort</li>
+    <li>BubbleSort</li>
+    <li>MergeSort</li>
+  </ul>
+
+  <p><strong>Create a dictionary:</strong></p>
+  <ul>
+    <li>Start with an empty dictionary</li>
+    <li>Scan the sentence for recurring sequences</li>
+    <li>The dictionary might look like:</li>
+  </ul>
+
+  <pre>
+QuickSort: Q
+BubbleSort: B
+MergeSort: M
+  </pre>
+
+  <p>The sentence can then be replaced with dictionary values:</p>
+
+  <pre>
+Original:
+QuickSort is faster than BubbleSort but MergeSort is more stable than QuickSort and BubbleSort
+
+Compressed:
+Q is faster than B but M is more stable than Q and B
+  </pre>
+
+  <p>
+    The original string was 95 characters long, and the dictionary-coded example is
+    53 characters long. The shorter string will require less space in memory or storage.
+  </p>
+
+  <h3>Examiner Tips and Tricks</h3>
+  <ul>
+    <li>RLE and Dictionary Coding serve different needs and have their advantages and disadvantages</li>
+    <li><strong>RLE:</strong> More effective when data has lots of repetition</li>
+    <li><strong>Dictionary Coding:</strong> More versatile but may require more computational resources</li>
+  </ul>
+</div>
+
+
+<div class="knowledge-card">
+  <h3>What is Encryption?</h3>
+
+  <ul>
+    <li>In A Level Computer Science, encryption is used to convert readable data into an unreadable format</li>
+    <li>Its primary aim is to secure data from unauthorised access</li>
+    <li>It is a key technique for protecting against cyber-attacks and data breaches</li>
+    <li>Encryption methods use <strong>keys</strong>, which are specialised programs used to scramble or unscramble data</li>
+    <li>Selecting a type of encryption is not a daily choice for most people</li>
+    <li>
+      Modern technology (e.g. web browsers using HTTPS) provides encryption by default,
+      allowing users to transfer sensitive data without consciously choosing encryption methods
+    </li>
+  </ul>
+
+  <h3>Choosing an Encryption Type</h3>
+
+  <ul>
+    <li>
+      <strong>Symmetric encryption</strong> is fast but has key-sharing issues
+    </li>
+    <li>
+      <strong>Asymmetric encryption</strong> is slower but solves the key-sharing problem
+    </li>
+    <li>
+      The choice depends on the situation’s needs and whether <strong>speed</strong> or
+      <strong>security</strong> is more critical
+    </li>
+  </ul>
+
+  <h3>Encryption Types</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Encryption Type</th>
+        <th>Suitable For</th>
+        <th>Reasons to Choose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Symmetric</strong></td>
+        <td>Large files, databases</td>
+        <td>
+          <ul>
+            <li>Fast and efficient for bulk data</li>
+            <li>The same person encrypts and decrypts data (e.g. backups)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Asymmetric</strong></td>
+        <td>Confidential or secret communications</td>
+        <td>
+          <ul>
+            <li>Used for sharing highly secure data</li>
+            <li>Examples include passwords and government communications</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>How Does Symmetric Encryption Work?</h3>
+
+  <ul>
+    <li>The sender uses a key to encrypt the data before transmission</li>
+    <li>The receiver uses the <strong>same key</strong> to decrypt the data</li>
+    <li>It is usually faster, making it ideal for encrypting large amounts of data</li>
+    <li>The main drawback is securely sharing the key between sender and receiver</li>
+    <li>If a bad actor captures the key, all intercepted messages can be decrypted</li>
+  </ul>
+
+  <h3>How Does Asymmetric Encryption Work?</h3>
+
+  <ul>
+    <li>Uses <strong>two keys</strong>: a public key and a private key</li>
+    <li>The public key is used to encrypt data and is shared openly</li>
+    <li>The private key is used to decrypt data and is kept secret</li>
+    <li>Only the receiver can decrypt the data using their private key</li>
+    <li>The public and private keys are mathematically linked</li>
+    <li>It is more complex and typically slower than symmetric encryption</li>
+    <li>Generally used for smaller, highly secure data transfers (e.g. passwords, bank details)</li>
+  </ul>
+</div>
+
+<div class="knowledge-card">
+  <h3>What is Hashing?</h3>
+
+  <ul>
+    <li>In A Level Computer Science, hashing converts any data into a fixed-size string of characters</li>
+    <li>This fixed-size output is called a <strong>hash digest</strong></li>
+    <li>The same input will always produce the same hash, ensuring consistency</li>
+    <li>A small change in input produces a significantly different hash, giving sensitivity to change</li>
+  </ul>
+
+  <h4>Example of Hashing</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Input Text</th>
+        <th>Hashing Algorithm</th>
+        <th>Truncated Hash Digest</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>hello123</td>
+        <td>SHA-256</td>
+        <td>8d9389d5a0375bdb6028bc03a880333</td>
+      </tr>
+      <tr>
+        <td>hello124</td>
+        <td>SHA-256</td>
+        <td>9ac12bac3a0843a917b1c4a0f77a7c</td>
+      </tr>
+      <tr>
+        <td>applepie</td>
+        <td>SHA-256</td>
+        <td>6395c6a2522f7e2f75bdc7e31026fb6</td>
+      </tr>
+      <tr>
+        <td>password1</td>
+        <td>SHA-256</td>
+        <td>e99a18c428cb38d5f260853678922e03</td>
+      </tr>
+      <tr>
+        <td>password2</td>
+        <td>SHA-256</td>
+        <td>a00234829205b903319b6a8187fa872b</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Why is Hashing Efficient for Data Retrieval?</h3>
+
+  <ul>
+    <li>A good hash function distributes keys uniformly across a hash table</li>
+    <li>This creates a balanced structure with no inherent order</li>
+    <li>New entries are inserted randomly, avoiding clustering</li>
+    <li>Searching using a hash digest is computationally efficient</li>
+    <li>Hash digests are fixed length, making comparisons faster than variable-length strings</li>
+  </ul>
+
+  <h4>Hash Digest as a Summary</h4>
+  <p>
+    A hash digest acts as a summarised representation of the original data
+    (e.g. an email address).
+  </p>
+
+  <h3>Data Integrity</h3>
+
+  <ul>
+    <li>Hashing is used to verify data integrity</li>
+    <li>If transmitted data is altered due to packet loss or malicious interference, the hash will change</li>
+    <li>Matching hashes indicate the data has not been altered</li>
+    <li>Comparing fixed-size hashes is less computationally expensive than comparing full strings</li>
+  </ul>
+
+  <h3>Hashing for Password Storage</h3>
+
+  <ul>
+    <li>Passwords are hashed when a user signs up</li>
+    <li>The hashed password is stored in the database instead of plaintext</li>
+    <li>During login, the entered password is hashed and compared with the stored hash</li>
+    <li>If the hashes match, the user is authenticated</li>
+    <li>If not, access is denied</li>
+  </ul>
+
+  <h4>Security Benefits of Password Hashing</h4>
+  <ul>
+    <li>Even if a database is compromised, attackers cannot use hashed passwords directly</li>
+    <li>Storing hashes instead of plaintext reduces legal and security risks</li>
+    <li>Users’ raw passwords are never exposed</li>
+    <li>Password verification is fast because the same input always produces the same hash</li>
+  </ul>
+
+  <h3>Comparison of Encryption and Hashing</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Aspect</th>
+        <th>Encryption</th>
+        <th>Hashing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Purpose</td>
+        <td>Secure data for transmission or storage</td>
+        <td>Data verification and fast retrieval</td>
+      </tr>
+      <tr>
+        <td>Reversibility</td>
+        <td>Reversible (can be decrypted)</td>
+        <td>Irreversible</td>
+      </tr>
+      <tr>
+        <td>Keys</td>
+        <td>Uses keys for encryption and decryption</td>
+        <td>No keys involved</td>
+      </tr>
+      <tr>
+        <td>Processing Speed</td>
+        <td>Generally slower</td>
+        <td>Generally faster</td>
+      </tr>
+      <tr>
+        <td>Use Cases</td>
+        <td>Secure communication, file storage</td>
+        <td>Password storage, integrity checks</td>
+      </tr>
+      <tr>
+        <td>Algorithm Types</td>
+        <td>Symmetric, Asymmetric</td>
+        <td>MD5, SHA-1, SHA-256, SHA-3</td>
+      </tr>
+      <tr>
+        <td>Output Length</td>
+        <td>Variable length</td>
+        <td>Fixed length</td>
+      </tr>
+      <tr>
+        <td>Typical Operations</td>
+        <td>Encrypt, Decrypt</td>
+        <td>Hash, Verify</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Common Hashing Algorithms</h3>
+
+  <ul>
+    <li><strong>MD5:</strong> Widely used but insecure due to collision vulnerabilities</li>
+    <li><strong>SHA-1:</strong> Previously used in SSL and repositories; now insecure</li>
+    <li><strong>SHA-256:</strong> Commonly used; secure for most practical purposes</li>
+    <li><strong>SHA-3:</strong> Newest SHA family member, offering higher security</li>
+  </ul>
+</div>
+
+
+      </div>
+  </section>
+
+  <!-- =========================
+       QUESTIONS & ANSWERS (BY TOPIC)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check Your Understanding – Questions</h2>
+    </div>
+    <div class="topic-body">
+      <div class="vertical-qa">
+
+        <!-- =======================
+             TOPIC A – Question and answer
+             ======================= -->
+        <h2>Topic</h2>
+
+        <!-- =======================
+     TOPIC – Compression
+     ======================= -->
+<div class="rev-card qa-card">
+  <h3>1. Why is compression needed in data transfer? [3]</h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Reduces file size for efficient data transfer</li>
+      <li>Smaller files transmit faster</li>
+      <li>Uses less bandwidth</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <h3>2. Compare lossy and lossless compression. [4]</h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Lossy compression discards some data permanently</li>
+      <li>Lossless compression preserves all original data</li>
+      <li>Lossy produces smaller file sizes</li>
+      <li>Lossless is suitable where data integrity is required</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <h3>
+    A graphic designer has two tasks: selecting an appropriate compression method for a high-resolution logo intended for a client's brand identity and for an image used in a social media campaign.
+    <br><br>
+    Recommend a compression type for each file and justify your choices. [4]
+  </h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <table>
+      <tr>
+        <th>How to answer this question:</th>
+        <th>Answer:</th>
+      </tr>
+      <tr>
+        <td>
+          To secure all 4 marks, you need to specify the type of compression for each file type and offer a detailed rationale for your choices. Make sure to highlight the benefits and potential drawbacks of each situation.
+          <br><br>
+          <ul>
+            <li>
+              <strong>High-Resolution Logo:</strong> For this, <strong>Lossless Compression</strong> is the best choice. This method ensures no loss of image quality, which is crucial for professional branding. Lossless Compression is particularly advantageous when the logo is to be printed or included in high-definition media where pixel-perfect clarity is required.
+            </li>
+            <br>
+            <li>
+              <strong>Social Media Campaign Image:</strong> <strong>Lossy Compression</strong> is preferable in this scenario. This compression type drastically reduces file sizes, making the image easier to upload and quicker to load on social media platforms. Although there may be a slight loss in quality, the trade-off is generally acceptable for social media's fast-paced and transient nature.
+            </li>
+          </ul>
+        </td>
+        <td>
+          <strong>Example answer that gets full marks:</strong>
+          <br><br>
+          I recommend <strong>Lossless Compression</strong> for the high-resolution logo that is part of the client's brand identity. Lossless Compression preserves the image's original quality, which is key for professional presentations and branding. This choice is essential so that the logo remains high-quality for use in prints or high-definition media where every detail matters.
+          <br><br>
+          For the image designated for the social media campaign, <strong>Lossy Compression</strong> is more appropriate. This method significantly reduces file size, facilitating faster uploads and quicker loading times on social media. While there's a slight degradation in image quality, this is a reasonable trade-off given social media platforms' temporary and fast-paced environment.
+          <br><br>
+          <strong>Acceptable answers you could have given instead:</strong>
+          <br><br>
+          <strong>Lossless Compression</strong> should be used for the high-resolution logo as it maintains data integrity, which is vital for a consistent and professional brand image.
+          <br><br>
+          <strong>Lossy Compression</strong> is the better choice for social media images due to its efficiency in reducing file sizes, which is beneficial for quick data transmission and loading times.
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- =======================
+     TOPIC – Run Length Encoding
+     ======================= -->
+
+<!-- =======================
+     TOPIC – Encryption
+     ======================= -->
+<div class="rev-card qa-card">
+  <h3>7. Explain the difference between symmetric and asymmetric encryption. [4]</h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Symmetric encryption uses one key for encryption and decryption</li>
+      <li>Asymmetric encryption uses a public and private key pair</li>
+      <li>Symmetric is faster but has key-sharing issues</li>
+      <li>Asymmetric is slower but more secure for communication</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="rev-card qa-card">
+  <h3>
+    A survey focuses on the kinds of vehicles travelling on a motorway. For each vehicle that passes, a letter is noted:
+    <br>
+    • For a car, <strong>'C'</strong> is entered.
+    <br>
+    • For a motorbike, <strong>'M'</strong> is entered.
+    <br>
+    • For a lorry, <strong>'L'</strong> is entered.
+    <br>
+    • For any other vehicle, <strong>'O'</strong> is entered.
+    <br><br>
+    It's decided to compress the data generated.
+    <br><br>
+    Run Length Encoding has compressed the following sequence:
+    <br>
+    <strong>3C3M4C</strong>
+    <br><br>
+    Show the result of decompressing the sequence. [2]
+  </h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <table>
+      <tr>
+        <th>How to answer this question:</th>
+        <th>Answer:</th>
+      </tr>
+      <tr>
+        <td>
+          Run Length Encoding (RLE) shows the number of consecutive occurrences of a character in a sequence.
+          <br><br>
+          To decompress the data, repeat each character the number of times indicated by the number that comes before it.
+        </td>
+        <td>
+          <strong>Example answer that gets full marks:</strong>
+          <br><br>
+          <strong>CCCMMMCCCC</strong>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <h3>
+    <strong>Worked Example</strong>
+    <br><br>
+    The following sequence represents the raw data collected during the survey:
+    <br>
+    <strong>CCCCOLLLCCCCCMOCCCCC</strong>
+    <br><br>
+    Show the result of compressing the sequence. [2]
+  </h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <table>
+      <tr>
+        <th>How to answer this question:</th>
+        <th>Answer:</th>
+      </tr>
+      <tr>
+        <td>
+          To compress using Run Length Encoding (RLE), count the number of consecutive occurrences of each character in the sequence.
+          <br><br>
+          Write the count followed by the character before moving on to the next group.
+        </td>
+        <td>
+          <strong>Example answer that gets full marks:</strong>
+          <br><br>
+          <strong>4C1O3L5C1M1O5C</strong>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+
+
+<div class="rev-card qa-card">
+  <h3>8. Discuss the impact of modern encryption on society. [9]</h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Protects sensitive data and privacy</li>
+      <li>Asymmetric encryption enables secure online communication</li>
+      <li>Symmetric encryption allows fast bulk data protection</li>
+      <li>Used in banking, e-commerce, and secure messaging</li>
+      <li>Supports secure transactions and authentication</li>
+      <li>However, can be misused for criminal activity</li>
+    </ul>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <h3>
+    Write pseudocode for the function <strong>longest</strong>, which takes in a string of characters as an argument and returns an integer representing the longest continuous sequence of <strong>'C'</strong>s. [6]
+  </h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <table>
+      <tr>
+        <th>How this answer might look in pseudocode:</th>
+        <th>How this answer might look in Python:</th>
+      </tr>
+      <tr>
+        <td>
+<pre>
+Function longest(s : String) -> Integer
+    max_count ← 0
+    current_count ← 0
+
+    For each char in s
+        If char = 'C' Then
+            current_count ← current_count + 1
+            If current_count > max_count Then
+                max_count ← current_count
+        Else
+            current_count ← 0
+    End For
+
+    Return max_count
+</pre>
+        </td>
+        <td>
+<pre>
+def longest(s):
+    max_count = 0
+    current_count = 0
+
+    for char in s:
+        if char == 'C':
+            current_count += 1
+            if current_count > max_count:
+                max_count = current_count
+        else:
+            current_count = 0
+
+    return max_count
+</pre>
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      <strong>Acceptable answers you could have given instead:</strong><br>
+      You could use different variable names or loop structures, but the logic should be the same to get full marks.
+    </p>
+  </div>
+</div>
+
+
+<!-- =======================
+     TOPIC – Hashing
+     ======================= -->
+<div class="rev-card qa-card">
+  <h3>9. What is hashing and why is it used? [4]</h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Converts data into a fixed-length value called a hash digest</li>
+      <li>Same input always produces the same output</li>
+      <li>Used for data integrity and verification</li>
+      <li>Irreversible process</li>
+    </ul>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <h3>
+    Exam style question
+    <br><br>
+    Discuss the impact of modern encryption on society. You should refer to:
+    <br>
+    • The importance of asymmetric encryption and how it differs from symmetric encryption.
+    <br>
+    • Different circumstances in which symmetric and asymmetric encryption may be used.
+    <br><br>
+    [9]
+  </h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <table>
+      <tr>
+        <th>How to Answer This Question:</th>
+        <th>Example Answer That Gets Full Marks:</th>
+      </tr>
+      <tr>
+        <td>
+          Structuring your answer carefully is the best approach for gaining the most marks for the question. Use the list below as a guide:
+          <br><br>
+          1. Start with an introduction outlining the importance of modern encryption in society. Consider some scenarios where private data is being transferred, such as at school or the workplace.
+          <br><br>
+          2. Discuss the key features of asymmetric encryption, emphasising its significance and how it resolves key distribution issues.
+          <br><br>
+          3. Compare asymmetric and symmetric encryption, pointing out the differences and mentioning the single key used in the latter.
+          <br><br>
+          4. Provide examples of scenarios where symmetric and asymmetric encryption are most suitable, discussing the pros and cons of each.
+          <br><br>
+          5. Conclude by summarising the overall impact of both types of encryption on society, including data security, online transactions, and individual privacy.
+        </td>
+        <td>
+          Encryption is critical to protect people from data misuse in today’s digital society. It is a fundamental aspect of secret communications, e-commerce, and the protection of personal information.
+          <br><br>
+          Asymmetric encryption uses a pair of keys: a public key for encryption and a private key for decryption. This solves a crucial issue in key distribution, as the public key can be openly shared without compromising security. Asymmetric encryption forms the backbone of secure online transactions and communications, enabling features like digital signatures and secure key exchange.
+          <br><br>
+          Unlike asymmetric encryption, symmetric encryption uses a single key for both encryption and decryption. While it is usually faster and more efficient for handling large data, it poses a challenge in securely sharing the key between parties. Asymmetric encryption, though generally slower, alleviates this issue by using a public-private key pair, adding an extra layer of security.
+          <br><br>
+          Symmetric encryption is ideal for quick scenarios, such as encrypting large files or databases within a secure network where key distribution is not an issue. Asymmetric encryption is preferred in situations demanding high security, like secure email communications or online banking, where a compromise in key distribution can lead to significant risks.
+          <br><br>
+          Using symmetric and asymmetric encryption profoundly impacts society, enabling secure data transmission, enhancing online commerce, and protecting individual privacy. However, the consequences of providing individuals with highly secure methods of communication mean that regular users and criminals alike can benefit. In situations where individuals must choose between the two methods, they should consider whether the data transfer needs to happen quickly or securely.
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <h3>10. Why is hashing efficient for database lookup? [4]</h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Uniformly distributes data across a hash table</li>
+      <li>Allows fast direct access using hash digest</li>
+      <li>Fixed-length comparisons are faster than string comparison</li>
+      <li>Improves data retrieval performance</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <h3>11. Explain how hashing is used for password storage. [4]</h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Passwords are hashed before being stored</li>
+      <li>Hash is stored instead of plaintext</li>
+      <li>Entered passwords are hashed and compared</li>
+      <li>Improves security if database is compromised</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="rev-card qa-card">
+  <h3>
+    <strong>Exam style question</strong>
+    <br><br>
+    Every website's URL, along with its corresponding data, is saved in a hash map.
+    <br><br>
+    The hash function of this map processes the website's URL (serving as the key). The hashing procedure is as follows:
+    <br><br>
+    1. Remove characters up to and inclusive of the first dot.<br>
+    2. Eliminate characters from and after the next dot present.<br>
+    3. Convert the remaining string to uppercase.<br>
+    4. Sum up the ASCII values of the characters.
+    <br><br>
+    Given the ASCII values for the letters:
+    <br><br>
+    A = 65, B = 66, C = 67, D = 68, E = 69, F = 70, G = 71, H = 72, I = 73, J = 74, K = 75, L = 76,
+    M = 77, N = 78, O = 79, P = 80, Q = 81, R = 82, S = 83, T = 84, U = 85, V = 86, W = 87, X = 88,
+    Y = 89, Z = 90
+    <br><br>
+    As an example, consider the URL <strong>www.exam.net</strong>. The hashing process would be:
+    <br><br>
+    Step 1: exam.net<br>
+    Step 2: exam<br>
+    Step 3: EXAM<br>
+    Step 4: 69 + 88 + 65 + 77 = 299
+    <br><br>
+    This results in a hashed value of 299.
+    <br><br>
+    State what hashed value would be given by the website <strong>www.foo.co.uk</strong>. [1]
+  </h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <table>
+      <tr>
+        <th>How to answer this question:</th>
+        <th>Answer:</th>
+      </tr>
+      <tr>
+        <td>
+          Follow the same steps as described in the question.
+          <br><br>
+          1. Remove characters up to and inclusive of the first dot.
+          <br>
+          Result: <strong>foo.co.uk</strong>
+          <br><br>
+          2. Eliminate characters from and after the next dot present.
+          <br>
+          Result: <strong>foo</strong>
+          <br><br>
+          3. Convert the remaining string to uppercase.
+          <br>
+          Result: <strong>FOO</strong>
+          <br><br>
+          4. Sum up the ASCII values of the characters.
+          <ul>
+            <li>F: 70</li>
+            <li>O: 79</li>
+            <li>O: 79</li>
+          </ul>
+          Sum: 70 + 79 + 79 = <strong>228</strong>
+        </td>
+        <td>
+          <strong>Answer that gets full marks:</strong>
+          <br><br>
+          The sum of ASCII values for <strong>www.foo.co.uk</strong> is <strong>228</strong>.
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <h3>
+    <strong>Exam style question</strong>
+    <br><br>
+    A team of programmers create a robot that will be used in a factory. The robot will be able to do the work of multiple humans.
+    <br><br>
+    The programmers discuss whether to write the instructions for the robot in assembly language or a high-level language.
+    <br><br>
+    The robot stores data internally and also communicates with other robots and users via a wireless network which is password protected. All data for these tasks is secured using either encryption or hashing.
+    <br><br>
+    Compare the robot’s use of encryption and hashing for storing and communicating data.
+    <br><br>
+    You should include the following in your answer:
+    <br>
+    • the different types of encryption that could be used and how this would secure data<br>
+    • how hashing could be used to secure data and which data would be suitable<br>
+    • why encryption and hashing are used by the robot for stored data and communications. [9]
+  </h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <table>
+      <tr>
+        <th>How to answer the question</th>
+        <th>Answer</th>
+      </tr>
+      <tr>
+        <td>
+          <strong>Knowledge (AO1)</strong>
+          <br><br>
+          Encryption converts data into data that cannot be understood (ciphertext) using a key.
+          <br><br>
+          Symmetric encryption uses the same key for both encryption and decryption.
+          <br><br>
+          Asymmetric encryption uses two keys, one for encryption and one for decryption.
+          <br><br>
+          Encryption is two-way, so data can be restored to its original form, but a key is required.
+          <br><br>
+          Hashing is a one-way (non-reversible) mathematical process that produces a value from the input value.
+          <br><br>
+          <strong>Application (AO2)</strong>
+          <br><br>
+          For robot’s data storage, symmetric encryption is useful as no keys need to be shared or transmitted.
+          <br><br>
+          For robot-to-user communication, asymmetric encryption / public key encryption means that only the public key needs to be shared, while the private key is kept secure.
+          <br><br>
+          It is also possible to verify identity or origin of data using asymmetric encryption.
+          <br><br>
+          Hashing is useful for information such as passwords that need to be verified but do not need to be known at any point; once hashed, it is impossible to return to the original value.
+          <br><br>
+          <strong>Evaluation (AO3)</strong>
+          <br><br>
+          Encryption is useful for most data storage as anyone hacking into the robot will not be able to read or understand the data.
+          <br><br>
+          Hashing is useful for data storage of passwords or other items that need to be verified, as the hash of input can be compared against the stored hash to confirm correctness.
+          <br><br>
+          Hashing is not useful for data that needs to be returned to the user as it is impossible to reverse.
+          <br><br>
+          Encryption is useful for data transmission as intercepted data cannot be decrypted without the correct key.
+        </td>
+        <td>
+          The robot uses encryption to protect stored and transmitted data so that it cannot be read if intercepted or accessed without authorisation.
+          <br><br>
+          Symmetric encryption could be used for internal data storage as it is fast and efficient, and no key exchange is required.
+          <br><br>
+          Asymmetric encryption is suitable for communication between the robot, users, and other robots, as public keys can be shared safely while private keys remain secure, reducing the risk during key distribution.
+          <br><br>
+          Hashing would be used for password protection on the wireless network, as passwords only need to be verified and do not need to be retrieved. This improves security because hashed values cannot be reversed.
+          <br><br>
+          Overall, encryption ensures confidentiality of stored and transmitted data, while hashing ensures secure authentication and data integrity, making both essential for the robot’s operation and communication.
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <h3>
+    <strong>Exam style question</strong>
+    <br><br>
+    Complete the function <strong>hash</strong>, which takes in a string and returns the hashed value.
+    <br><br>
+    You can assume you have access to the following three functions:
+    <br>
+    • <strong>asc()</strong> – this takes in a character and returns its ASCII value. For example, asc("A") returns 65.<br>
+    • <strong>locate()</strong> – this takes in a string and character and returns the location of the first instance of the character (with the string starting at character 0). For example, locate("electricity","c") returns 3.<br>
+    • <strong>upper()</strong> – this takes in a string and returns the UPPERCASE version. For example, upper("hello") returns "HELLO".
+    <br><br>
+    You should also assume that all website names use letters but no numbers or symbols.
+    <br><br>
+    <strong>function hash(siteName)</strong>
+    <br><br>
+    <strong>endfunction</strong>
+    <br><br>
+    [5]
+  </h3>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <table>
+      <tr>
+        <th>How to answer this question:</th>
+        <th>Answer:</th>
+      </tr>
+      <tr>
+        <td>
+          1. Understand the requirements:
+          <br>
+          • You are to create a hash function.<br>
+          • Make use of the provided functions: <strong>asc()</strong>, <strong>locate()</strong>, and <strong>upper()</strong>.<br>
+          • Implement the hash function as described in the earlier content.
+          <br><br>
+          2. Implement the steps:
+          <br>
+          • Discard characters up to and including the first dot.<br>
+          • Discard characters including and to the right of the remaining leftmost dot.<br>
+          • Convert the characters to uppercase.<br>
+          • Add the ASCII values of the characters together.
+        </td>
+        <td>
+          <strong>Answer that gets full marks:</strong>
+<pre>
+function hash(siteName)
+
+    firstDot ← locate(siteName, ".")
+    remainingString ← siteName[firstDot + 1]
+
+    secondDot ← locate(remainingString, ".")
+    requiredString ← upper(remainingString[0:secondDot])
+
+    sum ← 0
+    for char in requiredString
+        sum ← sum + asc(char)
+    endfor
+
+    return sum
+endfunction
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 </p>
+</footer>
+
+<script>
+  // Toggle topic sections open/closed
+  document.querySelectorAll('.topic-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+      section.classList.toggle('expanded');
+    });
+  });
+
+  // Show / hide individual answers
+  document.querySelectorAll('.answer-toggle').forEach(btn => {
+    const answer = btn.nextElementSibling;
+    if (!answer) return;
+
+    // ensure hidden initially (CSS also sets .answer display:none)
+    answer.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const open = answer.style.display === 'block';
+      answer.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Show answer' : 'Hide answer';
+    });
+  });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
+</script>
+
+</body>
+</html>

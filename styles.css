@@ -232,6 +232,14 @@ a:visited {
   text-decoration: underline;
 }
 
+
+/* Fixed-size class diagrams */
+.class-diagram {
+  width: 200px;
+  table-layout: fixed;
+}
+
+
 /* ==========================
    INDEX GRIDS
    ========================== */

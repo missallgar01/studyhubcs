@@ -1,0 +1,518 @@
+data-booklet.html<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-booklets.html">← Back</a>
+  </div>
+<header>
+  <h1>Revision Page</h1>
+  <h2>Read • Write • Check • Amend</h2>
+  <p class="subtitle">
+    Read the notes, write your own answers, then reveal the model answers to check and improve.
+  </p>
+</header>
+
+<main>
+
+  <!-- =========================
+       KNOWLEDGE SECTIONS (VERTICAL)
+       (unchanged, but you can tweak)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Software & Operating Systems – Notes</h2>
+    </div>
+    <div class="topic-body vertical-knowledge">
+
+<div class="knowledge-card">
+  <h3>Computational Thinking</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Aspect</th>
+        <th>Exam Board Definition</th>
+        <th>Meaning</th>
+        <th>Positives / Negatives</th>
+        <th>Simple Illustrations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Thinking Abstractly</td>
+        <td>Removing unnecessary details and including only the relevant details</td>
+        <td>
+          Identifying what matters to solve the problem;<br>
+          Deciding variables and objects;<br>
+          Using levels or layers of detail
+        </td>
+        <td>
+          + Allows predictions<br>
+          − Real-world systems may be too complex or unpredictable
+        </td>
+        <td>
+          Maps using symbols;<br>
+          Oyster card journey tracking;<br>
+          Graph visualisations
+        </td>
+      </tr>
+
+      <tr>
+        <td>Thinking Ahead</td>
+        <td>Identifying preconditions, inputs, outputs and reusable components</td>
+        <td>
+          Preparing what is needed before starting;<br>
+          Using caching;<br>
+          Identifying reusable components
+        </td>
+        <td>
+          + Caching speeds up processes<br>
+          − Caching can be complex or incorrect
+        </td>
+        <td>
+          Calculating paint before decorating;<br>
+          Preparing tools for DIY
+        </td>
+      </tr>
+
+      <tr>
+        <td>Thinking Procedurally</td>
+        <td>Breaking a problem down</td>
+        <td>
+          Identifying sub-problems;<br>
+          Determining the order of events
+        </td>
+        <td>
+          − Not always suitable for event-driven systems
+        </td>
+        <td>
+          Enter marks → apply grade boundaries → print results
+        </td>
+      </tr>
+
+      <tr>
+        <td>Thinking Logically</td>
+        <td>Identifying decision points for branching or iteration</td>
+        <td>
+          Determining conditions;<br>
+          Choosing actions based on outcomes
+        </td>
+        <td>
+          + Algorithm complexity can be analysed
+        </td>
+        <td>
+          Flowcharts used to design algorithms
+        </td>
+      </tr>
+
+      <tr>
+        <td>Thinking Concurrently</td>
+        <td>More than one thing happening at the same time</td>
+        <td>
+          Identifying tasks that can run simultaneously
+        </td>
+        <td>
+          + Faster solutions<br>
+          − Hard to program<br>
+          − Not suitable for all problems
+        </td>
+        <td>
+          Ordering windows while building walls
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</div>
+      </div>
+  </section>
+
+  <!-- =========================
+       QUESTIONS & ANSWERS (BY TOPIC)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check Your Understanding – Questions</h2>
+    </div>
+    <div class="topic-body">
+      <div class="vertical-qa">
+
+<!-- =================================================
+     COMPUTATIONAL THINKING – COMPLETE REVISION PAGE
+     OCR A LEVEL COMPUTER SCIENCE
+     ================================================= -->
+
+<h1>Computational Thinking – Complete Revision</h1>
+
+
+
+<div class="rev-card qa-card">
+<h3>
+Question 1(a): A country’s national rail operator wants to represent their rail network on a computer system to keep track of the location of trains, and any problems on the network.
+<br><br>
+After studying the rail network, the operator uses abstraction to create the virtual representation.
+<br><br>
+Define the term ‘abstraction’. [1]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Removing characteristics, elements or detail from a problem.</p>
+</div>
+</div>
+
+         <div class="rev-card qa-card">
+<h3>
+Question 1(b): Identify two reasons why abstraction is needed in the rail network program. [2]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Reduce processing requirements</li>
+<li>Simplify programming</li>
+<li>Reduce memory requirements</li>
+</ul>
+</div>
+</div>
+
+          <div class="rev-card qa-card">
+<h3>
+Question 1(c): Describe one potential difference between the virtual and real rail network. [2]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Features such as stations or signals may be removed</li>
+<li>Symbols or keys are used to represent elements</li>
+<li>The network may not be drawn to scale</li>
+</ul>
+</div>
+</div>
+
+          <div class="rev-card qa-card">
+<h3>
+Question 2: A group of A-level students are working together to program a computer game.
+<br><br>
+In the game, the player controls a character who moves through a virtual world. The game starts with a load-up screen. The player can select which area to move to on an on-screen map, and then they control the movements of their character using a keyboard to solve puzzles on the screen.
+<br><br>
+Explain, using examples, how abstraction would be used to create the virtual world. [4]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Unnecessary elements are removed to reduce computational resources</li>
+<li>The program focuses on the main purpose of the game</li>
+<li>Characters may be simplified (e.g. stick figures)</li>
+<li>Scenery such as trees or rivers may be removed</li>
+</ul>
+</div>
+</div>
+
+          <div class="rev-card qa-card">
+<h3>
+Question 3(a): A car has a feature in its engine management system that is intended to save fuel and emissions produced when the car is waiting at traffic lights or in a traffic jam.
+<br><br>
+Identify four inputs needed by this feature of the engine management system and suggest a suitable data type for each. [8]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Target temperature – Integer / Floating point</li>
+<li>Wheel movement – Boolean</li>
+<li>Internal or external temperature – Integer / Floating point</li>
+<li>Gears engaged – Boolean</li>
+</ul>
+</div>
+</div>
+
+    <div class="rev-card qa-card">
+<h3>
+Question 3(b): Identify two outputs from this engine management feature. [2]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Start engine</li>
+<li>Stop engine</li>
+<li>Signal to dashboard display</li>
+</ul>
+</div>
+</div>
+
+          <div class="rev-card qa-card">
+<h3>
+Question 4: A supermarket uses a stock control system. Details of products are stored on a stock database.
+<br><br>
+Explain how the system can control the quantity of tins of beans in stock so that the chance of running out is minimised. [6]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>The barcode is scanned at checkout</li>
+<li>The stock quantity is reduced</li>
+<li>The value is compared to a minimum stock level</li>
+<li>If below minimum and no order exists, a new order is placed</li>
+<li>An outstanding order is recorded</li>
+<li>Stock is increased when delivery arrives</li>
+</ul>
+</div>
+</div>
+
+   <div class="rev-card qa-card">
+<h3>
+Question 5: A flight simulator allows a user to take control of a simulated aeroplane.
+<br><br>
+Explain what is meant by concurrent processing and describe one example of how the simulator could make use of it. [4]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Concurrent processing means processes run at the same time</li>
+<li>Each plane can move independently</li>
+<li>Weather systems run simultaneously</li>
+<li>This is necessary for realism</li>
+</ul>
+</div>
+</div>
+
+<div class="rev-card qa-card">
+<h3>
+Question 6(a): A programmer is developing an aeroplane simulator. The user will sit in a cockpit and the simulated environment will be displayed on screens around them.
+<br><br>
+The programmer uses computational methods to design a solution for the program.
+<br><br>
+Write a definition for each computational method:
+<br><br>
+Abstraction
+<br>
+Decomposition [2]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li><strong>Abstraction:</strong> Removal of unnecessary components and focusing only on the necessary components</li>
+<li><strong>Decomposition:</strong> Breaking a problem down into smaller sub-problems</li>
+</ul>
+</div>
+</div>
+
+ <div class="rev-card qa-card">
+<h3>
+Question 6(a)(ii): Give three potential differences between the abstracted aeroplane simulator and reality. [3]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Removal of visual elements such as buildings on the ground</li>
+<li>Simplification of controls</li>
+<li>Focus on important elements such as weather, height and speed</li>
+</ul>
+</div>
+</div>
+
+          <div class="rev-card qa-card">
+<h3>
+Question 6(a)(iii): Identify two reasons why abstraction is used when designing a solution to the problem. [2]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Reduce memory requirements</li>
+<li>Reduce processing requirements</li>
+<li>Simplify the problem being solved</li>
+</ul>
+</div>
+</div>
+
+<div class="rev-card qa-card">
+<h3>
+Question 6(b): Describe how caching can be used in the aeroplane simulator. [2]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Data that has been used is stored in cache or RAM in case it is needed again, for example storing weather or cloud designs so they can be accessed more quickly.</p>
+</div>
+</div>
+
+
+     <div class="rev-card qa-card">
+<h3>
+Question 7: Functions and procedures are reusable components.
+<br><br>
+Give two benefits of writing a program with reusable components. [2]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Saves time by avoiding rewriting the same algorithms</li>
+<li>Reduced testing requirements as components can be reused</li>
+<li>Components can be used in other programs</li>
+</ul>
+</div>
+</div>
+
+ <div class="rev-card qa-card">
+<h3>
+Question 8: Dexter is leading a programming team who are creating a computer program that will simulate an accident and emergency room to train hospital staff.
+<br><br>
+Describe what is meant by caching and explain how caching can be used within the simulation. [4]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Caching is storing data that has been used in cache or RAM</li>
+<li>This allows faster access if the data is needed again</li>
+<li>Patient details or conditions could be stored</li>
+<li>Room or character designs could be cached</li>
+</ul>
+</div>
+</div>
+
+   <div class="rev-card qa-card">
+<h3>
+Question 9: Explain two advantages to programmers of using reusable components when developing programs. [4]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Components can be reused in future programs</li>
+<li>They do not need to be rewritten, saving time</li>
+<li>They have already been tested, improving reliability</li>
+<li>Programs can be shorter and developed faster</li>
+</ul>
+</div>
+</div>
+
+  <div class="rev-card qa-card">
+<h3>
+Question 10: A program is needed to plan the layout of a garden.
+<br><br>
+Explain and evaluate the use of caching and reusable components in the design of the garden program. [9]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Caching stores commonly used data in RAM for faster access</li>
+<li>Garden items or layouts could be cached</li>
+<li>Reusable components allow shapes or designs to be reused</li>
+<li>Use of classes enables replication of garden elements</li>
+<li>Development is faster and performance improves</li>
+<li>Future adaptations are easier</li>
+<li>More planning time is required initially</li>
+</ul>
+</div>
+</div>
+
+        <div class="rev-card qa-card">
+<h3>
+Question 11: A group of A-level students are working together to program a computer game.
+<br><br>
+Complete the table below, identifying three additional sub-procedures and describing the purpose of each. [6]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li><strong>startGame:</strong> Loads the game and displays the load-up screen</li>
+<li><strong>displayMap:</strong> Outputs the map onto the screen</li>
+<li><strong>selectArea:</strong> Allows the user to select an area and loads it</li>
+</ul>
+</div>
+</div>
+
+    <div class="rev-card qa-card">
+<h3>
+Question 12: A flight simulator allows a user to take control of a simulated aeroplane.
+<br><br>
+Explain what is meant by concurrent processing and describe one example of how the simulator could make use of it. [4]
+</h3>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Concurrent processing is when multiple processes run at the same time</li>
+<li>Each plane can move independently</li>
+<li>Weather systems operate simultaneously</li>
+<li>This is necessary for realism and responsiveness</li>
+</ul>
+</div>
+</div>
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 </p>
+</footer>
+
+<script>
+  // Toggle topic sections open/closed
+  document.querySelectorAll('.topic-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+      section.classList.toggle('expanded');
+    });
+  });
+
+  // Show / hide individual answers
+  document.querySelectorAll('.answer-toggle').forEach(btn => {
+    const answer = btn.nextElementSibling;
+    if (!answer) return;
+
+    // ensure hidden initially (CSS also sets .answer display:none)
+    answer.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const open = answer.style.display === 'block';
+      answer.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Show answer' : 'Hide answer';
+    });
+  });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
+</script>
+
+</body>
+</html>
