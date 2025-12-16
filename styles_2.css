@@ -614,25 +614,25 @@ th {
 
 .rev-card {
   background: #fff;
-
+  border-radius: var(--radius);
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
   padding: 1.1rem 1.3rem;
 }
 
 .qa-card textarea.student-answer,
 .rev-card textarea {
-    width: 100%;
-  min-height: 150px;
-  background-color: #ffffff;
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 1.35em,
-      #666 1.6em,
-      #666 1.6em
-    );
-  line-height: 0.5em;
-  padding-top: 0.35em;
+  width: 100%;
+  min-height: 120px;
+  margin: 0.65rem 0 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.8rem;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.95rem;
+  box-sizing: border-box;
 }
 
 .qa-card .answer,
@@ -1028,13 +1028,6 @@ iframe {
     max-width: 60% !important;
     height: auto !important;
   }
-
-
-  .qa-card textarea.student-answer,
-  .rev-card textarea {
-    background-image: none;
-  }
-
 
   @page {
     margin: 1.5cm;
