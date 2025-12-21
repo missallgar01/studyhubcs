@@ -28,7 +28,7 @@
   <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
-      <h2>Software & Operating Systems – Notes</h2>
+      <h2>Data Structures – Notes</h2>
     </div>
     <div class="topic-body vertical-knowledge">
 
@@ -400,29 +400,11 @@ Players(3).name = "Jane"
       </div>
   </section>
 
-  <!-- =========================
-       QUESTIONS & ANSWERS (BY TOPIC)
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
-    </div>
-    <div class="topic-body">
-      <div class="vertical-qa">
-
-
-
-
-      </div>
-    </div>
-  </section>
-
 
     <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
-      <h2> Notes</h2>
+      <h2>Stacks and Queues Notes</h2>
     </div>
     <div class="topic-body vertical-knowledge">
 
@@ -510,7 +492,7 @@ Players(3).name = "Jane"
 <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
-      <h2> Notes</h2>
+      <h2> Stacks - Notes</h2>
     </div>
     <div class="topic-body vertical-knowledge">
 
@@ -648,6 +630,15 @@ procedure pushToStack(message)
 endprocedure
   </pre>
 </div>
+        </div>
+</section>
+
+         <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2> Queues - notes/h2>
+    </div>
+    <div class="topic-body vertical-knowledge">
 
 <div class="knowledge-card">
   <h3>Queue Algorithms (Linear Queue)</h3>
@@ -1256,13 +1247,1016 @@ q.dequeue()
       <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
-      <h2> Notes</h2>
+      <h2> Stacks and Queues - Knowledge Check</h2>
     </div>
     <div class="topic-body vertical-knowledge">
 
 
+<div class="rev-card qa-card">
+  <p>
+    <strong>Stack Algorithm</strong><br><br>
+    A computer program stores data input on a stack named <strong>dataItems</strong>.
+    The stack has two sub-programs to add and remove data items from the stack.
+    The stack is implemented as a 1D array, <strong>dataArray</strong>.
+  </p>
 
+  <p>
+    The current contents of <strong>dataItems</strong> are shown below:
+  </p>
 
+  <div class="diagram">
+    <table class="stack-diagram">
+      <tr><td></td></tr>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
+      <tr><td>6</td></tr>
+      <tr><td>15</td></tr>
+      <tr><td>100</td></tr>
+      <tr><td>23</td></tr>
+    </table>
+    <p>↑ top of stack</p>
+  </div>
+
+  <p>
+    The main program asks a user to push or pop an item from the stack.
+    If the user chooses <strong>push</strong>, the data item is added to the stack.
+    If the user chooses <strong>pop</strong>, the next item is removed from the stack,
+    multiplied by 3 and output.
+  </p>
+
+  <p><strong>Main program:</strong></p>
+  <pre>
+userAnswer = input("Would you like to push or pop an item?")
+if userAnswer == "push" then
+  push(input("Enter data item"))
+else
+  print(pop() * 3)
+endif
+  </pre>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>(a)(ii)</strong></p>
+
+    <p><strong>push()</strong></p>
+    <ul>
+      <li>Check if the stack is full</li>
+      <li>If not full, insert the item</li>
+      <li>If full, return or output an error</li>
+    </ul>
+
+    <p><strong>pop()</strong></p>
+    <ul>
+      <li>Check if the stack is empty</li>
+      <li>If empty, return or output an error</li>
+      <li>If not empty, remove and return the top item</li>
+    </ul>
+  </div>
+</div>
+
+        <div class="rev-card qa-card">
+  <p>
+    <strong>(b)</strong>
+    The stack is implemented as a 1D array, <strong>dataArray</strong>.
+    Describe how a 1D array can be set up and used to push and pop items as a stack. [3]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>The array size is defined</li>
+      <li>A stack pointer is used to point to the top of the stack</li>
+      <li>When an item is pushed, the stack pointer is incremented</li>
+      <li>When an item is popped, the stack pointer is decremented</li>
+    </ul>
+  </div>
+</div>
+
+ <!-- ================= QUESTION 2 – STACK (ARRAY IMPLEMENTATION) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>2.</strong>
+    A user enters whole numbers into a computer program. Each number entered is
+    placed onto a stack. The stack is created using an array with a maximum of
+    20 elements.
+  </p>
+
+  <p>
+    Part of the array, <strong>numStack</strong>, is shown when one number has been input.
+    The pointer, <strong>top</strong>, points to the next free space in the stack.
+  </p>
+
+  <div class="diagram">
+    <table class="stack-diagram">
+      <tr><th>Index</th><th>stackItem</th></tr>
+      <tr><td>9</td><td></td></tr>
+      <tr><td>8</td><td></td></tr>
+      <tr><td>7</td><td></td></tr>
+      <tr><td>6</td><td></td></tr>
+      <tr><td>5</td><td></td></tr>
+      <tr><td>4</td><td></td></tr>
+      <tr><td>3</td><td></td></tr>
+      <tr><td>2</td><td></td></tr>
+      <tr><td>1</td><td></td></tr>
+      <tr><td>0</td><td>20</td></tr>
+    </table>
+    <p>↑ top points to the next free space</p>
+  </div>
+
+  <p>
+    A function, <strong>addItem</strong>, takes a number as a parameter and adds the
+    number to the stack. The function returns true if this was successful, and
+    false if the stack is already full.
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>Understanding:</strong></p>
+    <ul>
+      <li>The stack uses an array of fixed size (20)</li>
+      <li>The top pointer tracks the next free position</li>
+      <li>Items are added and removed from the top only</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= QUESTION 2 (iii) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(iii)</strong>
+    Give one reason why a <strong>function</strong> is used instead of a
+    <strong>procedure</strong> in this scenario. [1]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p>
+      A function is used because it returns a value (true or false),
+      whereas a procedure does not return a value.
+    </p>
+  </div>
+</div>
+
+<!-- ================= QUESTION 2 (iv) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(iv)</strong>
+    The function <strong>addItem</strong> is written but incomplete.
+    Complete the function <strong>addItem</strong>. [5]
+  </p>
+
+  <pre>
+function addItem(number)
+  if top = __ then
+    return false
+  else
+    numStack[top] = _________
+    top = _____ + 1
+    ________ _________
+  endif
+endfunction
+  </pre>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+
+       <pre>
+function addItem(number)
+  if top = 20 then
+    return false
+  else
+    numStack[top] = number
+    top = top + 1
+    return true
+  endif
+endfunction
+  </pre>
+    <p><strong>Mark scheme points:</strong></p>
+    <ul>
+      <li>Correct function header</li>
+      <li>Check if stack is full</li>
+      <li>Add value to stack</li>
+      <li>Increment top pointer</li>
+      <li>Return true/false correctly</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= QUESTION 2 (b) – STACK ENCRYPTION ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(b)</strong>
+    An encryption routine reads a line of text from a file, reverses the
+    order of the characters and subtracts 10 from the ASCII value of each
+    letter, then saves the new string into the same file.
+  </p>
+
+  <p>
+    Describe the steps the program would take to encrypt the characters
+    stored in the stack and save them in a single variable. [5]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Pop a character from the stack</li>
+      <li>Convert the character to its ASCII value</li>
+      <li>Subtract 10 from the ASCII value</li>
+      <li>Convert back to a character</li>
+      <li>Append/concatenate the character to a variable</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= QUESTION 7(a) – QUEUE ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>7(a).</strong>
+    A program stores a queue of mathematical questions to be asked to a user.
+    The questions are asked in the order they are added. Once a question has
+    been asked it cannot be asked again. New questions are continually added
+    to the end of the queue.
+  </p>
+
+  <p>
+    Describe why a queue is a suitable structure for this program. [3]
+  </p>
+
+  <div class="diagram">
+    <table class="queue-diagram">
+      <tr>
+        <td>Q1</td>
+        <td>Q2</td>
+        <td>Q3</td>
+        <td></td>
+      </tr>
+    </table>
+    <p>
+      <span>↑ head</span>
+      <span style="margin-left:120px;">↑ tail</span>
+    </p>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>A queue operates using FIFO (First In, First Out)</li>
+      <li>Questions are retrieved in the order they were added</li>
+      <li>New questions are added to the end of the queue</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= QUESTION 7(b) – REMOVE FROM QUEUE ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>7(b).</strong>
+    Complete the following algorithm to remove and output the first element
+    in the queue. [4]
+  </p>
+
+  <pre>
+procedure remove()
+  if head == tail + 1 then
+    print("No questions")
+  else
+    print(questions[head])
+    head = head + 1
+  endif
+endprocedure
+  </pre>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>Mark scheme points:</strong></p>
+    <ul>
+      <li>Check if the queue is empty</li>
+      <li>Output an error/message if empty</li>
+      <li>Output the element at index <code>head</code></li>
+      <li>Increment <code>head</code></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= END ================= -->
+
+<!-- ================= QUEUE CLASS DATA STRUCTURE ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>Queue Class Data Structure</strong><br><br>
+    Kamran is writing a program to manipulate the data for a set of items.
+    The items are added to a queue for processing.
+  </p>
+
+  <p>
+    For each item, the program needs to store:
+  </p>
+  <ul>
+    <li>Item name</li>
+    <li>Cost</li>
+    <li>Date of arrival</li>
+    <li>Transferred (true/false)</li>
+  </ul>
+
+  <p>
+    The queue is defined as a class called <strong>itemQueue</strong>.
+    The array <strong>theItems</strong> stores the items.
+    The <strong>head</strong> pointer stores the index of the first element,
+    the <strong>tail</strong> pointer stores the index of the next available space,
+    and <strong>numItems</strong> stores the number of items in the queue.
+  </p>
+
+  <div class="diagram">
+    <table class="queue-diagram">
+      <tr>
+        <th>Index</th>
+        <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+        <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+      </tr>
+      <tr>
+        <th>Element</th>
+        <td></td><td></td><td></td>
+        <td>Data</td><td>Data</td><td>Data</td>
+        <td>Data</td><td>Data</td><td>Data</td><td>Data</td>
+      </tr>
+    </table>
+    <p>Next item will be added at index 0 (circular queue)</p>
+  </div>
+</div>
+
+<!-- ================= (i) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(i)</strong> Define the term <strong>queue</strong>. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>A data structure</li>
+      <li>First In, First Out (FIFO)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= (ii) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(ii)</strong>
+    The attributes in <strong>itemQueue</strong> are all declared as private.
+    Explain how a private attribute improves the integrity of the data. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Attributes are encapsulated and accessed only through methods</li>
+      <li>Validation can be enforced before data is changed</li>
+      <li>Prevents accidental or invalid modification</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= (iii) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(iii)</strong>
+    The constructor method creates a new instance of <strong>itemQueue</strong>
+    and sets the head, tail and numItems attributes to 0.
+    Write an algorithm for the constructor. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre>
+public procedure new()
+  head = 0
+  tail = 0
+  numItems = 0
+endprocedure
+    </pre>
+  </div>
+</div>
+
+<!-- ================= (iv) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(iv)</strong>
+    Write an algorithm for the <strong>enqueue</strong> method. [6]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre>
+public function enqueue(newItem : Items) : boolean
+  if numItems = 10 then
+    print("Error: The queue is full")
+    return false
+  else
+    theItems[tail] = newItem
+    if tail = 9 then
+      tail = 0
+    else
+      tail = tail + 1
+    endif
+    numItems = numItems + 1
+    return true
+  endif
+endfunction
+    </pre>
+  </div>
+</div>
+
+<!-- ================= (v) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(v)</strong>
+    Write a programming statement to declare an instance of
+    <strong>itemQueue</strong> called <strong>myItems</strong>. [1]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p>myItems = new itemQueue()</p>
+  </div>
+</div>
+
+<!-- ================= (vi) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(vi)</strong>
+    Write a procedure <strong>insertItems()</strong> to ask the user to input
+    item data and add the items to the queue until it is full. [5]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre>
+procedure insertItems()
+  newItem : Items
+  itemCount = myItems.getnumItems()
+
+  while itemCount < 10
+    newItem.itemName = input("Enter the item name")
+    newItem.cost = input("Enter the item cost")
+    newItem.dateArrival = input("Enter the date of arrival")
+    newItem.transferred = input("Has it been transferred?")
+    myItems.enqueue(newItem)
+    itemCount = itemCount + 1
+  endwhile
+
+  myItems.setnumItems(itemCount)
+endprocedure
+    </pre>
+  </div>
+</div>
+
+<!-- ================= (vii) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(vii)</strong>
+    When the main program ends, the items and the queue no longer exist.
+    Describe how Kamran could amend the program so the items and queue
+    still exist the next time the program is run. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p>
+      Store the items and queue in an external file when the program closes,
+      and load them from the file when the program starts.
+    </p>
+  </div>
+</div>
+
+<!-- ================= END ================= -->
+
+<!-- ================= QUEUE QUESTION 1 ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>Queue Question 1</strong><br><br>
+    The array queue shown below is set up to hold a small queue.
+    Assume that there is sufficient storage to hold all necessary additions to the queue.
+  </p>
+
+  <p>
+    The table below shows variables that are used to maintain the queue:
+  </p>
+
+  <table class="data-table">
+    <tr>
+      <th>Variable</th>
+      <th>Type</th>
+      <th>Purpose</th>
+    </tr>
+    <tr>
+      <td>front</td>
+      <td>integer</td>
+      <td>Pointer to the front element of the queue</td>
+    </tr>
+    <tr>
+      <td>rear</td>
+      <td>integer</td>
+      <td>Pointer to the rear element of the queue</td>
+    </tr>
+    <tr>
+      <td>queue_full</td>
+      <td>Boolean</td>
+      <td>Indicates whether the queue is full</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>integer</td>
+      <td>The maximum size of the queue</td>
+    </tr>
+  </table>
+
+  <div class="diagram">
+    <p><strong>Queue Representation</strong></p>
+    <table class="queue-diagram">
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+    </table>
+    <p>
+      <span style="margin-left:120px;">rear</span>
+      <span style="margin-left:120px;">front</span>
+    </p>
+  </div>
+
+  <p>
+    Shown below is an algorithm that is intended to add an item to the queue.
+  </p>
+
+  <pre>
+procedure add_to_queue(item)
+  if rear == max then
+    queue_full = true
+  else
+    front = front + 1
+    queue[front] = item
+  endif
+endprocedure
+  </pre>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p>This procedure attempts to add an item to the queue but contains a logic error.</p>
+  </div>
+</div>
+
+<!-- ================= PARAMETER ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    Identify the parameter that is passed to this procedure. [1]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>item</strong></p>
+  </div>
+</div>
+
+<!-- ================= LOGICAL DECISION ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    Describe the logical decision that is made. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>The queue is checked to see if it is full</li>
+      <li>If it is full, the process stops</li>
+      <li>If it is not full, the item is added</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= LOGIC MISTAKE ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    This algorithm contains a logic mistake. Explain what the mistake is. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>The front pointer is incremented</li>
+      <li>The item is placed at (or near) the front of the queue</li>
+      <li>Items should be added at the rear of the queue</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= CORRECTED ALGORITHM ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    Rewrite the algorithm to correct the mistake. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre>
+rear = rear + 1
+queue[rear] = item
+    </pre>
+  </div>
+</div>
+
+<!-- ================= END ================= -->
+
+        <!-- ================= QUEUE QUESTION 1 ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>Queue Question 1</strong><br><br>
+    The array queue shown below is set up to hold a small queue.
+    Assume that there is sufficient storage to hold all necessary additions to the queue.
+  </p>
+
+  <p>
+    The table below shows variables that are used to maintain the queue:
+  </p>
+
+  <table class="data-table">
+    <tr>
+      <th>Variable</th>
+      <th>Type</th>
+      <th>Purpose</th>
+    </tr>
+    <tr>
+      <td>front</td>
+      <td>integer</td>
+      <td>Pointer to the front element of the queue</td>
+    </tr>
+    <tr>
+      <td>rear</td>
+      <td>integer</td>
+      <td>Pointer to the rear element of the queue</td>
+    </tr>
+    <tr>
+      <td>queue_full</td>
+      <td>Boolean</td>
+      <td>Indicates whether the queue is full</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>integer</td>
+      <td>The maximum size of the queue</td>
+    </tr>
+  </table>
+
+  <div class="diagram">
+    <p><strong>Queue Representation</strong></p>
+    <table class="queue-diagram">
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+    </table>
+    <p>
+      <span style="margin-left:120px;">rear</span>
+      <span style="margin-left:120px;">front</span>
+    </p>
+  </div>
+
+  <p>
+    Shown below is an algorithm that is intended to add an item to the queue.
+  </p>
+
+  <pre>
+procedure add_to_queue(item)
+  if rear == max then
+    queue_full = true
+  else
+    front = front + 1
+    queue[front] = item
+  endif
+endprocedure
+  </pre>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p>This procedure attempts to add an item to the queue but contains a logic error.</p>
+  </div>
+</div>
+
+<!-- ================= PARAMETER ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    Identify the parameter that is passed to this procedure. [1]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>item</strong></p>
+  </div>
+</div>
+
+<!-- ================= LOGICAL DECISION ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    Describe the logical decision that is made. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>The queue is checked to see if it is full</li>
+      <li>If it is full, the process stops</li>
+      <li>If it is not full, the item is added</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= LOGIC MISTAKE ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    This algorithm contains a logic mistake. Explain what the mistake is. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>The front pointer is incremented</li>
+      <li>The item is placed at (or near) the front of the queue</li>
+      <li>Items should be added at the rear of the queue</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= CORRECTED ALGORITHM ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    Rewrite the algorithm to correct the mistake. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre>
+rear = rear + 1
+queue[rear] = item
+    </pre>
+  </div>
+</div>
+
+<!-- ================= END ================= -->
+
+        <!-- ================= STACK (OOP) – PUSH METHOD ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(ii)</strong>
+    The method <code>push()</code> accepts an integer as a parameter and adds it
+    to the top of the stack unless the stack is already full.
+  </p>
+
+  <p>
+    If the push is successful the method returns <strong>true</strong>.
+    If the push is unsuccessful due to the stack being full the method returns
+    <strong>false</strong>.
+  </p>
+
+  <p>
+    Write the method <code>push()</code> using either pseudocode or program code. [6]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <pre>
+function push(value)
+  if pointerValue < 100 then
+    stackArray[pointerValue] = value
+    pointerValue = pointerValue + 1
+    return true
+  else
+    return false
+  endif
+endfunction
+    </pre>
+
+    <p><strong>Mark scheme points:</strong></p>
+    <ul>
+      <li>Correct function header</li>
+      <li>Takes a parameter</li>
+      <li>Checks if the stack is full</li>
+      <li>Adds value to top of stack</li>
+      <li>Increments stack pointer</li>
+      <li>Returns true or false correctly</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= END ================= -->
+
+        <!-- ================= STACK (OOP) – OBJECT INSTANTIATION ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(iii)</strong>
+    The main program initialises a new object of type <strong>stack</strong>
+    with the identifier <strong>mathsStack</strong>.
+  </p>
+
+  <p>
+    Write pseudocode or program code to declare the object. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre>
+mathsStack = new stack()
+    </pre>
+  </div>
+</div>
+
+<!-- ================= STACK (OOP) – PUSH UNTIL FULL ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(iv)</strong>
+    The main program needs to:
+  </p>
+
+  <ul>
+    <li>take numbers as input from the user</li>
+    <li>push them onto the stack <strong>mathsStack</strong> until the stack is full</li>
+    <li>output an appropriate message if the stack is full</li>
+  </ul>
+
+  <p>
+    Complete the pseudocode algorithm to meet these requirements. [4]
+  </p>
+
+  <pre>
+returnValue = true
+
+while returnValue == __________
+  returnValue = mathsStack.__________(input("Enter Number"))
+  if returnValue == __________ then
+    __________("Stack full")
+  endif
+endwhile
+  </pre>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre>
+returnValue = true
+
+while returnValue == true
+  returnValue = mathsStack.push(input("Enter Number"))
+  if returnValue == false then
+    print("Stack full")
+  endif
+endwhile
+    </pre>
+  </div>
+</div>
+
+<!-- ================= STACK (OOP) – POP AND TOTAL ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(v)</strong>
+    The main program also needs to:
+  </p>
+
+  <ul>
+    <li>remove one item from the stack at a time and add this to a total</li>
+    <li>output the total every time an item is removed</li>
+    <li>stop removing items when either the stack is empty or 20 items have been removed</li>
+  </ul>
+
+  <p>
+    Write pseudocode or program code to meet these requirements. [8]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre>
+total = 0
+quantity = 0
+returnValue = 0
+
+while quantity < 20 and returnValue != -1
+  returnValue = mathsStack.pop()
+  if returnValue != -1 then
+    quantity = quantity + 1
+    total = total + returnValue
+    print(total)
+  endif
+endwhile
+    </pre>
+  </div>
+</div>
+
+<!-- ================= QUEUE DATA STRUCTURE THEORY ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(c)(i)</strong>
+    Describe how an array can be used to implement a queue data structure. [3]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>The queue uses a head pointer and a tail pointer</li>
+      <li>When an item is enqueued, the tail pointer increments</li>
+      <li>When an item is dequeued, the head pointer increments</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= END ================= -->
 
 
            </div>
@@ -1272,7 +2266,7 @@ q.dequeue()
 <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
-      <h2> Notes</h2>
+      <h2> Linked Lists - Notes</h2>
     </div>
     <div class="topic-body vertical-knowledge">
 
@@ -1281,9 +2275,6 @@ q.dequeue()
         <p></p>
       </div>
 <div class="knowledge-card">
-  <h3>Linked Lists – Full Extracted Content</h3>
-
-  <h4>Linked Lists</h4>
   <ul>
     <li>A linked list is a <strong>dynamic data structure</strong> – it can grow and shrink during runtime.</li>
     <li>A linked list can be <strong>unordered</strong> or <strong>ordered</strong> (alphabetical or numerical order).</li>
@@ -1552,22 +2543,403 @@ endfunction
       <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
-      <h2> Notes</h2>
+      <h2> Knowledge Check</h2>
     </div>
     <div class="topic-body vertical-knowledge">
 
+<!-- ================= LINKED LIST – INSERT AT END ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>1.</strong>
+    A programmer is developing an ordering system for a fast food restaurant.
+    When a member of staff inputs an order, it is added to a linked list for
+    completion by the chefs.
+  </p>
+
+  <p>
+    Each element in a linked list has:
+  </p>
+  <ul>
+    <li>a pointer, <strong>nodeNo</strong>, which gives the number of that node</li>
+    <li>the order number, <strong>orderNo</strong></li>
+    <li>a pointer, <strong>next</strong>, that points to the next node in the list</li>
+  </ul>
+
+  <p>
+    Fig. 2.1 shows the current contents of the linked list, <strong>orders</strong>.
+    <br>Ø represents a null pointer.
+  </p>
+
+  <div class="diagram">
+    <table class="data-table">
+      <tr>
+        <th>nodeNo</th>
+        <th>orderNo</th>
+        <th>next</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>154</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>157</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>155</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>156</td>
+        <td>Ø</td>
+      </tr>
+    </table>
+    <p><strong>Fig. 2.1</strong></p>
+  </div>
+
+  <p>
+    <strong>(i)</strong>
+    Order <strong>158</strong> has been made and needs adding to the end of the linked list.
+  </p>
+
+  <p>
+    Add the order, <strong>158</strong>, to the linked list as shown in Fig. 2.1.
+    Show the contents of the linked list in the following table. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <table class="data-table">
+      <tr>
+        <th>nodeNo</th>
+        <th>orderNo</th>
+        <th>next</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>154</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>157</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>155</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>156</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>158</td>
+        <td>Ø</td>
+      </tr>
+    </table>
+
+    <p>
+      <strong>Explanation:</strong><br>
+      The new node (node 4) is added to the end of the list.
+      The previous last node (node 3) now points to node 4.
+    </p>
+  </div>
+</div>
+
+<!-- ================= END ================= -->
+
+<!-- ================= LINKED LIST – INSERT AT POSITION ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(ii)</strong>
+    Order <strong>159</strong> has been made. This order has a high priority and
+    needs to be the <strong>second</strong> order in the linked list.
+  </p>
+
+  <p>
+    Add the order, <strong>159</strong>, to the original linked list as shown in
+    Fig. 2.1. Show the contents of the linked list in the following table. [3]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <table class="data-table">
+      <tr>
+        <th>nodeNo</th>
+        <th>orderNo</th>
+        <th>next</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>154</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>159</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>157</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>155</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>156</td>
+        <td>Ø</td>
+      </tr>
+    </table>
+
+    <p>
+      <strong>Explanation:</strong><br>
+      The new node (node 4) is inserted after the first node.
+      Node 0 now points to node 4, and node 4 points to node 1.
+    </p>
+  </div>
+</div>
+
+<!-- ================= END ================= -->
+
+<!-- ================= TREE → LINKED LIST (ALPHABETICAL) ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>2.</strong>
+    A program needs to store the names of plants that are in a garden, so they
+    can be easily found and accessed in alphabetical order.
+  </p>
+
+  <p>
+    The data is stored in a tree structure. Part of the tree is shown in Fig. 2.1
+    The elements in the tree are read into a linked list producing an
+    alphabetised list.
+  </p>
+
+    <table class="data-table">
+  <tr>
+    <th>Data item</th>
+    <th>Data</th>
+    <th>NextPointer</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>Begonia</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Daisy</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Hosta</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Lily</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Peony</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Rose</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Sunflower</td>
+    <td></td>
+  </tr>
+
+        <tr>
+    <td>7</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+        <tr>
+    <td>8</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+  <p>
+    <strong>(i)</strong>
+    Complete the following table to show the linked list for the data. [2]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <table class="data-table">
+      <tr>
+        <th>Data item</th>
+        <th>Data</th>
+        <th>NextPointer</th>
+      </tr>
+      <tr><td>0</td><td>Begonia</td><td>1</td></tr>
+      <tr><td>1</td><td>Daisy</td><td>2</td></tr>
+      <tr><td>2</td><td>Hosta</td><td>3</td></tr>
+      <tr><td>3</td><td>Lily</td><td>4</td></tr>
+      <tr><td>4</td><td>Peony</td><td>5</td></tr>
+      <tr><td>5</td><td>Rose</td><td>6</td></tr>
+      <tr><td>6</td><td>Sunflower</td><td>null</td></tr>
+        <tr><td>7</td><td></td><td></td></tr>
+        <tr><td>8</td><td></td><td></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ================= ADD LAVENDER ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(ii)</strong>
+    A new plant, <strong>Lavender</strong>, needs adding to the linked list.
+    The linked list must retain its alphabetical order.
+  </p>
+
+  <p>
+    Complete the table to show the linked list after Lavender is added. [3]
+  </p>
+
+    <table class="data-table">
+      <tr>
+        <th>Data item</th>
+        <th>Data</th>
+        <th>NextPointer</th>
+      </tr>
+      <tr><td>0</td><td>Begonia</td><td></td></tr>
+      <tr><td>1</td><td>Daisy</td><td></td></tr>
+      <tr><td>2</td><td>Hosta</td><td></td></tr>
+      <tr><td>3</td><td>Lily</td><td></td></tr>
+      <tr><td>4</td><td>Peony</td><td></td></tr>
+      <tr><td>5</td><td>Rose</td><td></td></tr>
+      <tr><td>6</td><td>Sunflower</td><td></td></tr>
+      <tr><td>7</td><td></td><td></td></tr>
+
+    </table>
 
 
-        <div class="rev-card qa-card">
-          <p>Question</p>
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 
-          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+  <button class="secondary answer-toggle">Show answer</button>
 
-          <button class="secondary answer-toggle">Show answer</button>
-          <div class="answer">
-            <p></p>
-          </div>
-        </div>
+  <div class="answer">
+    <table class="data-table">
+      <tr>
+        <th>Data item</th>
+        <th>Data</th>
+        <th>NextPointer</th>
+      </tr>
+      <tr><td>0</td><td>Begonia</td><td>1</td></tr>
+      <tr><td>1</td><td>Daisy</td><td>2</td></tr>
+      <tr><td>2</td><td>Hosta</td><td>7</td></tr>
+      <tr><td>3</td><td>Lily</td><td>4</td></tr>
+      <tr><td>4</td><td>Peony</td><td>5</td></tr>
+      <tr><td>5</td><td>Rose</td><td>6</td></tr>
+      <tr><td>6</td><td>Sunflower</td><td>null</td></tr>
+      <tr><td>7</td><td>Lavender</td><td>3</td></tr>
+    </table>
+
+    <p>
+      Lavender is inserted between Hosta and Lily to preserve alphabetical order.
+    </p>
+  </div>
+</div>
+
+<!-- ================= REMOVE HOSTA ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(iii)</strong>
+    Hosta needs removing from the linked list.
+  </p>
+
+  <p>
+    Explain how a data item is removed from a linked list.
+    Use the removal of <strong>Hosta</strong> in your answer. [4]
+  </p>
+
+
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <ul>
+      <li>Traverse the list to find the item before the one to be removed (Daisy)</li>
+      <li>Find the NextPointer of the item being removed (Hosta → 7)</li>
+      <li>Update the previous item’s NextPointer to skip Hosta</li>
+      <li>Daisy’s NextPointer is updated from 2 to 7 (Lavender)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= TRAVERSE & OUTPUT ================= -->
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(iv)</strong>
+    The linked list is stored as a 2D array with the identifier
+    <strong>plantList</strong>.
+    The index of the first element is stored in <strong>firstElement</strong>.
+  </p>
+
+  <p>
+    Write an algorithm to follow the pointers and output the contents of the
+    linked list in alphabetical order.
+    Add comments to explain your code. [5]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <pre>
+currentElement = firstElement   // start at first node
+
+while currentElement != null    // loop until end of list
+  print(plantList[currentElement, 0])  // output data
+  currentElement = plantList[currentElement, 1] // move to next node
+endwhile
+    </pre>
+  </div>
+</div>
+
+<!-- ================= END ================= -->
 
 
            </div>
