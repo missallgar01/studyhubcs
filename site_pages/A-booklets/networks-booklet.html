@@ -52,18 +52,689 @@
         <!-- =======================
              TOPIC A – Question and answer
              ======================= -->
-        <h2>Topic</h2>
+  <!-- =========================
+STAGE 1: QUESTION 1 (ONLY)
+========================= -->
 
-        <div class="rev-card qa-card">
-          <h3>1. Question</h3>
+  <!-- 1(a) -->
+  <div class="rev-card qa-card">
+    <h3>1(a). Question</h3>
 
-          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+    <div class="question">
+      <p>
+        A company wants more customers to be able to find their website on the internet.
+      </p>
+      <p>
+        When customers contact the company, their computers will use a number of protocols
+        such as TCP/IP and HTTP to make connections with other devices over the internet.
+      </p>
+      <p>
+        Explain what a <strong>protocol</strong> is and why they are important in network
+        communications. [2]
+      </p>
+    </div>
 
-          <button class="secondary answer-toggle">Show answer</button>
-          <div class="answer">
-           <p>Answer text</p>
-            </div>
-        </div>
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>A protocol is a <strong>set of rules</strong> for communication between devices.</li>
+        <li>Protocols ensure data is transferred <strong>correctly and predictably</strong>
+            between different hardware and operating systems.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 1(b) -->
+  <div class="rev-card qa-card">
+    <h3>1(b). Question</h3>
+
+    <div class="question">
+      <p>
+        Describe <strong>three</strong> different pieces of networking hardware in a
+        <strong>client-server network</strong> apart from the clients and servers themselves. [6]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>
+          <strong>Router</strong> – connects different networks together and forwards data
+          packets based on IP addresses.
+        </li>
+        <li>
+          <strong>Switch</strong> – connects multiple wired devices and forwards data only
+          to the intended recipient using MAC addresses.
+        </li>
+        <li>
+          <strong>Network Interface Card (NIC)</strong> – allows a device to connect to a
+          network and provides a unique MAC address.
+        </li>
+        <!-- Other acceptable answers include: firewall, modem, WAP, hub, repeater -->
+      </ul>
+    </div>
+  </div>
+
+<!-- =========================
+STAGE 2: QUESTION 2 (ONLY)
+========================= -->
+
+
+  <!-- 2(i) -->
+  <div class="rev-card qa-card">
+    <h3>2(i). Question</h3>
+
+    <div class="question">
+      <p>
+        A small manufacturing business uses networked computers with closed source
+        application software installed.
+        All computers owned by the business are connected together into a
+        <strong>Local Area Network (LAN)</strong>.
+      </p>
+      <p>
+        Give <strong>three advantages</strong> to the business of connecting computers
+        together in a LAN. [3]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Share hardware (e.g. printers)</li>
+        <li>Share files/data between computers</li>
+        <li>Share an Internet connection</li>
+        <li>Centralised security</li>
+        <li>Centralised backup/storage</li>
+        <li>Centralised installation and updating of software</li>
+        <li>Users can log in and access files from any computer on the LAN</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2(ii) -->
+  <div class="rev-card qa-card">
+    <h3>2(ii). Question</h3>
+
+    <div class="question">
+      <p>
+        Explain what is meant by a <strong>network protocol</strong>. [2]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>A <strong>set of rules / an agreement</strong></li>
+        <li>Used to govern communication / transmission of data between devices</li>
+        <li>Ensures data is transferred successfully and in the correct format</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2(iii) -->
+  <div class="rev-card qa-card">
+    <h3>2(iii). Question</h3>
+
+    <div class="question">
+      <p>
+        Give the names of <strong>two protocols</strong> that may be used in a LAN. [2]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>TCP</li>
+        <li>IP</li>
+        <li>HTTP / HTTPS</li>
+        <li>FTP</li>
+        <li>Ethernet</li>
+        <li>DHCP</li>
+        <li>SMTP</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2(iv) -->
+  <div class="rev-card qa-card">
+    <h3>2(iv). Question</h3>
+
+    <div class="question">
+      <p>
+        Explain why <strong>protocol layering</strong> is used. [3]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Breaks communication tasks into manageable layers</li>
+        <li>Each layer has a specific role/job</li>
+        <li>Layers can be developed or changed independently</li>
+        <li>Makes troubleshooting easier by isolating faults to a layer</li>
+        <li>Provides abstraction by hiding lower-level details</li>
+      </ul>
+    </div>
+  </div>
+
+<!-- Q3(a)(i) -->
+<div class="rev-card qa-card">
+  <h3>3(a)(i). Question</h3>
+  <p>A LAN uses packet switching. Describe one difference between packet switching and circuit switching.</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+  <div class="answer">
+    <p><strong>Mark scheme (one paired difference):</strong></p>
+    <ul>
+      <li><strong>Circuit switching:</strong> dedicated resources/route are reserved for the connection; data goes along one route/stream.</li>
+      <li><strong>Packet switching:</strong> network hardware/resources are shared between many connections; packets may take different routes.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q3(a)(ii) -->
+<div class="rev-card qa-card">
+  <h3>3(a)(ii). Question</h3>
+  <p>Explain why packet switching is more suitable for a computer network than circuit switching.</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+  <div class="answer">
+    <p><strong>Mark scheme (any two):</strong></p>
+    <ul>
+      <li>Computer networks have many concurrent connections; packet switching shares hardware (not tied to one connection).</li>
+      <li>If errors occur, only missing/corrupted packets are resent (not the whole stream).</li>
+      <li>If a route/hardware fails, packets can be routed around failures.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q3(b) -->
+<div class="rev-card qa-card">
+  <h3>3(b). Question</h3>
+  <p>
+    Zac has hired a company that will advise him on what type of LAN he should set up.
+    Discuss how Zac could set up a peer-to-peer network and a client-server network.
+    You should refer to:
+  </p>
+  <ul>
+    <li>how the computers in each type are connected</li>
+    <li>the benefits of each type</li>
+    <li>the drawbacks of each type</li>
+    <li>the suitability of each type</li>
+  </ul>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+  <div class="answer">
+    <p><strong>Indicative mark scheme points:</strong></p>
+
+    <p><strong>Peer-to-peer (P2P):</strong></p>
+    <ul>
+      <li>Computers connect as equals; each machine can share its own resources (files/printers/storage/internet).</li>
+      <li>Security/login is managed per-machine; little central administration needed.</li>
+      <li>If a computer is switched off, any resources it shares become unavailable.</li>
+      <li>Easy/cheap to add another machine (good for small/quick growth).</li>
+    </ul>
+
+    <p><strong>Client-server:</strong></p>
+    <ul>
+      <li>Clients connect to a server that provides network services (e.g., central storage, authentication, printing).</li>
+      <li>Centralised security and user management; shared resources not dependent on a staff PC being on.</li>
+      <li>Requires more specialist setup/admin (cost + IT skills/time).</li>
+      <li>If the server fails, key network functionality (including login/services) can be lost.</li>
+    </ul>
+
+    <p><strong>Suitability (apply to scenario):</strong></p>
+    <ul>
+      <li>For a small office with up to five staff, P2P can be cheaper and flexible to expand quickly.</li>
+      <li>Because accountancy data is sensitive, client-server can be more suitable due to stronger centralised security and controlled shared storage.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- =========================
+STAGE 4: QUESTION 4 (ONLY)
+Paper: 1.3.3 Networks
+========================= -->
+
+
+  <div class="rev-card qa-card">
+    <h3>4(i). Question</h3>
+
+    <div class="question">
+      <p>
+        Anika’s computer runs a multi-tasking operating system. She has access to a printer and a broadband internet
+        connection through a wireless connection. The operating system uses scheduling algorithms such as first come
+        first served and round-robin.
+      </p>
+      <p>
+        Anika uses an encrypted messaging program to communicate with her friends. The computer uses the TCP/IP stack.
+      </p>
+      <p>
+        <strong>i.</strong> Explain what happens at the application layer of the TCP/IP stack when using this program. [5]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Protocol to be used is decided based on the application.</li>
+        <li>e.g. HTTPS for browser based service / SMTP/IMAP for messaging service (must be relevant; not HTTP for encrypted messaging).</li>
+        <li>Adds encryption.</li>
+        <li>Passes on to transport layer to send.</li>
+        <li>Gets data from transport layer when receiving.</li>
+        <li>Unpacks message ready for display / removes headers or other non-viewable data.</li>
+        <li>Decrypts message (when receiving).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>4(ii). Question</h3>
+
+    <div class="question">
+      <p>
+        <strong>ii.</strong> Explain what happens at the link layer (sometimes referred to as the “network interface layer”,
+        “network access layer” or simply the “network layer”) of the TCP/IP stack when using this program. [2]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Receives (layered) data from internet layer to send.</li>
+        <li>MAC addresses are added to the packet/frame.</li>
+        <li>Passes and receives data across wireless network (to WAN / other machine).</li>
+        <li>Passes (layered) data back up to internet layer when receiving.</li>
+      </ul>
+    </div>
+  </div>
+
+
+<!-- =========================
+STAGE 5: QUESTION 5 (ONLY)
+========================= -->
+
+  <!-- 5(a) -->
+  <div class="rev-card qa-card">
+    <h3>5(a). Question</h3>
+
+    <div class="question">
+      <p>
+        Modern computer systems use networking in order to share hardware,
+        software and data. Networking uses protocols such as TCP/IP.
+      </p>
+      <p>
+        State what is meant by the term <strong>‘protocol’</strong>. [1]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p>
+        <strong>Answer:</strong> A set of rules that govern communication /
+        data transfer between devices.
+      </p>
+    </div>
+  </div>
+
+  <!-- 5(b)(i) -->
+  <div class="rev-card qa-card">
+    <h3>5(b)(i). Question</h3>
+
+    <div class="question">
+      <p>
+        The protocol TCP/IP uses a <strong>4-layer stack</strong>.
+        Complete the table below to show the four layers in the TCP/IP stack. [2]
+      </p>
+
+      <table class="simple-table">
+        <thead>
+          <tr>
+            <th>Layer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Application</td></tr>
+          <tr><td>________________</td></tr>
+          <tr><td>________________</td></tr>
+          <tr><td>Link</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Transport</li>
+        <li>Network (accept Internet)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5(b)(ii) -->
+  <div class="rev-card qa-card">
+    <h3>5(b)(ii). Question</h3>
+
+    <div class="question">
+      <p>
+        Explain <strong>one advantage</strong> of using layers in the TCP/IP protocol. [2]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Layers are independent so one layer can be changed without affecting others.</li>
+        <li>Allows easier development, testing, replacement, and interoperability.</li>
+      </ul>
+    </div>
+  </div>
+
+
+<!-- =========================
+STAGE 6: QUESTION 6 (ONLY)
+========================= -->
+
+  <!-- 6(a)(i) -->
+  <div class="rev-card qa-card">
+    <h3>6(a)(i). Question</h3>
+
+    <div class="question">
+      <p>
+        A hotel uses a computer system to keep track of room bookings. The hotel staff are able to query a database to
+        discover which rooms are booked or which rooms are free.
+        The hotel’s computer network uses a client-server model.
+      </p>
+      <p>i. Describe what is meant by the term ‘client-server’ in this context. [3]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Client computers connect to a server</li>
+        <li>Server provides access to a resource/service</li>
+        <li>Here: staff clients connect to database on server (or similar relevant example)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6(a)(ii) -->
+  <div class="rev-card qa-card">
+    <h3>6(a)(ii). Question</h3>
+
+    <div class="question">
+      <p>ii. Give two advantages of client-server compared to peer-to-peer. [2]</p>
+      <p>1<br>2</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Easier to manage users/access centrally</li>
+        <li>Easier to back up centrally</li>
+        <li>Easier to keep data secure centrally</li>
+        <li>Technicians can more easily remotely install/monitor</li>
+      </ul>
+      <p><em>(Any two)</em></p>
+    </div>
+  </div>
+
+  <!-- 6(b) -->
+  <div class="rev-card qa-card">
+    <h3>6(b). Question</h3>
+
+    <div class="question">
+      <p>The hotel’s network uses multiple switches. Explain the purpose of a network switch. [3]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Joins devices together on a LAN</li>
+        <li>Receives packets/data</li>
+        <li>Uses MAC address in header and forwards out the correct port to the intended device</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6(c) -->
+  <div class="rev-card qa-card">
+    <h3>6(c). Question</h3>
+
+    <div class="question">
+      <p>
+        <strong>*</strong> The hotel is concerned about the security of its computer network.
+        Discuss the threats which potentially exist to the hotel’s computer network and how these threats could be
+        eliminated or reduced. [9]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Indicative content (good discussion covers threats + mitigations + hotel context):</strong></p>
+      <ul>
+        <li><strong>Threats:</strong> malware/viruses; spyware/keyloggers; phishing; denial of service (DDoS)</li>
+        <li><strong>Impacts:</strong> bookings disrupted; customer data theft; financial loss; legal risk (Data Protection / GDPR)</li>
+        <li><strong>Reducing risk:</strong> staff education; up-to-date software/patching; restrict USB; restrict wireless access; firewalls to filter traffic</li>
+        <li><strong>Evaluation:</strong> balance security measures vs customer experience/access</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6(d)(i) -->
+  <div class="rev-card qa-card">
+    <h3>6(d)(i). Question</h3>
+
+    <div class="question">
+      <p>
+        The hotel stores data about rooms, customers and bookings in a database.
+        Each customer can book multiple rooms and each room can be booked multiple times.
+      </p>
+      <p>i. Draw an Entity Relationship Diagram for this database. [4]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>Entities (singular):
+Customer    Room    Booking
+
+Relationships:
+Customer 1 --- * Booking
+Room     1 --- * Booking
+
+(No direct Customer---Room link; Booking is the associative entity.)</code></pre>
+    </div>
+  </div>
+
+  <!-- 6(d)(ii) -->
+  <div class="rev-card qa-card">
+    <h3>6(d)(ii). Question</h3>
+
+    <div class="question">
+      <p>
+        ii. Define what is meant by the term ‘foreign key’, giving one example of where a foreign key would be used
+        in the hotel booking database. [3]
+      </p>
+      <p>Definition<br>Example</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Definition:</strong> A field that links to a (primary) key in another table.</p>
+      <p><strong>Example:</strong> CustomerID (or RoomID) stored in the Booking table as a foreign key.</p>
+    </div>
+  </div>
+
+  <!-- 6(d)(iii) -->
+  <div class="rev-card qa-card">
+    <h3>6(d)(iii). Question</h3>
+
+    <div class="question">
+      <p>iii. Describe two different ways that hashing could be used in this database. [4]</p>
+      <p>1<br>2</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li><strong>Security:</strong> hash passwords so they aren’t readable if stolen.</li>
+        <li><strong>Direct access:</strong> use hashing to calculate an index/address for fast record lookup.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6(e) -->
+  <div class="rev-card qa-card">
+    <h3>6(e). Question</h3>
+
+    <div class="question">
+      <p>
+        The hotel booking database enforces referential integrity.
+        Explain what is meant by the term ‘referential integrity’ and how this could potentially be broken. [2]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Relationships are consistent: each foreign key must match an existing/valid primary key.</li>
+        <li>Can be broken if a primary key is deleted/changed without cascading, leaving foreign keys pointing to non-existent records.</li>
+      </ul>
+    </div>
+  </div>
+
+
+<!-- =========================
+STAGE 7: QUESTION 7 (DNS)
+========================= -->
+
+
+  <div class="rev-card qa-card">
+    <h3>7. Question</h3>
+
+    <div class="question">
+      <p>
+        In order to view a website, a user enters a website address into their web browser
+        such as <code>http://www.ocr.org.uk</code>.
+        The website will then be displayed onto the user’s screen.
+      </p>
+
+      <p>
+        Explain how the <strong>Domain Name System (DNS)</strong> plays a role in websites being loaded. [4]
+      </p>
+    </div>
+
+    <textarea
+      class="student-answer"
+      placeholder="Write your answer here..."
+    ></textarea>
+
+    <button class="secondary answer-toggle" type="button">
+      Show answer
+    </button>
+
+    <div class="answer" hidden>
+      <ul>
+        <li>The browser needs to find the <strong>IP address</strong> that corresponds to the domain name.</li>
+        <li>A request is sent to a <strong>DNS resolver</strong> (often provided by the ISP).</li>
+        <li>The resolver checks its <strong>cache</strong>; if not found, it queries other DNS servers:</li>
+        <ul>
+          <li>Top Level Domain (TLD) name server</li>
+          <li>Authoritative name server</li>
+        </ul>
+        <li>The correct IP address is returned to the client.</li>
+        <li>The browser then uses this IP address to connect to the web server and load the website.</li>
+      </ul>
+    </div>
+
+  </div>
+
+ ===== STAGE 8 — QUESTION 8 ===== -->
+
+  <div class="rev-card qa-card">
+    <h3>Stage 8 — Q8</h3>
+
+    <div class="question">
+      <p>
+        *A company has six solicitors working in two offices in different locations. They work with the general public
+        and help them solve any sensitive legal issues they may be facing.
+      </p>
+      <p>
+        The solicitors would like to set up a computer network to allow them to work together more effectively.
+      </p>
+      <p>
+        Discuss the benefits and drawbacks of computer networking to the company.
+        You should refer to:
+      </p>
+      <ul>
+        <li>Different networking methods</li>
+        <li>Cost implications</li>
+        <li>Security implications</li>
+      </ul>
+      <p>[9]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Indicative content (MS themes):</strong></p>
+      <ul>
+        <li>Two offices → likely need a <strong>WAN</strong> connecting two <strong>LANs</strong>.</li>
+        <li><strong>Client-server</strong> supports centralised security, backup, shared resources (but needs server hardware/admin → cost).</li>
+        <li><strong>VPN</strong> can secure links between offices; encryption needed for sensitive case data.</li>
+        <li><strong>Cloud storage</strong> enables sharing/remote access and scalable storage, but data is more “out of firm control”.</li>
+        <li><strong>Benefits:</strong> shared files, collaboration, access case files from either office, shared printers/internet.</li>
+        <li><strong>Security risks:</strong> increased attack surface; must protect confidential/legal data (strong access control, encryption, policies).</li>
+        <li><strong>Costs:</strong> routers/switches/servers/cabling/WAP; ongoing IT support; security measures increase costs.</li>
+        <li><strong>Evaluation:</strong> networking improves effectiveness but must be justified against cost and strict security needs.</li>
+      </ul>
+    </div>
+
 
 
       </div>

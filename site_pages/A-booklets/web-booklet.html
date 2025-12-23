@@ -32,9 +32,216 @@
     </div>
     <div class="topic-body vertical-knowledge">
 
-      <div class="knowledge-card">
+       <div class="knowledge-card">
+      <h3>HTML — Structure of Web Pages</h3>
+      <p>
+        HTML defines the structure and order of content on a webpage.
+        It tells the browser <em>what each piece of content is</em>, not how it should look.
+      </p>
 
-</div>
+      <div class="example">
+        <strong>Example:</strong> A simple HTML page
+        <pre>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Website&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome&lt;/h1&gt;
+    &lt;p&gt;This is my webpage&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>HTML Elements — Images, Links, Lists</h3>
+
+      <p><strong>Images</strong> use the <code>&lt;img&gt;</code> tag:</p>
+      <pre>
+&lt;img src="logo.png" width="200" height="80"&gt;
+      </pre>
+
+      <p><strong>Links</strong> use the anchor tag:</p>
+      <pre>
+&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;
+      </pre>
+
+      <p><strong>Lists</strong>:</p>
+      <pre>
+&lt;ul&gt;
+  &lt;li&gt;Computer Science&lt;/li&gt;
+  &lt;li&gt;Maths&lt;/li&gt;
+&lt;/ul&gt;
+      </pre>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>CSS — Styling Web Pages</h3>
+      <p>
+        CSS controls the appearance of HTML elements.
+        It separates presentation from content.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong> External CSS file
+        <pre>
+body {
+  background-color: white;
+  font-family: Arial;
+}
+
+h1 {
+  color: blue;
+}
+        </pre>
+      </div>
+
+      <p>
+        This CSS will apply to every page that links to the stylesheet.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Classes and IDs (CSS Selectors)</h3>
+      <p>
+        Classes can be reused. IDs must be unique.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong>
+        <pre>
+/* CSS */
+.highlight {
+  background-color: yellow;
+}
+
+#main {
+  border: 2px solid black;
+}
+        </pre>
+
+        <pre>
+&lt;div id="main"&gt;
+  &lt;p class="highlight"&gt;Important text&lt;/p&gt;
+&lt;/div&gt;
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>JavaScript — Adding Interactivity</h3>
+      <p>
+        JavaScript is interpreted by the browser and allows pages to respond to user actions.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong> Change text when a button is clicked
+        <pre>
+&lt;button onclick="changeText()"&gt;Click me&lt;/button&gt;
+&lt;p id="msg"&gt;Hello&lt;/p&gt;
+
+&lt;script&gt;
+function changeText() {
+  document.getElementById("msg").innerHTML = "Goodbye";
+}
+&lt;/script&gt;
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Why JavaScript is Useful</h3>
+      <ul>
+        <li>Checks form input before sending data to the server</li>
+        <li>Reduces server load</li>
+        <li>Improves user experience</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong> Simple validation
+        <pre>
+if (password.length &lt; 8) {
+  alert("Password too short");
+}
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Search Engine Indexing</h3>
+      <p>
+        Search engines use web crawlers to collect information about pages.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong>
+        <p>
+          A crawler visits Page A, follows links to Pages B and C,
+          extracts keywords like “computer science”, and stores them in an index.
+        </p>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>PageRank Algorithm (Worked Concept Example)</h3>
+      <p>
+        PageRank measures importance based on incoming links.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong>
+        <p>
+          If Page C is linked by two pages, and one of those pages is already highly ranked,
+          Page C’s rank will increase more than if both links came from low-ranked pages.
+        </p>
+        <pre>
+PR(C) = (1 − 0.85) + 0.85 × (PR(B)/2 + PR(D)/3)
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Server-Side Processing — Example</h3>
+      <p>
+        Data is sent to a server, processed, and a response is returned.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong>
+        <p>
+          A login form sends a username and password to a server.
+          The server checks the database and responds with success or failure.
+        </p>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Client-Side Processing — Example</h3>
+      <p>
+        Processing happens on the user’s device.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong>
+        <p>
+          A form checks that an email address contains “@” using JavaScript
+          before allowing submission.
+        </p>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Exam Tip</h3>
+      <p>
+        Always link examples to advantages:
+      </p>
+      <ul>
+        <li>Client-side → fast response, reduced server load</li>
+        <li>Server-side → security, large processing tasks</li>
+      </ul>
+    </div>
       </div>
   </section>
 
@@ -49,21 +256,356 @@
     <div class="topic-body">
       <div class="vertical-qa">
 
-        <!-- =======================
-             TOPIC A – Question and answer
-             ======================= -->
-        <h2>Topic</h2>
+<div class="rev-card qa-card">
+  <h3>1(a). Question</h3>
+
+  <p>
+    A company wants more customers to be able to find their website on the internet.
+    The company would like to start selling their products on their website.
+    They will use both client side and server side processing to do this.
+  </p>
+
+  <p>
+    Tick (✓) one box on each row to identify whether each task would be best
+    performed on the client side or the server side.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Client Side</th>
+        <th>Server Side</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Loading the website HTML code</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Applying CSS styles to a website</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          Running JavaScript code to check that the customer surname
+          has been entered on the order form
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          Running queries on the database to check if an item is available in stock
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Loading the website HTML code → <strong>Client side</strong></li>
+      <li>Applying CSS styles → <strong>Client side</strong></li>
+      <li>JavaScript form validation → <strong>Client side</strong></li>
+      <li>Database stock queries → <strong>Server side</strong></li>
+    </ul>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <h3>1(b). Question</h3>
+
+  <p>
+    Discuss why search engine indexing and page ranking will be important in
+    achieving this.
+  </p>
+
+  <p>Include:</p>
+  <ul>
+    <li>what indexing means and what information is collected</li>
+    <li>what PageRank means and factors affecting it</li>
+    <li>ways to improve PageRank</li>
+  </ul>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li><strong>Indexing:</strong> web crawlers scan pages, record keywords/meta data,
+          and store them in a search engine index.</li>
+      <li><strong>PageRank:</strong> ranks pages based on number and quality of incoming links.</li>
+      <li><strong>Factors:</strong> links from high-ranking pages increase rank more.</li>
+      <li><strong>Improvements:</strong> good keywords, headings, meta tags,
+          quality inbound links.</li>
+      <li><strong>Damping factor:</strong> probability a user stops clicking links.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q2 -->
+  <div class="rev-card qa-card">
+    <h3>2. Question</h3>
+    <div class="tag">QP Q2</div>
+    <p>An online shop uses a website to sell its products. Part of the HTML code used for a login form is shown. The function <code>errorCheck()</code> runs after a password is entered and checks password length.</p>
+
+
+      <img src="images/web/Q2.png" width="60%"/>
+      <p>Write JavaScript code for <code>errorCheck</code> which:</p>
+    <ul>
+      <li>checks password length is between 8 and 12 characters (inclusive)</li>
+      <li>displays <strong>"Password Length Error"</strong> in the HTML label with id <code>errorText</code> if invalid</li>
+    </ul>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p><strong>Mark scheme possible solution:</strong></p>
+      <pre><code>function errorCheck() {
+  var pass = document.getElementById("Password").value;
+  if (pass.length &gt; 12 || pass.length &lt; 8) {
+    document.getElementById("errorText").innerHTML = "Password Length Error";
+  }
+}</code></pre>
+    </div>
+  </div>
+
+
+
+          <div class="rev-card qa-card">
+  <h3>3(a)(i). Question</h3>
+
+              <p>A team of programmers create a robot that will be used in a factory.
+              The robot will be able to do the work of multiple humans.
+              The programmers discuss whether to write the instructions for the
+              robot in assembly language or a high-level language.
+              The robot provides a web-based interface for users.
+              The home screen webpage for this interface is shown. </p>
+  <p>Complete the HTML code to display the webpage shown.</p>
+
+  <img src="images/web/Q3.png" width="60%" alt="Question 3 webpage output" />
+  <img src="images/web/Q3_code.png" width="60%" alt="Question 3 HTML code to complete" />
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Robot User Interface&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Robot directives&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Serve the company trust&lt;/li&gt;
+    &lt;li&gt;Protect data&lt;/li&gt;
+    &lt;li&gt;Uphold standards&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;a href="updates.html"&gt;Updates&lt;/a&gt;
+  &lt;p&gt;Login&lt;/p&gt;
+
+  &lt;form action="dologin.php"&gt;
+    Password
+    &lt;input type="text" name="pw"&gt;
+    &lt;input type="submit"&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <h3>3(a)(ii). Question</h3>
+  <p>
+    Write CSS to format all <code>&lt;h1&gt;</code> text as white with a red background.
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre><code>h1 {
+  color: white;
+  background-color: red;
+}</code></pre>
+  </div>
+</div>
+
+      <div class="rev-card qa-card">
+  <h3>3(b). Question</h3>
+  <p>
+    Many websites include digital photographs. The designer of the website wants to stop
+    other people downloading and using these photographs.
+  </p>
+
+  <p><strong>(i)</strong> Name a piece of UK legislation that protects these photographs and explain how it does this.</p>
+  <p><strong>(ii)</strong> Describe two legal ways the designer could include photographs created by other people.</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>(i)</strong></p>
+    <ul>
+      <li><strong>Copyright, Designs and Patents Act</strong>: gives creators copyright automatically; others can’t copy/use/distribute without permission; permission can be licensed/sold.</li>
+    </ul>
+
+    <p><strong>(ii)</strong></p>
+    <ul>
+      <li>Get permission from the owner/author (or buy a licence).</li>
+      <li>Use images with a licence that permits reuse (e.g., Creative Commons / “copyright free” where allowed).</li>
+    </ul>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <h3>4(a). Question</h3>
+  <p>
+    Write the HTML code required so that when <code>ticket.png</code> is clicked it takes the user to
+    <code>booking.htm</code>.
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre><code>&lt;a href="booking.htm"&gt;&lt;img src="ticket.png"&gt;&lt;/a&gt;</code></pre>
+  </div>
+</div>
+
+
+          <div class="rev-card qa-card">
+  <h3>4(b). Question</h3>
+  <p>
+    Complete the JavaScript function <code>bookingfee(numtickets, country)</code>.
+    The booking fee is £2.99 per ticket, plus an additional £4.99 if the customer is not from the UK.
+  </p>
+
+  <img src="images/web/booking.png" width="60%" alt="Booking fee code snippet" />
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre><code>function bookingfee(numtickets, country) {
+  var nonUKprice = 4.99;
+  var perTicketPrice = 2.99;
+  var total = 0;
+
+  if (country != "UK") {
+    total = total + nonUKprice;
+  }
+
+  total = total + (numtickets * perTicketPrice);
+  return total;
+}</code></pre>
+  </div>
+</div>
+
+   <div class="rev-card qa-card">
+  <h3>4(c). Question</h3>
+  <p><strong>(i)</strong> Explain why the server will calculate the booking fee again.</p>
+  <p><strong>(ii)</strong> Give one advantage of client-side processing.</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>(i)</strong></p>
+    <ul>
+      <li>Client-side values can be altered/tampered with or scripting disabled; server-side ensures the final fee is correct and secure.</li>
+    </ul>
+
+    <p><strong>(ii)</strong></p>
+    <ul>
+      <li>Faster response for the user (no round-trip to server), <em>or</em> reduces server load/bandwidth.</li>
+    </ul>
+  </div>
+</div>
 
         <div class="rev-card qa-card">
-          <h3>1. Question</h3>
+  <h3>4(d). Question</h3>
+  <p><strong>(i)</strong> Describe what is meant by indexing when used by search engines.</p>
+  <p><strong>(ii)</strong> Define what is meant by a damping factor.</p>
+  <p><strong>(iii)</strong> Give two other factors that affect the output of the PageRank algorithm.</p>
 
-          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 
-          <button class="secondary answer-toggle">Show answer</button>
-          <div class="answer">
-           <p>Answer text</p>
-            </div>
-        </div>
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>(i) Indexing</strong></p>
+    <ul>
+      <li>Crawler/spider visits pages (from a list or by following links), records page info (text/meta tags/keywords), stores it in an index, then follows links onwards (robots.txt can guide crawling).</li>
+    </ul>
+
+    <p><strong>(ii) Damping factor</strong></p>
+    <ul>
+      <li>A value between 0 and 1 representing the probability a user stops following links / limits infinite link-following.</li>
+    </ul>
+
+    <p><strong>(iii) Other PageRank factors</strong></p>
+    <ul>
+      <li>Number of incoming links to the page.</li>
+      <li>PageRank (importance) of the linking pages.</li>
+    </ul>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <h3>4(e). Question</h3>
+  <p>Describe the purpose of HTML and CSS in a website used to sell concert tickets.</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li><strong>HTML:</strong> defines the structure/content of the page using tags (headings, forms, images, links etc.).</li>
+      <li><strong>CSS:</strong> controls presentation/appearance (layout, colours, fonts) using selectors such as classes and IDs; can be external/inline, and more specific rules override less specific ones.</li>
+    </ul>
+  </div>
+</div>
+ <!-- Q5 -->
+  <div class="rev-card qa-card">
+    <h3>5. Question</h3>
+    <p>Shreya receives a webpage in HTML (Fig 2.1). Formatting requirements (Fig 2.2):</p>
+
+
+      <img src="images/web/bbc.png" width="60%"/>
+      <ul>
+      <li><strong>Beeb</strong>: font-family <em>times</em>, colour <em>green</em></li>
+      <li><strong>model</strong>: font-family <em>arial</em>, colour <em>red</em></li>
+    </ul>
+
+
+    <p>Write the CSS needed to meet the requirements.</p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p><strong>Example mark scheme solution:</strong></p>
+      <pre><code>.model {
+  color: red;
+  font-family: arial;
+}
+
+#Beeb {
+  color: green;
+  font-family: times;
+}</code></pre>
+    </div>
+  </div>
 
 
       </div>

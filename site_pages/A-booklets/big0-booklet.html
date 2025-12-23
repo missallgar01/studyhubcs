@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-booklets.html">← Back</a>
+  </div>
+<header>
+   <h1>BigO – Revision Booklet</h1>
+<p>
+    Write your answers in the boxes provided.</p>
+   <p> Click <strong>Show answer</strong> to reveal model answers.
+  </p>
+</header>
+
+<main>
+
+  <!-- =========================
+       KNOWLEDGE SECTIONS (VERTICAL)
+       (unchanged, but you can tweak)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Big O – Notes</h2>
+    </div>
+    <div class="topic-body vertical-knowledge">
+
+
+<div class="knowledge-card">
+  <h3>Big O Notation</h3>
+
+  <h4>What is Big O?</h4>
+  <p>
+    Big O notation is used to evaluate the complexity of an algorithm.
+    It shows how the time, memory, or resources required by an algorithm
+    increase as the size of the data set increases.
+  </p>
+
+  <p>
+    Big O notation usually describes the <strong>worst-case scenario</strong>
+    for an algorithm.
+  </p>
+
+  <p>
+    <strong>Time complexity</strong> – how the execution time scales as data size increases<br>
+    <strong>Space complexity</strong> – how much memory is required
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Common Big O Notations</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Notation</th>
+        <th>Description</th>
+        <th>Example Code</th>
+        <th>Example Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>O(1)</code></td>
+        <td>
+          <strong>Constant.</strong>
+          Always executes in the same time regardless of data size.
+          Very efficient.
+        </td>
+        <td>
+          <code>value = data_set[x]</code>
+        </td>
+        <td>
+          Accessing an element in an array.<br>
+          Hashing algorithms.
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>O(log N)</code></td>
+        <td>
+          <strong>Logarithmic.</strong>
+          The problem size is halved each step.
+          Common in divide-and-conquer algorithms.
+        </td>
+        <td>
+          <pre>
+WHILE found == False AND low <= high
+  mid = (low + high) DIV 2
+  IF data[mid] == target THEN
+    found = True
+  ELSEIF data[mid] < target THEN
+    low = mid + 1
+  ELSE
+    high = mid - 1
+  ENDIF
+ENDWHILE
+          </pre>
+        </td>
+        <td>Binary search.</td>
+      </tr>
+
+      <tr>
+        <td><code>O(N)</code></td>
+        <td>
+          <strong>Linear.</strong>
+          Performance decreases proportionally as data size grows.
+        </td>
+        <td>
+          <pre>
+FOR x = 1 TO N
+  total = total + data[x]
+NEXT x
+          </pre>
+        </td>
+        <td>
+          Looping through an array.<br>
+          Linear search.
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>O(N log N)</code></td>
+        <td>
+          <strong>Linearithmic.</strong><br>
+          The algorithm processes every item and repeatedly divides the problem.
+        </td>
+        <td>
+          <code>mergeSort(list)</code>
+        </td>
+        <td>
+          Quick sort.<br>
+          Merge sort.
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>O(N²)</code></td>
+        <td>
+          <strong>Polynomial.</strong>
+          Performance proportional to the square of the data size.
+          Often caused by nested loops.
+        </td>
+        <td>
+          <pre>
+FOR x = 1 TO N
+  FOR y = 1 TO N
+    total = total + 1
+  NEXT y
+NEXT x
+          </pre>
+        </td கொள்ள
+        <td>
+          Nested loops.<br>
+          Bubble sort.
+        </td>
+      </tr>
+
+      <tr>
+        <td><code>O(2ⁿ)</code></td>
+        <td>
+          <strong>Exponential.</strong>
+          Time doubles with each additional data item.
+          Extremely inefficient.
+        </td>
+        <td>
+          <pre>
+FUNCTION fib(x)
+  IF x <= 1 THEN
+    RETURN x
+  ELSE
+    RETURN fib(x - 1) + fib(x - 2)
+  ENDIF
+ENDFUNCTION
+          </pre>
+        </td>
+        <td>
+          Recursive Fibonacci calculation.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+        <div class="knowledge-card">
+  <h3>Big O Growth Comparison Diagram</h3>
+
+  <p>
+    This diagram compares how common complexity classes grow as input size <code>N</code> increases
+    (y-values are scaled/capped to fit on one chart).
+  </p>
+
+
+            <img src="images/algorithms/comparison.jpg" height="375" width="616"/>
+            <p>
+    Key idea: as <code>N</code> grows, <code>O(N²)</code> and especially <code>O(2ⁿ)</code>
+    become impractical much faster than <code>O(N log N)</code> or <code>O(log N)</code>.
+  </p>
+</div>
+
+      <div class="knowledge-card">
+  <h3>Big O Notation – Searching Algorithms</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th rowspan="2">Searching Algorithm</th>
+        <th colspan="3">Time Complexity</th>
+      </tr>
+      <tr>
+        <th>Best</th>
+        <th>Average</th>
+        <th>Worst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Linear Search</td>
+        <td>O(1)</td>
+        <td>O(n)</td>
+        <td>O(n)</td>
+      </tr>
+      <tr>
+        <td>Binary Search (Array)</td>
+        <td>O(1)</td>
+        <td>O(log n)</td>
+        <td>O(log n)</td>
+      </tr>
+      <tr>
+        <td>Binary Search Tree</td>
+        <td>O(1)</td>
+        <td>O(log n)</td>
+        <td>O(n)</td>
+      </tr>
+      <tr>
+        <td>Hashing</td>
+        <td>O(1)</td>
+        <td>O(1)</td>
+        <td>O(n)</td>
+      </tr>
+      <tr>
+        <td>Breadth / Depth First Search (Graph)</td>
+        <td>O(1)</td>
+        <td>O(V + E)</td>
+        <td>O(V²)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Where <strong>V</strong> is the number of vertices and
+    <strong>E</strong> is the number of edges.
+  </p>
+</div>
+
+        <div class="knowledge-card">
+  <h3>Big O Notation – Sorting Algorithms</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th rowspan="2">Sorting Algorithm</th>
+        <th colspan="3">Time Complexity</th>
+        <th rowspan="2">Space Complexity</th>
+      </tr>
+      <tr>
+        <th>Best</th>
+        <th>Average</th>
+        <th>Worst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bubble Sort</td>
+        <td>O(n)</td>
+        <td>O(n²)</td>
+        <td>O(n²)</td>
+        <td>O(1)</td>
+      </tr>
+      <tr>
+        <td>Insertion Sort</td>
+        <td>O(n)</td>
+        <td>O(n²)</td>
+        <td>O(n²)</td>
+        <td>O(1)</td>
+      </tr>
+      <tr>
+        <td>Merge Sort</td>
+        <td>O(n log n)</td>
+        <td>O(n log n)</td>
+        <td>O(n log n)</td>
+        <td>O(n)</td>
+      </tr>
+      <tr>
+        <td>Quick Sort</td>
+        <td>O(n log n)</td>
+        <td>O(n log n)</td>
+        <td>O(n²)</td>
+        <td>O(log n)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+        <div class="knowledge-card">
+  <h3>Growth Rate Comparison</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>n</th>
+        <th>n² (Polynomial)</th>
+        <th>2ⁿ (Exponential)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>100</td>
+        <td>1,024</td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>400</td>
+        <td>1,048,576</td>
+      </tr>
+      <tr>
+        <td>30</td>
+        <td>900</td>
+        <td>1,073,741,824</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Exponential algorithms become impractical extremely quickly compared
+    to polynomial algorithms.
+  </p>
+</div>
+
+
+
+      </div>
+  </section>
+
+  <!-- =========================
+       QUESTIONS & ANSWERS (BY TOPIC)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check Your Understanding – Questions</h2>
+    </div>
+    <div class="topic-body">
+      <div class="vertical-qa">
+
+        <!-- =======================
+             TOPIC A – Question and answer
+             ======================= -->
+        <h2>Topic</h2>
+
+        <div class="rev-card qa-card">
+          <h3>1. Question</h3>
+
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+           <p>Answer text</p>
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 </p>
+</footer>
+
+<script>
+  // Toggle topic sections open/closed
+  document.querySelectorAll('.topic-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+      section.classList.toggle('expanded');
+    });
+  });
+
+  // Show / hide individual answers
+  document.querySelectorAll('.answer-toggle').forEach(btn => {
+    const answer = btn.nextElementSibling;
+    if (!answer) return;
+
+    // ensure hidden initially (CSS also sets .answer display:none)
+    answer.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const open = answer.style.display === 'block';
+      answer.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Show answer' : 'Hide answer';
+    });
+  });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
+</script>
+
+</body>
+</html>

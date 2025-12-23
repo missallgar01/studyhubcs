@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-booklets.html">← Back</a>
+  </div>
+<header>
+   <h1>Programming – Revision Booklet</h1>
+<p>
+    Write your answers in the boxes provided.</p>
+   <p> Click <strong>Show answer</strong> to reveal model answers.
+  </p>
+</header>
+
+<main>
+
+  <!-- =========================
+       KNOWLEDGE SECTIONS (VERTICAL)
+       (unchanged, but you can tweak)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Algorithms – Notes</h2>
+    </div>
+    <div class="topic-body vertical-knowledge">
+
+    <div class="knowledge-card">
+  <h3>Binary Search vs Linear Search — Comparison</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Linear Search</th>
+        <th>Binary Search</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Works on</td>
+        <td>Any list</td>
+        <td>Sorted lists only</td>
+      </tr>
+      <tr>
+        <td>Method</td>
+        <td>Checks each item in turn</td>
+        <td>Repeatedly halves the list</td>
+      </tr>
+      <tr>
+        <td>Best for</td>
+        <td>Small or unsorted lists</td>
+        <td>Large sorted lists</td>
+      </tr>
+      <tr>
+        <td>Time complexity</td>
+        <td><code>O(N)</code></td>
+        <td><code>O(log N)</code></td>
+      </tr>
+      <tr>
+        <td>Main advantage</td>
+        <td>Simple and flexible</td>
+        <td>Very fast on large datasets</td>
+      </tr>
+      <tr>
+        <td>Main disadvantage</td>
+        <td>Slow on large lists</td>
+        <td>Requires sorted data</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="knowledge-card">
+  <h3>Linear Search — Pseudocode</h3>
+
+    <img src="images/algorithms/linear.gif" height="274" width="816"/>
+    <pre>
+letters_list = ['A','F','B','E','D','G','C']
+position = 0
+found = False
+search_item = INPUT
+
+WHILE position < LENGTH(letters_list) AND found == False
+  IF letters_list[position] == search_item THEN
+    PRINT "Item found at position", position
+    found = True
+  ELSE
+    position = position + 1
+  ENDIF
+ENDWHILE
+
+IF found == False THEN
+  PRINT "Item not found"
+ENDIF
+  </pre>
+
+  <p><strong>Complexity:</strong> <code>O(N)</code></p>
+</div>
+
+<div class="knowledge-card">
+
+
+    <img src="images/algorithms/binary.png" height="700" width="783"/>
+    <h3>Binary Search — Pseudocode</h3>
+
+  <pre>
+mylist = [1, 2, 5, 7, 11, 14]
+item = INPUT
+found = False
+first = 0
+last = LENGTH(mylist) - 1
+
+WHILE found == False AND first <= last
+  midpoint = (first + last) DIV 2
+
+  IF mylist[midpoint] == item THEN
+    PRINT "Item found at index", midpoint
+    found = True
+  ELSE
+    IF item < mylist[midpoint] THEN
+      last = midpoint - 1
+    ELSE
+      first = midpoint + 1
+    ENDIF
+  ENDIF
+ENDWHILE
+  </pre>
+
+  <p><strong>Complexity:</strong> <code>O(log N)</code></p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Trace Table — Binary Search (Search for 50)</h3>
+
+  <p><strong>List:</strong> <code>[1, 5, 20, 35, 50, 65, 70]</code></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Step</th>
+        <th>first</th>
+        <th>last</th>
+        <th>midpoint</th>
+        <th>value</th>
+        <th>Comparison</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>6</td>
+        <td>3</td>
+        <td>35</td>
+        <td>35 &lt; 50</td>
+        <td>first = 4</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>4</td>
+        <td>6</td>
+        <td>5</td>
+        <td>65</td>
+        <td>65 &gt; 50</td>
+        <td>last = 4</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>4</td>
+        <td>4</td>
+        <td>4</td>
+        <td>50</td>
+        <td>50 == 50</td>
+        <td>Found</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="knowledge-card">
+  <h3>Trace Table — Linear Search (Search for 5)</h3>
+
+  <p><strong>List:</strong> <code>[10, 8, 1, 21, 7, 32, 5, 11, 0]</code></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Step</th>
+        <th>position</th>
+        <th>value</th>
+        <th>Comparison</th>
+        <th>Found?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>0</td><td>10</td><td>≠ 5</td><td>No</td></tr>
+      <tr><td>2</td><td>1</td><td>8</td><td>≠ 5</td><td>No</td></tr>
+      <tr><td>3</td><td>2</td><td>1</td><td>≠ 5</td><td>No</td></tr>
+      <tr><td>4</td><td>3</td><td>21</td><td>≠ 5</td><td>No</td></tr>
+      <tr><td>5</td><td>4</td><td>7</td><td>≠ 5</td><td>No</td></tr>
+      <tr><td>6</td><td>5</td><td>32</td><td>≠ 5</td><td>No</td></tr>
+      <tr><td>7</td><td>6</td><td>5</td><td>= 5</td><td>Yes</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+        <div class="knowledge-card">
+  <h3>Bubble Sort</h3>
+
+  <p>
+    Bubble sort works by repeatedly comparing adjacent items in a list.
+    If the item on the right is smaller than the item on the left,
+    the two values are swapped.
+  </p>
+
+  <p>
+    This process is repeated until a complete pass through the list
+    occurs with no swaps, meaning the list is sorted.
+  </p>
+
+  <h4>How Bubble Sort Works</h4>
+  <ul>
+    <li>Compare the first and second items</li>
+    <li>Swap if the first is greater than the second</li>
+    <li>Move to the next pair</li>
+    <li>Repeat passes until no swaps occur</li>
+    <li>Largest values gradually move to the end of the list</li>
+  </ul>
+
+
+            <img src="images/algorithms/bubble.jpg" height="400" width="668"/><h4>Algorithm (Pseudocode)</h4>
+  <pre>
+swapMade = True
+
+WHILE swapMade == True
+  swapMade = False
+  position = 0
+
+  FOR position = 0 TO listLength - 2
+    IF list[position] > list[position + 1] THEN
+      temp = list[position]
+      list[position] = list[position + 1]
+      list[position + 1] = temp
+      swapMade = True
+    ENDIF
+  NEXT position
+
+ENDWHILE
+  </pre>
+
+  <p>
+    The loop continues until a full pass is completed with
+    <code>swapMade</code> remaining <code>False</code>.
+  </p>
+
+  <h4>Advantages</h4>
+  <ul>
+    <li>Simple to understand and implement</li>
+    <li>Works well for very small lists</li>
+  </ul>
+
+  <h4>Disadvantages</h4>
+  <ul>
+    <li>
+      Even when the list is almost sorted, comparisons must still be made
+    </li>
+    <li>
+      Requires multiple passes through the data
+    </li>
+    <li>
+      Very inefficient for large data sets
+    </li>
+  </ul>
+
+  <p>
+    <strong>Complexity:</strong> <code>O(n²)</code> — polynomial
+  </p>
+</div>
+
+        <div class="knowledge-card">
+  <h3>Bubble Sort – Trace Table</h3>
+
+  <p>
+    Trace the bubble sort algorithm on the following list:
+  </p>
+
+  <p><strong>Initial list:</strong> <code>[65, 40, 30, 10, 100, 6]</code></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Pass</th>
+        <th>Comparison</th>
+        <th>List State</th>
+        <th>Swap?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>65 &gt; 40</td>
+        <td>[40, 65, 30, 10, 100, 6]</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>65 &gt; 30</td>
+        <td>[40, 30, 65, 10, 100, 6]</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>65 &gt; 10</td>
+        <td>[40, 30, 10, 65, 100, 6]</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>65 &lt; 100</td>
+        <td>[40, 30, 10, 65, 100, 6]</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>100 &gt; 6</td>
+        <td>[40, 30, 10, 65, 6, 100]</td>
+        <td>Yes</td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>40 &gt; 30</td>
+        <td>[30, 40, 10, 65, 6, 100]</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>40 &gt; 10</td>
+        <td>[30, 10, 40, 65, 6, 100]</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>40 &lt; 65</td>
+        <td>[30, 10, 40, 65, 6, 100]</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>65 &gt; 6</td>
+        <td>[30, 10, 40, 6, 65, 100]</td>
+        <td>Yes</td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td>30 &gt; 10</td>
+        <td>[10, 30, 40, 6, 65, 100]</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>30 &lt; 40</td>
+        <td>[10, 30, 40, 6, 65, 100]</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>40 &gt; 6</td>
+        <td>[10, 30, 6, 40, 65, 100]</td>
+        <td>Yes</td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td>30 &gt; 6</td>
+        <td>[10, 6, 30, 40, 65, 100]</td>
+        <td>Yes</td>
+      </tr>
+
+      <tr>
+        <td>5</td>
+        <td>10 &gt; 6</td>
+        <td>[6, 10, 30, 40, 65, 100]</td>
+        <td>Yes</td>
+      </tr>
+
+      <tr>
+        <td>6</td>
+        <td>No swaps in pass</td>
+        <td>[6, 10, 30, 40, 65, 100]</td>
+        <td>No</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    The algorithm stops when a full pass is completed with no swaps.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Insertion Sort</h3>
+
+  <p>
+    Insertion sort is used to sort a “live” list of data.
+    It builds a sorted section of the list one item at a time by inserting
+    each new value into its correct position among the already-sorted values.
+  </p>
+
+  <h4>How Insertion Sort Works</h4>
+  <ol>
+    <li>Start by looking at the second item in the list.</li>
+    <li>Compare it to the items before it and insert it into the correct place.</li>
+    <li>Move to the next item and repeat until the end of the list is reached.</li>
+  </ol>
+
+
+    <img src="images/algorithms/insertion.jpg" height="654" width="628"/><h4>Algorithm (OCR-style Pseudocode)</h4>
+  <pre>
+FOR position = 1 TO LENGTH(array) - 1
+  currentValue = array[position]
+  pos = position
+
+  WHILE pos > 0 AND array[pos - 1] > currentValue
+    array[pos] = array[pos - 1]
+    pos = pos - 1
+  ENDWHILE
+
+  array[pos] = currentValue
+NEXT position
+  </pre>
+
+  <h4>Advantages</h4>
+  <ul>
+    <li>Very high performance on small lists.</li>
+    <li>Works well on “live” data where items are still arriving.</li>
+  </ul>
+
+  <h4>Disadvantages</h4>
+  <ul>
+    <li>Poor performance on large lists.</li>
+    <li>Not as fast as merge sort for large data sets.</li>
+  </ul>
+
+  <p><strong>Complexity:</strong> <code>O(n²)</code> — polynomial</p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Insertion Sort – Trace Table (Exam Practice)</h3>
+
+  <p>
+    Trace insertion sort on the list:
+    <code>[8, 5, 7, 1, 9, 3]</code>
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Pass (position)</th>
+        <th>currentValue</th>
+        <th>Shifts / Insertion</th>
+        <th>List State After Pass</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>5</td>
+        <td>8 shifts right → insert 5 at index 0</td>
+        <td>[5, 8, 7, 1, 9, 3]</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>7</td>
+        <td>8 shifts right → insert 7 at index 1</td>
+        <td>[5, 7, 8, 1, 9, 3]</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>1</td>
+        <td>8, 7, 5 shift right → insert 1 at index 0</td>
+        <td>[1, 5, 7, 8, 9, 3]</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>9</td>
+        <td>No shifts needed → 9 stays in place</td>
+        <td>[1, 5, 7, 8, 9, 3]</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>3</td>
+        <td>9, 8, 7, 5 shift right → insert 3 at index 1</td>
+        <td>[1, 3, 5, 7, 8, 9]</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Each pass grows the sorted portion on the left side of the list.
+  </p>
+</div>
+
+
+
+
+<div class="knowledge-card">
+  <h3>Merge Sort</h3>
+
+  <p>
+    Merge sort can be used efficiently on very large lists of data.
+    It uses a <strong>divide and conquer</strong> approach.
+  </p>
+
+  <h4>How Merge Sort Works</h4>
+  <ol>
+    <li>Split the list into sub-arrays of one element.</li>
+    <li>Merge each sub-array into a new sorted array.</li>
+    <li>Repeat until a single sorted array is produced.</li>
+  </ol>
+
+
+    <img src="images/algorithms/merge.png" width="50%"/>
+    <p><strong>Output:</strong> A sorted array</p>
+
+  <h4>Algorithm (High-Level Steps)</h4>
+  <pre>
+Step 1: Split the array into sub-arrays of 1 element
+Step 2: Merge sub-arrays into sorted arrays
+Step 3: Repeat merging until one sorted array remains
+  </pre>
+
+  <h4>Merge Sort (Recursive Pseudocode)</h4>
+  <pre>
+function mergeSort(list)
+  if LENGTH(list) <= 1 then
+    return list
+  endif
+
+  mid = LENGTH(list) DIV 2
+  left = list[0 : mid]
+  right = list[mid : LENGTH(list)]
+
+  leftSorted = mergeSort(left)
+  rightSorted = mergeSort(right)
+
+  return merge(leftSorted, rightSorted)
+endfunction
+  </pre>
+
+  <h4>Merge Procedure (Pseudocode)</h4>
+  <pre>
+function merge(left, right)
+  result = empty list
+
+  WHILE left not empty AND right not empty
+    IF left[0] <= right[0] THEN
+      add left[0] to result
+      remove left[0] from left
+    ELSE
+      add right[0] to result
+      remove right[0] from right
+    ENDIF
+  ENDWHILE
+
+  add remaining elements of left to result
+  add remaining elements of right to result
+
+  return result
+endfunction
+  </pre>
+
+  <h4>Advantages</h4>
+  <ul>
+    <li>Very high performance on large lists.</li>
+    <li>Consistent speed regardless of initial order.</li>
+  </ul>
+
+  <h4>Disadvantages</h4>
+  <ul>
+    <li>Uses a lot of additional memory.</li>
+    <li>More complex to implement than simple sorts.</li>
+  </ul>
+
+  <p>
+    <strong>Complexity:</strong>
+    <code>O(n log n)</code> — logarithmic
+    <br>
+    Merge sort is substantially faster than bubble sort
+    and selection sort for large data sets.
+  </p>
+</div>
+
+        <style>
+  code{
+    font-family: Consolas, Monaco, monospace;
+    background:#f3f4f6;
+    padding:2px 6px;
+    border-radius:4px;
+  }
+  pre{
+    font-family: Consolas, Monaco, monospace;
+    background:#f3f4f6;
+    padding:12px;
+    border-radius:8px;
+    overflow-x:auto;
+  }
+</style>
+
+<div class="knowledge-card">
+  <h3>Quick Sort</h3>
+
+  <p>
+    Quick sort uses a <strong>divide-and-conquer</strong> approach.
+    It works by selecting a pivot value and partitioning the list
+    into values less than the pivot and values greater than the pivot.
+  </p>
+
+  <h4>How Quick Sort Works</h4>
+  <ul>
+    <li>Choose a pivot value (often the first element)</li>
+    <li>Use a left pointer and a right pointer</li>
+    <li>Move pointers inward, swapping values where required</li>
+    <li>Place the pivot in its correct position</li>
+    <li>Repeat on the left and right sublists</li>
+  </ul>
+
+
+    <img src="images/algorithms/quick.jpg" width="70%"/><h4>Algorithm (OCR-Style Pseudocode)</h4>
+  <pre>
+procedure quickSort(list, first, last)
+
+  pivot = list[first]
+  left = first
+  right = last
+
+  WHILE left < right
+
+    WHILE list[left] <= pivot AND left < last
+      left = left + 1
+    ENDWHILE
+
+    WHILE list[right] > pivot
+      right = right - 1
+    ENDWHILE
+
+    IF left < right THEN
+      swap list[left] with list[right]
+    ENDIF
+
+  ENDWHILE
+
+  swap list[first] with list[right]
+
+  IF first < right - 1 THEN
+    quickSort(list, first, right - 1)
+  ENDIF
+
+  IF right + 1 < last THEN
+    quickSort(list, right + 1, last)
+  ENDIF
+
+endprocedure
+  </pre>
+
+  <h4>Advantages</h4>
+  <ul>
+    <li>Much faster than bubble sort and insertion sort on large lists</li>
+    <li>Efficient average-case performance</li>
+  </ul>
+
+  <h4>Disadvantages</h4>
+  <ul>
+    <li>
+      Uses recursion, which can require large amounts of memory
+    </li>
+    <li>
+      Risk of stack overflow for very large lists or poor pivot choices
+    </li>
+  </ul>
+
+  <p>
+    <strong>Complexity:</strong>
+    <code>O(n log n)</code> — logarithmic (average case)
+  </p>
+
+  <h4>Mark Scheme Points (Typical)</h4>
+  <ul>
+    <li>Uses divide-and-conquer</li>
+    <li>Selects a pivot value</li>
+    <li>Uses left and right pointers</li>
+    <li>Swaps values when required</li>
+    <li>Splits list into two sublists</li>
+    <li>Recursively sorts sublists</li>
+    <li>Repeats until all sublists contain one element</li>
+  </ul>
+</div>
+
+      </div>
+  </section>
+
+  <!-- =========================
+       QUESTIONS & ANSWERS (BY TOPIC)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check Your Understanding – Questions</h2>
+    </div>
+    <div class="topic-body">
+      <div class="vertical-qa">
+
+        <!-- =======================
+             TOPIC A – Question and answer
+             ======================= -->
+        <h2>Topic</h2>
+
+        <div class="rev-card qa-card">
+          <h3>1. Question</h3>
+
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+           <p>Answer text</p>
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 </p>
+</footer>
+
+<script>
+  // Toggle topic sections open/closed
+  document.querySelectorAll('.topic-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+      section.classList.toggle('expanded');
+    });
+  });
+
+  // Show / hide individual answers
+  document.querySelectorAll('.answer-toggle').forEach(btn => {
+    const answer = btn.nextElementSibling;
+    if (!answer) return;
+
+    // ensure hidden initially (CSS also sets .answer display:none)
+    answer.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const open = answer.style.display === 'block';
+      answer.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Show answer' : 'Hide answer';
+    });
+  });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
+</script>
+
+</body>
+</html>

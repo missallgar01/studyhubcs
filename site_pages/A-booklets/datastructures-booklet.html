@@ -233,6 +233,118 @@ colour = (255, 0, 0)
   </table>
 </div>
 
+<div class="knowledge-card">
+  <h3>Exam Style Question – 2D Arrays (Column Means)</h3>
+
+  <p>
+    A two-dimensional (2D) array, <code>data</code>, holds numeric data that Karl
+    has entered. The declaration for the array is:
+  </p>
+
+  <pre>
+array data[16, 11]
+  </pre>
+
+  <p>
+    The array <code>data</code> has 16 rows and 11 columns.
+    The data in each row is in ascending numerical order.
+  </p>
+
+  <p>
+    Karl needs to analyse the data.
+    He needs to find the mean average of each column of the array.
+    The mean is calculated by adding together the numbers in the column
+    and dividing by the quantity of numbers in the column.
+  </p>
+
+  <p>
+    For example, the first column mean would be:
+    <code>(1 + 3 + 0 + 12) / 4 = 4</code>
+  </p>
+
+  <p>
+    Write an algorithm to output the mean value of each column in the array
+    <code>data</code>. <strong>[5]</strong>
+  </p>
+
+  <h4>Mark Scheme (1 mark per bullet)</h4>
+  <ul>
+    <li>Looping through each column</li>
+    <li>Looping through each row</li>
+    <li>Adding values to a running total</li>
+    <li>Calculating the average correctly</li>
+    <li>Outputting the average</li>
+  </ul>
+
+  <h4>OCR Pseudocode</h4>
+  <pre>
+for y = 0 to 10
+  total = 0
+  for x = 0 to 15
+    total = total + data[x, y]
+  next x
+  print(total / 16)
+next y
+  </pre>
+
+  <h4>Using <code>range</code> (Python-style)</h4>
+  <pre>
+for y in range(11):
+  total = 0
+  for x in range(16):
+    total = total + data[x][y]
+  print(total / 16)
+  </pre>
+</div>
+
+        <div class="knowledge-card">
+  <h3>Exam Style Question – Declaring a 2D Array</h3>
+
+  <p>
+    A card game uses a set of 52 standard playing cards.
+    There are four suits: hearts, diamonds, clubs, and spades.
+    Each suit has a card with a number from 1 to 13.
+  </p>
+
+  <p>
+    The game randomly gives two players seven cards each.
+    The unallocated cards form the deck.
+  </p>
+
+  <p>
+    Players take turns to turn over a card.
+    A valid move is a card of the same suit or the same number
+    as the last card played.
+  </p>
+
+  <p>
+    The winner is the first player to play all of their cards.
+  </p>
+
+  <p>
+    The cards are held in a 2D array called <code>cards</code>.
+    The first index stores the card number and the second index
+    stores the suit, both as strings.
+  </p>
+
+  <p>
+    Write a pseudocode statement or program code to declare
+    the array <code>cards</code>.
+  </p>
+
+  <pre>
+array cards[7, 4]
+  </pre>
+
+  <p>
+    An alternative valid declaration could be:
+  </p>
+
+  <pre>
+array towns[3, 8]
+  </pre>
+</div>
+
 
         <div class="knowledge-card">
   <h3>Records and Arrays of Records</h3>

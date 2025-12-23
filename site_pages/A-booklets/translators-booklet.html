@@ -696,14 +696,19 @@ EndFunction
   </ul>
 </div>
 
-
-<!-- =======================
-     COMPLETE REVISION PAGE
-     Programming Languages & Translators
-     Topics A–F
-     ======================= -->
-
-<h1>Programming Languages & Translators – Complete Revision</h1>
+      </div>
+    </div>
+  </section>
+<!-- =========================
+       QUESTIONS & ANSWERS (BY TOPIC)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check Your Understanding – Questions</h2>
+    </div>
+    <div class="topic-body">
+      <div class="vertical-qa">
 
 <!-- =======================
      TOPIC A – Opcodes & Mnemonics
@@ -933,6 +938,68 @@ total DAT
     </pre>
   </div>
 </div>
+
+
+
+  <div class="rev-card qa-card">
+    <h3>Question</h3>
+
+    <div class="question">
+      <p>
+        The pseudocode algorithm here will take in two numbers from the user,
+        multiply them together using addition and output the result.
+      </p>
+
+      <p>
+        For example, 4 multiplied by 3 would be
+        <code>4 + 4 + 4 = 12</code>.
+      </p>
+
+      <p>You can assume the function input takes in a value as an integer.</p>
+
+      <pre class="code-block"><code>numA = input("Enter first number")
+numB = input("Enter second number")
+answer = 0
+while (numB &gt; 0)
+  answer = answer + numA
+ contribute = numB - 1
+endwhile
+print(answer)</code></pre>
+
+      <p>
+        Write this algorithm in assembly language using the
+        <strong>Little Man Computer (LMC)</strong> instruction set. [6]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer" hidden>
+      <pre class="code-block"><code>        INP
+        STA NUMA
+        INP
+        STA NUMB
+LOOP    LDA NUMB
+        BRZ END
+        SUB ONE
+        STA NUMB
+        LDA ANSWER
+        ADD NUMA
+        STA ANSWER
+        BRA LOOP
+END     LDA ANSWER
+        OUT
+        HLT
+ANSWER  DAT 0
+NUMA    DAT 0
+NUMB    DAT 0
+ONE     DAT 1</code></pre>
+    </div>
+  </div>
+
+
 
 <!-- =======================
      TOPIC D – Addressing Modes

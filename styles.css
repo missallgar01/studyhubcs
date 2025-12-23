@@ -646,6 +646,38 @@ th {
   font-size: 0.95rem;
 }
 
+
+.binary-table { border-collapse: collapse; margin-top:10px; }
+.binary-table td, .binary-table th { border:1px solid #333; padding:6px 10px; text-align:center; font-family: monospace; }
+
+code {
+      background: #f1f1f1;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+
+  .example {
+      margin-top: 10px;
+      padding: 10px;
+      background: #f9fafb;
+      border-left: 4px solid #666;
+      border-radius: 8px;
+    }
+
+  code, pre {
+      background: #f1f1f1;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+    pre {
+      padding: 10px;
+      overflow-x: auto;
+    }
+
+      .kw{background:#fff2a8;padding:0 .2em;border-radius:.2em}
+
 /* ==========================
    FAST4 GRID
    ========================== */

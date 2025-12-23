@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-booklets.html">← Back</a>
+  </div>
+<header>
+   <h1>Software Development – Revision Booklet</h1>
+<p>
+    Write your answers in the boxes provided.</p>
+   <p> Click <strong>Show answer</strong> to reveal model answers.
+  </p>
+</header>
+
+<main>
+
+  <!-- =========================
+       KNOWLEDGE SECTIONS (VERTICAL)
+       (unchanged, but you can tweak)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Software & Operating Systems – Notes</h2>
+    </div>
+    <div class="topic-body vertical-knowledge">
+
+    <!-- ================================================= -->
+    <!-- SOFTWARE DEVELOPMENT LIFE CYCLE -->
+    <!-- ================================================= -->
+
+    <div class="knowledge-card">
+      <h3>Software Development Life Cycle (SDLC)</h3>
+      <p>
+        Most software projects follow a structured life cycle called the
+        <strong>Software Development Life Cycle</strong>.
+        While specific models differ, most include similar stages.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Analysis Stage</h3>
+      <p>
+        Stakeholders describe what they want the final system to achieve.
+        This information is used to define the problem and system requirements.
+      </p>
+      <ul>
+        <li>Identify inputs, outputs, and stored data</li>
+        <li>Assess current solutions</li>
+        <li>Define functional and non-functional requirements</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A school wants a new attendance system.
+        Requirements include student ID input, daily attendance reports,
+        secure access for staff, and long-term data storage.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Design Stage</h3>
+      <p>
+        The structure of the system is planned before coding begins.
+      </p>
+      <ul>
+        <li>Input/output formats</li>
+        <li>User interface layout and accessibility</li>
+        <li>Security and access levels</li>
+        <li>Hardware and compatibility</li>
+        <li>Test plans</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Designing a login screen, defining password rules,
+        and planning test cases for valid and invalid logins.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Development Stage</h3>
+      <p>
+        The system is split into <strong>self-contained modules</strong>
+        which can be developed in parallel.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        One team codes the database module,
+        another builds the user interface,
+        while another handles authentication.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Testing Stage</h3>
+      <p>
+        The software is tested against the test plan to identify errors.
+      </p>
+
+      <ul>
+        <li><strong>Alpha testing</strong> – in-house testing by developers</li>
+        <li><strong>Beta testing</strong> – testing by end users</li>
+        <li><strong>White-box testing</strong> – tests based on code structure</li>
+        <li><strong>Black-box testing</strong> – tests based on inputs/outputs only</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Black-box testing checks that entering an invalid password
+        always produces an error message, regardless of how the code works internally.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Implementation Stage</h3>
+      <p>
+        The completed software is installed and made available to users.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Installing a new payroll system on company servers
+        and training staff to use it.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Evaluation Stage</h3>
+      <p>
+        The system is reviewed against the original requirements.
+      </p>
+      <ul>
+        <li>Reliability</li>
+        <li>Robustness</li>
+        <li>Maintainability</li>
+        <li>Portability</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Checking whether the attendance system reduces teacher workload
+        and produces accurate reports.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Maintenance Stage</h3>
+      <p>
+        Updates are released to fix bugs, patch security issues,
+        or improve functionality.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A software update fixes a login vulnerability
+        and adds a password reset feature.
+      </div>
+    </div>
+
+    <!-- ================================================= -->
+    <!-- PROGRAMMING METHODOLOGIES -->
+    <!-- ================================================= -->
+
+    <div class="knowledge-card">
+      <h3>Waterfall Model</h3>
+      <p>
+        A linear model where each stage must be completed before the next begins.
+      </p>
+      <ul>
+        <li>Clearly documented</li>
+        <li>Easy to manage</li>
+        <li>Inflexible to change</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Developing accounting software with fixed legal requirements.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>TELOS Feasibility Study (Waterfall)</h3>
+      <ul>
+        <li><strong>Technical</strong> – is the technology available?</li>
+        <li><strong>Economic</strong> – can it be afforded?</li>
+        <li><strong>Legal</strong> – is it lawful?</li>
+        <li><strong>Operational</strong> – can it be used effectively?</li>
+        <li><strong>Scheduling</strong> – can it be completed on time?</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Checking whether a hospital can legally and financially
+        deploy a new patient-record system.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Agile Methodologies</h3>
+      <p>
+        Agile development focuses on flexibility and regular user feedback.
+      </p>
+
+      <ul>
+        <li>Iterative development</li>
+        <li>Early working prototypes</li>
+        <li>High user involvement</li>
+        <li>Less documentation</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A mobile app released with basic features,
+        then updated every few weeks based on user feedback.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Extreme Programming (XP)</h3>
+      <p>
+        An agile methodology using paired programming and constant user input.
+      </p>
+
+      <ul>
+        <li>Two programmers per task</li>
+        <li>User stories define requirements</li>
+        <li>Produces frequent working versions</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Two developers work together on the same code,
+        one writing while the other reviews in real time.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Spiral Model</h3>
+      <p>
+        Designed for large, high-risk projects.
+        Focuses heavily on risk analysis.
+      </p>
+
+      <ul>
+        <li>Identify risks early</li>
+        <li>Terminate project if risks are too high</li>
+        <li>Expensive but thorough</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Developing safety-critical aircraft control software.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Rapid Application Development (RAD)</h3>
+      <p>
+        Uses quick, repeated prototypes to refine requirements.
+      </p>
+
+      <ul>
+        <li>Fast development</li>
+        <li>High user involvement</li>
+        <li>Weaker documentation</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Building a small business website where the client
+        is unsure what features they want initially.
+      </div>
+    </div>
+
+    <!-- ================================================= -->
+    <!-- ALGORITHMS -->
+    <!-- ================================================= -->
+
+    <div class="knowledge-card">
+      <h3>Writing and Following Algorithms</h3>
+      <p>
+        An algorithm is a step-by-step set of instructions
+        used to solve a problem.
+      </p>
+
+      <ul>
+        <li>Clearly defined inputs and outputs</li>
+        <li>Handles invalid inputs</li>
+        <li>Always terminates</li>
+        <li>Well documented and commented</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        An algorithm that calculates average exam scores must
+        reject negative marks and divide by the correct number of students.
+      </div>
+    </div>
+
+    <!-- ================================================= -->
+    <!-- MERITS / DRAWBACKS / USES -->
+    <!-- ================================================= -->
+
+    <div class="knowledge-card">
+      <h3>Comparison of Programming Methodologies</h3>
+
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>Merits</th>
+          <th>Drawbacks</th>
+          <th>Best Use</th>
+        </tr>
+        <tr>
+          <td>Waterfall</td>
+          <td>Clear structure, strong documentation</td>
+          <td>Inflexible, little user input</td>
+          <td>Static, low-risk projects</td>
+        </tr>
+        <tr>
+          <td>Agile</td>
+          <td>Flexible, high-quality output</td>
+          <td>Poor documentation</td>
+          <td>Small–medium projects with changing requirements</td>
+        </tr>
+        <tr>
+          <td>XP</td>
+          <td>Very high code quality</td>
+          <td>High cost, requires teamwork</td>
+          <td>Usability-focused systems</td>
+        </tr>
+        <tr>
+          <td>Spiral</td>
+          <td>Excellent risk control</td>
+          <td>Very expensive</td>
+          <td>Large, high-risk projects</td>
+        </tr>
+        <tr>
+          <td>RAD</td>
+          <td>Fast development</td>
+          <td>Lower documentation quality</td>
+          <td>Short time-frame projects</td>
+        </tr>
+      </table>
+    </div>
+      </div>
+  </section>
+
+  <!-- =========================
+       QUESTIONS & ANSWERS (BY TOPIC)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check Your Understanding – Questions</h2>
+    </div>
+    <div class="topic-body">
+      <div class="vertical-qa">
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 </p>
+</footer>
+
+<script>
+  // Toggle topic sections open/closed
+  document.querySelectorAll('.topic-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+      section.classList.toggle('expanded');
+    });
+  });
+
+  // Show / hide individual answers
+  document.querySelectorAll('.answer-toggle').forEach(btn => {
+    const answer = btn.nextElementSibling;
+    if (!answer) return;
+
+    // ensure hidden initially (CSS also sets .answer display:none)
+    answer.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const open = answer.style.display === 'block';
+      answer.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Show answer' : 'Hide answer';
+    });
+  });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
+</script>
+
+</body>
+</html>
