@@ -2130,6 +2130,42 @@ STAGE 12: QUESTION 12 (ONLY)
     </div>
   </div>
 
+<div class="rev-card qa-card">
+  <h3>Question 23(a)</h3>
+
+  <p>
+    A recursive pseudocode function, <strong>recursiveAlgorithm()</strong>, is shown.
+  </p>
+
+  <pre>
+function recursiveAlgorithm(value)
+ if value &lt;= 0 then
+  return 1
+ elseif value MOD 2 = 0 then
+  return value + recursiveAlgorithm(value – 3)
+ else
+  return value + recursiveAlgorithm(value – 1)
+ endif
+endfunction
+  </pre>
+
+  <p>
+    Describe the key features of a recursive algorithm.
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>Mark scheme answer:</strong></p>
+    <ul>
+      <li>The algorithm calls itself within its own definition.</li>
+      <li>There is a base case that stops the recursion (e.g. when <code>value &lt;= 0</code>).</li>
+      <li>Each recursive call moves closer to the base case by changing the parameter value.</li>
+    </ul>
+  </div>
+</div>
 
     </div>
   </section>

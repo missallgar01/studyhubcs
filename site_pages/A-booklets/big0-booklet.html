@@ -369,21 +369,183 @@ ENDFUNCTION
         <!-- =======================
              TOPIC A – Question and answer
              ======================= -->
-        <h2>Topic</h2>
+       <div class="rev-card qa-card">
+  <h3> Question 1</h3>
 
-        <div class="rev-card qa-card">
-          <h3>1. Question</h3>
+  <p>
+    The tables below show possible Big O complexities for the worst-case space, best-case space and average
+    time for search algorithms.
+  </p>
 
-          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+  <p><strong>Tick the worst-case space complexity for a binary and linear search.</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Binary search</th>
+        <th>Linear search</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>O(log(n))</td><td></td><td></td></tr>
+      <tr><td>O(1)</td><td></td><td></td></tr>
+      <tr><td>O(n)</td><td></td><td></td></tr>
+    </tbody>
+  </table>
 
-          <button class="secondary answer-toggle">Show answer</button>
-          <div class="answer">
-           <p>Answer text</p>
-            </div>
-        </div>
+  <p><strong>Tick the best-case space complexity for a binary and linear search.</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Binary search</th>
+        <th>Linear search</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>O(log(n))</td><td></td><td></td></tr>
+      <tr><td>O(1)</td><td></td><td></td></tr>
+      <tr><td>O(n)</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Tick the average time complexity for a binary and linear search.</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Binary search</th>
+        <th>Linear search</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>O(log(n))</td><td></td><td></td></tr>
+      <tr><td>O(1)</td><td></td><td></td></tr>
+      <tr><td>O(n)</td><td></td><td></td></tr>
+    </tbody>
+  </table><p>[6]</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>Worst-case space complexity:</strong> Binary = O(1), Linear = O(1)</p>
+    <p><strong>Best-case space complexity:</strong> Binary = O(1), Linear = O(1)</p>
+    <p><strong>Average time complexity:</strong> Binary = O(log(n)), Linear = O(n)</p>
+
+    <p>Ticked tables:</p>
+
+    <p><strong>Worst-case space complexity</strong></p>
+    <table>
+      <thead>
+        <tr><th></th><th>Binary search</th><th>Linear search</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>O(log(n))</td><td></td><td></td></tr>
+        <tr><td>O(1)</td><td>✓</td><td>✓</td></tr>
+        <tr><td>O(n)</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Best-case space complexity</strong></p>
+    <table>
+      <thead>
+        <tr><th></th><th>Binary search</th><th>Linear search</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>O(log(n))</td><td></td><td></td></tr>
+        <tr><td>O(1)</td><td>✓</td><td>✓</td></tr>
+        <tr><td>O(n)</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Average time complexity</strong></p>
+    <table>
+      <thead>
+        <tr><th></th><th>Binary search</th><th>Linear search</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>O(log(n))</td><td>✓</td><td></td></tr>
+        <tr><td>O(1)</td><td></td><td></td></tr>
+        <tr><td>O(n)</td><td></td><td>✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
-      </div>
+<div class="rev-card qa-card">
+  <h3>Question 2</h3>
+
+  <p>
+    A program designer needs to decide on an algorithm to use from a choice of three.
+    The table shows the worst-case Big O complexities for each algorithm.
+  </p>
+
+  <p>
+    The program will be used to analyse data that can range from 2 items to 2 billion items.
+  </p>
+
+  <p>
+    Compare the use of all three algorithms and suggest which the programmer should use.
+    You should include:
+  </p>
+
+  <ul>
+    <li>the meaning of constant, logarithmic, linear and exponential complexity</li>
+    <li>how well each algorithm scales as the amount of data increases</li>
+    <li>which algorithm is the most suitable for the given task</li>
+  </ul><p>[9]</p>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+
+    <p>
+      <strong>Constant complexity (O(1))</strong> means the time or space used does not
+      change as the size of the data increases.
+    </p>
+
+    <p>
+      <strong>Logarithmic complexity (O(log n))</strong> means performance improves in
+      proportion to the logarithm of the data size, so increases in data size have a
+      relatively small impact.
+    </p>
+
+    <p>
+      <strong>Linear complexity (O(n))</strong> means the time or space required increases
+      directly in proportion to the number of items.
+    </p>
+
+    <p>
+      <strong>Exponential complexity (O(2ⁿ))</strong> means the time or space required
+      doubles for each additional item, making it unsuitable for large data sets.
+    </p>
+
+    <p>
+      Algorithm 1 has linear time and exponential space complexity, so while it scales
+      reasonably in time, it would quickly become impractical due to excessive memory
+      usage.
+    </p>
+
+    <p>
+      Algorithm 2 has exponential time complexity, meaning performance would rapidly
+      degrade as the data size increases, making it unsuitable for very large data sets.
+    </p>
+
+    <p>
+      Algorithm 3 has logarithmic time and space complexity, which scales very efficiently
+      even with billions of items.
+    </p>
+
+    <p>
+      Therefore, <strong>Algorithm 3</strong> is the most suitable choice as it offers the
+      best scalability in both time and space for very large data sets.
+    </p>
+  </div>
+</div>
+
     </div>
   </section>
 

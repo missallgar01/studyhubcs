@@ -2369,6 +2369,121 @@ endwhile
 </div>
 
 <!-- ================= END ================= -->
+<div class="rev-card qa-card">
+  <h3>Question 8 – Queues</h3>
+
+  <p><strong>(a)</strong> The current contents of a queue data structure are shown.</p>
+  <p>State the purpose of <strong>headPointer</strong> and <strong>tailPointer</strong> in the queue.</p>
+
+  <textarea placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>headPointer:</strong> Identifies the first item in the queue / the item to be removed next (dequeue).</p>
+    <p><strong>tailPointer:</strong> Identifies the next free space in the queue / where the next item will be added (enqueue).</p>
+  </div>
+
+  <hr>
+
+  <p><strong>(b)</strong> <code>enqueue</code> adds data to the queue and <code>dequeue</code> removes data.</p>
+  <p>Show the contents of the queue and the position of both pointers after the following actions:</p>
+  <ul>
+    <li><code>enqueue(20)</code></li>
+    <li><code>dequeue()</code></li>
+    <li><code>dequeue()</code></li>
+  </ul>
+
+  <textarea placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p>The value <strong>20</strong> is added at the position indicated by <strong>tailPointer</strong>.</p>
+    <p>Each <strong>dequeue</strong> moves <strong>headPointer</strong> forward by one position.</p>
+    <p>The remaining queue contents stay in the same array positions; items are not shifted.</p>
+    <p><strong>headPointer</strong> points to the next item to be removed, and <strong>tailPointer</strong> points to the next free space.</p>
+  </div>
+
+  <hr>
+
+  <p><strong>(c)</strong> The queue stores ID numbers of jobs. Some jobs have priority and must be processed first.</p>
+  <p>Explain why this queue is not suitable for this program.</p>
+
+  <textarea placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p>A queue is a <strong>FIFO (First In, First Out)</strong> structure.</p>
+    <p>Jobs cannot be inserted at the front or reordered based on priority.</p>
+    <p>Higher-priority jobs cannot be processed before earlier jobs, making a standard queue unsuitable.</p>
+  </div>
+</div>
+
+   <div class="rev-card qa-card">
+  <h3>9. Question</h3>
+
+  <p>
+    <strong>9(a).</strong> The contents of a stack are stored in the 1-dimensional array called <strong>numbers</strong>.<br>
+    <strong>topStack</strong> stores the index of the next free space in the stack.<br>
+    The array is declared with space for 100 elements.<br>
+    The function <strong>pop()</strong> returns the next item from the stack and updates the appropriate pointers.<br>
+    Describe the steps in the function <strong>pop()</strong>. <strong>[4]</strong>
+  </p>
+
+  <p>
+    <strong>9(b).</strong> The function <strong>push()</strong> inserts its parameter called <strong>dataValue</strong> onto the stack and updates the appropriate pointers.<br>
+    Complete the function <strong>push()</strong> using pseudocode or program code.
+  </p>
+
+  <pre><code>function push(... ......................................)
+ if ................................... ! = 100 then
+  numbers [...................................] = dataValue
+  topStack = topStack + ...................................
+  return true
+ else
+  return false
+ endif
+endfunction</code></pre>
+
+  <p>
+    <strong>9(c).</strong> Write an algorithm, using pseudocode or program code, to call the function <strong>push()</strong> with the value <strong>15</strong> and output a message saying
+    <strong>“Added”</strong> if the value was successfully inserted onto the stack or <strong>“Not Added”</strong> if the stack is full. <strong>[4]</strong>
+  </p>
+
+  <textarea placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer" hidden>
+    <p><strong>Mark scheme answer</strong></p>
+
+    <p><strong>9(a) pop() steps (any valid wording):</strong></p>
+    <ol>
+      <li>Check if the stack is empty / check <strong>topStack</strong> is equal to 0.</li>
+      <li>If empty, return a suitable value (e.g. -1 / null) or give a warning / do nothing.</li>
+      <li>If not empty, decrement <strong>topStack</strong>.</li>
+      <li>Return the value in element <strong>topStack</strong> from the array <strong>numbers</strong>.</li>
+    </ol>
+
+    <p><strong>9(b) Completed push() function:</strong></p>
+    <pre><code>function push(dataValue)
+ if topStack != 100 then
+  numbers[topStack] = dataValue
+  topStack = topStack + 1
+  return true
+ else
+  return false
+ endif
+endfunction</code></pre>
+
+    <p><strong>9(c) Example algorithm to push 15 and output message:</strong></p>
+    <pre><code>result = push(15)
+if result then
+ print("Added")
+else
+ print("Not Added")
+endif</code></pre>
+  </div>
+</div>
 
 
            </div>
@@ -3061,7 +3176,111 @@ endwhile
 
 
 
+!-- Question  -->
+<div>
+  <h3>5. Question</h3>
 
+  <p><strong>(a)</strong> Explain why a record data structure is suitable for this data. <em>[2]</em></p>
+  <p><strong>(b)</strong> The tasks will be stored in a binary search tree before they are processed. They are stored in ascending order by their order number.</p>
+  <p><strong>i.</strong> Give two characteristics of a binary search tree. <em>[2]</em></p>
+  <p><strong>ii.</strong> Give an advantage of storing the tasks in a binary search tree instead of a 1-dimensional array. <em>[1]</em></p>
+  <p><strong>iii.</strong> Tick (✓) one column in each row to identify whether each statement applies to a depth-first (post-order) traversal, breadth-first traversal, or neither. <em>[5]</em></p>
+  <p><strong>iv.</strong> Update the BST diagram after inserting Task X (12), Task Y (7), Task Z (11). <em>[3]</em></p>
+
+  <div data-image-placeholder="QP BST diagram placeholder (for part iv)"></div>
+
+  <textarea placeholder="Write your answer here..."></textarea>
+
+  <button type="button">Show answer</button>
+  <div>
+    <p><strong>Mark scheme answers (indicative):</strong></p>
+
+    <p><strong>5(a) Record suitability (2 marks):</strong></p>
+    <ul>
+      <li>Can store multiple items of data under one identifier (so all data about a task can be accessed using the same identifier).</li>
+      <li>Can store different data types (this task has string, real, and integer fields).</li>
+    </ul>
+
+    <p><strong>5(b)(i) Two BST characteristics (2 marks):</strong></p>
+    <ul>
+      <li>Each node can have 0, 1, or 2 child nodes (maximum of 2).</li>
+      <li>Nodes are ordered (left child less than parent, right child greater than parent), so where a node is added depends on its order.</li>
+    </ul>
+
+    <p><strong>5(b)(ii) One advantage (1 mark):</strong></p>
+    <ul>
+      <li>Searching is faster (often O(log n)) / inserting new tasks is faster / no need to re-sort after each insert (because ordering is maintained).</li>
+    </ul>
+
+    <p><strong>5(b)(iii) Traversal statements (✓):</strong></p>
+    <ul>
+      <li>All nodes at the current depth are visited before moving to the next depth — <strong>Breadth-first</strong> ✓</li>
+      <li>The algorithm traverses to the end of one branch before moving to another branch — <strong>Depth-first (post-order)</strong> ✓</li>
+      <li>The algorithm will make use of backtracking — <strong>Depth-first (post-order)</strong> ✓</li>
+      <li>The traversal can be used to output the contents of the tree in ascending order — <strong>Neither</strong> ✓</li>
+      <li>The algorithm will output the root node last — <strong>Depth-first (post-order)</strong> ✓</li>
+    </ul>
+
+    <p><strong>5(b)(iv) Insert positions (3 marks):</strong></p>
+    <ul>
+      <li>Task Y goes to the <strong>right</strong> of Task F.</li>
+      <li>Task X goes to the <strong>right</strong> of Task H.</li>
+      <li>Task Z goes to the <strong>left</strong> of Task X.</li>
+    </ul>
+
+    <div data-image-placeholder="ANSWER BST diagram placeholder (final tree after inserts)"></div>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <h3>28(a). Question</h3>
+
+  <p>
+    Fig. 5 shows a graph data structure representing a small section of a parcel delivery network. Each node
+    represents an address where deliveries need to be made. The edges show the possible routes and distances
+    between these deliveries.
+  </p>
+
+  <!-- IMAGE PLACEHOLDER: Fig. 5 graph -->
+  <div class="img-placeholder" data-figure="Fig. 5">
+    [Insert Fig. 5 image here]
+  </div>
+
+  <p>Give one reason why the graph is a visualisation of the problem. <strong>[1]</strong></p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <p><strong>Mark scheme answer (any one):</strong></p>
+    <ul>
+      <li>Symbols are used to represent the address</li>
+      <li>The edges represent possible connections between addresses, not the actual physical routes</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Question 16(a)(i) -->
+<div class="rev-card qa-card">
+  <h3>16(a)(i). Question</h3>
+
+  <p>Give two characteristics of a tree data structure.</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+  <div class="answer">
+    <p>Any two of:</p>
+    <ul>
+      <li>Has a single <strong>root</strong> node (start node).</li>
+      <li>Nodes are connected by <strong>edges</strong> in a <strong>parent/child</strong> hierarchy.</li>
+      <li><strong>No cycles</strong> (acyclic structure).</li>
+      <li>Each node (except the root) has exactly <strong>one parent</strong>.</li>
+      <li>Nodes can have <strong>zero or more children</strong> (leaf nodes have none).</li>
+    </ul>
+  </div>
+</div>
 </main>
 
 <footer>
