@@ -514,6 +514,92 @@ Players(3).name = "Jane"
 
 
     <section class="topic-section expanded">
+  <div class="topic-header">
+    <span class="topic-arrow">&#9656;</span>
+    <h2>Kidz Arrowz</h2>
+  </div>
+
+  <div class="topic-body vertical-knowledge">
+
+    <!-- Context / stem -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        A games company has developed a game called <strong>Kidz Arrowz</strong>. Players throw an arrow at a target
+        board and are awarded different points depending on which circle the arrow lands in.
+      </p>
+      <p>
+        A computer program is required to keep track of the scores for each competition. The user will enter the
+        number of players, and the name of each player, in that competition to a maximum of <strong>10</strong>.
+      </p>
+      <p>
+        The program will then ask for the score of each player in turn. Each competition has <strong>8 rounds</strong>,
+        with each player throwing one arrow each round. The program will then display the <strong>total score</strong>
+        of each player.
+      </p>
+      <p>
+        The players are declared as a record structure:
+        <code>record player(string playerName, integer totalScore)</code>
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p></p>
+      </div>
+    </div>
+
+    <!-- (a) -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>(a) Describe what is meant by a record structure.</p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          A record structure stores multiple related items under one name, and the items (fields) can be of different data types.
+        </p>
+      </div>
+    </div>
+
+    <!-- (b) -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>(b) The records for the players are stored in a 1D array. State why a 1D array is a suitable data structure for the records.</p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          A 1D array allows easy access to each player record using an index, makes it easy to process each record in turn using a loop, and is suitable because the maximum number of players is known.
+        </p>
+      </div>
+    </div>
+
+    <!-- (c) -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>(c) Three data structures are arrays, records and stacks. Identify one other data structure.</p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Queue (other acceptable answers include list, tuple, tree, graph, or linked list).
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
       <h2>Stacks and Queues Notes</h2>
@@ -3168,72 +3254,1210 @@ endwhile
 
 <!-- ================= END ================= -->
 
-
            </div>
       </div>
       </section>
 
 
 
-
-!-- Question  -->
-<div>
-  <h3>5. Question</h3>
-
-  <p><strong>(a)</strong> Explain why a record data structure is suitable for this data. <em>[2]</em></p>
-  <p><strong>(b)</strong> The tasks will be stored in a binary search tree before they are processed. They are stored in ascending order by their order number.</p>
-  <p><strong>i.</strong> Give two characteristics of a binary search tree. <em>[2]</em></p>
-  <p><strong>ii.</strong> Give an advantage of storing the tasks in a binary search tree instead of a 1-dimensional array. <em>[1]</em></p>
-  <p><strong>iii.</strong> Tick (✓) one column in each row to identify whether each statement applies to a depth-first (post-order) traversal, breadth-first traversal, or neither. <em>[5]</em></p>
-  <p><strong>iv.</strong> Update the BST diagram after inserting Task X (12), Task Y (7), Task Z (11). <em>[3]</em></p>
-
-  <div data-image-placeholder="QP BST diagram placeholder (for part iv)"></div>
-
-  <textarea placeholder="Write your answer here..."></textarea>
-
-  <button type="button">Show answer</button>
-  <div>
-    <p><strong>Mark scheme answers (indicative):</strong></p>
-
-    <p><strong>5(a) Record suitability (2 marks):</strong></p>
-    <ul>
-      <li>Can store multiple items of data under one identifier (so all data about a task can be accessed using the same identifier).</li>
-      <li>Can store different data types (this task has string, real, and integer fields).</li>
-    </ul>
-
-    <p><strong>5(b)(i) Two BST characteristics (2 marks):</strong></p>
-    <ul>
-      <li>Each node can have 0, 1, or 2 child nodes (maximum of 2).</li>
-      <li>Nodes are ordered (left child less than parent, right child greater than parent), so where a node is added depends on its order.</li>
-    </ul>
-
-    <p><strong>5(b)(ii) One advantage (1 mark):</strong></p>
-    <ul>
-      <li>Searching is faster (often O(log n)) / inserting new tasks is faster / no need to re-sort after each insert (because ordering is maintained).</li>
-    </ul>
-
-    <p><strong>5(b)(iii) Traversal statements (✓):</strong></p>
-    <ul>
-      <li>All nodes at the current depth are visited before moving to the next depth — <strong>Breadth-first</strong> ✓</li>
-      <li>The algorithm traverses to the end of one branch before moving to another branch — <strong>Depth-first (post-order)</strong> ✓</li>
-      <li>The algorithm will make use of backtracking — <strong>Depth-first (post-order)</strong> ✓</li>
-      <li>The traversal can be used to output the contents of the tree in ascending order — <strong>Neither</strong> ✓</li>
-      <li>The algorithm will output the root node last — <strong>Depth-first (post-order)</strong> ✓</li>
-    </ul>
-
-    <p><strong>5(b)(iv) Insert positions (3 marks):</strong></p>
-    <ul>
-      <li>Task Y goes to the <strong>right</strong> of Task F.</li>
-      <li>Task X goes to the <strong>right</strong> of Task H.</li>
-      <li>Task Z goes to the <strong>left</strong> of Task X.</li>
-    </ul>
-
-    <div data-image-placeholder="ANSWER BST diagram placeholder (final tree after inserts)"></div>
+    <!-- ================= Binary Trees ================= -->
+<section class="topic-section expanded">
+  <div class="topic-header">
+    <span class="topic-arrow">&#9656;</span>
+    <h2>Graphs and Binary Trees</h2>
   </div>
+
+  <div class="topic-body vertical-knowledge">
+
+    <!-- TREE OVERVIEW -->
+    <div class="knowledge-card">
+      <h3>Tree (Overview)</h3>
+      <p>
+        A tree is a non-linear, hierarchical data structure made up of nodes connected by edges.
+        It has one root node and zero or more child nodes. Leaf nodes have no children.
+      </p>
+
+      <figure class="diagram-placeholder">
+        <div class="diagram-box">
+          <p><strong>Diagram placeholder:</strong> Tree showing root, children, edges and leaf nodes</p>
+
+            <img src="images/datastructures/tree.png" width="50%"/></div>
+        <figcaption>Basic tree terminology</figcaption>
+      </figure>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Root</td><td>Top node of the tree</td></tr>
+          <tr><td>Node</td><td>Stores a data value</td></tr>
+          <tr><td>Edge</td><td>Connection between nodes</td></tr>
+          <tr><td>Leaf</td><td>Node with no children</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- BINARY SEARCH TREE -->
+    <div class="knowledge-card">
+      <h3>Binary Search Tree (BST)</h3>
+      <p>
+        A BST is a binary tree where values in the left subtree are smaller than the node,
+        and values in the right subtree are larger.
+      </p>
+
+      <figure class="diagram-placeholder">
+        <div class="diagram-box">
+          <p><strong>Diagram placeholder:</strong> BST showing left &lt; root &lt; right</p>
+
+
+        </div>
+
+          <img src="images/datastructures/binarytree.png" height="196" width="207"/>
+          <figcaption>Ordered structure of a BST</figcaption>
+      </figure>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Explanation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Children</td><td>Maximum of two per node</td></tr>
+          <tr><td>Balanced</td><td>Search time O(log n)</td></tr>
+          <tr><td>Unbalanced</td><td>Search time degrades to O(n)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+<section class="topic-section expanded">
+  <div class="topic-header">
+    <span class="topic-arrow">&#9656;</span>
+    <h2>Implementing a Binary Tree</h2>
+  </div>
+
+  <div class="topic-body vertical-knowledge">
+
+    <!-- OVERVIEW -->
+    <div class="knowledge-card">
+      <h3>What is a Binary Tree?</h3>
+      <p>
+        A binary tree is a non-linear data structure where each node can have
+        a maximum of two children, called the left child and the right child.
+      </p>
+    </div>
+
+    <!-- LINKED NODE IMPLEMENTATION -->
+    <div class="knowledge-card">
+      <h3>Method 1: Linked-Node Implementation</h3>
+      <p>
+        Each node is an object that stores the data and references (pointers)
+        to its left and right children. The tree stores a reference to the root node.
+      </p>
+
+      <figure class="diagram-placeholder">
+        <div class="diagram-box">
+          <p><strong>Diagram placeholder:</strong> Node containing data, left pointer, and right pointer</p>
+
+
+            <img src="images/datastructures/nodediagram.png" height="504" width="617"/></div>
+        <figcaption>Linked-node representation of a binary tree</figcaption>
+      </figure>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>data</td><td>Stores the value in the node</td></tr>
+          <tr><td>left</td><td>Reference to left child node</td></tr>
+          <tr><td>right</td><td>Reference to right child node</td></tr>
+          <tr><td>root</td><td>Reference to the first node in the tree</td></tr>
+        </tbody>
+      </table>
+
+        <img src="images/datastructures/nodeclass.png" height="228" width="162"/>
+        <pre class="algorithm"><code>class Node
+  data
+  left
+  right
+
+  procedure new(new_data)
+    data = new_data
+    left = null
+    right = null
+  end procedure
+end class
+
+class BinaryTree
+  root
+
+  procedure new()
+    root = null
+  end procedure
+end class</code></pre>
+    </div>
+
+    <!-- ARRAY IMPLEMENTATION -->
+    <div class="knowledge-card">
+      <h3>Method 2: Array / Table Implementation</h3>
+      <p>
+        The binary tree is stored in a table (often a 2D array).
+        Each row represents a node and stores the node’s data and
+        the indexes of its left and right children.
+      </p>
+
+      <figure class="diagram-placeholder">
+        <div class="diagram-box">
+          <p><strong>Diagram placeholder:</strong> Table showing node index, data, left index, right index</p>
+        </div>
+        <figcaption>Array-based representation of a binary tree</figcaption>
+      </figure>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Data</th>
+            <th>Left Child</th>
+            <th>Right Child</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>50</td><td>2</td><td>3</td></tr>
+          <tr><td>2</td><td>30</td><td>4</td><td>5</td></tr>
+          <tr><td>3</td><td>70</td><td>null</td><td>null</td></tr>
+        </tbody>
+      </table>
+
+      <pre class="algorithm"><code># Each row stores: data, leftIndex, rightIndex
+tree[1] = [50, 2, 3]
+tree[2] = [30, 4, 5]
+tree[3] = [70, null, null]</code></pre>
+    </div>
+
+    <!-- COMPARISON -->
+    <div class="knowledge-card">
+      <h3>Comparison of Implementations</h3>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Linked-Node</th>
+            <th>Array / Table</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Memory size</td>
+            <td>Dynamic</td>
+            <td>Often fixed</td>
+          </tr>
+          <tr>
+            <td>Insertion & deletion</td>
+            <td>Easier</td>
+            <td>More complex</td>
+          </tr>
+          <tr>
+            <td>Exam suitability</td>
+            <td>Good</td>
+            <td>Very common</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- INSERT BST -->
+    <div class="knowledge-card">
+      <h3>Algorithm: Insert into a Binary Search Tree</h3>
+
+        <img src="images/datastructures/binarytree2.png" height="105" width="439"/>
+        <img
+            src="images/datastructures/binarytree3.png" height="126" width="373"/>
+        <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Create a new node</td></tr>
+          <tr><td>2</td><td>If root is null, set root = new node</td></tr>
+          <tr><td>3</td><td>Compare value and move left or right</td></tr>
+          <tr><td>4</td><td>Insert at first null pointer</td></tr>
+        </tbody>
+      </table>
+
+      <pre class="algorithm"><code>Procedure insert(new_value)
+  new_node = new Node(new_value)
+
+  if root == null then
+    root = new_node
+    return
+  end if
+
+  current = root
+  parent = null
+
+  while current != null
+    parent = current
+    if new_value &lt; current.data then
+      current = current.left
+    else
+      current = current.right
+    end if
+  end while
+
+  if new_value &lt; parent.data then
+    parent.left = new_node
+  else
+    parent.right = new_node
+  end if
+End procedure</code></pre>
+    </div>
+
+
+<!-- DELETE FROM A BINARY SEARCH TREE -->
+<div class="knowledge-card">
+  <h3>Algorithm: Delete a Node from a Binary Search Tree (BST)</h3>
+
+  <p>
+    Deleting a node from a BST depends on how many children the node has.
+    The tree must remain ordered after deletion.
+  </p>
+
+  <table class="knowledge-table">
+    <thead>
+      <tr>
+        <th>Case</th>
+        <th>Situation</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Leaf node</td>
+        <td>No children</td>
+        <td>Remove the node by setting the parent pointer to null</td>
+      </tr>
+      <tr>
+        <td>One child</td>
+        <td>Left or right child only</td>
+        <td>Replace the node with its child (parent points to child)</td>
+      </tr>
+      <tr>
+        <td>Two children</td>
+        <td>Left and right children</td>
+        <td>
+          Find the in-order successor (smallest value in right subtree),
+          copy its value into the node, then delete the successor
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <figure class="diagram-placeholder">
+    <div class="diagram-box">
+      <p><strong>Diagram placeholder:</strong> BST delete cases (leaf, one child, two children)</p>
+
+
+        <img src="images/datastructures/deletenode.png" height="293" width="511"/></div>
+    <figcaption>Three possible cases when deleting a node from a BST</figcaption>
+  </figure>
+
+  <pre class="algorithm"><code>Procedure delete(root, target)
+  current = root
+  parent = null
+
+  # Step 1: Find node to delete
+  while current != null and current.data != target
+    parent = current
+    if target &lt; current.data then
+      current = current.left
+    else
+      current = current.right
+    end if
+  end while
+
+  if current == null then
+    return  # value not found
+  end if
+
+  # Step 2: Case 1 – No children
+  if current.left == null and current.right == null then
+    if parent == null then
+      root = null
+    else if parent.left == current then
+      parent.left = null
+    else
+      parent.right = null
+    end if
+
+  # Step 3: Case 2 – One child
+  else if current.left == null or current.right == null then
+    if current.left != null then
+      child = current.left
+    else
+      child = current.right
+    end if
+
+    if parent == null then
+      root = child
+    else if parent.left == current then
+      parent.left = child
+    else
+      parent.right = child
+    end if
+
+  # Step 4: Case 3 – Two children
+  else
+    successor_parent = current
+    successor = current.right
+
+    while successor.left != null
+      successor_parent = successor
+      successor = successor.left
+    end while
+
+    current.data = successor.data
+
+    if successor_parent.left == successor then
+      successor_parent.left = successor.right
+    else
+      successor_parent.right = successor.right
+    end if
+  end if
+End procedure</code></pre>
 </div>
 
-<div class="rev-card qa-card">
-  <h3>28(a). Question</h3>
+
+
+
+
+    <!-- TREE TRAVERSALS -->
+    <div class="knowledge-card">
+      <h3>Tree Traversals</h3>
+
+      <figure class="diagram-placeholder">
+        <div class="diagram-box">
+
+            <img src="images/datastructures/traversals.png" height="196" width="207"/></div>
+
+      </figure>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Traversal</th>
+            <th>Order</th>
+            <th>Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Pre-order</td><td>Root → Left → Right</td><td>Copy tree</td></tr>
+          <tr><td>In-order</td><td>Left → Root → Right</td><td>Sorted output</td></tr>
+          <tr><td>Post-order</td><td>Left → Right → Root</td><td>Delete tree</td></tr>
+          <tr><td>Breadth-first</td><td>Level by level</td><td>Shortest path</td></tr>
+        </tbody>
+      </table>
+
+
+         <!-- PRE-ORDER -->
+    <div class="knowledge-card">
+      <h3>Algorithm: Pre-order Traversal</h3>
+      <pre class="algorithm"><code>Procedure preorder(node)
+  if node != null then
+    print(node.data)
+    preorder(node.left)
+    preorder(node.right)
+  end if
+End procedure</code></pre>
+    </div>
+
+    <!-- IN-ORDER -->
+    <div class="knowledge-card">
+      <h3>Algorithm: In-order Traversal</h3>
+      <pre class="algorithm"><code>Procedure inorder(node)
+  if node != null then
+    inorder(node.left)
+    print(node.data)
+    inorder(node.right)
+  end if
+End procedure</code></pre>
+    </div>
+
+    <!-- POST-ORDER -->
+    <div class="knowledge-card">
+      <h3>Algorithm: Post-order Traversal</h3>
+      <pre class="algorithm"><code>Procedure postorder(node)
+  if node != null then
+    postorder(node.left)
+    postorder(node.right)
+    print(node.data)
+  end if
+End procedure</code></pre>
+    </div>
+
+    <!-- BREADTH-FIRST -->
+    <div class="knowledge-card">
+      <h3>Algorithm: Breadth-First Traversal</h3>
+      <pre class="algorithm"><code>Procedure breadth_first(root)
+  if root == null then return
+
+  q = queue()
+  q.enqueue(root)
+
+  while q not empty
+    current = q.dequeue()
+    print(current.data)
+
+    if current.left != null then
+      q.enqueue(current.left)
+    end if
+    if current.right != null then
+      q.enqueue(current.right)
+    end if
+  end while
+End procedure</code></pre>
+    </div>
+    </div>
+
+    <!-- GRAPH OVERVIEW -->
+    <div class="knowledge-card">
+      <h3>Graph</h3>
+      <p>
+        A graph models relationships using vertices (nodes) and edges.
+        Graphs do not have a single root node.
+      </p>
+
+      <figure class="diagram-placeholder">
+        <div class="diagram-box">
+            <img src="images/datastructures/graph.png" height="143" width="331"/></div>
+        <figcaption>Basic graph structure</figcaption>
+      </figure>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Undirected</td><td>No direction on edges
+
+              <img src="images/datastructures/undirected.png" height="189" width="515"/></td></tr>
+          <tr><td>Directed</td><td>Edges have direction
+
+
+              <img src="images/datastructures/directed.png" height="233" width="463"/></td></tr>
+          <tr><td>Weighted</td><td>Edges store values (distance, cost)
+
+
+              <img src="images/datastructures/weighted.png" height="185" width="412"/></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- GRAPH REPRESENTATIONS -->
+    <div class="knowledge-card">
+      <h3>Graph Representations</h3>
+
+      <figure class="diagram-placeholder">
+        <div class="diagram-box">
+
+        </div>
+        <figcaption>Two ways to store a graph</figcaption>
+      </figure>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Representation</th>
+            <th>Description</th>
+            <th>Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Adjacency List</td><td>Lists neighbours for each node</td><td>Sparse graphs</td></tr>
+          <tr><td>Adjacency Matrix</td><td>2D array of connections</td><td>Dense graphs</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+      <section class="topic-section expanded">
+  <div class="topic-header">
+    <span class="topic-arrow">&#9656;</span>
+    <h2>Adjacency List and Adjacency Matrix (Example)</h2>
+  </div>
+
+  <div class="topic-body vertical-knowledge">
+
+    <!-- ADJACENCY LIST -->
+    <div class="knowledge-card">
+      <h3>Adjacency List</h3>
+      <p>
+        Each node stores a list of the nodes it is directly connected to.
+        This graph is <strong>undirected</strong> and <strong>unweighted</strong>.
+      </p>
+
+      <pre class="algorithm"><code>Graph = {
+  A: [B, C],
+  B: [A, D, E],
+  C: [A, F],
+  D: [B],
+  E: [B, F],
+  F: [C, E]
+}</code></pre>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Node</th>
+            <th>Adjacent Nodes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>A</td><td>B, C</td></tr>
+          <tr><td>B</td><td>A, D, E</td></tr>
+          <tr><td>C</td><td>A, F</td></tr>
+          <tr><td>D</td><td>B</td></tr>
+          <tr><td>E</td><td>B, F</td></tr>
+          <tr><td>F</td><td>C, E</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ADJACENCY MATRIX -->
+    <div class="knowledge-card">
+      <h3>Adjacency Matrix</h3>
+      <p>
+        Rows and columns represent nodes.
+        A value of <strong>1</strong> means an edge exists, <strong>0</strong> means no edge.
+      </p>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>A</th>
+            <td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td>
+          </tr>
+          <tr>
+            <th>B</th>
+            <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td>
+          </tr>
+          <tr>
+            <th>C</th>
+            <td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td>
+          </tr>
+          <tr>
+            <th>D</th>
+            <td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td>
+          </tr>
+          <tr>
+            <th>E</th>
+            <td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
+          </tr>
+          <tr>
+            <th>F</th>
+            <td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Note:</strong> The matrix is symmetrical because the graph is undirected.</p>
+    </div>
+
+  </div>
+</section>
+
+    <!-- BFS vs DFS -->
+    <div class="knowledge-card">
+      <h3>BFS vs DFS</h3>
+
+      <table class="knowledge-table">
+
+          <img src="images/datastructures/dfsgraph.png" height="158" width="175"/>
+     <img src="images/datastructures/dfsdiagram.png" height="180" width="149"/>.
+
+          <thead>
+          <tr>
+            <th>Feature</th>
+            <th>BFS
+                </th>
+            <th>DFS
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Data structure</td><td>Queue</td>
+
+              <td>Stack .</th></td></tr>
+          <tr><td>Traversal</td><td>Level by level</td><td>Deep then backtrack</td></tr>
+          <tr><td>Best use</td><td>Shortest path</td><td>Explore all paths</td></tr>
+        </tbody>
+      </table>
+
+      <pre class="algorithm"><code>Procedure bfs(graph, start)
+  visited = []
+  q = queue()
+  q.enqueue(start)
+
+  while q not empty
+    node = q.dequeue()
+    if node not in visited
+      visited.append(node)
+      for neighbour in graph[node]
+        q.enqueue(neighbour)
+  print(visited)
+End procedure</code></pre>
+
+      <pre class="algorithm"><code>Procedure dfs(graph, start)
+  visited = []
+  s = stack()
+  s.push(start)
+
+  while s not empty
+    node = s.pop()
+    if node not in visited
+      visited.append(node)
+      for neighbour in reversed(graph[node])
+        s.push(neighbour)
+  print(visited)
+End procedure</code></pre>
+    </div>
+
+  </div>
+</section>
+
+    <section class="topic-section expanded">
+  <div class="topic-header">
+    <span class="topic-arrow">&#9656;</span>
+    <h2>Graph Traversal: BFS and DFS</h2>
+  </div>
+
+  <div class="topic-body vertical-knowledge">
+
+    <!-- GRAPH USED -->
+    <div class="knowledge-card">
+      <h3>Example Graph (Used for BFS & DFS)</h3>
+      <p>
+        Assume the following adjacency list representation of a graph,
+        starting traversal from node <strong>A</strong>.
+      </p>
+
+      <pre class="algorithm"><code>graph = {
+  A: [B, C],
+  B: [A, D, E],
+  C: [A, F],
+  D: [B],
+  E: [B, F],
+  F: [C, E]
+}</code></pre>
+
+      <figure class="diagram-placeholder">
+        <div class="diagram-box">
+
+            <img src="images/datastructures/dfsgraph.png" height="158" width="175"/></div>
+        <figcaption>Graph used in traversal examples</figcaption>
+      </figure>
+    </div>
+
+    <!-- BFS TABLE -->
+    <div class="knowledge-card">
+      <h3>Breadth-First Search (BFS) – Queue Table</h3>
+      <p>
+        BFS explores the graph level by level using a <strong>queue</strong>.
+      </p>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Current Node</th>
+            <th>Queue</th>
+            <th>Visited</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>A</td><td>B, C</td><td>A</td></tr>
+          <tr><td>2</td><td>B</td><td>C, D, E</td><td>A, B</td></tr>
+          <tr><td>3</td><td>C</td><td>D, E, F</td><td>A, B, C</td></tr>
+          <tr><td>4</td><td>D</td><td>E, F</td><td>A, B, C, D</td></tr>
+          <tr><td>5</td><td>E</td><td>F</td><td>A, B, C, D, E</td></tr>
+          <tr><td>6</td><td>F</td><td>—</td><td>A, B, C, D, E, F</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- DFS TABLE -->
+    <div class="knowledge-card">
+      <h3>Depth-First Search (DFS) – Stack Table</h3>
+      <p>
+        DFS explores as far as possible down one branch before backtracking,
+        using a <strong>stack</strong>.
+      </p>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Current Node</th>
+            <th>Stack</th>
+            <th>Visited</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>A</td><td>C, B</td><td>A</td></tr>
+          <tr><td>2</td><td>B</td><td>C, E, D</td><td>A, B</td></tr>
+          <tr><td>3</td><td>D</td><td>C, E</td><td>A, B, D</td></tr>
+          <tr><td>4</td><td>E</td><td>C, F</td><td>A, B, D, E</td></tr>
+          <tr><td>5</td><td>F</td><td>C</td><td>A, B, D, E, F</td></tr>
+          <tr><td>6</td><td>C</td><td>—</td><td>A, B, D, E, F, C</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="knowledge-card">
+      <h3>BFS vs DFS (Graph Traversal Summary)</h3>
+
+      <table class="knowledge-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>BFS</th>
+            <th>DFS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Data structure</td><td>Queue</td><td>Stack</td></tr>
+          <tr><td>Traversal order</td><td>Level by level</td><td>Deep then backtrack</td></tr>
+          <tr><td>Visited order (example)</td><td>A, B, C, D, E, F</td><td>A, B, D, E, F, C</td></tr>
+          <tr><td>Best use</td><td>Shortest path (unweighted)</td><td>Exploring all paths</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+
+    <section class="topic-section expanded">
+  <div class="topic-header">
+    <span class="topic-arrow">&#9656;</span>
+    <h2>Trees & Graphs Quick Questions</h2>
+  </div>
+
+  <div class="topic-body vertical-knowledge">
+
+    <!-- Question 1 -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        (a) Describe what is meant by a <strong>binary tree</strong>.
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          A binary tree is a hierarchical, non-linear data structure where each node can have a maximum of two children, usually called the left and right child.
+        </p>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        (b) Explain one advantage of using a <strong>binary search tree</strong> instead of a one-dimensional array to store ordered data.
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Searching for a value in a balanced binary search tree is faster, with a time complexity of O(log n), compared to O(n) for a one-dimensional array.
+        </p>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        (c) State the order in which the nodes of a binary tree are visited during an <strong>in-order traversal</strong>.
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Left subtree, root node, right subtree.
+        </p>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        (d) A graph traversal algorithm uses a <strong>queue</strong> and visits nodes level by level.
+        Identify this traversal algorithm.
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Breadth-first search (BFS).
+        </p>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        (e) Describe one difference between an <strong>adjacency list</strong> and an <strong>adjacency matrix</strong>.
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          An adjacency list stores each node with a list of its connected nodes, while an adjacency matrix uses a two-dimensional array to show connections between all nodes.
+        </p>
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        (f) Explain why a <strong>breadth-first search</strong> is suitable for finding the shortest path in an unweighted graph.
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Breadth-first search explores nodes level by level, so the first time a node is reached it is via the shortest possible path in an unweighted graph.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+  <section class="topic-section expanded">
+  <div class="topic-header">
+    <span class="topic-arrow">&#9656;</span>
+    <h2>Binary Trees – OCR Exam Questions</h2>
+  </div>
+
+  <div class="topic-body vertical-knowledge">
+
+    <!-- Q1 -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        1. A program stores entered data in a binary search tree.<br>
+        The current contents of the tree are shown:
+      </p>
+
+      <!-- IMAGE PLACEHOLDER: Binary Search Tree (countries incl. Sweden) -->
+      <div class="image-placeholder">
+        <p><strong><img src="images/datastructures/Q1.png" height="287" width="520"/></strong></p>
+      </div>
+
+      <p>
+        A pseudocode algorithm is written to search the tree to determine if the data item “Sweden” is in the tree.<br>
+        The function currentNode.left() returns the node positioned to the left of currentNode.<br>
+        The function currentNode.right() returns the node positioned to the right of currentNode.<br><br>
+        Complete the algorithm.
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          thisNode = getData(currentNode)<br>
+          if thisNode == searchValue then return true<br>
+          elseif thisNode &lt; searchValue then<br>
+          if currentNode.left() != null then return searchForData(currentNode.left(), searchValue)<br>
+          else return false<br>
+          else<br>
+          if currentNode.right() != null then return searchForData(currentNode.right(), searchValue)<br>
+          else return false
+        </p>
+      </div>
+    </div>
+
+    <!-- Q1 Preconditions -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        Identify two preconditions needed of a tree for this algorithm to work. [2]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          It is a binary tree.<br>
+          It is ordered / sorted.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q2(a) -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        2(a). A data structure is shown below in Fig. 4.1.
+      </p>
+
+      <!-- IMAGE PLACEHOLDER: Fig 4.1 graph/tree -->
+      <div class="image-placeholder">
+
+          <img src="images/datastructures/q2.png" height="506" width="935"/></div>
+
+      <p>
+        Identify the data structure shown in Fig. 4.1. [1]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>Tree / undirected graph</p>
+      </div>
+    </div>
+
+    <!-- Q2(b) Explanation -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        (b) Explain the difference between a depth-first (post-order) traversal and a breadth-first traversal. [4]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Depth-first explores one branch fully before backtracking and uses a stack.<br>
+          Breadth-first visits all nodes at each level before moving down and uses a queue.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q2(b) Path -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        Show how a depth-first (post-order) traversal would find the path between node A and node X for the structure shown in Fig. 4.1. [6]
+      </p>
+
+      <!-- IMAGE PLACEHOLDER: Fig 4.1 reused -->
+      <div class="image-placeholder">
+
+          <img src="images/datastructures/q2.png" height="506" width="935"/></div>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>D → K → L → H → B → G (X)</p>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        3. Kira uses a tree data structure shown in Fig. 1 to identify the range of possible moves the computer can make.
+      </p>
+
+      <!-- IMAGE PLACEHOLDER: Fig 1 game tree -->
+      <div class="image-placeholder">
+        <p><strong><img src="images/datastructures/q3.png" height="645" width="914"/></strong></p>
+      </div>
+
+      <p>
+        Show how a breadth-first traversal would traverse the tree shown in Fig. 1. [4]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          A<br>
+          B, C, E<br>
+          D, F, G, H<br>
+          I, J
+        </p>
+      </div>
+    </div>
+
+    <!-- Q4 Post-order -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        4. A binary search tree, numbers, stores numbers that are entered into a computer.
+        The contents of the tree are shown below:
+      </p>
+
+      <!-- IMAGE PLACEHOLDER: Numbers BST -->
+      <div class="image-placeholder">
+        <p><strong><img src="images/datastructures/q4.png" height="449" width="987"/></strong></p>
+      </div>
+
+      <p>
+        Explain how a depth-first (post-order) traversal is performed. [5]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Visit left subtree, then right subtree, then root.<br>
+          Example order: 5, 31, 20, 48, 45, 60, 92, 88, 98, 76, 50
+        </p>
+      </div>
+    </div>
+
+    <!-- Q4 Breadth-first -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        Explain how a breadth-first traversal is performed. [5]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Visit root first, then all children, then grandchildren.<br>
+          Example order: 50, 45, 76, 20, 48, 60, 98, 5, 31, 88, 92
+        </p>
+      </div>
+    </div>
+
+
+    <!-- QUESTION 2(a) -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        2) A binary search tree is used to store the names of dog breeds.<br><br>
+        Fig. 7.1
+      </p>
+
+      <!-- IMAGE PLACEHOLDER -->
+      <div class="image-placeholder">
+        <p><strong><img src="images/datastructures/q2oop.png" height="343" width="918"/></strong></p>
+      </div>
+
+      <p>
+        The breeds Doberman and Dalmatian are added to the tree in that order.
+        Add them to Fig. 7.1. [2]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+
+          Doberman is inserted by comparing alphabetically and placed accordingly.<img
+                src="images/datastructures/q2oopans.png" height="385" width="535"/><br>
+          Dalmatian is then compared and inserted in the correct left/right position based on alphabetical order.
+        </p>
+      </div>
+    </div>
+
+    <!-- QUESTION 2(b) -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        (b) Explain how you would determine if the breed <strong>Pug</strong> is in the binary search tree. [3]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Pug &gt; Harrier, so move to the right.<br>
+          Pug &lt; Rottweiler, so move to the left.<br>
+          Pug is found in the tree.
+        </p>
+      </div>
+    </div>
+
+    <!-- QUESTION 2(c) -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        (c) Explain how you would determine if the breed <strong>Spaniel</strong> is in the binary search tree. [3]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+      <div class="answer">
+        <p>
+          Spaniel &gt; Harrier, so move right.<br>
+          Spaniel &gt; Rottweiler, so move right.<br>
+          Spaniel &lt; Whippet but there is no child node, so Spaniel is not in the tree.
+        </p>
+      </div>
+    </div>
+
+
+      <div class="rev-card qa-card">
+  <h3> Graph Question</h3>
 
   <p>
     Fig. 5 shows a graph data structure representing a small section of a parcel delivery network. Each node
@@ -3243,8 +4467,8 @@ endwhile
 
   <!-- IMAGE PLACEHOLDER: Fig. 5 graph -->
   <div class="img-placeholder" data-figure="Fig. 5">
-    [Insert Fig. 5 image here]
-  </div>
+
+      <img src="images/datastructures/qu-graph.png" height="260" width="412"/></div>
 
   <p>Give one reason why the graph is a visualisation of the problem. <strong>[1]</strong></p>
 
@@ -3255,32 +4479,136 @@ endwhile
   <div class="answer">
     <p><strong>Mark scheme answer (any one):</strong></p>
     <ul>
-      <li>Symbols are used to represent the address</li>
+'      <li>Symbols are used to represent the address</li>
       <li>The edges represent possible connections between addresses, not the actual physical routes</li>
     </ul>
   </div>
 </div>
 
-<!-- Question 16(a)(i) -->
-<div class="rev-card qa-card">
-  <h3>16(a)(i). Question</h3>
 
-  <p>Give two characteristics of a tree data structure.</p>
-
-  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-
-  <button class="secondary answer-toggle" type="button">Show answer</button>
-  <div class="answer">
-    <p>Any two of:</p>
-    <ul>
-      <li>Has a single <strong>root</strong> node (start node).</li>
-      <li>Nodes are connected by <strong>edges</strong> in a <strong>parent/child</strong> hierarchy.</li>
-      <li><strong>No cycles</strong> (acyclic structure).</li>
-      <li>Each node (except the root) has exactly <strong>one parent</strong>.</li>
-      <li>Nodes can have <strong>zero or more children</strong> (leaf nodes have none).</li>
-    </ul>
+      <section class="topic-section expanded">
+  <div class="topic-header">
+    <span class="topic-arrow">&#9656;</span>
+    <h2>OCR A Level – OOP Graph Algorithm Question</h2>
   </div>
-</div>
+
+  <div class="topic-body vertical-knowledge">
+
+    <!-- QUESTION -->
+    <div class="rev-card qa-card">
+      <p>Question</p>
+      <p>
+        A software company is developing a navigation system using an object-oriented programming (OOP) language.
+        The system stores a road network as a graph.
+        Each junction is represented by an object of class <strong>Node</strong>.
+        Each road is represented by an object of class <strong>Edge</strong>.
+        <br><br>
+        The Node class has the following methods:
+        <br>
+        getNeighbours() – returns a list of neighbouring Node objects
+        <br>
+        getName() – returns the name of the junction
+        <br><br>
+        (a) Explain why a <strong>breadth-first search (BFS)</strong> algorithm is suitable for finding the
+        shortest path between two junctions in this graph. [3]
+        <br><br>
+        (b) The program uses a breadth-first search starting from a given Node.
+        Complete the pseudocode below to implement the BFS algorithm using OOP principles. [6]
+        <br><br>
+        <code>
+        procedure bfs(startNode)<br>
+        &nbsp;&nbsp;visited = empty list<br>
+        &nbsp;&nbsp;q = empty queue<br><br>
+        &nbsp;&nbsp;enqueue(q, startNode)<br><br>
+        &nbsp;&nbsp;while q is not empty<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;current = dequeue(q)<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if current not in visited then<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add current to visited<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for each neighbour in current.__________()<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if neighbour not in visited then<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________(q, neighbour)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endif<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endfor<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;endif<br>
+        &nbsp;&nbsp;endwhile<br>
+        endprocedure
+        </code>
+        <br><br>
+        (c) State one advantage of implementing this graph traversal using an object-oriented approach
+        rather than a procedural approach. [2]
+      </p>
+
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+      <button class="secondary answer-toggle">Show answer</button>
+
+      <div class="answer">
+        <p>
+          <strong>(a)</strong><br>
+          Breadth-first search explores the graph level by level.<br>
+          In an unweighted graph, the first time a node is reached is via the shortest path.<br>
+          Therefore BFS guarantees the shortest path between two nodes.
+          <br><br>
+
+          <strong>(b)</strong><br>
+          getNeighbours()<br>
+          enqueue(q, neighbour)
+          <br><br>
+
+          <strong>(c)</strong><br>
+          Encapsulation means each Node object manages its own data and connections.<br>
+          This makes the code easier to maintain, reuse, and extend.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2> Hash Tables</h2>
+    </div>
+    <div class="topic-body vertical-knowledge">
+
+      <div class="knowledge-card">
+        <h3>Title</h3>
+        <p></p>
+      </div>
+
+      </div>
+      </div>
+      </section>
+
+
+
+      <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2> Hash Tables Exam style Questions</h2>
+    </div>
+    <div class="topic-body vertical-knowledge">
+
+
+
+        <div class="rev-card qa-card">
+          <p>Question</p>
+
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p></p>
+          </div>
+        </div>
+
+
+           </div>
+      </div>
+      </section>
+
+
 </main>
 
 <footer>
