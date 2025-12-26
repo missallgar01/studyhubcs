@@ -665,18 +665,134 @@ code {
       border-radius: 8px;
     }
 
-  code, pre {
-      background: #f1f1f1;
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-family: monospace;
-    }
-    pre {
-      padding: 10px;
-      overflow-x: auto;
-    }
 
       .kw{background:#fff2a8;padding:0 .2em;border-radius:.2em}
+
+
+/* Make wide tables stay inside cards */
+.table-wrap{
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Let table expand naturally; wrapper will scroll if needed */
+.table-wrap > table{
+  width: max-content;
+  min-width: 100%;
+}
+
+/* Code inside table cells must not force the layout wider */
+td pre, th pre{
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* ==========================
+   FIX CODE ALIGNMENT
+   ========================== */
+
+pre {
+  background: #f1f1f1;
+  border-radius: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  overflow-x: auto;
+}
+
+/* Strip artificial indentation from prettified HTML */
+pre code {
+  display: block;
+  white-space: pre;
+}
+
+
+
+.ds-tabs {
+  /* Try to blend with any existing theme tokens */
+  --ds-bg: var(--card-bg, #fff);
+  --ds-panel: var(--panel-bg, #fff);
+  --ds-border: var(--border-color, rgba(0, 0, 0, 0.12));
+  --ds-text: var(--text-color, inherit);
+  --ds-muted: var(--muted-text, rgba(0, 0, 0, 0.65));
+  --ds-accent: var(--accent-color, #2b6cb0);
+  --ds-radius: var(--radius, 12px);
+
+  margin-top: 0.75rem;
+  color: var(--ds-text);
+}
+
+.ds-tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  background: var(--ds-bg);
+}
+
+/* Tab buttons */
+.ds-tab {
+  appearance: none;
+  border: 1px solid var(--ds-border);
+  background: transparent;
+  color: var(--ds-text);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 0.55rem 0.75rem;
+  border-radius: calc(var(--ds-radius) - 6px);
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.ds-tab:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.ds-tab:active {
+  transform: translateY(1px);
+}
+
+/* Selected tab */
+.ds-tab[aria-selected="true"] {
+  background: color-mix(in srgb, var(--ds-accent) 14%, transparent);
+  border-color: color-mix(in srgb, var(--ds-accent) 55%, var(--ds-border));
+}
+
+/* Keyboard focus */
+.ds-tab:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ds-accent) 45%, transparent);
+  outline-offset: 2px;
+}
+
+/* Panels */
+.ds-panels {
+  margin-top: 0.75rem;
+}
+
+.ds-panel {
+  background: var(--ds-panel);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  padding: 0.9rem 1rem;
+}
+
+.ds-panel p {
+  margin: 0.25rem 0 0.75rem;
+}
+
+.ds-panel ul {
+  margin: 0.25rem 0 0.25rem 1.1rem;
+}
+
+.ds-panel li {
+  color: var(--ds-muted);
+}
+
 
 /* ==========================
    FAST4 GRID
@@ -957,6 +1073,19 @@ iframe {
    RESPONSIVE
    ========================== */
 
+/* Make tabs feel good on narrow screens */
+@media (max-width: 520px) {
+  .ds-tablist {
+    gap: 0.4rem;
+    padding: 0.45rem;
+  }
+  .ds-tab {
+    flex: 1 1 auto;           /* lets tabs wrap neatly */
+    text-align: center;
+    padding: 0.55rem 0.6rem;
+  }
+}
+
 @media (max-width: 700px) {
   body {
     font-size: 0.95rem;
@@ -1067,8 +1196,157 @@ iframe {
     background-image: none;
   }
 
+ .stack-diagram {
+    font-size: 0.9rem;
+  }
+  .stack-diagram th {
+    background: #eaeaea !important;
+  }
+
 
   @page {
     margin: 1.5cm;
   }
 }
+
+/* Keep tables readable on small screens: allow horizontal scroll without breaking layout */
+@media (max-width: 700px) {
+  .table-wrap table,
+  .knowledge-card table,
+  .rev-card table,
+  .ds-panel table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+    .stack-diagram {
+    font-size: 0.9rem;
+  }
+
+    .queue-diagram .queue-cells td {
+    height: 2.7rem;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ==========================
+   STACK DIAGRAM TABLE
+   ========================== */
+
+.stack-diagram {
+  width: 50%;
+  max-width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0.75rem 0 1rem;
+  font-size: 0.95rem;
+}
+
+/* Cells */
+.stack-diagram th,
+.stack-diagram td {
+  border: 2px solid #000;
+  padding: 0.45rem 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+/* Header row (labels like "Index", "Value") */
+.stack-diagram th {
+  background: #f5f5f5;
+  font-weight: 700;
+}
+
+/* Stack value cells */
+.stack-diagram td {
+  background: #fff;
+}
+
+/* Highlight the TOP of the stack */
+.stack-diagram tr.top-of-stack td {
+  background: #fff4cc;
+  font-weight: 700;
+}
+
+/* Optional label cell (e.g. "TOP →") */
+.stack-diagram .stack-label {
+  background: #eee;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Make it fit inside cards */
+.knowledge-card .stack-diagram,
+.rev-card .stack-diagram,
+.ds-panel .stack-diagram {
+  box-shadow: none;
+}
+
+/* ==========================
+   QUEUE DIAGRAM – FINAL
+   ========================== */
+
+/* Outer visual container */
+.queue-container {
+  border: 4px solid #000;
+  border-radius: 1.6rem;
+  padding: 0.6rem 0.6rem 1rem;
+}
+
+/* Table layout */
+.queue-diagram {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;   /* 🔑 forces equal column widths */
+}
+
+/* Queue slots */
+.queue-diagram .queue-cells td {
+  height: 3.2rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 700;
+  font-size: 1.05rem;
+
+  border: 4px solid #000;
+  background: #fff;
+}
+
+/* Remove doubled borders */
+.queue-diagram .queue-cells td:not(:last-child) {
+  border-right-width: 0;
+}
+
+/* Pointer row */
+.queue-diagram .queue-pointers td {
+  border: none;
+  padding-top: 0.6rem;
+  text-align: center;
+}
+
+/* Pointer labels */
+.queue-diagram .head,
+.queue-diagram .tail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  white-space: nowrap;
+
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.5rem;
+  background: #f2f2f2;
+}
+
+/* Draw arrows consistently */
+.queue-diagram .head::before,
+.queue-diagram .tail::before {
+  content: "↑";
+  font-weight: 900;
+  line-height: 1;
+}
+

@@ -1,27 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Software</title>
 <link href="../../styles.css" rel="stylesheet"/>
-<style>/* =========================
-   Data Structures Tabs
-   ========================= */
 
-/* ---------- Polish helpers ---------- */
-.ds-panel-title{
-  margin: 0 0 0.5rem;
-  font-size: 1.15rem;
-}
-.table-wrap{
-  overflow-x:auto;
-  max-width:100%;
-}
-.table-wrap > table{
-  width:100%;
-}
-</style>
 </head>
 <body>
 <div class="back-container">
@@ -67,8 +52,7 @@
         </button>
 </div>
 <div class="ds-panels"><div aria-labelledby="tabbtn-arrays" class="ds-panel" id="tab-arrays" role="tabpanel">
-<h3 class="ds-panel-title">Arrays</h3>
-<p><strong>Arrays:</strong> Fixed-size, indexed collections stored in contiguous memory.</p>
+<h3 class="ds-panel-title">Arrays, Lists and Tuples</h3>
 <div class="vertical-knowledge">
 <div class="knowledge-card">
 <h3>Static vs Dynamic Data Structures</h3>
@@ -122,7 +106,7 @@
 </div>
 <div class="knowledge-card">
 <h3>Array vs List vs Tuple</h3>
-<table>
+<table class="table-wrap">
 <thead>
 <tr>
 <th>Aspect</th>
@@ -170,21 +154,33 @@
 </tr>
 <tr>
 <td><strong>Example</strong></td>
-<td><pre><code>
-    Array birdName(4)
-    birdName[0] = "pigeon"
-    birdName[1] = "robin"
-    birdName[2] = "blackbird"
-    Result: ["pigeon","robin","blackbird",""] </code></pre></td>
-<td><pre><code>
-    numbers = []
-    numbers.append(12)
-    numbers.append(8)
-    numbers.append(5)
-    Result: [12, 8, 5]
-    numbers.pop()
-    Result: [12, 8] </code></pre></td>
-<td><pre><code>colour = (255, 0, 0) # Red colour </code></pre></td>
+<td><pre>
+Array birdName(4)
+birdName[0] = "pigeon"
+birdName[1] = "robin"
+birdName[2] = "blackbird"
+Result:
+["pigeon","robin","blackbird",""]
+</pre>
+</td>
+<td>
+<pre>
+numbers = []
+numbers.append(12)
+numbers.append(8)
+numbers.append(5)
+Result:
+[12, 8, 5]
+numbers.pop()
+Result:
+[12, 8]
+</pre>
+</td>
+<td>
+    <pre>
+# Red colour
+colour = (255, 0, 0)
+    </pre></td>
 </tr>
 <tr>
 <td><strong>Special Notes</strong></td>
@@ -239,7 +235,7 @@ next y</code></pre>
 <pre><code>array towns[3, 8]</code></pre>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-records" class="ds-panel" hidden="" id="tab-records" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-records" class="ds-panel" hidden="" id="tab-records" role="tabpanel">
 <h3 class="ds-panel-title">Records</h3>
 <p><strong>Records:</strong> Store related fields (possibly different data types) under one structure.</p>
 <div class="vertical-knowledge">
@@ -364,20 +360,17 @@ Players(3).name = "Jane"</code></pre>
 </table>
 </div>
 <!-- Context / stem -->
-<div class="rev-card qa-card">
+
 <p>Question</p>
 <p>A games company has developed a game called <strong>Kidz Arrowz</strong>. Players throw an arrow at a target board and are awarded different points depending on which circle the arrow lands in.</p>
-
 <p>A computer program is required to keep track of the scores for each competition. The user will enter the number of players, and the name of each player, in that competition to a maximum of <strong>10</strong>.</p>
 <p>The program will then ask for the score of each player in turn. Each competition has <strong>8 rounds</strong>, with each player throwing one arrow each round. The program will then display the <strong>total score</strong> of each player.</p>
-<p>The players are declared as a record structure: <code>record player(string playerName, integer totalScore)</code></p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
+<p>The players are declared as a record structure: </p>
 
-</div>
-</div>
-<!-- (a) -->
+    <pre><code>record player(string playerName, integer totalScore)</code></pre>
+
+
+
 <div class="rev-card qa-card">
 <p>Question</p>
 <p>(a) Describe what is meant by a record structure.</p>
@@ -408,8 +401,7 @@ Players(3).name = "Jane"</code></pre>
 </div>
 </div>
 </div>
-
-</div><div aria-labelledby="tabbtn-linked-lists" class="ds-panel" hidden="" id="tab-linked-lists" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-linked-lists" class="ds-panel" hidden="" id="tab-linked-lists" role="tabpanel">
 <h3 class="ds-panel-title">Linked Lists</h3>
 <p><strong>Linked Lists:</strong> Nodes connected by pointers; dynamic size but slower access.</p>
 <div class="vertical-knowledge">
@@ -447,10 +439,10 @@ Players(3).name = "Jane"</code></pre>
 <hr/>
 <h4>Node Object</h4>
 <pre><code>class Node
-public procedure new(pData)
+  public procedure new(pData)
     data = pData          // instance variable to store the data
     next = None           // instance variable storing address of next node
-endprocedure
+  endprocedure
 endclass</code></pre>
 <h4>Using Getter and Setter Methods</h4>
 <pre><code>class node
@@ -739,7 +731,6 @@ endfunction</code></pre>
 <p><strong>Explanation:</strong><br/>The new node (node 4) is inserted after the first node. Node 0 now points to node 4, and node 4 points to node 1.</p>
 </div>
 </div>
-
 <!-- ================= TREE → LINKED LIST (ALPHABETICAL) ================= -->
 <div class="rev-card qa-card">
 <p><strong>2.</strong>A program needs to store the names of plants that are in a garden, so they can be easily found and accessed in alphabetical order.</p>
@@ -889,7 +880,7 @@ endwhile</code></pre>
 </div>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-stacks" class="ds-panel" hidden="" id="tab-stacks" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-stacks" class="ds-panel" hidden="" id="tab-stacks" role="tabpanel">
 <h3 class="ds-panel-title">Stacks</h3>
 <p><strong>Stacks:</strong> LIFO (Last In, First Out).</p>
 <div class="vertical-knowledge">
@@ -1029,8 +1020,142 @@ endprocedure</code></pre>
 </thead>
 <tbody>
 <tr>
-<td><pre><code># Initialize maxsize = 5 stack = [None, None, None, None, None] top = -1 procedure push(stack, data, top, maxsize) if isfull(top, maxsize) then print("Error: stack is full") else top = top + 1 stack[top] = data endif return stack, top endprocedure function pop(stack, top) if isempty(top) then print("Error: stack is empty") return None, top else item = stack[top] top = top - 1 return item, top endif endfunction procedure displaystack(stack, top) if isempty(top) then print("Error: stack is empty") else print("Stack contents:") for i = 0 to top print(stack[i]) next i endif endprocedure function isfull(top, maxsize) if top == maxsize - 1 then return True else return False endif endfunction function isempty(top) if top == -1 then return True else return False endif endfunction function peek(stack, top) if isempty(top) then return "Error: stack is empty" else return stack[top] endif endfunction # Main program stack, top = push(stack, "cat", top, maxsize) displaystack(stack, top) item, top = pop(stack, top) print("popped item: " + item) </code></pre></td>
-<td><pre><code>class stack # constructor public procedure new() maxsize = 5 s = [None, None, None, None, None] top = -1 endprocedure procedure push(data) if isfull() then print("error: stack is full") else top = top + 1 s[top] = data endif endprocedure function pop() if isempty() then print("error: stack is empty") else item = s[top] top = top - 1 return item endif endfunction procedure displaystack() if isempty() then print("error: stack is empty") else print("stack contents:") for i = 0 to top print(s[i]) next i endif endprocedure function isfull() if top == maxsize - 1 then return True else return False endif endfunction function isempty() if top == -1 then return True else return False endif endfunction function peek() if isempty() then return "error: stack is empty" else return s[top] endif endfunction endclass # Main program s = new stack() s.push("cat") s.displaystack() print("popped item: " + s.pop()) </code></pre></td>
+<td><pre><code>
+# Initialize
+maxsize = 5
+stack = [None, None, None, None, None]
+top = -1
+procedure push(stack, data, top, maxsize)
+    if isfull(top, maxsize) then
+        print("Error: stack is full")
+    else
+        top = top + 1
+        stack[top] = data
+    endif
+    return stack, top
+endprocedure
+
+function pop(stack, top)
+    if isempty(top) then
+        print("Error: stack is empty")
+        return None, top
+    else
+        item = stack[top]
+        top = top - 1
+        return item, top
+    endif
+endfunction
+
+procedure displaystack(stack, top)
+    if isempty(top) then
+        print("Error: stack is empty")
+    else
+        print("Stack contents:")
+        for i = 0 to top
+            print(stack[i])
+        next i endif
+endprocedure
+
+function isfull(top, maxsize)
+    if top == maxsize - 1 then
+        return True
+    else
+        return False
+    endif
+endfunction
+
+function isempty(top)
+    if top == -1 then
+        return True
+    else
+        return False
+    endif
+endfunction
+
+function peek(stack, top)
+    if isempty(top) then
+        return "Error: stack is empty"
+    else return stack[top]
+    endif
+endfunction # Main program stack,
+
+top = push(stack, "cat", top, maxsize)
+displaystack(stack, top)
+item, top = pop(stack, top)
+print("popped item: " + item)
+
+</code></pre></td>
+<td><pre><code>
+class Stack
+  // constructor
+  public procedure new()
+    maxsize = 5
+    s = [None, None, None, None, None]
+    top = -1
+  endprocedure
+
+  public procedure push(data)
+    if isFull() then
+      print("error: stack is full")
+    else
+      top = top + 1
+      s[top] = data
+    endif
+  endprocedure
+
+  public function pop()
+    if isEmpty() then
+      print("error: stack is empty")
+    else
+      item = s[top]
+      top = top - 1
+      return item
+    endif
+  endfunction
+
+  public procedure displayStack()
+    if isEmpty() then
+      print("error: stack is empty")
+    else
+      print("stack contents:")
+      for i = 0 to top
+        print(s[i])
+      next i
+    endif
+  endprocedure
+
+  public function isFull()
+    if top == maxsize - 1 then
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function isEmpty()
+    if top == -1 then
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function peek()
+    if isEmpty() then
+      return "error: stack is empty"
+    else
+      return s[top]
+    endif
+  endfunction
+endclass
+
+# Main program
+s = new Stack()
+s.push("cat")
+s.displayStack()
+print("popped item: " + s.pop())
+
+</code></pre>
 </tr>
 </tbody>
 </table>
@@ -1042,21 +1167,20 @@ endprocedure</code></pre>
 </ul>
 </div>
 <div class="rev-card qa-card">
-<p><strong>Stack Algorithm</strong><br/><br/> A computer program stores data input on a stack named <strong>dataItems</strong>. The stack has two sub-programs to add and remove data items from the stack. The stack is implemented as a 1D array, <strong>dataArray</strong>.</p>
+<p><strong>1.</strong><br/><br/> A computer program stores data input on a stack named <strong>dataItems</strong>. The stack has two sub-programs to add and remove data items from the stack. The stack is implemented as a 1D array, <strong>dataArray</strong>.</p>
 <p>The current contents of <strong>dataItems</strong> are shown below:</p>
-<div class="diagram">
-<div class="table-wrap"><table class="stack-diagram">
-<tr><td></td></tr>
-<tr><td></td></tr>
-<tr><td></td></tr>
-<tr><td></td></tr>
-<tr><td>6</td></tr>
-<tr><td>15</td></tr>
-<tr><td>100</td></tr>
-<tr><td>23</td></tr>
-</table></div>
-<p>↑ top of stack</p>
-</div>
+
+  <table class="stack-diagram">
+    <tr class="top-of-stack">
+      <td class="stack-label">TOP →</td>
+      <td>6</td>
+    </tr>
+
+    <tr><td class="stack-label"></td><td>15</td></tr>
+    <tr><td class="stack-label"></td><td>100</td></tr>
+    <tr><td class="stack-label"></td><td>23</td></tr>
+  </table>
+
 <p>The main program asks a user to push or pop an item from the stack. If the user chooses <strong>push</strong>, the data item is added to the stack. If the user chooses <strong>pop</strong>, the next item is removed from the stack, multiplied by 3 and output.</p>
 <p><strong>Main program:</strong></p>
 <pre><code>userAnswer = input("Would you like to push or pop an item?")
@@ -1100,22 +1224,28 @@ endif</code></pre>
 <div class="rev-card qa-card">
 <p><strong>2.</strong>A user enters whole numbers into a computer program. Each number entered is placed onto a stack. The stack is created using an array with a maximum of 20 elements.</p>
 <p>Part of the array, <strong>numStack</strong>, is shown when one number has been input. The pointer, <strong>top</strong>, points to the next free space in the stack.</p>
-<div class="diagram">
-<div class="table-wrap"><table class="stack-diagram">
-<tr><th>Index</th><th>stackItem</th></tr>
-<tr><td>9</td><td></td></tr>
-<tr><td>8</td><td></td></tr>
-<tr><td>7</td><td></td></tr>
-<tr><td>6</td><td></td></tr>
-<tr><td>5</td><td></td></tr>
-<tr><td>4</td><td></td></tr>
-<tr><td>3</td><td></td></tr>
-<tr><td>2</td><td></td></tr>
-<tr><td>1</td><td></td></tr>
-<tr><td>0</td><td>20</td></tr>
-</table></div>
-<p>↑ top points to the next free space</p>
-</div>
+
+
+  <table class="stack-diagram">
+    <tr>
+      <th class="stack-label"></th>
+      <th>Index</th>
+      <th>stackItem</th>
+    </tr>
+    <tr><td class="stack-label"></td><td>8</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>7</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>6</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>5</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>4</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>3</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>2</td><td></td></tr>
+    <tr class="top-of-stack"> <td class="stack-label">TOP → </td>
+      <td>1</td>
+      <td></td>
+      </tr>
+    <tr><td class="stack-label"></td><td>0</td><td>20</td></tr>
+  </table>
+
 <p>A function, <strong>addItem</strong>, takes a number as a parameter and adds the number to the stack. The function returns true if this was successful, and false if the stack is already full.</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
@@ -1283,18 +1413,19 @@ endwhile</code></pre>
 </div>
 </div>
 <div class="rev-card qa-card">
-<h3>9. Question</h3>
+<h3>3.</h3>
 <p><strong>9(a).</strong> The contents of a stack are stored in the 1-dimensional array called <strong>numbers</strong>.<br/> <strong>topStack</strong> stores the index of the next free space in the stack.<br/> The array is declared with space for 100 elements.<br/> The function <strong>pop()</strong> returns the next item from the stack and updates the appropriate pointers.<br/> Describe the steps in the function <strong>pop()</strong>. <strong>[4]</strong></p>
 <p><strong>9(b).</strong> The function <strong>push()</strong> inserts its parameter called <strong>dataValue</strong> onto the stack and updates the appropriate pointers.<br/> Complete the function <strong>push()</strong> using pseudocode or program code.</p>
-<pre><code>function push(... ......................................)
-                         if ................................... ! = 100 then
-                          numbers [...................................] = dataValue
-                          topStack = topStack + ...................................
-                          return true
-                         else
-                          return false
-                         endif
-                        endfunction</code></pre>
+<pre><code>
+function push(... ......................................)
+     if ................................... ! = 100 then
+      numbers [...................................] = dataValue
+      topStack = topStack + ...................................
+      return true
+     else
+      return false
+     endif
+endfunction</code></pre>
 <p><strong>9(c).</strong> Write an algorithm, using pseudocode or program code, to call the function <strong>push()</strong> with the value <strong>15</strong> and output a message saying <strong>“Added”</strong> if the value was successfully inserted onto the stack or <strong>“Not Added”</strong> if the stack is full. <strong>[4]</strong></p>
 <textarea placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
@@ -1308,26 +1439,28 @@ endwhile</code></pre>
 <li>Return the value in element <strong>topStack</strong> from the array <strong>numbers</strong>.</li>
 </ol>
 <p><strong>9(b) Completed push() function:</strong></p>
-<pre><code>function push(dataValue)
-                         if topStack != 100 then
-                          numbers[topStack] = dataValue
-                          topStack = topStack + 1
-                          return true
-                         else
-                          return false
-                         endif
-                        endfunction</code></pre>
+<pre><code>
+function push(dataValue)
+     if topStack != 100 then
+        numbers[topStack] = dataValue
+        topStack = topStack + 1
+        return true
+     else
+        return false
+     endif
+endfunction</code></pre>
 <p><strong>9(c) Example algorithm to push 15 and output message:</strong></p>
-<pre><code>result = push(15)
-                        if result then
-                         print("Added")
-                        else
-                         print("Not Added")
-                        endif</code></pre>
+<pre><code>
+result = push(15)
+if result then
+    print("Added")
+else
+    print("Not Added")
+endif</code></pre>
 </div>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-queues" class="ds-panel" hidden="" id="tab-queues" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-queues" class="ds-panel" hidden="" id="tab-queues" role="tabpanel">
 <h3 class="ds-panel-title">Queues</h3>
 <div class="vertical-knowledge">
 <p><strong>Queues:</strong> FIFO (First In, First Out).</p>
@@ -1553,8 +1686,139 @@ end if</code></pre>
 </thead>
 <tbody>
 <tr>
-<td><pre><code># Initialize an empty queue maxsize = 5 q = [None, None, None, None, None] front = 0 rear = -1 # Enqueue operation function enqueue(q, item, rear, maxsize) if isFull(rear, maxsize) then print("Queue is Full") else rear = rear + 1 q[rear] = item endif return q, rear endfunction function isFull(rear, maxsize) if rear == maxsize - 1 then return True else return False endif endfunction # Dequeue operation function dequeue(q, front, rear) if isEmpty(front, rear) then front = 0 rear = -1 print("Queue is empty") else data = q[front] front = front + 1 endif return q, front, rear, data endfunction function isEmpty(front, rear) if front &gt; rear then return True else return False endif endfunction # Peek operation function peek(q, front) return q[front] endfunction # Display queue function displayQueue(q, front, rear) for i = front to rear print q[i] next i endfunction # Main program q, rear = enqueue(q, "cat", rear, maxsize) displayQueue(q, front, rear) q, front, rear, data = dequeue(q, front, rear) </code></pre></td>
-<td><pre><code>class Queue # Constructor public procedure new() maxsize = 5 q = [None, None, None, None, None] front = 0 rear = -1 endprocedure public procedure enqueue(data) if isFull() then print("Queue is Full") else rear = rear + 1 q[rear] = data endif endprocedure public function isFull() if rear == maxsize - 1 then return True else return False endif endfunction public function dequeue() if isEmpty() then print("Queue is empty") else data = q[front] front = front + 1 return data endif endfunction public function isEmpty() if front &gt; rear then front = 0 rear = -1 return True else return False endif endfunction public function peek() return q[front] endfunction public procedure displayQueue() if isEmpty() then print("Queue is empty") else for i = front to rear print q[i] next i endif endprocedure endclass # Main program q = new Queue() q.enqueue("cat") q.displayQueue() q.dequeue() </code></pre></td>
+<td><pre><code># Initialize an empty queue
+maxsize = 5
+q = [None, None, None, None, None]
+front = 0
+rear = -1
+
+# Enqueue operation
+function enqueue(q, item, rear, maxsize)
+  if isFull(rear, maxsize) then
+    print("Queue is Full")
+  else
+    rear = rear + 1
+    q[rear] = item
+  endif
+  return q, rear
+endfunction
+
+function isFull(rear, maxsize)
+  if rear == maxsize - 1 then
+    return True
+  else
+    return False
+  endif
+endfunction
+
+# Dequeue operation
+function dequeue(q, front, rear)
+  if isEmpty(front, rear) then
+    front = 0
+    rear = -1
+    print("Queue is empty")
+  else
+    data = q[front]
+    front = front + 1
+  endif
+  return q, front, rear, data
+endfunction
+
+function isEmpty(front, rear)
+  if front &gt; rear then
+    return True
+  else
+    return False
+  endif
+endfunction
+
+# Peek operation
+function peek(q, front)
+  return q[front]
+endfunction
+
+# Display queue
+procedure displayQueue(q, front, rear)
+  for i = front to rear
+    print q[i]
+  next i
+endprocedure
+
+# Main program
+q, rear = enqueue(q, "cat", rear, maxsize)
+displayQueue(q, front, rear)
+q, front, rear, data = dequeue(q, front, rear)</code></pre></td>
+
+<td><pre><code>class Queue
+
+  # Constructor
+  public procedure new()
+    maxsize = 5
+    q = [None, None, None, None, None]
+    front = 0
+    rear = -1
+  endprocedure
+
+  public procedure enqueue(data)
+    if isFull() then
+      print("Queue is Full")
+    else
+      rear = rear + 1
+      q[rear] = data
+    endif
+  endprocedure
+
+  public function isFull()
+    if rear == maxsize - 1 then
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function dequeue()
+    if isEmpty() then
+      print("Queue is empty")
+    else
+      data = q[front]
+      front = front + 1
+      return data
+    endif
+  endfunction
+
+  public function isEmpty()
+    if front &gt; rear then
+      front = 0
+      rear = -1
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function peek()
+    return q[front]
+  endfunction
+
+  public procedure displayQueue()
+    if isEmpty() then
+      print("Queue is empty")
+    else
+      for i = front to rear
+        print q[i]
+      next i
+    endif
+  endprocedure
+
+endclass
+
+# Main program
+q = new Queue()
+q.enqueue("cat")
+q.displayQueue()
+q.dequeue()</code></pre></td>
+
+
 </tr>
 </tbody>
 </table>
@@ -1567,20 +1831,25 @@ end if</code></pre>
 </div>
 <!-- ================= QUESTION 7(a) – QUEUE ================= -->
 <div class="rev-card qa-card">
-<p><strong>7(a).</strong> A program stores a queue of mathematical questions to be asked to a user. The questions are asked in the order they are added. Once a question has been asked it cannot be asked again. New questions are continually added to the end of the queue.</p>
+<p><strong>1(a).</strong> A program stores a queue of mathematical questions to be asked to a user. The questions are asked in the order they are added. Once a question has been asked it cannot be asked again. New questions are continually added to the end of the queue.</p>
 <p>Describe why a queue is a suitable structure for this program. [3]</p>
-<div class="diagram">
-<div class="table-wrap"><table class="queue-diagram">
-<tr>
-<td>Q1</td>
-<td>Q2</td>
-<td>Q3</td>
-<td></td>
-</tr>
-</table></div>
 
-<p><span>↑ head</span> <span style="margin-left:120px;">↑ tail</span></p>
-</div>
+  <table class="queue-diagram">
+    <tr class="queue-cells">
+      <td>Q1</td>
+      <td>Q2</td>
+      <td>Q3</td>
+      <td></td>
+    </tr>
+    <tr class="queue-pointers">
+      <td><span class="head">head</span></td>
+      <td></td>
+      <td></td>
+      <td><span class="tail">tail</span></td>
+    </tr>
+  </table>
+
+
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -1593,7 +1862,7 @@ end if</code></pre>
 </div>
 <!-- ================= QUESTION 7(b) – REMOVE FROM QUEUE ================= -->
 <div class="rev-card qa-card">
-<p><strong>7(b).</strong> Complete the following algorithm to remove and output the first element in the queue. [4]</p>
+<p><strong>1(b).</strong> Complete the following algorithm to remove and output the first element in the queue. [4]</p>
 <pre><code>procedure remove()
   if head == tail + 1 then
     print("No questions")
@@ -1640,7 +1909,6 @@ endprocedure</code></pre>
 <td>Data</td><td>Data</td><td>Data</td><td>Data</td>
 </tr>
 </table></div>
-
 <p>Next item will be added at index 0 (circular queue)</p>
 </div>
 </div>
@@ -1749,7 +2017,7 @@ endprocedure</code></pre>
 <!-- ================= END ================= -->
 <!-- ================= QUEUE QUESTION 1 ================= -->
 <div class="rev-card qa-card">
-<p><strong>Queue Question 1</strong><br/><br/> The array queue shown below is set up to hold a small queue. Assume that there is sufficient storage to hold all necessary additions to the queue.</p>
+<p><strong>3. </strong>The array queue shown below is set up to hold a small queue. Assume that there is sufficient storage to hold all necessary additions to the queue.</p>
 <p>The table below shows variables that are used to maintain the queue:</p>
 <div class="table-wrap"><table class="data-table">
 <tr>
@@ -1778,17 +2046,7 @@ endprocedure</code></pre>
 <td>The maximum size of the queue</td>
 </tr>
 </table></div>
-<div class="diagram">
-<p><strong>Queue Representation</strong></p>
-<div class="table-wrap"><table class="queue-diagram">
-<tr>
-<td></td><td></td><td></td><td></td><td></td>
-<td></td><td></td><td></td><td></td><td></td>
-</tr>
-</table></div>
 
-<p><span style="margin-left:120px;">rear</span> <span style="margin-left:120px;">front</span></p>
-</div>
 <p>Shown below is an algorithm that is intended to add an item to the queue.</p>
 <pre><code>procedure add_to_queue(item)
   if rear == max then
@@ -1849,113 +2107,10 @@ endprocedure</code></pre>
 queue[rear] = item</code></pre>
 </div>
 </div>
-<!-- ================= END ================= -->
-<!-- ================= QUEUE QUESTION 1 ================= -->
-<div class="rev-card qa-card">
-<p><strong>Queue Question 1</strong><br/><br/> The array queue shown below is set up to hold a small queue. Assume that there is sufficient storage to hold all necessary additions to the queue.</p>
-<p>The table below shows variables that are used to maintain the queue:</p>
-<div class="table-wrap"><table class="data-table">
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Purpose</th>
-</tr>
-<tr>
-<td>front</td>
-<td>integer</td>
-<td>Pointer to the front element of the queue</td>
-</tr>
-<tr>
-<td>rear</td>
-<td>integer</td>
-<td>Pointer to the rear element of the queue</td>
-</tr>
-<tr>
-<td>queue_full</td>
-<td>Boolean</td>
-<td>Indicates whether the queue is full</td>
-</tr>
-<tr>
-<td>max</td>
-<td>integer</td>
-<td>The maximum size of the queue</td>
-</tr>
-</table></div>
-<div class="diagram">
-<p><strong>Queue Representation</strong></p>
-<div class="table-wrap"><table class="queue-diagram">
-<tr>
-<td></td><td></td><td></td><td></td><td></td>
-<td></td><td></td><td></td><td></td><td></td>
-</tr>
-</table></div>
 
-<p><span style="margin-left:120px;">rear</span> <span style="margin-left:120px;">front</span></p>
-</div>
-<p>Shown below is an algorithm that is intended to add an item to the queue.</p>
-<pre><code>procedure add_to_queue(item)
-  if rear == max then
-    queue_full = true
-  else
-    front = front + 1
-    queue[front] = item
-  endif
-endprocedure</code></pre>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<p>This procedure attempts to add an item to the queue but contains a logic error.</p>
-</div>
-</div>
-<!-- ================= PARAMETER ================= -->
-<div class="rev-card qa-card">
-<p>Identify the parameter that is passed to this procedure. [1]</p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<p><strong>item</strong></p>
-</div>
-</div>
-<!-- ================= LOGICAL DECISION ================= -->
-<div class="rev-card qa-card">
-<p>Describe the logical decision that is made. [2]</p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<ul>
-<li>The queue is checked to see if it is full</li>
-<li>If it is full, the process stops</li>
-<li>If it is not full, the item is added</li>
-</ul>
-</div>
-</div>
-<!-- ================= LOGIC MISTAKE ================= -->
-<div class="rev-card qa-card">
-<p>This algorithm contains a logic mistake. Explain what the mistake is. [2]</p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<ul>
-<li>The front pointer is incremented</li>
-<li>The item is placed at (or near) the front of the queue</li>
-<li>Items should be added at the rear of the queue</li>
-</ul>
-</div>
-</div>
-<!-- ================= CORRECTED ALGORITHM ================= -->
-<div class="rev-card qa-card">
-<p>Rewrite the algorithm to correct the mistake. [2]</p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<pre><code>rear = rear + 1
-queue[rear] = item</code></pre>
-</div>
-</div>
-<!-- ================= END ================= -->
 <!-- ================= QUEUE DATA STRUCTURE THEORY ================= -->
 <div class="rev-card qa-card">
-<p><strong>(c)(i)</strong> Describe how an array can be used to implement a queue data structure. [3]</p>
+<p><strong>4.</strong> Describe how an array can be used to implement a queue data structure. [3]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -1968,8 +2123,7 @@ queue[rear] = item</code></pre>
 </div>
 <!-- ================= END ================= -->
 <div class="rev-card qa-card">
-<h3>Question 8 – Queues</h3>
-<p><strong>(a)</strong> The current contents of a queue data structure are shown.</p>
+<p><strong>5(a)</strong> The current contents of a queue data structure are shown.</p>
 <p>State the purpose of <strong>headPointer</strong> and <strong>tailPointer</strong> in the queue.</p>
 <textarea placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
@@ -2005,8 +2159,11 @@ queue[rear] = item</code></pre>
 </div>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-binary-trees" class="ds-panel" hidden="" id="tab-binary-trees" role="tabpanel">
-<h3 class="ds-panel-title">Binary Trees</h3>
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-binary-trees" class="ds-panel" hidden="" id="tab-binary-trees" role="tabpanel">
+
+
+
+    <h3 class="ds-panel-title">Binary Trees</h3>
 <p><strong>Binary Trees:</strong> Hierarchical structures where each node has up to two children.</p>
 <div class="vertical-knowledge">
 <!-- TREE OVERVIEW -->
@@ -2560,8 +2717,7 @@ queue[rear] = item</code></pre>
 </div>
 </div>
 </div>
-
-</div><div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
 <h3 class="ds-panel-title">Graphs</h3>
 <div class="vertical-knowledge">
 <p><strong>Graphs:</strong> Vertices connected by edges (directed or undirected).</p>
@@ -2873,16 +3029,15 @@ queue[rear] = item</code></pre>
 </div>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-hash-tables" class="ds-panel" hidden="" id="tab-hash-tables" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-hash-tables" class="ds-panel" hidden="" id="tab-hash-tables" role="tabpanel">
 <h3 class="ds-panel-title">Hash Tables</h3>
-
 <h3 class="ds-panel-title">Hash Tables</h3><p><strong>Hash Tables:</strong> Key–value pairs using hash functions for fast lookup.</p>
 <div class="vertical-knowledge">
 
     add content
 
 </div>
-</div></div>
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div></div>
 <footer>
 <p>© studyhub CS 2025</p>
 </footer>
@@ -2980,5 +3135,35 @@ queue[rear] = item</code></pre>
   })();
 
 </script>
-</div></div></section></main></body>
+</div></div></section></main><script>document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".print-tab-btn");
+  if (!btn) return;
+
+  const panel = btn.closest(".ds-panel");
+  if (!panel) return;
+
+  const printContent = panel.cloneNode(true);
+  printContent.querySelectorAll(".tab-print").forEach(el => el.remove());
+
+  const printWindow = window.open("", "", "width=900,height=650");
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Print Section</title>
+        <link rel="stylesheet" href="../../styles.css">
+      </head>
+      <body>
+        ${printContent.innerHTML}
+      </body>
+    </html>
+  `);
+
+  printWindow.document.close();
+  printWindow.focus();
+
+  setTimeout(() => {
+    printWindow.print();
+    printWindow.close();
+  }, 250);
+});</script></body>
 </html>
