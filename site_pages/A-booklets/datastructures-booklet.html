@@ -1,27 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Software</title>
 <link href="../../styles.css" rel="stylesheet"/>
-<style>/* =========================
-   Data Structures Tabs
-   ========================= */
 
-/* ---------- Polish helpers ---------- */
-.ds-panel-title{
-  margin: 0 0 0.5rem;
-  font-size: 1.15rem;
-}
-.table-wrap{
-  overflow-x:auto;
-  max-width:100%;
-}
-.table-wrap > table{
-  width:100%;
-}
-</style>
 </head>
 <body>
 <div class="back-container">
@@ -67,8 +52,7 @@
         </button>
 </div>
 <div class="ds-panels"><div aria-labelledby="tabbtn-arrays" class="ds-panel" id="tab-arrays" role="tabpanel">
-<h3 class="ds-panel-title">Arrays</h3>
-<p><strong>Arrays:</strong> Fixed-size, indexed collections stored in contiguous memory.</p>
+<h3 class="ds-panel-title">Arrays, Lists and Tuples</h3>
 <div class="vertical-knowledge">
 <div class="knowledge-card">
 <h3>Static vs Dynamic Data Structures</h3>
@@ -122,7 +106,7 @@
 </div>
 <div class="knowledge-card">
 <h3>Array vs List vs Tuple</h3>
-<table>
+<table class="table-wrap">
 <thead>
 <tr>
 <th>Aspect</th>
@@ -170,21 +154,33 @@
 </tr>
 <tr>
 <td><strong>Example</strong></td>
-<td><pre><code>
-    Array birdName(4)
-    birdName[0] = "pigeon"
-    birdName[1] = "robin"
-    birdName[2] = "blackbird"
-    Result: ["pigeon","robin","blackbird",""] </code></pre></td>
-<td><pre><code>
-    numbers = []
-    numbers.append(12)
-    numbers.append(8)
-    numbers.append(5)
-    Result: [12, 8, 5]
-    numbers.pop()
-    Result: [12, 8] </code></pre></td>
-<td><pre><code>colour = (255, 0, 0) # Red colour </code></pre></td>
+<td><pre>
+Array birdName(4)
+birdName[0] = "pigeon"
+birdName[1] = "robin"
+birdName[2] = "blackbird"
+Result:
+["pigeon","robin","blackbird",""]
+</pre>
+</td>
+<td>
+<pre>
+numbers = []
+numbers.append(12)
+numbers.append(8)
+numbers.append(5)
+Result:
+[12, 8, 5]
+numbers.pop()
+Result:
+[12, 8]
+</pre>
+</td>
+<td>
+    <pre>
+# Red colour
+colour = (255, 0, 0)
+    </pre></td>
 </tr>
 <tr>
 <td><strong>Special Notes</strong></td>
@@ -239,7 +235,7 @@ next y</code></pre>
 <pre><code>array towns[3, 8]</code></pre>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-records" class="ds-panel" hidden="" id="tab-records" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-records" class="ds-panel" hidden="" id="tab-records" role="tabpanel">
 <h3 class="ds-panel-title">Records</h3>
 <p><strong>Records:</strong> Store related fields (possibly different data types) under one structure.</p>
 <div class="vertical-knowledge">
@@ -364,20 +360,17 @@ Players(3).name = "Jane"</code></pre>
 </table>
 </div>
 <!-- Context / stem -->
-<div class="rev-card qa-card">
+
 <p>Question</p>
 <p>A games company has developed a game called <strong>Kidz Arrowz</strong>. Players throw an arrow at a target board and are awarded different points depending on which circle the arrow lands in.</p>
-
 <p>A computer program is required to keep track of the scores for each competition. The user will enter the number of players, and the name of each player, in that competition to a maximum of <strong>10</strong>.</p>
 <p>The program will then ask for the score of each player in turn. Each competition has <strong>8 rounds</strong>, with each player throwing one arrow each round. The program will then display the <strong>total score</strong> of each player.</p>
-<p>The players are declared as a record structure: <code>record player(string playerName, integer totalScore)</code></p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
+<p>The players are declared as a record structure: </p>
 
-</div>
-</div>
-<!-- (a) -->
+    <pre><code>record player(string playerName, integer totalScore)</code></pre>
+
+
+
 <div class="rev-card qa-card">
 <p>Question</p>
 <p>(a) Describe what is meant by a record structure.</p>
@@ -408,8 +401,7 @@ Players(3).name = "Jane"</code></pre>
 </div>
 </div>
 </div>
-
-</div><div aria-labelledby="tabbtn-linked-lists" class="ds-panel" hidden="" id="tab-linked-lists" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-linked-lists" class="ds-panel" hidden="" id="tab-linked-lists" role="tabpanel">
 <h3 class="ds-panel-title">Linked Lists</h3>
 <p><strong>Linked Lists:</strong> Nodes connected by pointers; dynamic size but slower access.</p>
 <div class="vertical-knowledge">
@@ -447,10 +439,10 @@ Players(3).name = "Jane"</code></pre>
 <hr/>
 <h4>Node Object</h4>
 <pre><code>class Node
-public procedure new(pData)
+  public procedure new(pData)
     data = pData          // instance variable to store the data
     next = None           // instance variable storing address of next node
-endprocedure
+  endprocedure
 endclass</code></pre>
 <h4>Using Getter and Setter Methods</h4>
 <pre><code>class node
@@ -739,7 +731,6 @@ endfunction</code></pre>
 <p><strong>Explanation:</strong><br/>The new node (node 4) is inserted after the first node. Node 0 now points to node 4, and node 4 points to node 1.</p>
 </div>
 </div>
-
 <!-- ================= TREE → LINKED LIST (ALPHABETICAL) ================= -->
 <div class="rev-card qa-card">
 <p><strong>2.</strong>A program needs to store the names of plants that are in a garden, so they can be easily found and accessed in alphabetical order.</p>
@@ -889,7 +880,7 @@ endwhile</code></pre>
 </div>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-stacks" class="ds-panel" hidden="" id="tab-stacks" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-stacks" class="ds-panel" hidden="" id="tab-stacks" role="tabpanel">
 <h3 class="ds-panel-title">Stacks</h3>
 <p><strong>Stacks:</strong> LIFO (Last In, First Out).</p>
 <div class="vertical-knowledge">
@@ -1029,8 +1020,142 @@ endprocedure</code></pre>
 </thead>
 <tbody>
 <tr>
-<td><pre><code># Initialize maxsize = 5 stack = [None, None, None, None, None] top = -1 procedure push(stack, data, top, maxsize) if isfull(top, maxsize) then print("Error: stack is full") else top = top + 1 stack[top] = data endif return stack, top endprocedure function pop(stack, top) if isempty(top) then print("Error: stack is empty") return None, top else item = stack[top] top = top - 1 return item, top endif endfunction procedure displaystack(stack, top) if isempty(top) then print("Error: stack is empty") else print("Stack contents:") for i = 0 to top print(stack[i]) next i endif endprocedure function isfull(top, maxsize) if top == maxsize - 1 then return True else return False endif endfunction function isempty(top) if top == -1 then return True else return False endif endfunction function peek(stack, top) if isempty(top) then return "Error: stack is empty" else return stack[top] endif endfunction # Main program stack, top = push(stack, "cat", top, maxsize) displaystack(stack, top) item, top = pop(stack, top) print("popped item: " + item) </code></pre></td>
-<td><pre><code>class stack # constructor public procedure new() maxsize = 5 s = [None, None, None, None, None] top = -1 endprocedure procedure push(data) if isfull() then print("error: stack is full") else top = top + 1 s[top] = data endif endprocedure function pop() if isempty() then print("error: stack is empty") else item = s[top] top = top - 1 return item endif endfunction procedure displaystack() if isempty() then print("error: stack is empty") else print("stack contents:") for i = 0 to top print(s[i]) next i endif endprocedure function isfull() if top == maxsize - 1 then return True else return False endif endfunction function isempty() if top == -1 then return True else return False endif endfunction function peek() if isempty() then return "error: stack is empty" else return s[top] endif endfunction endclass # Main program s = new stack() s.push("cat") s.displaystack() print("popped item: " + s.pop()) </code></pre></td>
+<td><pre><code>
+# Initialize
+maxsize = 5
+stack = [None, None, None, None, None]
+top = -1
+procedure push(stack, data, top, maxsize)
+    if isfull(top, maxsize) then
+        print("Error: stack is full")
+    else
+        top = top + 1
+        stack[top] = data
+    endif
+    return stack, top
+endprocedure
+
+function pop(stack, top)
+    if isempty(top) then
+        print("Error: stack is empty")
+        return None, top
+    else
+        item = stack[top]
+        top = top - 1
+        return item, top
+    endif
+endfunction
+
+procedure displaystack(stack, top)
+    if isempty(top) then
+        print("Error: stack is empty")
+    else
+        print("Stack contents:")
+        for i = 0 to top
+            print(stack[i])
+        next i endif
+endprocedure
+
+function isfull(top, maxsize)
+    if top == maxsize - 1 then
+        return True
+    else
+        return False
+    endif
+endfunction
+
+function isempty(top)
+    if top == -1 then
+        return True
+    else
+        return False
+    endif
+endfunction
+
+function peek(stack, top)
+    if isempty(top) then
+        return "Error: stack is empty"
+    else return stack[top]
+    endif
+endfunction # Main program stack,
+
+top = push(stack, "cat", top, maxsize)
+displaystack(stack, top)
+item, top = pop(stack, top)
+print("popped item: " + item)
+
+</code></pre></td>
+<td><pre><code>
+class Stack
+  // constructor
+  public procedure new()
+    maxsize = 5
+    s = [None, None, None, None, None]
+    top = -1
+  endprocedure
+
+  public procedure push(data)
+    if isFull() then
+      print("error: stack is full")
+    else
+      top = top + 1
+      s[top] = data
+    endif
+  endprocedure
+
+  public function pop()
+    if isEmpty() then
+      print("error: stack is empty")
+    else
+      item = s[top]
+      top = top - 1
+      return item
+    endif
+  endfunction
+
+  public procedure displayStack()
+    if isEmpty() then
+      print("error: stack is empty")
+    else
+      print("stack contents:")
+      for i = 0 to top
+        print(s[i])
+      next i
+    endif
+  endprocedure
+
+  public function isFull()
+    if top == maxsize - 1 then
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function isEmpty()
+    if top == -1 then
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function peek()
+    if isEmpty() then
+      return "error: stack is empty"
+    else
+      return s[top]
+    endif
+  endfunction
+endclass
+
+# Main program
+s = new Stack()
+s.push("cat")
+s.displayStack()
+print("popped item: " + s.pop())
+
+</code></pre>
 </tr>
 </tbody>
 </table>
@@ -1042,21 +1167,20 @@ endprocedure</code></pre>
 </ul>
 </div>
 <div class="rev-card qa-card">
-<p><strong>Stack Algorithm</strong><br/><br/> A computer program stores data input on a stack named <strong>dataItems</strong>. The stack has two sub-programs to add and remove data items from the stack. The stack is implemented as a 1D array, <strong>dataArray</strong>.</p>
+<p><strong>1.</strong><br/><br/> A computer program stores data input on a stack named <strong>dataItems</strong>. The stack has two sub-programs to add and remove data items from the stack. The stack is implemented as a 1D array, <strong>dataArray</strong>.</p>
 <p>The current contents of <strong>dataItems</strong> are shown below:</p>
-<div class="diagram">
-<div class="table-wrap"><table class="stack-diagram">
-<tr><td></td></tr>
-<tr><td></td></tr>
-<tr><td></td></tr>
-<tr><td></td></tr>
-<tr><td>6</td></tr>
-<tr><td>15</td></tr>
-<tr><td>100</td></tr>
-<tr><td>23</td></tr>
-</table></div>
-<p>↑ top of stack</p>
-</div>
+
+  <table class="stack-diagram">
+    <tr class="top-of-stack">
+      <td class="stack-label">TOP →</td>
+      <td>6</td>
+    </tr>
+
+    <tr><td class="stack-label"></td><td>15</td></tr>
+    <tr><td class="stack-label"></td><td>100</td></tr>
+    <tr><td class="stack-label"></td><td>23</td></tr>
+  </table>
+
 <p>The main program asks a user to push or pop an item from the stack. If the user chooses <strong>push</strong>, the data item is added to the stack. If the user chooses <strong>pop</strong>, the next item is removed from the stack, multiplied by 3 and output.</p>
 <p><strong>Main program:</strong></p>
 <pre><code>userAnswer = input("Would you like to push or pop an item?")
@@ -1100,22 +1224,28 @@ endif</code></pre>
 <div class="rev-card qa-card">
 <p><strong>2.</strong>A user enters whole numbers into a computer program. Each number entered is placed onto a stack. The stack is created using an array with a maximum of 20 elements.</p>
 <p>Part of the array, <strong>numStack</strong>, is shown when one number has been input. The pointer, <strong>top</strong>, points to the next free space in the stack.</p>
-<div class="diagram">
-<div class="table-wrap"><table class="stack-diagram">
-<tr><th>Index</th><th>stackItem</th></tr>
-<tr><td>9</td><td></td></tr>
-<tr><td>8</td><td></td></tr>
-<tr><td>7</td><td></td></tr>
-<tr><td>6</td><td></td></tr>
-<tr><td>5</td><td></td></tr>
-<tr><td>4</td><td></td></tr>
-<tr><td>3</td><td></td></tr>
-<tr><td>2</td><td></td></tr>
-<tr><td>1</td><td></td></tr>
-<tr><td>0</td><td>20</td></tr>
-</table></div>
-<p>↑ top points to the next free space</p>
-</div>
+
+
+  <table class="stack-diagram">
+    <tr>
+      <th class="stack-label"></th>
+      <th>Index</th>
+      <th>stackItem</th>
+    </tr>
+    <tr><td class="stack-label"></td><td>8</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>7</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>6</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>5</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>4</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>3</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>2</td><td></td></tr>
+    <tr class="top-of-stack"> <td class="stack-label">TOP → </td>
+      <td>1</td>
+      <td></td>
+      </tr>
+    <tr><td class="stack-label"></td><td>0</td><td>20</td></tr>
+  </table>
+
 <p>A function, <strong>addItem</strong>, takes a number as a parameter and adds the number to the stack. The function returns true if this was successful, and false if the stack is already full.</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
@@ -1283,18 +1413,19 @@ endwhile</code></pre>
 </div>
 </div>
 <div class="rev-card qa-card">
-<h3>9. Question</h3>
+<h3>3.</h3>
 <p><strong>9(a).</strong> The contents of a stack are stored in the 1-dimensional array called <strong>numbers</strong>.<br/> <strong>topStack</strong> stores the index of the next free space in the stack.<br/> The array is declared with space for 100 elements.<br/> The function <strong>pop()</strong> returns the next item from the stack and updates the appropriate pointers.<br/> Describe the steps in the function <strong>pop()</strong>. <strong>[4]</strong></p>
 <p><strong>9(b).</strong> The function <strong>push()</strong> inserts its parameter called <strong>dataValue</strong> onto the stack and updates the appropriate pointers.<br/> Complete the function <strong>push()</strong> using pseudocode or program code.</p>
-<pre><code>function push(... ......................................)
-                         if ................................... ! = 100 then
-                          numbers [...................................] = dataValue
-                          topStack = topStack + ...................................
-                          return true
-                         else
-                          return false
-                         endif
-                        endfunction</code></pre>
+<pre><code>
+function push(... ......................................)
+     if ................................... ! = 100 then
+      numbers [...................................] = dataValue
+      topStack = topStack + ...................................
+      return true
+     else
+      return false
+     endif
+endfunction</code></pre>
 <p><strong>9(c).</strong> Write an algorithm, using pseudocode or program code, to call the function <strong>push()</strong> with the value <strong>15</strong> and output a message saying <strong>“Added”</strong> if the value was successfully inserted onto the stack or <strong>“Not Added”</strong> if the stack is full. <strong>[4]</strong></p>
 <textarea placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
@@ -1308,26 +1439,28 @@ endwhile</code></pre>
 <li>Return the value in element <strong>topStack</strong> from the array <strong>numbers</strong>.</li>
 </ol>
 <p><strong>9(b) Completed push() function:</strong></p>
-<pre><code>function push(dataValue)
-                         if topStack != 100 then
-                          numbers[topStack] = dataValue
-                          topStack = topStack + 1
-                          return true
-                         else
-                          return false
-                         endif
-                        endfunction</code></pre>
+<pre><code>
+function push(dataValue)
+     if topStack != 100 then
+        numbers[topStack] = dataValue
+        topStack = topStack + 1
+        return true
+     else
+        return false
+     endif
+endfunction</code></pre>
 <p><strong>9(c) Example algorithm to push 15 and output message:</strong></p>
-<pre><code>result = push(15)
-                        if result then
-                         print("Added")
-                        else
-                         print("Not Added")
-                        endif</code></pre>
+<pre><code>
+result = push(15)
+if result then
+    print("Added")
+else
+    print("Not Added")
+endif</code></pre>
 </div>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-queues" class="ds-panel" hidden="" id="tab-queues" role="tabpanel">
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-queues" class="ds-panel" hidden="" id="tab-queues" role="tabpanel">
 <h3 class="ds-panel-title">Queues</h3>
 <div class="vertical-knowledge">
 <p><strong>Queues:</strong> FIFO (First In, First Out).</p>
@@ -1553,8 +1686,139 @@ end if</code></pre>
 </thead>
 <tbody>
 <tr>
-<td><pre><code># Initialize an empty queue maxsize = 5 q = [None, None, None, None, None] front = 0 rear = -1 # Enqueue operation function enqueue(q, item, rear, maxsize) if isFull(rear, maxsize) then print("Queue is Full") else rear = rear + 1 q[rear] = item endif return q, rear endfunction function isFull(rear, maxsize) if rear == maxsize - 1 then return True else return False endif endfunction # Dequeue operation function dequeue(q, front, rear) if isEmpty(front, rear) then front = 0 rear = -1 print("Queue is empty") else data = q[front] front = front + 1 endif return q, front, rear, data endfunction function isEmpty(front, rear) if front &gt; rear then return True else return False endif endfunction # Peek operation function peek(q, front) return q[front] endfunction # Display queue function displayQueue(q, front, rear) for i = front to rear print q[i] next i endfunction # Main program q, rear = enqueue(q, "cat", rear, maxsize) displayQueue(q, front, rear) q, front, rear, data = dequeue(q, front, rear) </code></pre></td>
-<td><pre><code>class Queue # Constructor public procedure new() maxsize = 5 q = [None, None, None, None, None] front = 0 rear = -1 endprocedure public procedure enqueue(data) if isFull() then print("Queue is Full") else rear = rear + 1 q[rear] = data endif endprocedure public function isFull() if rear == maxsize - 1 then return True else return False endif endfunction public function dequeue() if isEmpty() then print("Queue is empty") else data = q[front] front = front + 1 return data endif endfunction public function isEmpty() if front &gt; rear then front = 0 rear = -1 return True else return False endif endfunction public function peek() return q[front] endfunction public procedure displayQueue() if isEmpty() then print("Queue is empty") else for i = front to rear print q[i] next i endif endprocedure endclass # Main program q = new Queue() q.enqueue("cat") q.displayQueue() q.dequeue() </code></pre></td>
+<td><pre><code># Initialize an empty queue
+maxsize = 5
+q = [None, None, None, None, None]
+front = 0
+rear = -1
+
+# Enqueue operation
+function enqueue(q, item, rear, maxsize)
+  if isFull(rear, maxsize) then
+    print("Queue is Full")
+  else
+    rear = rear + 1
+    q[rear] = item
+  endif
+  return q, rear
+endfunction
+
+function isFull(rear, maxsize)
+  if rear == maxsize - 1 then
+    return True
+  else
+    return False
+  endif
+endfunction
+
+# Dequeue operation
+function dequeue(q, front, rear)
+  if isEmpty(front, rear) then
+    front = 0
+    rear = -1
+    print("Queue is empty")
+  else
+    data = q[front]
+    front = front + 1
+  endif
+  return q, front, rear, data
+endfunction
+
+function isEmpty(front, rear)
+  if front &gt; rear then
+    return True
+  else
+    return False
+  endif
+endfunction
+
+# Peek operation
+function peek(q, front)
+  return q[front]
+endfunction
+
+# Display queue
+procedure displayQueue(q, front, rear)
+  for i = front to rear
+    print q[i]
+  next i
+endprocedure
+
+# Main program
+q, rear = enqueue(q, "cat", rear, maxsize)
+displayQueue(q, front, rear)
+q, front, rear, data = dequeue(q, front, rear)</code></pre></td>
+
+<td><pre><code>class Queue
+
+  # Constructor
+  public procedure new()
+    maxsize = 5
+    q = [None, None, None, None, None]
+    front = 0
+    rear = -1
+  endprocedure
+
+  public procedure enqueue(data)
+    if isFull() then
+      print("Queue is Full")
+    else
+      rear = rear + 1
+      q[rear] = data
+    endif
+  endprocedure
+
+  public function isFull()
+    if rear == maxsize - 1 then
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function dequeue()
+    if isEmpty() then
+      print("Queue is empty")
+    else
+      data = q[front]
+      front = front + 1
+      return data
+    endif
+  endfunction
+
+  public function isEmpty()
+    if front &gt; rear then
+      front = 0
+      rear = -1
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function peek()
+    return q[front]
+  endfunction
+
+  public procedure displayQueue()
+    if isEmpty() then
+      print("Queue is empty")
+    else
+      for i = front to rear
+        print q[i]
+      next i
+    endif
+  endprocedure
+
+endclass
+
+# Main program
+q = new Queue()
+q.enqueue("cat")
+q.displayQueue()
+q.dequeue()</code></pre></td>
+
+
 </tr>
 </tbody>
 </table>
@@ -1567,20 +1831,25 @@ end if</code></pre>
 </div>
 <!-- ================= QUESTION 7(a) – QUEUE ================= -->
 <div class="rev-card qa-card">
-<p><strong>7(a).</strong> A program stores a queue of mathematical questions to be asked to a user. The questions are asked in the order they are added. Once a question has been asked it cannot be asked again. New questions are continually added to the end of the queue.</p>
+<p><strong>1(a).</strong> A program stores a queue of mathematical questions to be asked to a user. The questions are asked in the order they are added. Once a question has been asked it cannot be asked again. New questions are continually added to the end of the queue.</p>
 <p>Describe why a queue is a suitable structure for this program. [3]</p>
-<div class="diagram">
-<div class="table-wrap"><table class="queue-diagram">
-<tr>
-<td>Q1</td>
-<td>Q2</td>
-<td>Q3</td>
-<td></td>
-</tr>
-</table></div>
 
-<p><span>↑ head</span> <span style="margin-left:120px;">↑ tail</span></p>
-</div>
+  <table class="queue-diagram">
+    <tr class="queue-cells">
+      <td>Q1</td>
+      <td>Q2</td>
+      <td>Q3</td>
+      <td></td>
+    </tr>
+    <tr class="queue-pointers">
+      <td><span class="head">head</span></td>
+      <td></td>
+      <td></td>
+      <td><span class="tail">tail</span></td>
+    </tr>
+  </table>
+
+
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -1593,7 +1862,7 @@ end if</code></pre>
 </div>
 <!-- ================= QUESTION 7(b) – REMOVE FROM QUEUE ================= -->
 <div class="rev-card qa-card">
-<p><strong>7(b).</strong> Complete the following algorithm to remove and output the first element in the queue. [4]</p>
+<p><strong>1(b).</strong> Complete the following algorithm to remove and output the first element in the queue. [4]</p>
 <pre><code>procedure remove()
   if head == tail + 1 then
     print("No questions")
@@ -1640,7 +1909,6 @@ endprocedure</code></pre>
 <td>Data</td><td>Data</td><td>Data</td><td>Data</td>
 </tr>
 </table></div>
-
 <p>Next item will be added at index 0 (circular queue)</p>
 </div>
 </div>
@@ -1749,7 +2017,7 @@ endprocedure</code></pre>
 <!-- ================= END ================= -->
 <!-- ================= QUEUE QUESTION 1 ================= -->
 <div class="rev-card qa-card">
-<p><strong>Queue Question 1</strong><br/><br/> The array queue shown below is set up to hold a small queue. Assume that there is sufficient storage to hold all necessary additions to the queue.</p>
+<p><strong>3. </strong>The array queue shown below is set up to hold a small queue. Assume that there is sufficient storage to hold all necessary additions to the queue.</p>
 <p>The table below shows variables that are used to maintain the queue:</p>
 <div class="table-wrap"><table class="data-table">
 <tr>
@@ -1778,17 +2046,7 @@ endprocedure</code></pre>
 <td>The maximum size of the queue</td>
 </tr>
 </table></div>
-<div class="diagram">
-<p><strong>Queue Representation</strong></p>
-<div class="table-wrap"><table class="queue-diagram">
-<tr>
-<td></td><td></td><td></td><td></td><td></td>
-<td></td><td></td><td></td><td></td><td></td>
-</tr>
-</table></div>
 
-<p><span style="margin-left:120px;">rear</span> <span style="margin-left:120px;">front</span></p>
-</div>
 <p>Shown below is an algorithm that is intended to add an item to the queue.</p>
 <pre><code>procedure add_to_queue(item)
   if rear == max then
@@ -1849,113 +2107,10 @@ endprocedure</code></pre>
 queue[rear] = item</code></pre>
 </div>
 </div>
-<!-- ================= END ================= -->
-<!-- ================= QUEUE QUESTION 1 ================= -->
-<div class="rev-card qa-card">
-<p><strong>Queue Question 1</strong><br/><br/> The array queue shown below is set up to hold a small queue. Assume that there is sufficient storage to hold all necessary additions to the queue.</p>
-<p>The table below shows variables that are used to maintain the queue:</p>
-<div class="table-wrap"><table class="data-table">
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Purpose</th>
-</tr>
-<tr>
-<td>front</td>
-<td>integer</td>
-<td>Pointer to the front element of the queue</td>
-</tr>
-<tr>
-<td>rear</td>
-<td>integer</td>
-<td>Pointer to the rear element of the queue</td>
-</tr>
-<tr>
-<td>queue_full</td>
-<td>Boolean</td>
-<td>Indicates whether the queue is full</td>
-</tr>
-<tr>
-<td>max</td>
-<td>integer</td>
-<td>The maximum size of the queue</td>
-</tr>
-</table></div>
-<div class="diagram">
-<p><strong>Queue Representation</strong></p>
-<div class="table-wrap"><table class="queue-diagram">
-<tr>
-<td></td><td></td><td></td><td></td><td></td>
-<td></td><td></td><td></td><td></td><td></td>
-</tr>
-</table></div>
 
-<p><span style="margin-left:120px;">rear</span> <span style="margin-left:120px;">front</span></p>
-</div>
-<p>Shown below is an algorithm that is intended to add an item to the queue.</p>
-<pre><code>procedure add_to_queue(item)
-  if rear == max then
-    queue_full = true
-  else
-    front = front + 1
-    queue[front] = item
-  endif
-endprocedure</code></pre>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<p>This procedure attempts to add an item to the queue but contains a logic error.</p>
-</div>
-</div>
-<!-- ================= PARAMETER ================= -->
-<div class="rev-card qa-card">
-<p>Identify the parameter that is passed to this procedure. [1]</p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<p><strong>item</strong></p>
-</div>
-</div>
-<!-- ================= LOGICAL DECISION ================= -->
-<div class="rev-card qa-card">
-<p>Describe the logical decision that is made. [2]</p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<ul>
-<li>The queue is checked to see if it is full</li>
-<li>If it is full, the process stops</li>
-<li>If it is not full, the item is added</li>
-</ul>
-</div>
-</div>
-<!-- ================= LOGIC MISTAKE ================= -->
-<div class="rev-card qa-card">
-<p>This algorithm contains a logic mistake. Explain what the mistake is. [2]</p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<ul>
-<li>The front pointer is incremented</li>
-<li>The item is placed at (or near) the front of the queue</li>
-<li>Items should be added at the rear of the queue</li>
-</ul>
-</div>
-</div>
-<!-- ================= CORRECTED ALGORITHM ================= -->
-<div class="rev-card qa-card">
-<p>Rewrite the algorithm to correct the mistake. [2]</p>
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-<button class="secondary answer-toggle" type="button">Show answer</button>
-<div class="answer">
-<pre><code>rear = rear + 1
-queue[rear] = item</code></pre>
-</div>
-</div>
-<!-- ================= END ================= -->
 <!-- ================= QUEUE DATA STRUCTURE THEORY ================= -->
 <div class="rev-card qa-card">
-<p><strong>(c)(i)</strong> Describe how an array can be used to implement a queue data structure. [3]</p>
+<p><strong>4.</strong> Describe how an array can be used to implement a queue data structure. [3]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -1968,8 +2123,7 @@ queue[rear] = item</code></pre>
 </div>
 <!-- ================= END ================= -->
 <div class="rev-card qa-card">
-<h3>Question 8 – Queues</h3>
-<p><strong>(a)</strong> The current contents of a queue data structure are shown.</p>
+<p><strong>5(a)</strong> The current contents of a queue data structure are shown.</p>
 <p>State the purpose of <strong>headPointer</strong> and <strong>tailPointer</strong> in the queue.</p>
 <textarea placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
@@ -2005,18 +2159,21 @@ queue[rear] = item</code></pre>
 </div>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-binary-trees" class="ds-panel" hidden="" id="tab-binary-trees" role="tabpanel">
-<h3 class="ds-panel-title">Binary Trees</h3>
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-binary-trees" class="ds-panel" hidden="" id="tab-binary-trees" role="tabpanel">
+
+
+
+    <h3 class="ds-panel-title">Binary Trees</h3>
 <p><strong>Binary Trees:</strong> Hierarchical structures where each node has up to two children.</p>
 <div class="vertical-knowledge">
 <!-- TREE OVERVIEW -->
 <div class="knowledge-card">
-<h3>Tree (Overview)</h3>
+<h3>Tree</h3>
 <p>A tree is a non-linear, hierarchical data structure made up of nodes connected by edges. It has one root node and zero or more child nodes. Leaf nodes have no children.</p>
 <figure class="diagram-placeholder">
 <div class="diagram-box">
 <p><strong>Diagram placeholder:</strong> Tree showing root, children, edges and leaf nodes</p>
-<img src="images/datastructures/tree.png" width="50%"/></div>
+<img src="images/datastructures/tree.png" width="70%"/></div>
 <figcaption>Basic tree terminology</figcaption>
 </figure>
 <table class="knowledge-table">
@@ -2040,7 +2197,7 @@ queue[rear] = item</code></pre>
 <p>A BST is a binary tree where values in the left subtree are smaller than the node, and values in the right subtree are larger.</p>
 <figure class="diagram-placeholder">
 <div class="diagram-box">
-<p><strong>Diagram placeholder:</strong> BST showing left &lt; root &lt; right</p>
+<p> BST showing left &lt; root &lt; right</p>
 </div>
 <img height="196" src="images/datastructures/binarytree.png" width="207"/>
 <figcaption>Ordered structure of a BST</figcaption>
@@ -2070,7 +2227,7 @@ queue[rear] = item</code></pre>
 <p>Each node is an object that stores the data and references (pointers) to its left and right children. The tree stores a reference to the root node.</p>
 <figure class="diagram-placeholder">
 <div class="diagram-box">
-<p><strong>Diagram placeholder:</strong> Node containing data, left pointer, and right pointer</p>
+<p><Node containing data, left pointer, and right pointer</p>
 <img height="504" src="images/datastructures/nodediagram.png" width="617"/></div>
 <figcaption>Linked-node representation of a binary tree</figcaption>
 </figure>
@@ -2088,26 +2245,28 @@ queue[rear] = item</code></pre>
 <tr><td>root</td><td>Reference to the first node in the tree</td></tr>
 </tbody>
 </table>
-<img height="228" src="images/datastructures/nodeclass.png" width="162"/>
-<pre><code>class Node
-                  data
-                  left
-                  right
+<img height="228" src="images/datastructures/nodeclass.png"/>
+<pre><code>
+class Node
+private data
+private left
+private right
 
-                  procedure new(new_data)
-                    data = new_data
-                    left = null
-                    right = null
-                  end procedure
-                end class
+    procedure new(new_data)
+        data = new_data
+        left = null
+        right = null
+    end procedure
 
-                class BinaryTree
-                  root
+end class
 
-                  procedure new()
-                    root = null
-                  end procedure
-                end class</code></pre>
+class BinaryTree
+  private root
+
+  procedure new()
+    root = null
+  end procedure
+end class</code></pre>
 </div>
 <!-- ARRAY IMPLEMENTATION -->
 <div class="knowledge-card">
@@ -2115,7 +2274,7 @@ queue[rear] = item</code></pre>
 <p>The binary tree is stored in a table (often a 2D array). Each row represents a node and stores the node’s data and the indexes of its left and right children.</p>
 <figure class="diagram-placeholder">
 <div class="diagram-box">
-<p><strong>Diagram placeholder:</strong> Table showing node index, data, left index, right index</p>
+<p> Table showing node index, data, left index, right index</p>
 </div>
 <figcaption>Array-based representation of a binary tree</figcaption>
 </figure>
@@ -2134,10 +2293,11 @@ queue[rear] = item</code></pre>
 <tr><td>3</td><td>70</td><td>null</td><td>null</td></tr>
 </tbody>
 </table>
-<pre class="algorithm"><code># Each row stores: data, leftIndex, rightIndex
-                tree[1] = [50, 2, 3]
-                tree[2] = [30, 4, 5]
-                tree[3] = [70, null, null]</code></pre>
+<pre><code>
+# Each row stores: data, leftIndex, rightIndex
+tree[1] = [50, 2, 3]
+tree[2] = [30, 4, 5]
+tree[3] = [70, null, null]</code></pre>
 </div>
 <!-- COMPARISON -->
 <div class="knowledge-card">
@@ -2188,32 +2348,33 @@ queue[rear] = item</code></pre>
 <tr><td>4</td><td>Insert at first null pointer</td></tr>
 </tbody>
 </table>
-<pre class="algorithm"><code>Procedure insert(new_value)
-                  new_node = new Node(new_value)
+<pre><code>
+Procedure insert(new_value)
+  new_node = new Node(new_value)
 
-                  if root == null then
-                    root = new_node
-                    return
-                  end if
+  if root == null then
+    root = new_node
+    return
+  end if
 
-                  current = root
-                  parent = null
+  current = root
+  parent = null
 
-                  while current != null
-                    parent = current
-                    if new_value &lt; current.data then
-                      current = current.left
-                    else
-                      current = current.right
-                    end if
-                  end while
+  while current != null
+    parent = current
+    if new_value &lt; current.data then
+      current = current.left
+    else
+      current = current.right
+    end if
+  end while
 
-                  if new_value &lt; parent.data then
-                    parent.left = new_node
-                  else
-                    parent.right = new_node
-                  end if
-                End procedure</code></pre>
+  if new_value &lt; parent.data then
+    parent.left = new_node
+  else
+    parent.right = new_node
+  end if
+End procedure</code></pre>
 </div>
 <!-- DELETE FROM A BINARY SEARCH TREE -->
 <div class="knowledge-card">
@@ -2247,73 +2408,74 @@ queue[rear] = item</code></pre>
 </table>
 <figure class="diagram-placeholder">
 <div class="diagram-box">
-<p><strong>Diagram placeholder:</strong> BST delete cases (leaf, one child, two children)</p>
+<p>BST delete cases (leaf, one child, two children)</p>
 <img height="293" src="images/datastructures/deletenode.png" width="511"/></div>
 <figcaption>Three possible cases when deleting a node from a BST</figcaption>
 </figure>
-<pre class="algorithm"><code>Procedure delete(root, target)
-                  current = root
-                  parent = null
+<pre><code>
+Procedure delete(root, target)
+      current = root
+      parent = null
 
-                  # Step 1: Find node to delete
-                  while current != null and current.data != target
-                    parent = current
-                    if target &lt; current.data then
-                      current = current.left
-                    else
-                      current = current.right
-                    end if
-                  end while
+      # Step 1: Find node to delete
+      while current != null and current.data != target
+        parent = current
+        if target &lt; current.data then
+          current = current.left
+        else
+          current = current.right
+        end if
+      end while
 
-                  if current == null then
-                    return  # value not found
-                  end if
+      if current == null then
+        return  # value not found
+      end if
 
-                  # Step 2: Case 1 – No children
-                  if current.left == null and current.right == null then
-                    if parent == null then
-                      root = null
-                    else if parent.left == current then
-                      parent.left = null
-                    else
-                      parent.right = null
-                    end if
+      # Step 2: Case 1 – No children
+      if current.left == null and current.right == null then
+        if parent == null then
+          root = null
+        else if parent.left == current then
+          parent.left = null
+        else
+          parent.right = null
+        end if
 
-                  # Step 3: Case 2 – One child
-                  else if current.left == null or current.right == null then
-                    if current.left != null then
-                      child = current.left
-                    else
-                      child = current.right
-                    end if
+      # Step 3: Case 2 – One child
+      else if current.left == null or current.right == null then
+        if current.left != null then
+          child = current.left
+        else
+          child = current.right
+        end if
 
-                    if parent == null then
-                      root = child
-                    else if parent.left == current then
-                      parent.left = child
-                    else
-                      parent.right = child
-                    end if
+        if parent == null then
+          root = child
+        else if parent.left == current then
+          parent.left = child
+        else
+          parent.right = child
+        end if
 
-                  # Step 4: Case 3 – Two children
-                  else
-                    successor_parent = current
-                    successor = current.right
+      # Step 4: Case 3 – Two children
+      else
+        successor_parent = current
+        successor = current.right
 
-                    while successor.left != null
-                      successor_parent = successor
-                      successor = successor.left
-                    end while
+        while successor.left != null
+          successor_parent = successor
+          successor = successor.left
+        end while
 
-                    current.data = successor.data
+        current.data = successor.data
 
-                    if successor_parent.left == successor then
-                      successor_parent.left = successor.right
-                    else
-                      successor_parent.right = successor.right
-                    end if
-                  end if
-                End procedure</code></pre>
+        if successor_parent.left == successor then
+          successor_parent.left = successor.right
+        else
+          successor_parent.right = successor.right
+        end if
+      end if
+End procedure</code></pre>
 </div>
 <!-- TREE TRAVERSALS -->
 <div class="knowledge-card">
@@ -2338,64 +2500,72 @@ queue[rear] = item</code></pre>
 </tbody>
 </table>
 <!-- PRE-ORDER -->
+    <div class="vertical-knowledge">
 <div class="knowledge-card">
 <h3>Algorithm: Pre-order Traversal</h3>
-<pre class="algorithm"><code>Procedure preorder(node)
-                  if node != null then
-                    print(node.data)
-                    preorder(node.left)
-                    preorder(node.right)
-                  end if
-                End procedure</code></pre>
+<pre><code>
+Procedure preorder(node)
+  if node != null then
+    print(node.data)
+    preorder(node.left)
+    preorder(node.right)
+  end if
+End procedure</code></pre>
 </div>
 <!-- IN-ORDER -->
 <div class="knowledge-card">
 <h3>Algorithm: In-order Traversal</h3>
-<pre class="algorithm"><code>Procedure inorder(node)
-                  if node != null then
-                    inorder(node.left)
-                    print(node.data)
-                    inorder(node.right)
-                  end if
-                End procedure</code></pre>
+<pre><code>
+Procedure inorder(node)
+  if node != null then
+    inorder(node.left)
+    print(node.data)
+    inorder(node.right)
+  end if
+End procedure</code></pre>
 </div>
 <!-- POST-ORDER -->
 <div class="knowledge-card">
 <h3>Algorithm: Post-order Traversal</h3>
-<pre class="algorithm"><code>Procedure postorder(node)
-                  if node != null then
-                    postorder(node.left)
-                    postorder(node.right)
-                    print(node.data)
-                  end if
-                End procedure</code></pre>
+<pre><code>
+Procedure postorder(node)
+  if node != null then
+    postorder(node.left)
+    postorder(node.right)
+    print(node.data)
+  end if
+End procedure</code></pre>
 </div>
 <!-- BREADTH-FIRST -->
 <div class="knowledge-card">
 <h3>Algorithm: Breadth-First Traversal</h3>
-<pre class="algorithm"><code>Procedure breadth_first(root)
-                  if root == null then return
+<pre><code>
+Procedure breadth_first(root)
+  if root == null then return
 
-                  q = queue()
-                  q.enqueue(root)
+  q = queue()
+  q.enqueue(root)
 
-                  while q not empty
-                    current = q.dequeue()
-                    print(current.data)
+  while q not empty
+    current = q.dequeue()
+    print(current.data)
 
-                    if current.left != null then
-                      q.enqueue(current.left)
-                    end if
-                    if current.right != null then
-                      q.enqueue(current.right)
-                    end if
-                  end while
-                End procedure</code></pre>
+    if current.left != null then
+      q.enqueue(current.left)
+    end if
+    if current.right != null then
+      q.enqueue(current.right)
+    end if
+  end while
+End procedure</code></pre>
 </div>
+</div>
+    </div>
 <!-- Question 1 -->
+    <h3>Exam Style Questions</h3>
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>(a) Describe what is meant by a <strong>binary tree</strong>.</p>
+
+<p>1(a) Describe what is meant by a <strong>binary tree</strong>.</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2404,8 +2574,7 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Question 2 -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>(b) Explain one advantage of using a <strong>binary search tree</strong> instead of a one-dimensional array to store ordered data.</p>
+<p>1(b) Explain one advantage of using a <strong>binary search tree</strong> instead of a one-dimensional array to store ordered data.</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2414,8 +2583,8 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Question 3 -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>(c) State the order in which the nodes of a binary tree are visited during an <strong>in-order traversal</strong>.</p>
+
+<p>1(c) State the order in which the nodes of a binary tree are visited during an <strong>in-order traversal</strong>.</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2423,8 +2592,8 @@ queue[rear] = item</code></pre>
 </div>
 </div>
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>1. A program stores entered data in a binary search tree.<br/> The current contents of the tree are shown:</p>
+
+<p>2. A program stores entered data in a binary search tree.<br/> The current contents of the tree are shown:</p>
 <!-- IMAGE PLACEHOLDER: Binary Search Tree (countries incl. Sweden) -->
 <div class="image-placeholder">
 <p><strong><img height="287" src="images/datastructures/Q1.png" width="520"/></strong></p>
@@ -2438,8 +2607,8 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Q1 Preconditions -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>Identify two preconditions needed of a tree for this algorithm to work. [2]</p>
+
+<p>3. Identify two preconditions needed of a tree for this algorithm to work. [2]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2448,11 +2617,11 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Q2(a) -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>2(a). A data structure is shown below in Fig. 4.1.</p>
+
+<p>4(a). A data structure is shown below in Fig. 4.1.</p>
 <!-- IMAGE PLACEHOLDER: Fig 4.1 graph/tree -->
 <div class="image-placeholder">
-<img height="506" src="images/datastructures/q2.png" width="935"/></div>
+<img src="images/datastructures/q2.png" width="50%"/></div>
 <p>Identify the data structure shown in Fig. 4.1. [1]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
@@ -2462,8 +2631,8 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Q2(b) Explanation -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>(b) Explain the difference between a depth-first (post-order) traversal and a breadth-first traversal. [4]</p>
+
+<p>4(b) Explain the difference between a depth-first (post-order) traversal and a breadth-first traversal. [4]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2472,11 +2641,10 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Q2(b) Path -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>Show how a depth-first (post-order) traversal would find the path between node A and node X for the structure shown in Fig. 4.1. [6]</p>
+<p>5. Show how a depth-first (post-order) traversal would find the path between node A and node X for the structure shown in Fig. 4.1. [6]</p>
 <!-- IMAGE PLACEHOLDER: Fig 4.1 reused -->
 <div class="image-placeholder">
-<img height="506" src="images/datastructures/q2.png" width="935"/></div>
+<img src="images/datastructures/q2.png" width="50%"/></div>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2485,11 +2653,11 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Q3 -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>3. Kira uses a tree data structure shown in Fig. 1 to identify the range of possible moves the computer can make.</p>
+
+<p>6. Kira uses a tree data structure shown in Fig. 1 to identify the range of possible moves the computer can make.</p>
 <!-- IMAGE PLACEHOLDER: Fig 1 game tree -->
 <div class="image-placeholder">
-<p><strong><img height="645" src="images/datastructures/q3.png" width="914"/></strong></p>
+<p><strong><img src="images/datastructures/q3.png" width="50%"/></strong></p>
 </div>
 <p>Show how a breadth-first traversal would traverse the tree shown in Fig. 1. [4]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
@@ -2500,11 +2668,11 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Q4 Post-order -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>4. A binary search tree, numbers, stores numbers that are entered into a computer. The contents of the tree are shown below:</p>
+
+<p>7. A binary search tree, numbers, stores numbers that are entered into a computer. The contents of the tree are shown below:</p>
 <!-- IMAGE PLACEHOLDER: Numbers BST -->
 <div class="image-placeholder">
-<p><strong><img height="449" src="images/datastructures/q4.png" width="987"/></strong></p>
+<p><strong><img src="images/datastructures/q4.png" width="50%"/></strong></p>
 </div>
 <p>Explain how a depth-first (post-order) traversal is performed. [5]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
@@ -2515,8 +2683,8 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Q4 Breadth-first -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>Explain how a breadth-first traversal is performed. [5]</p>
+
+<p>8. Explain how a breadth-first traversal is performed. [5]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2526,10 +2694,10 @@ queue[rear] = item</code></pre>
 <!-- QUESTION 2(a) -->
 <div class="rev-card qa-card">
 <p>Question</p>
-<p>2) A binary search tree is used to store the names of dog breeds.<br/><br/> Fig. 7.1</p>
+<p>9(a) A binary search tree is used to store the names of dog breeds.<br/><br/> Fig. 7.1</p>
 <!-- IMAGE PLACEHOLDER -->
 <div class="image-placeholder">
-<p><strong><img height="343" src="images/datastructures/q2oop.png" width="918"/></strong></p>
+<p><strong><img src="images/datastructures/q2oop.png" width="50%"/></strong></p>
 </div>
 <p>The breeds Doberman and Dalmatian are added to the tree in that order. Add them to Fig. 7.1. [2]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
@@ -2540,8 +2708,8 @@ queue[rear] = item</code></pre>
 </div>
 <!-- QUESTION 2(b) -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>(b) Explain how you would determine if the breed <strong>Pug</strong> is in the binary search tree. [3]</p>
+
+<p>9(b) Explain how you would determine if the breed <strong>Pug</strong> is in the binary search tree. [3]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2551,7 +2719,7 @@ queue[rear] = item</code></pre>
 <!-- QUESTION 2(c) -->
 <div class="rev-card qa-card">
 <p>Question</p>
-<p>(c) Explain how you would determine if the breed <strong>Spaniel</strong> is in the binary search tree. [3]</p>
+<p>9 (c) Explain how you would determine if the breed <strong>Spaniel</strong> is in the binary search tree. [3]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2561,7 +2729,9 @@ queue[rear] = item</code></pre>
 </div>
 </div>
 
-</div><div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
+
+
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
 <h3 class="ds-panel-title">Graphs</h3>
 <div class="vertical-knowledge">
 <p><strong>Graphs:</strong> Vertices connected by edges (directed or undirected).</p>
@@ -2615,14 +2785,15 @@ queue[rear] = item</code></pre>
 <h2>Adjacency List and Adjacency Matrix (Example)</h2>
 <h3>Adjacency List</h3>
 <p>Each node stores a list of the nodes it is directly connected to. This graph is <strong>undirected</strong> and <strong>unweighted</strong>.</p>
-<pre class="algorithm"><code>Graph = {
-                  A: [B, C],
-                  B: [A, D, E],
-                  C: [A, F],
-                  D: [B],
-                  E: [B, F],
-                  F: [C, E]
-                }</code></pre>
+<pre><code>
+Graph = {
+  A: [B, C],
+  B: [A, D, E],
+  C: [A, F],
+  D: [B],
+  E: [B, F],
+  F: [C, E]
+}</code></pre>
 <table class="knowledge-table">
 <thead>
 <tr>
@@ -2705,38 +2876,40 @@ queue[rear] = item</code></pre>
 <tr><td>Best use</td><td>Shortest path</td><td>Explore all paths</td></tr>
 </tbody>
 </table>
-<pre class="algorithm"><code>Procedure bfs(graph, start)
-                  visited = []
-                  q = queue()
-                  q.enqueue(start)
+<pre><code>
+Procedure bfs(graph, start)
+  visited = []
+  q = queue()
+  q.enqueue(start)
 
-                  while q not empty
-                    node = q.dequeue()
-                    if node not in visited
-                      visited.append(node)
-                      for neighbour in graph[node]
-                        q.enqueue(neighbour)
-                  print(visited)
-                End procedure</code></pre>
-<pre class="algorithm"><code>Procedure dfs(graph, start)
-                  visited = []
-                  s = stack()
-                  s.push(start)
+  while q not empty
+    node = q.dequeue()
+    if node not in visited
+      visited.append(node)
+      for neighbour in graph[node]
+        q.enqueue(neighbour)
+  print(visited)
+End procedure</code></pre>
+<pre><code>
+Procedure dfs(graph, start)
+  visited = []
+  s = stack()
+  s.push(start)
 
-                  while s not empty
-                    node = s.pop()
-                    if node not in visited
-                      visited.append(node)
-                      for neighbour in reversed(graph[node])
-                        s.push(neighbour)
-                  print(visited)
-                End procedure</code></pre>
+  while s not empty
+    node = s.pop()
+    if node not in visited
+      visited.append(node)
+      for neighbour in reversed(graph[node])
+        s.push(neighbour)
+  print(visited)
+End procedure</code></pre>
 </div>
 <!-- GRAPH USED -->
 <div class="knowledge-card">
 <h3>Example Graph (Used for BFS &amp; DFS)</h3>
 <p>Assume the following adjacency list representation of a graph, starting traversal from node <strong>A</strong>.</p>
-<pre class="algorithm"><code>graph = {
+<pre><code>graph = {
                   A: [B, C],
                   B: [A, D, E],
                   C: [A, F],
@@ -2816,9 +2989,10 @@ queue[rear] = item</code></pre>
 </table>
 </div>
 <!-- Question 4 -->
+    <H3>Exam Style Questions</H3>
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>(d) A graph traversal algorithm uses a <strong>queue</strong> and visits nodes level by level. Identify this traversal algorithm.</p>
+
+<p>1.  A graph traversal algorithm uses a <strong>queue</strong> and visits nodes level by level. Identify this traversal algorithm.</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2827,8 +3001,8 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Question 5 -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>(e) Describe one difference between an <strong>adjacency list</strong> and an <strong>adjacency matrix</strong>.</p>
+
+<p>2. Describe one difference between an <strong>adjacency list</strong> and an <strong>adjacency matrix</strong>.</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2837,8 +3011,8 @@ queue[rear] = item</code></pre>
 </div>
 <!-- Question 6 -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>(f) Explain why a <strong>breadth-first search</strong> is suitable for finding the shortest path in an unweighted graph.</p>
+
+<p>3. Explain why a <strong>breadth-first search</strong> is suitable for finding the shortest path in an unweighted graph.</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2846,7 +3020,7 @@ queue[rear] = item</code></pre>
 </div>
 </div>
 <div class="rev-card qa-card">
-<h3>Graph Question</h3>
+
 <p>Fig. 5 shows a graph data structure representing a small section of a parcel delivery network. Each node represents an address where deliveries need to be made. The edges show the possible routes and distances between these deliveries.</p>
 <!-- IMAGE PLACEHOLDER: Fig. 5 graph -->
 <div class="img-placeholder" data-figure="Fig. 5">
@@ -2864,8 +3038,40 @@ queue[rear] = item</code></pre>
 </div>
 <!-- QUESTION -->
 <div class="rev-card qa-card">
-<p>Question</p>
-<p>A software company is developing a navigation system using an object-oriented programming (OOP) language. The system stores a road network as a graph. Each junction is represented by an object of class <strong>Node</strong>. Each road is represented by an object of class <strong>Edge</strong>. <br/><br/> The Node class has the following methods: <br/> getNeighbours() – returns a list of neighbouring Node objects <br/> getName() – returns the name of the junction <br/><br/> (a) Explain why a <strong>breadth-first search (BFS)</strong> algorithm is suitable for finding the shortest path between two junctions in this graph. [3] <br/><br/> (b) The program uses a breadth-first search starting from a given Node. Complete the pseudocode below to implement the BFS algorithm using OOP principles. [6] <br/><br/> <code> procedure bfs(startNode)<br/> visited = empty list<br/> q = empty queue<br/><br/> enqueue(q, startNode)<br/><br/> while q is not empty<br/> current = dequeue(q)<br/><br/> if current not in visited then<br/> add current to visited<br/><br/> for each neighbour in current.__________()<br/> if neighbour not in visited then<br/> __________(q, neighbour)<br/> endif<br/> endfor<br/> endif<br/> endwhile<br/> endprocedure </code> <br/><br/> (c) State one advantage of implementing this graph traversal using an object-oriented approach rather than a procedural approach. [2]</p>
+
+<p>4. A software company is developing a navigation system using an object-oriented
+    programming (OOP) language.
+    The system stores a road network as a graph. Each junction is represented by an object of class <strong>Node</strong>.
+    Each road is represented by an object of class <strong>Edge</strong>. <br/><br/>
+    The Node class has the following methods: <br/> getNeighbours() – returns a list of neighbouring Node objects <br/>
+    getName() – returns the name of the junction <br/><br/>
+    (a) Explain why a <strong>breadth-first search (BFS)</strong> algorithm is suitable for finding the shortest path between two
+    junctions in this graph. [3] <br/><br/>
+
+    (b) The program uses a breadth-first search starting from a given Node.
+    Complete the pseudocode below to implement the BFS algorithm using OOP principles. [6] <br/><br/>
+
+<pre><code>
+procedure bfs(startNode)
+    visited = empty list
+    q = empty queue
+    enqueue(q, startNode)
+    while q is not empty
+        current = dequeue(q)
+        if current not in visited then
+            add current to visited
+            for each neighbour in current.__________()
+                if neighbour not in visited then
+                    __________(q, neighbour)
+                endif
+            endfor
+        endif
+    endwhile
+endprocedure </code></pre>
+
+    <br/><br/>
+
+    (c) State one advantage of implementing this graph traversal using an object-oriented approach rather than a procedural approach. [2]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer">
@@ -2873,16 +3079,19 @@ queue[rear] = item</code></pre>
 </div>
 </div>
 </div>
-</div><div aria-labelledby="tabbtn-hash-tables" class="ds-panel" hidden="" id="tab-hash-tables" role="tabpanel">
-<h3 class="ds-panel-title">Hash Tables</h3>
 
+
+
+
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-hash-tables" class="ds-panel" hidden="" id="tab-hash-tables" role="tabpanel">
+<h3 class="ds-panel-title">Hash Tables</h3>
 <h3 class="ds-panel-title">Hash Tables</h3><p><strong>Hash Tables:</strong> Key–value pairs using hash functions for fast lookup.</p>
 <div class="vertical-knowledge">
 
     add content
 
 </div>
-</div></div>
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div></div>
 <footer>
 <p>© studyhub CS 2025</p>
 </footer>
@@ -2980,5 +3189,35 @@ queue[rear] = item</code></pre>
   })();
 
 </script>
-</div></div></section></main></body>
+</div></div></section></main><script>document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".print-tab-btn");
+  if (!btn) return;
+
+  const panel = btn.closest(".ds-panel");
+  if (!panel) return;
+
+  const printContent = panel.cloneNode(true);
+  printContent.querySelectorAll(".tab-print").forEach(el => el.remove());
+
+  const printWindow = window.open("", "", "width=900,height=650");
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Print Section</title>
+        <link rel="stylesheet" href="../../styles.css">
+      </head>
+      <body>
+        ${printContent.innerHTML}
+      </body>
+    </html>
+  `);
+
+  printWindow.document.close();
+  printWindow.focus();
+
+  setTimeout(() => {
+    printWindow.print();
+    printWindow.close();
+  }, 250);
+});</script></body>
 </html>
