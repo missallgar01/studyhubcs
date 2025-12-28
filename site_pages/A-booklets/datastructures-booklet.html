@@ -19,10 +19,12 @@
 </header>
 <main>
 <section class="topic-section expanded">
+
 <div class="topic-header">
 <span class="topic-arrow">▸</span>
 <h2>Data Structures – Quick Tabs</h2>
 </div>
+
 <div class="topic-body">
 <div class="ds-tabs" data-tabs="">
 <div aria-label="Data Structures tabs" class="ds-tablist" role="tablist">
@@ -51,7 +53,11 @@
           Hash Tables
         </button>
 </div>
-<div class="ds-panels"><div aria-labelledby="tabbtn-arrays" class="ds-panel" id="tab-arrays" role="tabpanel">
+
+<div class="ds-panels">
+
+<!----------------------------------------------------Arrays ------------------------------------------------->
+    <div aria-labelledby="tabbtn-arrays" class="ds-panel" id="tab-arrays" role="tabpanel">
 <h3 class="ds-panel-title">Arrays, Lists and Tuples</h3>
 <div class="vertical-knowledge">
 <div class="knowledge-card">
@@ -234,8 +240,108 @@ next y</code></pre>
 <p>An alternative valid declaration could be:</p>
 <pre><code>array towns[3, 8]</code></pre>
 </div>
+
+  <!-- Question 1(i) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>1</strong> Beth records how many steps she has completed over a seven-day period.
+      <br><br>
+      She stores the total number of steps for each day in a text file. For example:
+      <br><br>
+      "9000", "13680", "11254", "8258", "12326", "9244", "7542"
+      <br><br>
+      Beth would like a program that will take the values from the text file and then
+      calculate the average number of steps per day.
+      <br><br>
+      The values from the text file are copied into a 1d-array called <code>steps</code>
+      when the program starts.
+      <br><br>
+      Beth passes the array <code>steps</code> into a function called
+      <code>findAverage</code> which will return the average number of steps.
+      <br><br>
+      <strong>i.</strong> An alternative data structure Beth could have used is a list.
+      <br><br>
+      Describe two differences between a list and an array.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>
+        • An array is static / cannot grow / shrink (at run-time)<br>
+        • A list is dynamic / can grow / shrink<br>
+        • Array values must be of the same type<br>
+        • List values can be of different types
+      </p>
+    </div>
+  </div>
+
+  <!-- Question 1(ii) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>ii.</strong> Write the function <code>findAverage</code> that will accept the array
+      <code>steps</code> as a parameter and then return the average number of steps.
+      <br><br>
+      You should write your answer using pseudocode or program code.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <pre><code>
+function findAverage(steps)
+  total = 0
+  for count = 0 to steps.length - 1
+    total = total + steps[count]
+  next count
+  average = total / 7
+  return average
+end function
+      </code></pre>
+    </div>
+  </div>
+
+
+  <!-- Q3 -->
+  <div class="rev-card qa-card">
+    <p>2. Declare a 2D array towns with 8 rows and 3 columns.</p>
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <pre>
+array towns[8][3] as string</pre>
+    </div>
+  </div>
+
+
+  <div class="rev-card qa-card">
+    <p>3(a). Describe one difference between an array and a list.</p>
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>Array is fixed-size/static (and often single type); list is dynamic (and can hold mixed types).</p>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <p>3(b). State how a tuple differs from a list.</p>
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>A tuple is immutable (cannot be changed at runtime); a list is mutable.</p>
+    </div>
+  </div>
+
+
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
 </div>
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-records" class="ds-panel" hidden="" id="tab-records" role="tabpanel">
+</div>
+
+
+    <!----------------------------------------------------Records ------------------------------------------------->
+ <div aria-labelledby="tabbtn-records" class="ds-panel" id="tab-records" role="tabpanel">
 <h3 class="ds-panel-title">Records</h3>
 <p><strong>Records:</strong> Store related fields (possibly different data types) under one structure.</p>
 <div class="vertical-knowledge">
@@ -371,6 +477,7 @@ Players(3).name = "Jane"</code></pre>
 
 
 
+
 <div class="rev-card qa-card">
 <p>Question</p>
 <p>(a) Describe what is meant by a record structure.</p>
@@ -400,8 +507,15 @@ Players(3).name = "Jane"</code></pre>
 <p>Queue (other acceptable answers include list, tuple, tree, graph, or linked list).</p>
 </div>
 </div>
+
+    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
+
 </div>
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-linked-lists" class="ds-panel" hidden="" id="tab-linked-lists" role="tabpanel">
+ </div>
+
+<!--------------------------------------------------Linked Lists ------------------------------------------------->
+
+<div aria-labelledby="tabbtn-linked-lists" class="ds-panel" id="tab-linked-lists" role="tabpanel">
 <h3 class="ds-panel-title">Linked Lists</h3>
 <p><strong>Linked Lists:</strong> Nodes connected by pointers; dynamic size but slower access.</p>
 <div class="vertical-knowledge">
@@ -689,7 +803,7 @@ endfunction</code></pre>
 </div>
 </div>
 <!-- ================= END ================= -->
-<!-- ================= LINKED LIST – INSERT AT POSITION ================= -->
+
 <div class="rev-card qa-card">
 <p><strong>(ii)</strong>Order <strong>159</strong> has been made. This order has a high priority and needs to be the <strong>second</strong> order in the linked list.</p>
 <p>Add the order, <strong>159</strong>, to the original linked list as shown in Fig. 2.1. Show the contents of the linked list in the following table. [3]</p>
@@ -879,9 +993,16 @@ while currentElement != null    // loop until end of list
 endwhile</code></pre>
 </div>
 </div>
+
+    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
 </div>
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-stacks" class="ds-panel" hidden="" id="tab-stacks" role="tabpanel">
-<h3 class="ds-panel-title">Stacks</h3>
+</div>
+
+
+    <!----------------------------------------------------Stacks ------------------------------------------------->
+
+<div aria-labelledby="tabbtn-stacks" class="ds-panel" id="tab-stacks" role="tabpanel">
+    <h3 class="ds-panel-title">Stacks</h3>
 <p><strong>Stacks:</strong> LIFO (Last In, First Out).</p>
 <div class="vertical-knowledge">
 <div class="knowledge-card">
@@ -1459,8 +1580,14 @@ else
 endif</code></pre>
 </div>
 </div>
+    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
+
 </div>
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-queues" class="ds-panel" hidden="" id="tab-queues" role="tabpanel">
+</div>
+
+    <!----------------------------------------------------Queues------------------------------------------------->
+
+<div aria-labelledby="tabbtn-queues" class="ds-panel" id="tab-queues" role="tabpanel">
 <h3 class="ds-panel-title">Queues</h3>
 <div class="vertical-knowledge">
 <p><strong>Queues:</strong> FIFO (First In, First Out).</p>
@@ -1474,7 +1601,7 @@ endif</code></pre>
 <li>Random access of elements is not allowed</li>
 <li>Implemented using a list or linked list</li>
 </ul>
-<table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+<table>
 <thead>
 <tr>
 <th>Stack</th>
@@ -2158,11 +2285,12 @@ queue[rear] = item</code></pre>
 <p>Higher-priority jobs cannot be processed before earlier jobs, making a standard queue unsuitable.</p>
 </div>
 </div>
+    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
+
 </div>
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-binary-trees" class="ds-panel" hidden="" id="tab-binary-trees" role="tabpanel">
-
-
-
+</div>
+<!----------------------------------------------------Binary Trees ------------------------------------------------->
+<div aria-labelledby="tabbtn-binary-trees" class="ds-panel" id="tab-binary-trees" role="tabpanel">
     <h3 class="ds-panel-title">Binary Trees</h3>
 <p><strong>Binary Trees:</strong> Hierarchical structures where each node has up to two children.</p>
 <div class="vertical-knowledge">
@@ -2726,12 +2854,16 @@ End procedure</code></pre>
 <p>Spaniel &gt; Harrier, so move right.<br/> Spaniel &gt; Rottweiler, so move right.<br/> Spaniel &lt; Whippet but there is no child node, so Spaniel is not in the tree.</p>
 </div>
 </div>
+
+    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
+
 </div>
-</div>
+    </div>
+
+    <!----------------------------------------------------Graphs ------------------------------------------------->
 
 
-
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
+    <div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
 <h3 class="ds-panel-title">Graphs</h3>
 <div class="vertical-knowledge">
 <p><strong>Graphs:</strong> Vertices connected by edges (directed or undirected).</p>
@@ -3078,20 +3210,626 @@ endprocedure </code></pre>
 <p><strong>(a)</strong><br/> Breadth-first search explores the graph level by level.<br/> In an unweighted graph, the first time a node is reached is via the shortest path.<br/> Therefore BFS guarantees the shortest path between two nodes. <br/><br/> <strong>(b)</strong><br/> getNeighbours()<br/> enqueue(q, neighbour) <br/><br/> <strong>(c)</strong><br/> Encapsulation means each Node object manages its own data and connections.<br/> This makes the code easier to maintain, reuse, and extend.</p>
 </div>
 </div>
+    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
+
 </div>
+    </div>
+        <!----------------------------------------------------Hash Tables ------------------------------------------------->
 
-
-
-
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div><div aria-labelledby="tabbtn-hash-tables" class="ds-panel" hidden="" id="tab-hash-tables" role="tabpanel">
-<h3 class="ds-panel-title">Hash Tables</h3>
+    <div aria-labelledby="tabbtn-hash-tables" class="ds-panel" id="tab-hash-tables" role="tabpanel">
 <h3 class="ds-panel-title">Hash Tables</h3><p><strong>Hash Tables:</strong> Key–value pairs using hash functions for fast lookup.</p>
 <div class="vertical-knowledge">
 
-    add content
+  <div class="knowledge-card">
+    <h3>Hashing</h3>
+    <p>
+      Large collections of data, for example customer records in a database,
+      need to be accessible very quickly without having to look through all the
+      records. This can be done by holding an index of the physical address on
+      the file where the data is held.
+    </p>
+  </div>
 
+  <div class="knowledge-card">
+    <h3>Hashing Algorithm</h3>
+    <p>
+      A hashing algorithm is applied to the value in the key field of each record
+      to transform it into an address. One common hashing algorithm is to divide
+      the key by the number of available addresses and take the remainder as the
+      address.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Hash Table</h3>
+    <p>
+      A hash table is a collection of items stored in such a way that they can
+      quickly be located. The hash table could be implemented as an array or list
+      of a given size with a number of empty spaces.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Empty Hash Table Example</h3>
+    <p>
+      An empty hash table that can store a maximum of 11 items is shown, with
+      spaces labelled from 0 to 10.
+    </p>
+    <p>
+      All locations initially contain the value <strong>Empty</strong>.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Storing Items Using Hashing</h3>
+    <p>
+      Items 78, 55, 34, 19 and 29 are stored in the table using division by 11
+      and taking the remainder.
+    </p>
+    <ul>
+      <li>78 → Hash value 1</li>
+      <li>55 → Hash value 0</li>
+      <li>34 → Hash value 1</li>
+      <li>19 → Hash value 8</li>
+      <li>29 → Hash value 7</li>
+    </ul>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Final Hash Table Contents</h3>
+    <p>
+      After insertion, the hash table contains:
+    </p>
+    <ul>
+      <li>Index 0: 55</li>
+      <li>Index 1: 78</li>
+      <li>Index 2: 34</li>
+      <li>Index 7: 29</li>
+      <li>Index 8: 19</li>
+      <li>All other locations remain empty</li>
+    </ul>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Hashing a String</h3>
+    <p>
+      A hash function can be created for alphanumeric strings by using the ASCII
+      code for each character. To hash the word <strong>CAB</strong>, the ASCII
+      values for each letter are added together. If there are 11 spaces in the
+      hash table, the total is divided by 11 and the remainder is taken as the
+      hash value.
+    </p>
+  </div>
+
+     <div class="knowledge-card">
+    <h3>Searching for an Item</h3>
+    <p>When searching for an item, the following steps are followed:</p>
+    <ol>
+      <li>Apply the hashing algorithm to the key field of the item</li>
+      <li>Examine the resulting cell in the list</li>
+      <li>If the item is there, return the item</li>
+      <li>If the cell is empty, the item is not in the table</li>
+      <li>
+        If there is another item in that spot, keep moving forward until either
+        the item is found or a blank cell is encountered, indicating that the
+        item is not in the table
+      </li>
+    </ol>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Implementation</h3>
+    <p>
+      Hash tables are used in the implementation of the data structure called
+      a dictionary.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Dictionaries</h3>
+    <p>
+      A dictionary is an abstract data type consisting of associated pairs of
+      items, where each pair consists of a key and a value.
+      In Python, dictionaries are written as comma-separated pairs in the form
+      <strong>key:value</strong> and enclosed in curly braces.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre>
+IDs = {342:'Harry', 634:'Jasmine', 885:'Max', 571:'Sheila'}
+    </pre>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Operations on Dictionaries</h3>
+    <p>
+      It is possible to implement a dictionary using either a static or a
+      dynamic data structure. The implementation needs to include the
+      following operations:
+    </p>
+
+    <pre>
+# Create a new empty dictionary
+my_dict = {}
+
+# Add a new key:value pair to the dictionary
+my_dict["name"] = "Alice"
+print("After adding:", my_dict)
+
+# Return value associated with key 'name'
+value = my_dict.get("name")
+print("Value for 'name':", value)
+
+# Return True or False depending on whether key is in the dictionary
+has_age = "age" in my_dict
+print("Is 'age' a key?", has_age)
+
+# Return the length of the dictionary
+length = len(my_dict)
+    </pre>
+  </div>
+
+    <div class="knowledge-card">
+    <h3>Dealing with Collisions</h3>
+    <p>
+      A collision can happen when two keys generate the same hash address.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Linear Probing</h3>
+    <p>
+      Linear probing could be used. Move through the structure one space at a
+      time to find the next free space.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Chaining</h3>
+    <p>
+      Chaining could be used. Each location points to the start of a linked list.
+      The new item is added to the end of the linked list or placed in a free
+      space.
+    </p>
+  </div>
+
+      <div class="knowledge-card">
+    <h3>Comparison of Linked Lists and Hash Tables</h3>
+    <p>
+      Overall, a hash table is likely to be the best option (assuming it has
+      enough space and a good hashing algorithm which produces a hash quickly
+      and with few collisions). It will give very consistent performance even
+      as the list grows.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Linked Lists vs Hash Tables</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Linked List</th>
+          <th>Hash Tables</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Searching a linked list involves starting at the first node and
+            following the pointers until either the desired value is found
+            or the end of the list is reached, meaning the item isn’t in the list.
+          </td>
+          <td>
+            Searching a hash table requires the key to be hashed and the
+            correct location accessed. The time taken is largely dependent
+            on the time to create the hash.
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            The bigger the linked list grows, the longer it takes to search.
+            If a linked list doubles in size, it will on average take twice as
+            long to search. A list of size n takes on average n/2 checks.
+            In Big O notation this is O(n), or linear complexity.
+          </td>
+          <td>
+            If collisions are ignored, the time to find an item stays the same
+            regardless of the size of the list. In other words it has O(1)
+            or constant complexity.
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            If items are added to the end of the linked list and the location
+            of the last node is stored, the new item can be added directly.
+            The time to add items is constant.
+          </td>
+          <td>
+            As the list grows, collisions become more likely. Linear probing
+            and chaining mean that once a location has been found, the time
+            taken grows linearly with the number of collisions at that location.
+            However, this still performs significantly better than a linked list.
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            If items are added in some sort of order, the time to add items
+            grows linearly due to the time spent searching for the correct
+            position.
+          </td>
+          <td>
+            Adding items to a hash table involves hashing the key and placing
+            it in the correct location. This takes a constant amount of time
+            unless collisions occur, in which case there is an overhead that
+            grows with the number of collisions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+
+
+  <div class="rev-card qa-card">
+    <p>1. Compare BST efficiency vs hash table for searching.</p>
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>
+        A hash table is generally faster for lookups (direct access using the hashed key, ideally constant time),
+        while a BST requires comparisons down the tree (typically logarithmic).
+      </p>
+    </div>
+
+
+
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>6(a)</strong> A programmer is writing software for a firewall. She is writing code so that it keeps a track of
+      websites that users are permitted to visit. The software stores the websites’ addresses along with details about who
+      can view them and when.
+    </p>
+
+    <p>The following data is also stored about each website:</p>
+    <ul>
+      <li>Access level needed (1–4)</li>
+      <li>If it is available all the time (<code>true</code>) or just lunch times and out of work hours (<code>false</code>).</li>
+    </ul>
+
+    <p>
+      So a website which is available to users of access level 2 and above, all the time, would have the details
+      <code>[2, true]</code> stored.
+    </p>
+
+    <p>
+      A website accessible to users of access level 3 and above, only outside of work hours, would have the details
+      <code>[3, false]</code> stored.
+    </p>
+
+    <p>
+      A flaw with the current hash function is it tends to generate lots of collisions (addresses that compute to the same hash).
+      Below is a diagram of part of the hash table. The address <code>www.rnd.com</code> with details <code>[2, true]</code> is being
+      added to the hash table.
+    </p>
+
+    <p><strong>Explain how a hash table can be used to handle collisions, referring to the example below.</strong></p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Stored value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>227</td><td></td></tr>
+          <tr><td>228</td><td><code>www.ocr.org.uk : [1, true]</code></td></tr>
+          <tr><td>229</td><td></td></tr>
+          <tr><td>230</td><td><code>www.ppf.nz : [2, false]</code></td></tr>
+          <tr><td>231</td><td></td></tr>
+          <tr><td>232</td><td><code>www.ntf.biz : [4, true]</code></td></tr>
+          <tr><td>234</td><td></td></tr>
+          <tr><td>235</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer">
+  <p>
+    • <code>www.rnd.com</code> would cause a collision with <code>www.ocr.org.uk</code> / would hash to the same position as
+    <code>www.ocr.org.uk</code> (228).
+    <br><br>
+
+    • <strong>Linear probing</strong> could be used:
+    <br>– Move through the structure one space at a time
+    <br>– …to find the next free space / 229
+    <br><br>
+
+    • <strong>Chaining</strong> could be used:
+    <br>– Each location points (to the start of) a linked list
+    <br>– The new item is added to the end of the linked list / free
+    <br><br>
+
+    • <strong>Overflow area</strong> method:
+    <br>– Points to an overflow area
+    <br>– The new item is stored with the other values in the same area
+    <br><br>
+
+    Accept a separate or annotated diagram showing a method on given example.
+    <br><br>
+
+    (1 per –, max 4)
+      <img src="images/datastructures/Q2hash.png" height="778" width="682"/></p>
 </div>
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div></div></div>
+  </div>
+
+
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>(b)</strong> The hash function is changed so there are no longer high numbers of collisions.
+      During busy periods the firewall is expected to check several addresses a second.
+      It is anticipated that roughly <strong>10 new addresses</strong> will be added to a whitelist
+      (list of acceptable addresses) each day.
+    </p>
+
+    <p>
+      There is a debate as to whether a <strong>hash table</strong> (with the new hash function)
+      is the best approach, or if the whitelist would be better stored in a <strong>linked list</strong>.
+    </p>
+
+    <p>
+      <strong>Discuss whether a hash table or linked list is better to store acceptable websites.</strong>
+      You should compare how each structure can be searched and has data added and come to a
+      recommendation as to which is better for the whitelist.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <p>
+        Searching a linked list involves starting at the first node and following the pointers until
+        either the desired value is found, or the end of the list is reached, meaning the item is not
+        in the list.
+      </p>
+
+      <p>
+        As the linked list grows, searching takes longer. If the list doubles in size it will, on
+        average, take twice as long to search. A list of size <em>n</em> takes on average <em>n/2</em>
+        checks, which is <strong>O(n)</strong> (linear complexity).
+      </p>
+
+      <p>
+        Searching a hash table requires the key to be hashed and the correct location accessed.
+        If collisions are ignored, the time taken to find an item remains the same regardless of
+        the size of the whitelist, giving <strong>O(1)</strong> (constant complexity).
+      </p>
+
+      <p>
+        As the whitelist grows, collisions become more likely. Linear probing or chaining means that
+        once a location has been found, the time taken increases with the number of collisions at that
+        location. However, this still performs significantly better than a linked list.
+      </p>
+
+      <p>
+        Adding items to a linked list is constant time if items are added to the end and the last node
+        is stored. If items are added in order, the time to add items increases linearly due to the
+        need to search for the correct position.
+      </p>
+
+      <p>
+        Adding items to a hash table involves hashing the key and placing it in the correct location.
+        This is constant time unless collisions occur, in which case there is an overhead that grows
+        with the number of collisions.
+      </p>
+
+      <p>
+        Overall, a hash table is likely to be the best option, assuming it has enough space and a good
+        hashing algorithm with few collisions. It provides very consistent performance even as the
+        whitelist grows.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>3.</strong> A coach company offers tours of the UK.
+    </p>
+
+    <p>
+      The program stores records about its customers.
+    </p>
+
+    <p>
+      Often an individual customer’s record needs to be accessed. This is done by
+      searching using the <strong>Customer ID</strong>.
+    </p>
+
+    <p>
+      <strong>
+        Explain why a hash table is better suited than a linked list to store the
+        customer records, particularly as the company acquires more customers.
+      </strong>
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <p>
+        Searching a linked list requires starting at the first node and checking
+        every node until the required record is found or the end of the list is
+        reached.
+      </p>
+
+      <p>
+        As more customers are added, a linked list takes longer to search because
+        more nodes must be checked.
+      </p>
+
+      <p>
+        A hash table allows direct access to the location of a record by hashing
+        the Customer ID.
+      </p>
+
+      <p>
+        The time taken to search a hash table stays the same even as more customer
+        records are added, making it more suitable as the company grows.
+      </p>
+
+      <p>
+        <em>
+          Some candidates may refer to time complexity, describing linked lists as
+          linear <strong>O(n)</strong> and hash tables as constant
+          <strong>O(1)</strong>. These points together gain full credit.
+        </em>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Question 8(a) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>4(a)</strong> A bus runs between two cities. There are a number of stops on the bus route
+      labelled <strong>StopA</strong>, <strong>StopB</strong> and so on.
+      The timetable for the route is represented as a hash table.
+      For each entry in the hash table the key is the bus stop code and the data
+      attached to it is a (zero indexed) array of the times a bus arrives at the stop.
+      The times are stored as strings.
+    </p>
+
+    <p>An extract of the hash table is shown:</p>
+
+    <pre><code>
+times =
+{
+  "StopA": ["06:55", "07:25", "07:55", "08:55", "09:55", "11:55", "14:00", "15:00", "15:30", "16:00"],
+  "StopB": ["06:40", "07:40", "08:40", "09:20", "09:40", "14:00", "15:00", "16:00", "16:30"]
+}
+    </code></pre>
+
+    <p>
+      <code>print(times["StopA"][1])</code> displays <strong>07:25</strong>.
+    </p>
+
+    <p>
+      <strong>State what the code <code>print(times["StopB"][4])</code> displays.</strong>
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <p><strong>09:40</strong></p>
+    </div>
+  </div>
+
+  <!-- Question 8(b) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>4(b)</strong> Write a function called <code>timeValue</code> that, given a time stored in
+      a string, returns the equivalent integer (using thousands and hundreds for the hours and tens
+      and units for the minutes).
+    </p>
+
+    <p>
+      The given string should be assumed to represent the time in the 24-hour clock
+      in the format <strong>HH:MM</strong>.
+    </p>
+
+    <p>
+      <code>timeValue("07:55")</code> should return <strong>755</strong><br>
+      <code>timeValue("15:30")</code> should return <strong>1530</strong>
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <pre><code>
+function timeValue(givenTime)
+  minutes = int(givenTime.substring(3,2))
+  hours = int(givenTime.substring(0,2)) * 100
+  return hours + minutes
+endfunction
+      </code></pre>
+    </div>
+  </div>
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(c)</strong> Write code for a function that takes in the name of a stop
+    (<code>stopName</code>) and the current time as an integer
+    (<code>currentTime</code>) in the format described in part (b)
+    (using thousands and hundreds for the hours and tens and units for the minutes).
+    It should return the time of the next available bus in the string format.
+    If there are no more buses available that day it should return the string
+    “No buses”.
+    <br><br>
+    Example <code>nextBus("StopA", 1013)</code> should return “11:55”
+    <br><br>
+    <code>function nextBus(stopName, currentTime)</code>
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p>Correct stop array extracted/referenced in code (1)</p>
+    <p>Sensible attempt to iterate through the array (1)</p>
+    <p>Program returns time of next bus (1)</p>
+    <p>Program returns No Buses when no more buses left. (1)</p>
+    <p>
+      Program runs without an index out of bounds error
+      (You may assume short circuit evaluation i.e. if the array is in the second
+      part of an and condition it won’t be checked if the first half evaluates to false.)
+      (1)
+    </p>
+
+    <pre><code>
+count = 0
+timesLeft = true
+timesList = times[stopName]
+while timesLeft == true and
+timeValue(timesList[count]) < currentTime
+  count = count + 1
+  if count == timesList.length then
+    timesLeft = false
+  endif
+endwhile
+if timesLeft == true then
+  return timesList[count]
+else
+  return "No Buses"
+endif
+    </code></pre>
+  </div>
+</div>
+
+
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
+     </div>
+</div>
+</section>
+
 <footer>
 <p>© studyhub CS 2025</p>
 </footer>

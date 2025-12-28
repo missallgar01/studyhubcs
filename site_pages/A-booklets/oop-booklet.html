@@ -1517,8 +1517,572 @@ def fight(currentPlayer):
             currentPlayer.setHealthPoints(5)
             currentPlayer.setPosition(1)</pre></td></tr></table></div>
 </div>
+
+      <!-- Question 2(a) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>2(a)</strong> A game is being written that makes use of object-oriented programming.
+      A prototype for one part of the game is being designed that includes a character,
+      a road and a prize to collect.
+      <br><br>
+      The road will have 50 spaces that a character can move along.
+      Each space on the road will store a null value or a prize object for the user
+      to collect.
+      <br><br>
+      Each space is numbered sequentially from the first space (position 0) to the
+      last space (position 49) and will not change during the game.
+      <br><br>
+      The road is designed to be a 1-dimensional array with the identifier <code>road</code>.
+      <br><br>
+      Explain why an array is a suitable data structure to represent the road.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>
+        • Has a set/fixed number of values<br>
+        • …and the number of spaces in the road will not change<br>
+        • Stores data of one type<br>
+        • …as the array is only made up of prize objects<br>
+        • Stores data linearly<br>
+        • …match the linear nature of the road<br>
+        • Array contents are mutable<br>
+        • …so prizes can be added/removed from the road<br>
+        • A single identifier is used to directly index<br>
+        • …any position in the road<br>
+        • Can be iterated by index<br>
+        • …to perform an operation on all road positions
+      </p>
+    </div>
+  </div>
+
+  <!-- Question 2(b)(i) -->
+  <div class="rev-card qa-card">
+
+      <p>The characters and prizes are designed as separate classes. 10 of the spaces on the road will contain an
+instance of the class Prize. The other spaces will be empty.
+The class design for Prize is here.</p>
+
+      <div class="class-diagram">
+
+  <div class="class-header">
+    <strong>class: Prize</strong>
+  </div>
+
+  <div class="class-section">
+    <strong>attributes:</strong>
+    <p>private name : string</p>
+    <p>private type : string</p>
+    <p>private value : integer</p>
+  </div>
+
+  <div class="class-section">
+    <strong>methods:</strong>
+    <p>new()</p>
+    <p>getName()</p>
+    <p>getType()</p>
+    <p>getValue()</p>
+  </div>
+
+</div>
+
+      <p>new() is the constructor method. The name, type and value are passed to the constructor as parameters which
+then assigns these to the attributes.</p>
+
+    <p>
+      <strong>2(b)(i)</strong> The method <code>getName()</code> returns the data in the attribute
+      <code>name</code>.
+      <br><br>
+      Write the method <code>getName()</code> using pseudocode or program code.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <pre><code>
+public function getName()
+  return name
+endfunction
+      </code></pre>
+    </div>
+  </div>
+
+  <!-- Question 2(b)(ii) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>2(b)(ii)</strong> A global 1-dimensional array, <code>allPrizes</code>,
+      stores 10 objects of type <code>Prize</code>.
+      <br><br>
+      The prize in index 3 has the name "Box", the type is "money"
+      and the value is 25.
+      <br><br>
+      Write pseudocode or program code to create a new object for this prize and
+      store it in index 3 of <code>allPrizes</code>.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <pre><code>
+allPrizes[3] = new Prize("Box", "money", 25)
+      </code></pre>
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>iii.</strong> The game starts with 10 prizes. Each prize is allocated to one space on the road.
+      <br><br>
+      An algorithm needs designing that will generate a random space on the road for each prize.
+      Each road space can only store one prize.
+      <br><br>
+      Describe the decisions that will need to be made in this algorithm and how these will affect the program flow.
+      <br><br>
+      <strong>[3]</strong>
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <p>
+        • Decision - check whether the space already has a prize allocated …<br>
+        • Action if true - another space/number will need to be generated<br>
+        • Action if false - the prize will be stored here<br>
+        <br>
+        • Decision - check if all 10 prizes have been allocated …<br>
+        • Action if true - the algorithm needs to stop generating numbers<br>
+        • Action if false - a new number/space needs to be generated and checked
+      </p>
+
+      <p>
+        Give:<br>
+        • 1 mark for stating a decision<br>
+        • 1 mark for the action required if true<br>
+        • 1 mark for the action required if false
+      </p>
+    </div>
+  </div>
+
+    <div class="vertical-knowledge">
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>(c)</strong> The class design for <code>Character</code> is here.
+    </p>
+
+
+  <!-- CLASS DIAGRAM: Character -->
+  <div class="knowledge-card">
+    <div class="class-diagram">
+      <div class="class-header"><strong>class: Character</strong></div>
+
+      <div class="class-section">
+        <strong>attributes:</strong>
+        <p>private name : string</p>
+        <p>private money : integer</p>
+        <p>private experience : integer</p>
+        <p>private roadPosition : integer</p>
+      </div>
+
+      <div class="class-section">
+        <strong>methods:</strong>
+        <p>new()</p>
+        <p>getName()</p>
+        <p>getMoney()</p>
+        <p>getExperience()</p>
+        <p>getRoadPosition()</p>
+        <p>changePosition()</p>
+        <p>updateValues()</p>
+      </div>
+    </div>
+  </div>
+
+    <p>
+      The four get methods return the associated attribute.
+    </p>
+
+    <p>
+      The number of moves is passed to <code>changePosition()</code> as a parameter.
+      The method adds this value to the character’s position on the road.
+    </p>
+
+    <p>
+      The type and value of an object are passed to <code>updateValues()</code> as parameters.
+      If the object is money the value is added to the character’s money.
+      If the type is experience the value is added to experience.
+      If the type is neither money or experience no changes are made.
+    </p>
+
+    <p>
+      <strong>i.</strong> <code>new()</code> is the constructor method.
+      The name of the character is passed into the constructor as a parameter.
+      The constructor then initialises both the experience and road position of the
+      character to 0 and initialises the amount of money to 5.
+    </p>
+
+    <p>
+      Write the constructor method for <code>Character</code> using either pseudocode
+      or program code.
+    </p>
+
+    <p>
+      You do not need to declare the class, the attributes or any other methods.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+
+    <div class="answer">
+
+         <div class="answer-block">
+    <p><strong>1 mark each</strong></p>
+    <p><strong>5</strong></p>
+
+    <p>• Constructor header (any suitable name e.g. new, constructor, create, init)</p>
+    <p>• …taking one parameter only</p>
+    <p>• Initialising name to the parameter</p>
+    <p>• Initialising money to 5</p>
+    <p>• Initialising experience to 0 and roadPosition to 0</p>
+
+    <p><strong>e.g.</strong></p>
+
+    <p><strong>Pseudocode example:</strong></p>
+    <pre><code>
+public procedure new(pName)
+  name = pName
+  experience = 0
+  roadPosition = 0
+  money = 5
+endprocedure
+    </code></pre>
+
+    <p><strong>Python Example:</strong></p>
+    <pre><code>
+def __init__(self, pName):
+  self.__name = pName
+  self.__experience = 0
+  self.__roadPosition = 0
+  self.__money = 5
+    </code></pre>
+
+    <p><strong>C# Example:</strong></p>
+    <pre><code>
+public Character(string pName) {
+  string name = pName;
+  int experience = 0;
+  int roadPosition = 0;
+  int money = 5;
+}
+    </code></pre>
+  </div>
+
+  <div class="answer-block">
+    <p><strong>Allow minor changes to identifiers as long as purpose is clear.</strong></p>
+
+    <p><strong>Allow</strong></p>
+    <pre><code>
+procedure new(pName)
+  this.name = pName
+  ...
+(or similar e.g. self.name)
+    </code></pre>
+
+    <p>
+      Allow two parameters if one is <em>self</em> and the response is clearly in Python.
+    </p>
+
+    <p>
+      The parameter name should be different to the attribute name.
+    </p>
+  </div>
+
+  <div class="answer-block">
+    <p><strong>Examiner’s Comments</strong></p>
+
+    <p>
+      It was clear that those candidates with limited OOP programming knowledge
+      found the writing of a relatively simple constructor method difficult.
+      Those with relevant programming experience often found this to be a very
+      straightforward question.
+    </p>
+
+    <p>
+      Common errors included passing additional values to set the experience,
+      roadPosition and money attributes rather than setting them to the constant
+      values indicated in the question.
+    </p>
+  </div>
+
+
+    </div>
+  </div>
+
+<div class="vertical-knowledge">
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>ii.</strong> The type and value of a prize are passed as parameters to the method
+      <code>updateValues</code>.
+      If the type is money the value is added to the character’s money.
+      If the type is experience then the value is added to the experience.
+      If the type is neither money or experience no changes are made.
+      <br><br>
+      For example, for the Character <code>player1</code>:
+      <br><br>
+      <code>player1.updateValues("money", 10)</code> updates player1’s money by 10
+      <br><br>
+      <code>player1.updateValues("experience", 5)</code> updates player1’s experience by 5
+      <br><br>
+      <code>player1.updateValues("foo", 9)</code> has no effect on player1.
+      <br><br>
+      Write pseudocode or program code for the method <code>updateValues()</code>.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <pre><code>
+public procedure updateValues(pType, pValue)
+  if pType == "money" then
+    money = money + pValue
+  elseif pType == "experience" then
+    experience = experience + pValue
+  endif
+endprocedure
+      </code></pre>
+
+      <pre><code>
+def updateValues(self, pType, pValue):
+  if pType == "money":
+    money += pValue
+  elif pType == "experience":
+    experience += pValue
+      </code></pre>
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>(d)</strong> This incomplete pseudocode algorithm:
+      <br><br>
+      • creates a new character with the name Jamal<br>
+      • loops until the character reaches the end of the road<br>
+      • generates a random number of spaces to move between 1 and 4 (including 1 and 4)<br>
+      • moves the character and checks if the new space has a prize<br>
+      • updates the character attributes if there is a prize<br>
+      • outputs the character’s new attribute values.
+      <br><br>
+      Complete the pseudocode algorithm.
+    </p>
+
+    <pre><code>
+character1 = new ........................................ ("Jamal")
+newPosition = 0
+
+while newPosition < ....................................
+  move = random(1, 4)  //this will generate a random number between 1 and 4
+  character1.changePosition(move)
+  newPosition = character1.getRoadPosition()
+  if newPosition < 50 and road[....................................] != null then
+    prizeType = road[newPosition].getType()
+    valueAmount = road[newPosition].getValue()
+    character1.updateValues(............................, valueAmount)
+    print("Congratulations you are in position", newPosition, "and found",
+          road[newPosition].getName())
+    print("Money =", character1.getMoney(), "and experience =",
+          character1. ............................ () )
+  endif
+  ............................
+print("You reached the end of the road")
+    </code></pre>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <pre><code>
+character1 = new Character("Jamal")
+newPosition = 0
+
+while newPosition < 50
+  move = random(1, 4)
+  character1.changePosition(move)
+  newPosition = character1.getRoadPosition()
+  if newPosition < 50 and road[newPosition] != null then
+    prizeType = road[newPosition].getType()
+    valueAmount = road[newPosition].getValue()
+    character1.updateValues(prizeType, valueAmount)
+    print("Congratulations you are in position", newPosition, "and found",
+          road[newPosition].getName())
+    print("Money =", character1.getMoney(), "and experience =",
+          character1.getExperience())
+  endif
+endwhile
+
+print("You reached the end of the road")
+      </code></pre>
+    </div>
+  </div>
+
+ <div class="rev-card qa-card">
+
+
+    <p>
+      <strong>(e)</strong> The procedure <code>displayRoad()</code> outputs the contents of each space
+      in the road. The number of each space is output with either:
+    </p>
+
+    <p>• the word “empty” if there is no prize</p>
+    <p>• the name of the prize if there is a prize.</p>
+
+    <pre><code>
+01 procedure displayRoad()
+02  for x = 0 to 60
+03      print("Space", y)
+04      if road[x] == null then
+05          print("empty")
+06      elseif
+07          print(road[x].getValue())
+08      endif
+09  next x
+10 endprocedure
+    </code></pre>
+
+    <p>The algorithm contains errors.</p>
+
+    <p>
+      Give the line number of four different errors and write the corrected line
+      for each error.
+    </p>
+
+    <p><strong>Error 1</strong></p>
+    <p>Error line 1 ____________________________________________</p>
+    <p>Correction ____________________________________________</p>
+
+    <p><strong>Error 2</strong></p>
+    <p>Error line 2 ____________________________________________</p>
+    <p>Correction ____________________________________________</p>
+
+    <p><strong>Error 3</strong></p>
+    <p>Error line 3 ____________________________________________</p>
+    <p>Correction ____________________________________________</p>
+
+    <p><strong>Error 4</strong></p>
+    <p>Error line 4 ____________________________________________</p>
+    <p>Correction ____________________________________________</p>
+
+    <p><strong>[4]</strong></p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+    <p><strong>1 mark each</strong></p>
+    <p><strong>4</strong></p>
+
+    <p>• (Line 02) for x = 0 to 49</p>
+    <p>• (Line 03) print("Space", x)</p>
+    <p>• (Line 06) else // elseif</p>
+    <p>&nbsp;&nbsp;road[x] &lt;&gt; null</p>
+    <p>• (Line 07) print(road[x].getName())</p>
+
+    <p>Line 07 allow <code>print(road[x].name)</code></p>
+
+    <p><strong>Examiner’s Comments</strong></p>
+
+    <p>
+      Many candidates scored three or four marks but in general candidates found it
+      harder to identify errors in the code than to complete code in the previous
+      question.
+    </p>
+
+    <p>
+      Some candidates didn’t give the line number but rewrote the incorrect line
+      before giving the corrected line, which was acceptable, although not ideal
+      given the scaffolding.
+    </p>
+  </div>
+
+</div>
+
+        <div class="rev-card qa-card">
+  <p>
+    <strong>(f)</strong> A programmer is going to create a prototype for one small part of the game.
+    Both <code>road</code> and <code>allPrizes</code> will be needed throughout the whole prototype.
+    The programmer is considering making these global arrays as she thinks it will reduce the
+    development time. Another programmer has suggested that doing this may create some problems
+    when the rest of the game is created at a later stage.
+    <br><br>
+    Compare the use of global and local variables in this program.
+    <br><br>
+    You should include the following in your answer:
+    <br><br>
+    • the use of local and global variables<br>
+    • alternative methods to using global variables<br>
+    • the appropriateness of each to this program design.
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>AO1: Knowledge and Understanding<br>Indicative content</strong></p>
+
+    <p>• Global variables are created when the program starts, all subroutines can access/update the contents</p>
+    <p>• Local variables are created in the subroutine they are created in, they are not accessible directly from any other subroutine</p>
+    <p>• Local variables are removed from memory when the subroutine ends.</p>
+    <p>• Local variables can be passed as parameters to a function to be updated, and then returned to override the original local variable</p>
+    <p>• Local variables can be passed by reference to a subroutine to allow the content of the variable to be updated</p>
+
+    <p><strong>AO2: Application</strong></p>
+
+    <p>• The variables will be stored in memory throughout the whole code execution. However, the amount of data they are storing is relatively low so would not use a lot of memory.</p>
+    <p>• When the game is expanded, the amount of data may increase so it could be memory intensive, especially if graphics are used in the game.</p>
+    <p>• Both arrays are needed throughout the whole game so keeping them as global will make writing the code easier as the programmer will not need to keep passing them as parameters and setting return values.</p>
+    <p>• Only one part of the game is being created initially and therefore the use of global variables would not affect the efficiency greatly. However, when the program expands, it could cause accuracy / testing / debugging and maintenance problems.</p>
+
+    <p><strong>AO3: Evaluation</strong></p>
+
+    <p>• As this is only a prototype, the use of global variables would be beneficial.</p>
+    <p>• However, when the game expands, the use of global variables could create issues such as running out of memory, coupling, testing &amp; debugging problems and maintenance problems.</p>
+    <p>• The programmer may be best to keep the variables as local and then pass them between the different subroutines as parameters byVal and byRef.</p>
+
+    <p><strong>Examiner’s Comments</strong></p>
+
+    <p>
+      Most responses were Level 2 for definitions and some expansion to passing parameters.
+      Very few candidates were able to go into depth about alternatives to global variables
+      such as passing by value and passing by reference in detail or extending to issues such
+      as scalability within a larger more extended game. Few candidates picked up on the fact
+      that this was a more limited prototype that was likely to be expanded on which would
+      require more consideration to be given to variable scope.
+    </p>
+  </div>
+</div>
+<button class="print-Btn" id="printBtn" button">🖨️ Print</button>
+</div>
+</div>
+</section>
 <footer>
-<p>© 2025 </p>
+<p>© studyHub CS 2025 </p>
 </footer>
 <script>
   // Toggle topic sections open/closed
@@ -1556,5 +2120,8 @@ def fight(currentPlayer):
   }
 
 </script>
-</td></tr></table></div></td></div></div></section></main></body>
+
+
+</main>
+</body>
 </html>
