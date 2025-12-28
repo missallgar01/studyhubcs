@@ -3828,11 +3828,16 @@ endif
 <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
      </div>
 </div>
+
+    </div>
 </section>
 
+</main>
+
 <footer>
-<p>© studyhub CS 2025</p>
+  &copy; 2025 StudyHubCS
 </footer>
+
 <script>
   // Toggle topic sections open/closed
   document.querySelectorAll('.topic-header').forEach(header => {
@@ -3926,8 +3931,8 @@ endif
     });
   })();
 
-</script>
-</div></div></section></main><script>document.addEventListener("click", function (e) {
+
+document.addEventListener("click", function (e) {
   const btn = e.target.closest(".print-tab-btn");
   if (!btn) return;
 
@@ -3957,5 +3962,7 @@ endif
     printWindow.print();
     printWindow.close();
   }, 250);
-});</script></body>
+});</script>
+
+</body>
 </html>
