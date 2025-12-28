@@ -443,7 +443,7 @@ end class
   <h3>Polymorphism and Method Overriding</h3>
 
   <!-- UML Tables -->
-  <table border="1" class="class-diagram">
+  <table class="class-diagram">
     <tr>
       <th>Class: Pet</th>
     </tr>
@@ -466,7 +466,7 @@ end class
 
   <p>↑</p>
 
-  <table border="1" class="class-diagram">
+  <table class="class-diagram">
     <tr>
       <th>Class: Dog</th>
     </tr>
@@ -536,24 +536,24 @@ end procedure
 TOPIC – Object-Oriented Programming
  ======================= -->
 <div class="rev-card qa-card">
-<p>A large health centre employs a number of nurses, each with a qualification. Some nurses are senior nurses, and these are paid an extra fee in addition to their salary.
+<p>1. A large health centre employs a number of nurses, each with a qualification. Some nurses are senior nurses, and these are paid an extra fee in addition to their salary.
 
 The diagram below shows part of the system used.
 </p>
 <img src="images/oop/hc-class.png"/>
-<p>6(a)(i). State the type of diagram shown. [1]</p>
+<p>1(a)(i). State the type of diagram shown. [1]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
 <div class="answer">
 <p>Class diagram</p>
 </div>
-<p>6(a)(ii). State the term that describes setSalary(), setQualification() or setExtraFee(). [1]</p>
+<p>1(a)(ii). State the term that describes setSalary(), setQualification() or setExtraFee(). [1]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
 <div class="answer">
 <p>Method (or operation)</p>
 </div>
-<p>6(a)(iii). Explain the meaning of the arrows in the diagram, using an example. [2]</p>
+<p>1(a)(iii). Explain the meaning of the arrows in the diagram, using an example. [2]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
 <div class="answer">
@@ -562,7 +562,7 @@ The diagram below shows part of the system used.
 <li>For example, Nurse is a subclass of Staff (or Staff is a superclass of Nurse)</li>
 </ul>
 </div>
-<p>6(a)(iv).Mary Jones is a new employee at the health centre. State why the program statement Jones.setSalary(12000) is not valid. [1]</p>
+<p>1(a)(iv).Mary Jones is a new employee at the health centre. State why the program statement Jones.setSalary(12000) is not valid. [1]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
 <div class="answer">
@@ -571,7 +571,7 @@ The diagram below shows part of the system used.
     </p>
 </div>
 <p>
-    6(a)(v). v.	You may assume that thisSeniorNurse has been correctly defined as an object of SeniorNurse, and that x is a number.
+    1(a)(v). v.	You may assume that thisSeniorNurse has been correctly defined as an object of SeniorNurse, and that x is a number.
       Explain why the program statement thisSeniorNurse.setSalary(x) is valid
     even though setSalary() is not shown in the SeniorNurse part of the diagram. [3]
   </p>
@@ -587,7 +587,7 @@ The diagram below shows part of the system used.
 </div>
 </div>
 <div class="rev-card qa-card">
-<p>Christoff is writing a program to simulate a city using object-oriented programming. He is designing classes to store different types of buildings and their location on the road. He has created the following plan for some of the buildings:
+<p>2. Christoff is writing a program to simulate a city using object-oriented programming. He is designing classes to store different types of buildings and their location on the road. He has created the following plan for some of the buildings:
 Part of the declaration for the class building is shown.
 <img src="images/oop/buildingclass.png"/>
     12. Complete the pseudocode declaration for the class building by filling in the
@@ -672,7 +672,7 @@ endclass</pre></td><td><pre>class Building:
 <!-- LEFT COLUMN -->
 <td class="col left">
 <p class="title">
-        Kim is writing an object-oriented program for a <u>four player</u> board game. The board has 26 squares that
+        3. Kim is writing an object-oriented program for a <u>four player</u> board game. The board has 26 squares that
         players move around
       </p>
 <!-- Board diagram (outer ring with 26 squares + deck in the middle) -->
@@ -806,7 +806,7 @@ endclass</pre></td><td><pre>class Building:
         The board position is set to <strong>0</strong>, and money to <strong>£2000</strong>.
       </p>
 <div class="question-context">
-<h3>1. Write, using pseudocode, the constructor method for the Player class. [3]</h3>
+<p>(a) Write, using pseudocode, the constructor method for the Player class. [3]</p>
 </div>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
@@ -831,7 +831,7 @@ endprocedure</pre></td><td>
 <div class="rev-card qa-card">
 <td class="right-col">
 <p class="intro">
-        A class, <strong>Animal</strong>, define the attributes and methods for the animals stored in each square.
+        (b) A class, <strong>Animal</strong>, define the attributes and methods for the animals stored in each square.
       </p>
 <p>
         Fig. 5.4 shows a class diagram for Animal.
@@ -872,7 +872,7 @@ endprocedure</pre></td><td>
 </tr>
 </table>
 <div class="question-context">
-<h3>2. Write, using pseudocode, the constructor method for the Animal class. [4]</h3>
+<p>Write, using pseudocode, the constructor method for the Animal class. [4]</p>
 </div>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
@@ -891,7 +891,7 @@ endprocedure</pre></td><td><pre>class Animal:
 <div class="rev-card qa-card">
 <!-- RIGHT COLUMN : ANIMAL -->
 <div class="question-context">
-<h3>3. Create an instance of Animal for the Squirrel on square number 6. [2]</h3>
+<p> (c) Create an instance of Animal for the Squirrel on square number 6. [2]</p>
 <p>
       Write, using pseudocode, the code to create an instance of Animal for the Squirrel,
       positioned on square number 6, for the constructor function.
@@ -903,7 +903,7 @@ endprocedure</pre></td><td><pre>class Animal:
 </div>
 <div class="rev-card qa-card">
 <div class="question-context">
-<h3>4. Complete, using pseudocode, the function to move the player and handle special rules. [6]</h3>
+<p>(d) Complete, using pseudocode, the function to move the player and handle special rules. [6]</p>
 <p>
       The board is stored as a 1D array, <code>board</code>, of data type <code>Animal</code>.
       The spaces at 0 and 13 are left as empty elements that are checked using separate functions.
@@ -972,7 +972,7 @@ def takeTurn(currentPlayer):
 <!-- LEFT COLUMN -->
 <td class="left-col">
 <p class="intro">
-        The deck is stored as a zero-indexed 1D array, named <strong>deck</strong>, of type <strong>Card</strong>.
+       4. The deck is stored as a zero-indexed 1D array, named <strong>deck</strong>, of type <strong>Card</strong>.
       </p>
 <p class="intro">
         The class diagram for Card:
@@ -1017,7 +1017,7 @@ def takeTurn(currentPlayer):
 </tr>
 </table>
 <div class="question-context">
-<h3>5. Write, using pseudocode, the procedure <code>pickDeck</code>. [6]</h3>
+<p>(a) Write, using pseudocode, the procedure <code>pickDeck</code>. [6]</p>
 </div>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
@@ -1040,7 +1040,7 @@ endprocedure</pre></td><td><pre>def pickDeck(currentPlayer):
         headPointer = 0</pre></td></tr></table></div>
 </div>
 <div class="rev-card qa-card">
-<h3>6. Write, using pseudocode, the procedure <code>checkAnimal</code>. [10]</h3>
+<p>(b) Write, using pseudocode, the procedure <code>checkAnimal</code>. [10]</p>
 <div class="question-context">
 <p><strong>The procedure <code>checkAnimal</code>:</strong></p>
 <ul>
@@ -1100,7 +1100,7 @@ endprocedure</pre></td><td><pre>def checkAnimal(currentPlayer):
      TOPIC – TreasureQuest (Questions + Answers)
      Source: Treasure quest grid ans.pdf
      ======================= -->
-<h2>TreasureQuest – Practice Questions</h2>
+<h2>5. TreasureQuest </h2>
 <div class="rev-card qa-card">
 <table class="treasurequest-spec">
 <tr>
@@ -1144,8 +1144,7 @@ endprocedure</pre></td><td><pre>def checkAnimal(currentPlayer):
 </tr>
 </table>
 <!-- Treasure cards -->
-<div class="cards">Treasure<br/>Cards</div>
-<div class="text-block">
+
 <p>Each player takes it in turns to roll a dice. They can then move up to that number of squares, horizontally and vertically, in any direction on the board.</p>
 <p>If they roll a six, they also get to take a ‘Treasure Card’ from the deck.</p>
 <p>The deck contains 50 cards that each contain a surprise, for example “You find 10 gold coins” or “You lose 25 gold coins”.</p>
@@ -1154,7 +1153,7 @@ endprocedure</pre></td><td><pre>def checkAnimal(currentPlayer):
 <p>If defeated, the player gains gold coins and the square is marked explored.</p>
 <p>If the monster defeats the player, they return to square 1.</p>
 <p>The game ends when all squares have been explored. The winning player has the most gold coins.</p>
-</div>
+
 </td>
 </table>
 <p class="heading">
@@ -1194,7 +1193,7 @@ endprocedure</pre></td><td><pre>def checkAnimal(currentPlayer):
 </table>
 
 <div class="question-context">
-<h3>1. Write, using pseudocode, the constructor method for the Player class. [3]</h3>
+<p>(a) Write, using pseudocode, the constructor method for the Player class. [3]</p>
 </div>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
@@ -1214,7 +1213,7 @@ endprocedure</pre></td><td><pre>class Player:
 
 
     <div class="rev-card qa-card">
-<table class="monster-spec">
+<table>
 <tr>
 <td class="content">
 <p class="intro">
@@ -1256,7 +1255,7 @@ endprocedure</pre></td><td><pre>class Player:
 </tr>
 </table>
 <div class="question-context">
-<h3>2. Write, using pseudocode, the constructor method for the Monster class. [4]</h3>
+<p>(b) Write, using pseudocode, the constructor method for the Monster class. [4]</p>
 </div>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
@@ -1275,14 +1274,14 @@ class Monster:
         self.goldCoins = self.healthPoints * 10</pre></td></tr></table></div>
 </div>
 <div class="rev-card qa-card">
-<h3>3. Write, using pseudocode, the code to create an instance of Monster for an Orc. The image is saved as <code>orc.bmp</code>. [2]</h3>
+<p>(c) Write, using pseudocode, the code to create an instance of Monster for an Orc. The image is saved as <code>orc.bmp</code>. [2]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
 <div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>orc1 = new Monster("Orc", "orc.bmp")</pre></td><td><pre>orc1 = Monster("Orc", "orc.bmp")</pre></td></tr></table></div>
 </div>
 <div class="rev-card qa-card">
-<h3>4. The board is stored as a 1D array, <code>board</code>, of data type <code>Monster</code>.
-      Explain why this data type is suitable. [2]</h3>
+<p>(d) The board is stored as a 1D array, <code>board</code>, of data type <code>Monster</code>.
+      Explain why this data type is suitable. [2]</p>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
 <div class="answer">
@@ -1293,7 +1292,7 @@ class Monster:
 </div>
 </div>
 <div class="rev-card qa-card">
-<h3>5. Complete, using pseudocode, the function that is called to generate monsters. [4]</h3>
+<p>(e) Complete, using pseudocode, the function that is called to generate monsters. [4]</p>
 <pre>
 function generateMonster()
   array monsterTypes = [
@@ -1379,7 +1378,7 @@ endfunction</pre></div>
 </tr>
 </table>
 <div class="question-context">
-<h3>6. Write, using pseudocode, the procedure <code>pickCard</code>. [7]</h3>
+<p>(f) Write, using pseudocode, the procedure <code>pickCard</code>. [7]</p>
 </div>
 <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle">Show answer</button>
@@ -1404,7 +1403,7 @@ endprocedure</pre></td><td><pre>def pickCard(currentPlayer):
         topPointer = 0</pre></td></tr></table></div>
 </div>
 <div class="rev-card qa-card">
-<h3>7. Write, using pseudocode, the procedure <code>shuffleDeck</code>. [4]</h3>
+<p>(g) Write, using pseudocode, the procedure <code>shuffleDeck</code>. [4]</p>
 <div class="question-context">
 <p>
       The procedure <code>shuffleDeck</code> randomly swaps two cards at a time.
@@ -1431,7 +1430,7 @@ def shuffleDeck():
         deck[firstCard], deck[secondCard] = deck[secondCard], deck[firstCard]</pre></td></tr></table></div>
 </div>
 <div class="rev-card qa-card">
-<h3>8. Write, using pseudocode, the procedure <code>fight</code>. [10]</h3>
+<p>(h) Write, using pseudocode, the procedure <code>fight</code>. [10]</p>
 <div class="question-context">
 <p><strong>The procedure <code>fight</code> must:</strong></p>
 <ul>
@@ -1521,7 +1520,7 @@ def fight(currentPlayer):
       <!-- Question 2(a) -->
   <div class="rev-card qa-card">
     <p>
-      <strong>2(a)</strong> A game is being written that makes use of object-oriented programming.
+      <strong>6(a)</strong> A game is being written that makes use of object-oriented programming.
       A prototype for one part of the game is being designed that includes a character,
       a road and a prize to collect.
       <br><br>
@@ -1561,38 +1560,53 @@ def fight(currentPlayer):
   <!-- Question 2(b)(i) -->
   <div class="rev-card qa-card">
 
-      <p>The characters and prizes are designed as separate classes. 10 of the spaces on the road will contain an
+      <p>6(b) The characters and prizes are designed as separate classes. 10 of the spaces on the road will contain an
 instance of the class Prize. The other spaces will be empty.
 The class design for Prize is here.</p>
 
-      <div class="class-diagram">
+      <table class="class-diagram">
+  <tr>
+    <th colspan="2">Class: Prize</th>
+  </tr>
 
-  <div class="class-header">
-    <strong>class: Prize</strong>
-  </div>
+  <tr>
+    <th colspan="2">Attributes</th>
+  </tr>
+  <tr>
+    <td>− name</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>− type</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>− value</td>
+    <td>integer</td>
+  </tr>
 
-  <div class="class-section">
-    <strong>attributes:</strong>
-    <p>private name : string</p>
-    <p>private type : string</p>
-    <p>private value : integer</p>
-  </div>
-
-  <div class="class-section">
-    <strong>methods:</strong>
-    <p>new()</p>
-    <p>getName()</p>
-    <p>getType()</p>
-    <p>getValue()</p>
-  </div>
-
-</div>
+  <tr>
+    <th colspan="2">Methods</th>
+  </tr>
+  <tr>
+    <td colspan="2">+ new()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getName()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getType()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getValue()</td>
+  </tr>
+</table>
 
       <p>new() is the constructor method. The name, type and value are passed to the constructor as parameters which
 then assigns these to the attributes.</p>
 
     <p>
-      <strong>2(b)(i)</strong> The method <code>getName()</code> returns the data in the attribute
+      <strong>6(b)(i)</strong> The method <code>getName()</code> returns the data in the attribute
       <code>name</code>.
       <br><br>
       Write the method <code>getName()</code> using pseudocode or program code.
@@ -1613,7 +1627,7 @@ endfunction
   <!-- Question 2(b)(ii) -->
   <div class="rev-card qa-card">
     <p>
-      <strong>2(b)(ii)</strong> A global 1-dimensional array, <code>allPrizes</code>,
+      <strong>6(b)(ii)</strong> A global 1-dimensional array, <code>allPrizes</code>,
       stores 10 objects of type <code>Prize</code>.
       <br><br>
       The prize in index 3 has the name "Box", the type is "money"
@@ -1676,34 +1690,62 @@ allPrizes[3] = new Prize("Box", "money", 25)
 
   <div class="rev-card qa-card">
     <p>
-      <strong>(c)</strong> The class design for <code>Character</code> is here.
+      <strong>6(c)</strong> The class design for <code>Character</code> is here.
     </p>
 
 
   <!-- CLASS DIAGRAM: Character -->
   <div class="knowledge-card">
-    <div class="class-diagram">
-      <div class="class-header"><strong>class: Character</strong></div>
+    <table class="class-diagram">
+  <tr>
+    <th colspan="2">Class: Character</th>
+  </tr>
 
-      <div class="class-section">
-        <strong>attributes:</strong>
-        <p>private name : string</p>
-        <p>private money : integer</p>
-        <p>private experience : integer</p>
-        <p>private roadPosition : integer</p>
-      </div>
+  <tr>
+    <th colspan="2">Attributes</th>
+  </tr>
+  <tr>
+    <td>− name</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>− money</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>− experience</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>− roadPosition</td>
+    <td>integer</td>
+  </tr>
 
-      <div class="class-section">
-        <strong>methods:</strong>
-        <p>new()</p>
-        <p>getName()</p>
-        <p>getMoney()</p>
-        <p>getExperience()</p>
-        <p>getRoadPosition()</p>
-        <p>changePosition()</p>
-        <p>updateValues()</p>
-      </div>
-    </div>
+  <tr>
+    <th colspan="2">Methods</th>
+  </tr>
+  <tr>
+    <td colspan="2">+ new()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getName()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getMoney()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getExperience()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getRoadPosition()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ changePosition()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ updateValues()</td>
+  </tr>
+</table>
   </div>
 
     <p>
@@ -2081,6 +2123,10 @@ print("You reached the end of the road")
 </div>
 </div>
 </section>
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
     </main>
 
 <footer>

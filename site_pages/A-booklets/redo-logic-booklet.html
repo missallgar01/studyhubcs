@@ -36,13 +36,6 @@
       <div class="knowledge-card">
         <h3>Logic Gates, Symbols & Truth Tables</h3>
 
-        <!-- Optional gate diagram image from KO page 1 -->
-        <!-- Replace the src with the actual path/filename for your exported image -->
-        <figure class="ko-figure">
-          <img src="images/boolean-gates-and-symbols.png"
-               alt="AND, OR, XOR, NOT and equivalence gates with symbols and expressions from the Boolean Logic KO sheet." />
-          <figcaption>Gate symbols and expressions (from the Boolean Logic KO).</figcaption>
-        </figure>
 
         <p>Boolean logic works with variables that can only be <strong>0 (false)</strong> or
            <strong>1 (true)</strong>. We combine them using logic gates:</p>
@@ -58,25 +51,87 @@
           </thead>
           <tbody>
           <tr>
-            <td>AND</td>
+            <td>
+            <figure>
+    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="AND gate">
+      <rect x="0" y="0" width="220" height="140" fill="white"/>
+      <!-- inputs -->
+      <line x1="10" y1="45" x2="70" y2="45" stroke="#000" stroke-width="4"/>
+      <line x1="10" y1="95" x2="70" y2="95" stroke="#000" stroke-width="4"/>
+      <!-- body -->
+      <path d="M70 25 L120 25 A45 45 0 0 1 120 115 L70 115 Z"
+            fill="#fff" stroke="#000" stroke-width="4" />
+      <!-- output -->
+      <line x1="165" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+    </svg>
+    <figcaption>AND</figcaption>
+  </figure>
+
+            </td>
             <td>∧</td>
             <td>A ∧ B</td>
             <td>True only if <strong>both</strong> inputs are 1.</td>
           </tr>
           <tr>
-            <td>OR</td>
+            <td><figure>
+    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="OR gate">
+      <rect x="0" y="0" width="220" height="140" fill="white"/>
+      <!-- input -->
+      <line x1="10" y1="70" x2="70" y2="70" stroke="#000" stroke-width="4"/>
+      <!-- body -->
+      <path d="M70 30
+               Q105 70 70 110
+               Q120 110 165 70
+               Q120 30 70 30 Z"
+            fill="#fff" stroke="#000" stroke-width="4"/>
+      <!-- output -->
+      <line x1="175" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+    </svg>
+    <figcaption>OR</figcaption>
+  </figure></td>
             <td>∨</td>
             <td>A ∨ B</td>
             <td>True if <strong>at least one</strong> input is 1.</td>
           </tr>
           <tr>
-            <td>XOR</td>
-            <td>⊕</td>
-            <td>A ⊕ B</td>
+            <td>  <figure>
+    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="XOR gate">
+      <rect x="0" y="0" width="220" height="140" fill="white"/>
+      <!-- input -->
+      <line x1="10" y1="70" x2="70" y2="70" stroke="#000" stroke-width="4"/>
+      <!-- extra XOR curve -->
+      <path d="M62 30 Q97 70 62 110" fill="none" stroke="#000" stroke-width="4"/>
+      <!-- body (OR-like) -->
+      <path d="M70 30
+               Q105 70 70 110
+               Q120 110 165 70
+               Q120 30 70 30 Z"
+            fill="#fff" stroke="#000" stroke-width="4"/>
+      <!-- output -->
+      <line x1="175" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+    </svg>
+    <figcaption>XOR</figcaption>
+  </figure></td>
+            <td><u>∨</u></td>
+            <td>A <u>∨</u> B</td>
             <td>True if <strong>either</strong> input is 1 but <strong>not both</strong>.</td>
           </tr>
           <tr>
-            <td>NOT</td>
+            <td> <!-- NOT -->
+  <figure>
+    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="NOT gate">
+      <rect x="0" y="0" width="220" height="140" fill="white"/>
+      <!-- input -->
+      <line x1="10" y1="70" x2="70" y2="70" stroke="#000" stroke-width="4"/>
+      <!-- triangle -->
+      <path d="M70 30 L150 70 L70 110 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+      <!-- bubble -->
+      <circle cx="160" cy="70" r="8" fill="#fff" stroke="#000" stroke-width="4"/>
+      <!-- output -->
+      <line x1="168" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+    </svg>
+    <figcaption>NOT</figcaption>
+  </figure></td>
             <td>¬</td>
             <td>¬A</td>
             <td>Flips the value of A (0 → 1, 1 → 0).</td>
@@ -88,7 +143,27 @@
             <td>True if A and B have the <strong>same</strong> truth value.</td>
           </tr>
           <tr>
-            <td>NAND</td>
+            <td><!-- NAND -->
+<figure>
+  <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="NAND gate">
+    <rect x="0" y="0" width="220" height="140" fill="white"/>
+
+    <!-- inputs -->
+    <line x1="10" y1="45" x2="70" y2="45" stroke="#000" stroke-width="4"/>
+    <line x1="10" y1="95" x2="70" y2="95" stroke="#000" stroke-width="4"/>
+
+    <!-- AND body -->
+    <path d="M70 25 L120 25 A45 45 0 0 1 120 115 L70 115 Z"
+          fill="#fff" stroke="#000" stroke-width="4" />
+
+    <!-- NOT bubble -->
+    <circle cx="150" cy="70" r="8" fill="#fff" stroke="#000" stroke-width="4"/>
+
+    <!-- output -->
+    <line x1="158" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+  </svg>
+  <figcaption>NAND</figcaption>
+</figure></td>
             <td>¬(A ∧ B)</td>
             <td>A NAND B</td>
             <td>Opposite of AND – only 0 when both inputs are 1.</td>
@@ -98,7 +173,7 @@
 
         <h4>Key truth tables</h4>
         <div class="two-column">
-          <table>
+          <table class="truthtable">
             <thead><tr><th colspan="3">AND (A ∧ B)</th></tr></thead>
             <tbody>
             <tr><th>A</th><th>B</th><th>Output</th></tr>
@@ -109,7 +184,7 @@
             </tbody>
           </table>
 
-          <table>
+          <table class="truthtable">
             <thead><tr><th colspan="3">OR (A ∨ B)</th></tr></thead>
             <tbody>
             <tr><th>A</th><th>B</th><th>Output</th></tr>
@@ -122,7 +197,7 @@
         </div>
 
         <div class="two-column">
-          <table>
+          <table class="truthtable">
             <thead><tr><th colspan="2">NOT (¬A)</th></tr></thead>
             <tbody>
             <tr><th>A</th><th>Output</th></tr>
@@ -131,7 +206,7 @@
             </tbody>
           </table>
 
-          <table>
+          <table class="truthtable">
             <thead><tr><th colspan="3">XOR (A ⊕ B)</th></tr></thead>
             <tbody>
             <tr><th>A</th><th>B</th><th>Output</th></tr>
@@ -143,7 +218,7 @@
           </table>
         </div>
 
-        <table>
+        <table class="truthtable">
           <thead><tr><th colspan="3">NAND (¬(A ∧ B))</th></tr></thead>
           <tbody>
           <tr><th>A</th><th>B</th><th>Output</th></tr>
@@ -610,6 +685,10 @@
       </div>
     </div>
   </section>
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
 
 </main>
 

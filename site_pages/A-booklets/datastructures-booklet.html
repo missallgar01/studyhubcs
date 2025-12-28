@@ -1018,8 +1018,38 @@ endwhile</code></pre>
 <table>
 <thead>
 <tr>
-<th>Stack</th>
-<th>Queue</th>
+<th>Stack
+
+<table class="stack-diagram">
+  <tr>
+    <th>Stack</th>
+  </tr>
+  <tr>
+    <td>30 ← top</td>
+  </tr>
+  <tr>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>10</td>
+  </tr>
+</table>
+
+
+</th>
+<th>Queue
+
+<table class="queue-diagram">
+  <tr>
+    <th colspan="3">Queue</th>
+  </tr>
+  <tr>
+    <td>A<br><small>(front)</small></td>
+    <td>B</td>
+    <td>C<br><small>(rear)</small></td>
+  </tr>
+</table>
+</th>
 </tr>
 </thead>
 <tbody>
@@ -1534,9 +1564,9 @@ endwhile</code></pre>
 </div>
 </div>
 <div class="rev-card qa-card">
-<h3>3.</h3>
-<p><strong>9(a).</strong> The contents of a stack are stored in the 1-dimensional array called <strong>numbers</strong>.<br/> <strong>topStack</strong> stores the index of the next free space in the stack.<br/> The array is declared with space for 100 elements.<br/> The function <strong>pop()</strong> returns the next item from the stack and updates the appropriate pointers.<br/> Describe the steps in the function <strong>pop()</strong>. <strong>[4]</strong></p>
-<p><strong>9(b).</strong> The function <strong>push()</strong> inserts its parameter called <strong>dataValue</strong> onto the stack and updates the appropriate pointers.<br/> Complete the function <strong>push()</strong> using pseudocode or program code.</p>
+
+<p><strong>3(a).</strong> The contents of a stack are stored in the 1-dimensional array called <strong>numbers</strong>.<br/> <strong>topStack</strong> stores the index of the next free space in the stack.<br/> The array is declared with space for 100 elements.<br/> The function <strong>pop()</strong> returns the next item from the stack and updates the appropriate pointers.<br/> Describe the steps in the function <strong>pop()</strong>. <strong>[4]</strong></p>
+<p><strong>3(b).</strong> The function <strong>push()</strong> inserts its parameter called <strong>dataValue</strong> onto the stack and updates the appropriate pointers.<br/> Complete the function <strong>push()</strong> using pseudocode or program code.</p>
 <pre><code>
 function push(... ......................................)
      if ................................... ! = 100 then
@@ -1547,19 +1577,19 @@ function push(... ......................................)
       return false
      endif
 endfunction</code></pre>
-<p><strong>9(c).</strong> Write an algorithm, using pseudocode or program code, to call the function <strong>push()</strong> with the value <strong>15</strong> and output a message saying <strong>“Added”</strong> if the value was successfully inserted onto the stack or <strong>“Not Added”</strong> if the stack is full. <strong>[4]</strong></p>
+<p><strong>3(c).</strong> Write an algorithm, using pseudocode or program code, to call the function <strong>push()</strong> with the value <strong>15</strong> and output a message saying <strong>“Added”</strong> if the value was successfully inserted onto the stack or <strong>“Not Added”</strong> if the stack is full. <strong>[4]</strong></p>
 <textarea placeholder="Write your answer here..."></textarea>
 <button class="secondary answer-toggle" type="button">Show answer</button>
 <div class="answer" hidden="">
 <p><strong>Mark scheme answer</strong></p>
-<p><strong>9(a) pop() steps (any valid wording):</strong></p>
+<p><strong>3(a) pop() steps (any valid wording):</strong></p>
 <ol>
 <li>Check if the stack is empty / check <strong>topStack</strong> is equal to 0.</li>
 <li>If empty, return a suitable value (e.g. -1 / null) or give a warning / do nothing.</li>
 <li>If not empty, decrement <strong>topStack</strong>.</li>
 <li>Return the value in element <strong>topStack</strong> from the array <strong>numbers</strong>.</li>
 </ol>
-<p><strong>9(b) Completed push() function:</strong></p>
+<p><strong>3(b) Completed push() function:</strong></p>
 <pre><code>
 function push(dataValue)
      if topStack != 100 then
@@ -1570,7 +1600,7 @@ function push(dataValue)
         return false
      endif
 endfunction</code></pre>
-<p><strong>9(c) Example algorithm to push 15 and output message:</strong></p>
+<p><strong>3(c) Example algorithm to push 15 and output message:</strong></p>
 <pre><code>
 result = push(15)
 if result then
@@ -1601,11 +1631,43 @@ endif</code></pre>
 <li>Random access of elements is not allowed</li>
 <li>Implemented using a list or linked list</li>
 </ul>
-<table>
+
+
+    <table>
 <thead>
 <tr>
-<th>Stack</th>
-<th>Queue</th>
+<th>Stack
+
+<table class="stack-diagram">
+  <tr>
+    <th>Stack</th>
+  </tr>
+  <tr>
+    <td>30 ← top</td>
+  </tr>
+  <tr>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>10</td>
+  </tr>
+</table>
+
+
+</th>
+<th>Queue
+
+<table class="queue-diagram">
+  <tr>
+    <th colspan="3">Queue</th>
+  </tr>
+  <tr>
+    <td>A<br><small>(front)</small></td>
+    <td>B</td>
+    <td>C<br><small>(rear)</small></td>
+  </tr>
+</table>
+</th>
 </tr>
 </thead>
 <tbody>
@@ -1618,7 +1680,7 @@ endif</code></pre>
 <td>Only the <strong>front</strong> element can be accessed</td>
 </tr>
 <tr>
-<td>One pointer: <strong>stack pointer</strong><br/> Points to the topmost (last inserted) element</td>
+<td>One pointer: <strong>stack pointer</strong><br/>Points to the topmost (last inserted) element</td>
 <td>Two pointers: <strong>front</strong> and <strong>rear</strong></td>
 </tr>
 <tr>
@@ -1632,6 +1694,9 @@ endif</code></pre>
 </tbody>
 </table>
 </div>
+
+
+
 <div class="knowledge-card">
 <h3>Queue Algorithms (Linear Queue)</h3>
 <h4>Enqueue Algorithm</h4>
@@ -1971,8 +2036,8 @@ q.dequeue()</code></pre></td>
     <tr class="queue-pointers">
       <td><span class="head">head</span></td>
       <td></td>
-      <td></td>
       <td><span class="tail">tail</span></td>
+      <td></td>
     </tr>
   </table>
 
