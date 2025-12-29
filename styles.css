@@ -153,7 +153,7 @@ header p.subtitle {
 }
 
 main {
-  max-width: 1000px;
+  max-width: 80%;
   margin: 2rem auto;
   padding: 0 1rem 2.5rem;
   position: relative;
@@ -215,7 +215,7 @@ a:visited {
 
 /* Simple back link container */
 .back-container {
-  max-width: 980px;
+  max-width: 80%;
   margin: 1rem auto 0;
   padding: 0 1rem;
 }
@@ -231,9 +231,6 @@ a:visited {
 .back-container a:hover {
   text-decoration: underline;
 }
-
-
-
 
 
 /* ==========================
@@ -1207,6 +1204,16 @@ iframe {
     height: 2.7rem;
     font-size: 0.95rem;
   }
+
+     .knowledge-card table,
+  .rev-card table,
+  .card table,
+  .resource-section table,
+  .topic-body > table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 
@@ -1310,31 +1317,15 @@ iframe {
   word-break: break-word;
 }
 
-/* Code blocks inside cells should scroll within the cell */
-.knowledge-card td pre,
-.knowledge-card th pre,
-.rev-card td pre,
-.rev-card th pre,
-.card td pre,
-.card th pre,
-.resource-section td pre,
-.resource-section th pre,
-.topic-body > table td pre,
-.topic-body > table th pre {
+
+.knowledge-card pre,
+.rev-card pre,
+.card pre,
+.resource-section pre,
+.topic-body pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
   max-width: 100%;
-  overflow-x: auto;
 }
 
-/* On narrow screens, allow tables to scroll rather than overflow the card */
-@media (max-width: 700px) {
-  .knowledge-card table,
-  .rev-card table,
-  .card table,
-  .resource-section table,
-  .topic-body > table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-/* END TABLE FIT INSIDE CARDS */
