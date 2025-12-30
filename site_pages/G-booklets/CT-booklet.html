@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hardware – Revision Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../G-booklets.html">← Back</a>
+  </div>
+<header>
+  <h1>Topic 1 Computational Thinking – Revision</h1>
+  <h2>Read • Write • Check • Amend</h2>
+  <p class="subtitle">
+    Read the notes, write your own answers, then reveal the model answers to check and improve.
+  </p>
+</header>
+
+<main>
+
+  <!-- =========================
+       NOTES / RECAP (VERTICAL)
+       ========================= -->
+  <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Notes</h2>
+    </div>
+
+    <div class="vertical-knowledge">
+
+      <div class="knowledge-card">
+<table class="cs-table">
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Description</th>
+      <th>Example in Python</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><strong>Variable</strong></td>
+      <td>A value stored in memory that can change while the program is running.</td>
+      <td><code>score = 10<br>score = score + 1</code></td>
+    </tr>
+
+    <tr>
+      <td><strong>Constant</strong></td>
+      <td>A value stored in memory that does not change while the program is running.</td>
+      <td><code>PI = 3.14</code></td>
+    </tr>
+
+    <tr>
+      <td><strong>Array</strong></td>
+      <td>
+        A collection of multiple values under one identifier.<br>
+        Each value has an index.<br>
+          Same data type
+      </td>
+      <td><code>numbers = [10, 20, 30]<br>print(numbers[0])</code></td>
+    </tr>
+
+      <tr>
+      <td><strong>Record</strong></td>
+      <td>
+        A collection of multiple values under one identifier.<br>
+        Each value has an index.<br>
+        Different data types
+      </td>
+      <td><code>numbers = [1,"Peter", "Pan"]<br>print(numbers[0])</code></td>
+    </tr>
+
+    <tr>
+      <td><strong>Data Type</strong></td>
+      <td>
+        Defines the type of data a variable can store.<br><br>
+        Integer – whole number<br>
+        Float – decimal number<br>
+        String – text<br>
+        Boolean – True/False<br>
+        Char – single character
+      </td>
+      <td>
+        <code>
+        age = 15<br>
+        price = 13.56<br>
+        name = "Alex"<br>
+        logged_in = True
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Sequence</strong></td>
+      <td>Instructions executed step by step in order.</td>
+      <td>
+        <code>
+        print("Start")<br>
+        print("Middle")<br>
+        print("End")
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Selection</strong></td>
+      <td>A condition decides which code will run.</td>
+      <td>
+        <code>
+        if age &gt;= 18:<br>
+        &nbsp;&nbsp;print("Allowed")<br>
+        else:<br>
+        &nbsp;&nbsp;print("Denied")
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Repetition</strong></td>
+      <td>Code that runs repeatedly using a loop.</td>
+      <td>
+        <code>
+        for i in range(3):<br>
+        &nbsp;&nbsp;print(i)
+        </code>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td><strong>Iteration</strong></td>
+      <td>Loop through a data structure (array/string).</td>
+      <td>
+        <code>
+        for i in range(3):<br>
+        &nbsp;&nbsp;print(i)
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Subprogram</strong></td>
+      <td>
+        A reusable block of code.<br>
+        • Procedure – no return value<br>
+        • Function – returns a value
+      </td>
+      <td>
+        <code>
+        def add(a, b):<br>
+        &nbsp;&nbsp;return a + b
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>MOD / DIV</strong></td>
+      <td>
+        MOD returns remainder<br>
+        DIV returns whole number
+      </td>
+      <td>
+        <code>
+        print(10 % 3)<br>
+        print(10 // 3)
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Input Validation</strong></td>
+      <td>
+        Checking data meets criteria before processing.<br>
+        Includes format, type, presence and range checks.
+      </td>
+      <td>
+        <code>
+        age = int(input())<br>
+        if 5 &lt;= age &lt;= 20:<br>
+        &nbsp;&nbsp;print("Valid")
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Authentication</strong></td>
+      <td>Checking username and password match stored values.</td>
+      <td>
+        <code>
+        if username == "admin" and password == "1234":<br>
+        &nbsp;&nbsp;print("Access granted")
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Logic Error</strong></td>
+      <td>The program runs but produces the wrong result.</td>
+      <td>
+        <code>
+        # Wrong condition<br>
+        if age &gt; 18:
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Syntax Error</strong></td>
+      <td>Code breaks language rules.</td>
+      <td>
+        <code>
+        if age &gt;= 18<br>
+        &nbsp;&nbsp;print("OK")
+        </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Iterative Testing</strong></td>
+      <td>Testing carried out repeatedly during development.</td>
+      <td><code># Test after each change</code></td>
+    </tr>
+
+    <tr>
+      <td><strong>Final Testing</strong></td>
+      <td>Testing done once the program is complete.</td>
+      <td><code># Final test before release</code></td>
+    </tr>
+
+    <tr>
+      <td><strong>Normal Data</strong></td>
+      <td>Valid values that should be accepted.</td>
+      <td><code>age = 15</code></td>
+    </tr>
+
+    <tr>
+      <td><strong>Invalid Data</strong></td>
+      <td>Values that should be rejected.</td>
+      <td><code>age = -5</code></td>
+    </tr>
+
+    <tr>
+      <td><strong>Extreme (Boundary) Data</strong></td>
+      <td>Values at the limits of acceptable input.</td>
+      <td><code>age = 5<br>age = 20</code></td>
+    </tr>
+
+    <tr>
+      <td><strong>Erroneous Data</strong></td>
+      <td>Data of the wrong type.</td>
+      <td><code>age = "ten"</code></td>
+    </tr>
+
+    <tr>
+      <td><strong>Maintainability</strong></td>
+      <td>
+        Making code easy to understand and update:
+        <ul>
+          <li>Sub-programs</li>
+          <li>Clear variable names</li>
+          <li>Indentation</li>
+          <li>Comments</li>
+        </ul>
+      </td>
+      <td>
+        <code>
+        total_score = 0<br>
+        # Add player score
+        </code>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+</div>
+
+<div class="knowledge-card">
+      <h3>Computational Thinking</h3>
+      <p>
+        <strong>Algorithms</strong> are a step-by-step set of instructions used to solve a problem.
+        Algorithms can be written as <strong>pseudocode</strong> or <strong>flowcharts</strong>.
+      </p>
+
+      <p>
+        <strong>Pseudocode</strong> is written in English and is used to plan an algorithm before programming.
+        It allows programmers using different programming languages to understand the logic.
+      </p>
+
+      <p>
+        <strong>Flowcharts</strong> are visual diagrams used to design algorithms that can be implemented in any programming language.
+        Common flowchart symbols include:
+      </p>
+    <figure>
+    <img src="images/CT/flowchart.png" height="172" width="420"/>
+    </figure>
+    <ul>
+        <li><strong>Start/Stop</strong> – beginning or end of an algorithm</li>
+        <li><strong>Decision</strong> – a yes/no or true/false choice</li>
+        <li><strong>Input/Output</strong> – data entering or leaving the system</li>
+        <li><strong>Process</strong> – an instruction or calculation</li>
+        <li><strong>Function / Subroutine</strong> – a reusable block of code</li>
+      </ul>
+
+      <p>
+        <strong>Computational thinking</strong> is the ability to think about how a computer could be used to solve a problem.
+      </p>
+
+      <p>
+        <strong>Abstraction</strong> involves removing unnecessary details and focusing only on what is important.
+        The London Underground map is a good example, as it shows how to travel between stations rather than exact distances.
+      </p>
+
+      <p>
+        <strong>Decomposition</strong> is breaking a problem down into smaller, manageable sub-problems.
+      </p>
+
+      <p>
+        <strong>Algorithmic thinking</strong> is creating clear, step-by-step instructions to solve a problem using a computer.
+      </p>
+    </div>
+
+    </div>
+  </section>
+
+
+   <section class="topic-section expanded" id="ct-match">
+  <div class="topic-header">
+    <span class="topic-arrow">&#9656;</span>
+    <h2>Drag & Drop Matching</h2>
+  </div>
+
+  <div class="vertical-knowledge">
+    <p>Drag each <strong>term</strong> onto the correct <strong>definition</strong>, then click <em>Check</em>.</p>
+
+    <div class="match-wrap">
+      <div class="match-bank">
+        <h3>Terms</h3>
+
+          <div class="term" draggable="true" data-term="variable">Variable</div>
+        <div class="term" draggable="true" data-term="constant">Constant</div>
+        <div class="term" draggable="true" data-term="array">Array</div>
+        <div class="term" draggable="true" data-term="record">Record</div>
+        <div class="term" draggable="true" data-term="sequence">Sequence</div>
+        <div class="term" draggable="true" data-term="selection">Selection</div>
+        <div class="term" draggable="true" data-term="repetition">Repetition</div>
+         <div class="term" draggable="true" data-term="iteration">Iteration</div>
+        <div class="term" draggable="true" data-term="subprogram">Subprogram</div>
+        <div class="term" draggable="true" data-term="moddiv">MOD/DIV</div>
+        <div class="term" draggable="true" data-term="validation">Input Validation</div>
+        <div class="term" draggable="true" data-term="authentication">Authentication</div>
+        <div class="term" draggable="true" data-term="logicerror">Logic Error</div>
+        <div class="term" draggable="true" data-term="syntaxerror">Syntax Error</div>
+        <div class="term" draggable="true" data-term="algorithm">Algorithm</div>
+        <div class="term" draggable="true" data-term="abstraction">Abstraction</div>
+        <div class="term" draggable="true" data-term="decomposition">Decomposition</div>
+
+
+
+      </div>
+
+      <div class="match-targets">
+        <h3>Definitions</h3>
+
+        <div class="target" data-accept="variable">
+          <p><strong>Stored value that can change while the program runs.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="constant">
+          <p><strong>Stored value that does not change while the program runs.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="array">
+          <p><strong>Collection of multiple values under one name, accessed by index. Same data type.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+          <div class="target" data-accept="record">
+          <p><strong>Collection of multiple values under one name, accessed by index. Different data types.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="sequence">
+          <p><strong>Instructions carried out step-by-step in order.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="selection">
+          <p><strong>Uses a condition to decide which code runs.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+         <div class="target" data-accept="repetition">
+          <p><strong>Repeats code using a loop.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="iteration">
+          <p><strong>Loop through a data structure (array).</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="subprogram">
+          <p><strong>Reusable block of code (function returns a value; procedure does not).</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="moddiv">
+          <p><strong>MOD gives remainder; DIV gives whole-number division result.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="validation">
+          <p><strong>Checks input meets rules before processing (format/type/presence/range).</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="authentication">
+          <p><strong>Checks username and password match stored credentials.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="logicerror">
+          <p><strong>Program runs but gives incorrect output/behaviour.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="syntaxerror">
+          <p><strong>Code breaks the grammar/rules of the language.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+
+        <div class="target" data-accept="algorithm">
+          <p><strong>Step-by-step instructions to solve a problem.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+
+        <div class="target" data-accept="abstraction">
+          <p><strong>Remove unnecessary detail; focus on what matters.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+        <div class="target" data-accept="decomposition">
+          <p><strong>Break a problem into smaller sub-problems.</strong></p>
+          <div class="dropzone"></div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="match-actions">
+      <button class="secondary" id="checkMatch" type="button">Check</button>
+      <button class="secondary" id="resetMatch" type="button">Reset</button>
+      <p><strong>Result:</strong> <span id="matchResult">—</span></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  #ct-match .match-wrap{display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-top:12px}
+  #ct-match .match-bank,#ct-match .match-targets{border:1px solid #000;border-radius:10px;padding:12px}
+  #ct-match .term{border:1px solid #000;border-radius:10px;padding:10px;margin:8px 0;cursor:grab;background:#fff;user-select:none}
+  #ct-match .target{border:1px dashed #000;border-radius:10px;padding:10px;margin:10px 0}
+  #ct-match .dropzone{min-height:44px;border:1px solid #000;border-radius:10px;margin-top:8px;padding:6px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+  #ct-match .placed{padding:6px 10px;border:1px solid #000;border-radius:999px;background:#fff}
+  #ct-match .correct-zone{outline:3px solid #2a8}
+  #ct-match .wrong-zone{outline:3px solid #d33}
+  #ct-match .match-actions{margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  #ct-match .placed { cursor: grab; }
+</style>
+
+<script>
+
+    (() => {
+  const matchRoot = document.getElementById("ct-match");
+  if (!matchRoot) return;
+
+  const bank = matchRoot.querySelector(".match-bank");
+  if (!bank) return;
+
+  // Get only the draggable terms (ignore headings, hr, etc.)
+  const terms = Array.from(bank.querySelectorAll(".term"));
+
+  // Fisher–Yates shuffle
+  for (let i = terms.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [terms[i], terms[j]] = [terms[j], terms[i]];
+  }
+
+  // Re-append in shuffled order
+  terms.forEach(term => bank.appendChild(term));
+})();
+
+
+(() => {
+  const root = document.getElementById("ct-match");
+  if (!root) return;
+
+  const bank = root.querySelector(".match-bank");
+  const terms = Array.from(root.querySelectorAll(".term"));
+  const targets = Array.from(root.querySelectorAll(".target"));
+  const resultEl = root.querySelector("#matchResult");
+  const checkBtn = root.querySelector("#checkMatch");
+  const resetBtn = root.querySelector("#resetMatch");
+
+  let draggedEl = null;   // can be a .term OR a .placed
+  let draggedType = null; // "term" | "placed"
+
+  function makePlaced(termKey, text) {
+    const pill = document.createElement("div");
+    pill.className = "placed";
+    pill.textContent = text;
+    pill.dataset.term = termKey;
+    pill.draggable = true;
+
+    pill.addEventListener("dragstart", () => {
+      draggedEl = pill;
+      draggedType = "placed";
+      setTimeout(() => pill.style.opacity = "0.5", 0);
+    });
+
+    pill.addEventListener("dragend", () => {
+      pill.style.opacity = "1";
+      draggedEl = null;
+      draggedType = null;
+    });
+
+    return pill;
+  }
+
+  // Enable dragging from the bank
+  terms.forEach(t => {
+    t.addEventListener("dragstart", () => {
+      draggedEl = t;
+      draggedType = "term";
+      setTimeout(() => t.style.opacity = "0.5", 0);
+    });
+
+    t.addEventListener("dragend", () => {
+      t.style.opacity = "1";
+      draggedEl = null;
+      draggedType = null;
+    });
+  });
+
+  // Bank drop: allow returning a placed pill back to the bank
+  bank.addEventListener("dragover", (e) => e.preventDefault());
+  bank.addEventListener("drop", (e) => {
+    e.preventDefault();
+    if (!draggedEl) return;
+
+    // Only handle returning placed pills
+    if (draggedType === "placed") {
+      const termKey = draggedEl.dataset.term;
+
+      // Remove pill from its dropzone
+      draggedEl.remove();
+
+      // Reveal the original bank term again
+      const original = terms.find(t => t.dataset.term === termKey);
+      if (original) original.style.display = "block";
+
+      // Optional: clear any outlines as user is editing
+      targets.forEach(target => {
+        target.querySelector(".dropzone")?.classList.remove("correct-zone", "wrong-zone");
+      });
+      resultEl.textContent = "—";
+    }
+  });
+
+  // Dropzones behavior
+  targets.forEach(target => {
+    const zone = target.querySelector(".dropzone");
+    zone.addEventListener("dragover", (e) => e.preventDefault());
+
+    zone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      if (!draggedEl) return;
+
+      // If zone already has a pill, return it to bank first
+      const existing = zone.querySelector(".placed");
+      if (existing) {
+        const oldKey = existing.dataset.term;
+        existing.remove();
+        const oldTerm = terms.find(t => t.dataset.term === oldKey);
+        if (oldTerm) oldTerm.style.display = "block";
+      }
+
+      // Place based on what is being dragged
+      if (draggedType === "term") {
+        // Put a new pill in the zone
+        zone.innerHTML = "";
+        const pill = makePlaced(draggedEl.dataset.term, draggedEl.textContent);
+        zone.appendChild(pill);
+
+        // Hide the original term in the bank
+        draggedEl.style.display = "none";
+      }
+
+      if (draggedType === "placed") {
+        // Move the pill into the new zone
+        zone.innerHTML = "";
+        zone.appendChild(draggedEl);
+      }
+
+      // Clear outlines as user is editing
+      zone.classList.remove("correct-zone", "wrong-zone");
+      resultEl.textContent = "—";
+    });
+  });
+
+  function resetAll() {
+    // Show all bank terms
+    terms.forEach(t => t.style.display = "block");
+
+    // Clear dropzones + outlines
+    targets.forEach(target => {
+      const zone = target.querySelector(".dropzone");
+      zone.innerHTML = "";
+      zone.classList.remove("correct-zone", "wrong-zone");
+    });
+
+    resultEl.textContent = "—";
+  }
+
+  checkBtn?.addEventListener("click", () => {
+    let correct = 0;
+
+    targets.forEach(target => {
+      const accept = target.dataset.accept;
+      const zone = target.querySelector(".dropzone");
+      const placed = zone.querySelector(".placed");
+      const ok = placed && placed.dataset.term === accept;
+
+      zone.classList.remove("correct-zone", "wrong-zone");
+      zone.classList.add(ok ? "correct-zone" : "wrong-zone");
+      if (ok) correct += 1;
+    });
+
+    resultEl.textContent = `${correct} / ${targets.length}`;
+  });
+
+  resetBtn?.addEventListener("click", resetAll);
+
+  resetAll();
+})();
+</script>
+
+
+  <!-- =========================
+       QUESTIONS & ANSWERS
+       ========================= -->
+  <section>
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check Your Understanding – Questions</h2>
+    </div>
+
+    <div class="topic-body">
+      <div class="vertical-qa">
+
+
+    </div>
+    </div>
+  </section>
+
+</main>
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+<footer>
+  &copy; 2025 StudyHubCS
+</footer>
+
+<script>
+  // Toggle topic sections open/closed
+  document.querySelectorAll('.topic-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+      section.classList.toggle('expanded');
+    });
+  });
+
+  // Show / hide individual answers
+  document.querySelectorAll('.answer-toggle').forEach(btn => {
+    const answer = btn.nextElementSibling;
+    if (!answer) return;
+
+    // ensure hidden initially (CSS also sets .answer display:none)
+    answer.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const open = answer.style.display === 'block';
+      answer.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Show answer' : 'Hide answer';
+    });
+  });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
+</script>
+
+</body>
+</html>

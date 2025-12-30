@@ -470,12 +470,19 @@
 
 </main>
 
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
 <footer>
-  <p>&copy; 2025 Hardware Revision Portal</p>
+  &copy; 2025 StudyHubCS
 </footer>
 
 <script>
-  // Toggle topic sections open/closed (same as software booklet)
+  // Toggle topic sections open/closed
   document.querySelectorAll('.topic-header').forEach(header => {
     header.addEventListener('click', () => {
       const section = header.parentElement;
@@ -498,6 +505,17 @@
       btn.textContent = open ? 'Show answer' : 'Hide answer';
     });
   });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
 </script>
 
 </body>
