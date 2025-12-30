@@ -1275,12 +1275,6 @@ iframe {
   }
 
 
-/* Fixed-size class diagrams */
-.class-diagram {
-  width: 200px;
-  table-layout: fixed;
-}
-
 /* TABLE FIT INSIDE CARDS */
 /* Keeps wide tables/code blocks from overflowing card borders */
 .knowledge-card,
@@ -1340,7 +1334,7 @@ iframe {
 .card table.truthtable,
 .resource-section table.truthtable,
 .topic-body table.truthtable {
-  width: 200px !important;      /* change to 100% if you want full width */
+  width: 50% !important;      /* change to 100% if you want full width */
   max-width: 100%;
   table-layout: fixed !important;
   margin: 1rem auto;            /* centers the table */

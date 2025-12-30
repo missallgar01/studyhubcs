@@ -40,7 +40,7 @@
         <p>Boolean logic works with variables that can only be <strong>0 (false)</strong> or
            <strong>1 (true)</strong>. We combine them using logic gates:</p>
 
-        <table>
+        <table class="truthtable">
           <thead>
           <tr>
             <th>Gate</th>
@@ -308,126 +308,310 @@
       <div class="knowledge-card">
         <h3>Simplifying Boolean Expressions</h3>
         <p>We use Boolean algebra rules to shorten expressions or make them easier to
-           implement as logic circuits. The KO summarises the key rules. </p>
+           implement as logic circuits. </p>
 
-        <table>
-          <thead>
-          <tr>
-            <th>General AND rules</th>
-            <th>General OR rules</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>X ∧ 0 = 0</td>
-            <td>X V 0 = X</td>
-          </tr>
-          <tr>
-            <td>X ∧ 1 = X</td>
-            <td>X V 1 = 1</td>
-          </tr>
-          <tr>
-            <td>X ∧ X = X</td>
-            <td>X V X = X</td>
-          </tr>
-          <tr>
-            <td>¬X ∧ X = 0</td>
-            <td>¬X V X = 1</td>
-          </tr>
-          </tbody>
-        </table>
-
-        <table>
+<table class="truthtable">
   <thead>
     <tr>
-      <th>Law</th>
-      <th>Description</th>
-      <th>Example</th>
+      <th>Rule name</th>
+      <th>Original expression</th>
+      <th>Simplified form</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>De&nbsp;Morgan’s Laws</strong></td>
-      <td>Break a NOT over brackets and flip AND / OR</td>
-      <td>¬(A ∧ B) ≡ ¬A ∨ ¬B<br>¬(A ∨ B) ≡ ¬A ∧ ¬B</td>
+      <td rowspan="4"><strong>AND</strong></td>
+      <td>X AND 1</td>
+      <td>X</td>
     </tr>
     <tr>
-      <td><strong>Distribution</strong></td>
-      <td>Expand an expression</td>
-      <td>A(B ∨ C) ≡ AB ∨ AC</td>
+      <td>X AND 0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <td><strong>Reverse distribution / factoring</strong></td>
-      <td>Factor out a common term</td>
-      <td>AB ∨ AC ≡ A(B ∨ C)</td>
+      <td>X AND X</td>
+      <td>X</td>
     </tr>
     <tr>
-      <td><strong>Association</strong></td>
-      <td>Regroup terms</td>
-      <td>(A ∨ B) ∨ C ≡ A ∨ (B ∨ C)</td>
+      <td>NOT X AND X</td>
+      <td>0</td>
+    </tr>
+
+    <tr>
+      <td rowspan="4"><strong>OR</strong></td>
+      <td>X OR 0</td>
+      <td>X</td>
     </tr>
     <tr>
-      <td><strong>Commutation</strong></td>
-      <td>Order of terms does not matter</td>
-      <td>A ∨ B ≡ B ∨ A</td>
+      <td>X OR 1</td>
+      <td>1</td>
     </tr>
     <tr>
-      <td><strong>Double negation</strong></td>
-      <td>Two NOTs cancel out</td>
-      <td>¬(¬A) ≡ A</td>
+      <td>X OR X</td>
+      <td>X</td>
     </tr>
     <tr>
-      <td><strong>Absorption</strong></td>
-      <td>Extra term has no effect</td>
-      <td>A ∨ (A ∧ B) ≡ A</td>
+      <td>NOT X OR X</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
 
-        <h4>Worked example (from KO)</h4>
-        <p>Simplify: <strong>(¬C ∧ ¬D) ∨ (C ∧ ¬D)</strong></p>
-        <ol>
-          <li>Common factor in both terms is ¬D.</li>
-          <li>Factor: ¬D ∧ (¬C ∨ C)</li>
-          <li>Use NOT X OR X = 1 → ¬D ∧ 1 ≡ ¬D</li>
-        </ol>
-        <p><strong>Therefore:</strong> (¬C ∧ ¬D) ∨ (C ∧ ¬D) ≡ ¬D</p>
+<table class="truthtable">
+  <thead>
+    <tr>
+      <th>Rule name</th>
+      <th>Original expression</th>
+      <th>Simplified form</th>
+    </tr>
+  </thead>
+  <tbody>
 
-        <h4>Practice prompts from the KO</h4>
-        <p>Try simplifying these using the rules above:</p>
-        <ul>
-          <li>¬ ¬A</li>
-          <li>¬(A ∧ ¬B)</li>
-          <li>A ∨ (A ∧ B) ∨ ¬A</li>
-        </ul>
+    <!-- De Morgan's Law -->
+    <tr>
+      <td rowspan="2">
+        <strong>De&nbsp;Morgan’s Law</strong><br>
+        Flip AND ↔ OR, move NOT inside
+      </td>
+      <td>¬(A ∧ B)</td>
+      <td>¬A ∨ ¬B</td>
+    </tr>
+    <tr>
+      <td>¬(A ∨ B)</td>
+      <td>¬A ∧ ¬B</td>
+    </tr>
+
+    <!-- Distribution -->
+    <tr>
+      <td rowspan="2">
+        <strong>Distribution</strong><br>
+        Expanding brackets
+      </td>
+      <td>A ∧ (B ∨ C)</td>
+      <td>(A ∧ B) ∨ (A ∧ C)</td>
+    </tr>
+    <tr>
+      <td>A ∨ (B ∧ C)</td>
+      <td>(A ∨ B) ∧ (A ∨ C)</td>
+    </tr>
+
+    <!-- Reverse distribution -->
+    <tr>
+      <td rowspan="2">
+        <strong>Reverse distribution (factoring)</strong><br>
+        Factor out common term
+      </td>
+      <td>(A ∧ B) ∨ (A ∧ C)</td>
+      <td>A ∧ (B ∨ C)</td>
+    </tr>
+    <tr>
+      <td>(A ∨ B) ∧ (A ∨ C)</td>
+      <td>A ∨ (B ∧ C)</td>
+    </tr>
+
+    <!-- Association -->
+    <tr>
+      <td rowspan="2">
+        <strong>Association</strong><br>
+        Brackets removable
+      </td>
+      <td>(A ∧ B) ∧ C</td>
+      <td>A ∧ B ∧ C</td>
+    </tr>
+    <tr>
+      <td>(A ∨ B) ∨ C</td>
+      <td>A ∨ B ∨ C</td>
+    </tr>
+
+    <!-- Commutation -->
+    <tr>
+      <td rowspan="2">
+        <strong>Commutation</strong><br>
+        Order doesn’t matter
+      </td>
+      <td>A ∨ B</td>
+      <td>B ∨ A</td>
+    </tr>
+    <tr>
+      <td>A ∧ B</td>
+      <td>B ∧ A</td>
+    </tr>
+
+    <!-- Double negation -->
+    <tr>
+      <td>
+        <strong>Double negation</strong><br>
+        Two NOTs cancel
+      </td>
+      <td>¬¬A</td>
+      <td>A</td>
+    </tr>
+
+    <!-- Absorption -->
+    <tr>
+      <td rowspan="2">
+        <strong>Absorption</strong><br>
+        If A is true, result is true
+      </td>
+      <td>A ∧ (A ∨ B)</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>A ∨ (A ∧ B)</td>
+      <td>A</td>
+    </tr>
+
+  </tbody>
+</table>
+
+       <!-- Worked Example: Boolean Simplification -->
+<table class="boolean-laws">
+  <caption><strong>Worked Example: Boolean Simplification</strong></caption>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Explanation</th>
+      <th>Expression</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Original</strong></td>
+      <td>Given expression</td>
+      <td>(¬C ∧ ¬D) ∨ (C ∧ ¬D)</td>
+    </tr>
+    <tr>
+      <td><strong>Step 1</strong></td>
+      <td>Identify the repeated term in both brackets</td>
+      <td>Common term: ¬D</td>
+    </tr>
+    <tr>
+      <td><strong>Step 2</strong></td>
+      <td>Factor out the common term (reverse distribution / factoring)</td>
+      <td>¬D ∧ (¬C ∨ C)</td>
+    </tr>
+    <tr>
+      <td><strong>Step 3</strong></td>
+      <td>Apply General OR rule: NOT X OR X = 1</td>
+      <td>¬D ∧ 1</td>
+    </tr>
+    <tr>
+      <td><strong>Final</strong></td>
+      <td>Simplified expression</td>
+      <td><strong>¬D</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- More simplified versions -->
+<table class="boolean-laws">
+  <caption><strong>More simplified versions of Boolean expressions</strong></caption>
+  <thead>
+    <tr>
+      <th>Original expression</th>
+      <th>Simplified expression</th>
+      <th>Rule(s) applied</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>¬¬A</td>
+      <td>A</td>
+      <td>Double negation</td>
+    </tr>
+    <tr>
+      <td>¬A ∧ ¬B</td>
+      <td>¬(A ∨ B)</td>
+      <td>De&nbsp;Morgan’s Law</td>
+    </tr>
+    <tr>
+      <td>A ∨ (A ∧ B) ∨ ¬A</td>
+      <td>1</td>
+      <td>Absorption, Complement</td>
+    </tr>
+  </tbody>
+</table>
       </div>
 
       <!-- Card 5: Karnaugh maps -->
       <div class="knowledge-card">
         <h3>Karnaugh Maps (K-maps)</h3>
+       <h3>The four-variable problem</h3>
 
-        <!-- Optional K-map image from KO page 4 -->
+<ul>
+  <li>A K Map is a tool that is used for simplifying Boolean algebra expressions.</li>
+  <li>A visual method of grouping together expressions with common factors.</li>
+  <li>The format of the map makes it easy to identify and eliminate redundant terms.</li>
+  <li>They are used in digital logic design, such as simplifying the logic of digital circuits.</li>
+</ul>
+
+<ol>
+  <li>
+    <strong>Grouping the 1’s</strong>
+    <ul>
+      <li>Make rectangular groups.</li>
+      <li>Make groups that are as large as possible.</li>
+      <li>Make groups that contain either 8, 4, 2, or 1 ones.</li>
+      <li>Groups can overlap (some 1s can be in multiple groups).</li>
+      <li>The Karnaugh map grid “wraps round” in all directions, so groups can wrap round edges.</li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>Write a term for each group</strong> by finding the variables that stay the same in that group.
+    If a variable is 0 in the group, use <strong>NOT</strong> of it.
+  </li>
+
+  <li>
+    <strong>OR</strong> the group terms together to form the simplified expression (use <strong>∨</strong>).
+  </li>
+</ol>
+
+          <h3>Example: Give a simplified version of the expression using the Karnaugh map</h3>
+
+<p>You must show your working <strong>[3]</strong>.</p>
+
+           <!-- Optional K-map image from KO page 4 -->
       <figure>
-          <img src="images/logic/boolean-kmap-4-variable.png"
-               alt="Four-variable Karnaugh map example showing that the expression simplifies to A." />
-          <figcaption>Four-variable K-map example (simplifies to A).</figcaption>
 
-     </figure>
-        <p>A Karnaugh map is a grid version of a truth table used to simplify Boolean
-           expressions, especially with 3 or 4 variables. </p>
-        <ul>
-          <li>Each cell represents one minterm (one row of the truth table).</li>
-          <li>Rows and columns are labelled using Gray code so neighbours differ in only one bit.</li>
-          <li>We place 1s in the cells where the output is 1.</li>
-          <li>Group 1s in rectangles of size 1, 2, 4, 8… (powers of two), wrapping around edges if helpful.</li>
-          <li>Each group gives a simplified product term; the final expression is the OR of all group terms.</li>
-        </ul>
+          <img src="images/logic/kmap1.png" height="209" width="242"/>
 
-        <p>The KO’s main example (page 4) shows a 4-variable map where all the 1s form a
-           solid block in the rows labelled 11 and 10 – this simplifies to just <strong>A</strong>.</p>
-        <p>Two more K-maps on the sheet provide practice in reading expressions directly from
-           the groups of 1s.</p>
-      </div>
+<p>
+  Looking at the <strong>group of 8</strong> in the middle of the map:
+  for all the cells in the group, the variable <strong>B</strong> is always <strong>1</strong>.
+</p>
+
+<p>
+  The other 3 variables change across the group (for some cells they are 0 and for others they are 1),
+  so they are eliminated.
+</p>
+
+<p><strong>So this group simplifies to:</strong> <strong>B</strong></p>
+
+<p>
+  Looking at the other <strong>group of 8</strong>:
+  for all the cells in this group, <strong>C</strong> is always <strong>0</strong>,
+  but the other 3 variables can be 1 or 0 in this group, so they are eliminated.
+</p>
+
+<p><strong>So this group simplifies to:</strong> <strong>¬C</strong></p>
+
+<p><strong>Final simplified expression:</strong> <strong>B ∨ ¬C</strong></p>
+
+<hr>
+
+<h3>Example 2: Wrap around</h3>
+ <!-- Optional K-map image from KO page 4 -->
+      <figure>
+
+          <img src="images/logic/kmap2.png" height="294" width="298"/>
+
+      </figure>
+<p><strong>Simplified expression:</strong> <strong>¬B</strong></p>
+
+ </div>
+
 
       <!-- Card 6: Adders -->
       <div class="knowledge-card">
