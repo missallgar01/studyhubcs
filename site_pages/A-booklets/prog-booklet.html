@@ -1457,6 +1457,160 @@ myCar = Car()
         deposit and withdraw methods.
       </div>
     </div>
+
+
+       <!-- =========================
+     1.2.4 Programming Paradigms & Procedural Languages
+     ========================= -->
+
+<div class="knowledge-card">
+  <h3>1.2.4 Programming paradigms and procedural languages</h3>
+  <p>
+    A <strong>programming paradigm</strong> is a style / way of programming used to classify programming languages.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Do you remember?</h3>
+  <p>
+    A <strong>paradigm</strong> is a way of thinking that is suited to solve a particular problem.
+  </p>
+  <p><strong>Types of programming paradigm include:</strong></p>
+  <ul>
+    <li><strong>Procedural</strong> (also known as imperative)</li>
+    <li><strong>Object-Oriented Programming (OOP)</strong></li>
+    <li><strong>Low-level programming</strong></li>
+  </ul>
+</div>
+
+<div class="knowledge-card">
+  <h3>Procedural programming (imperative)</h3>
+  <p>
+    Code is written and runs one instruction at a time. Key programming constructs are:
+    <strong>sequence</strong> (running code line by line), <strong>selection</strong> (if statements) and
+    <strong>iteration</strong> (loops). <strong>Subroutines</strong> (procedures and functions) are also available.
+  </p>
+</div>
+
+<!-- =========================
+     Exam-style question card
+     ========================= -->
+<div class="rev-card qa-card">
+  <p>
+    <strong>Question:</strong><br>
+    Describe how low-level programming differs from procedural programming. <em>[6]</em>
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>Mark scheme points (any suitable):</strong></p>
+    <ul>
+      <li>Low-level programming is usually carried out in <strong>assembly language</strong>.</li>
+      <li>Assembly instructions correspond closely to <strong>machine code</strong> executed on the CPU.</li>
+      <li>Each assembly instruction contains an <strong>opcode</strong> and <strong>operands</strong> (e.g. addresses, values, registers).</li>
+      <li>Low-level programming requires careful consideration of <strong>CPU architecture</strong> / how it works.</li>
+      <li>Procedural programming uses <strong>high-level instructions</strong> (e.g. <code>print</code>), which are translated into multiple low-level instructions by a compiler.</li>
+      <li>High-level control structures (e.g. <code>while</code> / <code>for</code>) have clearer syntax and are generally easier to read and write.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- =========================
+     Comparison table (Procedural vs OOP)
+     ========================= -->
+        <div class="knowledge-card">
+<table>
+  <caption><strong>Comparison of procedural programming with object-oriented programming (OOP)</strong></caption>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Procedural</th>
+      <th>Object-oriented</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Iteration, selection and sequences</strong></td>
+      <td>These are the key control structures in procedural programming.</td>
+      <td>The same control structures exist in OOP; they are used <strong>inside objects</strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>Storing data items</strong></td>
+      <td><strong>Variables</strong>.</td>
+      <td>Variables are known as <strong>attributes</strong> or <strong>properties</strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>Subroutines</strong></td>
+      <td><strong>Procedures</strong> and <strong>functions</strong>.</td>
+      <td><strong>Methods</strong> (work in the same way as procedures and functions).</td>
+    </tr>
+    <tr>
+      <td><strong>Design style</strong></td>
+      <td>Programs are written <strong>top to bottom</strong>.</td>
+      <td>
+        <strong>Classes</strong> and <strong>objects</strong> encapsulate data (in <strong>attributes</strong>)
+        and routines (in <strong>methods</strong>).
+      </td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+<div class="knowledge-card">
+<table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Procedural Programming</th>
+      <th>Object-Oriented Programming (OOP)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Main focus</strong></td>
+      <td>Procedures / functions</td>
+      <td>Objects (data + methods)</td>
+    </tr>
+    <tr>
+      <td><strong>Program structure</strong></td>
+      <td>Top-down structure</td>
+      <td>Bottom-up structure</td>
+    </tr>
+    <tr>
+      <td><strong>Data handling</strong></td>
+      <td>Data and procedures are separate</td>
+      <td>Data and methods are bundled together</td>
+    </tr>
+    <tr>
+      <td><strong>Reusability</strong></td>
+      <td>Limited reuse of code</td>
+      <td>High reusability using classes and inheritance</td>
+    </tr>
+    <tr>
+      <td><strong>Security</strong></td>
+      <td>Less secure (data often global)</td>
+      <td>More secure using encapsulation</td>
+    </tr>
+    <tr>
+      <td><strong>Ease of maintenance</strong></td>
+      <td>Harder to maintain in large programs</td>
+      <td>Easier to maintain and extend</td>
+    </tr>
+    <tr>
+      <td><strong>Scalability</strong></td>
+      <td>Less suitable for large projects</td>
+      <td>Well suited to large and complex systems</td>
+    </tr>
+    <tr>
+      <td><strong>Examples of languages</strong></td>
+      <td>C, Pascal</td>
+      <td>Java, Python, C++</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+
       </div>
   </section>
 
@@ -1471,14 +1625,8 @@ myCar = Car()
     <div class="topic-body">
       <div class="vertical-qa">
 
-        <!-- =======================
-             TOPIC A – Question and answer
-             ======================= -->
-<!-- =========================
-STAGE 1: QUESTION 1 (ONLY)
 
 
-  <!-- 1(i) -->
   <div class="rev-card qa-card">
     <h3>1(i). Question</h3>
 
@@ -1504,7 +1652,7 @@ STAGE 1: QUESTION 1 (ONLY)
     </div>
   </div>
 
-  <!-- 1(ii) -->
+
   <div class="rev-card qa-card">
     <h3>1(ii). Question</h3>
 
@@ -1530,7 +1678,7 @@ STAGE 1: QUESTION 1 (ONLY)
     </div>
   </div>
 
-  <!-- 1(iii) -->
+
   <div class="rev-card qa-card">
     <h3>1(iii). Question</h3>
 
@@ -1550,7 +1698,7 @@ STAGE 1: QUESTION 1 (ONLY)
     </div>
   </div>
 
-  <!-- 1(iv) -->
+
   <div class="rev-card qa-card">
     <h3>1(iv). Question</h3>
 
@@ -1573,7 +1721,7 @@ STAGE 1: QUESTION 1 (ONLY)
     </div>
   </div>
 
-  <!-- 1(v) -->
+
   <div class="rev-card qa-card">
     <h3>1(v). Question</h3>
 
@@ -1613,7 +1761,7 @@ STAGE 1: QUESTION 1 (ONLY)
     </div>
   </div>
 
-  <!-- 1(vi) -->
+
   <div class="rev-card qa-card">
     <h3>1(vi). Question</h3>
 
@@ -1641,12 +1789,10 @@ endwhile</code></pre>
     </div>
   </div>
 
-          <!-- =========================
-STAGE 2: QUESTION 2 (ONLY)
-========================= -->
 
 
-  <!-- 2(a) -->
+
+
   <div class="rev-card qa-card">
     <h3>2(a). Question</h3>
 

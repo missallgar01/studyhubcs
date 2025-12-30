@@ -30,335 +30,515 @@
       <span class="topic-arrow">&#9656;</span>
       <h2>Software Development – Notes</h2>
     </div>
-    <div class="topic-body vertical-knowledge">
+    <div class="vertical-knowledge">
 
-    <!-- ================================================= -->
-    <!-- SOFTWARE DEVELOPMENT LIFE CYCLE -->
-    <!-- ================================================= -->
+<div class="knowledge-card">
+  <h3>Software Development Life Cycles (SDLCs)</h3>
+  <p>
+    Software can be developed using a variety of approaches. The approach used
+    depends on the type of software being developed but most software
+    development life cycles (SDLCs) have some stages in common.
+  </p>
+</div>
 
-    <div class="knowledge-card">
-      <h3>Software Development Life Cycle (SDLC)</h3>
-      <p>
-        Most software projects follow a structured life cycle called the
-        <strong>Software Development Life Cycle</strong>.
-        While specific models differ, most include similar stages.
-      </p>
-    </div>
+<div class="knowledge-card">
+  <h3>Analysis</h3>
+  <p>
+    Stakeholders state what they require from the finished product. This
+    information is used to clearly define the problem and the system
+    requirements.
+  </p>
+  <ul>
+    <li>Analysing strengths and weaknesses with the current way this problem is being solved</li>
+    <li>Considering types of data involved including inputs, outputs, stored data and amount of data</li>
+  </ul>
+</div>
 
-    <div class="knowledge-card">
-      <h3>Analysis Stage</h3>
-      <p>
-        Stakeholders describe what they want the final system to achieve.
-        This information is used to define the problem and system requirements.
-      </p>
-      <ul>
-        <li>Identify inputs, outputs, and stored data</li>
-        <li>Assess current solutions</li>
-        <li>Define functional and non-functional requirements</li>
-      </ul>
+<div class="knowledge-card">
+  <h3>Design</h3>
+  <p>
+    The different aspects of the new system are designed, such as:
+  </p>
+  <ul>
+    <li>Inputs: volume, methods, frequency</li>
+    <li>Outputs: volume, methods, frequency</li>
+    <li>Security features: level required, access levels</li>
+    <li>Hardware set-up: compatibility</li>
+    <li>User interface: menus, accessibility, navigation</li>
+  </ul>
+  <p>A test plan may also be designed at this stage.</p>
+</div>
 
-      <div class="example">
-        <strong>Example:</strong><br>
-        A school wants a new attendance system.
-        Requirements include student ID input, daily attendance reports,
-        secure access for staff, and long-term data storage.
+<div class="knowledge-card">
+  <h3>Development</h3>
+  <p>
+    The design from the previous stage is used to split the project into
+    individual, self-contained modules, which are allocated to teams for
+    programming.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Testing</h3>
+  <p>
+    The program is tested against the test plan formed in the Design stage.
+    There are various types of testing that can be carried out:
+  </p>
+  <ul>
+    <li>
+      <strong>Alpha testing</strong><br>
+      Alpha testing is carried out in-house by the software development teams
+      within the company. Bugs are pinpointed and fixed.
+    </li>
+    <li>
+      <strong>Beta testing</strong><br>
+      Beta testing is carried out by end-users after alpha testing has been
+      completed. Feedback from users is used to inform the next stage of
+      development.
+    </li>
+    <li>
+      <strong>White box testing</strong><br>
+      Testing carried out by software development teams in which the test plan
+      is based on the internal structure of the program. All possible routes
+      through the program are tested.
+    </li>
+    <li>
+      <strong>Black box testing</strong><br>
+      Testing where the software is tested without the testers being aware of
+      the internal structure of the software. Can be carried out both within
+      the company and by end-users. The test plan traces through inputs and
+      outputs within the software.
+    </li>
+  </ul>
+</div>
+
+<div class="knowledge-card">
+  <h3>Implementation</h3>
+  <p>
+    Once the testing stage has been used to make the appropriate changes to the
+    software, it is installed onto the users’ systems.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Evaluation</h3>
+  <p>
+    After the implementation stage, the effectiveness of the software is
+    evaluated against the system requirements defined at the analysis stage to
+    evaluate its suitability in solving the problem.
+  </p>
+  <p>
+    Different criteria are considered, including robustness, reliability,
+    portability and maintainability.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Maintenance</h3>
+  <p>
+    Any errors or improvements that could be made to the software are flagged
+    up by the end-users. Programmers will regularly send out software updates
+    to fix any bugs, security issues or make any needed improvements.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Waterfall lifecycle</h3>
+  <p>
+    The traditional waterfall model of software development is very well-known
+    and well-defined but is now being replaced with more agile models.
+  </p>
+  <p>
+    The waterfall model is based on a series of stages which are completed in
+    sequence, from start to finish.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Waterfall stages</h3>
+  <ul>
+    <li>Analysis</li>
+    <li>Design</li>
+    <li>Implementation</li>
+    <li>Evaluation</li>
+    <li>Maintenance</li>
+  </ul>
+</div>
+
+<div class="knowledge-card">
+  <h3>Feasibility study (TELOS)</h3>
+  <p>
+    The analysis stage includes a feasibility study in which designers evaluate
+    the feasibility of the project using <strong>TELOS</strong>:
+  </p>
+  <ul>
+    <li>
+      <strong>Technical:</strong>
+      Is the project possible considering the technology available and accessible?
+    </li>
+    <li>
+      <strong>Economic:</strong>
+      Can the project be financed in the short-term and the long-term?
+    </li>
+    <li>
+      <strong>Legal:</strong>
+      Can the project be solved within the law?
+    </li>
+    <li>
+      <strong>Operational:</strong>
+      Can the project be successfully implemented and maintained?
+    </li>
+    <li>
+      <strong>Scheduling:</strong>
+      Can the project be completed given the time available?
+    </li>
+  </ul>
+</div>
+
+<div class="knowledge-card">
+  <h3>Limitations of the Waterfall model</h3>
+  <p>
+    If a change needs to be made within a project being developed using the
+    waterfall model, programmers must revisit all levels between the current
+    stage and the stage at which a change needs to be made.
+  </p>
+  <p>
+    This makes the model inflexible and so unsuitable to projects with changing
+    requirements.
+  </p>
+  <p>
+    This also means that users have little input as they are only involved at
+    the very beginning and end of the waterfall lifecycle, during the analysis
+    and evaluation stages.
+  </p>
+</div>
+
+     <div class="knowledge-card">
+  <h3>Agile methodologies</h3>
+  <p>
+    This refers to a collection of methodologies which aim to improve the
+    flexibility of software development and adapt to changes in user
+    requirements faster.
+  </p>
+  <p>
+    It is also easier to make improvements or changes to the software.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>How Agile development works</h3>
+  <p>
+    The problem is broken down into sections which are developed in parallel.
+    The design and analysis phase often occur together.
+  </p>
+  <p>
+    Different sections of software can be at different stages of development.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Iterative development and prototyping</h3>
+  <p>
+    A working prototype is delivered early and prototypes are built upon and
+    improved in an iterative manner so that new prototypes are delivered
+    regularly throughout the course of the development cycle.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>User involvement and feedback</h3>
+  <p>
+    User feedback is gathered regularly and used to refine prototypes and guide
+    further development.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Documentation and user satisfaction</h3>
+  <p>
+    In agile development methodologies, there is less of a focus on documentation
+    and more priority is given to user satisfaction.
+  </p>
+</div>
+
+          <div class="knowledge-card">
+  <h3>Extreme Programming (XP)</h3>
+  <p>
+    This is an agile model in which the development team consists of a pair of
+    programmers alongside a representative end-user.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>User stories</h3>
+  <p>
+    The model is built on <strong>user stories</strong>. System requirements are
+    specified by the end-user and used when designing the program.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Paired programming</h3>
+  <p>
+    The aim of paired programming is to produce high-quality code, as the code
+    is written by one person and critiqued by the other so it is improved as it
+    is written.
+  </p>
+  <p>
+    Programmers work no longer than <strong>forty hours a week</strong> with the
+    aim that quality is not compromised.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Iterations and working versions</h3>
+  <p>
+    Each iteration through the cycle generates what is called a
+    <strong>working version</strong> of the program, which means it could function
+    as the final product.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Documentation and communication</h3>
+  <p>
+    The iterative nature of development means that it is hard to produce
+    high-quality documentation, which is less of a priority.
+  </p>
+  <p>
+    In order for XP to be effective, programmers must communicate effectively.
+  </p>
+</div>
+
+ <div class="knowledge-card">
+  <h3>Spiral model</h3>
+  <p>
+    The spiral model is built on four key stages with the focus of effectively
+    managing risk-heavy projects:
+  </p>
+  <ul>
+    <li>Analysing system requirements</li>
+    <li>Pinpointing and mitigating risks</li>
+    <li>Development, testing and implementation</li>
+    <li>Evaluating to inform the next iteration</li>
+  </ul>
+</div>
+
+<div class="knowledge-card">
+  <h3>Risk management and project suitability</h3>
+  <p>
+    If the project is found to be too risky at any point, the project is
+    terminated.
+  </p>
+  <p>
+    However, hiring risk assessors to analyse the risks involved can be
+    expensive, which makes this methodology suited to only very large-scale
+    projects.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Rapid application development (RAD)</h3>
+  <p>
+    RAD is an iterative methodology which uses partially functioning prototypes
+    which are continually built upon.
+  </p>
+  <p>
+    User requirements are initially gathered using focus groups and used to
+    develop an incomplete version of the solution which is given to the user
+    to trial.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>User feedback and prototyping</h3>
+  <p>
+    User feedback is then used to generate the next, improved prototype and
+    this continues until the prototype matches the requirements of the
+    end-users, at which point it becomes the final product.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>When RAD is used</h3>
+  <p>
+    This is commonly used where user requirements are incomplete or unclear
+    at the start.
+  </p>
+  <p>
+    However, as requirements change over the course of the project, additions
+    and changes made to the code may be inefficient.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Writing and following algorithms</h3>
+  <p>
+    An algorithm is a set of instructions used to solve a problem. They are
+    core to computer science and can be used to tackle a wide range of problems.
+  </p>
+  <p>
+    Regardless of the problem, all good algorithms have certain key qualities:
+  </p>
+  <ul>
+    <li>Inputs must be clearly defined – what is valid and what is invalid?</li>
+    <li>Must always produce a valid output for any defined input</li>
+    <li>Must be able to deal with invalid inputs</li>
+    <li>Must always reach a stopping condition</li>
+    <li>Must be well-documented for reference</li>
+    <li>Must be well-commented so modifications can easily be made</li>
+  </ul>
+</div>
+
+
+          <div class="knowledge-card">
+        <table>
+  <caption><strong>Merits, drawbacks and uses of programming methodologies</strong></caption>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Merits</th>
+      <th>Drawbacks</th>
+      <th>Uses</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><strong>Waterfall</strong>
+
+      <figure>
+
+          <img src="images/softDev/waterfall.svg" height="294" width="298"/>
+
+      </figure>
+
+
+      </td>
+      <td>
+        <ul>
+          <li>Straightforward to manage</li>
+          <li>Clearly documented</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Lack of flexibility</li>
+          <li>No risk analysis</li>
+          <li>Limited user involvement</li>
+        </ul>
+      </td>
+      <td>
+        Static, low-risk projects which need little user input, such as a piece of
+        general-purpose software
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Agile</strong>
+
+      <figure>
+
+          <img src="images/softDev/agile.png" height="294" width="298"/>
+
+      </figure>
+
+      </td>
+      <td>
+        <ul>
+          <li>Produces high quality code</li>
+          <li>Flexible to changing requirements</li>
+          <li>Regular user input</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Poor documentation</li>
+          <li>Requires consistent interaction between user and programmer</li>
+        </ul>
+      </td>
+      <td>
+        Small to medium projects with unclear initial requirements.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Extreme Programming</strong></td>
+      <td>
+        <ul>
+          <li>Produces high quality code</li>
+          <li>Constant user involvement means high usability</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>High cost of two people working on one project</li>
+          <li>Teamwork is essential</li>
+          <li>End-user may not be able to be present</li>
+        </ul>
+      </td>
+      <td>
+        Small to medium projects with unclear initial requirements requiring excellent usability.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Spiral</strong>
+
+
+      <figure>
+
+          <img src="images/softDev/spiral.svg" height="294" width="298"/>
+
+      </figure>
+
+      </td>
+      <td>
+        <ul>
+          <li>Thorough risk-analysis and mitigation</li>
+          <li>Caters to changing user needs</li>
+          <li>Produces prototypes throughout</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Expensive to hire risk assessors</li>
+          <li>Lack of focus on code efficiency</li>
+          <li>High costs due to constant prototyping</li>
+        </ul>
+      </td>
+      <td>
+        Large, risk-intensive projects with a high budget.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Rapid Application Development</strong></td>
+      <td>
+        <ul>
+          <li>Caters to changing user requirements</li>
+          <li>Highly usable finished product</li>
+          <li>Focus on core features, reducing development time</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Poorer quality documentation</li>
+          <li>Fast pace may reduce code quality</li>
+        </ul>
+      </td>
+      <td>
+        Small to medium, low-budget projects with short time-frames.
+      </td>
+    </tr>
+
+  </tbody>
+</table>
       </div>
     </div>
-
-    <div class="knowledge-card">
-      <h3>Design Stage</h3>
-      <p>
-        The structure of the system is planned before coding begins.
-      </p>
-      <ul>
-        <li>Input/output formats</li>
-        <li>User interface layout and accessibility</li>
-        <li>Security and access levels</li>
-        <li>Hardware and compatibility</li>
-        <li>Test plans</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Designing a login screen, defining password rules,
-        and planning test cases for valid and invalid logins.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Development Stage</h3>
-      <p>
-        The system is split into <strong>self-contained modules</strong>
-        which can be developed in parallel.
-      </p>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        One team codes the database module,
-        another builds the user interface,
-        while another handles authentication.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Testing Stage</h3>
-      <p>
-        The software is tested against the test plan to identify errors.
-      </p>
-
-      <ul>
-        <li><strong>Alpha testing</strong> – in-house testing by developers</li>
-        <li><strong>Beta testing</strong> – testing by end users</li>
-        <li><strong>White-box testing</strong> – tests based on code structure</li>
-        <li><strong>Black-box testing</strong> – tests based on inputs/outputs only</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Black-box testing checks that entering an invalid password
-        always produces an error message, regardless of how the code works internally.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Implementation Stage</h3>
-      <p>
-        The completed software is installed and made available to users.
-      </p>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Installing a new payroll system on company servers
-        and training staff to use it.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Evaluation Stage</h3>
-      <p>
-        The system is reviewed against the original requirements.
-      </p>
-      <ul>
-        <li>Reliability</li>
-        <li>Robustness</li>
-        <li>Maintainability</li>
-        <li>Portability</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Checking whether the attendance system reduces teacher workload
-        and produces accurate reports.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Maintenance Stage</h3>
-      <p>
-        Updates are released to fix bugs, patch security issues,
-        or improve functionality.
-      </p>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        A software update fixes a login vulnerability
-        and adds a password reset feature.
-      </div>
-    </div>
-
-    <!-- ================================================= -->
-    <!-- PROGRAMMING METHODOLOGIES -->
-    <!-- ================================================= -->
-
-    <div class="knowledge-card">
-      <h3>Waterfall Model</h3>
-      <p>
-        A linear model where each stage must be completed before the next begins.
-      </p>
-      <ul>
-        <li>Clearly documented</li>
-        <li>Easy to manage</li>
-        <li>Inflexible to change</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Developing accounting software with fixed legal requirements.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>TELOS Feasibility Study (Waterfall)</h3>
-      <ul>
-        <li><strong>Technical</strong> – is the technology available?</li>
-        <li><strong>Economic</strong> – can it be afforded?</li>
-        <li><strong>Legal</strong> – is it lawful?</li>
-        <li><strong>Operational</strong> – can it be used effectively?</li>
-        <li><strong>Scheduling</strong> – can it be completed on time?</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Checking whether a hospital can legally and financially
-        deploy a new patient-record system.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Agile Methodologies</h3>
-      <p>
-        Agile development focuses on flexibility and regular user feedback.
-      </p>
-
-      <ul>
-        <li>Iterative development</li>
-        <li>Early working prototypes</li>
-        <li>High user involvement</li>
-        <li>Less documentation</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        A mobile app released with basic features,
-        then updated every few weeks based on user feedback.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Extreme Programming (XP)</h3>
-      <p>
-        An agile methodology using paired programming and constant user input.
-      </p>
-
-      <ul>
-        <li>Two programmers per task</li>
-        <li>User stories define requirements</li>
-        <li>Produces frequent working versions</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Two developers work together on the same code,
-        one writing while the other reviews in real time.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Spiral Model</h3>
-      <p>
-        Designed for large, high-risk projects.
-        Focuses heavily on risk analysis.
-      </p>
-
-      <ul>
-        <li>Identify risks early</li>
-        <li>Terminate project if risks are too high</li>
-        <li>Expensive but thorough</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Developing safety-critical aircraft control software.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Rapid Application Development (RAD)</h3>
-      <p>
-        Uses quick, repeated prototypes to refine requirements.
-      </p>
-
-      <ul>
-        <li>Fast development</li>
-        <li>High user involvement</li>
-        <li>Weaker documentation</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Building a small business website where the client
-        is unsure what features they want initially.
-      </div>
-    </div>
-
-    <!-- ================================================= -->
-    <!-- ALGORITHMS -->
-    <!-- ================================================= -->
-
-    <div class="knowledge-card">
-      <h3>Writing and Following Algorithms</h3>
-      <p>
-        An algorithm is a step-by-step set of instructions
-        used to solve a problem.
-      </p>
-
-      <ul>
-        <li>Clearly defined inputs and outputs</li>
-        <li>Handles invalid inputs</li>
-        <li>Always terminates</li>
-        <li>Well documented and commented</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        An algorithm that calculates average exam scores must
-        reject negative marks and divide by the correct number of students.
-      </div>
-    </div>
-
-    <!-- ================================================= -->
-    <!-- MERITS / DRAWBACKS / USES -->
-    <!-- ================================================= -->
-
-    <div class="knowledge-card">
-      <h3>Comparison of Programming Methodologies</h3>
-
-      <table>
-        <tr>
-          <th>Method</th>
-          <th>Merits</th>
-          <th>Drawbacks</th>
-          <th>Best Use</th>
-        </tr>
-        <tr>
-          <td>Waterfall</td>
-          <td>Clear structure, strong documentation</td>
-          <td>Inflexible, little user input</td>
-          <td>Static, low-risk projects</td>
-        </tr>
-        <tr>
-          <td>Agile</td>
-          <td>Flexible, high-quality output</td>
-          <td>Poor documentation</td>
-          <td>Small–medium projects with changing requirements</td>
-        </tr>
-        <tr>
-          <td>XP</td>
-          <td>Very high code quality</td>
-          <td>High cost, requires teamwork</td>
-          <td>Usability-focused systems</td>
-        </tr>
-        <tr>
-          <td>Spiral</td>
-          <td>Excellent risk control</td>
-          <td>Very expensive</td>
-          <td>Large, high-risk projects</td>
-        </tr>
-        <tr>
-          <td>RAD</td>
-          <td>Fast development</td>
-          <td>Lower documentation quality</td>
-          <td>Short time-frame projects</td>
-        </tr>
-      </table>
-    </div>
-      </div>
   </section>
 
-  <!-- =========================
-       QUESTIONS & ANSWERS (BY TOPIC)
-       ========================= -->
-  <section class="topic-section expanded">
+    <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
       <h2>Check Your Understanding – Questions</h2>
@@ -369,9 +549,12 @@
 
 
 
+
+
+
       </div>
     </div>
-  </section>
+    </section>
 
         <button id="printBtn" type="button">
   Print this worksheet
