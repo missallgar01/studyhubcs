@@ -1431,3 +1431,18 @@ table.stack-diagram td {
 table.stack-diagram th {
   background-color: #f2f2f2;
 }
+
+figure {
+  margin: 1.2rem auto;
+  text-align: center;
+}
+
+figcaption {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid #000;
+  border-radius: 6px;
+  background-color: #fff7cc;
+}
