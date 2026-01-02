@@ -1,5 +1,9 @@
 # studyhubcs
 
+⚠️ Project Status: In active development
+
+This project is under active development. Core functionality is implemented, with ongoing work on additional features, testing, and documentation.
+
 A static revision and learning website for Computer Science content.
 
 ## Overview
