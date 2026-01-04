@@ -133,7 +133,12 @@ NEXT x
           The algorithm processes every item and repeatedly divides the problem.
         </td>
         <td>
-          <code>mergeSort(list)</code>
+         Merge sort’s time comes from two separate actions:
+              <ul>
+<li>Splitting → log n (You keep dividing the list in half)</li>
+<li>Merging → n At each level of splitting, you merge all elements back together.
+    Every element is looked at once per level </li>
+        </ul>
         </td>
         <td>
           Quick sort.<br>

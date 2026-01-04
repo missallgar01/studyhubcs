@@ -32,256 +32,13 @@
 
     <div class="vertical-knowledge">
 
-      <div class="knowledge-card">
-<table class="cs-table">
-  <thead>
-    <tr>
-      <th>Term</th>
-      <th>Description</th>
-      <th>Example in Python</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <tr>
-      <td><strong>Variable</strong></td>
-      <td>A value stored in memory that can change while the program is running.</td>
-      <td><code>score = 10<br>score = score + 1</code></td>
-    </tr>
-
-    <tr>
-      <td><strong>Constant</strong></td>
-      <td>A value stored in memory that does not change while the program is running.</td>
-      <td><code>PI = 3.14</code></td>
-    </tr>
-
-    <tr>
-      <td><strong>Array</strong></td>
-      <td>
-        A collection of multiple values under one identifier.<br>
-        Each value has an index.<br>
-          Same data type
-      </td>
-      <td><code>numbers = [10, 20, 30]<br>print(numbers[0])</code></td>
-    </tr>
-
-      <tr>
-      <td><strong>Record</strong></td>
-      <td>
-        A collection of multiple values under one identifier.<br>
-        Each value has an index.<br>
-        Different data types
-      </td>
-      <td><code>numbers = [1,"Peter", "Pan"]<br>print(numbers[0])</code></td>
-    </tr>
-
-    <tr>
-      <td><strong>Data Type</strong></td>
-      <td>
-        Defines the type of data a variable can store.<br><br>
-        Integer – whole number<br>
-        Float – decimal number<br>
-        String – text<br>
-        Boolean – True/False<br>
-        Char – single character
-      </td>
-      <td>
-        <code>
-        age = 15<br>
-        price = 13.56<br>
-        name = "Alex"<br>
-        logged_in = True
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>Sequence</strong></td>
-      <td>Instructions executed step by step in order.</td>
-      <td>
-        <code>
-        print("Start")<br>
-        print("Middle")<br>
-        print("End")
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>Selection</strong></td>
-      <td>A condition decides which code will run.</td>
-      <td>
-        <code>
-        if age &gt;= 18:<br>
-        &nbsp;&nbsp;print("Allowed")<br>
-        else:<br>
-        &nbsp;&nbsp;print("Denied")
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>Repetition</strong></td>
-      <td>Code that runs repeatedly using a loop.</td>
-      <td>
-        <code>
-        for i in range(3):<br>
-        &nbsp;&nbsp;print(i)
-        </code>
-      </td>
-    </tr>
-
-
-    <tr>
-      <td><strong>Iteration</strong></td>
-      <td>Loop through a data structure (array/string).</td>
-      <td>
-        <code>
-        for i in range(3):<br>
-        &nbsp;&nbsp;print(i)
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>Subprogram</strong></td>
-      <td>
-        A reusable block of code.<br>
-        • Procedure – no return value<br>
-        • Function – returns a value
-      </td>
-      <td>
-        <code>
-        def add(a, b):<br>
-        &nbsp;&nbsp;return a + b
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>MOD / DIV</strong></td>
-      <td>
-        MOD returns remainder<br>
-        DIV returns whole number
-      </td>
-      <td>
-        <code>
-        print(10 % 3)<br>
-        print(10 // 3)
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>Input Validation</strong></td>
-      <td>
-        Checking data meets criteria before processing.<br>
-        Includes format, type, presence and range checks.
-      </td>
-      <td>
-        <code>
-        age = int(input())<br>
-        if 5 &lt;= age &lt;= 20:<br>
-        &nbsp;&nbsp;print("Valid")
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>Authentication</strong></td>
-      <td>Checking username and password match stored values.</td>
-      <td>
-        <code>
-        if username == "admin" and password == "1234":<br>
-        &nbsp;&nbsp;print("Access granted")
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>Logic Error</strong></td>
-      <td>The program runs but produces the wrong result.</td>
-      <td>
-        <code>
-        # Wrong condition<br>
-        if age &gt; 18:
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>Syntax Error</strong></td>
-      <td>Code breaks language rules.</td>
-      <td>
-        <code>
-        if age &gt;= 18<br>
-        &nbsp;&nbsp;print("OK")
-        </code>
-      </td>
-    </tr>
-
-    <tr>
-      <td><strong>Iterative Testing</strong></td>
-      <td>Testing carried out repeatedly during development.</td>
-      <td><code># Test after each change</code></td>
-    </tr>
-
-    <tr>
-      <td><strong>Final Testing</strong></td>
-      <td>Testing done once the program is complete.</td>
-      <td><code># Final test before release</code></td>
-    </tr>
-
-    <tr>
-      <td><strong>Normal Data</strong></td>
-      <td>Valid values that should be accepted.</td>
-      <td><code>age = 15</code></td>
-    </tr>
-
-    <tr>
-      <td><strong>Invalid Data</strong></td>
-      <td>Values that should be rejected.</td>
-      <td><code>age = -5</code></td>
-    </tr>
-
-    <tr>
-      <td><strong>Extreme (Boundary) Data</strong></td>
-      <td>Values at the limits of acceptable input.</td>
-      <td><code>age = 5<br>age = 20</code></td>
-    </tr>
-
-    <tr>
-      <td><strong>Erroneous Data</strong></td>
-      <td>Data of the wrong type.</td>
-      <td><code>age = "ten"</code></td>
-    </tr>
-
-    <tr>
-      <td><strong>Maintainability</strong></td>
-      <td>
-        Making code easy to understand and update:
-        <ul>
-          <li>Sub-programs</li>
-          <li>Clear variable names</li>
-          <li>Indentation</li>
-          <li>Comments</li>
-        </ul>
-      </td>
-      <td>
-        <code>
-        total_score = 0<br>
-        # Add player score
-        </code>
-      </td>
-    </tr>
-
-  </tbody>
-</table>
-
-</div>
 
 <div class="knowledge-card">
       <h3>Computational Thinking</h3>
+
+      <p>
+        <strong>Computational thinking</strong> is the ability to think about how a computer could be used to solve a problem.
+      </p>
       <p>
         <strong>Algorithms</strong> are a step-by-step set of instructions used to solve a problem.
         Algorithms can be written as <strong>pseudocode</strong> or <strong>flowcharts</strong>.
@@ -307,26 +64,190 @@
         <li><strong>Function / Subroutine</strong> – a reusable block of code</li>
       </ul>
 
-      <p>
-        <strong>Computational thinking</strong> is the ability to think about how a computer could be used to solve a problem.
-      </p>
-
-      <p>
-        <strong>Abstraction</strong> involves removing unnecessary details and focusing only on what is important.
-        The London Underground map is a good example, as it shows how to travel between stations rather than exact distances.
-      </p>
-
-      <p>
-        <strong>Decomposition</strong> is breaking a problem down into smaller, manageable sub-problems.
-      </p>
-
-      <p>
-        <strong>Algorithmic thinking</strong> is creating clear, step-by-step instructions to solve a problem using a computer.
-      </p>
     </div>
 
-    </div>
-  </section>
+     <div class="knowledge-card">
+  <h3>Decomposition</h3>
+
+  <p>
+    <strong>Decomposition</strong> is the process of <strong>breaking down a large problem into a set of smaller problems</strong>.
+  </p>
+
+  <p><strong>Benefits of decomposition:</strong></p>
+  <ul>
+    <li>Smaller problems are easier to solve</li>
+    <li>Each smaller problem can be solved independently</li>
+    <li>Smaller problems can be tested independently</li>
+    <li>The smaller problems can be combined to solve the full problem</li>
+      <li>
+      It allows a task to be tackled by a <strong>team working together</strong>,
+      with each person contributing their own insights, experience, and skills
+    </li>
+  </ul>
+</div>
+
+        <div class="knowledge-card">
+  <h3>Example</h3>
+
+  <p><strong>Example: Logging on to a system</strong></p>
+
+  <p>When a user logs on, the program can be decomposed into the following steps:</p>
+
+  <ul>
+    <li>Ask the user for their username</li>
+    <li>Ask the user for their password</li>
+    <li>Check if the username exists and is valid</li>
+    <li>If not valid, ask for the username again</li>
+    <li>Check if the password is correct</li>
+    <li>If not correct, ask for the password again</li>
+    <li>Check if the user has used all 3 attempts</li>
+    <li>Lock the account if the maximum attempts are reached</li>
+  </ul>
+<figure><img src="images/CT/login.png" height="165" width="303"/></figure>
+  <p>
+    Each of these steps can be programmed, tested, and improved separately before
+    being combined into the full login system.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Abstraction</h3>
+
+  <p>
+    <strong>Abstraction</strong> is the process of <strong>removing unnecessary details</strong> of a problem to
+    <strong>focus on the important features</strong> needed to implement a solution.
+  </p>
+
+  <p><strong>Examples of abstraction include:</strong></p>
+  <ul>
+    <li>Modelling a real-life object</li>
+    <li>Modelling an environment</li>
+    <li>Modelling an action or sequence of actions</li>
+    <li>Modelling a concept</li>
+  </ul>
+
+  <p><strong>Implementations of abstraction include:</strong></p>
+  <ul>
+    <li>A computer game that simulates playing a sport</li>
+    <li>A simulator such as a car or flight simulator</li>
+  <li>a map of a bus or train route in a city</li>
+  </ul>
+
+    <p>When creating a program, developers must
+identify important features
+that willcontribute to solving the problem or have a role to play in the solution</p>
+
+<h3>Abstraction – Why is it used?</h3>
+
+  <ul>
+    <li>
+      Helps identify what the <strong>important details</strong> are when designing an algorithm
+      (data and processes)
+    </li>
+    <li>
+      Removes detail that <strong>is not needed</strong>, making the problem easier to solve
+    </li>
+    <li>
+      Helps to <strong>reduce complexity</strong>, making the implementation
+      <strong>simpler, more efficient, and quicker</strong>
+    </li>
+  </ul>
+</div>
+
+
+      <div class="knowledge-card">
+  <h3>Abstraction – SatNav Map Example</h3>
+<figure><img src="images/CT/satnav.jpg" height="215" width="333"/></figure>
+  <p>
+    <strong>Abstraction</strong> involves <strong>removing unnecessary details</strong> so the user can
+    focus on the <strong>most important information</strong>.
+  </p>
+
+  <p><strong>Example: Designing a SatNav map</strong></p>
+
+  <p><strong>Important information to include:</strong></p>
+  <ul>
+    <li>A clear view of the roads</li>
+    <li>Main roads and minor roads shown differently</li>
+    <li>Petrol stations and places to eat shown using symbols</li>
+    <li>Directions, distance, and speed limits</li>
+  </ul>
+
+  <p><strong>Less important information to remove:</strong></p>
+  <ul>
+    <li>Scenery such as trees and fields</li>
+    <li>Individual houses</li>
+    <li>Other cars on the road</li>
+  </ul>
+
+  <p>
+    By removing unnecessary detail, the SatNav becomes easier to read and helps the
+    driver focus on navigation.
+  </p>
+</div>
+
+
+<div class="knowledge-card">
+  <h3>Subprograms</h3>
+
+  <p>
+    A <strong>subprogram</strong> is an <strong>out-of-line block of code</strong> that can be
+    run by simply calling its <strong>name</strong> from elsewhere in a program.
+  </p>
+
+  <p>
+    Each subprogram has a <strong>unique name</strong> so it can be called whenever it is needed.
+  </p>
+
+  <p><strong>Benefits of using subprograms:</strong></p>
+  <ul>
+    <li>Helps break large problems into smaller parts (<strong>decomposition</strong>)</li>
+    <li>Allows team members to work on <strong>different parts</strong> of a program</li>
+    <li>Makes programs <strong>easier to debug</strong></li>
+    <li>Makes programs <strong>more efficient</strong> by avoiding duplicated code</li>
+  </ul>
+
+  <p><strong>Types of subprogram:</strong></p>
+  <ul>
+    <li>
+      <strong>Procedure</strong> – a subprogram that does <strong>not return</strong> a value
+    </li>
+    <li>
+      <strong>Function</strong> – a subprogram that <strong>returns one or more values</strong>
+      to the calling code
+    </li>
+  </ul>
+
+  <hr>
+
+  <h4>Examples (Python)</h4>
+
+  <pre><code>
+# Subprogram 1 – Procedure
+def information():
+    first_name = input("Enter a name: ")
+    surname = input("Enter a surname: ")
+
+# Subprogram 2 – Function
+def tax(pay_per_hour, hours_worked):
+    total = pay_per_hour * hours_worked
+    net_pay = total * 0.8
+    return net_pay
+
+# Main program
+information()           # call procedure
+print(tax(10, 20))      # call function
+  </code></pre>
+
+  <p>
+    Procedures perform tasks, while functions perform tasks
+    <strong>and return a result</strong>.
+  </p>
+</div>
+
+</div>
+</section>
+
 
 
    <section class="topic-section expanded" id="ct-match">
@@ -342,100 +263,14 @@
       <div class="match-bank">
         <h3>Terms</h3>
 
-          <div class="term" draggable="true" data-term="variable">Variable</div>
-        <div class="term" draggable="true" data-term="constant">Constant</div>
-        <div class="term" draggable="true" data-term="array">Array</div>
-        <div class="term" draggable="true" data-term="record">Record</div>
-        <div class="term" draggable="true" data-term="sequence">Sequence</div>
-        <div class="term" draggable="true" data-term="selection">Selection</div>
-        <div class="term" draggable="true" data-term="repetition">Repetition</div>
-         <div class="term" draggable="true" data-term="iteration">Iteration</div>
-        <div class="term" draggable="true" data-term="subprogram">Subprogram</div>
-        <div class="term" draggable="true" data-term="moddiv">MOD/DIV</div>
-        <div class="term" draggable="true" data-term="validation">Input Validation</div>
-        <div class="term" draggable="true" data-term="authentication">Authentication</div>
-        <div class="term" draggable="true" data-term="logicerror">Logic Error</div>
-        <div class="term" draggable="true" data-term="syntaxerror">Syntax Error</div>
         <div class="term" draggable="true" data-term="algorithm">Algorithm</div>
         <div class="term" draggable="true" data-term="abstraction">Abstraction</div>
         <div class="term" draggable="true" data-term="decomposition">Decomposition</div>
-
-
 
       </div>
 
       <div class="match-targets">
         <h3>Definitions</h3>
-
-        <div class="target" data-accept="variable">
-          <p><strong>Stored value that can change while the program runs.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="constant">
-          <p><strong>Stored value that does not change while the program runs.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="array">
-          <p><strong>Collection of multiple values under one name, accessed by index. Same data type.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-          <div class="target" data-accept="record">
-          <p><strong>Collection of multiple values under one name, accessed by index. Different data types.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="sequence">
-          <p><strong>Instructions carried out step-by-step in order.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="selection">
-          <p><strong>Uses a condition to decide which code runs.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-         <div class="target" data-accept="repetition">
-          <p><strong>Repeats code using a loop.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="iteration">
-          <p><strong>Loop through a data structure (array).</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="subprogram">
-          <p><strong>Reusable block of code (function returns a value; procedure does not).</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="moddiv">
-          <p><strong>MOD gives remainder; DIV gives whole-number division result.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="validation">
-          <p><strong>Checks input meets rules before processing (format/type/presence/range).</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="authentication">
-          <p><strong>Checks username and password match stored credentials.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="logicerror">
-          <p><strong>Program runs but gives incorrect output/behaviour.</strong></p>
-          <div class="dropzone"></div>
-        </div>
-
-        <div class="target" data-accept="syntaxerror">
-          <p><strong>Code breaks the grammar/rules of the language.</strong></p>
-          <div class="dropzone"></div>
-        </div>
 
 
         <div class="target" data-accept="algorithm">
@@ -466,6 +301,93 @@
   </div>
 </section>
 
+  <!-- =========================
+       QUESTIONS & ANSWERS
+       ========================= -->
+   <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2>Check your understanding</h2>
+    </div>
+
+    <div class="vertical-knowledge">
+
+<div class="rev-card qa-card">
+  <p>
+    Jack plays rugby at his local rugby club. He wants to create a program to store
+    the results of each rugby match and the names of the try scorers.<br><br>
+
+    <strong>a)</strong> Define what is meant by <strong>abstraction</strong>. [2]<br>
+    <strong>b)</strong> Give <strong>one example</strong> of how abstraction could be used
+    when developing this program. [1]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>a)</strong> Abstraction is removing unnecessary detail from a problem so that you
+    can focus on the important parts that need solving. This reduces complexity and
+    makes the problem easier to solve.</p>
+
+    <p><strong>b)</strong> For example, the program could store the match result and the names of
+    the try scorers, while ignoring details such as the time the try was scored,
+    the player’s shirt number, or the venue.</p>
+  </div>
+
+</div>
+    </div>
+  </section>
+
+</main>
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+<footer>
+  &copy; 2025 StudyHubCS
+</footer>
+
+<script>
+  // Toggle topic sections open/closed
+  document.querySelectorAll('.topic-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const section = header.parentElement;
+      section.classList.toggle('collapsed');
+      section.classList.toggle('expanded');
+    });
+  });
+
+  // Show / hide individual answers
+  document.querySelectorAll('.answer-toggle').forEach(btn => {
+    const answer = btn.nextElementSibling;
+    if (!answer) return;
+
+    // ensure hidden initially (CSS also sets .answer display:none)
+    answer.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+      const open = answer.style.display === 'block';
+      answer.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Show answer' : 'Hide answer';
+    });
+  });
+
+  /* -----------------------------
+     Print button
+  ------------------------------ */
+  const printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      window.print();
+    });
+  }
+
+</script>
 <style>
   #ct-match .match-wrap{display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-top:12px}
   #ct-match .match-bank,#ct-match .match-targets{border:1px solid #000;border-radius:10px;padding:12px}
@@ -655,73 +577,5 @@
   resetAll();
 })();
 </script>
-
-
-  <!-- =========================
-       QUESTIONS & ANSWERS
-       ========================= -->
-  <section>
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
-    </div>
-
-    <div class="topic-body">
-      <div class="vertical-qa">
-
-
-    </div>
-    </div>
-  </section>
-
-</main>
-
-        <button id="printBtn" type="button">
-  Print this worksheet
-</button>
-
-</main>
-
-<footer>
-  &copy; 2025 StudyHubCS
-</footer>
-
-<script>
-  // Toggle topic sections open/closed
-  document.querySelectorAll('.topic-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const section = header.parentElement;
-      section.classList.toggle('collapsed');
-      section.classList.toggle('expanded');
-    });
-  });
-
-  // Show / hide individual answers
-  document.querySelectorAll('.answer-toggle').forEach(btn => {
-    const answer = btn.nextElementSibling;
-    if (!answer) return;
-
-    // ensure hidden initially (CSS also sets .answer display:none)
-    answer.style.display = 'none';
-
-    btn.addEventListener('click', () => {
-      const open = answer.style.display === 'block';
-      answer.style.display = open ? 'none' : 'block';
-      btn.textContent = open ? 'Show answer' : 'Hide answer';
-    });
-  });
-
-  /* -----------------------------
-     Print button
-  ------------------------------ */
-  const printBtn = document.getElementById("printBtn");
-  if (printBtn) {
-    printBtn.addEventListener("click", () => {
-      window.print();
-    });
-  }
-
-</script>
-
 </body>
 </html>

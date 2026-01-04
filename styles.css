@@ -1442,3 +1442,15 @@ figcaption {
 }
 
 
+
+
+  #ct-match .match-wrap{display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-top:12px}
+  #ct-match .match-bank,#ct-match .match-targets{border:1px solid #000;border-radius:10px;padding:12px}
+  #ct-match .term{border:1px solid #000;border-radius:10px;padding:10px;margin:8px 0;cursor:grab;background:#fff;user-select:none}
+  #ct-match .target{border:1px dashed #000;border-radius:10px;padding:10px;margin:10px 0}
+  #ct-match .dropzone{min-height:44px;border:1px solid #000;border-radius:10px;margin-top:8px;padding:6px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+  #ct-match .placed{padding:6px 10px;border:1px solid #000;border-radius:999px;background:#fff}
+  #ct-match .correct-zone{outline:3px solid #2a8}
+  #ct-match .wrong-zone{outline:3px solid #d33}
+  #ct-match .match-actions{margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  #ct-match .placed { cursor: grab; }
