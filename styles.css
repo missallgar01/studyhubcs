@@ -1454,3 +1454,106 @@ figcaption {
   #ct-match .wrong-zone{outline:3px solid #d33}
   #ct-match .match-actions{margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   #ct-match .placed { cursor: grab; }
+
+
+  /* =========================
+   Tabs – Booklet Scoped
+   ========================= */
+
+.booklet.panels {
+  /* Theme tokens with fallbacks */
+  --bg: var(--card-bg, #fff);
+  --panel-bg: var(--panel-bg, #fff);
+  --border: var(--border-color, rgba(0, 0, 0, 0.12));
+  --text: var(--text-color, inherit);
+  --muted: var(--muted-text, rgba(0, 0, 0, 0.65));
+  --accent: var(--accent-color, #2b6cb0);
+  --radius: var(--radius, 12px);
+
+  margin-top: 0.75rem;
+  color: var(--text);
+}
+
+/* =========================
+   Tab list
+   ========================= */
+
+.booklet.panels [role="tablist"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+/* =========================
+   Tab buttons
+   ========================= */
+
+.booklet.panels [role="tab"] {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 0.55rem 0.75rem;
+  border-radius: calc(var(--radius) - 6px);
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    background 120ms ease,
+    border-color 120ms ease;
+}
+
+.booklet.panels [role="tab"]:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.booklet.panels [role="tab"]:active {
+  transform: translateY(1px);
+}
+
+/* Selected tab */
+.booklet.panels [role="tab"][aria-selected="true"] {
+  background: rgba(43, 108, 176, 0.14);
+  border-color: rgba(43, 108, 176, 0.55);
+}
+
+/* Keyboard focus */
+.booklet.panels [role="tab"]:focus-visible {
+  outline: 3px solid rgba(43, 108, 176, 0.45);
+  outline-offset: 2px;
+}
+
+/* =========================
+   Panels
+   ========================= */
+
+.booklet.panels .ds-panels {
+  margin-top: 0.75rem;
+}
+
+.booklet.panels [role="tabpanel"] {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+}
+
+/* Content spacing helpers */
+.booklet.panels [role="tabpanel"] p {
+  margin: 0.25rem 0 0.75rem;
+}
+
+.booklet.panels [role="tabpanel"] ul {
+  margin: 0.25rem 0 0.25rem 1.1rem;
+}
+
+.booklet.panels [role="tabpanel"] li {
+  color: var(--muted);
+}
