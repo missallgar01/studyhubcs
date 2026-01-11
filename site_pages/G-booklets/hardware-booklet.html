@@ -24,7 +24,39 @@
   <!-- =========================
        NOTES / RECAP (VERTICAL)
        ========================= -->
-  <section class="topic-section expanded">
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+      <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
       <h2>CPU, Buses &amp; FDE Cycle – Notes</h2>
@@ -462,10 +494,32 @@
             <p><strong>Answer:</strong> Any valid example such as: washing machine, microwave oven, digital camera, car engine management system, smart thermostat, etc.</p>
           </div>
         </div>
-
-
     </div>
   </section>
+
+    </div>
+
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <section class="topic-section expanded">
+    <div class="topic-header">
+      <span class="topic-arrow">&#9656;</span>
+      <h2> Notes</h2>
+    </div>
+
+
+
+
+
+      </div>
+      </section>
+    </div>
+  </div>
+
+</div>
 
 </main>
 
