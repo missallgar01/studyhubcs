@@ -21,7 +21,39 @@
 
 <main>
 
-  <!-- =========================
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+        <!-- =========================
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
@@ -30,7 +62,7 @@
       <span class="topic-arrow">&#9656;</span>
       <h2>Programming Technigues – Notes</h2>
     </div>
-    <div class="topic-body vertical-knowledge">
+    <div class="vertical-knowledge">
 
        <!-- ================================================= -->
     <!-- PROGRAMMING CONSTRUCTS -->
@@ -1492,30 +1524,6 @@ myCar = Car()
   </p>
 </div>
 
-<!-- =========================
-     Exam-style question card
-     ========================= -->
-<div class="rev-card qa-card">
-  <p>
-    <strong>Question:</strong><br>
-    Describe how low-level programming differs from procedural programming. <em>[6]</em>
-  </p>
-
-  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-
-  <button class="secondary answer-toggle">Show answer</button>
-  <div class="answer">
-    <p><strong>Mark scheme points (any suitable):</strong></p>
-    <ul>
-      <li>Low-level programming is usually carried out in <strong>assembly language</strong>.</li>
-      <li>Assembly instructions correspond closely to <strong>machine code</strong> executed on the CPU.</li>
-      <li>Each assembly instruction contains an <strong>opcode</strong> and <strong>operands</strong> (e.g. addresses, values, registers).</li>
-      <li>Low-level programming requires careful consideration of <strong>CPU architecture</strong> / how it works.</li>
-      <li>Procedural programming uses <strong>high-level instructions</strong> (e.g. <code>print</code>), which are translated into multiple low-level instructions by a compiler.</li>
-      <li>High-level control structures (e.g. <code>while</code> / <code>for</code>) have clearer syntax and are generally easier to read and write.</li>
-    </ul>
-  </div>
-</div>
 
 <!-- =========================
      Comparison table (Procedural vs OOP)
@@ -1614,18 +1622,23 @@ myCar = Car()
       </div>
   </section>
 
-  <!-- =========================
-       QUESTIONS & ANSWERS (BY TOPIC)
-       ========================= -->
-  <section class="topic-section expanded">
+    </div>
+
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <!-- =========================
+     Exam-style question card
+     ========================= -->
+
+<section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
+      <h2> Notes</h2>
     </div>
-    <div class="topic-body">
-      <div class="vertical-qa">
-
-
+    <div class="vertical-knowledge">
 
   <div class="rev-card qa-card">
     <h3>1(i). Question</h3>
@@ -2694,6 +2707,40 @@ endfunction
     </ul>
   </div>
 </div>
+         </div>
+      </div>
+      </section>
+
+
+
+
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>Question:</strong><br>
+    Describe how low-level programming differs from procedural programming. <em>[6]</em>
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>Mark scheme points (any suitable):</strong></p>
+    <ul>
+      <li>Low-level programming is usually carried out in <strong>assembly language</strong>.</li>
+      <li>Assembly instructions correspond closely to <strong>machine code</strong> executed on the CPU.</li>
+      <li>Each assembly instruction contains an <strong>opcode</strong> and <strong>operands</strong> (e.g. addresses, values, registers).</li>
+      <li>Low-level programming requires careful consideration of <strong>CPU architecture</strong> / how it works.</li>
+      <li>Procedural programming uses <strong>high-level instructions</strong> (e.g. <code>print</code>), which are translated into multiple low-level instructions by a compiler.</li>
+      <li>High-level control structures (e.g. <code>while</code> / <code>for</code>) have clearer syntax and are generally easier to read and write.</li>
+    </ul>
+  </div>
+</div>
+    </div>
+  </div>
+
+</div>
+
 
     </div>
 </section>
@@ -2708,42 +2755,8 @@ endfunction
 <footer>
   &copy; 2025 StudyHubCS
 </footer>
-<script>
-  // Toggle topic sections open/closed
-  document.querySelectorAll('.topic-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const section = header.parentElement;
-      section.classList.toggle('collapsed');
-      section.classList.toggle('expanded');
-    });
-  });
 
-  // Show / hide individual answers
-  document.querySelectorAll('.answer-toggle').forEach(btn => {
-    const answer = btn.nextElementSibling;
-    if (!answer) return;
-
-    // ensure hidden initially (CSS also sets .answer display:none)
-    answer.style.display = 'none';
-
-    btn.addEventListener('click', () => {
-      const open = answer.style.display === 'block';
-      answer.style.display = open ? 'none' : 'block';
-      btn.textContent = open ? 'Show answer' : 'Hide answer';
-    });
-  });
-
-  /* -----------------------------
-     Print button
-  ------------------------------ */
-  const printBtn = document.getElementById("printBtn");
-  if (printBtn) {
-    printBtn.addEventListener("click", () => {
-      window.print();
-    });
-  }
-
-</script>
+<script src="js/booklets.js"></script>
 
 </body>
 </html>

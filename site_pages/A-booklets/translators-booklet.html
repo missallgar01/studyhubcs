@@ -19,9 +19,43 @@
   </p>
 </header>
 
-<main>
 
-  <!-- =========================
+
+
+<main>
+<!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+        <!-- =========================
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
@@ -30,8 +64,45 @@
       <span class="topic-arrow">&#9656;</span>
       <h2>Software & Operating Systems – Notes</h2>
     </div>
-    <div class="topic-body vertical-knowledge">
+    <div class="vertical-knowledge">
+<div class="knowledge-card">
 
+              <img src="images/translators/translator-workflow-diagram.jpeg" width="70%"/>
+              <table>
+    <thead>
+      <tr>
+        <th>High-Level</th>
+        <th>Low-Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>Uses English-like statements which can be easily read by programmers</li>
+            <li>Designed for quick programming</li>
+            <li>Can be translated for multiple machine architectures</li>
+            <li>Need to rely on a compiler to optimise the code</li>
+            <li>May produce multiple lines of machine code per line of code (one-to-many)</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Microprocessor/CPU/machine specific and can control the hardware directly</li>
+            <li>Can be highly optimised to make efficient use of the hardware and execute more quickly</li>
+            <li>Each line of code is one instruction only</li>
+            <li>Hard to read and learn</li>
+            <li>Only works for one type of machine architecture</li>
+            <li>Uses mnemonics – sequences of letters easy for a person to remember (ADD, LOAD, SUB, INP etc.)</li>
+
+
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
       <div class="knowledge-card">
 <table>
   <thead>
@@ -146,62 +217,7 @@
 </div>
 
 
-
-      </div>
-  </section>
-
-  <!-- =========================
-       QUESTIONS & ANSWERS (BY TOPIC)
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Types of programming languages</h2>
-    </div>
-    <div class="topic-body">
-      <div class="vertical-qa">
-
-
-          <div class="knowledge-card">
-
-              <img src="images/translators/translator-workflow-diagram.jpeg" width="70%"/>
-              <table>
-    <thead>
-      <tr>
-        <th>High-Level</th>
-        <th>Low-Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <ul>
-            <li>Uses English-like statements which can be easily read by programmers</li>
-            <li>Designed for quick programming</li>
-            <li>Can be translated for multiple machine architectures</li>
-            <li>Need to rely on a compiler to optimise the code</li>
-            <li>May produce multiple lines of machine code per line of code (one-to-many)</li>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <li>Microprocessor/CPU/machine specific and can control the hardware directly</li>
-            <li>Can be highly optimised to make efficient use of the hardware and execute more quickly</li>
-            <li>Each line of code is one instruction only</li>
-            <li>Hard to read and learn</li>
-            <li>Only works for one type of machine architecture</li>
-            <li>Uses mnemonics – sequences of letters easy for a person to remember (ADD, LOAD, SUB, INP etc.)</li>
-
-
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-</div>
-
-          <div class="knowledge-card">
+  <div class="knowledge-card">
   <p>
     One line of Python code results in many lines of machine code due to the steps
     necessary to perform the operation in hardware.
@@ -267,6 +283,8 @@ HLT
   </table>
 </div>
 
+
+
           <div class="knowledge-card">
   <table>
     <thead>
@@ -307,6 +325,7 @@ HLT
     </tbody>
   </table>
 </div>
+
 <div class="knowledge-card">
   <h3>High-Level Languages and Intermediate Code</h3>
 
@@ -336,7 +355,9 @@ Source Code → Compiled → Intermediate Code → Runs in Virtual Machine
   </pre>
 </div>
 
-          <div class="knowledge-card">
+
+
+  <div class="knowledge-card">
   <h3>Opcode and Operand</h3>
 
   <p>
@@ -427,7 +448,7 @@ DAT        // Memory location 90 for storing data
   </pre>
 </div>
 
-          <div class="knowledge-card">
+  <div class="knowledge-card">
   <h3>Addressing modes</h3>
 
   <h4>Immediate Addressing (#)</h4>
@@ -488,9 +509,7 @@ DAT        // Memory location 90 for storing data
   <p>After the operation, the index register <strong>X increments by 1</strong>.</p>
 </div>
 
-
-
-          <div class="knowledge-card">
+  <div class="knowledge-card">
   <h3>Stage 1: Lexical Analysis</h3>
 
   <ol>
@@ -560,7 +579,7 @@ DAT        // Memory location 90 for storing data
   </table>
 </div>
 
-          <div class="knowledge-card">
+<div class="knowledge-card">
   <h3>The Symbol Table</h3>
 
   <p>
@@ -609,7 +628,7 @@ EndFunction
 </div>
 
 <div class="knowledge-card">
-  <h3>Stage 2: Syntax Analysis</h3>
+  <h2>Stage 2: Syntax Analysis</h2>
 
   <ul>
     <li>This stage analyses the syntax of statements to ensure they conform to the grammar rules of the programming language</li>
@@ -656,7 +675,7 @@ EndFunction
   </ul>
 </div>
 
-          <div class="knowledge-card">
+ <div class="knowledge-card">
   <h3>What is a Linker?</h3>
 
   <ul>
@@ -696,21 +715,80 @@ EndFunction
   </ul>
 </div>
 
+        <!-- =======================
+     TOPIC C – Little Man Computer (LMC)
+     ======================= -->
+<h2>Topic C: Little Man Computer (LMC)</h2>
+
+          <h3>Example</h3>
+<div class="knowledge-card">
+  <p>LMC — Example 2: Find the smallest of three numbers</p>
+
+  <p>
+    This program inputs three numbers and determines the smallest of the three, outputting the result.
+  </p>
+
+  <pre><code>INP                 // Input the first number
+STA 91              // Store the first number in memory location 91
+INP                 // Input the second number
+STA 92              // Store the second number in memory location 92
+INP                 // Input the third number
+STA 93              // Store the third number in memory location 93
+LDA 91              // Load the first number
+SUB 92              // Subtract the second number
+BRP CHECK_THIRD_FROM_FIRST   // If result is positive, then first number &gt; second number
+
+LDA 92              // Load the second number
+SUB 93              // Subtract the third number
+BRP OUTPUT_SECOND   // If result is positive, then second number &gt; third number
+LDA 93
+OUT                 // Output the third number
+HLT
+
+CHECK_THIRD_FROM_FIRST:
+  LDA 91
+  SUB 93
+  BRP OUTPUT_FIRST
+  LDA 93
+  OUT
+  HLT
+
+OUTPUT_FIRST:
+  LDA 91
+  OUT
+  HLT
+
+OUTPUT_SECOND:
+  LDA 92
+  OUT
+  HLT
+
+DAT                 // Memory locations for data storage
+DAT
+DAT</code></pre>
+</div>
+
+
       </div>
-    </div>
   </section>
-<!-- =========================
+    </div>
+
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
   <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
+      <h2>Types of programming languages</h2>
     </div>
-    <div class="topic-body">
-      <div class="vertical-qa">
+      <div class="vertical-knowledge">
 
-<!-- =======================
+        <!-- =======================
      TOPIC A – Opcodes & Mnemonics
      ======================= -->
 <h2>Topic A: Opcodes & Mnemonics</h2>
@@ -794,58 +872,6 @@ EndFunction
   </div>
 </div>
 
-<!-- =======================
-     TOPIC C – Little Man Computer (LMC)
-     ======================= -->
-<h2>Topic C: Little Man Computer (LMC)</h2>
-
-          <h3>Example</h3>
-<div class="knowledge-card">
-  <p>LMC — Example 2: Find the smallest of three numbers</p>
-
-  <p>
-    This program inputs three numbers and determines the smallest of the three, outputting the result.
-  </p>
-
-  <pre><code>INP                 // Input the first number
-STA 91              // Store the first number in memory location 91
-INP                 // Input the second number
-STA 92              // Store the second number in memory location 92
-INP                 // Input the third number
-STA 93              // Store the third number in memory location 93
-LDA 91              // Load the first number
-SUB 92              // Subtract the second number
-BRP CHECK_THIRD_FROM_FIRST   // If result is positive, then first number &gt; second number
-
-LDA 92              // Load the second number
-SUB 93              // Subtract the third number
-BRP OUTPUT_SECOND   // If result is positive, then second number &gt; third number
-LDA 93
-OUT                 // Output the third number
-HLT
-
-CHECK_THIRD_FROM_FIRST:
-  LDA 91
-  SUB 93
-  BRP OUTPUT_FIRST
-  LDA 93
-  OUT
-  HLT
-
-OUTPUT_FIRST:
-  LDA 91
-  OUT
-  HLT
-
-OUTPUT_SECOND:
-  LDA 92
-  OUT
-  HLT
-
-DAT                 // Memory locations for data storage
-DAT
-DAT</code></pre>
-</div>
 
 
 
@@ -1004,7 +1030,7 @@ ONE     DAT 1</code></pre>
 <!-- =======================
      TOPIC D – Addressing Modes
      ======================= -->
-<p>Topic D: Addressing Modes</p>
+<h2>Topic D: Addressing Modes</h2>
 
 <div class="rev-card qa-card">
   <h3>7(a). In Orla&#39;s LMC code, she used direct memory addressing. Give three other modes of memory addressing.<span class="marks">[0/3]</span></h3>
@@ -1206,11 +1232,14 @@ ONE     DAT 1</code></pre>
   </div>
 </div>
 
-      </div>
     </div>
   </section>
 
-        <button id="printBtn" type="button">
+  </div>
+</div>
+</div>
+
+ <button id="printBtn" type="button">
   Print this worksheet
 </button>
 
@@ -1221,42 +1250,7 @@ ONE     DAT 1</code></pre>
   &copy; 2025 StudyHubCS
 </footer>
 
-<script>
-  // Toggle topic sections open/closed
-  document.querySelectorAll('.topic-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const section = header.parentElement;
-      section.classList.toggle('collapsed');
-      section.classList.toggle('expanded');
-    });
-  });
-
-  // Show / hide individual answers
-  document.querySelectorAll('.answer-toggle').forEach(btn => {
-    const answer = btn.nextElementSibling;
-    if (!answer) return;
-
-    // ensure hidden initially (CSS also sets .answer display:none)
-    answer.style.display = 'none';
-
-    btn.addEventListener('click', () => {
-      const open = answer.style.display === 'block';
-      answer.style.display = open ? 'none' : 'block';
-      btn.textContent = open ? 'Show answer' : 'Hide answer';
-    });
-  });
-
-  /* -----------------------------
-     Print button
-  ------------------------------ */
-  const printBtn = document.getElementById("printBtn");
-  if (printBtn) {
-    printBtn.addEventListener("click", () => {
-      window.print();
-    });
-  }
-
-</script>
+<script src="js/booklets.js"></script>
 
 </body>
 </html>

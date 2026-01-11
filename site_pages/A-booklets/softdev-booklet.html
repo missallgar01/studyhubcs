@@ -21,7 +21,39 @@
 
 <main>
 
-  <!-- =========================
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+     <!-- =========================
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
@@ -550,14 +582,20 @@
       </div>
     </div>
   </section>
+    </div>
 
-    <section class="topic-section expanded">
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <section class="topic-section expanded">
     <div class="topic-header">
       <span class="topic-arrow">&#9656;</span>
       <h2>Check Your Understanding – Questions</h2>
     </div>
-    <div class="topic-body">
-      <div class="vertical-qa">
+
+      <div class="vertical-knowledge">
 
 <div class="rev-card qa-card">
   <p>
@@ -777,6 +815,12 @@
       </div>
     </div>
     </section>
+    </div>
+  </div>
+
+</div>
+
+
 
         <button id="printBtn" type="button">
   Print this worksheet
@@ -788,42 +832,7 @@
   &copy; 2025 StudyHubCS
 </footer>
 
-<script>
-  // Toggle topic sections open/closed
-  document.querySelectorAll('.topic-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const section = header.parentElement;
-      section.classList.toggle('collapsed');
-      section.classList.toggle('expanded');
-    });
-  });
-
-  // Show / hide individual answers
-  document.querySelectorAll('.answer-toggle').forEach(btn => {
-    const answer = btn.nextElementSibling;
-    if (!answer) return;
-
-    // ensure hidden initially (CSS also sets .answer display:none)
-    answer.style.display = 'none';
-
-    btn.addEventListener('click', () => {
-      const open = answer.style.display === 'block';
-      answer.style.display = open ? 'none' : 'block';
-      btn.textContent = open ? 'Show answer' : 'Hide answer';
-    });
-  });
-
-  /* -----------------------------
-     Print button
-  ------------------------------ */
-  const printBtn = document.getElementById("printBtn");
-  if (printBtn) {
-    printBtn.addEventListener("click", () => {
-      window.print();
-    });
-  }
-
-</script>
+<script src="js/booklets.js"></script>
 
 </body>
 </html>

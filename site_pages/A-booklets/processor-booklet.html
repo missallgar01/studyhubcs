@@ -9,6 +9,9 @@
 <link href="../../styles.css" rel="stylesheet"/>
 </head>
 <body>
+<div class="back-container">
+    <a href="../A-booklets.html">← Back</a>
+  </div>
 <header>
 <h1>Processor – Revision Booklet</h1>
 <p>
@@ -17,13 +20,91 @@
   </p>
 </header>
 <main>
-<section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>Processors</h2>
-</div>
-<div class="topic-body vertical-knowledge">
-<div class="knowledge-card">
+
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="tabs">
+    <button
+      id="tabbtn-1"
+      type="button"
+      role="tab"
+      aria-controls="tab-1"
+      aria-selected="true"
+      tabindex="0">
+      Inputs and Outputs
+    </button>
+
+    <button
+      id="tabbtn-2"
+      type="button"
+      role="tab"
+      aria-controls="tab-2"
+      aria-selected="false"
+      tabindex="-1">
+      Processors
+    </button>
+
+      <button
+      id="tabbtn-3"
+      type="button"
+      role="tab"
+      aria-controls="tab-3"
+      aria-selected="false"
+      tabindex="-1">
+     RAM, ROM and Virtual Storage
+    </button>
+
+      <button
+      id="tabbtn-4"
+      type="button"
+      role="tab"
+      aria-controls="tab-4"
+      aria-selected="false"
+      tabindex="-1">
+      Types of Processors
+    </button>
+
+      <button
+      id="tabbtn-5"
+      type="button"
+      role="tab"
+      aria-controls="tab-5"
+      aria-selected="false"
+      tabindex="-1">
+      CPU Performance
+    </button>
+
+      <button
+      id="tabbtn-6"
+      type="button"
+      role="tab"
+      aria-controls="tab-6"
+      aria-selected="false"
+      tabindex="-1">
+      Secondary Storage
+    </button>
+
+      <button
+      id="tabbtn-7"
+      type="button"
+      role="tab"
+      aria-controls="tab-7"
+      aria-selected="false"
+      tabindex="-1">
+      Additional Exam Style Questions
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-1"
+      role="tabpanel"
+      aria-labelledby="tabbtn-1">
+
+        <div class="knowledge-card">
 <h3>Define the terms hardware and software</h3>
 <p><strong>Hardware</strong> – physical parts of a computer system</p>
 <p><strong>Software</strong> – instructions and programs to make the computer work</p>
@@ -88,7 +169,15 @@
 </tbody>
 </table>
 </div>
-<div class="knowledge-card">
+
+    </div>
+
+    <div
+      id="tab-2"
+      role="tabpanel"
+      aria-labelledby="tabbtn-2"
+      hidden>
+      <div class="knowledge-card">
 <h3>Explain the need for, and use of, registers in the functioning of the processor</h3>
 <h4>Program Counter (PC)</h4>
 <ul>
@@ -228,15 +317,7 @@
 </ul>
 </div>
 
-    <section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>Check Your Understanding</h2>
-</div>
-<div class="topic-body">
-<div class="vertical-qa">
-
-    <!-- Question 1 -->
+            <!-- Question 1 -->
 <div class="rev-card qa-card">
   <p>Question 1(a): Define the term hardware. [1]</p>
   <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
@@ -382,10 +463,13 @@
   </div>
 </div>
 
-</div>
-</div>
-    </section>
+    </div>
 
+      <div
+      id="tab-3"
+      role="tabpanel"
+      aria-labelledby="tabbtn-3"
+      hidden>
 
 <div class="knowledge-card">
 <h4>RAM, ROM and Virtual Memory</h4>
@@ -489,13 +573,6 @@
 </ul>
 </div>
 
-       <section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>Check Your Understanding</h2>
-</div>
-<div class="topic-body">
-<div class="vertical-qa">
       <!-- ================= RAM and ROM ================= -->
 
 <div class="rev-card qa-card">
@@ -613,13 +690,14 @@
     </ul>
   </div>
 </div>
-
     </div>
-    </div>
-       </section>
 
-
-<div class="knowledge-card">
+      <div
+      id="tab-4"
+      role="tabpanel"
+      aria-labelledby="tabbtn-4"
+      hidden>
+      <div class="knowledge-card">
 
 <h4>Features of Von Neumann and Contemporary Processors</h4>
 <table>
@@ -852,16 +930,6 @@ STORE X, A
 </table>
 </div>
 
-        <section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>Check Your Understanding</h2>
-</div>
-<div class="topic-body">
-<div class="vertical-qa">
-
-
-
 <!-- ================= Von Neumann Architecture ================= -->
 
 <div class="rev-card qa-card">
@@ -1063,16 +1131,12 @@ STORE X, A
   </div>
 </div>
     </div>
-</div>
-        </section>
 
-     <section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>CPU Performance</h2>
-</div>
-<div class="topic-body">
-<div class="vertical-qa">
+      <div
+      id="tab-5"
+      role="tabpanel"
+      aria-labelledby="tabbtn-5"
+      hidden>
 
 <div class="knowledge-card">
 
@@ -1342,18 +1406,7 @@ STORE X, A
 </tbody>
 </table>
 </div>
-</div>
-</div>
-     </section>
 
-
-  <section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>Check Your Understanding</h2>
-</div>
-<div class="topic-body">
-<div class="vertical-qa">
 
 <div class="rev-card qa-card">
     <h4>Parallel Processing</h4>
@@ -1555,18 +1608,13 @@ STORE X, A
 </div>
 
     </div>
-    </div>
-       </section>
 
-<section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>Secondary Storage</h2>
-</div>
-<div class="topic-body">
-<div class="vertical-qa">
-
-    <div class="knowledge-card">
+      <div
+      id="tab-6"
+      role="tabpanel"
+      aria-labelledby="tabbtn-6"
+      hidden>
+       <div class="knowledge-card">
 <table>
 <thead>
 <tr>
@@ -1661,16 +1709,6 @@ STORE X, A
 </tbody>
 </table>
 </div>
-</div>
-</section>
-
-    <section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>Check your understanding</h2>
-</div>
-<div class="topic-body">
-<div class="vertical-qa">
 
 
     <div class="rev-card qa-card">
@@ -1719,19 +1757,14 @@ STORE X, A
   </div>
 </div>
 
-</div>
-</section>
 
+    </div>
 
-
- <section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>Additional Questions</h2>
-</div>
-<div class="topic-body">
-<div class="vertical-qa">
-
+       <div
+      id="tab-7"
+      role="tabpanel"
+      aria-labelledby="tabbtn-7"
+      hidden>
 
     <!-- ================= Special Registers ================= -->
 
@@ -1912,59 +1945,21 @@ STORE X, A
     </ul>
   </div>
 </div>
-
 </div>
-</div>
-</section>
 
-    <button id="printBtn" type="button">
+  </div>
+</div>
+ <button id="printBtn" type="button">
   Print this worksheet
 </button>
 
 </main>
 
-
 <footer>
   &copy; 2025 StudyHubCS
 </footer>
 
-<!-- JavaScript for show / hide answers + print -->
-<script>
-  // Toggle topic sections open/closed
-  document.querySelectorAll('.topic-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const section = header.parentElement;
-      section.classList.toggle('collapsed');
-      section.classList.toggle('expanded');
-    });
-  });
-
-  // Show / hide individual answers
-  document.querySelectorAll('.answer-toggle').forEach(btn => {
-    const answer = btn.nextElementSibling;
-    if (!answer) return;
-
-    // ensure hidden initially (CSS also sets .answer display:none)
-    answer.style.display = 'none';
-
-    btn.addEventListener('click', () => {
-      const open = answer.style.display === 'block';
-      answer.style.display = open ? 'none' : 'block';
-      btn.textContent = open ? 'Show answer' : 'Hide answer';
-    });
-  });
-
-  /* -----------------------------
-     Print button
-  ------------------------------ */
-  const printBtn = document.getElementById("printBtn");
-  if (printBtn) {
-    printBtn.addEventListener("click", () => {
-      window.print();
-    });
-  }
-
-</script>
+<script src="js/booklets.js"></script>
 
 
 

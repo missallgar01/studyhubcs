@@ -18,7 +18,41 @@
   </p>
 </header>
 <main>
-<!-- =========================
+
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0"
+    >
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+      <!-- =========================
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
@@ -27,7 +61,7 @@
 <span class="topic-arrow">▸</span>
 <h2>OOP – Notes</h2>
 </div>
-<div class="topic-body vertical-knowledge">
+<div class="vertical-knowledge">
 <div class="knowledge-card">
 
     <table class="oop-keywords">
@@ -521,7 +555,14 @@ end procedure
 </div>
 </div>
 </section>
-<!-- =========================
+    </div>
+
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
 <section class="topic-section expanded">
@@ -529,8 +570,8 @@ end procedure
 <span class="topic-arrow">▸</span>
 <h2>Check Your Understanding – Questions</h2>
 </div>
-<div class="topic-body">
-<div class="vertical-qa">
+
+<div class="vertical-knowledge">
 
 <!-- =======================
 TOPIC – Object-Oriented Programming
@@ -2119,12 +2160,14 @@ print("You reached the end of the road")
     </p>
   </div>
 </div>
-<button class="print-Btn" id="printBtn" button">🖨️ Print</button>
 </div>
 </div>
 </section>
+    </div>
+  </div>
 
-        <button id="printBtn" type="button">
+</div>
+    <button id="printBtn" type="button">
   Print this worksheet
 </button>
     </main>
@@ -2133,43 +2176,7 @@ print("You reached the end of the road")
   &copy; 2025 StudyHubCS
 </footer>
 
-<script>
-  // Toggle topic sections open/closed
-  document.querySelectorAll('.topic-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const section = header.parentElement;
-      section.classList.toggle('collapsed');
-      section.classList.toggle('expanded');
-    });
-  });
-
-  // Show / hide individual answers
-  document.querySelectorAll('.answer-toggle').forEach(btn => {
-    const answer = btn.nextElementSibling;
-    if (!answer) return;
-
-    // ensure hidden initially (CSS also sets .answer display:none)
-    answer.style.display = 'none';
-
-    btn.addEventListener('click', () => {
-      const open = answer.style.display === 'block';
-      answer.style.display = open ? 'none' : 'block';
-      btn.textContent = open ? 'Show answer' : 'Hide answer';
-    });
-  });
-
-  /* -----------------------------
-     Print button
-  ------------------------------ */
-  const printBtn = document.getElementById("printBtn");
-  if (printBtn) {
-    printBtn.addEventListener("click", () => {
-      window.print();
-    });
-  }
-
-</script>
-
+<script src="js/booklets.js"></script>
 
 
 </body>
