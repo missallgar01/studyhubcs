@@ -1,0 +1,56 @@
+/* ==========================
+   GLOBAL BUTTONS (ANSWER / PRINT)
+   ========================== */
+
+button {
+  display: block;
+  margin: 0.4rem auto 0;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.95rem;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 3px 3px 0 #000;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) rotate(-0.5deg);
+  box-shadow: 5px 5px 0 #000;
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.secondary {
+  background: #e5e7eb;
+  border-color: #111;
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* ==========================
+   DISABLED BUTTON (Notebook style)
+   ========================== */
+
+button:disabled,
+.btn:disabled {
+  background: #ddd !important;
+  color: #777 !important;
+  border-color: #555 !important;
+  box-shadow: 2px 2px 0 #555 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  opacity: 0.7;
+}
+
+/* prevent wobble on hover when disabled */
+button:disabled:hover,
+.btn:disabled:hover {
+  transform: none !important;
+  box-shadow: 2px 2px 0 #555 !important;
+}

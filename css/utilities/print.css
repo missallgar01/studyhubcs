@@ -1,0 +1,96 @@
+/* ==========================
+   PRINT
+   ========================== */
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font: 12pt/1.5 Arial, Helvetica, sans-serif;
+  }
+
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
+  header,
+  footer {
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    text-align: center;
+  }
+
+  main {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .btn,
+  button,
+  .secondary,
+  #pdfModal,
+  #keywordsModal {
+    display: none !important;
+  }
+
+  .topic-section,
+  .card,
+  .resource-section {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    margin: 0 0 1.2cm 0;
+    padding: 0.75cm;
+    border-radius: 0;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #ccc !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #ccc !important;
+    padding: 6pt 8pt !important;
+  }
+
+  img {
+    max-width: 60% !important;
+    height: auto !important;
+  }
+
+
+  .qa-card textarea.student-answer,
+  .rev-card textarea {
+    background-image: none;
+  }
+
+ .stack-diagram {
+    font-size: 0.9rem;
+  }
+  .stack-diagram th {
+    background: #eaeaea !important;
+  }
+
+.how-to-answer {
+    background-color: #ffffff;
+    border-left: 2px solid #000;
+    font-size: 0.85rem;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+}

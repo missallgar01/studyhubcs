@@ -1,0 +1,19 @@
+/* ==========================
+   FIX CODE ALIGNMENT
+   ========================== */
+
+pre {
+  background: #f1f1f1;
+  border-radius: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  overflow-x: auto;
+}
+
+/* Strip artificial indentation from prettified HTML */
+pre code {
+  display: block;
+  white-space: pre;
+}
+
+

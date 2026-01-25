@@ -1,0 +1,155 @@
+/* ==========================
+   JUMP123 Notebook Tabs
+   ========================== */
+
+/* Tab bar container */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid #ddd;
+  margin: 1.5rem auto 1rem;
+  padding: 0 0.5rem 0.5rem;
+  max-width: 980px;
+}
+
+/* Individual tab buttons */
+.tab-btn {
+  background: #f5f5f5;
+  border: 1px solid #d0d0d0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px 6px 0 0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Hover state */
+.tab-btn:hover {
+  background: #e9e9e9;
+  border-color: #c0c0c0;
+}
+
+/* Selected/active tab */
+.tab-btn[aria-selected="true"] {
+  background: #ffffff;
+  border-bottom-color: #ffffff; /* blend into content panel */
+  color: #000;
+  position: relative;
+  z-index: 2;
+}
+
+/* Tab panels – only show the active one */
+.tab-content {
+  display: none;
+  max-width: 980px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+
+/* =========================
+   BOOKLET TABS (ARIA + hidden)
+   ========================= */
+
+/* =========================
+   BOOKLET TABS → HORIZONTAL MENU
+   ========================= */
+
+.booklet.panels {
+  --menu-bg: #fff;
+  --menu-border: #000;
+  --menu-active: #fffbeb; /* soft highlight */
+  --menu-hover: #f3f4f6;
+  --menu-text: #111;
+  --menu-muted: #444;
+
+  margin: 1.25rem auto;
+  max-width: 980px;
+}
+
+/* Menu bar */
+.booklet.panels [role="tablist"] {
+  display: flex;
+  justify-content: flex-start; /* left */
+  gap: 0.5rem;
+
+  padding: 0.6rem 0.75rem;
+  background: var(--menu-bg);
+  border: 2px solid var(--menu-border);
+  border-radius: 0.9rem;
+  box-shadow: 3px 3px 0 #000;
+
+  /* keeps it looking like a menu strip */
+  margin-bottom: 0.75rem;
+}
+
+/* Menu items */
+.booklet.panels [role="tab"] {
+  appearance: none;
+  background: transparent;
+
+  border: 2px solid transparent; /* avoids layout shift */
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--menu-muted);
+
+  cursor: pointer;
+
+  /* remove animation */
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Hover */
+.booklet.panels [role="tab"]:hover {
+  background: var(--menu-hover);
+  color: var(--menu-text);
+}
+
+/* Active */
+.booklet.panels [role="tab"][aria-selected="true"] {
+  background: var(--menu-active);
+  color: var(--menu-text);
+  border-color: var(--menu-border);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* Keyboard focus */
+.booklet.panels [role="tab"]:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Panels container */
+.booklet.panels > .panels {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 0 #000;
+  padding: 1rem 1.1rem;
+}
+
+/* JS uses hidden */
+.booklet.panels [role="tabpanel"][hidden] {
+  display: none !important;
+}
+
+/* Responsive: menu wraps nicely */
+@media (max-width: 520px) {
+  .booklet.panels [role="tablist"] {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .booklet.panels [role="tab"] {
+    flex: 0 1 auto;
+  }
+}
+

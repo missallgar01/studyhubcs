@@ -1,0 +1,73 @@
+/* ==========================
+   RESPONSIVE
+   ========================== */
+
+/* Make tabs feel good on narrow screens */
+@media (max-width: 520px) {
+  .ds-tablist {
+    gap: 0.4rem;
+    padding: 0.45rem;
+  }
+  .ds-tab {
+    flex: 1 1 auto;           /* lets tabs wrap neatly */
+    text-align: center;
+    padding: 0.55rem 0.6rem;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  header {
+    padding: 1.25rem 0.75rem 0.75rem;
+  }
+
+  main {
+    margin: 1.25rem auto 1.5rem;
+    padding: 0 0.75rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    font-size: 0.9rem;
+    display: block;
+    overflow-x: auto;
+    border-radius: 8px;
+  }
+
+  
+
+  /* Consolidated: horizontal scroll for wide tables inside common containers */
+  .table-wrap table,
+  .knowledge-card table,
+  .rev-card table,
+  .card table,
+  .resource-section table,
+  .ds-panel table,
+  .topic-body > table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+iframe {
+    height: 320px;
+  }
+
+    .stack-diagram {
+    font-size: 0.9rem;
+  }
+
+    .queue-diagram .queue-cells td {
+    height: 2.7rem;
+    font-size: 0.95rem;
+  }
+
+     
+}

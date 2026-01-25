@@ -1,0 +1,20 @@
+/* ==========================
+   ROOT VARIABLES
+   ========================== */
+:root {
+  --brand-blue: #2563eb;
+  --brand-accent: #3b82f6;
+
+  --text-main: #111827;
+  --text-muted: #4b5563;
+
+  --card-bg: #ffffff;
+  --border-strong: #000000;
+
+  --radius: 1rem;
+  --shadow-card: 3px 3px 0 #000;
+
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --fs-base: clamp(0.96rem, 0.9rem + 0.25vw, 1.05rem);
+  --lh: 1.6;
+}

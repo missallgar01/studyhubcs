@@ -1,0 +1,24 @@
+.how-to-answer {
+  margin: 12px 0;
+  padding: 12px 14px;
+  border-left: 4px solid #3b82f6; /* blue highlight */
+  background-color: #f1f5ff;     /* soft blue background */
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.how-to-answer b {
+  display: block;
+  margin-bottom: 6px;
+  color: #1e3a8a; /* dark blue */
+  font-weight: 600;
+}
+
+.how-to-answer ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.how-to-answer li {
+  margin-bottom: 4px;
+}

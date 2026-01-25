@@ -1,0 +1,161 @@
+/* ==========================
+   INDEX GRIDS
+   ========================== */
+
+/* default: responsive auto-fit grid */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* vertical: always stacked */
+.index-grid-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* exactly 3 columns on wide screens */
+.index-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .index-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .index-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.index-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
+  padding: 1rem 1.1rem;
+}
+
+.index-card:hover {
+  box-shadow: 5px 5px 0 #000;
+}
+
+.index-card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.index-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.index-card li a {
+  display: inline-block;
+  padding: 0.15rem 0;
+}
+
+/* ==========================
+   RESOURCE SECTIONS / KO GRID
+   ========================== */
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+
+}
+
+.ko-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+  max-width: 80%;   /* optional */
+  margin: 0 auto;     /* centers the grid */
+}
+
+.resource-section {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 2px solid #000;
+  box-shadow: var(--shadow-card);
+  padding: 1rem 1.1rem;
+
+}
+
+.resource-section:hover {
+  box-shadow: 5px 5px 0 #000;
+}
+
+.resource-section header {
+  background: none;
+  padding: 0;
+  margin-bottom: 0.3rem;
+}
+
+.resource-section header h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  border-bottom: 1px dashed #000;
+  padding-bottom: 0.4rem;
+}
+
+.resource-section p {
+  margin: 0.4rem 0 0.6rem;
+}
+
+/* Keep code images neatly inside resource-section */
+.resource-section .code {
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.resource-section .code img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* doodle icon */
+.doodle-icon {
+  width: 28px;
+  height: 28px;
+  stroke: #000;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* buttons / links */
+
+.btn {
+  display: block;
+  margin: 0.4rem auto 0;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #000;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0 #000;
+}

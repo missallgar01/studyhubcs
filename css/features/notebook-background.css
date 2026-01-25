@@ -1,0 +1,60 @@
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  color: var(--text-main);
+
+  /* notebook paper + margin line */
+  background:
+    linear-gradient(to bottom, #fff 24px, #f2f2f2 25px),
+    linear-gradient(to right, #f88 2px, transparent 3px),
+    #fff;
+  background-repeat: repeat-y, no-repeat;
+  background-position: left 45px top, left top;
+  background-size: 100% 25px, 2px 100%;
+  background-attachment: fixed;
+
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* punched holes + wonky border */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20px 50px, #000 2px, transparent 3px),
+    radial-gradient(circle at 20px 130px, #000 2px, transparent 3px),
+    radial-gradient(circle at 20px 210px, #000 2px, transparent 3px),
+    radial-gradient(circle at 20px 290px, #000 2px, transparent 3px);
+  background-repeat: repeat-y;
+  background-position: 0 0;
+  background-size: 100% 80px;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  border: 2px solid #000;
+  border-radius: 6px;
+  transform: rotate(-0.4deg);
+  box-shadow: 4px 4px 0 #000;
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: 0;
+}

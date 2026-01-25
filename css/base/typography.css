@@ -1,0 +1,62 @@
+/* Basic text */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-main);
+  margin: 0 0 0.4rem;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0 0 0.5rem;
+}
+
+ul {
+  margin: 0.25rem 0 0.5rem;
+  padding-left: 1.1rem;
+}
+
+li {
+  margin: 0.2rem 0;
+}
+
+/* ============================================
+   NOTEBOOK-STYLE LINKS (NO UNDERLINE)
+   ============================================ */
+
+a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #333;
+}
+
+
+/* Simple back link container */
+.back-container {
+  max-width: 80%;
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+}
+
+/* Black text link */
+.back-container a {
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #000;   /* pure black */
+  font-weight: 600;
+}
+
+.back-container a:hover {
+  text-decoration: underline;
+}

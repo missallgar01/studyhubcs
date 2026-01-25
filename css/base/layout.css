@@ -1,0 +1,77 @@
+/* Layout shell */
+
+header {
+  background: none;
+  color: #000;
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 2.1rem;
+  font-family: "Marker Felt", "Comic Sans MS", "Segoe Print", cursive;
+}
+
+header h2 {
+  margin: 0.25rem 0 0.2rem;
+  font-size: 1.2rem;
+}
+
+header p.subtitle {
+  margin: 0.4rem 0 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Header container */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* pushes logo to the right */
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto 2rem;
+  padding: 1rem 1rem 0;
+}
+
+/* Logo on the right */
+.page-logo {
+  width: 50%;   /* adjust to taste */
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* Title block on the left */
+.page-title h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.page-title .subtitle {
+  margin: 0.3rem 0 0;
+  font-size: 1.1rem;
+  color: #444;
+  text-align: left;
+}
+
+main {
+  max-width: 80%;
+  margin: 2rem auto;
+  padding: 0 1rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 1;
+}
