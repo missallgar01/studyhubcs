@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -54,15 +55,9 @@
       role="tabpanel"
       aria-labelledby="tabbtn-revision">
      <!-- =========================
-       KNOWLEDGE SECTIONS (VERTICAL)
-       (unchanged, but you can tweak)
+       KNOWLEDGE SECTIONS
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
       <h2>Software Development – Notes</h2>
-    </div>
-    <div class="vertical-knowledge">
 
 <div class="knowledge-card">
   <h3>Software Development Life Cycles (SDLCs)</h3>
@@ -85,8 +80,6 @@
     <li>Considering types of data involved including inputs, outputs, stored data and amount of data</li>
   </ul>
 
-
-
   <h3>Design</h3>
   <p>
     The different aspects of the new system are designed, such as:
@@ -100,16 +93,12 @@
   </ul>
   <p>A test plan may also be designed at this stage.</p>
 
-
-
   <h3>Development</h3>
   <p>
     The design from the previous stage is used to split the project into
     individual, self-contained modules, which are allocated to teams for
     programming.
   </p>
-
-
 
   <h3>Testing</h3>
   <p>
@@ -581,21 +570,15 @@
 </table>
       </div>
     </div>
-  </section>
-    </div>
 
     <div
       id="tab-KC"
       role="tabpanel"
       aria-labelledby="tabbtn-KC"
       hidden>
-      <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
-    </div>
 
-      <div class="vertical-knowledge">
+      <h2>Check Your Understanding – Questions</h2>
+
 
 <div class="rev-card qa-card">
   <p>
@@ -811,20 +794,12 @@
     </p>
   </div>
 </div>
-
-      </div>
-    </div>
-    </section>
-    </div>
-  </div>
-
 </div>
 
-
-
-        <button id="printBtn" type="button">
+<button id="printBtn" type="button">
   Print this worksheet
 </button>
+
 
 </main>
 
@@ -832,7 +807,8 @@
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

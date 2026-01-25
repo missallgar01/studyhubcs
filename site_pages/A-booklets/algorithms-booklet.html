@@ -21,6 +21,7 @@
 
 <main>
 
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <div class="booklet panels" data-tabs>
 
@@ -43,8 +44,7 @@
       role="tab"
       aria-controls="tab-KC"
       aria-selected="false"
-      tabindex="-1"
-    >
+      tabindex="-1">
       Knowledge Check
     </button>
   </div>
@@ -54,20 +54,14 @@
     <div
       id="tab-revision"
       role="tabpanel"
-      aria-labelledby="tabbtn-revision"
-    >
+      aria-labelledby="tabbtn-revision">
       <!-- REVISION CONTENT HERE -->
          <!-- =========================
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Algorithms – Notes</h2>
-    </div>
 
-    <div class="vertical-knowledge">
+      <h2>Algorithms – Notes</h2>
 
     <div class="knowledge-card">
   <h3>Binary Search vs Linear Search — Comparison</h3>
@@ -730,16 +724,8 @@ ENDPROCEDURE
   </ul>
 </div>
 
-      </div>
-  </section>
 
-
-         <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
       <h2> Shortest Path</h2>
-    </div>
-    <div class="topic-body vertical-knowledge">
 
     <div class="knowledge-card">
   <h3>Shortest Path Algorithms</h3>
@@ -998,8 +984,8 @@ ENDWHILE
 
        <p>Final path: H → G → L → E</p>
 </div>
-    </div>
-</section>
+</div>
+
 
 
 
@@ -1010,22 +996,12 @@ ENDWHILE
       id="tab-KC"
       role="tabpanel"
       aria-labelledby="tabbtn-KC"
-      hidden
-    >
+      hidden>
        <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
 
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
       <h2>Check Your Understanding – Questions</h2>
-    </div>
-    <div class="vertical-knowledge">
-
-        <!-- =======================
-             TOPIC A – Question and answer
-             ======================= -->
 
 <div class="rev-card qa-card">
 
@@ -2491,18 +2467,8 @@ endfunction</code></pre>
     </p>
   </div>
 </div>
+
     </div>
-  </section>
-    </div>
-  </div>
-
-</div>
-
-
-
-
-
-
 
      <button id="printBtn" type="button">
   Print this worksheet
@@ -2514,7 +2480,8 @@ endfunction</code></pre>
 <footer>
   &copy; 2025 StudyHubCS
 </footer>
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

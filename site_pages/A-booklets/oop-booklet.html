@@ -18,6 +18,7 @@
   </p>
 </header>
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -56,12 +57,9 @@
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
-<section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
+
 <h2>OOP – Notes</h2>
-</div>
-<div class="vertical-knowledge">
+
 <div class="knowledge-card">
 
     <table class="oop-keywords">
@@ -551,11 +549,7 @@ end procedure
 </pre>
 
 </div>
-
 </div>
-</div>
-</section>
-    </div>
 
     <div
       id="tab-KC"
@@ -565,13 +559,9 @@ end procedure
       <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-<section class="topic-section expanded">
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
-<h2>Check Your Understanding – Questions</h2>
-</div>
 
-<div class="vertical-knowledge">
+<h2>Check Your Understanding – Questions</h2>
+
 
 <!-- =======================
 TOPIC – Object-Oriented Programming
@@ -2161,23 +2151,18 @@ print("You reached the end of the road")
   </div>
 </div>
 </div>
-</div>
-</section>
-    </div>
-  </div>
-
-</div>
     <button id="printBtn" type="button">
   Print this worksheet
 </button>
-    </main>
+
+ </main>
 
 <footer>
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
-
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

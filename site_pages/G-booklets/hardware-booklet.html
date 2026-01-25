@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
   <!-- =========================
        NOTES / RECAP (VERTICAL)
@@ -56,13 +57,8 @@
       id="tab-revision"
       role="tabpanel"
       aria-labelledby="tabbtn-revision">
-      <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>CPU, Buses &amp; FDE Cycle – Notes</h2>
-    </div>
 
-    <div class="topic-body vertical-knowledge">
+      <h2>CPU, Buses &amp; FDE Cycle – Notes</h2>
 
       <div class="knowledge-card">
         <h3>Main CPU Components</h3>
@@ -106,7 +102,7 @@
           <li><strong>Decode:</strong> The CU decodes the instruction in the MDR, working out which circuits are needed.</li>
           <li><strong>Execute:</strong> The instruction is carried out (e.g. ALU performs a calculation, a value is loaded/stored, a jump occurs). The PC is updated to point to the next instruction.</li>
         </ol>
-        <p><img src="images/FDE.png" alt="Fetch–Decode–Execute cycle diagram" class="diagram" /></p>
+        <p><img src="images/FDE.png" alt="Fetch–Decode–Execute cycle diagram" class="diagram" width="80%"/></p>
       </div>
 
       <div class="knowledge-card">
@@ -119,37 +115,17 @@
         </ul>
       </div>
 
-    </div>
-  </section>
+  </div>
 
-  <!-- =========================
-       QUESTIONS & ANSWERS
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check your understanding</h2>
-    </div>
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
 
-    <div class="vertical-knowledge">
+        <div class="rev-card qa-card" >
 
-        <!-- Q1 -->
-        <div class="rev-card qa-card" id="q1">
-          <h3>1. CPU process &amp; components</h3>
-          <p>(i) The CPU carries out a process. A diagram was provided in the original question.</p>
-          <p>Describe or label the missing parts in such a diagram to show how the CPU processes data.</p>
-          <p class="marks">(2 marks)</p>
-
-          <textarea class="student-answer" placeholder="Describe or label the CPU process diagram..."></textarea>
-
-          <button class="secondary answer-toggle">Show answer</button>
-          <div class="answer">
-            <p>The original booklet used a diagram-based question and did not provide a full written model answer. Your diagram should show the flow of data/instructions via the registers and buses, correctly labelled.</p>
-          </div>
-
-          <hr>
-
-          <p>(ii) Identify the hardware component that carries instructions from memory to the CPU.</p>
+          <p> Identify the hardware component that carries instructions from memory to the CPU.</p>
           <p>
             <strong>A</strong> Binary shift<br>
             <strong>B</strong> Control unit<br>
@@ -164,10 +140,10 @@
           <div class="answer">
             <p><strong>Answer:</strong> <strong>C – Data bus</strong></p>
           </div>
+        </div>
 
-          <hr>
-
-          <p>(iii) State the component of the CPU that carries out additions and comparisons.</p>
+        <div class="rev-card qa-card" >
+          <p> State the component of the CPU that carries out additions and comparisons.</p>
           <p class="marks">(1 mark)</p>
 
           <textarea class="student-answer" placeholder="Component name..."></textarea>
@@ -178,44 +154,9 @@
           </div>
         </div>
 
-        <!-- Q2 -->
-        <div class="rev-card qa-card" id="q2">
-          <h3>2. Main memory and buses</h3>
-          <p>Here is a representation of the contents of main memory.</p>
-
-          <p><img src="images/main-memory-representation.png" alt="Representation of main memory contents" class="diagram" /></p>
-
-          <p>
-            Draw a flowchart to show the process required to read the contents of memory location
-            <strong>0100</strong> into the CPU.
-          </p>
-          <p>You must include in your response:</p>
-          <ul>
-            <li>the buses used</li>
-            <li>the contents of each bus</li>
-          </ul>
-          <p class="marks">(6 marks)</p>
-
-          <textarea class="student-answer" placeholder="Describe each step of your flowchart, including which bus is used and what data it carries..."></textarea>
-
-          <button class="secondary answer-toggle">Show answer</button>
-          <div class="answer">
-            <p>A full mark answer would typically include points such as:</p>
-            <ul>
-              <li>Load address <strong>0100</strong> into the MAR.</li>
-              <li>Address bus carries <strong>0100</strong> to main memory.</li>
-              <li>Control bus sends a <strong>read</strong> signal.</li>
-              <li>Data at address 0100 is placed on the data bus.</li>
-              <li>Data bus carries the contents back into the MDR.</li>
-              <li>Instruction/data is then passed to the ACC/CPU for processing.</li>
-            </ul>
-            <p>The original booklet did not contain a full model flowchart, but these are the key steps and buses.</p>
-          </div>
-        </div>
-
         <!-- Q3 -->
-        <div class="rev-card qa-card" id="q3">
-          <h3>3. Hardware component of the CPU</h3>
+        <div class="rev-card qa-card">
+          <h3>Hardware component of the CPU</h3>
           <p>Identify which one of these is a hardware component of the CPU.</p>
           <p>
             <strong>A</strong> Clock<br>
@@ -234,8 +175,8 @@
         </div>
 
         <!-- Q4 -->
-        <div class="rev-card qa-card" id="q4">
-          <h3>4. von Neumann architecture</h3>
+        <div class="rev-card qa-card">
+          <h3>von Neumann architecture</h3>
           <p>State the two items held in RAM according to the von Neumann architecture.</p>
           <p class="marks">(2 marks)</p>
 
@@ -248,8 +189,8 @@
         </div>
 
         <!-- Q5 -->
-        <div class="rev-card qa-card" id="q5">
-          <h3>5. Buses</h3>
+        <div class="rev-card qa-card">
+          <h3>Buses</h3>
           <p>Complete the table about the buses used in a computer system.</p>
 
           <table>
@@ -324,8 +265,8 @@
         </div>
 
         <!-- Q6 -->
-        <div class="rev-card qa-card" id="q6">
-          <h3>6. Fetching an instruction from memory</h3>
+        <div class="rev-card qa-card">
+          <h3>Fetching an instruction from memory</h3>
           <p>Describe the role of the control unit, the control bus, the data bus and the address bus when fetching an instruction from memory.</p>
           <p class="marks">(4 marks)</p>
 
@@ -344,8 +285,8 @@
         </div>
 
         <!-- Q7 -->
-        <div class="rev-card qa-card" id="q7">
-          <h3>7. CPU and main memory working together</h3>
+        <div class="rev-card qa-card">
+          <h3>CPU and main memory working together</h3>
           <p>Describe how the CPU and main memory work together to run programs.</p>
           <p class="marks">(4 marks)</p>
 
@@ -373,8 +314,8 @@
         </div>
 
         <!-- Q8 -->
-        <div class="rev-card qa-card" id="q8">
-          <h3>8. Data bus – why bi-directional?</h3>
+        <div class="rev-card qa-card">
+          <h3>Data bus – why bi-directional?</h3>
           <p>Describe one reason the data bus needs to be bi-directional.</p>
           <p class="marks">(1–2 marks)</p>
 
@@ -390,8 +331,8 @@
         </div>
 
         <!-- Q9 -->
-        <div class="rev-card qa-card" id="q9">
-          <h3>9. Clock speed</h3>
+        <div class="rev-card qa-card">
+          <h3>Clock speed</h3>
           <p>State the reason why a higher clock speed is desirable.</p>
           <p class="marks">(1 mark)</p>
 
@@ -403,14 +344,121 @@
           </div>
         </div>
 
+
+        <div class="rev-card qa-card">
+          <h3>Main memory and buses</h3>
+          <p>Here is a representation of the contents of main memory.</p>
+
+          <p><img src="images/memory_qu.jpg.png" alt="Representation of main memory contents" class="diagram" /></p>
+
+          <p>
+            Draw a flowchart to show the process required to read the contents of memory location
+            <strong>0100</strong> into the CPU.
+          </p>
+          <p>You must include in your response:</p>
+          <ul>
+            <li>the buses used</li>
+            <li>the contents of each bus</li>
+          </ul>
+          <p class="marks">(6 marks)</p>
+
+          <textarea class="student-answer" placeholder="Describe each step of your flowchart, including which bus is used and what data it carries..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p>A full mark answer would typically include points such as:</p>
+            <ul>
+              <li>Load address <strong>0100</strong> into the MAR.</li>
+              <li>Address bus carries <strong>0100</strong> to main memory.</li>
+              <li>Control bus sends a <strong>read</strong> signal.</li>
+              <li>Data at address 0100 is placed on the data bus.</li>
+              <li>Data bus carries the contents back into the MDR.</li>
+              <li>Instruction/data is then passed to the ACC/CPU for processing.</li>
+            </ul>
+            <p>The original booklet did not contain a full model flowchart, but these are the key steps and buses.</p>
+          </div>
+        </div>
+
+          <div class="rev-card qa-card">
+  <p>
+    <b>Q22.</b><br>
+    State the two items held in RAM according to the von Neumann architecture.<br>
+    (2)<br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> STATE
+    <ul>
+      <li>Name both items</li>
+    </ul>
+  </div>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>Data (1)</li>
+      <li>Instructions (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Data and instructions.
+    </p>
+  </div>
+</div>
+
+
         <!-- =======================
              EMBEDDED SYSTEMS QUESTIONS
              ======================= -->
         <h2>Embedded Systems – Questions</h2>
+ <div class="rev-card qa-card">
+  <p>
+    <b>Q24.</b><br>
+    An embedded computer system is part of a larger machine.<br>
+    State two characteristics of embedded systems that make them different from general purpose
+    computers.<br>
+    (2)<br>
+    (Total for question = 2 marks)
+  </p>
 
+  <div class="how-to-answer">
+    <b>Command word focus:</b> STATE
+    <ul>
+      <li>Give two characteristics</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers (any two):</b>
+    <ul>
+      <li>Limited processing resources</li>
+      <li>Low power consumption</li>
+      <li>Simple/robust operating system</li>
+      <li>Low cost per unit</li>
+      <li>Smaller in size</li>
+      <li>Less storage</li>
+      <li>Limited user interface</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Embedded systems use low power and have limited processing resources.
+    </p>
+  </div>
+</div>
         <!-- ES Q1 -->
-        <div class="rev-card qa-card" id="es1">
-          <h3>10. Embedded system definition</h3>
+        <div class="rev-card qa-card">
+          <h3>Embedded system definition</h3>
           <p>A robotic vacuum cleaner has an embedded system.</p>
           <p>Describe the term embedded system.</p>
           <p class="marks">(2 marks)</p>
@@ -429,8 +477,8 @@
         </div>
 
         <!-- ES Q2 -->
-        <div class="rev-card qa-card" id="es2">
-          <h3>11. Sensors in a robotic vacuum</h3>
+        <div class="rev-card qa-card">
+          <h3>Sensors in a robotic vacuum</h3>
           <p>Suggest a sensor that might be used by the robotic vacuum and give an example of how it would be used.</p>
           <p class="marks">(2 marks)</p>
 
@@ -448,8 +496,8 @@
         </div>
 
         <!-- ES Q3 -->
-        <div class="rev-card qa-card" id="es3">
-          <h3>12. Firmware</h3>
+        <div class="rev-card qa-card">
+          <h3>Firmware</h3>
           <p>The robotic vacuum cleaner has firmware installed.</p>
           <p>Define the term firmware.</p>
           <p class="marks">(1 mark)</p>
@@ -463,8 +511,8 @@
         </div>
 
         <!-- ES Q4 -->
-        <div class="rev-card qa-card" id="es4">
-          <h3>13. Processor size in embedded systems</h3>
+        <div class="rev-card qa-card">
+          <h3>Processor size in embedded systems</h3>
           <p>Explain why the robotic vacuum only uses a small processor.</p>
           <p class="marks">(4 marks)</p>
 
@@ -482,8 +530,8 @@
         </div>
 
         <!-- ES Q5 -->
-        <div class="rev-card qa-card" id="es5">
-          <h3>14. Other embedded systems</h3>
+        <div class="rev-card qa-card">
+          <h3>Other embedded systems</h3>
           <p>Give an example of a different embedded system.</p>
           <p class="marks">(1 mark)</p>
 
@@ -494,32 +542,47 @@
             <p><strong>Answer:</strong> Any valid example such as: washing machine, microwave oven, digital camera, car engine management system, smart thermostat, etc.</p>
           </div>
         </div>
-    </div>
-  </section>
 
-    </div>
+          <div class="rev-card qa-card">
+  <p>
+    <b>Q13. Computers</b><br>
+    Parking at an airport is controlled by computers.<br>
+    No paper tickets are issued.<br>
+    The control system uses sensors, a camera and a database.<br>
+    The barrier lifts if the parking fee has been paid.<br>
+    Describe what the system does when the exit sensor is activated by a car driving towards it.<br>
+    (2)<br>
+    (Total for question = 2 marks)
+  </p>
 
-    <div
-      id="tab-KC"
-      role="tabpanel"
-      aria-labelledby="tabbtn-KC"
-      hidden>
-      <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2> Notes</h2>
-    </div>
-
-
-
-
-
-      </div>
-      </section>
-    </div>
+  <div class="how-to-answer">
+    <b>Command word focus:</b> DESCRIBE
+    <ul>
+      <li>Describe the sequence of actions</li>
+      <li>Link camera input to database check</li>
+    </ul>
   </div>
 
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>The camera reads the registration plate (1)</li>
+      <li>The registration is looked up in the database (1)</li>
+      <li>The system checks that the parking fee has been paid (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      When the exit sensor is activated, the camera reads the car’s registration number.
+      The system checks the database to confirm that the parking fee has been paid.
+    </p>
+  </div>
 </div>
+    </div>
 
 </main>
 
@@ -534,7 +597,8 @@
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

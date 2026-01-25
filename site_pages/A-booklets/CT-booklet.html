@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -59,12 +60,6 @@
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Computational Thinking – Notes</h2>
-    </div>
-    <div class="vertical-knowledge">
 
 <div class="knowledge-card">
   <h3>Computational Thinking</h3>
@@ -166,11 +161,8 @@
   </table>
 
 </div>
-
 </div>
-      </div>
-  </section>
-    </div>
+
 
     <div
       id="tab-KC"
@@ -180,13 +172,8 @@
        <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
-    </div>
 
-      <div class="vertical-knowledge">
+      <h2>Check Your Understanding – Questions</h2>
 
 <!-- =================================================
      COMPUTATIONAL THINKING – COMPLETE REVISION PAGE
@@ -499,20 +486,12 @@ Explain what is meant by concurrent processing and describe one example of how t
 </ul>
 </div>
 </div>
-
-      </div>
-    </div>
-  </section>
-    </div>
-  </div>
-
 </div>
 
-
-
-    <button id="printBtn" type="button">
+      <button id="printBtn" type="button">
   Print this worksheet
 </button>
+
 </main>
 
 
@@ -520,7 +499,8 @@ Explain what is meant by concurrent processing and describe one example of how t
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

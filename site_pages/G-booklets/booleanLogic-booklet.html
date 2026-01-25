@@ -12,7 +12,7 @@
     <a href="../G-booklets.html">← Back</a>
   </div>
 <header>
-  <h1>Topic 1 Boolean Logic – Revision/h1>
+  <h1>Topic 1 Boolean Logic – Revision</h1>
   <h2>Read • Write • Check • Amend</h2>
   <p class="subtitle">
     Read the notes, write your own answers, then reveal the model answers to check and improve.
@@ -20,40 +20,53 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
-  <!-- =========================
-       NOTES / RECAP (VERTICAL)
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Notes</h2>
+  <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+      <!-- REVISION CONTENT HERE -->
     </div>
 
-    <div class="vertical-knowledge">
-
-      <div class="knowledge-card">
-
-      </div>
-
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <!-- KNOWLEDGE CHECK CONTENT HERE -->
     </div>
-  </section>
+  </div>
 
-  <!-- =========================
-       QUESTIONS & ANSWERS
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check your understanding</h2>
-    </div>
-
-    <div class="vertical-knowledge">
-
-
-    </div>
-    </div>
-  </section>
+</div>
 
 </main>
 
@@ -66,7 +79,8 @@
 <footer>
   &copy; 2025 StudyHubCS
 </footer>
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

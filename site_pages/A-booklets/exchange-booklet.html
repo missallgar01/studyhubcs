@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -32,8 +33,7 @@
       role="tab"
       aria-controls="tab-revision"
       aria-selected="true"
-      tabindex="0"
-    >
+      tabindex="0">
       Revision Notes
     </button>
 
@@ -43,8 +43,7 @@
       role="tab"
       aria-controls="tab-KC"
       aria-selected="false"
-      tabindex="-1"
-    >
+      tabindex="-1">
       Knowledge Check
     </button>
   </div>
@@ -59,12 +58,10 @@
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
+
       <h2>Compression, encyption and hashing – Notes</h2>
-    </div>
-    <div class="vertical-knowledge">
+
+
 
     <div class="knowledge-card">
   <h3>Why is Compression Needed in Data Transfer?</h3>
@@ -454,10 +451,8 @@ Q is faster than B but M is more stable than Q and B
     <li><strong>SHA-3:</strong> Newest SHA family member, offering higher security</li>
   </ul>
 </div>
+</div>
 
-      </div>
-  </section>
-    </div>
 
     <div
       id="tab-KC"
@@ -467,11 +462,8 @@ Q is faster than B but M is more stable than Q and B
       <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
+
       <h2>Check Your Understanding – Questions</h2>
-    </div><div class="vertical-knowledge">
 
         <!-- =======================
              TOPIC A – Question and answer
@@ -1078,16 +1070,11 @@ endfunction
     </table>
   </div>
 </div>
-
-      </div>
-  </section>
-
-    </div>
-  </div>
 </div>
 
 
-        <button id="printBtn" type="button">
+
+<button id="printBtn" type="button">
   Print this worksheet
 </button>
 
@@ -1097,7 +1084,7 @@ endfunction
   &copy; 2025 StudyHubCS
 </footer>
 
-
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 </body>
 </html>

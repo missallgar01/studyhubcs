@@ -20,20 +20,42 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
-  <!-- =========================
-       NOTES / RECAP (VERTICAL)
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Notes</h2>
-    </div>
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
 
-    <div class="vertical-knowledge">
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
 
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
 
-<div class="knowledge-card">
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+      <!-- REVISION CONTENT HERE -->
+        <div class="knowledge-card">
       <h3>Computational Thinking</h3>
 
       <p>
@@ -244,21 +266,44 @@ print(tax(10, 20))      # call function
     <strong>and return a result</strong>.
   </p>
 </div>
-
-</div>
-</section>
-
-
-  <!-- =========================
-       QUESTIONS & ANSWERS
-       ========================= -->
-   <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check your understanding</h2>
     </div>
 
-    <div class="vertical-knowledge">
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <!-- KNOWLEDGE CHECK CONTENT HERE -->
+
+
+        <div class="rev-card qa-card">
+  <p>
+    <b>Q47.</b><br>
+    Identify the term that means breaking a problem or solution down into smaller parts.<br>
+    (1)<br>
+    A Abstraction<br>
+    B Computation<br>
+    C Decomposition<br>
+    D Evaluation<br>
+    (Total for question = 1 mark)
+  </p>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme:</b>
+    <ul>
+      <li>C – Decomposition</li>
+    </ul>
+
+    <b>Model answer:</b>
+    <p>
+      C
+    </p>
+  </div>
+</div>
 
 <div class="rev-card qa-card">
   <p>
@@ -285,8 +330,119 @@ print(tax(10, 20))      # call function
   </div>
 
 </div>
+
+        <div class="rev-card qa-card">
+  <p>
+    <b>Q39. Computational thinking</b><br>
+    Programs can have syntax errors and runtime errors.<br>
+    (i) Define the term ‘syntax error’. (1)<br>
+    (ii) Runtime errors happen when a program is executing.
+    Explain a runtime error. (2)<br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DEFINE / EXPLAIN</b>
+    <ul>
+      <li>Define = what it is</li>
+      <li>Explain = what causes it and what happens</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li><b>(i) Syntax error:</b>
+        <ul>
+          <li>Error in the rules/grammar of the programming language (1)</li>
+          <li>Prevents the program from running (1)</li>
+        </ul>
+      </li>
+      <li><b>(ii) Runtime error:</b>
+        <ul>
+          <li>Error occurs while the program is executing (1)</li>
+          <li>Program crashes or stops unexpectedly (1)</li>
+          <li>Caused by invalid input, division by zero, missing file, etc. (1)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      A syntax error is a mistake in the rules of the programming language that prevents the
+      program from running.
+      A runtime error occurs while the program is running, for example when invalid data causes
+      the program to crash.
+    </p>
+  </div>
+</div>
+
+        <div class="rev-card qa-card">
+  <p>
+    <b>Q43.</b><br>
+    A group of students are working together on a single maze game.<br>
+    The arrow keys control the character.
+    When the character reaches the end of the maze without touching a wall, a happy sound is played.
+    The game also displays a score.<br><br>
+    Discuss the use of decomposition and abstraction in developing this game.<br>
+    Your answer should include:<br>
+    • a definition of each term<br>
+    • the benefits each brings to the group of students<br>
+    • an example of where each could appear in the program code.<br>
+    (6)<br>
+    (Total for question = 6 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DISCUSS</b>
+    <ul>
+      <li>Define both terms</li>
+      <li>Explain benefits</li>
+      <li>Give concrete code examples</li>
+    </ul>
+  </div>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable points:</b>
+    <ul>
+      <li><b>Decomposition:</b>
+        <ul>
+          <li>Breaking a problem into smaller parts</li>
+          <li>Allows tasks to be shared among students</li>
+          <li>Examples: movement control, collision detection, scoring, sound</li>
+        </ul>
+      </li>
+      <li><b>Abstraction:</b>
+        <ul>
+          <li>Removing unnecessary detail</li>
+          <li>Makes code easier to understand and manage</li>
+          <li>Examples: using variables for score, functions for movement</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Decomposition involves breaking the game into smaller parts such as movement, scoring and
+      sound, allowing different students to work on each part.
+      Abstraction removes unnecessary detail, for example by using functions to control movement
+      without showing how the movement works internally.
+    </p>
+  </div>
+</div>
     </div>
-  </section>
+  </div>
+
+</div>
+
 
 </main>
 
@@ -300,6 +456,7 @@ print(tax(10, 20))      # call function
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 </body>
 </html>

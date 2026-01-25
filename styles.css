@@ -603,14 +603,6 @@ th {
   margin-bottom: 0.4rem;
 }
 
-/* Q&A stack */
-.vertical-qa {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-    padding: 1.1rem 1.3rem;
-}
-
 .rev-card {
   background: #fff;
 
@@ -619,19 +611,30 @@ th {
 
 .qa-card textarea.student-answer,
 .rev-card textarea {
-    width: 100%;
-  min-height: 150px;
+  width: 100%;
+  min-height: 180px;
+
+  font-size: 1rem;
+  line-height: 1.8;
+
+  /* Key alignment fixes */
+  padding-top: 0.9em;          /* half of line-height */
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  padding-bottom: 0.6em;
+
   background-color: #ffffff;
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 1.35em,
-      #666 1.6em,
-      #666 1.6em
-    );
-  line-height: 0.5em;
-  padding-top: 0.35em;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 95%,
+    #cbd5e1 96%
+  );
+  background-size: 100% 1.8em;
+  background-position-y: 0.9em; /* 👈 aligns text ON the line */
+
+  border: 2px solid #2563eb;
+  border-radius: 6px;
+  resize: vertical;
 }
 
 .qa-card .answer,
@@ -1049,179 +1052,6 @@ iframe {
   margin: 1rem 0;
 }
 
-/* ==========================
-   RESPONSIVE
-   ========================== */
-
-/* Make tabs feel good on narrow screens */
-@media (max-width: 520px) {
-  .ds-tablist {
-    gap: 0.4rem;
-    padding: 0.45rem;
-  }
-  .ds-tab {
-    flex: 1 1 auto;           /* lets tabs wrap neatly */
-    text-align: center;
-    padding: 0.55rem 0.6rem;
-  }
-}
-
-@media (max-width: 700px) {
-  body {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  header {
-    padding: 1.25rem 0.75rem 0.75rem;
-  }
-
-  main {
-    margin: 1.25rem auto 1.5rem;
-    padding: 0 0.75rem 1.5rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  table {
-    font-size: 0.9rem;
-    display: block;
-    overflow-x: auto;
-    border-radius: 8px;
-  }
-
-  iframe {
-    height: 320px;
-  }
-
-    .table-wrap table,
-  .knowledge-card table,
-  .rev-card table,
-  .ds-panel table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-  }
-
-    .stack-diagram {
-    font-size: 0.9rem;
-  }
-
-    .queue-diagram .queue-cells td {
-    height: 2.7rem;
-    font-size: 0.95rem;
-  }
-
-     .knowledge-card table,
-  .rev-card table,
-  .card table,
-  .resource-section table,
-  .topic-body > table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-
-/* ==========================
-   PRINT
-   ========================== */
-
-@media print {
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  html,
-  body {
-    background: #fff !important;
-    color: #111 !important;
-    font: 12pt/1.5 Arial, Helvetica, sans-serif;
-  }
-
-  body::before,
-  body::after {
-    display: none !important;
-  }
-
-  header,
-  footer {
-    background: none !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    text-align: center;
-  }
-
-  main {
-    max-width: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .btn,
-  button,
-  .secondary,
-  #pdfModal,
-  #keywordsModal {
-    display: none !important;
-  }
-
-  .topic-section,
-  .card,
-  .resource-section {
-    background: #fff !important;
-    border: 1px solid #ddd !important;
-    box-shadow: none !important;
-    page-break-inside: avoid;
-    margin: 0 0 1.2cm 0;
-    padding: 0.75cm;
-    border-radius: 0;
-  }
-
-  table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    border: 1px solid #ccc !important;
-  }
-
-  th,
-  td {
-    border: 1px solid #ccc !important;
-    padding: 6pt 8pt !important;
-  }
-
-  img {
-    max-width: 60% !important;
-    height: auto !important;
-  }
-
-
-  .qa-card textarea.student-answer,
-  .rev-card textarea {
-    background-image: none;
-  }
-
- .stack-diagram {
-    font-size: 0.9rem;
-  }
-  .stack-diagram th {
-    background: #eaeaea !important;
-  }
-
-.how-to-answer {
-    background-color: #ffffff;
-    border-left: 2px solid #000;
-    font-size: 0.85rem;
-  }
-
-  @page {
-    margin: 1.5cm;
-  }
-}
-
 
 
 /* ==========================
@@ -1446,21 +1276,6 @@ figcaption {
   background-color: #fff7cc;
 }
 
-
-
-
-  #ct-match .match-wrap{display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-top:12px}
-  #ct-match .match-bank,#ct-match .match-targets{border:1px solid #000;border-radius:10px;padding:12px}
-  #ct-match .term{border:1px solid #000;border-radius:10px;padding:10px;margin:8px 0;cursor:grab;background:#fff;user-select:none}
-  #ct-match .target{border:1px dashed #000;border-radius:10px;padding:10px;margin:10px 0}
-  #ct-match .dropzone{min-height:44px;border:1px solid #000;border-radius:10px;margin-top:8px;padding:6px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
-  #ct-match .placed{padding:6px 10px;border:1px solid #000;border-radius:999px;background:#fff}
-  #ct-match .correct-zone{outline:3px solid #2a8}
-  #ct-match .wrong-zone{outline:3px solid #d33}
-  #ct-match .match-actions{margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-  #ct-match .placed { cursor: grab; }
-
-
   /* =========================
    Tabs – Booklet Scoped
    ========================= */
@@ -1587,3 +1402,292 @@ figcaption {
 .how-to-answer li {
   margin-bottom: 4px;
 }
+
+.command-words {
+  max-width: 800px;
+  margin: 2rem auto;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.command-words h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #1f2933;
+  border-bottom: 3px solid #2563eb;
+  padding-bottom: 0.5rem;
+}
+
+.cmd-card {
+  background: #f8fafc;
+  border-left: 6px solid #2563eb;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.cmd-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  color: #2563eb;
+}
+
+.cmd-card p {
+  margin: 0;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.cmd-card b {
+  color: #0f172a;
+}
+
+.cmd-tip {
+  background: #fff7ed;
+  border-left: 6px solid #f59e0b;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cmd-tip p {
+  margin: 0;
+  line-height: 1.6;
+  color: #7c2d12;
+}
+
+.cmd-tip b {
+  color: #92400e;
+}
+
+.cmd-btn {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2563eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cmd-btn:hover {
+  background: #1e40af;
+}
+/* Modal background */
+.cmd-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Modal box */
+.cmd-modal-content {
+  background: #ffffff;
+  max-width: 850px;
+  max-height: 80vh;        /* 👈 limits height */
+  margin: 10vh auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+  overflow-y: auto;        /* 👈 enables vertical scroll */
+}
+
+/* Optional: smoother scroll */
+.cmd-modal-content {
+  scroll-behavior: smooth;
+}
+
+/* Close button */
+.cmd-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: #ffffff;
+  padding: 0.25rem 0.5rem;
+}
+
+
+/* ==========================
+   RESPONSIVE
+   ========================== */
+
+/* Make tabs feel good on narrow screens */
+@media (max-width: 520px) {
+  .ds-tablist {
+    gap: 0.4rem;
+    padding: 0.45rem;
+  }
+  .ds-tab {
+    flex: 1 1 auto;           /* lets tabs wrap neatly */
+    text-align: center;
+    padding: 0.55rem 0.6rem;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  header {
+    padding: 1.25rem 0.75rem 0.75rem;
+  }
+
+  main {
+    margin: 1.25rem auto 1.5rem;
+    padding: 0 0.75rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    font-size: 0.9rem;
+    display: block;
+    overflow-x: auto;
+    border-radius: 8px;
+  }
+
+  iframe {
+    height: 320px;
+  }
+
+    .table-wrap table,
+  .knowledge-card table,
+  .rev-card table,
+  .ds-panel table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+    .stack-diagram {
+    font-size: 0.9rem;
+  }
+
+    .queue-diagram .queue-cells td {
+    height: 2.7rem;
+    font-size: 0.95rem;
+  }
+
+     .knowledge-card table,
+  .rev-card table,
+  .card table,
+  .resource-section table,
+  .topic-body > table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ==========================
+   PRINT
+   ========================== */
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font: 12pt/1.5 Arial, Helvetica, sans-serif;
+  }
+
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
+  header,
+  footer {
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    text-align: center;
+  }
+
+  main {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .btn,
+  button,
+  .secondary,
+  #pdfModal,
+  #keywordsModal {
+    display: none !important;
+  }
+
+  .topic-section,
+  .card,
+  .resource-section {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    margin: 0 0 1.2cm 0;
+    padding: 0.75cm;
+    border-radius: 0;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #ccc !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #ccc !important;
+    padding: 6pt 8pt !important;
+  }
+
+  img {
+    max-width: 60% !important;
+    height: auto !important;
+  }
+
+
+  .qa-card textarea.student-answer,
+  .rev-card textarea {
+    background-image: none;
+  }
+
+ .stack-diagram {
+    font-size: 0.9rem;
+  }
+  .stack-diagram th {
+    background: #eaeaea !important;
+  }
+
+.how-to-answer {
+    background-color: #ffffff;
+    border-left: 2px solid #000;
+    font-size: 0.85rem;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+}
+

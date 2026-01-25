@@ -12,7 +12,7 @@
     <a href="../G-booklets.html">← Back</a>
   </div>
 <header>
-  <h1>Topic 2 Data – Revision/h1>
+  <h1>Topic 2 Data – Revision</h1>
   <h2>Read • Write • Check • Amend</h2>
   <p class="subtitle">
     Read the notes, write your own answers, then reveal the model answers to check and improve.
@@ -20,39 +20,1000 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+<!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
 
-  <!-- =========================
-       NOTES / RECAP (VERTICAL)
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Notes</h2>
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+      <!-- REVISION CONTENT HERE -->
     </div>
 
-    <div class="vertical-knowledge">
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <!-- KNOWLEDGE CHECK CONTENT HERE -->
 
-      <div class="knowledge-card">
+<div class="rev-card qa-card">
+  <p>
+    <b>Q1.</b><br>
+    Computers manipulate binary patterns. Patterns can represent signed or unsigned integers.<br><br>
 
-      </div>
+    (i) Convert the denary number 57 to 8-bit binary. (2)<br><br>
+    (ii) Convert the binary number 0010 1101 to hexadecimal. (2)<br><br>
+    (iii) Describe the process of converting a binary number to two's complement. (2)<br><br>
+    (iv) Explain what has happened as a result of adding these two 8-bit binary numbers. (2)<br><br>
 
+    (Total for question = 8 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b>
+    <ul>
+      <li><b>Convert</b> – show the correct final value</li>
+      <li><b>Describe</b> – explain the steps in order</li>
+      <li><b>Explain</b> – give a cause and an effect</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+
+    <ul>
+      <li><b>(i)</b> Award one mark for each correct nibble:
+        <ul>
+          <li>0011 (1)</li>
+          <li>1001 (1)</li>
+        </ul>
+      </li>
+
+      <li><b>(ii)</b> Award one mark for each digit in the correct location:
+        <ul>
+          <li>2D (2)</li>
+        </ul>
+      </li>
+
+      <li><b>(iii)</b> A linked description such as:
+        <ul>
+          <li>Flip all the bits (1) and add one (1)</li>
+          <li>Copy/keep all the 0s from the right/LSB up to and including the first 1,
+              then flip the remaining bits (2)</li>
+          <li>Flip all the bits from the left/MSB up to but not including the 1 nearest
+              the right/LSB (2)</li>
+        </ul>
+      </li>
+
+      <li><b>(iv)</b> A linked explanation such as:
+        <ul>
+          <li>There are not enough bits to store the result (1)</li>
+          <li>An overflow occurs (1) because the result is greater than 255 (1)</li>
+          <li>An overflow occurs because 1 + 1 = 0 with a carry (1)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      (i) 57 in 8-bit binary is 00111001.<br>
+      (ii) 0010 1101 in hexadecimal is 2D.<br>
+      (iii) To convert to two’s complement, all the bits are flipped and one is added.<br>
+      (iv) The result causes an overflow because there are not enough bits to store a value
+      greater than 255.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q2 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q2.</b><br>
+    Binary, denary and hexadecimal patterns represent numbers.<br><br>
+
+    (i) Convert the binary pattern 0100 0010 to denary. (1)<br><br>
+    (ii) Convert the binary pattern 0101 1011 to hexadecimal. (2)<br><br>
+
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: CONVERT</b>
+    <ul>
+      <li>Use place values for denary</li>
+      <li>Split binary into nibbles for hexadecimal</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li><b>(i)</b> 66 (1)</li>
+      <li><b>(ii)</b> Award one mark for each correct digit in order:
+        <ul>
+          <li>5B (2)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      (i) 0100 0010 in denary is 66.<br>
+      (ii) 0101 1011 in hexadecimal is 5B.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q3 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q3.</b><br>
+    Computers manipulate binary patterns.<br><br>
+
+    (i) Complete the table with the result of applying the shift to the binary pattern. (2)<br><br>
+
+    (ii) Identify the correct statement about overflow. (1)<br><br>
+
+    A Causing the program to crash during an arithmetic operation<br>
+    B Requiring more bits to store a result than are available to store it<br>
+    C Switching between binary and hexadecimal number systems<br>
+    D Using an index less than 0 or greater than the length of an array<br><br>
+
+    (iii) Convert the denary value +112 to 8-bit binary representation. (2)<br><br>
+
+    (iv) Give the 8-bit binary two's complement representation of denary −73. (2)<br><br>
+
+    (Total for question = 7 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b>
+    <ul>
+      <li><b>Complete</b> – fill in each cell correctly</li>
+      <li><b>Identify</b> – select the correct option</li>
+      <li><b>Convert</b> – show the correct final binary value</li>
+      <li><b>Give</b> – write the correct representation only</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+
+    <ul>
+      <li><b>(i)</b> Award one mark for each correct cell:
+        <ul>
+          <li>1010 0011 logical shift left by 3 → 0001 1000 (1)</li>
+          <li>1100 1010 arithmetic shift right by 2 → 1111 0010 (1)</li>
+        </ul>
+      </li>
+
+      <li><b>(ii)</b> The only correct answer is:
+        <ul>
+          <li>B (1)</li>
+        </ul>
+      </li>
+
+      <li><b>(iii)</b> Award one mark for each correct nibble:
+        <ul>
+          <li>0111 0000 (2)</li>
+        </ul>
+      </li>
+
+      <li><b>(iv)</b> Award one mark for each correct nibble:
+        <ul>
+          <li>1011 0111 (2)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      (i) Observing the shift rules produces the correct results.<br>
+      (ii) Overflow occurs when more bits are needed than are available.<br>
+      (iii) +112 in 8-bit binary is 01110000.<br>
+      (iv) −73 in two’s complement is 10110111.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q4 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q4.</b><br>
+    Data is stored using different units.<br><br>
+    (i) State how many bytes there are in a mebibyte (MiB). (1)<br><br>
+    (ii) Explain why file sizes are sometimes given using mebibytes instead of megabytes. (2)<br><br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: STATE / EXPLAIN</b>
+    <ul>
+      <li>State = give the exact value</li>
+      <li>Explain = reason + effect</li>
+    </ul>
+  </div>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li><b>(i)</b>
+        <ul>
+          <li>1 048 576 bytes (1)</li>
+          <li>Accept 1024 × 1024 (1)</li>
+        </ul>
+      </li>
+      <li><b>(ii)</b>
+        <ul>
+          <li>Mebibytes are based on powers of 2 (1)</li>
+          <li>Computers use binary rather than decimal (1)</li>
+          <li>Gives a more accurate representation of memory/storage size (1)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      (i) One mebibyte is 1,048,576 bytes.<br>
+      (ii) Mebibytes are based on powers of two, which matches how computers store data,
+      making storage sizes more accurate.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q5 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q5.</b><br>
+    Characters can be represented using ASCII.<br><br>
+    (i) State what ASCII is used for. (1)<br><br>
+    (ii) Give one reason why Unicode is now often used instead of ASCII. (2)<br><br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: STATE / GIVE</b>
+    <ul>
+      <li>State = one clear purpose</li>
+      <li>Give = reason + explanation</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li><b>(i)</b>
+        <ul>
+          <li>Represents characters using binary codes (1)</li>
+          <li>Stores text in computers (1)</li>
+        </ul>
+      </li>
+      <li><b>(ii)</b>
+        <ul>
+          <li>ASCII has a limited character set (1)</li>
+          <li>Unicode supports many more characters/languages (1)</li>
+          <li>Unicode supports non-English alphabets/symbols/emojis (1)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      (i) ASCII is used to represent characters in binary.<br>
+      (ii) Unicode is used instead because it supports a much wider range of characters
+      and languages than ASCII.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q6 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q6.</b><br>
+    Data compression is used when storing and transmitting data.<br><br>
+    (i) State one reason why data compression is used. (1)<br><br>
+    (ii) Explain one disadvantage of lossy compression. (2)<br><br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: STATE / EXPLAIN</b>
+    <ul>
+      <li>State = one benefit</li>
+      <li>Explain = disadvantage + consequence</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li><b>(i)</b>
+        <ul>
+          <li>Reduces file size (1)</li>
+          <li>Reduces storage requirements (1)</li>
+          <li>Reduces transmission time (1)</li>
+        </ul>
+      </li>
+      <li><b>(ii)</b>
+        <ul>
+          <li>Data is permanently lost (1)</li>
+          <li>Original file cannot be fully reconstructed (1)</li>
+          <li>Quality may be reduced (1)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      (i) Data compression is used to reduce file size.<br>
+      (ii) Lossy compression permanently removes some data, meaning the original file
+      cannot be fully restored and quality may be reduced.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q7 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q7.</b><br><br>
+    <b>Data</b><br><br>
+    Sound waves are converted to binary using sample intervals.<br><br>
+    Define the term 'sample interval'.<br>
+    (1)<br><br>
+    (Total for question = 1 mark)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DEFINE</b>
+    <ul>
+      <li>Give the exact meaning of the term</li>
+      <li>Do not describe sampling frequency</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>The time/number of seconds/gap between samples/measurements (1)</li>
+    </ul>
+    <b>Additional guidance:</b>
+    <ul>
+      <li>Do not accept answers defining sampling frequency</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      The sample interval is the time (gap) between each sample/measurement.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q8 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q8.</b><br><br>
+    Data can be encoded using ASCII.<br><br>
+    Describe ASCII.<br>
+    (2)<br><br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DESCRIBE</b>
+    <ul>
+      <li>Give 2 linked facts about what ASCII is/does</li>
+      <li>Use examples only if they support a point</li>
+    </ul>
+  </div>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers (two from):</b>
+    <ul>
+      <li>A standard</li>
+      <li>For representing text/characters</li>
+      <li>Allows data to be interchangeable between computers (from different manufacturers)</li>
+      <li>Each character is mapped to a unique number/binary equivalent</li>
+      <li>ASCII (encoding) uses 7/8 bits</li>
+      <li>There are 128 unique characters (allow 256 for 128)</li>
+    </ul>
+    <b>Additional guidance:</b>
+    <ul>
+      <li>Award a mark for an example of an ASCII character equivalence e.g. A = 65 as this can be awarded from mark point 4.</li>
+      <li>(A = 01000001 could similarly be awarded.)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      ASCII is a standard for representing text/characters where each character is mapped to a unique
+      number/binary equivalent.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q9 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q9.</b><br><br>
+    Shifts are performed on binary patterns.<br><br>
+    A <b>logical</b> shift right is performed on a pattern.<br><br>
+    An <b>arithmetic</b> shift right is performed on the same original pattern.<br><br>
+    Describe the reason the results will be different.<br>
+    (2)<br><br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DESCRIBE</b>
+    <ul>
+      <li>Explain what each shift fills from the left with</li>
+      <li>Link to the most-significant bit (MSB)</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>Award up to two marks for a linked description, such as:</li>
+      <li>
+        <ul>
+          <li>An arithmetic shift fills from the left with a copy of the most- significant bit (MSB) (1), whereas a logical shift fills from the left with a 0 (1)</li>
+          <li>An arithmetic shift keeps the most- significant bit (MSB) the same (1) whereas a logical shift always fills the MSB bit with a 0 (1)</li>
+        </ul>
+      </li>
+    </ul>
+    <b>Additional guidance:</b>
+    <ul>
+      <li>Both statements must be provided for two marks, as an arithmetic shift will fill with 0s, if the MSB is 0.</li>
+      <li>Read carefully responses that indicate what the character is.</li>
+      <li>Allow `sign bit’ for MSB</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      An arithmetic shift right fills from the left using a copy of the MSB (sign bit), but a logical
+      shift right fills from the left with 0s, so the results can differ.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q10 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q10.</b><br><br>
+    Lossless compression is used to reduce file sizes.<br><br>
+    Explain why lossless compression is used instead of lossy compression for text files.<br>
+    (3)<br><br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: EXPLAIN</b>
+    <ul>
+      <li>State why lossless is needed</li>
+      <li>Explain what would go wrong with lossy</li>
+      <li>Link to accuracy/meaning of text</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>No data is lost using lossless compression (1)</li>
+      <li>Text files must be restored exactly (1)</li>
+      <li>Lossy compression would remove characters/data (1)</li>
+      <li>Removing characters would change the meaning of the text (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Lossless compression is used for text files because no data is lost and the file can be
+      restored exactly. Using lossy compression could remove characters, which would change
+      the meaning of the text.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q11 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q11.</b><br><br>
+    Run-length encoding (RLE) is a type of lossless compression.<br><br>
+    Describe how run-length encoding compresses data.<br>
+    (3)<br><br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DESCRIBE</b>
+    <ul>
+      <li>Describe how repeated data is handled</li>
+      <li>Mention counts and values</li>
+      <li>Explain why file size is reduced</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>Repeated values are replaced by a single value (1)</li>
+      <li>The number of repetitions is stored (1)</li>
+      <li>Stores value and count instead of repeating data (1)</li>
+      <li>Reduces the amount of data stored (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Run-length encoding compresses data by replacing repeated values with a single value and
+      a count of how many times it appears, reducing the amount of data stored.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q12 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q12.</b><br><br>
+    A file contains 3 000 characters.<br>
+    Each character is stored using 8 bits.<br><br>
+    Calculate the size of the file in kilobytes (KB).<br>
+    (3)<br><br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: CALCULATE</b>
+    <ul>
+      <li>Convert characters to bits</li>
+      <li>Convert bits to bytes</li>
+      <li>Convert bytes to kilobytes</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>3 000 × 8 = 24 000 bits (1)</li>
+      <li>24 000 ÷ 8 = 3 000 bytes (1)</li>
+      <li>3 000 ÷ 1 000 = 3 KB (1)</li>
+      <li>Allow 2.93 KB if using 1024 (accept working shown)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      The file size is 3 KB.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q13 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q13.</b><br><br>
+    Digital images are made up of pixels.<br><br>
+    Define the term ‘resolution’.<br>
+    (1)<br><br>
+    (Total for question = 1 mark)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DEFINE</b>
+    <ul>
+      <li>Give the precise meaning</li>
+      <li>Do not describe file size or colour depth</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>The number of pixels in an image (1)</li>
+      <li>The number of pixels horizontally and vertically (1)</li>
+      <li>Pixels per unit area (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Resolution is the number of pixels in an image.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q14 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q14.</b><br><br>
+    Explain how increasing the resolution of an image affects the file size.<br>
+    (3)<br><br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: EXPLAIN</b>
+    <ul>
+      <li>Explain what changes</li>
+      <li>Explain why file size changes</li>
+      <li>Link cause to effect</li>
+    </ul>
+  </div>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>Higher resolution means more pixels (1)</li>
+      <li>Each pixel stores colour data (1)</li>
+      <li>More pixels require more data to be stored (1)</li>
+      <li>Therefore the file size increases (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Increasing resolution increases the number of pixels in the image.
+      Because each pixel stores data, more pixels mean more data is stored,
+      resulting in a larger file size.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q15 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q15.</b><br><br>
+    Images can be stored using different colour depths.<br><br>
+    Define the term ‘colour depth’.<br>
+    (2)<br><br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DEFINE</b>
+    <ul>
+      <li>Define clearly</li>
+      <li>Link to number of bits or colours</li>
+    </ul>
+  </div>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>The number of bits used to represent the colour of each pixel (1)</li>
+      <li>The number of colours that can be represented (1)</li>
+      <li>How many colours are available per pixel (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Colour depth is the number of bits used to represent the colour of each pixel.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q16 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q16.</b><br><br>
+    Explain how increasing colour depth affects the quality and file size of an image.<br>
+    (4)<br><br>
+    (Total for question = 4 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: EXPLAIN</b>
+    <ul>
+      <li>Explain impact on quality</li>
+      <li>Explain impact on file size</li>
+      <li>Link bits → colours → data size</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>More bits are used per pixel (1)</li>
+      <li>More colours can be represented (1)</li>
+      <li>Image quality improves / smoother gradients (1)</li>
+      <li>More data is stored per pixel (1)</li>
+      <li>File size increases (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Increasing colour depth means more bits are used per pixel, allowing more colours
+      to be represented and improving image quality. However, more data is stored for
+      each pixel, which increases the file size.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q17 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q17.</b><br><br>
+    Analogue sound waves are converted into digital data.<br><br>
+    Define the term ‘sampling rate’.<br>
+    (1)<br><br>
+    (Total for question = 1 mark)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DEFINE</b>
+    <ul>
+      <li>Give the precise meaning</li>
+      <li>Do not describe sample interval</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>The number of samples taken per second (1)</li>
+      <li>Measured in Hertz (Hz) (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Sampling rate is the number of samples taken per second.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q18 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q18.</b><br><br>
+    Explain how increasing the sampling rate affects the quality and file size of a sound file.<br>
+    (4)<br><br>
+    (Total for question = 4 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: EXPLAIN</b>
+    <ul>
+      <li>Explain impact on quality</li>
+      <li>Explain impact on file size</li>
+      <li>Link samples → data → size</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>More samples are taken per second (1)</li>
+      <li>Sound wave is represented more accurately (1)</li>
+      <li>Sound quality improves (1)</li>
+      <li>More data is stored (1)</li>
+      <li>File size increases (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Increasing the sampling rate means more samples are taken per second, which represents
+      the sound wave more accurately and improves sound quality. However, more data is stored,
+      so the file size increases.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q19 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q19.</b><br><br>
+    Sound files use bit depth when being stored digitally.<br><br>
+    Define the term ‘bit depth’.<br>
+    (2)<br><br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: DEFINE</b>
+    <ul>
+      <li>Link to number of bits</li>
+      <li>Link to amplitude/levels</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>The number of bits used to represent each sample (1)</li>
+      <li>The number of amplitude levels available (1)</li>
+      <li>Determines the resolution of each sample (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Bit depth is the number of bits used to represent each sound sample.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q20 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q20.</b><br><br>
+    Explain how increasing bit depth affects the quality and file size of a sound file.<br>
+    (4)<br><br>
+    (Total for question = 4 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: EXPLAIN</b>
+    <ul>
+      <li>Explain effect on amplitude accuracy</li>
+      <li>Explain effect on sound quality</li>
+      <li>Explain effect on file size</li>
+    </ul>
+  </div>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>More bits are used per sample (1)</li>
+      <li>More amplitude levels are available (1)</li>
+      <li>Sound wave is represented more accurately (1)</li>
+      <li>Sound quality improves (1)</li>
+      <li>More data is stored (1)</li>
+      <li>File size increases (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Increasing bit depth means more bits are used per sample, allowing more amplitude levels
+      and a more accurate representation of the sound wave, improving quality. However, more
+      data is stored, so the file size increases.
+    </p>
+  </div>
+</div>
     </div>
-  </section>
+  </div>
 
-  <!-- =========================
-       QUESTIONS & ANSWERS
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check your understanding</h2>
-    </div>
+</div>
 
-    <div class="vertical-knowledge">
 
-    </div>
-    </div>
-  </section>
 
 </main>
 
@@ -66,7 +1027,8 @@
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

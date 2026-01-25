@@ -18,11 +18,9 @@
    <p> Click <strong>Show answer</strong> to reveal model answers.
   </p>
 </header>
-
-
-
-
 <main>
+      <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
 <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
 
@@ -56,15 +54,11 @@
       role="tabpanel"
       aria-labelledby="tabbtn-revision">
         <!-- =========================
-       KNOWLEDGE SECTIONS (VERTICAL)
-       (unchanged, but you can tweak)
+       KNOWLEDGE SECTIONS
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Software & Operating Systems – Notes</h2>
-    </div>
-    <div class="vertical-knowledge">
+
+<h2>Software & Operating Systems – Notes</h2>
+
 <div class="knowledge-card">
 
               <img src="images/translators/translator-workflow-diagram.jpeg" width="70%"/>
@@ -767,10 +761,6 @@ DAT                 // Memory locations for data storage
 DAT
 DAT</code></pre>
 </div>
-
-
-      </div>
-  </section>
     </div>
 
     <div
@@ -781,12 +771,8 @@ DAT</code></pre>
       <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
+
       <h2>Types of programming languages</h2>
-    </div>
-      <div class="vertical-knowledge">
 
         <!-- =======================
      TOPIC A – Opcodes & Mnemonics
@@ -1231,18 +1217,12 @@ ONE     DAT 1</code></pre>
 
   </div>
 </div>
+      </div>
 
-    </div>
-  </section>
-
-  </div>
-</div>
-</div>
 
  <button id="printBtn" type="button">
   Print this worksheet
 </button>
-
 
 </main>
 
@@ -1250,7 +1230,8 @@ ONE     DAT 1</code></pre>
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

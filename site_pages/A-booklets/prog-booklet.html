@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -57,12 +58,8 @@
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
+
       <h2>Programming Technigues – Notes</h2>
-    </div>
-    <div class="vertical-knowledge">
 
        <!-- ================================================= -->
     <!-- PROGRAMMING CONSTRUCTS -->
@@ -1618,10 +1615,6 @@ myCar = Car()
   </tbody>
 </table>
       </div>
-
-      </div>
-  </section>
-
     </div>
 
     <div
@@ -1633,12 +1626,9 @@ myCar = Car()
      Exam-style question card
      ========================= -->
 
-<section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2> Notes</h2>
-    </div>
-    <div class="vertical-knowledge">
+
+      <h2> Knowledge Check</h2>
+
 
   <div class="rev-card qa-card">
     <h3>1(i). Question</h3>
@@ -2736,14 +2726,8 @@ endfunction
     </ul>
   </div>
 </div>
-    </div>
-  </div>
-
 </div>
 
-
-    </div>
-</section>
 
         <button id="printBtn" type="button">
   Print this worksheet
@@ -2756,7 +2740,8 @@ endfunction
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

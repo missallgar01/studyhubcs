@@ -20,6 +20,8 @@
 </header>
 
 <main>
+<button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
 <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
 
@@ -31,8 +33,7 @@
       role="tab"
       aria-controls="tab-revision"
       aria-selected="true"
-      tabindex="0"
-    >
+      tabindex="0">
       Revision Notes
     </button>
 
@@ -42,8 +43,7 @@
       role="tab"
       aria-controls="tab-KC"
       aria-selected="false"
-      tabindex="-1"
-    >
+      tabindex="-1">
       Knowledge Check
     </button>
   </div>
@@ -58,13 +58,7 @@
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Big O – Notes</h2>
-    </div>
-    <div class="topic-body vertical-knowledge">
-
+<h2>Big O – Notes</h2>
 
 <div class="knowledge-card">
   <h3>Big O Notation</h3>
@@ -194,13 +188,12 @@ FOR x = 1 TO N
   NEXT y
 NEXT x
           </pre>
-        </td கொள்ள
+        </td>
         <td>
           Nested loops.<br>
           Bubble sort.
         </td>
       </tr>
-
       <tr>
         <td><code>O(2ⁿ)</code></td>
         <td>
@@ -387,10 +380,7 @@ ENDFUNCTION
     to polynomial algorithms.
   </p>
 </div>
-
-      </div>
-  </section>
-    </div>
+</div>
 
     <div
       id="tab-KC"
@@ -400,12 +390,9 @@ ENDFUNCTION
       <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
+
       <h2>Check Your Understanding – Questions</h2>
-    </div>
-      <div class="vertical-knowledge">
+
 
         <!-- =======================
              TOPIC A – Question and answer
@@ -587,18 +574,12 @@ ENDFUNCTION
   </div>
 </div>
 
-    </div>
-  </section>
-    </div>
-  </div>
-
 </div>
 
 
         <button id="printBtn" type="button">
   Print this worksheet
 </button>
-
 
 </main>
 
@@ -608,7 +589,8 @@ ENDFUNCTION
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

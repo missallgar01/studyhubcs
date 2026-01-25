@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -54,16 +55,12 @@
       role="tabpanel"
       aria-labelledby="tabbtn-revision">
       <!-- =========================
-       KNOWLEDGE SECTIONS (VERTICAL)
-       (unchanged, but you can tweak)
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Software & Operating Systems – Notes</h2>
-    </div>
+       KNOWLEDGE SECTIONS
 
-    <div class="vertical-knowledge">
+       ========================= -->
+
+      <h2>Software & Operating Systems – Notes</h2>
+
 
       <div class="knowledge-card">
         <h3>System Software vs Application Software</h3>
@@ -769,9 +766,8 @@
     </li>
   </ul>
 </div>
-    </div>
-  </section>
-    </div>
+ </div>
+
 
     <div
       id="tab-KC"
@@ -781,13 +777,7 @@
      <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
       <h2>Check Your Understanding – Questions</h2>
-    </div>
-
-      <div class="vertical-knowledge">
 
         <!-- =======================
              TOPIC A – SOFTWARE TYPES & APPLICATIONS
@@ -1424,27 +1414,19 @@
             </ul>
           </div>
         </div>
-
-        <!-- =======================
-             END
-             ======================= -->
-
       </div>
-    </div>
-  </section>
-    </div>
-  </div>
 
-</div>
 
     <button id="printBtn" type="button">
   Print this worksheet
 </button>
+
 </main>
 
 <footer>
   &copy; 2025 StudyHubCS
 </footer>
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 </body>
 </html>

@@ -18,12 +18,10 @@
 <p>Click <strong>Show answer</strong> to reveal model answers.</p>
 </header>
 <main>
-<section class="topic-section expanded">
 
-<div class="topic-header">
-<span class="topic-arrow">▸</span>
+<button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
 <h2>Data Structures – Quick Tabs</h2>
-</div>
 
 <div class="topic-body">
 <div class="ds-tabs" data-tabs="">
@@ -58,8 +56,8 @@
 
 <!----------------------------------------------------Arrays ------------------------------------------------->
     <div aria-labelledby="tabbtn-arrays" class="ds-panel" id="tab-arrays" role="tabpanel">
-<h3 class="ds-panel-title">Arrays, Lists and Tuples</h3>
-<div class="vertical-knowledge">
+<h3>Arrays, Lists and Tuples</h3>
+
 <div class="knowledge-card">
 <h3>Static vs Dynamic Data Structures</h3>
 <table>
@@ -110,6 +108,7 @@
 <h4>Example Representation:</h4>
 <p>Array Elements: <code>[12, 43, 5, 10, 69]</code><br/> Array Indexes: <code>[0, 1, 2, 3, 4]</code></p>
 </div>
+
 <div class="knowledge-card">
 <h3>Array vs List vs Tuple</h3>
 <table class="table-wrap">
@@ -197,6 +196,7 @@ colour = (255, 0, 0)
 </tbody>
 </table>
 </div>
+
 <div class="knowledge-card">
 <h3>Exam Style Question – 2D Arrays (Column Means)</h3>
 <p>A two-dimensional (2D) array, <code>data</code>, holds numeric data that Karl has entered. The declaration for the array is:</p>
@@ -228,6 +228,7 @@ next y</code></pre>
     total = total + data[x][y]
   print(total / 16)</code></pre>
 </div>
+
 <div class="knowledge-card">
 <h3>Exam Style Question – Declaring a 2D Array</h3>
 <p>A card game uses a set of 52 standard playing cards. There are four suits: hearts, diamonds, clubs, and spades. Each suit has a card with a number from 1 to 13.</p>
@@ -333,18 +334,15 @@ array towns[8][3] as string</pre>
       <p>A tuple is immutable (cannot be changed at runtime); a list is mutable.</p>
     </div>
   </div>
+    </div>
 
-
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
-</div>
-</div>
 
 
     <!----------------------------------------------------Records ------------------------------------------------->
  <div aria-labelledby="tabbtn-records" class="ds-panel" id="tab-records" role="tabpanel">
-<h3 class="ds-panel-title">Records</h3>
+<h3>Records</h3>
 <p><strong>Records:</strong> Store related fields (possibly different data types) under one structure.</p>
-<div class="vertical-knowledge">
+
 <div class="knowledge-card">
 <h3>Records and Arrays of Records</h3>
 <h4>Record</h4>
@@ -476,8 +474,6 @@ Players(3).name = "Jane"</code></pre>
     <pre><code>record player(string playerName, integer totalScore)</code></pre>
 
 
-
-
 <div class="rev-card qa-card">
 <p>Question</p>
 <p>(a) Describe what is meant by a record structure.</p>
@@ -507,18 +503,13 @@ Players(3).name = "Jane"</code></pre>
 <p>Queue (other acceptable answers include list, tuple, tree, graph, or linked list).</p>
 </div>
 </div>
-
-    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
-
-</div>
  </div>
 
 <!--------------------------------------------------Linked Lists ------------------------------------------------->
 
 <div aria-labelledby="tabbtn-linked-lists" class="ds-panel" id="tab-linked-lists" role="tabpanel">
-<h3 class="ds-panel-title">Linked Lists</h3>
+<h3>Linked Lists</h3>
 <p><strong>Linked Lists:</strong> Nodes connected by pointers; dynamic size but slower access.</p>
-<div class="vertical-knowledge">
 <div class="knowledge-card">
 <ul>
 <li>A linked list is a <strong>dynamic data structure</strong> – it can grow and shrink during runtime.</li>
@@ -722,6 +713,7 @@ endprocedure</code></pre>
   return found
 endfunction</code></pre>
 </div>
+
 <!-- ================= LINKED LIST – INSERT AT END ================= -->
 <div class="rev-card qa-card">
 <p><strong>1.</strong>A programmer is developing an ordering system for a fast food restaurant. When a member of staff inputs an order, it is added to a linked list for completion by the chefs.</p>
@@ -993,18 +985,15 @@ while currentElement != null    // loop until end of list
 endwhile</code></pre>
 </div>
 </div>
-
-    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
-</div>
 </div>
 
 
     <!----------------------------------------------------Stacks ------------------------------------------------->
 
 <div aria-labelledby="tabbtn-stacks" class="ds-panel" id="tab-stacks" role="tabpanel">
-    <h3 class="ds-panel-title">Stacks</h3>
+    <h3>Stacks</h3>
 <p><strong>Stacks:</strong> LIFO (Last In, First Out).</p>
-<div class="vertical-knowledge">
+
 <div class="knowledge-card">
 <h3>Stacks &amp; Queues</h3>
 <h4>General Characteristics</h4>
@@ -1076,6 +1065,7 @@ endwhile</code></pre>
 </tbody>
 </table>
 </div>
+
 <div class="knowledge-card">
 <h3>Stack Pointer, Push &amp; Pop Algorithms</h3>
 <h4>Stack Pointer</h4>
@@ -1160,6 +1150,7 @@ end if</code></pre>
   next x
 endprocedure</code></pre>
 </div>
+
 <div class="knowledge-card">
 <h3>Linear Stack Implementation</h3>
 <table>
@@ -1317,6 +1308,7 @@ print("popped item: " + s.pop())
 <li><strong>OOP approach</strong> improves encapsulation, readability, and reusability.</li>
 </ul>
 </div>
+
 <div class="rev-card qa-card">
 <p><strong>1.</strong><br/><br/> A computer program stores data input on a stack named <strong>dataItems</strong>. The stack has two sub-programs to add and remove data items from the stack. The stack is implemented as a 1D array, <strong>dataArray</strong>.</p>
 <p>The current contents of <strong>dataItems</strong> are shown below:</p>
@@ -1610,17 +1602,14 @@ else
 endif</code></pre>
 </div>
 </div>
-    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
-
 </div>
-</div>
-
     <!----------------------------------------------------Queues------------------------------------------------->
 
 <div aria-labelledby="tabbtn-queues" class="ds-panel" id="tab-queues" role="tabpanel">
-<h3 class="ds-panel-title">Queues</h3>
-<div class="vertical-knowledge">
+<h3>Queues</h3>
+
 <p><strong>Queues:</strong> FIFO (First In, First Out).</p>
+
 <div class="knowledge-card">
 <h3>Queues</h3>
 <h4>General Characteristics</h4>
@@ -2350,15 +2339,11 @@ queue[rear] = item</code></pre>
 <p>Higher-priority jobs cannot be processed before earlier jobs, making a standard queue unsuitable.</p>
 </div>
 </div>
-    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
-
-</div>
 </div>
 <!----------------------------------------------------Binary Trees ------------------------------------------------->
 <div aria-labelledby="tabbtn-binary-trees" class="ds-panel" id="tab-binary-trees" role="tabpanel">
-    <h3 class="ds-panel-title">Binary Trees</h3>
+    <h3>Binary Trees</h3>
 <p><strong>Binary Trees:</strong> Hierarchical structures where each node has up to two children.</p>
-<div class="vertical-knowledge">
 <!-- TREE OVERVIEW -->
 <div class="knowledge-card">
 <h3>Tree</h3>
@@ -2369,7 +2354,7 @@ queue[rear] = item</code></pre>
 <img src="images/datastructures/tree.png" width="70%"/></div>
 <figcaption>Basic tree terminology</figcaption>
 </figure>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Term</th>
@@ -2395,7 +2380,7 @@ queue[rear] = item</code></pre>
 <img height="196" src="images/datastructures/binarytree.png" width="207"/>
 <figcaption>Ordered structure of a BST</figcaption>
 </figure>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Property</th>
@@ -2424,7 +2409,7 @@ queue[rear] = item</code></pre>
 <img height="504" src="images/datastructures/nodediagram.png" width="617"/></div>
 <figcaption>Linked-node representation of a binary tree</figcaption>
 </figure>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Component</th>
@@ -2471,7 +2456,7 @@ end class</code></pre>
 </div>
 <figcaption>Array-based representation of a binary tree</figcaption>
 </figure>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Index</th>
@@ -2495,7 +2480,7 @@ tree[3] = [70, null, null]</code></pre>
 <!-- COMPARISON -->
 <div class="knowledge-card">
 <h3>Comparison of Implementations</h3>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Feature</th>
@@ -2527,7 +2512,7 @@ tree[3] = [70, null, null]</code></pre>
 <h3>Algorithm: Insert into a Binary Search Tree</h3>
 <img height="105" src="images/datastructures/binarytree2.png" width="439"/>
 <img height="126" src="images/datastructures/binarytree3.png" width="373"/>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Step</th>
@@ -2573,7 +2558,7 @@ End procedure</code></pre>
 <div class="knowledge-card">
 <h3>Algorithm: Delete a Node from a Binary Search Tree (BST)</h3>
 <p>Deleting a node from a BST depends on how many children the node has. The tree must remain ordered after deletion.</p>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Case</th>
@@ -2677,7 +2662,7 @@ End procedure</code></pre>
 <div class="diagram-box">
 <img height="196" src="images/datastructures/traversals.png" width="207"/></div>
 </figure>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Traversal</th>
@@ -2692,8 +2677,8 @@ End procedure</code></pre>
 <tr><td>Breadth-first</td><td>Level by level</td><td>Shortest path</td></tr>
 </tbody>
 </table>
+</div>
 <!-- PRE-ORDER -->
-    <div class="vertical-knowledge">
 <div class="knowledge-card">
 <h3>Algorithm: Pre-order Traversal</h3>
 <pre><code>
@@ -2752,8 +2737,7 @@ Procedure breadth_first(root)
   end while
 End procedure</code></pre>
 </div>
-</div>
-    </div>
+
 <!-- Question 1 -->
     <h3>Exam Style Questions</h3>
 <div class="rev-card qa-card">
@@ -2920,17 +2904,14 @@ End procedure</code></pre>
 </div>
 </div>
 
-    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
-
 </div>
-    </div>
+
 
     <!----------------------------------------------------Graphs ------------------------------------------------->
 
 
-    <div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
-<h3 class="ds-panel-title">Graphs</h3>
-<div class="vertical-knowledge">
+ <div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
+<h3 >Graphs</h3>
 <p><strong>Graphs:</strong> Vertices connected by edges (directed or undirected).</p>
 <!-- GRAPH OVERVIEW -->
 <div class="knowledge-card">
@@ -2941,7 +2922,7 @@ End procedure</code></pre>
 <img height="143" src="images/datastructures/graph.png" width="331"/></div>
 <figcaption>Basic graph structure</figcaption>
 </figure>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Type</th>
@@ -2963,7 +2944,7 @@ End procedure</code></pre>
 </div>
 <figcaption>Two ways to store a graph</figcaption>
 </figure>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Representation</th>
@@ -2991,7 +2972,7 @@ Graph = {
   E: [B, F],
   F: [C, E]
 }</code></pre>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Node</th>
@@ -3012,7 +2993,7 @@ Graph = {
 <div class="knowledge-card">
 <h3>Adjacency Matrix</h3>
 <p>Rows and columns represent nodes. A value of <strong>1</strong> means an edge exists, <strong>0</strong> means no edge.</p>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th></th>
@@ -3056,7 +3037,7 @@ Graph = {
 <!-- BFS vs DFS -->
 <div class="knowledge-card">
 <h3>BFS vs DFS</h3>
-<table class="knowledge-table">
+<table >
 <img height="158" src="images/datastructures/dfsgraph.png" width="175"/>
 <img height="180" src="images/datastructures/dfsdiagram.png" width="149"/>.
 
@@ -3124,7 +3105,7 @@ End procedure</code></pre>
 <div class="knowledge-card">
 <h3>Breadth-First Search (BFS) – Queue Table</h3>
 <p>BFS explores the graph level by level using a <strong>queue</strong>.</p>
-<table class="knowledge-table">
+<table >
 <thead>
 <tr>
 <th>Step</th>
@@ -3147,7 +3128,7 @@ End procedure</code></pre>
 <div class="knowledge-card">
 <h3>Depth-First Search (DFS) – Stack Table</h3>
 <p>DFS explores as far as possible down one branch before backtracking, using a <strong>stack</strong>.</p>
-<table class="knowledge-table">
+<table>
 <thead>
 <tr>
 <th>Step</th>
@@ -3169,7 +3150,7 @@ End procedure</code></pre>
 <!-- SUMMARY -->
 <div class="knowledge-card">
 <h3>BFS vs DFS (Graph Traversal Summary)</h3>
-<table class="knowledge-table">
+<table>
 <thead>
 <tr>
 <th>Feature</th>
@@ -3228,7 +3209,7 @@ End procedure</code></pre>
 <div class="answer">
 <p><strong>Mark scheme answer (any one):</strong></p>
 <ul>
-                '      <li>Symbols are used to represent the address</li>
+ <li>Symbols are used to represent the address</li>
 <li>The edges represent possible connections between addresses, not the actual physical routes</li>
 </ul>
 </div>
@@ -3275,15 +3256,14 @@ endprocedure </code></pre>
 <p><strong>(a)</strong><br/> Breadth-first search explores the graph level by level.<br/> In an unweighted graph, the first time a node is reached is via the shortest path.<br/> Therefore BFS guarantees the shortest path between two nodes. <br/><br/> <strong>(b)</strong><br/> getNeighbours()<br/> enqueue(q, neighbour) <br/><br/> <strong>(c)</strong><br/> Encapsulation means each Node object manages its own data and connections.<br/> This makes the code easier to maintain, reuse, and extend.</p>
 </div>
 </div>
-    <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
-
-</div>
-    </div>
+ </div>
         <!----------------------------------------------------Hash Tables ------------------------------------------------->
 
-    <div aria-labelledby="tabbtn-hash-tables" class="ds-panel" id="tab-hash-tables" role="tabpanel">
-<h3 class="ds-panel-title">Hash Tables</h3><p><strong>Hash Tables:</strong> Key–value pairs using hash functions for fast lookup.</p>
-<div class="vertical-knowledge">
+     <div aria-labelledby="tabbtn-hash-tables" class="ds-panel" id="tab-hash-tables" role="tabpanel">
+
+<h3>Hash Tables</h3>
+        <p><strong>Hash Tables:</strong> Key–value pairs using hash functions for fast lookup.</p>
+
 
   <div class="knowledge-card">
     <h3>Hashing</h3>
@@ -3534,7 +3514,6 @@ length = len(my_dict)
         </tr>
       </tbody>
     </table>
-
   </div>
 
 
@@ -3550,9 +3529,7 @@ length = len(my_dict)
         while a BST requires comparisons down the tree (typically logarithmic).
       </p>
     </div>
-
-
-
+      </div>
 
   <div class="rev-card qa-card">
     <p>
@@ -3888,21 +3865,16 @@ endif
     </code></pre>
   </div>
 </div>
-
-
-<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
-     </div>
 </div>
-
-    </div>
-</section>
-
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
 </main>
 
 <footer>
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
 </body>
 </html>

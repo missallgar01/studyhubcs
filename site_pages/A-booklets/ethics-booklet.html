@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -32,8 +33,7 @@
       role="tab"
       aria-controls="tab-revision"
       aria-selected="true"
-      tabindex="0"
-    >
+      tabindex="0">
       Revision Notes
     </button>
 
@@ -43,8 +43,7 @@
       role="tab"
       aria-controls="tab-KC"
       aria-selected="false"
-      tabindex="-1"
-    >
+      tabindex="-1">
       Knowledge Check
     </button>
   </div>
@@ -59,17 +58,8 @@
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
-  <!-- ===================================================== -->
-<!-- 1.5.1 COMPUTING RELATED LEGISLATION -->
-<!-- ===================================================== -->
 
-<section class="topic-section expanded">
-  <div class="topic-header">
-    <span class="topic-arrow">&#9656;</span>
-    <h2>1.5.1 Computing Related Legislation</h2>
-  </div>
-
-  <div class="vertical-knowledge">
+    <h2>Computing Related Legislation</h2>
 
     <div class="knowledge-card">
       <h3>The Data Protection Act (1998) / GDPR</h3>
@@ -353,8 +343,7 @@
   </ul>
 </div>
   </div>
-</section>
-    </div>
+
 
     <div
       id="tab-KC"
@@ -362,17 +351,11 @@
       aria-labelledby="tabbtn-KC"
       hidden>
 
-
-
   <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
+
       <h2>Check Your Understanding – Questions</h2>
-    </div>
-      <div class="vertical-knowledge">
 
         <!-- =======================
              TOPIC A – Question and answer
@@ -764,12 +747,6 @@
     </ul>
   </div>
 </div>
-
-      </div>
-    </div>
-  </section>
-    </div>
-  </div>
 </div>
 
 
@@ -782,7 +759,8 @@
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

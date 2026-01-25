@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
 <div class="booklet panels" data-tabs>
 
@@ -53,15 +54,9 @@
       role="tabpanel"
       aria-labelledby="tabbtn-revision">
       <!-- =========================
-       KNOWLEDGE SECTIONS (VERTICAL)
-       (unchanged, but you can tweak)
+       KNOWLEDGE SECTIONS
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
       <h2>Software & Operating Systems – Notes</h2>
-    </div>
-    <div class="vertical-knowledge">
 
        <div class="knowledge-card">
       <h3>HTML — Structure of Web Pages</h3>
@@ -273,9 +268,7 @@ PR(C) = (1 − 0.85) + 0.85 × (PR(B)/2 + PR(D)/3)
         <li>Server-side → security, large processing tasks</li>
       </ul>
     </div>
-      </div>
-  </section>
-    </div>
+</div>
 
     <div
       id="tab-KC"
@@ -285,13 +278,8 @@ PR(C) = (1 − 0.85) + 0.85 × (PR(B)/2 + PR(D)/3)
       <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
+
       <h2>Check Your Understanding – Questions</h2>
-    </div>
-    <div class="topic-body">
-      <div class="vertical-knowledge">
 
 <div class="rev-card qa-card">
   <h3>1(a). Question</h3>
@@ -643,14 +631,6 @@ PR(C) = (1 − 0.85) + 0.85 × (PR(B)/2 + PR(D)/3)
 }</code></pre>
     </div>
   </div>
-
-
-      </div>
-    </div>
-  </section>
-    </div>
-  </div>
-
 </div>
 
 
@@ -666,7 +646,8 @@ PR(C) = (1 − 0.85) + 0.85 × (PR(B)/2 + PR(D)/3)
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

@@ -12,7 +12,7 @@
     <a href="../G-booklets.html">← Back</a>
   </div>
 <header>
-  <h1>Topic 3 Programming Languages– Revision/h1>
+  <h1>Topic 3 Programming Languages– Revision</h1>
   <h2>Read • Write • Check • Amend</h2>
   <p class="subtitle">
     Read the notes, write your own answers, then reveal the model answers to check and improve.
@@ -20,41 +20,391 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
-  <!-- =========================
-       NOTES / RECAP (VERTICAL)
-       ========================= -->
-    <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check your understanding</h2>
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+      <!-- REVISION CONTENT HERE -->
     </div>
 
-    <div class="vertical-knowledge">
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <!-- KNOWLEDGE CHECK CONTENT HERE -->
 
-      <div class="knowledge-card">
 
-      </div>
+        <div class="rev-card qa-card">
+  <p>
+    <b>Q4.</b> Some low-level programming languages use mnemonics.<br>
+    (i) State the purpose of a mnemonic. (1)<br>
+    (ii) State the type of low-level programming language that uses mnemonics. (1)<br>
+    (iii) Describe one other characteristic of a low-level language. (2)<br>
+    (iv) State the name of the high-level programming language translator that executes a line of code immediately after translating it. (1)<br>
+    (Total for question = 5 marks)
+  </p>
 
+  <div class="how-to-answer">
+    <b>How to answer (STATE / DESCRIBE):</b>
+    <ul>
+      <li>State = short fact</li>
+      <li>Describe = characteristic + explanation</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>Mnemonic purpose:
+        <ul>
+          <li>Represents an instruction (1)</li>
+          <li>Makes instructions easier to read/write/remember (1)</li>
+        </ul>
+      </li>
+      <li>Language: Assembly language (1)</li>
+      <li>Other characteristics:
+        <ul>
+          <li>Processor specific (1) → direct hardware manipulation (1)</li>
+          <li>Highly optimised (1) → efficient execution or minimal memory (1)</li>
+          <li>One instruction per line (1) (1)</li>
+          <li>Machine code written in binary → no translation needed</li>
+        </ul>
+      </li>
+      <li>Translator: Interpreter (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      A mnemonic represents a machine instruction in a readable form.
+      Assembly language uses mnemonics.
+      Low-level languages are processor specific, meaning they can directly control hardware.
+      An interpreter translates and executes code line by line.
+    </p>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <p>
+    <b>Q7.</b><br>
+    A code review is carried out by a programmer or an automated system.<br>
+    Both methods cost money.<br>
+    Complete the table with one other disadvantage for each method.<br>
+    (2)<br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> COMPLETE<br>
+    <ul>
+      <li>One disadvantage per method</li>
+      <li>Must be different points</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li><b>By a programmer:</b>
+        <ul>
+          <li>Adds additional/significant time to development cycle (1)</li>
+          <li>Introduces human error (1)</li>
+          <li>Requires extra person/resource/labour (1)</li>
+          <li>Requires more experienced programmer (1)</li>
+        </ul>
+      </li>
+      <li><b>By an automated system:</b>
+        <ul>
+          <li>May not identify all issues it is not programmed to find (1)</li>
+          <li>May only find well-known problems (1)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      A programmer-led review takes extra development time.
+      An automated system may miss issues it is not programmed to detect.
+    </p>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <p>
+    <b>Q10. Computers</b><br>
+    Programmers write code.<br>
+    (i) Describe how an interpreter translates high-level code. (2)<br>
+    (ii) Assembly language is a low-level programming language. Give two characteristics of assembly language. (2)<br>
+    (iii) Name the method that records code changes, who made them and when. (1)<br>
+    (Total for question = 5 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> DESCRIBE / GIVE / NAME<br>
+    <ul>
+      <li>Describe = process</li>
+      <li>Give = list characteristics</li>
+      <li>Name = single term</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li><b>(i) Interpreter:</b>
+        <ul>
+          <li>Reads/translates one line at a time (1)</li>
+          <li>Executes immediately after translation (1)</li>
+          <li>Errors reported as soon as found (1)</li>
+          <li>Stops when an error is found (1)</li>
+        </ul>
+      </li>
+      <li><b>(ii) Assembly language characteristics:</b>
+        <ul>
+          <li>Uses mnemonics (1)</li>
+          <li>Hardware/chip/architecture specific (1)</li>
+          <li>Manipulates memory/registers directly (1)</li>
+          <li>One instruction maps to one CPU operation (1)</li>
+        </ul>
+      </li>
+      <li><b>(iii)</b> Audit trail / log (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      An interpreter translates and executes code one line at a time, stopping when an error is found.
+      Assembly language uses mnemonics and is hardware-specific.
+      The method used to record changes is an audit trail.
+    </p>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>
+    <b>Q14. Computers</b><br>
+    A company is developing a new smartphone.<br>
+    The smartphone has built-in devices, including a camera and a sound recorder.<br>
+    The smartphone has applications, including one to edit pictures, one to translate speech to a
+    text file and one for email.<br>
+    Discuss the characteristics of high-level and low-level programming languages that make them
+    suitable for developing software for the smartphone.<br>
+    You should consider:<br>
+    • the built-in devices<br>
+    • the applications.<br>
+    (6)<br>
+    (Total for question = 6 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> DISCUSS
+    <ul>
+      <li>Cover both high-level and low-level languages</li>
+      <li>Link characteristics to devices and applications</li>
+      <li>Explain advantages and suitability</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable points (indicative content):</b>
+    <ul>
+      <li><b>Built-in devices:</b>
+        <ul>
+          <li>Low-level languages may be used for built-in devices</li>
+          <li>Low-level languages are microprocessor dependent</li>
+          <li>Designed to work efficiently with a single chipset</li>
+          <li>Can manipulate hardware directly</li>
+          <li>Suitable for device drivers (camera, sound recorder)</li>
+          <li>Can be highly optimised for speed</li>
+          <li>Generate smaller executables</li>
+          <li>Suitable for limited RAM</li>
+          <li>High-level languages may be used if a compiler exists for the chipset</li>
+          <li>High-level languages may provide libraries for device access</li>
+        </ul>
+      </li>
+      <li><b>Applications:</b>
+        <ul>
+          <li>High-level languages are suitable for applications</li>
+          <li>Applications written in high-level languages are portable</li>
+          <li>Development is quicker using high-level languages</li>
+          <li>Libraries exist for advanced tasks (image editing, speech-to-text)</li>
+          <li>Libraries allow applications to interface with devices</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Low-level languages are suitable for built-in devices because they are processor-specific and
+      can directly control hardware, allowing fast and efficient device drivers.
+      High-level languages are suitable for applications because they are easier and faster to develop,
+      portable, and provide libraries for tasks such as image editing, speech recognition and email.
+    </p>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <p>
+    <b>Q23. Computers</b><br>
+    A compiler translates source code to machine code. If the source code is edited, it must be
+    recompiled.<br>
+    Give two other characteristics of a compiler.<br>
+    (2)<br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> GIVE
+    <ul>
+      <li>State two characteristics</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers (any two):</b>
+    <ul>
+      <li>Translates the whole program in one go (1)</li>
+      <li>Errors reported at the end of translation (1)</li>
+      <li>Executable/machine code is architecture specific (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      A compiler translates the whole program at once and reports errors after translation.
+    </p>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <p>
+    <b>Q25.</b><br>
+    Robust software must be free from vulnerabilities before it is released to users.
+    Programming bugs are one type of vulnerability.<br>
+    State two other types of vulnerability.<br>
+    (2)<br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> STATE
+    <ul>
+      <li>Name two different vulnerabilities</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers (any two):</b>
+    <ul>
+      <li>Programming language specific vulnerabilities</li>
+      <li>Security vulnerabilities</li>
+      <li>Weak design</li>
+      <li>Insufficient testing</li>
+      <li>Bad programming practices</li>
+      <li>Inadequate validation</li>
+      <li>Inadequate authentication</li>
+      <li>Sensitive data not encrypted</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Inadequate validation and weak authentication.
+    </p>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>
+    <b>Q26.</b><br>
+    Algorithms can be written in a high-level language.<br>
+    (i) State what high-level code is translated to. (1)<br>
+    (ii) State two methods of source code translation. (2)<br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> STATE
+    <ul>
+      <li>Short factual answers only</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>(i) Machine code / Binary / Object code / Executable (1)</li>
+      <li>(ii) Compile / Compilation (1)</li>
+      <li>Interpret / Interpretation (1)</li>
+      <li>Assemble (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      High-level code is translated into machine code.
+      Translation methods include compilation and interpretation.
+    </p>
+  </div>
+</div>
     </div>
-  </section>
+  </div>
 
-  <!-- =========================
-       QUESTIONS & ANSWERS
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
-    </div>
-
-    <div class="topic-body">
-      <div class="vertical-qa">
-
-
-    </div>
-    </div>
-  </section>
+</div>
 
 </main>
 
@@ -68,7 +418,8 @@
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

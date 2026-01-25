@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -59,12 +60,9 @@
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
+
       <h2>Networks – Notes</h2>
-    </div>
-    <div class="vertical-knowledge">
+
 
       <div class="knowledge-card">
 <table>
@@ -937,12 +935,9 @@ It is divided into four layers:</p>
     </tr>
   </tbody>
 </table>
+</div>
+</div>
 
-        </div>
-
-      </div>
-  </section>
-    </div>
 
     <div
       id="tab-KC"
@@ -952,18 +947,12 @@ It is divided into four layers:</p>
       <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
-    </div>
 
-      <div class="vertical-knowledge">
+      <h2>Check Your Understanding – Questions</h2>
 
         <!-- =======================
              TOPIC A – Question and answer
              ======================= -->
-
   <!-- 1(a) -->
   <div class="rev-card qa-card">
     <h3>1(a)</h3>
@@ -1642,30 +1631,21 @@ STAGE 7: QUESTION 7 (DNS)
         <li><strong>Evaluation:</strong> networking improves effectiveness but must be justified against cost and strict security needs.</li>
       </ul>
     </div>
-
-
-
-      </div>
-    </div>
-  </section>
-    </div>
-  </div>
-
 </div>
-
-
+</div>
 
     <button id="printBtn" type="button">
   Print this worksheet
 </button>
+
 </main>
 
 <footer>
   &copy; 2025 StudyHubCS
 </footer>
 
-
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

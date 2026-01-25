@@ -20,6 +20,7 @@
   </p>
 </header>
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -169,8 +170,7 @@
 </tbody>
 </table>
 </div>
-
-    </div>
+</div>
 
     <div
       id="tab-2"
@@ -462,8 +462,7 @@
     <p>(Any two)</p>
   </div>
 </div>
-
-    </div>
+</div>
 
       <div
       id="tab-3"
@@ -690,14 +689,15 @@
     </ul>
   </div>
 </div>
-    </div>
+</div>
 
       <div
       id="tab-4"
       role="tabpanel"
       aria-labelledby="tabbtn-4"
       hidden>
-      <div class="knowledge-card">
+
+<div class="knowledge-card">
 
 <h4>Features of Von Neumann and Contemporary Processors</h4>
 <table>
@@ -785,6 +785,7 @@
 </tbody>
 </table>
 </div>
+
 <div class="knowledge-card">
 <p>
 <strong>Exam note:</strong><br/>
@@ -792,6 +793,7 @@
     “instructions and data are stored in the same memory location”.
   </p>
 </div>
+
 <div class="knowledge-card">
 
 <h4>Examiner Tips and Tricks</h4>
@@ -843,6 +845,7 @@
     for higher performance.
   </p>
 </div>
+
 <div class="knowledge-card">
 <h4>Contemporary Processors – CISC vs RISC</h4>
 
@@ -1130,7 +1133,7 @@ STORE X, A
     </ul>
   </div>
 </div>
-    </div>
+</div>
 
       <div
       id="tab-5"
@@ -1177,6 +1180,7 @@ STORE X, A
     Processors also include other performance enhancements such as pipelining.
   </p>
 </div>
+
 <div class="knowledge-card">
 <h4>Pipelining</h4>
 
@@ -1209,6 +1213,7 @@ STORE X, A
     </li>
 </ul>
 </div>
+
 <div class="knowledge-card">
 <h4>
     The performance of a computer system can be improved by adding more RAM
@@ -1239,6 +1244,7 @@ STORE X, A
 <li>Each task may be performed by any processor</li>
 </ul>
 </div>
+
 <div class="knowledge-card">
     <img src="images/processors/p12_each-task-may-be-performed-by-any-processor_01.jpeg" width="60%"/>
     <h4>Advantages and disadvantages of a parallel processor compared with a single processor system</h4>
@@ -1260,6 +1266,7 @@ STORE X, A
 <li>Programs are more difficult to test, write, and debug</li>
 </ul>
 </div>
+
 <div class="knowledge-card">
 <h4>Graphics Card (GPU)</h4>
 
@@ -1302,6 +1309,7 @@ STORE X, A
 <li>Better visual quality and responsiveness</li>
 </ul>
 </div>
+
 <div class="knowledge-card">
 <h4>Co-processor</h4>
 <p>
@@ -1316,6 +1324,7 @@ STORE X, A
     </li>
 </ul>
 </div>
+
 <div class="knowledge-card">
 <h4>Example: Converting a colour image to greyscale using a GPU</h4>
 <ol>
@@ -1342,6 +1351,7 @@ STORE X, A
     </li>
 </ol>
 </div>
+
 <div class="knowledge-card">
 <table>
 <thead>
@@ -1606,15 +1616,15 @@ STORE X, A
     <p>Smoother gameplay / faster image rendering / better visual quality.</p>
   </div>
 </div>
-
-    </div>
+</div>
 
       <div
       id="tab-6"
       role="tabpanel"
       aria-labelledby="tabbtn-6"
       hidden>
-       <div class="knowledge-card">
+
+          <div class="knowledge-card">
 <table>
 <thead>
 <tr>
@@ -1756,9 +1766,7 @@ STORE X, A
     </p>
   </div>
 </div>
-
-
-    </div>
+</div>
 
        <div
       id="tab-7"
@@ -1946,12 +1954,10 @@ STORE X, A
   </div>
 </div>
 </div>
-
-  </div>
-</div>
  <button id="printBtn" type="button">
   Print this worksheet
 </button>
+
 
 </main>
 
@@ -1959,10 +1965,8 @@ STORE X, A
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
-
-
-
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

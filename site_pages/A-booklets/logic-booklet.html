@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -58,13 +59,8 @@
       <!-- =========================
        KNOWLEDGE SECTIONS (VERTICAL)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Boolean Expressions – Notes</h2>
-    </div>
 
-    <div class="vertical-knowledge">
+      <h2>Boolean Expressions – Notes</h2>
 
       <!-- Card 1: Gates, symbols & truth tables -->
       <div class="knowledge-card">
@@ -723,10 +719,8 @@
         <p>Flip-flops are often built using NAND gates, and they form the building blocks of
            registers, counters and other sequential circuits.</p>
       </div>
+    </div>
 
-    </div>
-  </section>
-    </div>
 
     <div
       id="tab-KC"
@@ -739,13 +733,9 @@
        QUESTIONS & ANSWERS (VERTICAL)
        (unchanged from your existing booklet)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
-    </div>
 
-      <div class="vertical-knowledge">
+      <h2>Check Your Understanding – Questions</h2>
+
 
 
 <div class="rev-card qa-card">
@@ -1239,14 +1229,6 @@
         </div>
 
       </div>
-    </div>
-  </section>
-
-    </div>
-  </div>
-
-</div>
-
 
         <button id="printBtn" type="button">
   Print this worksheet
@@ -1258,7 +1240,8 @@
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>

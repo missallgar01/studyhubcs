@@ -20,6 +20,7 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
     <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -59,12 +60,6 @@
        KNOWLEDGE SECTIONS (VERTICAL)
        (unchanged, but you can tweak)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Data – Notes</h2>
-    </div>
-    <div class="vertical-knowledge">
 
       <div class="knowledge-card">
       <h3>What “data types” are</h3>
@@ -468,9 +463,6 @@
         <li>Character sets: ASCII, Unicode</li>
       </ul>
     </div>
-
-      </div>
-  </section>
     </div>
 
     <div
@@ -481,22 +473,13 @@
       <!-- =========================
        QUESTIONS & ANSWERS (BY TOPIC)
        ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check Your Understanding – Questions</h2>
-    </div>
 
-      <div class="vertical-knowledge">
+      <h2>Check Your Understanding – Questions</h2>
+
 
         <!-- =======================
              TOPIC A – Question and answer
              ======================= -->
-      <!-- =========================
-STAGE 1: QUESTION 1 (ONLY)
-========================= -->
-
-
   <!-- 1(a)(i) -->
   <div class="rev-card qa-card">
     <h3>1(a)(i). Question</h3>
@@ -1181,21 +1164,9 @@ STAGE 4: QUESTION 4 (ONLY)
       <p><strong>Final answer:</strong> <code>011001 011</code></p>
     </div>
   </div>
-
-
-
-      </div>
-    </div>
-  </section>
-
-    </div>
-  </div>
-
 </div>
 
-        <button id="printBtn" type="button">
-  Print this worksheet
-</button>
+ <button id="printBtn" type="button">Print this worksheet</button>
 
 </main>
 
@@ -1204,7 +1175,7 @@ STAGE 4: QUESTION 4 (ONLY)
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
-
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 </body>
 </html>

@@ -144,3 +144,26 @@ document.addEventListener("click", function (e) {
     printWindow.close();
   }, 250);
 });
+
+function openTip() {
+    document.getElementById("cmdModal").style.display = "block";
+  }
+
+  function closeTip() {
+    document.getElementById("cmdModal").style.display = "none";
+  }
+
+  // Close modal if user clicks outside the box
+  window.onclick = function (event) {
+    const modal = document.getElementById("cmdModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+
+
+  fetch("../command-words.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("command-words").innerHTML = html;
+    });

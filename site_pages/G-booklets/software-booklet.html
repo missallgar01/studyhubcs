@@ -20,42 +20,305 @@
 </header>
 
 <main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+<!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
 
-  <!-- =========================
-       NOTES / RECAP (VERTICAL)
-       ========================= -->
-  <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Notes</h2>
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+      <!-- REVISION CONTENT HERE -->
     </div>
 
-    <div class="vertical-knowledge">
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+      <!-- KNOWLEDGE CHECK CONTENT HERE -->
+           <h2>Check your understanding</h2>
 
-      <div class="knowledge-card">
+<div class="rev-card qa-card">
+  <p>
+    <b>Q3.</b> One function of an operating system is to manage processes.<br>
+    (i) Describe one way the operating system makes sure each process can use the CPU. (2)<br>
+    (ii) Give one other function of an operating system. (1)<br>
+    (Total for question = 3 marks)
+  </p>
 
-      </div>
+  <div class="how-to-answer">
+    <b>How to answer (DESCRIBE / GIVE):</b>
+    <ul>
+      <li>Describe = what happens, step or mechanism</li>
+      <li>Use keywords such as scheduler, time slice, queue</li>
+      <li>For part (ii), just name one function</li>
+    </ul>
+  </div>
 
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>Scheduler controls processes (1)</li>
+      <li>Each process gets a time slice (1)</li>
+      <li>Processes held in a queue (1)</li>
+      <li>Priority ordering (1)</li>
+      <li>Incomplete processes moved to back of queue (1)</li>
+      <li>Other OS functions:
+        <ul>
+          <li>File management (1)</li>
+          <li>Peripheral management (1)</li>
+          <li>User management (1)</li>
+          <li>User interface (1)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      The operating system uses a scheduler to allocate a short time slice of CPU time to each process.
+      This ensures all processes get a chance to run.
+      Another function of the operating system is file management.
+    </p>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>
+    <b>Q11. Computers</b><br>
+    Describe how an operating system organises files and folders.<br>
+    (2)<br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> DESCRIBE
+    <ul>
+      <li>Describe the structure used</li>
+      <li>Explain how files are located within that structure</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>Uses a hierarchical/tree structure (1)</li>
+      <li>Has a root node/directory (1)</li>
+      <li>Each position on the tree/path is a directory/sub-directory/folder (1)</li>
+      <li>Each file has a unique path (1)</li>
+      <li>Path is in relation to the root (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      The operating system organises files using a hierarchical folder structure with a root directory.
+      Each file has a unique path showing its location within the folder tree.
+    </p>
+  </div>
+</div>
+
+        <div class="rev-card qa-card">
+  <p>
+    <b>Q12. Computers</b><br>
+    One role of the operating system is to allocate memory to processes.<br>
+    Describe how the operating system makes use of virtual memory when there is a shortage of
+    main memory.<br>
+    (2)<br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> DESCRIBE
+    <ul>
+      <li>Explain what happens to inactive processes</li>
+      <li>Explain how they return to RAM when needed</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>Processes/programs/instructions/data not using the CPU are moved out of RAM/main memory (1)</li>
+      <li>Moved into secondary storage / hard disk / SSD (1)</li>
+      <li>When needed again, they are swapped back into RAM/main memory (1)</li>
+      <li>RAM/main memory is divided into pages (1)</li>
+      <li>A paging algorithm swaps pages between RAM and secondary storage (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      When RAM is low, the operating system moves inactive processes from RAM to secondary storage.
+      When the process is needed again, it is swapped back into RAM.
+    </p>
+  </div>
+</div>
+<div class="rev-card qa-card">
+  <p>
+    <b>Q15. Computers</b><br>
+    File repair is a type of utility software.<br>
+    Explain one reason why file repair software is needed.<br>
+    (2)<br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> EXPLAIN
+    <ul>
+      <li>Give a cause and an effect</li>
+      <li>Link file damage to recovery</li>
+    </ul>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>A file is corrupted (1) and content can be retrieved (1)</li>
+      <li>A file is corrupted because of a hardware fault (1)</li>
+      <li>A file cannot be opened because it is damaged/corrupted (1)</li>
+      <li>Files can be recovered because part of the disk is corrupted (1)</li>
+      <li>Reconstruct files or extract parts of files when part of the disk is corrupted (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      File repair software is needed when files become corrupted, for example due to a hardware
+      fault, so that damaged files can be recovered or reconstructed.
+    </p>
+  </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- Q21 -->
+<!-- ===================================================== -->
+<div class="rev-card qa-card">
+  <p>
+    <b>Q21.</b><br>
+    Identify two reasons for using data compression.<br>
+    (2)<br>
+    A Reduces data transfer times<br>
+    B Reduces disk fragmentation<br>
+    C Reduces required storage space<br>
+    D Reduces the chance of data being hacked<br>
+    E Reduces the need for error detection and correction<br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> IDENTIFY
+    <ul>
+      <li>Select two correct options</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>A – Reduces data transfer times (1)</li>
+      <li>C – Reduces required storage space (1)</li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      A and C.
+    </p>
+  </div>
+</div>
+        <div class="rev-card qa-card">
+  <p>
+    <b>Q26.</b><br>
+    Backups are used to protect data.<br>
+    (i) State one reason why backups are needed. (1)<br>
+    (ii) Explain one disadvantage of backing up data off-site. (2)<br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus: STATE / EXPLAIN</b>
+    <ul>
+      <li>State = short reason</li>
+      <li>Explain = disadvantage + effect</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li><b>(i)</b>
+        <ul>
+          <li>Recover data after hardware failure (1)</li>
+          <li>Recover data after malware attack (1)</li>
+          <li>Recover deleted/corrupted files (1)</li>
+          <li>Disaster recovery (1)</li>
+        </ul>
+      </li>
+      <li><b>(ii)</b>
+        <ul>
+          <li>Data transfer can be slow (1) because it depends on internet speed (1)</li>
+          <li>Security risks during transmission (1)</li>
+          <li>Ongoing cost of off-site storage (1)</li>
+          <li>Reliance on third-party provider (1)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Backups are needed to recover data after a hardware failure.
+      Off-site backups can be slower because data must be transferred over the internet.
+    </p>
+  </div>
+</div>
     </div>
-  </section>
 
-  <!-- =========================
-       QUESTIONS & ANSWERS
-       ========================= -->
-    <section class="topic-section expanded">
-    <div class="topic-header">
-      <span class="topic-arrow">&#9656;</span>
-      <h2>Check your understanding</h2>
-    </div>
-
-    <div class="vertical-knowledge">
-
-
-    </div>
-    </div>
-  </section>
-
-</main>
 
         <button id="printBtn" type="button">
   Print this worksheet
@@ -67,7 +330,8 @@
   &copy; 2025 StudyHubCS
 </footer>
 
-<script src="js/booklets.js"></script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
 
 </body>
 </html>
