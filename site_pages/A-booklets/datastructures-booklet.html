@@ -21,42 +21,101 @@
 
 <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
 
-<h2>Data Structures – Quick Tabs</h2>
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
 
-<div class="topic-body">
-<div class="ds-tabs" data-tabs="">
-<div aria-label="Data Structures tabs" class="ds-tablist" role="tablist">
-<button aria-controls="tab-arrays" aria-selected="true" class="ds-tab" id="tabbtn-arrays" role="tab" type="button">
-          Arrays
-        </button>
-<button aria-controls="tab-records" aria-selected="false" class="ds-tab" id="tabbtn-records" role="tab" tabindex="-1" type="button">
-          Records
-        </button>
-<button aria-controls="tab-linked-lists" aria-selected="false" class="ds-tab" id="tabbtn-linked-lists" role="tab" tabindex="-1" type="button">
-          Linked Lists
-        </button>
-<button aria-controls="tab-stacks" aria-selected="false" class="ds-tab" id="tabbtn-stacks" role="tab" tabindex="-1" type="button">
-          Stacks
-        </button>
-<button aria-controls="tab-queues" aria-selected="false" class="ds-tab" id="tabbtn-queues" role="tab" tabindex="-1" type="button">
-           Queues
-        </button>
-<button aria-controls="tab-binary-trees" aria-selected="false" class="ds-tab" id="tabbtn-binary-trees" role="tab" tabindex="-1" type="button">
-          Binary Trees
-        </button>
-<button aria-controls="tab-graphs" aria-selected="false" class="ds-tab" id="tabbtn-graphs" role="tab" tabindex="-1" type="button">
-          Graphs
-        </button>
-<button aria-controls="tab-hash-tables" aria-selected="false" class="ds-tab" id="tabbtn-hash-tables" role="tab" tabindex="-1" type="button">
-          Hash Tables
-        </button>
-</div>
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Data Structures tabs">
+    <button
+      id="tabbtn-arrays"
+      type="button"
+      role="tab"
+      aria-controls="tab-arrays"
+      aria-selected="true"
+      tabindex="0">
+      Arrays
+    </button>
 
-<div class="ds-panels">
+    <button
+      id="tabbtn-records"
+      type="button"
+      role="tab"
+      aria-controls="tab-records"
+      aria-selected="false"
+      tabindex="-1">
+      Records
+    </button>
+
+    <button
+      id="tabbtn-linked-lists"
+      type="button"
+      role="tab"
+      aria-controls="tab-linked-lists"
+      aria-selected="false"
+      tabindex="-1">
+      Linked Lists
+    </button>
+
+    <button
+      id="tabbtn-stacks"
+      type="button"
+      role="tab"
+      aria-controls="tab-stacks"
+      aria-selected="false"
+      tabindex="-1">
+      Stacks
+    </button>
+
+    <button
+      id="tabbtn-queues"
+      type="button"
+      role="tab"
+      aria-controls="tab-queues"
+      aria-selected="false"
+      tabindex="-1">
+      Queues
+    </button>
+
+    <button
+      id="tabbtn-binary-trees"
+      type="button"
+      role="tab"
+      aria-controls="tab-binary-trees"
+      aria-selected="false"
+      tabindex="-1">
+      Binary Trees
+    </button>
+
+    <button
+      id="tabbtn-graphs"
+      type="button"
+      role="tab"
+      aria-controls="tab-graphs"
+      aria-selected="false"
+      tabindex="-1">
+      Graphs
+    </button>
+
+    <button
+      id="tabbtn-hash-tables"
+      type="button"
+      role="tab"
+      aria-controls="tab-hash-tables"
+      aria-selected="false"
+      tabindex="-1">
+      Hash Tables
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+
 
 <!----------------------------------------------------Arrays ------------------------------------------------->
-    <div aria-labelledby="tabbtn-arrays" class="ds-panel" id="tab-arrays" role="tabpanel">
-<h3>Arrays, Lists and Tuples</h3>
+    <div aria-labelledby="tabbtn-arrays" class="panel" id="tab-arrays" role="tabpanel">
+
+
+        <h3>Arrays, Lists and Tuples</h3>
 
 <div class="knowledge-card">
 <h3>Static vs Dynamic Data Structures</h3>
@@ -339,7 +398,7 @@ array towns[8][3] as string</pre>
 
 
     <!----------------------------------------------------Records ------------------------------------------------->
- <div aria-labelledby="tabbtn-records" class="ds-panel" id="tab-records" role="tabpanel">
+ <div aria-labelledby="tabbtn-records" class="panel" id="tab-records" role="tabpanel">
 <h3>Records</h3>
 <p><strong>Records:</strong> Store related fields (possibly different data types) under one structure.</p>
 
@@ -353,7 +412,7 @@ array towns[8][3] as string</pre>
 <li>Can have multiple instances</li>
 </ul>
 <h4>Example: Player Records</h4>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;">
+<table>
 <tr>
 <th>Player</th>
 <th>Name</th>
@@ -507,7 +566,7 @@ Players(3).name = "Jane"</code></pre>
 
 <!--------------------------------------------------Linked Lists ------------------------------------------------->
 
-<div aria-labelledby="tabbtn-linked-lists" class="ds-panel" id="tab-linked-lists" role="tabpanel">
+<div aria-labelledby="tabbtn-linked-lists" class="panel" id="tab-linked-lists" role="tabpanel">
 <h3>Linked Lists</h3>
 <p><strong>Linked Lists:</strong> Nodes connected by pointers; dynamic size but slower access.</p>
 <div class="knowledge-card">
@@ -990,7 +1049,7 @@ endwhile</code></pre>
 
     <!----------------------------------------------------Stacks ------------------------------------------------->
 
-<div aria-labelledby="tabbtn-stacks" class="ds-panel" id="tab-stacks" role="tabpanel">
+<div aria-labelledby="tabbtn-stacks" class="panel" id="tab-stacks" role="tabpanel">
     <h3>Stacks</h3>
 <p><strong>Stacks:</strong> LIFO (Last In, First Out).</p>
 
@@ -1605,7 +1664,7 @@ endif</code></pre>
 </div>
     <!----------------------------------------------------Queues------------------------------------------------->
 
-<div aria-labelledby="tabbtn-queues" class="ds-panel" id="tab-queues" role="tabpanel">
+<div aria-labelledby="tabbtn-queues" class="panel" id="tab-queues" role="tabpanel">
 <h3>Queues</h3>
 
 <p><strong>Queues:</strong> FIFO (First In, First Out).</p>
@@ -1858,7 +1917,7 @@ end if</code></pre>
 </div>
 <div class="knowledge-card">
 <h3>Linear Queue Implementation</h3>
-<table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse:collapse;">
+<table>
 <thead>
 <tr>
 <th>Procedural Linear Queue Implementation</th>
@@ -2341,7 +2400,7 @@ queue[rear] = item</code></pre>
 </div>
 </div>
 <!----------------------------------------------------Binary Trees ------------------------------------------------->
-<div aria-labelledby="tabbtn-binary-trees" class="ds-panel" id="tab-binary-trees" role="tabpanel">
+<div aria-labelledby="tabbtn-binary-trees" class="panel" id="tab-binary-trees" role="tabpanel">
     <h3>Binary Trees</h3>
 <p><strong>Binary Trees:</strong> Hierarchical structures where each node has up to two children.</p>
 <!-- TREE OVERVIEW -->
@@ -3259,7 +3318,7 @@ endprocedure </code></pre>
  </div>
         <!----------------------------------------------------Hash Tables ------------------------------------------------->
 
-     <div aria-labelledby="tabbtn-hash-tables" class="ds-panel" id="tab-hash-tables" role="tabpanel">
+     <div aria-labelledby="tabbtn-hash-tables" class="panel" id="tab-hash-tables" role="tabpanel">
 
 <h3>Hash Tables</h3>
         <p><strong>Hash Tables:</strong> Key–value pairs using hash functions for fast lookup.</p>
@@ -3866,7 +3925,10 @@ endif
   </div>
 </div>
 </div>
+
 <div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
+
+
 </main>
 
 <footer>

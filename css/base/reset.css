@@ -2,10 +2,77 @@
    BASE
    ========================== */
 
+/* ==========================
+   BASE (fits current notebook theme)
+   ========================== */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+/* Keep your theme stable, but improve rendering */
+body {
+  font-family: var(--font-base);
+  font-size: var(--fs-base);
+  line-height: var(--lh);
+  color: var(--text-main);
+
+  /* your notebook background stays below (keep as-is) */
+  position: relative;
+  overflow-x: hidden;
+
+  /* smoother text on most systems */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Media defaults (prevents overflow + weird inline gaps) */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Forms match your typography */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Accessible focus that still matches your “ink” vibe */
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--brand-blue) 55%, #000);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Respect reduced motion (good modern polish) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
