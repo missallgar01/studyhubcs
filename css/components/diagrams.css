@@ -1,0 +1,19 @@
+ .logic-gate {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 6px 0;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .logic-circuit {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin: 10px 0;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+  }
