@@ -1,19 +1,24 @@
 /* ==========================
-   RESPONSIVE
+   RESPONSIVE – SPACE THEME
    ========================== */
 
-/* Make tabs feel good on narrow screens */
+/* Tabs on narrow screens */
 @media (max-width: 520px) {
   .ds-tablist {
     gap: 0.4rem;
     padding: 0.45rem;
   }
+
   .ds-tab {
-    flex: 1 1 auto;           /* lets tabs wrap neatly */
+    flex: 1 1 auto;
     text-align: center;
     padding: 0.55rem 0.6rem;
   }
 }
+
+/* ==========================
+   TABLET / MOBILE
+   ========================== */
 
 @media (max-width: 700px) {
   body {
@@ -22,28 +27,28 @@
   }
 
   header {
-    padding: 1.25rem 0.75rem 0.75rem;
+    padding: 1.3rem 0.85rem 0.85rem;
   }
 
   main {
-    margin: 1.25rem auto 1.5rem;
-    padding: 0 0.75rem 1.5rem;
+    margin: 1.3rem auto 1.6rem;
+    padding: 0 0.85rem 1.6rem;
   }
 
+  /* Collapse grids */
   .grid {
     grid-template-columns: 1fr;
   }
 
+  /* Tables: scroll instead of crush */
   table {
     font-size: 0.9rem;
     display: block;
     overflow-x: auto;
-    border-radius: 8px;
+    border-radius: 10px;
   }
 
-  
-
-  /* Consolidated: horizontal scroll for wide tables inside common containers */
+  /* Consolidated horizontal scrolling */
   .table-wrap table,
   .knowledge-card table,
   .rev-card table,
@@ -56,18 +61,20 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-iframe {
+
+  /* Embedded panels */
+  iframe {
     height: 320px;
+    border-radius: 12px;
   }
 
-    .stack-diagram {
+  /* Diagrams */
+  .stack-diagram {
     font-size: 0.9rem;
   }
 
-    .queue-diagram .queue-cells td {
+  .queue-diagram .queue-cells td {
     height: 2.7rem;
     font-size: 0.95rem;
   }
-
-     
 }

@@ -1,9 +1,5 @@
 /* ==========================
-   BASE
-   ========================== */
-
-/* ==========================
-   BASE (fits current notebook theme)
+   BASE RESET – SPACE THEME
    ========================== */
 
 *,
@@ -23,23 +19,34 @@ body {
   margin: 0;
 }
 
-/* Keep your theme stable, but improve rendering */
+/* ==========================
+   BODY – DEEP SPACE CANVAS
+   ========================== */
+
 body {
   font-family: var(--font-base);
   font-size: var(--fs-base);
   line-height: var(--lh);
   color: var(--text-main);
 
-  /* your notebook background stays below (keep as-is) */
+  /* Deep space background */
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56,189,248,0.12), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(168,85,247,0.12), transparent 45%),
+    linear-gradient(180deg, #020617 0%, #000000 100%);
+
   position: relative;
   overflow-x: hidden;
 
-  /* smoother text on most systems */
+  /* smoother text */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Media defaults (prevents overflow + weird inline gaps) */
+/* ==========================
+   MEDIA DEFAULTS
+   ========================== */
+
 img,
 svg,
 video,
@@ -48,23 +55,34 @@ canvas {
   height: auto;
 }
 
-/* Forms match your typography */
+/* ==========================
+   FORM ELEMENTS
+   ========================== */
+
 input,
 button,
 textarea,
 select {
   font: inherit;
   color: inherit;
+  background-color: transparent;
 }
 
-/* Accessible focus that still matches your “ink” vibe */
+/* ==========================
+   FOCUS – COSMIC GLOW
+   ========================== */
+
 :focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--brand-blue) 55%, #000);
-  outline-offset: 2px;
-  border-radius: 6px;
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 3px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 4px rgba(56,189,248,0.25);
 }
 
-/* Respect reduced motion (good modern polish) */
+/* ==========================
+   REDUCED MOTION SUPPORT
+   ========================== */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

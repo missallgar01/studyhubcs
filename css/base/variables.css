@@ -1,20 +1,27 @@
 /* ==========================
-   ROOT VARIABLES
+   ROOT VARIABLES – SPACE THEME
    ========================== */
 :root {
-  --brand-blue: #2563eb;
-  --brand-accent: #3b82f6;
+  /* Core space colors */
+  --brand-blue: #38bdf8;        /* starlight blue */
+  --brand-accent: #a855f7;     /* nebula purple */
 
-  --text-main: #111827;
-  --text-muted: #4b5563;
+  /* Text */
+  --text-main: #e5e7eb;        /* soft white */
+  --text-muted: #9ca3af;       /* moon dust grey */
 
-  --card-bg: #ffffff;
-  --border-strong: #000000;
+  /* Surfaces */
+  --card-bg: #020617;          /* deep space */
+  --border-strong: #38bdf8;    /* glowing edge */
 
+  /* UI feel */
   --radius: 1rem;
-  --shadow-card: 3px 3px 0 #000;
+  --shadow-card:
+    0 0 0 1px rgba(56,189,248,0.6),
+    0 8px 24px rgba(168,85,247,0.25);
 
+  /* Typography */
   --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --fs-base: clamp(0.96rem, 0.9rem + 0.25vw, 1.05rem);
-  --lh: 1.6;
+  --lh: 1.65;
 }

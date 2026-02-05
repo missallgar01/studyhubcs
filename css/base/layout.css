@@ -1,75 +1,105 @@
-/* Layout shell */
+/* ==========================
+   LAYOUT SHELL – SPACE THEME
+   ========================== */
 
 header {
   background: none;
-  color: #000;
+  color: var(--text-main);
   text-align: center;
-  padding: 2rem 1rem 1rem;
+  padding: 2.5rem 1rem 1.5rem;
   position: relative;
   z-index: 1;
 }
 
+/* ==========================
+   HEADER TYPOGRAPHY
+   ========================== */
+
 header h1 {
-  margin: 0 0 0.25rem;
-  font-size: 2.1rem;
-  font-family: "Marker Felt", "Comic Sans MS", "Segoe Print", cursive;
+  margin: 0 0 0.3rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  text-shadow: 0 0 10px rgba(56,189,248,0.4);
 }
 
 header h2 {
-  margin: 0.25rem 0 0.2rem;
-  font-size: 1.2rem;
+  margin: 0.3rem 0 0.2rem;
+  font-size: 1.15rem;
+  color: var(--text-main);
 }
 
 header p.subtitle {
-  margin: 0.4rem 0 0;
+  margin: 0.5rem 0 0;
   font-style: italic;
   color: var(--text-muted);
 }
 
-/* Header container */
+/* ==========================
+   HEADER CONTAINER
+   ========================== */
+
 .page-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;   /* pushes logo to the right */
-  gap: 1.5rem;
+  justify-content: space-between;
+  gap: 2rem;
   max-width: 980px;
-  margin: 0 auto 2rem;
-  padding: 1rem 1rem 0;
+  margin: 0 auto 2.5rem;
+  padding: 1.5rem 1rem 0;
 }
 
-/* Logo on the right */
+/* ==========================
+   LOGO (RIGHT SIDE)
+   ========================== */
+
 .page-logo {
-  width: 50%;   /* adjust to taste */
+  width: 45%;
   height: auto;
   flex-shrink: 0;
+  filter: drop-shadow(0 0 12px rgba(168,85,247,0.35));
 }
 
-/* Title block on the left */
+/* ==========================
+   TITLE BLOCK (LEFT)
+   ========================== */
+
 .page-title h1 {
   margin: 0;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.1rem;
+  font-weight: 800;
   text-align: left;
+  color: var(--brand-blue);
 }
 
 .page-title .subtitle {
-  margin: 0.3rem 0 0;
+  margin: 0.4rem 0 0;
   font-size: 1.1rem;
-  color: #444;
+  color: var(--text-muted);
   text-align: left;
 }
 
+/* ==========================
+   MAIN CONTENT
+   ========================== */
+
 main {
-  max-width: 80%;
-  margin: 2rem auto;
-  padding: 0 1rem 2.5rem;
+  max-width: 82%;
+  margin: 2.5rem auto;
+  padding: 0 1rem 3rem;
   position: relative;
   z-index: 1;
 }
 
+/* ==========================
+   FOOTER
+   ========================== */
+
 footer {
   text-align: center;
-  padding: 1.5rem 1rem 2rem;
+  padding: 2rem 1rem 2.5rem;
   font-size: 0.9rem;
   color: var(--text-muted);
   position: relative;

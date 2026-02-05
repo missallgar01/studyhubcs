@@ -1,35 +1,47 @@
 /* ==========================
-   TABLES
+   TABLES – SPACE THEME
    ========================== */
 
 table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  margin: 1rem 0 1.5rem;
-  background: #fff;
+  margin: 1rem 0 1.6rem;
+
+  background: var(--card-bg);
   border-radius: var(--radius);
-  border: 2px solid #000;
-  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(56,189,248,0.6);
+
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,0.35),
+    0 12px 28px rgba(0,0,0,0.6);
+
   overflow: hidden;
 }
 
 th,
 td {
-  border: 1px solid #000;
-  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(56,189,248,0.45);
+  padding: 0.55rem 0.8rem;
   vertical-align: top;
   font-size: 0.95rem;
+  color: var(--text-main);
 }
 
 th {
-  background: #fef3c7;
+  background: linear-gradient(
+    180deg,
+    rgba(56,189,248,0.25),
+    rgba(56,189,248,0.12)
+  );
   font-weight: 700;
+  color: var(--brand-blue);
 }
 
 /* ==========================
-   DIAGRAMS
+   TRUTH TABLES
    ========================== */
+
 .truthtable {
   width: 200px;
   table-layout: fixed;
@@ -39,51 +51,56 @@ th {
    STACK DIAGRAM TABLE
    ========================== */
 
+.stack-diagram {
+  border-collapse: collapse;
+  width: 160px;
+  font-family: inherit;
+  text-align: center;
+}
 
-  .stack-diagram {
-    border-collapse: collapse;
-    width: 160px;
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
+.stack-diagram th,
+.stack-diagram td {
+  border: 1px solid rgba(168,85,247,0.6);
+  padding: 10px;
+}
 
-  .stack-diagram th,
-  .stack-diagram td {
-    border: 2px solid #000;
-    padding: 10px;
-  }
-
-  .stack-diagram th {
-    background-color: #f2f2f2;
-  }
+.stack-diagram th {
+  background: rgba(168,85,247,0.2);
+  color: var(--brand-accent);
+}
 
 /* ==========================
-   QUEUE DIAGRAM – FINAL
+   QUEUE DIAGRAM
    ========================== */
 
-  .queue-diagram {
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
+.queue-diagram {
+  border-collapse: collapse;
+  font-family: inherit;
+  text-align: center;
+}
 
-  .queue-diagram th,
-  .queue-diagram td {
-    border: 2px solid #000;
-    padding: 12px;
-    min-width: 60px;
-  }
+.queue-diagram th,
+.queue-diagram td {
+  border: 1px solid rgba(56,189,248,0.6);
+  padding: 12px;
+  min-width: 60px;
+}
 
-  .queue-diagram th {
-    background-color: #f2f2f2;
-  }
+.queue-diagram th {
+  background: rgba(56,189,248,0.2);
+  color: var(--brand-blue);
+}
 
-  small {
-    font-size: 0.75em;
-  }
+small {
+  font-size: 0.75em;
+  color: var(--text-muted);
+}
 
-  /* TABLE FIT INSIDE CARDS */
-/* Keeps wide tables/code blocks from overflowing card borders */
+/* ==========================
+   TABLE FIT INSIDE CARDS
+   (unchanged behaviour)
+   ========================== */
+
 .knowledge-card,
 .rev-card,
 .card,
@@ -93,7 +110,6 @@ th {
   overflow-x: hidden;
 }
 
-/* Constrain table width and prevent columns expanding to fit long content */
 .knowledge-card table,
 .rev-card table,
 .card table,
@@ -101,10 +117,9 @@ th {
 .topic-body > table {
   width: 100%;
   max-width: 100%;
-  table-layout: fixed;   /* crucial: stops long content forcing wider columns */
+  table-layout: fixed;
 }
 
-/* Allow cell text to wrap instead of widening the table */
 .knowledge-card th,
 .knowledge-card td,
 .rev-card th,
@@ -119,7 +134,7 @@ th {
   word-break: break-word;
 }
 
-
+/* code blocks */
 .knowledge-card pre,
 .rev-card pre,
 .card pre,
@@ -132,8 +147,7 @@ th {
 }
 
 /* ==========================
-   TRUTH TABLES (override global table rules)
-   Put this AFTER "TABLE FIT INSIDE CARDS"
+   TRUTH TABLE OVERRIDES
    ========================== */
 
 .knowledge-card table.truthtable,
@@ -141,11 +155,11 @@ th {
 .card table.truthtable,
 .resource-section table.truthtable,
 .topic-body table.truthtable {
-  width: 50% !important;      /* change to 100% if you want full width */
+  width: 50% !important;
   max-width: 100%;
   table-layout: fixed !important;
-  margin: 1rem auto;            /* centers the table */
-  display: table;               /* prevents mobile rule turning it into block */
+  margin: 1rem auto;
+  display: table;
 }
 
 .knowledge-card table.truthtable th,
@@ -173,12 +187,11 @@ th {
   width: 200px !important;
   max-width: 100%;
   table-layout: fixed !important;
-  margin: 1rem auto;   /* centre diagram */
+  margin: 1rem auto;
 }
 
 /* ==========================
-   QUEUE DIAGRAM TABLE (override global table rules)
-   Put this AFTER "TABLE FIT INSIDE CARDS"
+   QUEUE DIAGRAM OVERRIDES
    ========================== */
 
 .knowledge-card table.queue-diagram,
@@ -186,28 +199,27 @@ th {
 .card table.queue-diagram,
 .resource-section table.queue-diagram,
 .topic-body table.queue-diagram {
-  width: auto;               /* shrink to content */
+  width: auto;
   max-width: 100%;
-  table-layout: auto;        /* allow min-width on cells to work naturally */
+  table-layout: auto;
   border-collapse: collapse;
-  margin: 1rem auto;         /* centre */
+  margin: 1rem auto;
 }
 
-/* keep your cell styling */
 table.queue-diagram th,
 table.queue-diagram td {
-  border: 2px solid #000;
+  border: 1px solid rgba(56,189,248,0.6);
   padding: 12px;
   min-width: 60px;
   text-align: center;
 }
 
 table.queue-diagram th {
-  background-color: #f2f2f2;
+  background: rgba(56,189,248,0.2);
 }
 
 /* ==========================
-   STACK DIAGRAM TABLE (override global table rules)
+   STACK DIAGRAM OVERRIDES
    ========================== */
 
 .knowledge-card table.stack-diagram,
@@ -215,35 +227,42 @@ table.queue-diagram th {
 .card table.stack-diagram,
 .resource-section table.stack-diagram,
 .topic-body table.stack-diagram {
-  width: 160px !important;     /* keep your fixed width */
+  width: 160px !important;
   max-width: 100%;
   table-layout: auto !important;
   border-collapse: collapse;
-  margin: 1rem auto;           /* centre it */
+  margin: 1rem auto;
 }
 
 table.stack-diagram th,
 table.stack-diagram td {
-  border: 2px solid #000;
+  border: 1px solid rgba(168,85,247,0.6);
   padding: 10px;
   text-align: center;
 }
 
 table.stack-diagram th {
-  background-color: #f2f2f2;
+  background: rgba(168,85,247,0.2);
 }
 
+/* ==========================
+   FIGURES & CAPTIONS
+   ========================== */
+
 figure {
-  margin: 1.2rem auto;
+  margin: 1.3rem auto;
   text-align: center;
 }
 
 figcaption {
   display: inline-block;
-  padding: 0.3rem 0.8rem;
+  padding: 0.35rem 0.85rem;
   font-weight: 600;
   font-size: 0.95rem;
-  border: 2px solid #000;
-  border-radius: 6px;
-  background-color: #fff7cc;
+
+  border: 1px solid rgba(56,189,248,0.6);
+  border-radius: 8px;
+
+  background: rgba(56,189,248,0.15);
+  color: var(--brand-blue);
 }

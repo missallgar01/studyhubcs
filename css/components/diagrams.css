@@ -1,19 +1,40 @@
- .logic-gate {
-    width: 200px;
-    height: auto;
-    display: block;
-    margin: 6px 0;
-    stroke: currentColor;
-    stroke-width: 2;
-    fill: none;
-  }
+/* ==========================
+   DIAGRAMS – SPACE SCHEMATICS
+   ========================== */
 
-  .logic-circuit {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    margin: 10px 0;
-    stroke: currentColor;
-    stroke-width: 2;
-    fill: none;
-  }
+.logic-gate {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 8px 0;
+
+  stroke: var(--brand-blue);
+  stroke-width: 2.2;
+  fill: none;
+
+  filter: drop-shadow(0 0 6px rgba(56,189,248,0.45));
+}
+
+.logic-circuit {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 12px 0;
+
+  stroke: var(--brand-accent);
+  stroke-width: 2.2;
+  fill: none;
+
+  filter: drop-shadow(0 0 8px rgba(168,85,247,0.4));
+}
+
+/* ==========================
+   OPTIONAL: ACTIVE HOVER GLOW
+   ========================== */
+
+.logic-gate:hover,
+.logic-circuit:hover {
+  filter:
+    drop-shadow(0 0 10px rgba(56,189,248,0.7))
+    drop-shadow(0 0 18px rgba(168,85,247,0.5));
+}

@@ -167,3 +167,202 @@ function openTip() {
     .then(html => {
       document.getElementById("command-words").innerHTML = html;
     });
+
+
+
+/* -------------------- CSV PARSING -------------------- */
+function parseKeywordsCsv(text) {
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+  if (lines.length < 2) return [];
+
+  const header = lines[0].split(",").map(h => h.trim().toLowerCase());
+  const topicIdx = header.indexOf("topic");
+  const keywordIdx = header.indexOf("keyword");
+  const defIdx = header.indexOf("definition");
+
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const p = lines[i].split(",");
+    if (p.length < 3) continue;
+
+    rows.push({
+      topic: p[topicIdx]?.trim() || "",
+      keyword: p[keywordIdx]?.trim() || "",
+      definition: p[defIdx]?.trim() || ""
+    });
+  }
+  return rows;
+}
+
+let keywordRows = null;
+
+async function loadKeywordsCsv() {
+  if (keywordRows) return keywordRows;
+
+  try {
+    const r = await fetch("G-keywords.csv");
+    const t = await r.text();
+    keywordRows = parseKeywordsCsv(t);
+    return keywordRows;
+  } catch (e) {
+    console.error("Could not load G-keywords.csv", e);
+    keywordRows = [];
+    return keywordRows;
+  }
+}
+
+/* -------------------- OPEN KEYWORDS MODAL -------------------- */
+
+async function openKeywordsModal(topicName) {
+  const modal = document.getElementById("keywordsModal");
+  const title = document.getElementById("keywordsTitle");
+  const intro = document.getElementById("keywordsIntro");
+  const cards = document.getElementById("keywordCards");
+
+  modal.classList.add("active");
+  title.textContent = "Keywords – " + topicName;
+  intro.textContent = "Loading keywords...";
+  cards.innerHTML = "";
+
+  const rows = await loadKeywordsCsv();
+  const matches = rows.filter(r => r.topic === topicName);
+
+  cards.innerHTML = "";
+
+  if (matches.length === 0) {
+    intro.textContent = "No keywords found for this topic.";
+    return;
+  }
+
+  intro.textContent = "Click a box to reveal the definition.";
+
+  matches.forEach(row => {
+    const card = document.createElement("div");
+    card.className = "keyword-card";
+    card.addEventListener("click", () => card.classList.toggle("show"));
+
+    const front = document.createElement("div");
+    front.className = "keyword-front";
+    front.textContent = row.keyword;
+
+    const back = document.createElement("div");
+    back.className = "keyword-back";
+    back.textContent = row.definition;
+
+    card.appendChild(front);
+    card.appendChild(back);
+    cards.appendChild(card);
+  });
+}
+
+function closeKeywordsModal() {
+  const modal = document.getElementById("keywordsModal");
+  modal.classList.remove("active");
+}
+
+/* -------------------- EVENT WIRING (SAFE) -------------------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* PDF modal close rules */
+  const pdfModal = document.getElementById("pdfModal");
+  const pdfContent = document.querySelector(".pdf-modal-content");
+
+  if (pdfModal) {
+    pdfModal.addEventListener("click", e => {
+      if (e.target === pdfModal) closePdf();
+    });
+  }
+  if (pdfContent) {
+    pdfContent.addEventListener("click", e => e.stopPropagation());
+  }
+
+  /* Keywords modal close rules */
+  const kwModal = document.getElementById("keywordsModal");
+  const kwContent = document.querySelector(".keywords-modal-content");
+
+  if (kwModal) {
+    kwModal.addEventListener("click", e => {
+      if (e.target === kwModal) closeKeywordsModal();
+    });
+  }
+  if (kwContent) {
+    kwContent.addEventListener("click", e => e.stopPropagation());
+  }
+
+  /* Escape key closes whichever modal is open */
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      closePdf();
+      closeKeywordsModal();
+    }
+  });
+});
+
+//pdf modal
+
+function openPdfModal(file, titleText) {
+  const modal  = document.getElementById("pdfModal");
+  const frame  = document.getElementById("pdfFrame");
+  const title  = document.getElementById("pdfTitle");
+
+  if (frame)  frame.src = file || "";
+  if (title)  title.textContent = titleText || "Knowledge Organiser";
+  if (modal)  modal.classList.add("active");
+}
+
+function closePdfModal() {
+  const modal = document.getElementById("pdfModal");
+  const frame = document.getElementById("pdfFrame");
+
+  if (frame) frame.src = "";
+  if (modal) modal.classList.remove("active");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  /* Wire up KO buttons */
+  document.querySelectorAll(".btn[data-file]").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const file  = link.getAttribute("data-file");
+      const title =
+        link.closest("section")?.querySelector("h2")?.textContent.trim()
+        || "Knowledge Organiser";
+      openPdfModal(file, title);
+    });
+  });
+
+  const modal     = document.getElementById("pdfModal");
+  const content   = document.querySelector(".pdf-modal-content");
+  const closeBtn  = document.getElementById("closePdf");
+
+  /* Close via X button */
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      closePdfModal();
+    });
+  }
+
+  /* Close when clicking dark background */
+  if (modal) {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        closePdfModal();
+      }
+    });
+  }
+
+  /* Don't close when clicking inside the white content card */
+  if (content) {
+    content.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  /* Close on Escape key */
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closePdfModal();
+    }
+  });
+});

@@ -1,45 +1,52 @@
 /* ==========================
-   JUMP123 Notebook Tabs
+   JUMP123 TABS – SPACE THEME
+   ========================== */
+
+/* ==========================
+   BASIC TABS
    ========================== */
 
 /* Tab bar container */
 .tabs {
   display: flex;
-  gap: 0.5rem;
-  border-bottom: 2px solid #ddd;
-  margin: 1.5rem auto 1rem;
-  padding: 0 0.5rem 0.5rem;
+  gap: 0.6rem;
+  border-bottom: 1px solid rgba(56,189,248,0.5);
+  margin: 1.6rem auto 1rem;
+  padding: 0 0.6rem 0.6rem;
   max-width: 980px;
 }
 
 /* Individual tab buttons */
 .tab-btn {
-  background: #f5f5f5;
-  border: 1px solid #d0d0d0;
-  padding: 0.5rem 1rem;
-  border-radius: 6px 6px 0 0;
+  background: #020617;
+  border: 1px solid rgba(56,189,248,0.5);
+  padding: 0.55rem 1.05rem;
+  border-radius: 8px 8px 0 0;
   font-size: 0.95rem;
   cursor: pointer;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: var(--text-muted);
+
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-/* Hover state */
+/* Hover */
 .tab-btn:hover {
-  background: #e9e9e9;
-  border-color: #c0c0c0;
+  background: rgba(56,189,248,0.15);
+  color: var(--text-main);
 }
 
-/* Selected/active tab */
+/* Active tab */
 .tab-btn[aria-selected="true"] {
-  background: #ffffff;
-  border-bottom-color: #ffffff; /* blend into content panel */
-  color: #000;
+  background: var(--card-bg);
+  border-bottom-color: transparent;
+  color: var(--brand-blue);
   position: relative;
   z-index: 2;
+  box-shadow: 0 -2px 10px rgba(56,189,248,0.35);
 }
 
-/* Tab panels – only show the active one */
+/* Tab panels */
 .tab-content {
   display: none;
   max-width: 980px;
@@ -51,41 +58,38 @@
   display: block;
 }
 
-
 /* =========================
-   BOOKLET TABS (ARIA + hidden)
-   ========================= */
-
-/* =========================
-   BOOKLET TABS → HORIZONTAL MENU
+   BOOKLET TABS – SPACE MENU
    ========================= */
 
 .booklet.panels {
-  --menu-bg: #fff;
-  --menu-border: #000;
-  --menu-active: #fffbeb; /* soft highlight */
-  --menu-hover: #f3f4f6;
-  --menu-text: #111;
-  --menu-muted: #444;
+  --menu-bg: #020617;
+  --menu-border: rgba(56,189,248,0.6);
+  --menu-active: rgba(56,189,248,0.18);
+  --menu-hover: rgba(56,189,248,0.12);
+  --menu-text: var(--text-main);
+  --menu-muted: var(--text-muted);
 
-  margin: 1.25rem auto;
+  margin: 1.3rem auto;
   max-width: 980px;
 }
 
 /* Menu bar */
 .booklet.panels [role="tablist"] {
   display: flex;
-  justify-content: flex-start; /* left */
-  gap: 0.5rem;
+  justify-content: flex-start;
+  gap: 0.6rem;
 
-  padding: 0.6rem 0.75rem;
+  padding: 0.65rem 0.8rem;
   background: var(--menu-bg);
-  border: 2px solid var(--menu-border);
-  border-radius: 0.9rem;
-  box-shadow: 3px 3px 0 #000;
+  border: 1px solid var(--menu-border);
+  border-radius: 1rem;
 
-  /* keeps it looking like a menu strip */
-  margin-bottom: 0.75rem;
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,0.35),
+    0 10px 26px rgba(0,0,0,0.6);
+
+  margin-bottom: 0.8rem;
 }
 
 /* Menu items */
@@ -93,19 +97,19 @@
   appearance: none;
   background: transparent;
 
-  border: 2px solid transparent; /* avoids layout shift */
+  border: 1px solid transparent;
   border-radius: 999px;
-  padding: 0.45rem 0.9rem;
+  padding: 0.5rem 1rem;
 
-  font-size: 0.50rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  color: var(--menu-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 
+  color: var(--menu-muted);
   cursor: pointer;
 
-  /* remove animation */
-  transition: none !important;
-  transform: none !important;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 /* Hover */
@@ -117,24 +121,32 @@
 /* Active */
 .booklet.panels [role="tab"][aria-selected="true"] {
   background: var(--menu-active);
-  color: var(--menu-text);
+  color: var(--brand-blue);
   border-color: var(--menu-border);
-  box-shadow: 2px 2px 0 #000;
+
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,0.6),
+    0 6px 16px rgba(56,189,248,0.35);
 }
 
 /* Keyboard focus */
 .booklet.panels [role="tab"]:focus-visible {
-  outline: 3px solid #2563eb;
-  outline-offset: 2px;
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 3px;
+  border-radius: 999px;
 }
 
 /* Panels container */
 .booklet.panels > .panels {
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 1rem;
-  box-shadow: 3px 3px 0 #000;
-  padding: 1rem 1.1rem;
+  background: var(--card-bg);
+  border: 1px solid rgba(56,189,248,0.6);
+  border-radius: 1.1rem;
+
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,0.35),
+    0 12px 28px rgba(0,0,0,0.6);
+
+  padding: 1.05rem 1.15rem;
 }
 
 /* JS uses hidden */
@@ -142,14 +154,13 @@
   display: none !important;
 }
 
-/* Responsive: menu wraps nicely */
+/* Responsive */
 @media (max-width: 520px) {
   .booklet.panels [role="tablist"] {
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.45rem;
   }
   .booklet.panels [role="tab"] {
     flex: 0 1 auto;
   }
 }
-

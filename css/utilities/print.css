@@ -1,25 +1,30 @@
 /* ==========================
-   PRINT
+   PRINT – EXAM SAFE MODE
    ========================== */
 
 @media print {
   * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
   }
 
   html,
   body {
-    background: #fff !important;
-    color: #111 !important;
+    background: #ffffff !important;
+    color: #111111 !important;
     font: 12pt/1.5 Arial, Helvetica, sans-serif;
   }
 
+  /* Disable space background layers */
   body::before,
   body::after {
     display: none !important;
   }
 
+  /* Header / footer simplify */
   header,
   footer {
     background: none !important;
@@ -34,19 +39,24 @@
     padding: 0;
   }
 
+  /* Hide interactive UI */
   .btn,
   button,
   .secondary,
   #pdfModal,
-  #keywordsModal {
+  #keywordsModal,
+  iframe {
     display: none !important;
   }
 
+  /* Cards become clean sections */
   .topic-section,
   .card,
-  .resource-section {
-    background: #fff !important;
-    border: 1px solid #ddd !important;
+  .resource-section,
+  .knowledge-card,
+  .rev-card {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
     box-shadow: none !important;
     page-break-inside: avoid;
     margin: 0 0 1.2cm 0;
@@ -54,39 +64,49 @@
     border-radius: 0;
   }
 
+  /* Tables */
   table {
     width: 100% !important;
     border-collapse: collapse !important;
-    border: 1px solid #ccc !important;
+    border: 1px solid #cccccc !important;
   }
 
   th,
   td {
-    border: 1px solid #ccc !important;
+    border: 1px solid #cccccc !important;
     padding: 6pt 8pt !important;
+    background: #ffffff !important;
+    color: #111111 !important;
   }
 
-  img {
+  /* Images & diagrams */
+  img,
+  svg {
     max-width: 60% !important;
     height: auto !important;
   }
 
-
+  /* Textareas become blank writing space */
   .qa-card textarea.student-answer,
-  .rev-card textarea {
-    background-image: none;
+  .rev-card textarea,
+  textarea {
+    background: none !important;
+    border: 1px solid #999999 !important;
   }
 
- .stack-diagram {
+  /* Stack diagrams stay readable */
+  .stack-diagram {
     font-size: 0.9rem;
   }
+
   .stack-diagram th {
     background: #eaeaea !important;
   }
 
-.how-to-answer {
-    background-color: #ffffff;
-    border-left: 2px solid #000;
+  /* How-to-answer becomes subtle guidance */
+  .how-to-answer {
+    background-color: #ffffff !important;
+    border-left: 2px solid #000000 !important;
     font-size: 0.85rem;
   }
 
