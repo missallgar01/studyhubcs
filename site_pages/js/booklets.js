@@ -200,7 +200,7 @@ async function loadKeywordsCsv() {
   if (keywordRows) return keywordRows;
 
   try {
-    const r = await fetch("G-keywords.csv");
+    const r = await fetch("keywords.csv");
     const t = await r.text();
     keywordRows = parseKeywordsCsv(t);
     return keywordRows;
@@ -211,20 +211,21 @@ async function loadKeywordsCsv() {
   }
 }
 
-/* -------------------- OPEN KEYWORDS MODAL -------------------- */
+/* -------------------- HELPERS -------------------- */
+function pickRandomN(arr, n) {
+  // Fisher–Yates shuffle on a copy
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a.slice(0, Math.min(n, a.length));
+}
 
-async function openKeywordsModal(topicName) {
-  const modal = document.getElementById("keywordsModal");
-  const title = document.getElementById("keywordsTitle");
+function renderKeywordCards(topicName, rows) {
   const intro = document.getElementById("keywordsIntro");
   const cards = document.getElementById("keywordCards");
 
-  modal.classList.add("active");
-  title.textContent = "Keywords – " + topicName;
-  intro.textContent = "Loading keywords...";
-  cards.innerHTML = "";
-
-  const rows = await loadKeywordsCsv();
   const matches = rows.filter(r => r.topic === topicName);
 
   cards.innerHTML = "";
@@ -236,7 +237,9 @@ async function openKeywordsModal(topicName) {
 
   intro.textContent = "Click a box to reveal the definition.";
 
-  matches.forEach(row => {
+  const chosen = pickRandomN(matches, 6);
+
+  chosen.forEach(row => {
     const card = document.createElement("div");
     card.className = "keyword-card";
     card.addEventListener("click", () => card.classList.toggle("show"));
@@ -255,11 +258,40 @@ async function openKeywordsModal(topicName) {
   });
 }
 
+/* -------------------- OPEN KEYWORDS MODAL -------------------- */
+
+let currentKeywordTopic = null;
+
+async function openKeywordsModal(topicName) {
+  currentKeywordTopic = topicName;
+
+  const modal = document.getElementById("keywordsModal");
+  const title = document.getElementById("keywordsTitle");
+  const intro = document.getElementById("keywordsIntro");
+
+  modal.classList.add("active");
+  title.textContent = "Keywords – " + topicName;
+  intro.textContent = "Loading keywords...";
+
+  const rows = await loadKeywordsCsv();
+
+  // Initial render (random 6)
+  renderKeywordCards(topicName, rows);
+
+  // Wire up regenerate button (idempotent)
+  const regenBtn = document.getElementById("regenKeywordsBtn");
+  if (regenBtn) {
+    regenBtn.onclick = () => {
+      // re-render with a new random selection
+      renderKeywordCards(currentKeywordTopic, rows);
+    };
+  }
+}
+
 function closeKeywordsModal() {
   const modal = document.getElementById("keywordsModal");
   modal.classList.remove("active");
 }
-
 /* -------------------- EVENT WIRING (SAFE) -------------------- */
 
 document.addEventListener("DOMContentLoaded", () => {
