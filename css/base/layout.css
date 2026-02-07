@@ -86,8 +86,9 @@ header p.subtitle {
    ========================== */
 
 main {
-  max-width: 82%;
-  margin: 2.5rem auto;
+    max-width: 1200px;   /* or 1100px if you want it tighter */
+  width: 100%;
+  margin: 2.5rem auto; /* auto = centre horizontally */
   padding: 0 1rem 3rem;
   position: relative;
   z-index: 1;
