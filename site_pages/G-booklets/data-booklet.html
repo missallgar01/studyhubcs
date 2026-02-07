@@ -55,16 +55,691 @@
       aria-labelledby="tabbtn-revision">
       <!-- REVISION CONTENT HERE -->
         <div class="vertical-knowledge">
+
+      <div class="knowledge-card">
+  <h3>Unsigned Binary</h3>
+  <p>
+    Unsigned binary is used to represent positive whole numbers only.
+    Each bit has a fixed value, and all bits contribute to the final number.
+    For example, the 8-bit unsigned binary number 01001010 is calculated
+    using a binary place value table:
+    <br><br>
+    <h4>Binary Table:</h4><br>
+    <table>
+  <thead>
+    <tr>
+      <th>128</th>
+      <th>64</th>
+      <th>32</th>
+      <th>16</th>
+      <th>8</th>
+      <th>4</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+    64 + 8 + 2 = 74
+  </p>
 </div>
+
+            <div class="knowledge-card">
+  <h3>Hexadecimal Numbers</h3>
+  <p>
+    Hexadecimal (base 16) uses digits 0–9 and letters A–F to represent values 10–15.
+    It is commonly used as a shorthand for binary because it uses fewer digits,
+    making it easier for humans to read and reducing errors. </p>
+
+  <h3>Why Hexadecimal Is Used</h3>
+  <p>
+    Hexadecimal is used because it represents binary values using fewer digits,
+    reducing human error and making large binary numbers easier to understand.
+  </p>
+
+      <table>
+  <thead>
+    <tr>
+      <th>Hex</th>
+      <th>Binary (4-bit)</th>
+      <th>Denary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>0</td><td>0000</td><td>0</td></tr>
+    <tr><td>1</td><td>0001</td><td>1</td></tr>
+    <tr><td>2</td><td>0010</td><td>2</td></tr>
+    <tr><td>3</td><td>0011</td><td>3</td></tr>
+    <tr><td>4</td><td>0100</td><td>4</td></tr>
+    <tr><td>5</td><td>0101</td><td>5</td></tr>
+    <tr><td>6</td><td>0110</td><td>6</td></tr>
+    <tr><td>7</td><td>0111</td><td>7</td></tr>
+    <tr><td>8</td><td>1000</td><td>8</td></tr>
+    <tr><td>9</td><td>1001</td><td>9</td></tr>
+    <tr><td>A</td><td>1010</td><td>10</td></tr>
+    <tr><td>B</td><td>1011</td><td>11</td></tr>
+    <tr><td>C</td><td>1100</td><td>12</td></tr>
+    <tr><td>D</td><td>1101</td><td>13</td></tr>
+    <tr><td>E</td><td>1110</td><td>14</td></tr>
+    <tr><td>F</td><td>1111</td><td>15</td></tr>
+  </tbody>
+</table>
+
+</div>
+
+<div class="knowledge-card">
+  <h3>Converting Hexadecimal to Denary</h3>
+  <p>
+    To convert hexadecimal to denary, convert each hex digit to its binary
+    equivalent and then calculate the denary value. <br>
+      For example: <br> </p>
+
+  <h4>HEX A7 → Binary → Denary</h4>
+
+  <!-- Simple diagram -->
+  <div class="convert-diagram" style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+    <div class="step" style="padding:10px 12px; border:1px solid #ddd; border-radius:10px;">
+      <strong>HEX</strong><br>
+      A7
     </div>
 
-    <div
+    <div class="arrow" style="font-size:20px;">→</div>
+
+    <div class="step" style="padding:10px 12px; border:1px solid #ddd; border-radius:10px;">
+      <strong>Split</strong><br>
+      A &nbsp;|&nbsp; 7
+    </div>
+
+    <div class="arrow" style="font-size:20px;">→</div>
+
+    <div class="step" style="padding:10px 12px; border:1px solid #ddd; border-radius:10px;">
+      <strong>To 4-bit Binary</strong><br>
+      A = 1010<br>
+      7 = 0111
+    </div>
+
+    <div class="arrow" style="font-size:20px;">→</div>
+
+    <div class="step" style="padding:10px 12px; border:1px solid #ddd; border-radius:10px;">
+      <strong>Binary</strong><br>
+      1010 0111
+    </div>
+
+    <div class="arrow" style="font-size:20px;">→</div>
+
+    <div class="step" style="padding:10px 12px; border:1px solid #ddd; border-radius:10px;">
+      <strong>Denary</strong><br>
+      167
+    </div>
+  </div>
+
+  <p style="margin-top:12px;">
+    A7 equals <br>
+    binary 1010 0111 <br>
+    which is denary 167.
+  </p>
+
+</div>
+
+<div class="knowledge-card">
+<h3>Binary Combinations</h3>
+    <table>
+  <thead>
+    <tr>
+      <th>Bits</th>
+      <th>Number of Combinations (2^bits)</th>
+      <th>Unsigned Range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>2</td><td>0 to 1</td></tr>
+    <tr><td>2</td><td>4</td><td>0 to 3</td></tr>
+    <tr><td>3</td><td>8</td><td>0 to 7</td></tr>
+    <tr><td>4</td><td>16</td><td>0 to 15</td></tr>
+    <tr><td>5</td><td>32</td><td>0 to 31</td></tr>
+    <tr><td>6</td><td>64</td><td>0 to 63</td></tr>
+    <tr><td>7</td><td>128</td><td>0 to 127</td></tr>
+    <tr><td>8</td><td>256</td><td>0 to 255</td></tr>
+  </tbody>
+</table>
+  <h4>Example: Binary Storage Capacity</h4>
+  <p>
+    At least 9 bits are required to store 300 different binary patterns because
+    2⁸ only gives 256 combinations, while 2⁹ provides 512, which is sufficient.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>ASCII Character Encoding</h3>
+  <p>
+    ASCII is a 7-bit character encoding standard that represents letters,
+    digits, punctuation, and control characters. It allows for 127 unique values.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Extended ASCII and Unicode</h3>
+  <p>
+    Extended ASCII uses 8 bits, allowing 256 characters. Unicode extends this
+    further by using 16 to 32 bits, enabling representation of many languages
+    and symbols worldwide.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Binary Addition</h3>
+  <p>
+    Binary addition follows set rules similar to denary addition. If the result
+    produces an extra bit beyond the allocated size, this causes an overflow error.
+  </p>
+
+    <h4>Binary Addition Rules</h4>
+
+    0 + 0 = 0<br>
+    0 + 1 = 1<br>
+    1 + 0 = 1<br>
+    1 + 1 = 10 (0 carry 1)<br><br>
+
+
+  <h4>8-Bit Binary Addition Example</h4>
+
+  <p><strong>Adding two 8-bit binary numbers:</strong></p>
+
+  <pre>
+   Carry:   1 1 1
+            ↓ ↓ ↓
+           00101101
+         + 00010111
+         ----------
+           01000100
+  </pre>
+
+  <p>
+    <strong>Result:</strong> 01000100
+  </p>
+
+  <p>
+    Denary check:
+    45 + 23 = <strong>68</strong>
+  </p>
+</div>
+
+
+</div>
+
+
+<div class="knowledge-card">
+  <h3>Logical Shifts</h3>
+  <p>
+    A logical left shift adds zeros to the right and discards bits on the left,
+    doubling the value. A logical right shift adds zeros to the left and discards
+    bits on the right, halving the value.
+  </p>
+
+  <h3>Logical Shift Example</h3>
+
+    <strong>Original Binary Number</strong><br>
+     <strong>44 in denary  </strong>
+    <table>
+  <tr>
+    <th>Place Value</th>
+    <th>128</th>
+    <th>64</th>
+    <th>32</th>
+    <th>16</th>
+    <th>8</th>
+    <th>4</th>
+    <th>2</th>
+    <th>1</th>
+  </tr>
+  <tr>
+    <th>Bit</th>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+</table>
+
+    <strong>Logical Left Shift by 1</strong><br>
+    <strong>88 in denary</strong><br><br>
+<table>
+  <tr>
+    <th>128</th>
+    <th>64</th>
+    <th>32</th>
+    <th>16</th>
+    <th>8</th>
+    <th>4</th>
+    <th>2</th>
+    <th>1</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+</table>
+
+    <strong>What Happened?</strong><br>
+    • A 0 is added to the right<br>
+    • The leftmost bit is discarded<br>
+    • The value doubles <br>
+    <br>
+
+  <h3>Logical Right Shift Example</h3>
+
+    <strong>Original Binary Number</strong><br>
+    00101100 &nbsp; 44 in denary <br><br>
+
+    <table class="binary-bits-table" border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th>128</th>
+    <th>64</th>
+    <th>32</th>
+    <th>16</th>
+    <th>8</th>
+    <th>4</th>
+    <th>2</th>
+    <th>1</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+</table>
+
+
+    <strong>Logical Right Shift by 1</strong><br>
+    00010110 &nbsp; 22 in denary <br><br>
+
+    <table>
+  <tr>
+    <th>128</th>
+    <th>64</th>
+    <th>32</th>
+    <th>16</th>
+    <th>8</th>
+    <th>4</th>
+    <th>2</th>
+    <th>1</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+</table>
+
+<p>
+  Denary value: <strong>22</strong>
+</p>
+
+    <strong>What Happened?</strong><br>
+    • A 0 is added to the left<br>
+    • The rightmost bit is discarded<br>
+    • The value halves <br>
+
+</div>
+
+<div class="knowledge-card">
+  <h3>Two’s Complement</h3>
+  <p>
+    To convert a binary number to two’s complement, copy all bits from the right
+    up to and including the first 1, then invert the remaining bits. This method
+    is used to represent negative numbers.
+  </p>
+
+  <h4>Two’s Complement Example</h4>
+
+    <strong>Step 1 Work out the positive 8-bit Binary Number</strong><br>
+    00101010 &nbsp; 42 in denary <br><br>
+
+    <table>
+  <tr>
+    <th>128</th>
+    <th>64</th>
+    <th>32</th>
+    <th>16</th>
+    <th>8</th>
+    <th>4</th>
+    <th>2</th>
+    <th>1</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+</table>
+
+  <strong>Step 2: Copy from the Right (up to and including the first 1)</strong>
+
+  <table>
+    <tr>
+      <th>128</th>
+      <th>64</th>
+      <th>32</th>
+      <th>16</th>
+      <th>8</th>
+      <th>4</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td style="text-align:center;">↑</td>
+      <td></td>
+    </tr>
+  </table>
+
+    <strong>Step 3 Copy all bits from this <strong>first 1</strong> to the right.</strong>
+
+    <strong>Result (Two’s Complement)</strong><br>
+
+    <table class="binary-bits-table" border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th>128</th>
+    <th>64</th>
+    <th>32</th>
+    <th>16</th>
+    <th>8</th>
+    <th>4</th>
+    <th>2</th>
+    <th>1</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+</table>
+
+<p>
+  Denary value: <strong>−42</strong> (signed, two’s complement)
+</p>
+  </div>
+
+
+<div class="knowledge-card">
+  <h3>Binary Subtraction Using Two’s Complement</h3>
+  <p>
+    Subtraction in binary is performed by adding the two’s complement of the
+    number being subtracted. For example, 18 − 8 is calculated by adding 18 to
+    the two’s complement of 8.
+  </p>
+
+    <h4>For example</h4>
+      <strong>18 − 8</strong> is calculated by adding 18 to the
+    two’s complement of 8.
+
+  <!-- Step 1 -->
+  <h4>Step 1: Convert 18 to Binary</h4>
+  <table>
+    <tr>
+      <th>128</th><th>64</th><th>32</th><th>16</th>
+      <th>8</th><th>4</th><th>2</th><th>1</th>
+    </tr>
+    <tr>
+      <td>0</td><td>0</td><td>0</td><td>1</td>
+      <td>0</td><td>0</td><td>1</td><td>0</td>
+    </tr>
+  </table>
+  <p><strong>18 = 00010010</strong></p>
+
+  <!-- Step 2 -->
+  <h4>Step 2: Convert 8 to Binary</h4>
+  <table>
+    <tr>
+      <th>128</th><th>64</th><th>32</th><th>16</th>
+      <th>8</th><th>4</th><th>2</th><th>1</th>
+    </tr>
+    <tr>
+      <td>0</td><td>0</td><td>0</td><td>0</td>
+      <td>1</td><td>0</td><td>0</td><td>0</td>
+    </tr>
+  </table>
+  <p><strong>8 = 00001000</strong></p>
+
+  <!-- Step 3 -->
+  <h4>Step 3: Two’s Complement of 8</h4>
+  <p>
+    Copy from the right up to and including the first 1, then flip the remaining bits.
+  </p>
+  <table>
+    <tr>
+      <th>128</th><th>64</th><th>32</th><th>16</th>
+      <th>8</th><th>4</th><th>2</th><th>1</th>
+    </tr>
+    <tr>
+      <td>1</td><td>1</td><td>1</td><td>1</td>
+      <td>1</td><td>0</td><td>0</td><td>0</td>
+    </tr>
+  </table>
+  <p><strong>−8 = 11111000</strong></p>
+
+  <!-- Step 4 -->
+  <h4>Step 4: Add the Two Binary Numbers</h4>
+  <pre>
+ 00010010
++11111000
+ --------
+ 00001010
+  </pre>
+
+  <!-- Step 5 -->
+  <h4>Step 5: Result</h4>
+  <table>
+    <tr>
+      <th>128</th><th>64</th><th>32</th><th>16</th>
+      <th>8</th><th>4</th><th>2</th><th>1</th>
+    </tr>
+    <tr>
+      <td>0</td><td>0</td><td>0</td><td>0</td>
+      <td>1</td><td>0</td><td>1</td><td>0</td>
+    </tr>
+  </table>
+  <p><strong>Answer: 18 − 8 = 10</strong></p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Arithmetic Shifts</h3>
+  <p>
+    An arithmetic left shift works the same as a logical left shift. An arithmetic
+    right shift copies the most significant bit into the left side, preserving
+    the sign of the number.
+  </p>
+
+  <h3>Arithmetic Right Shift Example</h3>
+
+  <h4>Original Binary Number (Signed)</h4>
+  <table>
+    <tr>
+      <th>128</th><th>64</th><th>32</th><th>16</th>
+      <th>8</th><th>4</th><th>2</th><th>1</th>
+    </tr>
+    <tr>
+      <td>1</td><td>0</td><td>1</td><td>0</td>
+      <td>1</td><td>1</td><td>0</td><td>0</td>
+    </tr>
+  </table>
+  <p><strong>10101100 = −84 (two’s complement)</strong></p>
+
+  <h4>Arithmetic Right Shift by 1</h4>
+  <table>
+    <tr>
+      <th>128</th><th>64</th><th>32</th><th>16</th>
+      <th>8</th><th>4</th><th>2</th><th>1</th>
+    </tr>
+    <tr>
+      <td>1</td><td>1</td><td>0</td><td>1</td>
+      <td>0</td><td>1</td><td>1</td><td>0</td>
+    </tr>
+  </table>
+  <p><strong>11010110 = −42</strong></p>
+
+  <p>
+    The most significant bit is copied to the left to preserve the sign of the
+    number. This is why the result is different from a logical shift.
+  </p>
+
+
+    <strong>What Happened?</strong><br>
+    • The most significant bit (1) is copied to the left<br>
+    • The rightmost bit is discarded<br>
+    • The sign of the number is preserved<br>
+    • The value is divided by 2
+
+   </div>
+
+
+<div class="knowledge-card">
+  <h3>Logical vs Arithmetic Shift Right</h3>
+  <p>
+    Logical shifts always fill the leftmost bit with 0, while arithmetic shifts
+    copy the most significant bit. This causes different results when shifting
+    signed binary numbers.
+  </p>
+</div>
+
+
+<div class="knowledge-card">
+  <h3>Bitmap Images</h3>
+  <p>
+    Images are stored as bitmaps made up of pixels. Each pixel is represented
+    using binary values.
+  </p>
+
+  <h3>Image Resolution</h3>
+  <p>
+    Image resolution is the total number of pixels in an image, calculated as
+    width × height in pixels.
+  </p>
+
+  <h3>Colour Depth</h3>
+  <p>
+    Colour depth is the number of bits used to represent each pixel. More bits
+    allow more colours but increase file size.
+  </p>
+
+  <h3>Image File Size</h3>
+  <p>
+    Image file size is calculated using:
+    Image width × Image height × Colour depth.
+  </p>
+
+  <h3>Metadata</h3>
+  <p>
+    Metadata is data about data, such as filename, file format, dimensions,
+    resolution, colour depth, and date last modified.
+  </p>
+</div>
+
+
+<div class="knowledge-card">
+  <h3>Sound Sampling</h3>
+  <p>
+    Sound is captured by a microphone and converted into an analogue signal.
+    It is stored digitally by sampling the sound wave at regular intervals.
+  </p>
+
+  <h3>Sample Rate and Bit Depth</h3>
+  <p>
+    Sample rate is how often the sound is sampled per second. Bit depth stores
+    the amplitude of the wave. Higher values improve quality but increase file size.
+  </p>
+
+  <h3>Sound File Size Calculation</h3>
+  <p>
+    Sound file size is calculated using:
+    Bit depth × Sample rate × Length of sound × Number of channels.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Data Compression</h3>
+  <p>
+    Data compression reduces file size so files take up less storage space and
+    can be transferred faster.
+  </p>
+
+  <h3>Lossless Compression</h3>
+  <p>
+    Lossless compression reduces file size without losing any data. The original
+    file can be perfectly reconstructed, making it suitable for text files.
+  </p>
+
+  <h3>Lossy Compression</h3>
+  <p>
+    Lossy compression permanently removes some data to greatly reduce file size.
+    It is commonly used for images, audio, and video where small losses are unnoticeable.
+  </p>
+</div>
+</div>
+</div>
+
+      <div
       id="tab-KC"
       role="tabpanel"
       aria-labelledby="tabbtn-KC"
       hidden>
       <!-- KNOWLEDGE CHECK CONTENT HERE -->
-
 <div class="rev-card qa-card">
   <p>
 
