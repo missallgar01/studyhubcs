@@ -237,7 +237,7 @@ function renderKeywordCards(topicName, rows) {
 
   intro.textContent = "Click a box to reveal the definition.";
 
-  const chosen = pickRandomN(matches, 6);
+  const chosen = pickRandomN(matches, 9);
 
   chosen.forEach(row => {
     const card = document.createElement("div");
