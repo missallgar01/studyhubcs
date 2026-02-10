@@ -1,0 +1,1136 @@
+[
+  {
+    "title": "State/Identify",
+    "prompt": " State the bus that carries a read signal to main memory",
+    "answer": "Control Bus",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/identify",
+    "prompt": "State the bus that carries the memory location of a piece of data",
+    "answer": "Address Bus",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the bus that carries an instruction from main memory to the CPU",
+    "answer": "Data Bus",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the component inside the CPU that stores data.",
+    "answer": "Register",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the component that stored data and instrutions of currently running programs.",
+    "answer": "Main memory",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the component of the CPU that carries out additions and comparisons.",
+    "answer": "Arithmetic logic unit",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the component inside the CPU that provides the timing signals to synchronise operations.",
+    "answer": "Clock",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One function of an operating system is to manage processes.Describe one way the operating system makes sure each process can use the CPU.",
+    "answer": "\u2022 A scheduler/scheduling algorithm controls processes\n\u2022 Each process gets a time slice/small amount of (CPU) time\n\u2022 Processes are held in a data structure\n\u2022 Each process may be held in order / priority\n\u2022 Incomplete processes go to the back of the queue",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Give one other function of an operating system.",
+    "answer": "\u2022 File management\n\u2022 Peripheral management\n\u2022 User management\n\u2022 User interface",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the hardware component that carries instructions from memory to the CPU.",
+    "answer": "Data Bus",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the reason why a higher clock speed is desirable.",
+    "answer": "More instructions carried ot per second",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the name of a bus that is unidirectional.",
+    "answer": "Address Bus",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Some low-level programming languages use mnemonics. State the purpose of a mnemonic.",
+    "answer": "\u2022 To represent an instruction/command\n\u2022 To make an instruction/command easy to read/write/learn/remember/understand\n\u2022 An instruction in a set of instructions",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the type of low-level programming language that uses mnemonics.",
+    "answer": "Assembly code",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Characteristics/Features",
+    "prompt": "Mnemonics are one characteristic of some low-level languages.\nDescribe one other characteristic of a low-level language.",
+    "answer": "\u2022 A linked description such as:\n\u2022 They are microprocessor/CPU/machine specific so they can manipulate the hardware directly\n\u2022 They can be highly optimised to make efficient use of the hardware/execute more quickly/use minimal memory\n\u2022 Each line of code is one instruction only Award responses that refer to machine code as a low-level language, such as:\n\u2022 Machine code is written in binary so instructions can be processed directly by the CPU / do not need to be translated Award one mark for:\n\u2022 Machine code does not need to be translated",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the name of the high-level programming language translator that executes a line of code immediately after translating it.",
+    "answer": "Interpreter",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the name of the high-level programming language translator that executes the entire program before it will run.",
+    "answer": "Compiler",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe how data is stored on optical media.",
+    "answer": "A description to include two from:\nA laser heats/burns (areas of a disk) , which creates lands/pits representing binary / 1s and 0s",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe how data is stored on solid state storage",
+    "answer": "\u2022 A description to include two from:\n\u2022 Data is stored using electronic circuits / transistors\n\u2022 Electrons are trapped or released in a floating gate / memory cell\n\u2022 The presence or absence of charge represents binary 1s and 0s",
+    "marks": "",
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe how data is stored on a magnetic hard drive",
+    "answer": "\u2022 A description to include two from:\n\u2022 There is a magnetic/chemical coating on surface of the media The magnetic state/polarity of the chemical can be changed to represent a 0 or 1",
+    "marks": "",
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the type of secondary storage that stores data as electric charges.",
+    "answer": "SSD/ Solid State/ Flash",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Reason",
+    "prompt": "Give one reason the performance of a solid-state drive is not affected by fragmentation.",
+    "answer": "\u2022 A solid-state device has no moving parts\n\u2022 Seek time is not affected by scattered data because it is read electronically",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Advantages/Disadvantages",
+    "prompt": "A code review is carried out by a programmer or an automated system and cost money. What is another  disadvantage of a code review by a programmer",
+    "answer": "Adds additional/significant time (to the development cycle) Introduces human error Requires an extra person/resource/labour Requires more experienced programmer",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "",
+    "prompt": "A code review is carried out by a programmer or an automated system and cost money. What is another  disadvantage of a code review by a automated system",
+    "answer": "May not identify all issues (that it is not programmed to find) May only find well known problems",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Define",
+    "prompt": "Define the term 'embedded system'.",
+    "answer": "\u2022 Forms part of another device / system\n\u2022 Performs a single/dedicated/specific task",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Define",
+    "prompt": "Some program code requires translation. Define the term 'translation'.",
+    "answer": "Converting (human readable) code to binary/machine code",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "A slow magnetic hard disk may be affected by file fragmentation.\nDescribe fragmentation and the process of defragmentation.",
+    "answer": "\u2022 A description to include (to a maximum of 3, with at least one in each category): Fragmentation:\n\u2022 Files are written to disk in blocks\n\u2022 Blocks can be dispersed across the disk. Defragmentation:\n\u2022 Defragmentation is when file blocks are rearranged on the disk\n\u2022 All the blocks for one file are moved closer together\n\u2022 All the free space is moved to be together",
+    "marks": 3.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe how an embedded system that uses a sensor could control car windscreen wipers.",
+    "answer": "A description to include two from:\nIf set pressure levels / moisture levels are reached a switch could be turned on/off / windscreen wipers could be turned on/off / (wiper) motor speed altered .",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe how an operating system organises files and folders.",
+    "answer": "\u2022 Uses a hierarchical/tree structure with a root node/directory\n\u2022 Each position on the tree/path is a directory/sub-directory/folder, or file\n\u2022 Each file has a unique path in relation to the root",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One function of an operating system is user management.\n\nDescribe one purpose of user management.",
+    "answer": "\u2022 A description to include:\n\u2022 To provide access to the device by controlling who can log on to the device\n\u2022 To allow a user to log on by checking the username/password\n\u2022 By authenticating the user before allowing them to log on",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe two ways a compiler differs from an interpreter.",
+    "answer": "\u2022 Two linked descriptions from:\n\u2022 A compiler carries out translation once prior to execution whereas an interpreter carries out translation every time the program executes\n\u2022 A compiler produces a stand-alone executable file whereas an interpreter is required each time the code is run\n\u2022 A compiler reports errors after translation is complete whereas an interpreter reports errors as they occur",
+    "marks": 4.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe two ways an operating system manages processes.\n",
+    "answer": "\u2022 Two linked descriptions from:\n\u2022 Uses paging / allocates addresses/sections [of RAM] to share memory between processes\n\u2022 Extends main memory by using part of secondary storage (as virtual memory)\n\u2022 The memory of inactive processes is stored in virtual memory and swapped back when the process becomes active\n\u2022 Uses scheduling algorithm to share processing time between competing processes",
+    "marks": 4.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe two ways that a high-level language differs from a low-level language.",
+    "answer": "\u2022 High-level languages use instructions that look like English , whereas a low-level language uses mnemonics/binary code\n\u2022 A high-level language statement generates many lines of machine code , whereas each line of low-level languages is/generates a single machine instruction\n\u2022 High-level languages are general purpose/exist across microprocessors/CPUs/machine-independent , whereas a low-level language is microprocessor/CPU/machine specific\n\u2022 High-level languages are abstracted from the hardware , whereas low-level languages manipulate the hardware directly",
+    "marks": 4.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain one way an audit trail helps programmers create robust software.",
+    "answer": "\u2022 An audit trail improves accountability because it keeps track of who makes changes / when changes are made\n\u2022 An audit trail makes going back to an earlier version easier because changes are tracked",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Some users are given administrator privileges.\n\nExplain one way an operating system allows an administrator to manage users.",
+    "answer": "\u2022 A linked explanation such as:\n\u2022 Users can be added/deleted so multiple people can use the same computer\n\u2022 Edit user permissions so only specific users can securely access their storage space\n\u2022 Control the amount of resources/storage each user can access so the limited storage on the machine can be shared\n\u2022 Enforce user permissions so only certain users are allowed to install programs / access certain files",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain the way a code review works.",
+    "answer": "Code reviews are carried out by programmers/specialist software so that they can identify security bugs/security issues/bad practice",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "The Internet of Things has allowed devices with embedded systems to function independently and to collect and exchange data without the need for humans.\n\nOne such device is a battery-powered mower for the garden.\n\n(i)  Give one ways each category could be used by the mower.\n\nConnectivity\n\nInput\n\nProcess\n\nOutput\n\n",
+    "answer": "\u2022 Answer\nOne mark for each to a maximum of 4, with at least one in each category Connectivity:\n\u2022 The mower could connect to a wireless/wired network\n\u2022 The mower could have a GPS device . Input:\n\u2022 A phone/desktop/software application could be used to schedule when it will work\n\u2022 A map of the garden would be stored on the mower\n\u2022 The mower would have sensors to know if it ran into things / if it was dark / if it were raining / if it ran outside the garden. Process:\n\u2022 The microcontroller in the mower would run a program\n\u2022 A map of the garden would be read by the program so the mower would know where to go\n\u2022 The program would monitor the power status to know if it needed recharging. Output:\n\u2022 The program on the mower could upload statistics/information back to the application\n\u2022 The mower could have a digital readout / flashing lights to indicate status",
+    "marks": 4.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Explain",
+    "prompt": " Explain the best choice of secondary storage for the battery-operated mower.",
+    "answer": "The mower should use solid-state secondary storage because it has no moving parts / can use very little power from the battery / is robust to bumps and knocks",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Characteristics/Features",
+    "prompt": "When using a compiler to translate source code to machine code, the translation only needs to be done once.\n\nGive three other features of a compiler.",
+    "answer": "\u2022 Translates the entire source file to machine code in one go / translates all the source code prior to execution\n\u2022 Shows all syntax errors at the end of the translation process\n\u2022 Produces a single executable/object code/platform-dependent output\n\u2022 Separates the tasks of translation and execution",
+    "marks": 3.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "The operating system manages peripherals.\n\nIdentify an additional piece of software that is required for the operating system to manage peripherals.",
+    "answer": "Device Driver",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify an additional piece of software that is required for translating assembly code",
+    "answer": "Assembler",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify an additional piece of software that is required for maintaining the performance of a hard disk.",
+    "answer": "Disk defragmenter",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe the purpose of an Analogue to Digital Converter (ADC).",
+    "answer": "Converts analogue signals into digital data that a computer can process",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the feature of an optical disc that allows data to be read.",
+    "answer": "",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the purpose of defragmentation software.",
+    "answer": "Organising data",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify two reasons for using data compression.",
+    "answer": "Reduces required storage space Reduces data transfer times",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the\u00a0two\u00a0items held in RAM according to the von Neumann architecture.",
+    "answer": "Data and Instructions",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the type of secondary storage that uses a laser to read the disk.",
+    "answer": "Optical disk",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Advantages/Disadvantages",
+    "prompt": "A team of developers is using an audit trail when working on a program.\n\nState two advantages of keeping an audit trail.",
+    "answer": "\u2022 One mark for each to a maximum of 2:\n\u2022 There\u2019s a record of who changed what when\n\u2022 Identifies the point at which an error/security issue was introduced\n\u2022 Enables the program to be rolled back to a previous state\n\u2022 Improve accountability/produces robust code",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Characteristics/Features",
+    "prompt": "A compiler translates source code to machine code. If the source code is edited, it must be recompiled.\n\nGive two other characteristics of a compiler.",
+    "answer": "\u2022 Translates the whole program in one go\n\u2022 Errors are reported at the end of translation\n\u2022 The executable/machine code is architecture specific",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Characteristics/Features",
+    "prompt": "An embedded computer system is part of a larger machine.\n\nState two characteristics of embedded systems that make them different from general purpose computers.\n",
+    "answer": "\u2022 Limited processing resources\n\u2022 Low power consumption\n\u2022 Simple/robust operating system\n\u2022 Low cost per unit\n\u2022 Smaller in size\n\u2022 Less storage\n\u2022 Limited user interface",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Robust software must be free from vulnerabilities before it is released to users. Programming bugs are one type of vulnerability.\n\nState two other types of vulnerability.",
+    "answer": "\u2022 Programming language specific vulnerabilities (directly manipulating memory)\n\u2022 Security (vulnerability)\n\u2022 Weak design\n\u2022 Insufficient testing\n\u2022 Bad programming practices (not following standards, using unvalidated 3rd party libraries)\n\u2022 Inadequate validation (that fails to prevent incorrect/inappropriate data input)\n\u2022 Inadequate authentication (that enables hackers to gain unauthorised access)\n\u2022 Sensitive data not encrypted",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Algorithms can be written in a high-level language.\n\nState what high-level code is translated to.",
+    "answer": "\u2022 Machine code\n\u2022 Binary\n\u2022 Object code\n\u2022 Executable code / an executable",
+    "marks": 1.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State two methods of source code translation.",
+    "answer": "\u2022 Compile/Compilation\n\u2022 Interpret/Interpretation\n\u2022 Assemble",
+    "marks": 2.0,
+    "topic": "Topic 3 Computers"
+  },
+  {
+    "title": "Define",
+    "prompt": "Define the term 'iteration'.",
+    "answer": "Looping over iterm in a data structure",
+    "marks": 1.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "",
+    "prompt": "Define the term repetition",
+    "answer": "Looping insturctions for a set number of times",
+    "marks": 1.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Here is a relational operator used in a conditional test. count >index  State the two different results of evaluating a conditional test.",
+    "answer": "True False",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the result of 5 / / 2",
+    "answer": "2",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Define",
+    "prompt": "Define the term 'syntax error'.",
+    "answer": "\u2022 Code that breaks/violates the rules/grammar of the programming language Do not award credit for an example in isolation such as missing colon, there must be a definition",
+    "marks": 1.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain a runtime error.",
+    "answer": "\u2022 The program crashes/stops because the operation the computer is asked to do is impossible\n\u2022 The program crashes because the CPU cannot execute one of the instructions in the code For both marks, the expansion must follow/associate with the statement.\nDo not award credit for an example in isolation such as division by zero.\nBe careful not to award marks for syntax/logic error",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Define",
+    "prompt": "Programmers use abstraction to model the real world.\nDefine the term 'abstraction'.",
+    "answer": "\u2022 A definition to include:\n\u2022 The process of removing or hiding unnecessary details so that only the important points remain\n\u2022 Programmers can focus only on the important details of a problem because abstraction allows them to ignore any detail that is not relevant",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Define",
+    "prompt": "Define the term 'decomposition'.",
+    "answer": "Breaking down a problem/solution/system/algorithm",
+    "marks": 1.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Define",
+    "prompt": "Define the term 'subprogram'.",
+    "answer": "\u2022 One mark each for a maximum of 2:\n\u2022 A subprogram is a self-contained block of code\n\u2022 A subprogram performs a specific/dedicated task\n\u2022 It can be \u2018called\u2019 by the main program or other subprograms, when it is needed",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Algorithms use arrays and records to hold data.\nDescribe a record.",
+    "answer": "\u2022 A list / data structure / collection of elements/fields/values where each element/field/value may be a different data type / is related to the others For both marks, the expansion must associate with the statement",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Describe",
+    "prompt": "A linear search algorithm can be used on both a sorted and an unsorted array.\nDescribe how a linear search algorithm operates on an unsorted array.",
+    "answer": "\u2022 Start at the first position / Iterate / Traverse (through the array) , compare the item with the target , stop when the target is matched , or stop when the end of the list is reached (and the item is not matched)",
+    "marks": 4.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe one difference between a syntax error and a logic error.",
+    "answer": "\u2022 A syntax error is caused by using the grammar/form/words of the programming language incorrectly , whereas a logic error is caused by an error in the design of the algorithm\n\u2022 A syntax error causes the program not to interpret/compile/translate, whereas a logic error produces an incorrect/wrong result",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain one benefit of using subprograms.",
+    "answer": "\u2022 An explanation to include two from:\n\u2022 The subprogram may be used more than once in a program so that writing, debugging, testing will save time\n\u2022 The subprogram performs one specific/contained task so it can be moved away from the main program code\n\u2022 Subprograms for common tasks can be stored in libraries and reused in other programs so that they don\u2019t have to be re-written",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Programmers use trace tables with algorithms.\nExplain the purpose of a trace table.",
+    "answer": "\u2022 It helps the programmer visualise the steps in a program / find errors/bugs / check the algorithm gives the correct output because they can see the value a variable holds at a given point in an algorithm . For both marks, the expansion must associate with the statement",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the term that means breaking a problem or solution down into smaller parts.",
+    "answer": "Decomposition",
+    "marks": 1.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Name",
+    "prompt": "Name the type of operator for each example.       + *",
+    "answer": "Arithmetic",
+    "marks": 1.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Name",
+    "prompt": "Name the type of operator for each example    AND OR",
+    "answer": "Logical",
+    "marks": 1.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the worst case for a linear search algorithm.",
+    "answer": "The target item is not in the list / is at end of the list",
+    "marks": 1.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State three types of error that can occur in programs.",
+    "answer": "\u2022 Runtime\n\u2022 Syntax\n\u2022 Logic",
+    "marks": 3.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State two benefits of subprograms.",
+    "answer": "\u2022 The subprogram code only has to be written once / saves development time\n\u2022 The subprogram can be called many times (reusability)\n\u2022 The subprogram only has to be debugged once\n\u2022 It is easier to locate and debug errors\n\u2022 Hides the details of how a function/procedure/code works (abstraction)\n\u2022 Can be used by programmers who don\u2019t have the knowledge to write them\n\u2022 Can be grouped into libraries / can be shared with other programmers\n\u2022 Makes programs easier to read / understand\n\u2022 Reduces the overall size of code\n\u2022 Problem can be decomposed into smaller sub-problems\n\u2022 Allows a team to work on a project",
+    "marks": 2.0,
+    "topic": "Topic 1 Computational Thinking"
+  },
+  {
+    "title": "Convert",
+    "prompt": "Computers manipulate binary patterns. Patterns can represent signed or unsigned integers.\nConvert the denary number 57 to 8-bit binary.",
+    "answer": "00111001",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Convert",
+    "prompt": "Convert the binary number 0010 1101 to hexadecimal.",
+    "answer": "2D",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe the process of converting a binary number to two's complement.",
+    "answer": "\u2022 A linked description such as:\n\u2022 Flip all the bits and add one\n\u2022 Copy/keep all the 0s from the right/LSB, up to and including the first 1 , then flip the remaining bits\n\u2022 Flip all the bits from the left/MSB up to, but not including, the 1 nearest the right/LSB",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Convert",
+    "prompt": "Convert the binary pattern 0100 0010 to denary.",
+    "answer": "66",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Convert",
+    "prompt": "Convert the binary pattern 0101 1011 to hexadecimal.",
+    "answer": "5B",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Convert",
+    "prompt": "Convert the denary value +112 to 8-bit binary representation.",
+    "answer": "0111000",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Give",
+    "prompt": "Give the 8-bit binary two's complement representation of denary \u221273",
+    "answer": "10110111",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the number of unique values that can be represented with 6 bits.",
+    "answer": "64 or 2^6",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Construct",
+    "prompt": "A file format uses a 100 \u00d7 600 table of 32-bit integers.\nThe file uses 1 kibibyte of additional data.\nConstruct an expression to show the number of bytes of storage needed to store the file.",
+    "answer": "(100 \u00d7 600 \u00d7 32 / 8)+1024 bytes",
+    "marks": 3.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Calculate",
+    "prompt": "In arithmetic, subtraction can be done by adding a negative number.\nCalculate 18 \u2212 8, using 8-bit binary and two's complement.\nConvert the result back to denary.\nShow all your working.",
+    "answer": "\u2022 18 converted to 8-bit binary 0001 0010\n\u2022 \u22128 converted to two\u2019s complement 8-bit binary 1111 1000\n\u2022 Addition performed correctly (1 mark for each nibble)\u25cb 8-bit binary result of 0000 1010",
+    "marks": 4.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Give",
+    "prompt": "The file size can be optimised by changing the colour depth.\nGive the minimum number of bits that can store 5 colours.",
+    "answer": "3 bits",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the reason why decreasing the sample interval improves the digital representation of a sound wave.",
+    "answer": "More samples in each sample",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Construct",
+    "prompt": "Construct an expression to calculate the file size, in mebibytes, of a CD quality (44.1 KHz, bit depth of 16), two-channel stereo soundtrack that is 4 minutes long.\nYou do not need to carry out the calculation.",
+    "answer": "\u2022 One mark for each:\n\u2022 Sample rate and bit depth = 44.1 \u00d7 1000 \u00d7 16\n\u2022 Channels and time = 2 \u00d7 4 \u00d7 60\n\u2022 Unit conversions = 8 \u00d7 1024 \u00d7 1024\n\u2022 Numerator and denominator the right way around Example of an expression that gains full marks:((44.1 \u00d7 1000 \u00d7 16) \u00d7 (2 \u00d7 4 \u00d7 60)) / (8 \u00d7 1024 \u00d7 1024)",
+    "marks": 4.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Construct",
+    "prompt": "Construct an expression to convert 40 681 930 227 712 bytes to tebibytes.",
+    "answer": "\u2022 Sight of 1024\u2074 anywhere for number of bytes in a tebibyte\n\u2022 40 681 930 227 712 / 1024\u2074",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Convert",
+    "prompt": "Convert the binary number 0100 1010 to hexadecimal.",
+    "answer": "4A",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Convert",
+    "prompt": "Convert the denary number \u201333 to 8-bit binary using two's complement.",
+    "answer": "33",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Convert",
+    "prompt": "Convert the denary number 82 to 8-bit binary.",
+    "answer": "01010010",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Convert",
+    "prompt": "Convert the hexadecimal number 2A to 8-bit binary.",
+    "answer": "00101010",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Define",
+    "prompt": "Define the term 'pixel'.",
+    "answer": "The smallest single point of colour in an image / picture element / the smallest element of a bit-mapped image",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe one way that changing the number of bits allocated to the colour depth determines how an image is represented.",
+    "answer": "\u2022 A description to include two from:\n\u2022 Increasing the number of bits used for each pixel allows more colours to be represented in each pixel OR\n\u2022 Increasing the number of bits allows more pixels to be used providing a greater level of resolution OR\n\u2022 Decreasing the number of bits used for each pixel allows fewer colours to be represented in each pixel OR\n\u2022 Decreasing the number of bits allows fewer pixels to be used providing a reduced level of resolution",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Define",
+    "prompt": "Sound waves are converted to binary using sample intervals.\nDefine the term 'sample interval'.",
+    "answer": "\u2022 The time / number of seconds / gap between samples / measurements",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe one effect of using lossy compression to reduce the size of a file.",
+    "answer": "\u2022 (Removed) data cannot be restored / means that the original file/information cannot be fully recreated/represented\n\u2022 When data is removed humans may perceive/interpret the image/sound/text/information differently",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Data can be encoded using ASCII. Describe ASCII.",
+    "answer": "\u2022 A description to include two from:\n\u2022 A standard\n\u2022 For representing text/characters\n\u2022 Allows data to be interchangeable between computers (from different manufacturers)\n\u2022 Each character is mapped to a unique number/binary equivalent\n\u2022 ASCII (encoding) uses 7/8 bits\n\u2022 There are 128 unique characters (allow 256 for 128)",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Shifts are performed on binary patterns.\nA logical shift right is performed on a pattern.\nAn arithmetic shift right is performed on the same original pattern.\nDescribe the reason the results will be different.",
+    "answer": "\u2022 An arithmetic shift fills from the left with a copy of the most-significant bit (MSB) , whereas a logical shift fills from the left with a 0\n\u2022 An arithmetic shift keeps the most-significant bit (MSB) the same , whereas a logical shift always fills the MSB bit with a 0",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe one reason that lossless compression is preferred to lossy compression for transmitting word-processed documents over a network.",
+    "answer": "A lossless compression will allow the exact contents of the word-processed document to be reconstructed whereas a lossy compression will permanently remove data from the file",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain the reason why at least nine bits are needed to store 300 different binary patterns.",
+    "answer": "\u2022 One from:\n\u2022 2\u2079 gives 512 patterns whereas 2\u2078 gives 256 patterns\n\u2022 2\u2078 does not give enough patterns whereas 2\u2079 gives more than enough patterns",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Give",
+    "prompt": "Give an expression to calculate the size of a bitmap image, not the size of the file that stores the image.",
+    "answer": "\u2022 An explanation to include:\n\u2022 ASCII only represents English characters / Kana / Hiragana cannot be represented in ASCII because there are not enough bits\n\u2022 With just 7 bits, only 128 unique codes can be generated, which is not enough to represent all the characters used in the written languages of the world\n\u2022 The text has foreign characters and there are not enough bits in ASCII to represent them",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "The address bus of a computer is 8-bits wide.\nState the number of unique addresses that can be accessed.",
+    "answer": "\u2022 256\n\u2022 2\u2078\n\u2022 2 \u00d7 2 \u00d7 2 \u00d7 2 \u00d7 2 \u00d7 2 \u00d7 2 \u00d7 2",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the result of a single logical shift left on the 8-bit binary pattern 0101 0101.",
+    "answer": "Multiplication",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Two images are displayed on the same screen.\nOne image is 1280 \u00d7 720 pixels. The second image is 1920 \u00d7 1080 pixels. \nThe second image has a higher resolution.\nState one reason why the second image will be displayed in more detail.",
+    "answer": "\u2022 The number of pixels per (square) inch is higher\n\u2022 The density of pixels is higher",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Analogue sound must be converted into a digital representation.\n(i)  State the name for the height of a sound wave.",
+    "answer": "Amplitude",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State one benefit and one drawback of increasing the bit depth of audio.",
+    "answer": "\u2022 One mark for the benefit:\n\u2022 Increases the accuracy of the representation One mark for a drawback from:\n\u2022 Increases the amount of storage required\n\u2022 Increases the time it takes to download the audio file",
+    "marks": 2.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "The ASCII system is used to represent letters and symbols.\n(i)  State the number of bits used to represent each letter or symbol in ASCII.",
+    "answer": "7",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Give",
+    "prompt": " The ASCII code 65 represents the letter A.\nGive the letter represented by the ASCII code 68.",
+    "answer": "D",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "After applying compression to a file, the original contents cannot be reconstructed fully.\nState the type of compression used on the file.",
+    "answer": "Lossy",
+    "marks": 1.0,
+    "topic": "Topic 2 Data"
+  },
+  {
+    "title": "Name",
+    "prompt": "Network protocols control the rules of communication.\n(i)  Name a network protocol that transmissions from other electrical devices can interfere with and that can be blocked by walls.",
+    "answer": "Wi-fi Bluetooth",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Name",
+    "prompt": "Name the network protocol used to download a music file from a server.",
+    "answer": "FTP",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Give",
+    "prompt": "Devices are connected to networks.\n(i)  Give two reasons for connecting computers in a network.",
+    "answer": "\u2022 Can share files/data\n\u2022 Can share applications/software\n\u2022 Can collaborate\n\u2022 Can share peripherals (printers, speakers)\n\u2022 Can share connectivity (Internet connection, hotspot)\n\u2022 Can access files from any computer / hot desk\n\u2022 Central control/management (security, software updates, backup, remote support, users, remote monitoring)\n\u2022 Allows communication (email, social media, video conferencing, online meeting, collaborative games)",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe one way a local area network (LAN) is different from a wide area network (WAN).",
+    "answer": "\u2022 A description such as:\n\u2022 A LAN covers a small (geographic) area / a WAN covers a large (geographic) area (2)\n\u2022 A LAN uses infrastructure owned by one company / a WAN uses third-party infrastructure (2)\n\u2022 A LAN connects individual devices / uses switches , whereas a WAN connects LANs / uses gateways",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "A network has a speed of 17.08 megabits per second.\nIdentify the equivalent speed in bits per second.",
+    "answer": "B 17 080 000A 17 080 is not correct because it is 17.08 multiplied by 1000C 17 080 000 000 is not correct because it is 17.08 multiplied by 1000\u00b3D 17 080 000 000 000 is not correct because it is 17.08 multiplied by 1000\u2074",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Define",
+    "prompt": "Define the term 'latency'.",
+    "answer": "The delay / amount of time between data/signal being sent and it being received",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Give",
+    "prompt": "Networks are described in many different ways.\n(i)  Give the type of network that covers a small geographical area.",
+    "answer": "LAN",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Name",
+    "prompt": "Name the characteristic of a wireless network that is measured in metres.",
+    "answer": "Range",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Give",
+    "prompt": "Give two disadvantages of a bus network topology.",
+    "answer": "\u2022 The whole network stops working if the backbone/cable is broken\n\u2022 The number of collisions increases / the network will slow down as the number of devices/users increases\n\u2022 A greater security risk (because all the nodes on the network see all the data packets)\n\u2022 The network stops working if the terminators are missing/not working\n\u2022 Only one device can transmit data at a time",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Construct",
+    "prompt": "Construct an expression to calculate the minimum transmission rate required to transmit a 250 MiB file in exactly one hour.\nThere are 3600 seconds in an hour.",
+    "answer": "\u2022 Total number of bits:\n\u2022 250 \u00d7 1024 \u00d7 1024\n\u2022 \u00d7 8 3600 as denominator Award all marks for the correct answer (582,542 bps).Example expression:(250 \u00d7 1024 \u00d7 1024 \u00d7 8) \u00f7 3600",
+    "marks": 3.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Construct",
+    "prompt": "Construct an expression to calculate the transmission rate, in megabits per second, required to transmit a 1.4 gibibyte file in 13 minutes.\nYou do not need to do the calculation.",
+    "answer": "\u2022 13 \u00d7 60 or 780 (seconds)\n\u2022 1.4 \u00d7 8 \u00d7 1024\u00b3\n\u2022 1000\u00b2\n\u2022 Fully correct response Example: (1.4 \u00d7 8 \u00d7 1024\u00b3) \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014 (13 \u00d7 60 \u00d7 1000\u00b2)",
+    "marks": 4.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Define",
+    "prompt": "Network speed is the current rate of data transmission, measured in bits per second.Define the term 'bandwidth'.",
+    "answer": "\u2022 The maximum volume/amount of data that can be transmitted (in one second/unit of time)\n\u2022 The full capacity of data that can be transmitted (in one second)",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Describe",
+    "prompt": "A checksum works at the transport layer of TCP / IP.\nDescribe how a checksum is used to identify packets that have been corrupted during transmission.",
+    "answer": "\u2022 One for each, to a maximum of 3:\n\u2022 A checksum formula is applied to the packet before it leaves the source computer\n\u2022 The source-calculated checksum is added to the packet header\n\u2022 At the receiving end, the same checksum formula is reapplied\n\u2022 The new checksum is compared to the received checksum in the packet header\n\u2022 If the received checksum and the newly calculated checksum do not match, a resend request is issued",
+    "marks": 3.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe how a firewall protects a local area network (LAN).",
+    "answer": "\u2022 A description to include two from:\n\u2022 Monitors/checks traffic using a set of rules / list of authorised or unauthorised computers, addresses, or protocols to decide if data is allowed into or out of the network",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Describe",
+    "prompt": "High-speed fibre-optic cables form the internet backbone. Routers connect other networks to this backbone.\nDescribe how a router enables data to arrive at its destination",
+    "answer": "\u2022 Reads the destination/recipient\u2019s IP address (in each packet)\n\u2022 Uses a routing table\n\u2022 Sends the data packet to the next router\n\u2022 Uses the fastest/least congested route/pathway\n\u2022 Keeps track / informs other routers of traffic conditions",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe how the link layer of the TCP/IP protocol stack works.",
+    "answer": "\u2022 It converts the data into a suitable signal/electrical/radio for transmission on the media (Ethernet cable/Wi-Fi)\n\u2022 It uses/adds a physical/MAC address for a source/destination\n\u2022 Receives data from the network layer to send via physical hardware",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe one difference between the POP3 and IMAP email protocols.",
+    "answer": "POP3 deletes messages from the server when downloaded , whereas IMAP leaves them on the server when downloaded",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe one disadvantage of using a bus topology.",
+    "answer": "\u2022 If the main cable fails / is damaged , the whole network will fail\n\u2022 If more computers are connected , the transmission time is increased / increased chance of data collisions\n\u2022 Every computer receives all of the data on the network , causing a security risk",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Describe penetration testing.",
+    "answer": "\u2022 It is an authorised attack (black box / white box) on a network/system to identify security vulnerabilities\n\u2022 It is a network/system attack carried out with the knowledge of an organisation to recommend measures that should be taken to improve security",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Explain",
+    "prompt": "A factory has two file servers installed in an office.\nA closed-circuit television system monitors the factory.\nExplain one other method of physical security that could be used to protect the servers.",
+    "answer": "\u2022 (Digital/biometric) locks / magnetic card scanners / security personnel could be put on the office door to prevent unauthorised access\n\u2022 Movement sensors , to activate an alarm/light\n\u2022 Security lights/alarms , so that intruders would be scared off/identified\n\u2022 Alarms/alerts could trigger because there is unauthorised access\n\u2022 The servers/assets could have security tags , so that the owner can be tracked if stolen\n\u2022 ID cards could be issued to all staff , to prevent impersonation/to allow unknown people to be challenged\n\u2022 Warning posters could be positioned at entrances , to make people aware of shouldering/tailgating/two people entering together",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain one benefit to a user of using IMAP to access emails.",
+    "answer": "\u2022 Emails can be accessed from multiple devices because IMAP does not remove/delete emails from the server\n\u2022 Emails can be accessed through a browser because IMAP doesn\u2019t need a client application to download messages",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain one disadvantage of using a star network topology.",
+    "answer": "\u2022 A linked explanation such as:\n\u2022 All communication could fail because/if the central device fails\n\u2022 It can be difficult/expensive to set up because each device needs a cable to connect to the central device\n\u2022 The number of devices that can be connected is limited because the central device supports a fixed number of connections",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Explain",
+    "prompt": "A company stores statistics about its business on a server.\nExplain one type of access to the statistics file a student on work experience at the company should be given.",
+    "answer": "\u2022 An explanation to include one mark for a type of access and one mark for a linked reason, such as:\n\u2022 To recommend read only because the student cannot accidentally change/delete the data / because the student cannot share the data\n\u2022 No access because the student cannot see any sensitive/irrelevant information",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Explain",
+    "prompt": "A company needs to secure its network from attacks by its employees.\nExplain the best choice of penetration testing the company should use.",
+    "answer": "\u2022 An explanation that includes the ideas:\n\u2022 Permission is given to a person to carry out investigation of security issues in the network\n\u2022 White-box / white-hat because system information is provided to the tester\n\u2022 The company should give a security expert an ID and password and details of how the network is configured , and ask them to try to find vulnerabilities that would enable an employee to access, delete and/or leak sensitive data or install malicious software",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Explain",
+    "prompt": "The performance of a network depends on speed, range, latency, and bandwidth. Bandwidth in a wireless network is constant because the capacity of the network is not affected by any other environmental factors.\nExplain two ways that the performance of a wireless network can be affected by its environment.",
+    "answer": "\u2022 Wireless networks have a short range because walls and floors can block the signal OR\n\u2022 Wireless/radio signals may not go very far because solid structures (thick walls, steel beams) block the signal\n\u2022 Wireless networks can have high latency because they suffer from interference from other wireless networks or devices OR\n\u2022 The performance of a wireless network can be adversely affected by interference from other devices because they can operate on the same frequency band / are high voltage, such as a microwave\n\u2022 Wireless networks have low speed because all the devices must share the available bandwidth OR\n\u2022 The more devices that are connected to the network, the more likely bottlenecks are to occur because they all want a share of the available bandwidth",
+    "marks": 4.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Data is split up into packets for transmission over a network.\nIdentify the item included in a packet header.",
+    "answer": "Packet number",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the reason computers are connected in a network.",
+    "answer": "To share peripherals",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the reason why all computers need a unique IP address.",
+    "answer": "Identifies devices on a network",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Give",
+    "prompt": "Give two reasons for using a star topology rather than a bus topology.",
+    "answer": "\u2022 A star is more scalable than a bus because you can add extra devices without disrupting the network\n\u2022 A star is more fault tolerant/reliable because a damaged cable/faulty device can be replaced/removed without disrupting the rest of the network\n\u2022 It is easier to troubleshoot/isolate faults because all cables are attached to a central point\n\u2022 A star is capable of handling higher volumes of network traffic than a bus",
+    "marks": 2.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State one reason for splitting data into packets.",
+    "answer": "\u2022 Speeds up data transfer\n\u2022 Reduces the reliability on a single pathway\n\u2022 Reduces the impact of data corruption",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the name of an email protocol.",
+    "answer": "POP3, IMAP or SMTP",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Each device on a network has a unique identifier that is used when sending or receiving packets of data.\nState the name of the unique identifier.",
+    "answer": "IP/ MAC",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the item included between the header and the footer in a data packet.",
+    "answer": "Data being sent",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State the network protocol used to request a webpage.",
+    "answer": "HTTP/ HTTPS",
+    "marks": 1.0,
+    "topic": "Topic 4 Networks"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Large amounts of water are used to manufacture computer chips.\nDescribe one way this impacts the environment.",
+    "answer": "\u2022 The land/rivers/seas will be polluted if contaminated/uncleaned wastewater is released\n\u2022 Homes/businesses/agriculture/wildlife/people may not have enough water if too much is taken from the rivers/reservoirs\n\u2022 Water is polluted/contaminated (during the manufacturing process) and could pose a health risk\n\u2022 Large amounts of energy are required (to extract/clean water) , resulting in more use of CO\u2082 / CO\u2082 contributes to global warming",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Describe",
+    "prompt": "A replacement cycle is the time between the purchase of a device and the purchase of its replacement.\nDescribe one impact the length of replacement cycles has on the environment.",
+    "answer": "\u2022 Shorter replacement cycles lead to devices being disposed of more often , which leads to more e-waste/landfill/pollution\n\u2022 Shorter replacement cycles lead to more manufacturing , which incurs increased extraction of metals/increased use of water to manufacture chips/use of fossil fuels\n\u2022 Long replacement cycles mean devices are not disposed of , which reduces the amount of e-waste/landfill/emissions\n\u2022 Long replacement cycles mean fewer devices are manufactured , which reduces the need for extraction of metals/the need for water to manufacture chips/less energy required",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Describe",
+    "prompt": "Computer worms are a type of malware.\nDescribe one way that a worm can move from machine to machine.",
+    "answer": "\u2022 Worms make copies of themselves and send them to everyone in the computer\u2019s email contacts list / send them via previous connections used by the computer\n\u2022 Worms can spread (themselves) through emails and do not need a user to unknowingly distribute/execute them\n\u2022 Worms self-replicate and spread without the need for a host file",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Computer programs control some aeroplane landings.\nExplain one reason computers are not capable of safely controlling all aeroplane landings.",
+    "answer": "\u2022 The landing program may crash / display incorrect data / not deal with extreme scenarios (weather / wind / animal / visual / emergency) because:\u2013 the system could be out of date / have errors / bugs / not been tested enough \u2013 the scenario is beyond the range of what it has been programmed to respond to\n\u2022 A computer\u2019s input may be wrong/compromised because of a sensor/hardware/mechanical error\n\u2022 A computer cannot make moral/ethical judgements because it is only capable of following instructions",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain one reason why files should be backed up regularly.",
+    "answer": "\u2022 A linked explanation such as:\n\u2022 It helps prevent loss of data because malware could deliberately delete data / because data can be deleted/corrupted accidentally\n\u2022 It helps minimise disruption following a system failure because data can be restored\n\u2022 Data can be restored because physical hazards (fire/flood) can damage storage devices",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain one reason why software should be patched regularly.",
+    "answer": "\u2022 An explanation to include two from:It helps prevent unauthorised access to data\n\u2022 because security issues could be missed in development\n\u2022 because there could be interactions with other software\n\u2022 because a malicious user could have published a vulnerability on the web\n\u2022 because sometimes vulnerabilities only become apparent after code has been released to the public",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Robots use sensors to collect data about their surroundings in order to carry out actions independently.\nExplain one way that a modern car is a robot.",
+    "answer": "\u2022 The wipers/lights come on automatically because sensors detect rain/darkness\n\u2022 Speed is automatically adjusted / brakes are applied automatically / alarm sounded because sensors detect distance from other cars / obstacles / people\n\u2022 The temperature is adjusted automatically because a sensor/thermometer monitors the change in temperature of the passenger compartment / car interior",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain one way that a patent protects intellectual property (IP).",
+    "answer": "A patent prevents someone copying/using/selling an invention because it gives the inventor the exclusive right to reproduce/use/sell it for 20 years A person/organisation that infringes a patent can be prosecuted because it gives the inventors the legal protection to defend their exclusive right",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Explain one reason why an employee who is logged on to the company network should not click on a link in an email from an unknown source.",
+    "answer": "An explanation to include two from:It increases the risk to data / reduces cybersecurity because the sender could be using social engineering techniques / the link could lead to a malicious website / could download malware",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Give",
+    "prompt": "Consent must be obtained before organisations can use personal data.\nGive two pieces of information that organisations must tell people when requesting consent to use their personal data.",
+    "answer": "\u2022 That they are giving consent\n\u2022 That they can say no / refuse\n\u2022 That they are not denied service if they say no\n\u2022 What the data is being collected for\n\u2022 What processing will be done on their data / purpose of the processing / how data will be processed\n\u2022 That they can withdraw consent at any time\n\u2022 That the data will be shared (with third parties)\n\u2022 How long it will be stored\n\u2022 That the data will be stored securely",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "",
+    "prompt": "Data protection legislation sets out principles that organisations must follow.\nGive two of these principles.",
+    "answer": "\u2022 One mark each for a maximum of 2:\n\u2022 Lawfulness\n\u2022 Fairness and transparency\n\u2022 Purpose limitation\n\u2022 Data minimisation\n\u2022 Accuracy\n\u2022 Storage limitation (time kept)\n\u2022 Integrity and confidentiality (security)\n\u2022 Accountability",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "Give",
+    "prompt": "Identify the ethical issue associated with the use of artificial intelligence.",
+    "answer": "Algorithmic bias",
+    "marks": 1.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "A backup of a server is made each night. Only the files changed that day are backed up.\nIdentify the name of this type of backup.",
+    "answer": "Inremental",
+    "marks": 1.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Identify the two types of malware that replicate their code.",
+    "answer": "Virua and Worm",
+    "marks": 1.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "The source code of a software application is automatically copyrighted.\nState one other method of intellectual property protection to control who can use a software application.",
+    "answer": "Licensing",
+    "marks": 1.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State one way users could reduce the environmental impact of digital technology.",
+    "answer": "\u2022 Reduce use\n\u2022 Responsible disposal (to prevent leaking chemicals)\n\u2022 Recycling\n\u2022 Reuse\n\u2022 Replace devices less frequently\n\u2022 Use power-saving options (such as black screen)",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State two methods of protecting intellectual property.",
+    "answer": "\u2022 Copyright\n\u2022 Patents\n\u2022 Trademarks\n\u2022 Licensing\n\u2022 Non-disclosure agreement\n\u2022 Limit access to sensitive information\n\u2022 Awareness training for employees",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "State two ways that a user can increase the useful life of a smartphone rather than throwing it away.",
+    "answer": "\u2022 One mark each for a maximum of 2:\n\u2022 Use it as long as possible / don\u2019t replace it\n\u2022 Sell/give it to a company that will recondition it\n\u2022 Give it away to a friend or charity\n\u2022 Repair it if it breaks\n\u2022 Keep the software updated",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  },
+  {
+    "title": "State/Identify",
+    "prompt": "Algorithmic bias could be caused by using inaccurate data to train a machine learning algorithm.\nState two other ways that the data used to train an algorithm could cause algorithmic bias.",
+    "answer": "\u2022 One mark each for a maximum of 2:\n\u2022 Not enough / insufficient data\n\u2022 Biased / prejudiced data / not representative\n\u2022 Non-aspirational data",
+    "marks": 2.0,
+    "topic": "Topic 5 Ethics"
+  }
+]

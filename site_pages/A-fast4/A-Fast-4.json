@@ -1,0 +1,688 @@
+[
+  {
+    "title": "State",
+    "prompt": "The purpose of the Program Counter (PC).",
+    "answer": "\u2022 Holds the memory address of the next instruction to be fetched\n\u2022 Automatically increments after each fetch to keep program flow sequential\n\u2022 Can be changed by branch/jump instructions to alter the flow of control\n\u2022 Allows the CPU to track where it is in the current program",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Describe",
+    "prompt": "How an operating system schedules processes.",
+    "answer": "\u2022 Uses a scheduling algorithm (e.g. Round Robin, priority, FCFS) to choose which process runs next\n\u2022 Allocates CPU time slices to each ready process\n\u2022 Performs context switches, saving and restoring process state in registers and memory\n\u2022 Aims to maximise CPU utilisation while maintaining fairness and responsiveness\n\u2022 May adjust priorities dynamically (e.g. aging) to prevent starvation",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Describe",
+    "prompt": "What a stack is used for.",
+    "answer": "\u2022 Stores return addresses when subroutines and functions are called\n\u2022 Holds local variables and parameters for active procedures\n\u2022 Keeps track of nested and recursive function calls via stack frames\n\u2022 Provides a last\u2011in, first\u2011out (LIFO) structure for temporary data storage\n\u2022 Supports evaluation of arithmetic expressions and undo operations",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One benefit of virtual memory.",
+    "answer": "\u2022 Provides each process with a large, continuous logical address space regardless of physical RAM size\n\u2022 Supports more concurrent processes by swapping inactive pages to secondary storage\n\u2022 Increases system stability by isolating processes\u2019 memory from each other\n\u2022 Allows large applications to run on systems with limited physical memory",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Explain",
+    "prompt": "How interrupts improve CPU performance.",
+    "answer": "\u2022 Remove the need for constant polling loops that repeatedly check devices\n\u2022 Allow the CPU to perform useful work until a device signals it needs attention\n\u2022 Provide fast response to urgent events such as I/O completion or timer expiry\n\u2022 Enable pre\u2011emptive multitasking by interrupting a running process when needed\n\u2022 Help achieve higher overall CPU utilisation",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Describe",
+    "prompt": "The Fetch\u201a\u00c4\u00ecDecode\u201a\u00c4\u00ecExecute cycle.",
+    "answer": "\u2022 FETCH: The CPU uses the Program Counter to fetch the next instruction from memory into the Instruction Register\n\u2022 The Program Counter is then incremented to point to the following instruction\n\u2022 DECODE: The Control Unit decodes the opcode, identifies the addressing mode and required hardware resources\n\u2022 EXECUTE: The instruction is carried out by the ALU, registers, or other components\n\u2022 Any result is written back to registers or memory and the cycle repeats continuously while the CPU is running",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One advantage of using cache memory.",
+    "answer": "\u2022 Provides much faster access times than main memory (RAM)\n\u2022 Stores recently used instructions and data so repeated accesses are quicker\n\u2022 Reduces the average time the CPU must wait for memory accesses\n\u2022 Improves performance of loops and frequently executed code sections",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Why virtual memory is needed.",
+    "answer": "\u2022 Physical RAM is limited, but programs may require more memory than is physically available\n\u2022 Allows many programs to appear to have their own large, contiguous address space\n\u2022 Enables multitasking without each process having to fit entirely in RAM\n\u2022 Provides memory protection so faulty processes are less likely to corrupt others",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "State",
+    "prompt": "One difference between RISC and CISC.",
+    "answer": "\u2022 RISC uses a small set of simple instructions, each designed to execute in one clock cycle\n\u2022 CISC uses a large set of more complex instructions that may take multiple cycles\n\u2022 RISC architectures rely heavily on registers and simple addressing modes\n\u2022 CISC architectures include instructions that can perform multi\u2011step operations or complex memory access patterns",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Explain",
+    "prompt": "How paging and segmentation differ.",
+    "answer": "\u2022 Paging divides memory into fixed\u2011size blocks (pages), whereas segmentation uses variable\u2011size blocks (segments)\n\u2022 Pages are based on physical memory management; segments reflect logical program structures such as functions or data areas\n\u2022 Paging typically avoids external fragmentation but may have internal fragmentation\n\u2022 Segmentation can suffer from external fragmentation as segments vary in size\n\u2022 Segmentation makes it easier to apply different protection or access rights to different logical units",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "State",
+    "prompt": "One function of BIOS.",
+    "answer": "\u2022 Performs the Power\u2011On Self\u2011Test (POST) to check CPU, memory and basic hardware\n\u2022 Initialises and configures hardware components during startup\n\u2022 Locates and loads the bootloader or operating system from storage into memory\n\u2022 Provides low\u2011level routines for accessing hardware before the OS is loaded",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Explain",
+    "prompt": "How merge sort works.",
+    "answer": "\u2022 Uses a divide\u2011and\u2011conquer strategy to sort a list\n\u2022 Recursively splits the list into smaller sublists until each sublist contains a single element\n\u2022 Merges pairs of sorted sublists into larger sorted lists by repeatedly selecting the smallest head element\n\u2022 Continues merging until one fully sorted list remains\n\u2022 Has predictable time complexity of O(n log n) and is a stable sort",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One reason why recursion uses more memory.",
+    "answer": "\u2022 Each recursive call creates a new stack frame on the call stack\n\u2022 Stack frames store return addresses, parameters and local variables for that call\n\u2022 Deep recursion leads to many active stack frames at once\n\u2022 This can cause high memory usage and potentially a stack overflow if the recursion is too deep",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "State",
+    "prompt": "One use of ROM.",
+    "answer": "\u2022 Stores firmware or microcode that should not change during normal operation\n\u2022 Holds the bootstrap program used when the computer is powered on\n\u2022 Provides permanent storage for device configuration or lookup tables\n\u2022 Retains its contents even when power is switched off",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Explain",
+    "prompt": "What the Control Unit does.",
+    "answer": "\u2022 Fetches instructions from memory and decodes their opcodes\n\u2022 Generates control signals to coordinate the ALU, registers, buses and memory\n\u2022 Manages the timing and sequencing of operations within the CPU\n\u2022 Ensures the steps of the fetch\u2011decode\u2011execute cycle occur in the correct order",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Describe",
+    "prompt": "How interrupts are handled by the CPU.",
+    "answer": "\u2022 The CPU finishes executing the current instruction before responding to the interrupt\n\u2022 The current state, including the Program Counter and key registers, is saved (often on the stack)\n\u2022 The CPU jumps to the address of the appropriate Interrupt Service Routine (ISR)\n\u2022 The ISR runs to handle the event, such as servicing an I/O device or timer\n\u2022 When the ISR completes, the saved state is restored and the interrupted program resumes from where it left off",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One benefit of modular programming.",
+    "answer": "\u2022 Breaks a large program into smaller, self\u2011contained modules that are easier to understand\n\u2022 Allows different programmers to work on separate modules in parallel\n\u2022 Encourages code reuse, as modules can be used in other programs\n\u2022 Makes testing and debugging easier because faults can be isolated to individual modules",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "State",
+    "prompt": "The purpose of a compiler.",
+    "answer": "\u2022 Translates high\u2011level source code into machine code or an intermediate object code\n\u2022 Performs lexical, syntax and semantic analysis to detect errors\n\u2022 Applies optimisations to improve the performance and efficiency of the final executable\n\u2022 Produces an executable file that can run independently of the compiler",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Explain",
+    "prompt": "The difference between a compiler and an interpreter.",
+    "answer": "\u2022 A compiler translates the entire source code into machine code before execution, producing an executable file\n\u2022 An interpreter translates and executes the program line by line at run time without producing a separate executable\n\u2022 Compiled programs generally run faster because translation happens once\n\u2022 Interpreted programs are easier to test and debug because errors are reported as soon as a problematic line is reached",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Describe",
+    "prompt": "How bubble sort works.",
+    "answer": "\u2022 Repeatedly passes through the list, comparing adjacent elements\n\u2022 Swaps neighbouring elements if they are in the wrong order\n\u2022 After each full pass, the largest unsorted element has \u2018bubbled\u2019 to its correct position at the end of the list\n\u2022 Continues making passes until a pass occurs with no swaps, meaning the list is sorted\n\u2022 Has a worst\u2011case time complexity of O(n\u00b2) and is simple but inefficient for large lists",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One ethical issue with AI.",
+    "answer": "\u2022 AI systems may learn and reinforce existing biases in training data, leading to unfair or discriminatory decisions\n\u2022 Decisions made by complex AI models can lack transparency, making it hard to explain or challenge outcomes\n\u2022 Use of AI for surveillance can threaten privacy and civil liberties\n\u2022 Automation driven by AI may displace jobs, raising social and economic concerns",
+    "marks": "",
+    "topic": "Ethics & Law"
+  },
+  {
+    "title": "State",
+    "prompt": "The purpose of the Program Counter (PC)",
+    "answer": "\u2022 Holds the memory address of the next instruction to be fetched\n\u2022 Automatically increments after each fetch to keep program flow sequential\n\u2022 Can be changed by branch/jump instructions to alter the flow of control\n\u2022 Allows the CPU to track where it is in the current program",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Explain",
+    "prompt": "How interrupts improve CPU performance ",
+    "answer": "\u2022 Remove the need for constant polling loops that repeatedly check devices\n\u2022 Allow the CPU to perform useful work until a device signals it needs attention\n\u2022 Provide fast response to urgent events such as I/O completion or timer expiry\n\u2022 Enable pre\u2011emptive multitasking by interrupting a running process when needed\n\u2022 Help achieve higher overall CPU utilisation",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Describe",
+    "prompt": "The Fetch\u201a\u00c4\u00ecDecode\u201a\u00c4\u00ecExecute cycle ",
+    "answer": "\u2022 FETCH: The CPU uses the Program Counter to fetch the next instruction from memory into the Instruction Register\n\u2022 The Program Counter is then incremented to point to the following instruction\n\u2022 DECODE: The Control Unit decodes the opcode, identifies the addressing mode and required hardware resources\n\u2022 EXECUTE: The instruction is carried out by the ALU, registers, or other components\n\u2022 Any result is written back to registers or memory and the cycle repeats continuously while the CPU is running",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One advantage of using cache memory ",
+    "answer": "\u2022 Provides much faster access times than main memory (RAM)\n\u2022 Stores recently used instructions and data so repeated accesses are quicker\n\u2022 Reduces the average time the CPU must wait for memory accesses\n\u2022 Improves performance of loops and frequently executed code sections",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Explain",
+    "prompt": "Why virtual memory is needed ",
+    "answer": "\u2022 Physical RAM is limited, but programs may require more memory than is physically available\n\u2022 Allows many programs to appear to have their own large, contiguous address space\n\u2022 Enables multitasking without each process having to fit entirely in RAM\n\u2022 Provides memory protection so faulty processes are less likely to corrupt others",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "State",
+    "prompt": "One difference between RISC and CISC ",
+    "answer": "\u2022 RISC uses a small set of simple instructions, each designed to execute in one clock cycle\n\u2022 CISC uses a large set of more complex instructions that may take multiple cycles\n\u2022 RISC architectures rely heavily on registers and simple addressing modes\n\u2022 CISC architectures include instructions that can perform multi\u2011step operations or complex memory access patterns",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Describe",
+    "prompt": "How an operating system schedules processes ",
+    "answer": "\u2022 Uses a scheduling algorithm (e.g. Round Robin, priority, FCFS) to choose which process runs next\n\u2022 Allocates CPU time slices to each ready process\n\u2022 Performs context switches, saving and restoring process state in registers and memory\n\u2022 Aims to maximise CPU utilisation while maintaining fairness and responsiveness\n\u2022 May adjust priorities dynamically (e.g. aging) to prevent starvation",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Explain",
+    "prompt": "How paging and segmentation differ ",
+    "answer": "\u2022 Paging divides memory into fixed\u2011size blocks (pages), whereas segmentation uses variable\u2011size blocks (segments)\n\u2022 Pages are based on physical memory management; segments reflect logical program structures such as functions or data areas\n\u2022 Paging typically avoids external fragmentation but may have internal fragmentation\n\u2022 Segmentation can suffer from external fragmentation as segments vary in size\n\u2022 Segmentation makes it easier to apply different protection or access rights to different logical units",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "State",
+    "prompt": "One function of BIOS ",
+    "answer": "\u2022 Performs the Power\u2011On Self\u2011Test (POST) to check CPU, memory and basic hardware\n\u2022 Initialises and configures hardware components during startup\n\u2022 Locates and loads the bootloader or operating system from storage into memory\n\u2022 Provides low\u2011level routines for accessing hardware before the OS is loaded",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Describe",
+    "prompt": "What a stack is used for ",
+    "answer": "\u2022 Stores return addresses when subroutines and functions are called\n\u2022 Holds local variables and parameters for active procedures\n\u2022 Keeps track of nested and recursive function calls via stack frames\n\u2022 Provides a last\u2011in, first\u2011out (LIFO) structure for temporary data storage\n\u2022 Supports evaluation of arithmetic expressions and undo operations",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Explain",
+    "prompt": "How merge sort works ",
+    "answer": "\u2022 Uses a divide\u2011and\u2011conquer strategy to sort a list\n\u2022 Recursively splits the list into smaller sublists until each sublist contains a single element\n\u2022 Merges pairs of sorted sublists into larger sorted lists by repeatedly selecting the smallest head element\n\u2022 Continues merging until one fully sorted list remains\n\u2022 Has predictable time complexity of O(n log n) and is a stable sort",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One reason why recursion uses more memory ",
+    "answer": "\u2022 Each recursive call creates a new stack frame on the call stack\n\u2022 Stack frames store return addresses, parameters and local variables for that call\n\u2022 Deep recursion leads to many active stack frames at once\n\u2022 This can cause high memory usage and potentially a stack overflow if the recursion is too deep",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "State",
+    "prompt": "One use of ROM ",
+    "answer": "\u2022 Stores firmware or microcode that should not change during normal operation\n\u2022 Holds the bootstrap program used when the computer is powered on\n\u2022 Provides permanent storage for device configuration or lookup tables\n\u2022 Retains its contents even when power is switched off",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Explain",
+    "prompt": "What the Control Unit does ",
+    "answer": "\u2022 Fetches instructions from memory and decodes their opcodes\n\u2022 Generates control signals to coordinate the ALU, registers, buses and memory\n\u2022 Manages the timing and sequencing of operations within the CPU\n\u2022 Ensures the steps of the fetch\u2011decode\u2011execute cycle occur in the correct order",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Describe",
+    "prompt": "How interrupts are handled by the CPU ",
+    "answer": "\u2022 The CPU finishes executing the current instruction before responding to the interrupt\n\u2022 The current state, including the Program Counter and key registers, is saved (often on the stack)\n\u2022 The CPU jumps to the address of the appropriate Interrupt Service Routine (ISR)\n\u2022 The ISR runs to handle the event, such as servicing an I/O device or timer\n\u2022 When the ISR completes, the saved state is restored and the interrupted program resumes from where it left off",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One benefit of modular programming ",
+    "answer": "\u2022 Breaks a large program into smaller, self\u2011contained modules that are easier to understand\n\u2022 Allows different programmers to work on separate modules in parallel\n\u2022 Encourages code reuse, as modules can be used in other programs\n\u2022 Makes testing and debugging easier because faults can be isolated to individual modules",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "State",
+    "prompt": "The purpose of a compiler ",
+    "answer": "\u2022 Translates high\u2011level source code into machine code or an intermediate object code\n\u2022 Performs lexical, syntax and semantic analysis to detect errors\n\u2022 Applies optimisations to improve the performance and efficiency of the final executable\n\u2022 Produces an executable file that can run independently of the compiler",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Explain",
+    "prompt": "The difference between a compiler and an interpreter ",
+    "answer": "\u2022 A compiler translates the entire source code into machine code before execution, producing an executable file\n\u2022 An interpreter translates and executes the program line by line at run time without producing a separate executable\n\u2022 Compiled programs generally run faster because translation happens once\n\u2022 Interpreted programs are easier to test and debug because errors are reported as soon as a problematic line is reached",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Describe",
+    "prompt": "How bubble sort works ",
+    "answer": "\u2022 Repeatedly passes through the list, comparing adjacent elements\n\u2022 Swaps neighbouring elements if they are in the wrong order\n\u2022 After each full pass, the largest unsorted element has \u2018bubbled\u2019 to its correct position at the end of the list\n\u2022 Continues making passes until a pass occurs with no swaps, meaning the list is sorted\n\u2022 Has a worst\u2011case time complexity of O(n\u00b2) and is simple but inefficient for large lists",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One ethical issue with AI ",
+    "answer": "\u2022 AI systems may learn and reinforce existing biases in training data, leading to unfair or discriminatory decisions\n\u2022 Decisions made by complex AI models can lack transparency, making it hard to explain or challenge outcomes\n\u2022 Use of AI for surveillance can threaten privacy and civil liberties\n\u2022 Automation driven by AI may displace jobs, raising social and economic concerns",
+    "marks": "",
+    "topic": "Ethics & Law"
+  },
+  {
+    "title": "State",
+    "prompt": "One benefit of using cache memory.",
+    "answer": "\u2022 Stores copies of frequently accessed data closer to the CPU, reducing access time\n\u2022 Decreases the average time to read from or write to main memory\n\u2022 Improves performance for programs with good locality of reference (repeated access to nearby locations)\n\u2022 Helps keep the CPU busy rather than waiting on slower RAM",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One benefit of using interrupts.",
+    "answer": "\u2022 Allows the CPU to handle asynchronous events efficiently without constant polling\n\u2022 Improves responsiveness to external devices such as keyboards, disks and timers\n\u2022 Enables time\u2011critical tasks to interrupt less important work when necessary\n\u2022 Helps implement multitasking by pre\u2011empting running processes",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Explain",
+    "prompt": "The benefit of high-level languages.",
+    "answer": "\u2022 Provide constructs that are closer to human language and problem domains, making programs easier to write and understand\n\u2022 Are generally portable across different hardware platforms once recompiled\n\u2022 Include features such as data structures, libraries and automatic memory management that increase productivity\n\u2022 Reduce the likelihood of low\u2011level errors compared with assembly language",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One benefit of using recursion.",
+    "answer": "\u2022 Encourages a divide\u2011and\u2011conquer approach by breaking problems into smaller subproblems\n\u2022 Simplifies code for algorithms that are naturally recursive, such as tree traversal and quicksort\n\u2022 Reduces the need for explicitly managed stacks in the source code\n\u2022 Allows elegant definitions for mathematical functions like factorial",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "State",
+    "prompt": "One benefit of abstraction.",
+    "answer": "\u2022 Hides unnecessary implementation details so programmers can focus on the essential features of a system\n\u2022 Reduces complexity by presenting a simpler interface to underlying code or hardware\n\u2022 Makes systems easier to maintain because implementation can change without affecting users of the abstraction\n\u2022 Encourages modular design and reuse of components",
+    "marks": "",
+    "topic": "Problem Solving"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One benefit of a real-time operating system.",
+    "answer": "\u2022 Provides guaranteed response times to events within a specified deadline\n\u2022 Suitable for safety\u2011critical applications such as medical devices, automotive systems and industrial control\n\u2022 Schedules tasks so that high\u2011priority, time\u2011sensitive tasks are serviced predictably\n\u2022 Helps ensure system reliability by avoiding unacceptable delays",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One benefit of automation.",
+    "answer": "\u2022 Allows repetitive tasks to be performed consistently and quickly with minimal human intervention\n\u2022 Reduces the chance of human error in routine processes\n\u2022 Can increase productivity and throughput in both software and industrial contexts\n\u2022 Frees up human workers to focus on more complex or creative tasks",
+    "marks": "",
+    "topic": "Ethics & Society"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One benefit of open-source software.",
+    "answer": "\u2022 Source code is available for inspection, modification and redistribution\n\u2022 Encourages collaboration and peer review, which can lead to rapid improvement and bug fixing\n\u2022 Reduces vendor lock\u2011in because users are not tied to a single company\n\u2022 Often available at low or no cost, making it accessible to more users",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One benefit of using SSDs.",
+    "answer": "\u2022 Provides much faster read/write speeds than traditional hard disk drives\n\u2022 Has lower access time because there are no moving parts\n\u2022 More resistant to physical shock and vibration\n\u2022 Typically consumes less power and generates less heat than HDDs",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "State",
+    "prompt": "One benefit of recursion.",
+    "answer": "\u2022 Allows certain algorithms, such as tree traversal or divide\u2011and\u2011conquer sorts, to be expressed concisely and clearly\n\u2022 Can mirror the natural recursive structure of a problem, making the solution easier to reason about\n\u2022 Reduces the need for complex loop and stack management in the source code\n\u2022 Makes some mathematical definitions (e.g. factorial, Fibonacci) straightforward to implement",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One benefit of scheduling algorithms.",
+    "answer": "\u2022 Improve overall CPU utilisation by reducing idle time\n\u2022 Help provide fairness so no process is permanently starved of CPU time\n\u2022 Can reduce average waiting and turnaround times for processes\n\u2022 Allow different priorities to be enforced for different types of jobs",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One benefit of using version control.",
+    "answer": "\u2022 Keeps a history of changes, allowing developers to revert to previous versions when necessary\n\u2022 Supports collaboration by allowing multiple people to work on the same codebase simultaneously\n\u2022 Facilitates branching and merging for developing features independently\n\u2022 Provides traceability for who changed what and why via commit messages",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "State",
+    "prompt": "One benefit of object-oriented programming.",
+    "answer": "\u2022 Encourages encapsulation, keeping data and the methods that operate on it together in classes\n\u2022 Supports inheritance, allowing common behaviour to be defined once and reused in subclasses\n\u2022 Enables polymorphism, so code can work with objects of different types through a common interface\n\u2022 Makes large systems easier to organise and extend by modelling them as interacting objects",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One benefit of using floating-point representation.",
+    "answer": "\u2022 Can represent a very wide range of real numbers, including very large and very small values\n\u2022 Supports fractional values for scientific and engineering calculations\n\u2022 Uses a mantissa and exponent to provide approximate values with controlled precision\n\u2022 More suitable than fixed\u2011point or integer representation for many numerical algorithms",
+    "marks": "",
+    "topic": "Data Representation"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One benefit of data abstraction.",
+    "answer": "\u2022 Allows data to be manipulated through a well\u2011defined interface without exposing its internal representation\n\u2022 Makes it easier to change how data is stored without affecting code that uses it\n\u2022 Supports encapsulation by combining data and operations that act on that data\n\u2022 Helps reduce errors by limiting the ways data can be accessed",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One benefit of using Unicode.",
+    "answer": "\u2022 Supports a very large range of characters from many writing systems worldwide\n\u2022 Allows text in multiple languages to be stored and processed consistently\n\u2022 Reduces compatibility problems caused by different local character sets\n\u2022 Makes internationalisation and localisation of software easier",
+    "marks": "",
+    "topic": "Data Representation"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One benefit of recursion over iteration.",
+    "answer": "\u2022 Expresses some algorithms in a clearer and more concise way than loops\n\u2022 Makes code for recursive data structures (like trees) easier to understand\n\u2022 Avoids manual management of stack data structures in the program itself\n\u2022 Can make correctness proofs easier using mathematical induction",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One benefit of automation in software testing.",
+    "answer": "\u2022 Allows large suites of tests to be run quickly and repeatedly with minimal manual effort\n\u2022 Makes regression testing easier whenever code changes are made\n\u2022 Improves consistency because the same tests are executed in the same way each time\n\u2022 Frees testers to focus on exploratory and usability testing",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "State",
+    "prompt": "One benefit of pipelining in CPUs.",
+    "answer": "\u2022 Overlaps the execution of multiple instructions, increasing instruction throughput\n\u2022 Allows the CPU to start fetching a new instruction before the previous one has finished executing\n\u2022 Can significantly improve performance without increasing the clock speed\n\u2022 Makes better use of the different functional units within the processor",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One benefit of using logic gates in hardware design.",
+    "answer": "\u2022 Allow Boolean logic to be implemented physically using electronic circuits\n\u2022 Form the basic building blocks for more complex components such as adders, multiplexers and flip\u2011flops\n\u2022 Enable designers to create predictable, digital systems from simple combinations\n\u2022 Support reliable, binary operation that is resistant to small electrical noise",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One benefit of using SSDs over HDDs.",
+    "answer": "\u2022 Shorter boot and load times due to higher data transfer rates\n\u2022 No mechanical latency or seek time because data is accessed electronically\n\u2022 Quieter operation and reduced power usage\n\u2022 Lower failure rates from mechanical wear compared with spinning disks",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One benefit of using virtualisation.",
+    "answer": "\u2022 Allows multiple virtual machines to share a single physical server, maximising hardware utilisation\n\u2022 Provides isolation between virtual machines, so a crash in one does not affect others\n\u2022 Simplifies backup, migration and recovery using snapshots and images\n\u2022 Makes it easier to test software on different operating systems without extra hardware",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "State",
+    "prompt": "One benefit of recursion in algorithms.",
+    "answer": "\u2022 Matches naturally with problems that have a recursive structure, such as tree traversal or divide\u2011and\u2011conquer\n\u2022 Can lead to simpler and more elegant algorithm definitions\n\u2022 Reduces the need for managing explicit stacks or complex loop constructs in code\n\u2022 Helps break large problems into smaller, identical subproblems",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One benefit of open standards.",
+    "answer": "\u2022 Promote interoperability, allowing products from different vendors to work together\n\u2022 Reduce vendor lock\u2011in because users are not tied to proprietary formats or protocols\n\u2022 Encourage competition and innovation by letting multiple companies implement the same standard\n\u2022 Make it easier to integrate systems and share data across organisations",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One benefit of user authentication systems.",
+    "answer": "\u2022 Restrict access to systems and data to authorised users only\n\u2022 Help protect sensitive information from unauthorised disclosure\n\u2022 Can support accountability by associating actions with specific user identities\n\u2022 Form a core part of wider security measures such as access control and auditing",
+    "marks": "",
+    "topic": "Ethics & Security"
+  },
+  {
+    "title": "State",
+    "prompt": "One benefit of defensive design.",
+    "answer": "\u2022 Anticipates incorrect or malicious input and handles it safely\n\u2022 Includes validation, authentication and clear error messages to protect the system\n\u2022 Reduces the likelihood of crashes and security vulnerabilities\n\u2022 Improves reliability and robustness of software in real\u2011world use",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One benefit of Big O notation.",
+    "answer": "\u2022 Provides a way to describe how an algorithm\u2019s running time or memory usage grows with input size\n\u2022 Allows comparisons between algorithms independently of hardware or implementation details\n\u2022 Helps programmers choose more efficient algorithms for large inputs\n\u2022 Highlights whether an algorithm will scale well as data sizes increase",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One benefit of binary representation.",
+    "answer": "\u2022 Uses only two symbols (0 and 1), which are easy to represent electronically with two voltage levels\n\u2022 Provides a robust way to store and process data because small electrical noise is unlikely to flip a bit\n\u2022 Simplifies the design of logic circuits and processors based on Boolean algebra\n\u2022 Forms a universal representation that can encode numbers, text, images and sound",
+    "marks": "",
+    "topic": "Data Representation"
+  },
+  {
+    "title": "State",
+    "prompt": "One drawback of using virtual memory.",
+    "answer": "\u2022 Accessing pages from secondary storage (e.g. disk) is much slower than RAM, which can reduce performance\n\u2022 Heavy use of paging can lead to thrashing, where the system spends most of its time swapping pages\n\u2022 Requires extra hardware support (MMU) and operating system complexity\n\u2022 Can make performance less predictable for time\u2011critical applications",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One drawback of caching.",
+    "answer": "\u2022 Cache coherence and consistency can be difficult to maintain in multi\u2011core systems\n\u2022 If a program has poor locality, the cache may provide little benefit but still consume resources\n\u2022 Increases hardware complexity and cost\n\u2022 Out\u2011of\u2011date cached data can cause incorrect behaviour if not managed correctly",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One disadvantage of using interrupts.",
+    "answer": "\u2022 Frequent interrupts can lead to high context\u2011switching overhead and reduced performance\n\u2022 Interrupt handling code (ISRs) must be carefully written to avoid race conditions and deadlocks\n\u2022 Debugging interrupt\u2011driven systems can be more difficult than debugging simple polling loops\n\u2022 Prioritising interrupts incorrectly may cause important tasks to be delayed",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "State",
+    "prompt": "One drawback of modular programming.",
+    "answer": "\u2022 Requires additional planning to design clear module interfaces\n\u2022 Too many small modules can make the system structure more complex to understand\n\u2022 Communication between modules (via parameters or messages) introduces some overhead\n\u2022 Changes to shared interfaces can impact many modules at once",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One disadvantage of recursion.",
+    "answer": "\u2022 Each recursive call uses a new stack frame, which can consume significant memory\n\u2022 Deep or uncontrolled recursion risks a stack overflow error\n\u2022 May be slower than an equivalent iterative solution due to call overhead\n\u2022 Can be harder to trace and debug because control flow jumps between many call levels",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One drawback of high-level languages.",
+    "answer": "\u2022 Programs may run more slowly than equivalent low\u2011level or assembly code due to abstraction overhead\n\u2022 The programmer has less direct control over hardware resources such as memory and registers\n\u2022 Behaviour can depend on compiler or runtime implementation details\n\u2022 Some hardware\u2011specific optimisations are harder or impossible to express",
+    "marks": "",
+    "topic": "Programming"
+  },
+  {
+    "title": "State",
+    "prompt": "One disadvantage of real-time operating systems.",
+    "answer": "\u2022 Often require specialised hardware and careful system tuning, increasing cost\n\u2022 Feature sets may be limited to maintain strict timing guarantees\n\u2022 Development and testing must be rigorous to prove deadlines are always met\n\u2022 Missing a deadline can have serious safety or financial consequences",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One ethical drawback of AI systems.",
+    "answer": "\u2022 AI decision\u2011making can be opaque, making it hard for affected individuals to understand or challenge outcomes\n\u2022 Biased training data can lead to unfair treatment of particular groups\n\u2022 Widespread automation may displace workers and widen social inequality\n\u2022 Use of AI in surveillance or profiling can undermine privacy and civil liberties",
+    "marks": "",
+    "topic": "Ethics"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One disadvantage of open-source software.",
+    "answer": "\u2022 May have less formal support; users may need to rely on community help\n\u2022 Documentation quality can be inconsistent between projects\n\u2022 Fragmentation can occur if many different versions or forks are created\n\u2022 Some projects may be abandoned if maintainers lose interest",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One drawback of automation.",
+    "answer": "\u2022 Over\u2011reliance on automated processes can mean human operators lose skills or situational awareness\n\u2022 Automated systems can propagate errors very quickly if they are misconfigured\n\u2022 Introducing automation often requires significant up\u2011front cost and setup time\n\u2022 Jobs and roles may be reduced or eliminated, leading to social and economic concerns",
+    "marks": "",
+    "topic": "Ethics & Society"
+  },
+  {
+    "title": "State",
+    "prompt": "One drawback of pipelining.",
+    "answer": "\u2022 Hazards such as data, control and structural hazards can cause pipeline stalls or bubbles\n\u2022 Requires additional hardware such as forwarding logic and hazard detection units\n\u2022 Branch instructions can reduce efficiency due to mispredictions and flushing of the pipeline\n\u2022 Increases the complexity of the CPU design",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One drawback of recursion compared to iteration.",
+    "answer": "\u2022 Recursion typically uses more memory because each call adds a new stack frame\n\u2022 Function call overhead can make recursive solutions slower than iterative ones\n\u2022 Deep recursion risks stack overflow if the depth becomes too large\n\u2022 Some programmers find recursive logic harder to follow than loops",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One disadvantage of Big O notation.",
+    "answer": "\u2022 Ignores constant factors and lower\u2011order terms, so it may not reflect actual performance on small inputs\n\u2022 Does not account for practical considerations such as cache behaviour or implementation details\n\u2022 Can give a misleading impression that algorithms with the same Big O are equally efficient\n\u2022 Focuses only on worst\u2011case or general growth, not on typical real\u2011world usage patterns",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One drawback of abstraction.",
+    "answer": "\u2022 Important implementation details can be hidden from developers who need to understand performance or behaviour\n\u2022 Too many layers of abstraction can make it harder to trace how a system actually works\n\u2022 Poor abstractions can be inflexible and hard to modify without affecting dependent code\n\u2022 Abstraction may introduce extra processing steps, reducing efficiency slightly",
+    "marks": "",
+    "topic": "Problem Solving"
+  },
+  {
+    "title": "State",
+    "prompt": "One disadvantage of virtualisation.",
+    "answer": "\u2022 Introduces overhead because multiple virtual machines share the same physical resources\n\u2022 Performance may be lower than running directly on bare metal hardware\n\u2022 Requires careful configuration to avoid resource contention between virtual machines\n\u2022 Adds complexity to system management and security",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One drawback of Unicode.",
+    "answer": "\u2022 Uses more storage and bandwidth than some older single\u2011byte encodings for texts using only ASCII characters\n\u2022 Multiple encoding forms (UTF\u20118, UTF\u201116, UTF\u201132) can cause compatibility and conversion issues\n\u2022 Software must handle variable\u2011length encodings correctly, which adds complexity\n\u2022 Legacy systems may not fully support Unicode, causing interoperability problems",
+    "marks": "",
+    "topic": "Data Representation"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One drawback of binary representation.",
+    "answer": "\u2022 Large binary numbers are difficult for humans to read and interpret directly\n\u2022 Requires conversion to decimal or hexadecimal for easier understanding\n\u2022 Representing some fractional values exactly is not possible with a fixed number of bits\n\u2022 Bit\u2011level errors can drastically change the represented value",
+    "marks": "",
+    "topic": "Data Representation"
+  },
+  {
+    "title": "State",
+    "prompt": "One drawback of floating-point representation.",
+    "answer": "\u2022 Many decimal fractions cannot be represented exactly, leading to rounding errors\n\u2022 Arithmetic operations can accumulate rounding errors over time\n\u2022 Comparisons between floating\u2011point values can be unreliable if precision is not considered\n\u2022 Implementation is more complex and slower than integer arithmetic",
+    "marks": "",
+    "topic": "Data Representation"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One disadvantage of logic gates.",
+    "answer": "\u2022 Complex circuits require many gates, increasing cost, power usage and heat\n\u2022 Physical limitations such as propagation delay restrict maximum speed\n\u2022 Any single gate failure can affect the correctness of larger digital systems\n\u2022 Designing and testing large gate\u2011level circuits is time\u2011consuming",
+    "marks": "",
+    "topic": "CPU Architecture"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One drawback of using SSDs.",
+    "answer": "\u2022 More expensive per gigabyte than traditional hard disk drives\n\u2022 Flash memory cells have a limited number of write cycles, leading to wear over time\n\u2022 Data recovery from failed SSDs can be difficult or impossible\n\u2022 Performance can degrade as the drive becomes full if not managed carefully",
+    "marks": "",
+    "topic": "Memory"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One disadvantage of real-time systems.",
+    "answer": "\u2022 Need rigorous testing and verification to ensure timing constraints are always met\n\u2022 Typically cost more to design, implement and maintain than non\u2011real\u2011time systems\n\u2022 Hardware and software choices are constrained by the need for predictability\n\u2022 Failure to respond in time can cause physical damage, safety hazards or financial loss",
+    "marks": "",
+    "topic": "Operating Systems"
+  },
+  {
+    "title": "State",
+    "prompt": "One drawback of open standards.",
+    "answer": "\u2022 Can reduce incentives for companies to innovate proprietary features\n\u2022 Different implementations of the same standard may not behave identically, causing compatibility issues\n\u2022 Changes to the standard require consensus, so evolution can be slow\n\u2022 Harder to enforce strict quality control when anyone can implement the standard",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One drawback of object-oriented programming.",
+    "answer": "\u2022 Abstraction layers, dynamic dispatch and indirection can introduce performance overhead\n\u2022 Poorly designed class hierarchies can become deep and hard to maintain\n\u2022 Can be more difficult for beginners to understand than simple procedural code\n\u2022 Not always the best fit for very small programs or highly performance\u2011critical tasks",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One disadvantage of version control systems.",
+    "answer": "\u2022 Adds tools and workflows that developers must learn, increasing initial complexity\n\u2022 Poorly managed branching and merging can create conflicts and slow development\n\u2022 Storing many versions and branches consumes storage and may require server infrastructure\n\u2022 Can give a false sense of security if teams rely on version history instead of proper testing and review",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One drawback of binary search.",
+    "answer": "\u2022 Requires the data to be sorted before searching, which has its own cost\n\u2022 Maintaining a sorted data structure can be expensive when inserting or deleting items\n\u2022 Harder to implement correctly than simple linear search\n\u2022 Not suitable for data structures that do not support efficient random access",
+    "marks": "",
+    "topic": "Algorithms"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One drawback of automation in testing.",
+    "answer": "\u2022 Automated tests only check the cases that have been explicitly programmed, so unexpected edge cases may be missed\n\u2022 Setting up and maintaining test frameworks and scripts can be time\u2011consuming and costly\n\u2022 Fragile tests can frequently break when the user interface or system design changes\n\u2022 May lead to over\u2011reliance on automated checks and reduced exploratory testing by humans",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Describe",
+    "prompt": "One drawback of using abstraction in design.",
+    "answer": "\u2022 Excessive abstraction can hide important implementation details from developers\n\u2022 Too many abstraction layers can make systems difficult to trace and debug\n\u2022 Poorly chosen abstractions may be hard to change later without affecting many components\n\u2022 Abstraction layers can introduce extra overhead, slightly reducing performance",
+    "marks": "",
+    "topic": "Software Development"
+  },
+  {
+    "title": "Explain",
+    "prompt": "One drawback of using encryption.",
+    "answer": "\u2022 Encrypting and decrypting data adds computational overhead and can slow systems down\n\u2022 Key management is complex; lost or stolen keys can render data inaccessible or insecure\n\u2022 Encrypted data is harder to inspect for debugging, monitoring or filtering\n\u2022 Strong encryption can complicate lawful access or digital forensics",
+    "marks": "",
+    "topic": "Ethics & Security"
+  },
+  {
+    "title": "Identify",
+    "prompt": "One drawback of modular software.",
+    "answer": "\u2022 Designing and agreeing clear interfaces between modules requires extra time and planning\n\u2022 Too many small modules can increase the complexity of the overall system structure\n\u2022 Changes to shared interfaces may require coordinated updates across multiple modules\n\u2022 Communication between modules (function calls, messages) introduces a small performance overhead",
+    "marks": "",
+    "topic": "Software Development"
+  }
+]

@@ -1,4 +1,8 @@
- // Toggle topic sections open/closed
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+
+// Toggle topic sections open/closed
   document.querySelectorAll('.topic-header').forEach(header => {
     header.addEventListener('click', () => {
       const section = header.parentElement;
