@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fast Four (Auto)</title>
+<link href="../../css/main.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="back-container">
+<a href="../A-Fast4.html">← Back</a>
+</div>
+<header><h1>FAST FOUR STARTER</h1></header>
+<main class="index-grid">
+<div class="grid">
+<div class="card yellow">
+<h3 id="type1">1. State</h3>
+<div class="marks">[1]</div>
+<p class="question" id="q1">One difference between RISC and CISC.</p>
+<textarea class="input"></textarea>
+<div class="answer" id="a1"><strong>Answer:</strong> • RISC uses a small set of simple instructions, each designed to execute in one clock cycle<br/>• CISC uses a large set of more complex instructions that may take multiple cycles<br/>• RISC architectures rely heavily on registers and simple addressing modes<br/>• CISC architectures include instructions that can perform multi‑step operations or complex memory access patterns</div>
+</div>
+<div class="card pink">
+<h3 id="type2">2. Identify</h3>
+<div class="marks">[1]</div>
+<p class="question" id="q2">One drawback of abstraction.</p>
+<textarea class="input"></textarea>
+<div class="answer" id="a2"><strong>Answer:</strong> • Important implementation details can be hidden from developers who need to understand performance or behaviour<br/>• Too many layers of abstraction can make it harder to trace how a system actually works<br/>• Poor abstractions can be inflexible and hard to modify without affecting dependent code<br/>• Abstraction may introduce extra processing steps, reducing efficiency slightly</div>
+</div>
+<div class="card green">
+<h3 id="type3">3. State</h3>
+<div class="marks">[1]</div>
+<p class="question" id="q3">One benefit of recursion.</p>
+<textarea class="input"></textarea>
+<div class="answer" id="a3"><strong>Answer:</strong> • Allows certain algorithms, such as tree traversal or divide‑and‑conquer sorts, to be expressed concisely and clearly<br/>• Can mirror the natural recursive structure of a problem, making the solution easier to reason about<br/>• Reduces the need for complex loop and stack management in the source code<br/>• Makes some mathematical definitions (e.g. factorial, Fibonacci) straightforward to implement</div>
+</div>
+<div class="card blue">
+<h3 id="type4">4. Explain</h3>
+<div class="marks">[1]</div>
+<p class="question" id="q4">How paging and segmentation differ</p>
+<textarea class="input"></textarea>
+<div class="answer" id="a4"><strong>Answer:</strong> • Paging divides memory into fixed‑size blocks (pages), whereas segmentation uses variable‑size blocks (segments)<br/>• Pages are based on physical memory management; segments reflect logical program structures such as functions or data areas<br/>• Paging typically avoids external fragmentation but may have internal fragmentation<br/>• Segmentation can suffer from external fragmentation as segments vary in size<br/>• Segmentation makes it easier to apply different protection or access rights to different logical units</div>
+</div>
+</div>
+</main>
+<div class="btn-row"><button id="genBtn">Generate New Fast 4</button><button disabled="" id="showBtn">Show Answers</button></div>
+
+<script>
+
+  let QUESTION_BANK = [];
+
+  async function loadQuestions() {
+    const res = await fetch("A-Fast-4.json");
+    QUESTION_BANK = await res.json();
+    generateNewFast4();
+  }
+
+  const inputs = document.querySelectorAll('.input');
+  const showBtn = document.getElementById('showBtn');
+  const genBtn = document.getElementById('genBtn');
+
+  function resetUI() {
+    inputs.forEach(i => i.value = "");
+    document.querySelectorAll('.answer').forEach(a => a.style.display = 'none');
+    showBtn.disabled = true;
+    showBtn.textContent = "Show Answers";
+    showBtn.classList.remove('enabled');
+  }
+
+  function setCard(i, item) {
+    document.getElementById(`type${i}`).textContent = `${i}. ${item.title}`;
+    const marksEl = document.querySelectorAll('.marks')[i-1];
+    if (marksEl) marksEl.textContent = item.marks || "[1]";
+    document.getElementById(`q${i}`).textContent = item.prompt;
+    document.getElementById(`a${i}`).innerHTML = "<strong>Answer:</strong> " + item.answer;
+  }
+
+  function pickRandomFour() {
+    const copy = [...QUESTION_BANK];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy.slice(0, 4);
+  }
+
+  function generateNewFast4() {
+    if (QUESTION_BANK.length < 4) return;
+    pickRandomFour().forEach((item, idx) => setCard(idx + 1, item));
+    resetUI();
+  }
+
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      const allFilled = Array.from(inputs).every(i => i.value.trim() !== "");
+      showBtn.disabled = !allFilled;
+      showBtn.classList.toggle('enabled', allFilled);
+    });
+  });
+
+  showBtn.addEventListener('click', () => {
+    document.querySelectorAll('.answer').forEach(a => a.style.display = 'block');
+    showBtn.textContent = "Answers Shown ✅";
+    showBtn.disabled = true;
+    showBtn.classList.remove('enabled');
+  });
+
+  genBtn.addEventListener('click', generateNewFast4);
+
+  loadQuestions();
+</script>
+
+<footer>© <span id="year"></span> StudyHubCS</footer>
+<script src="js/booklets.js"></script>
+</body>
+</html>
