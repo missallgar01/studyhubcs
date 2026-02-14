@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Software Quick Check</title>
+<title>Hardware – FDE Cycle Quick Check</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
 
@@ -30,7 +30,7 @@
 <body>
 <main>
 
-<h1>💻 Software – Systems & Operating Systems</h1>
+<h1>🔁 CPU – Fetch Decode Execute Cycle</h1>
 
 <!-- ================= MCQ ================= -->
 
@@ -44,15 +44,15 @@
 <div class="section">
 <h2>Fill in the Gaps (5)</h2>
 
-<p>Systems software controls the <select id="gap1"></select> and provides an interface between hardware and software.</p>
+<p>The FDE cycle begins with the <select id="gap1"></select> stage.</p>
 
-<p>An operating system provides a <select id="gap2"></select> for the user.</p>
+<p>The instruction is stored in the <select id="gap2"></select>.</p>
 
-<p>Memory management moves data between RAM and <select id="gap3"></select>.</p>
+<p>The Control Unit <select id="gap3"></select> the instruction.</p>
 
-<p>Process scheduling uses <select id="gap4"></select> to allocate CPU time.</p>
+<p>The ALU carries out the <select id="gap4"></select> stage.</p>
 
-<p>An audit trail records changes made to software in <select id="gap5"></select> order.</p>
+<p>The Program Counter stores the <select id="gap5"></select>.</p>
 
 <div class="wordbank" id="wordbank"></div>
 <div id="gapFeedback"></div>
@@ -63,7 +63,7 @@
 
 <div class="section">
 <h2>Explain (2)</h2>
-<p>Explain why process scheduling is needed in a multitasking operating system.</p>
+<p>Explain why the FDE cycle is repeated continuously.</p>
 <textarea id="explain" rows="4" cols="60"></textarea>
 <div id="explainFeedback"></div>
 </div>
@@ -79,60 +79,40 @@
 
 const mcqData = [
 {
-q:"1. What is systems software?",
-o:[
-"Software that maintains and controls hardware",
-"Software used to create documents",
-"Software used for entertainment"
-],
-a:"Software that maintains and controls hardware"
+q:"1. What does FDE stand for?",
+o:["Fetch Decode Execute","Fetch Data Execute","Find Decode Evaluate"],
+a:"Fetch Decode Execute"
 },
 {
-q:"2. Which is an example of application software?",
-o:[
-"Word processing software",
-"Operating system",
-"Device driver"
-],
-a:"Word processing software"
+q:"2. During the fetch stage, the instruction is copied into the:",
+o:["Memory Address Register","Memory Data Register","ALU"],
+a:"Memory Data Register"
 },
 {
-q:"3. What does the operating system manage?",
-o:[
-"Only the CPU",
-"Hardware and software resources",
-"Only application software"
-],
-a:"Hardware and software resources"
+q:"3. Which component decodes the instruction?",
+o:["ALU","Control Unit","Cache"],
+a:"Control Unit"
 },
 {
-q:"4. Which function allows users to log in?",
-o:[
-"User management",
-"Memory management",
-"File compression"
-],
-a:"User management"
+q:"4. Which register stores the address of the next instruction?",
+o:["MAR","Program Counter","Accumulator"],
+a:"Program Counter"
 },
 {
-q:"5. What does a device driver do?",
-o:[
-"Controls a peripheral device",
-"Stores data permanently",
-"Deletes files automatically"
-],
-a:"Controls a peripheral device"
+q:"5. Which stage performs the calculation?",
+o:["Decode","Fetch","Execute"],
+a:"Execute"
 }
 ];
 
 /* ================= WORD BANK ================= */
 
 const wordBank = [
-"hardware",
-"user interface",
-"virtual memory",
-"time slices",
-"chronological"
+"Fetch",
+"Memory Data Register",
+"decodes",
+"Execute",
+"next instruction address"
 ];
 
 /* ================= GENERATE MCQ ================= */
@@ -179,11 +159,11 @@ else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
 /* ---- GAPS ---- */
 
 const gapAnswers={
-gap1:"hardware",
-gap2:"user interface",
-gap3:"virtual memory",
-gap4:"time slices",
-gap5:"chronological"
+gap1:"Fetch",
+gap2:"Memory Data Register",
+gap3:"decodes",
+gap4:"Execute",
+gap5:"next instruction address"
 };
 
 for(let g in gapAnswers){
@@ -198,15 +178,15 @@ document.getElementById("gapFeedback").innerHTML="✔️ Gaps marked.";
 let text=document.getElementById("explain").value.toLowerCase();
 let marks=0;
 
-if(text.includes("multiple") || text.includes("more than one")) marks++;
-if(text.includes("time slice") || text.includes("cpu time") || text.includes("switching")) marks++;
+if(text.includes("continuous") || text.includes("repeated")) marks++;
+if(text.includes("next instruction") || text.includes("program")) marks++;
 
 score+=marks;
 
 document.getElementById("explainFeedback").innerHTML=
 marks===2?"✔️ 2/2":
 marks===1?"✔️ 1/2":
-"❌ 0/2 – It allows multiple applications to run by allocating CPU time.";
+"❌ 0/2 – The cycle repeats to process the next instruction.";
 
 document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/12`;
 

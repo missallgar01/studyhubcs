@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sound Representation QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+<style>
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+.wordbank span{background:#e0e0e0;padding:5px 8px;margin:5px;border-radius:4px;display:inline-block;}
+.score{font-size:1.2rem;font-weight:bold;margin-top:1rem;}
+</style>
+</head>
+<body>
+<main>
+<h1>Sound Representation</h1>
+
+<div id="mcq"></div>
+
+<p>Sample rate is measured in <select id="gap1"></select>.</p>
+<p>Bit depth affects <select id="gap2"></select>.</p>
+<p>Higher sample rate increases <select id="gap3"></select>.</p>
+<p>Amplitude represents sound <select id="gap4"></select>.</p>
+<p>File size depends on sample rate, bit depth and <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Write the expression for a 10 second mono recording at 8-bit and 1000 Hz.</p>
+<textarea id="calc"></textarea>
+<div id="calcFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="score"></div>
+
+<script>
+const mcqData=[
+{q:"1. Sample rate measures:",o:["Volume","Samples per second","Bits"],a:"Samples per second"},
+{q:"2. Bit depth affects:",o:["Quality","Length","Speed"],a:"Quality"},
+{q:"3. Increasing sample rate increases:",o:["File size","Compression","Pixels"],a:"File size"},
+{q:"4. Amplitude measures:",o:["Frequency","Loudness","Colour"],a:"Loudness"},
+{q:"5. Sound size formula is:",o:["Rate × depth × time","Rate + time","Depth ÷ time"],a:"Rate × depth × time"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={gap1:"Hz",gap2:"quality",gap3:"file size",gap4:"loudness",gap5:"time"};
+const wordBank=["Hz","quality","file size","loudness","time"];
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let scoreVal=0;
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+if(sel===m.a){scoreVal++;document.getElementById(`f${i}`).innerHTML="✔";document.getElementById(`f${i}`).className="correct";}
+});
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) scoreVal++;
+}
+gapFeedback.innerHTML="✔ Gaps marked";
+
+let text=calc.value.replace(/\s+/g,"");
+let marks=0;
+if(text.includes("1000*8*10")) marks=2;
+scoreVal+=marks;
+calcFeedback.innerHTML=marks+"/2";
+score.innerHTML="Score: "+scoreVal+"/12";
+}
+</script>
+</main>
+</body>
+</html>

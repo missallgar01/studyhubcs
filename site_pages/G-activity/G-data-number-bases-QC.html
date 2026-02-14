@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Number Bases Quick Check</title>
+<link rel="stylesheet" href="../../css/main.css" />
+<style>
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+.wordbank span{display:inline-block;background:#e0e0e0;padding:5px 10px;margin:5px;border-radius:4px;}
+.score{font-size:1.3rem;font-weight:bold;margin-top:1rem;}
+</style>
+</head>
+<body>
+<main>
+<h1>🔢 Number Bases & Hexadecimal</h1>
+
+<div class="section">
+<h2>MCQ (5)</h2>
+<div id="mcq"></div>
+</div>
+
+<div class="section">
+<h2>Fill in the Gaps (5)</h2>
+<p>Hexadecimal is base <select id="gap1"></select>.</p>
+<p>Letter A in hex represents <select id="gap2"></select>.</p>
+<p>2⁸ gives <select id="gap3"></select> patterns.</p>
+<p>Hexadecimal is shorthand for <select id="gap4"></select>.</p>
+<p>At least 9 bits are needed for 300 patterns because 2⁹ gives <select id="gap5"></select>.</p>
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+</div>
+
+<div class="section">
+<h2>Exam (2)</h2>
+<p>Explain why hexadecimal notation is used.</p>
+<textarea id="explain" rows="3"></textarea>
+<div id="explainFeedback"></div>
+</div>
+
+<button onclick="markQuiz()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. What base is hexadecimal?",o:["2","10","16"],a:"16"},
+{q:"2. What does F represent?",o:["14","15","16"],a:"15"},
+{q:"3. 2⁸ equals:",o:["128","256","512"],a:"256"},
+{q:"4. Why use hex?",o:["Longer numbers","Fewer digits than binary","More memory"],a:"Fewer digits than binary"},
+{q:"5. 2⁹ equals:",o:["256","300","512"],a:"512"}
+];
+
+const wordBank=["16","10","256","binary","512"];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="mcq${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function markQuiz(){
+let score=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="mcq${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){score++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML=`Answer: ${m.a}`;fb.className="incorrect";}
+});
+
+const gapAnswers={
+gap1:"16",
+gap2:"10",
+gap3:"256",
+gap4:"binary",
+gap5:"512"
+};
+
+for(let g in gapAnswers){
+if(document.getElementById(g).value===gapAnswers[g]) score++;
+}
+
+gapFeedback.innerHTML="✔ Gaps marked";
+
+let text=explain.value.toLowerCase();
+let marks=0;
+if(text.includes("fewer")) marks++;
+if(text.includes("binary")||text.includes("read")) marks++;
+score+=marks;
+
+explainFeedback.innerHTML=marks+"/2";
+scoreDisplay.innerHTML="Score: "+score+"/12";
+}
+</script>
+</main>
+</body>
+</html>

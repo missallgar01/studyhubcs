@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Software Quick Check</title>
+<title>Transmission Media Quick Check</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
 
@@ -30,7 +30,7 @@
 <body>
 <main>
 
-<h1>💻 Software – Systems & Operating Systems</h1>
+<h1>🌐 Transmission Media Quick Check</h1>
 
 <!-- ================= MCQ ================= -->
 
@@ -44,15 +44,15 @@
 <div class="section">
 <h2>Fill in the Gaps (5)</h2>
 
-<p>Systems software controls the <select id="gap1"></select> and provides an interface between hardware and software.</p>
+<p><select id="gap1"></select> uses radio waves to transmit data.</p>
 
-<p>An operating system provides a <select id="gap2"></select> for the user.</p>
+<p>Fibre optic transmits data using pulses of <select id="gap2"></select>.</p>
 
-<p>Memory management moves data between RAM and <select id="gap3"></select>.</p>
+<p>Ethernet uses <select id="gap3"></select> cables.</p>
 
-<p>Process scheduling uses <select id="gap4"></select> to allocate CPU time.</p>
+<p>Zigbee is commonly used in <select id="gap4"></select> systems.</p>
 
-<p>An audit trail records changes made to software in <select id="gap5"></select> order.</p>
+<p>Fibre optic is not affected by <select id="gap5"></select> interference.</p>
 
 <div class="wordbank" id="wordbank"></div>
 <div id="gapFeedback"></div>
@@ -63,7 +63,7 @@
 
 <div class="section">
 <h2>Explain (2)</h2>
-<p>Explain why process scheduling is needed in a multitasking operating system.</p>
+<p>Explain why fibre optic cables are used for long-distance data transmission.</p>
 <textarea id="explain" rows="4" cols="60"></textarea>
 <div id="explainFeedback"></div>
 </div>
@@ -79,60 +79,40 @@
 
 const mcqData = [
 {
-q:"1. What is systems software?",
-o:[
-"Software that maintains and controls hardware",
-"Software used to create documents",
-"Software used for entertainment"
-],
-a:"Software that maintains and controls hardware"
+q:"1. Which transmission media allows mobility?",
+o:["Wireless","Ethernet","Fibre Optic"],
+a:"Wireless"
 },
 {
-q:"2. Which is an example of application software?",
-o:[
-"Word processing software",
-"Operating system",
-"Device driver"
-],
-a:"Word processing software"
+q:"2. Which transmission media offers the highest speeds?",
+o:["Zigbee","Fibre Optic","Wireless"],
+a:"Fibre Optic"
 },
 {
-q:"3. What does the operating system manage?",
-o:[
-"Only the CPU",
-"Hardware and software resources",
-"Only application software"
-],
-a:"Hardware and software resources"
+q:"3. Which transmission media is most secure?",
+o:["Wireless","Ethernet","Zigbee"],
+a:"Ethernet"
 },
 {
-q:"4. Which function allows users to log in?",
-o:[
-"User management",
-"Memory management",
-"File compression"
-],
-a:"User management"
+q:"4. Which transmission media is designed for low power IoT devices?",
+o:["Zigbee","Fibre Optic","Ethernet"],
+a:"Zigbee"
 },
 {
-q:"5. What does a device driver do?",
-o:[
-"Controls a peripheral device",
-"Stores data permanently",
-"Deletes files automatically"
-],
-a:"Controls a peripheral device"
+q:"5. Which transmission media is most likely to suffer interference?",
+o:["Wireless","Fibre Optic","Ethernet"],
+a:"Wireless"
 }
 ];
 
 /* ================= WORD BANK ================= */
 
 const wordBank = [
-"hardware",
-"user interface",
-"virtual memory",
-"time slices",
-"chronological"
+"Wireless",
+"light",
+"twisted pair",
+"IoT",
+"electromagnetic"
 ];
 
 /* ================= GENERATE MCQ ================= */
@@ -179,11 +159,11 @@ else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
 /* ---- GAPS ---- */
 
 const gapAnswers={
-gap1:"hardware",
-gap2:"user interface",
-gap3:"virtual memory",
-gap4:"time slices",
-gap5:"chronological"
+gap1:"Wireless",
+gap2:"light",
+gap3:"twisted pair",
+gap4:"IoT",
+gap5:"electromagnetic"
 };
 
 for(let g in gapAnswers){
@@ -198,15 +178,15 @@ document.getElementById("gapFeedback").innerHTML="✔️ Gaps marked.";
 let text=document.getElementById("explain").value.toLowerCase();
 let marks=0;
 
-if(text.includes("multiple") || text.includes("more than one")) marks++;
-if(text.includes("time slice") || text.includes("cpu time") || text.includes("switching")) marks++;
+if(text.includes("high speed") || text.includes("faster")) marks++;
+if(text.includes("long distance") || text.includes("less signal loss") || text.includes("not affected by interference")) marks++;
 
 score+=marks;
 
 document.getElementById("explainFeedback").innerHTML=
 marks===2?"✔️ 2/2":
 marks===1?"✔️ 1/2":
-"❌ 0/2 – It allows multiple applications to run by allocating CPU time.";
+"❌ 0/2 – Fibre optic supports long distances with high speed and low interference.";
 
 document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/12`;
 

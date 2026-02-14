@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Software Quick Check</title>
+<title>Hardware – CPU Quick Check</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
 
@@ -30,7 +30,7 @@
 <body>
 <main>
 
-<h1>💻 Software – Systems & Operating Systems</h1>
+<h1>💻 Hardware – CPU, Registers & Buses</h1>
 
 <!-- ================= MCQ ================= -->
 
@@ -44,15 +44,15 @@
 <div class="section">
 <h2>Fill in the Gaps (5)</h2>
 
-<p>Systems software controls the <select id="gap1"></select> and provides an interface between hardware and software.</p>
+<p>The <select id="gap1"></select> decodes instructions.</p>
 
-<p>An operating system provides a <select id="gap2"></select> for the user.</p>
+<p>The <select id="gap2"></select> stores the next instruction address.</p>
 
-<p>Memory management moves data between RAM and <select id="gap3"></select>.</p>
+<p>The address bus is <select id="gap3"></select>.</p>
 
-<p>Process scheduling uses <select id="gap4"></select> to allocate CPU time.</p>
+<p>The data bus is <select id="gap4"></select>.</p>
 
-<p>An audit trail records changes made to software in <select id="gap5"></select> order.</p>
+<p>Clock speed is measured in <select id="gap5"></select>.</p>
 
 <div class="wordbank" id="wordbank"></div>
 <div id="gapFeedback"></div>
@@ -63,7 +63,7 @@
 
 <div class="section">
 <h2>Explain (2)</h2>
-<p>Explain why process scheduling is needed in a multitasking operating system.</p>
+<p>Explain why a higher clock speed is desirable.</p>
 <textarea id="explain" rows="4" cols="60"></textarea>
 <div id="explainFeedback"></div>
 </div>
@@ -79,60 +79,40 @@
 
 const mcqData = [
 {
-q:"1. What is systems software?",
-o:[
-"Software that maintains and controls hardware",
-"Software used to create documents",
-"Software used for entertainment"
-],
-a:"Software that maintains and controls hardware"
+q:"1. Which component performs calculations and logical comparisons?",
+o:["ALU","Control Unit","Program Counter"],
+a:"ALU"
 },
 {
-q:"2. Which is an example of application software?",
-o:[
-"Word processing software",
-"Operating system",
-"Device driver"
-],
-a:"Word processing software"
+q:"2. What does the Program Counter do?",
+o:["Stores data","Points to the next instruction","Decodes instructions"],
+a:"Points to the next instruction"
 },
 {
-q:"3. What does the operating system manage?",
-o:[
-"Only the CPU",
-"Hardware and software resources",
-"Only application software"
-],
-a:"Hardware and software resources"
+q:"3. What does the MAR store?",
+o:["Memory address","Instruction result","Clock cycle"],
+a:"Memory address"
 },
 {
-q:"4. Which function allows users to log in?",
-o:[
-"User management",
-"Memory management",
-"File compression"
-],
-a:"User management"
+q:"4. The control bus carries:",
+o:["Control signals","Data","Addresses"],
+a:"Control signals"
 },
 {
-q:"5. What does a device driver do?",
-o:[
-"Controls a peripheral device",
-"Stores data permanently",
-"Deletes files automatically"
-],
-a:"Controls a peripheral device"
+q:"5. Bus width affects:",
+o:["Maximum memory addressable","Screen resolution","Sound quality"],
+a:"Maximum memory addressable"
 }
 ];
 
 /* ================= WORD BANK ================= */
 
 const wordBank = [
-"hardware",
-"user interface",
-"virtual memory",
-"time slices",
-"chronological"
+"Control Unit",
+"Program Counter",
+"unidirectional",
+"bidirectional",
+"Hertz"
 ];
 
 /* ================= GENERATE MCQ ================= */
@@ -147,7 +127,7 @@ html+=`<div id="f${i}"></div><hr>`;
 });
 document.getElementById("mcq").innerHTML=html;
 
-/* ================= WORD BANK ================= */
+/* ================= WORD BANK DROPDOWNS ================= */
 
 function populateDropdown(id){
   const select=document.getElementById(id);
@@ -179,11 +159,11 @@ else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
 /* ---- GAPS ---- */
 
 const gapAnswers={
-gap1:"hardware",
-gap2:"user interface",
-gap3:"virtual memory",
-gap4:"time slices",
-gap5:"chronological"
+gap1:"Control Unit",
+gap2:"Program Counter",
+gap3:"unidirectional",
+gap4:"bidirectional",
+gap5:"Hertz"
 };
 
 for(let g in gapAnswers){
@@ -198,15 +178,16 @@ document.getElementById("gapFeedback").innerHTML="✔️ Gaps marked.";
 let text=document.getElementById("explain").value.toLowerCase();
 let marks=0;
 
-if(text.includes("multiple") || text.includes("more than one")) marks++;
-if(text.includes("time slice") || text.includes("cpu time") || text.includes("switching")) marks++;
+if(text.includes("more instructions")) marks++;
+if(text.includes("per second") || text.includes("faster")) marks++;
 
 score+=marks;
 
 document.getElementById("explainFeedback").innerHTML=
 marks===2?"✔️ 2/2":
-marks===1?"✔️ 1/2":
-"❌ 0/2 – It allows multiple applications to run by allocating CPU time.";
+marks===1?"✔️ 1/2":"❌ 0/2";
+
+/* ---- FINAL SCORE ---- */
 
 document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/12`;
 

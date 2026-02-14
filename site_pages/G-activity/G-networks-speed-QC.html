@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Software Quick Check</title>
+<title>Network Speed Quick Check</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
 
@@ -30,7 +30,7 @@
 <body>
 <main>
 
-<h1>💻 Software – Systems & Operating Systems</h1>
+<h1>⚡ Network Speed Quick Check</h1>
 
 <!-- ================= MCQ ================= -->
 
@@ -44,28 +44,36 @@
 <div class="section">
 <h2>Fill in the Gaps (5)</h2>
 
-<p>Systems software controls the <select id="gap1"></select> and provides an interface between hardware and software.</p>
+<p><select id="gap1"></select> is the delay between sending and receiving data.</p>
 
-<p>An operating system provides a <select id="gap2"></select> for the user.</p>
+<p><select id="gap2"></select> is the maximum amount of data transmitted per second.</p>
 
-<p>Memory management moves data between RAM and <select id="gap3"></select>.</p>
+<p>1 Byte equals <select id="gap3"></select> bits.</p>
 
-<p>Process scheduling uses <select id="gap4"></select> to allocate CPU time.</p>
+<p>1 KiB equals <select id="gap4"></select> bytes.</p>
 
-<p>An audit trail records changes made to software in <select id="gap5"></select> order.</p>
+<p>1 Mbps equals <select id="gap5"></select> bps.</p>
 
 <div class="wordbank" id="wordbank"></div>
 <div id="gapFeedback"></div>
 
 </div>
 
-<!-- ================= EXPLAIN ================= -->
+<!-- ================= CALCULATION ================= -->
 
 <div class="section">
-<h2>Explain (2)</h2>
-<p>Explain why process scheduling is needed in a multitasking operating system.</p>
-<textarea id="explain" rows="4" cols="60"></textarea>
-<div id="explainFeedback"></div>
+<h2>Calculation (2)</h2>
+
+<p>
+Write the expression needed to calculate the time to download
+a 16 MB file using an 8 Mbps connection.
+</p>
+
+<p><strong>Formula:</strong> Time = File size ÷ Bandwidth</p>
+
+<textarea id="calc" rows="3" cols="60"></textarea>
+<div id="calcFeedback"></div>
+
 </div>
 
 <button onclick="markQuiz()">Mark</button>
@@ -79,60 +87,44 @@
 
 const mcqData = [
 {
-q:"1. What is systems software?",
-o:[
-"Software that maintains and controls hardware",
-"Software used to create documents",
-"Software used for entertainment"
-],
-a:"Software that maintains and controls hardware"
+q:"1. What affects network delay?",
+o:["Bandwidth","Latency","File size"],
+a:"Latency"
 },
 {
-q:"2. Which is an example of application software?",
+q:"2. Which formula calculates download time?",
 o:[
-"Word processing software",
-"Operating system",
-"Device driver"
+"Time = File size ÷ Bandwidth",
+"Time = Bandwidth ÷ File size",
+"Time = File size × Bandwidth"
 ],
-a:"Word processing software"
+a:"Time = File size ÷ Bandwidth"
 },
 {
-q:"3. What does the operating system manage?",
-o:[
-"Only the CPU",
-"Hardware and software resources",
-"Only application software"
-],
-a:"Hardware and software resources"
+q:"3. Which unit measures network speed?",
+o:["MB","Mbps","MiB"],
+a:"Mbps"
 },
 {
-q:"4. Which function allows users to log in?",
-o:[
-"User management",
-"Memory management",
-"File compression"
-],
-a:"User management"
+q:"4. How many bits are in a nibble?",
+o:["2","4","8"],
+a:"4"
 },
 {
-q:"5. What does a device driver do?",
-o:[
-"Controls a peripheral device",
-"Stores data permanently",
-"Deletes files automatically"
-],
-a:"Controls a peripheral device"
+q:"5. Which is larger?",
+o:["1 byte","1 bit","1 nibble"],
+a:"1 byte"
 }
 ];
 
 /* ================= WORD BANK ================= */
 
 const wordBank = [
-"hardware",
-"user interface",
-"virtual memory",
-"time slices",
-"chronological"
+"Latency",
+"Bandwidth",
+"8",
+"1024",
+"1,000,000"
 ];
 
 /* ================= GENERATE MCQ ================= */
@@ -172,18 +164,24 @@ let score=0;
 mcqData.forEach((m,i)=>{
 let sel=document.querySelector(`input[name="mcq${i}"]:checked`)?.value;
 let fb=document.getElementById(`f${i}`);
-if(sel===m.a){score++;fb.innerHTML="✔️ Correct";fb.className="correct";}
-else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
+if(sel===m.a){
+    score++;
+    fb.innerHTML="✔️ Correct";
+    fb.className="correct";
+}else{
+    fb.innerHTML=`❌ Answer: ${m.a}`;
+    fb.className="incorrect";
+}
 });
 
 /* ---- GAPS ---- */
 
 const gapAnswers={
-gap1:"hardware",
-gap2:"user interface",
-gap3:"virtual memory",
-gap4:"time slices",
-gap5:"chronological"
+gap1:"Latency",
+gap2:"Bandwidth",
+gap3:"8",
+gap4:"1024",
+gap5:"1,000,000"
 };
 
 for(let g in gapAnswers){
@@ -193,20 +191,33 @@ if(val===gapAnswers[g]) score++;
 
 document.getElementById("gapFeedback").innerHTML="✔️ Gaps marked.";
 
-/* ---- EXPLAIN (2 MARKS) ---- */
+/* ---- CALCULATION (2 MARKS – EXPRESSION ONLY) ---- */
+/* Expected: (16 × 8) ÷ 8  OR  (16*8)/8 */
 
-let text=document.getElementById("explain").value.toLowerCase();
-let marks=0;
+let text = document.getElementById("calc").value
+              .replace(/\s+/g,"")
+              .toLowerCase();
 
-if(text.includes("multiple") || text.includes("more than one")) marks++;
-if(text.includes("time slice") || text.includes("cpu time") || text.includes("switching")) marks++;
+let marks = 0;
 
-score+=marks;
+/* 1 mark for MB → Mb conversion */
+if(text.includes("16*8") || text.includes("16×8")){
+    marks++;
+}
 
-document.getElementById("explainFeedback").innerHTML=
-marks===2?"✔️ 2/2":
-marks===1?"✔️ 1/2":
-"❌ 0/2 – It allows multiple applications to run by allocating CPU time.";
+/* 1 mark for dividing by bandwidth */
+if(text.includes("/8") || text.includes("÷8")){
+    marks++;
+}
+
+score += marks;
+
+document.getElementById("calcFeedback").innerHTML =
+marks === 2 ? "✔️ 2/2 – Correct expression."
+: marks === 1 ? "✔️ 1/2 – Missing part of the expression."
+: "❌ 0/2 – Expression should be (16 × 8) ÷ 8.";
+
+/* ---- FINAL SCORE ---- */
 
 document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/12`;
 

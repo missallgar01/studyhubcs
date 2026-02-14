@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Data Sizes QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+<style>
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+.wordbank span{background:#e0e0e0;padding:5px 8px;margin:5px;border-radius:4px;display:inline-block;}
+.score{font-size:1.2rem;font-weight:bold;margin-top:1rem;}
+</style>
+</head>
+<body>
+<main>
+<h1>Data Sizes</h1>
+
+<div id="mcq"></div>
+
+<p>1 KiB equals <select id="gap1"></select> bytes.</p>
+<p>1 MiB equals <select id="gap2"></select> KiB.</p>
+<p>1 GiB equals <select id="gap3"></select> MiB.</p>
+<p>1 byte equals <select id="gap4"></select> bits.</p>
+<p>1 TiB equals <select id="gap5"></select> GiB.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Write the expression to convert 3 MiB into bytes.</p>
+<textarea id="calc"></textarea>
+<div id="calcFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="score"></div>
+
+<script>
+const mcqData=[
+{q:"1. 1 byte equals:",o:["4 bits","8 bits","16 bits"],a:"8 bits"},
+{q:"2. KiB is based on:",o:["1000","1024","2048"],a:"1024"},
+{q:"3. 1 GiB equals:",o:["1024 MiB","1000 MiB","512 MiB"],a:"1024 MiB"},
+{q:"4. 1 MiB equals:",o:["1024 KiB","1000 KiB","2048 KiB"],a:"1024 KiB"},
+{q:"5. 1 TiB equals:",o:["1024 GiB","1000 GiB","512 GiB"],a:"1024 GiB"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={gap1:"1024",gap2:"1024",gap3:"1024",gap4:"8",gap5:"1024"};
+const wordBank=["1024","8"];
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let scoreVal=0;
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+if(sel===m.a){scoreVal++;document.getElementById(`f${i}`).innerHTML="✔";document.getElementById(`f${i}`).className="correct";}
+});
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) scoreVal++;
+}
+gapFeedback.innerHTML="✔ Gaps marked";
+
+let text=calc.value.replace(/\s+/g,"");
+let marks=0;
+if(text.includes("3*1024*1024")) marks=2;
+scoreVal+=marks;
+calcFeedback.innerHTML=marks+"/2";
+score.innerHTML="Score: "+scoreVal+"/12";
+}
+</script>
+</main>
+</body>
+</html>

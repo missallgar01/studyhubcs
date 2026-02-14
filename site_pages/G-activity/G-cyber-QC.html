@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cybersecurity QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+<style>
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+.wordbank span{background:#e0e0e0;padding:5px 8px;margin:5px;border-radius:4px;display:inline-block;}
+.score{font-size:1.2rem;font-weight:bold;margin-top:1rem;}
+</style>
+</head>
+<body>
+<main>
+<h1>Cybersecurity</h1>
+
+<div id="mcq"></div>
+
+<p>Cybersecurity protects against <select id="gap1"></select>.</p>
+<p>A data breach exposes <select id="gap2"></select> data.</p>
+<p>Encryption protects data during <select id="gap3"></select>.</p>
+<p>Strong passwords reduce <select id="gap4"></select> risk.</p>
+<p>Firewalls monitor incoming and <select id="gap5"></select> traffic.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why organisations need cybersecurity measures.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="score"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. Cybersecurity protects systems from:",o:["Hackers","Resolution","Compression"],a:"Hackers"},
+{q:"2. A data breach results in:",o:["Lost data","Exposed data","Faster systems"],a:"Exposed data"},
+{q:"3. Encryption protects:",o:["Hardware","Data","Screens"],a:"Data"},
+{q:"4. Strong passwords help prevent:",o:["Hacking","Compression","Rendering"],a:"Hacking"},
+{q:"5. Firewalls control:",o:["Colour depth","Network traffic","Sound"],a:"Network traffic"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"hacking",
+gap2:"personal",
+gap3:"transmission",
+gap4:"hacking",
+gap5:"outgoing"
+};
+
+const wordBank=["hacking","personal","transmission","outgoing"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let scoreVal=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+if(sel===m.a){
+scoreVal++;
+document.getElementById(`f${i}`).innerHTML="✔";
+document.getElementById(`f${i}`).className="correct";
+}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) scoreVal++;
+}
+
+gapFeedback.innerHTML="✔ Gaps marked";
+
+let t=explain.value.toLowerCase();
+let marks=0;
+if(t.includes("protect")) marks++;
+if(t.includes("data")||t.includes("breach")) marks++;
+scoreVal+=marks;
+
+explainFeedback.innerHTML=marks+"/2";
+score.innerHTML="Score: "+scoreVal+"/12";
+}
+
+</script>
+</main>
+</body>
+</html>

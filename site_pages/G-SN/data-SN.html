@@ -180,6 +180,11 @@
             At least 9 bits are required to store 300 different binary patterns because
             2⁸ only gives 256 combinations, while 2⁹ provides 512, which is sufficient.
           </p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-data-number-bases-QC.html">Quick Check</a></div>
+</div>
+
         </div>
 
         <div class="knowledge-card">
@@ -197,6 +202,10 @@
             further by using 16 to 32 bits, enabling representation of many languages
             and symbols worldwide.
           </p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-data-characters-QC.html">Quick Check</a></div>
+</div>
         </div>
 
         <div class="knowledge-card">
@@ -235,9 +244,198 @@
             Denary check:
             45 + 23 = <strong>68</strong>
           </p>
+
         </div>
 
         <div class="knowledge-card">
+          <h3>Two’s Complement</h3>
+          <p>
+            To convert a binary number to two’s complement, copy all bits from the right
+            up to and including the first 1, then invert the remaining bits. This method
+            is used to represent negative numbers.
+          </p>
+
+          <h4>Two’s Complement Example</h4>
+
+            <strong>Step 1 Work out the positive 8-bit Binary Number</strong><br>
+            00101010 &nbsp; 42 in denary <br><br>
+
+            <table>
+          <tr>
+            <th>128</th>
+            <th>64</th>
+            <th>32</th>
+            <th>16</th>
+            <th>8</th>
+            <th>4</th>
+            <th>2</th>
+            <th>1</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+          </tr>
+        </table>
+
+          <strong>Step 2: Copy from the Right (up to and including the first 1)</strong>
+
+          <table>
+            <tr>
+              <th>128</th>
+              <th>64</th>
+              <th>32</th>
+              <th>16</th>
+              <th>8</th>
+              <th>4</th>
+              <th>2</th>
+              <th>1</th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td style="text-align:center;">↑</td>
+              <td></td>
+            </tr>
+          </table>
+
+            <strong>Step 3 Copy all bits from this <strong>first 1</strong> to the right.</strong>
+
+            <strong>Result (Two’s Complement)</strong><br>
+
+            <table class="binary-bits-table" border="1" cellpadding="8" cellspacing="0">
+          <tr>
+            <th>128</th>
+            <th>64</th>
+            <th>32</th>
+            <th>16</th>
+            <th>8</th>
+            <th>4</th>
+            <th>2</th>
+            <th>1</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+          </tr>
+        </table>
+
+        <p>
+          Denary value: <strong>−42</strong> (signed, two’s complement)
+        </p>
+
+            <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-data-2complement-QC.html">Quick Check</a></div>
+</div>
+          </div>
+
+        <div class="knowledge-card">
+          <h3>Binary Subtraction Using Two’s Complement</h3>
+          <p>
+            Subtraction in binary is performed by adding the two’s complement of the
+            number being subtracted. For example, 18 − 8 is calculated by adding 18 to
+            the two’s complement of 8.
+          </p>
+
+            <h4>For example</h4>
+              <strong>18 − 8</strong> is calculated by adding 18 to the
+            two’s complement of 8.
+
+          <!-- Step 1 -->
+          <h4>Step 1: Convert 18 to Binary</h4>
+          <table>
+            <tr>
+              <th>128</th><th>64</th><th>32</th><th>16</th>
+              <th>8</th><th>4</th><th>2</th><th>1</th>
+            </tr>
+            <tr>
+              <td>0</td><td>0</td><td>0</td><td>1</td>
+              <td>0</td><td>0</td><td>1</td><td>0</td>
+            </tr>
+          </table>
+          <p><strong>18 = 00010010</strong></p>
+
+          <!-- Step 2 -->
+          <h4>Step 2: Convert 8 to Binary</h4>
+          <table>
+            <tr>
+              <th>128</th><th>64</th><th>32</th><th>16</th>
+              <th>8</th><th>4</th><th>2</th><th>1</th>
+            </tr>
+            <tr>
+              <td>0</td><td>0</td><td>0</td><td>0</td>
+              <td>1</td><td>0</td><td>0</td><td>0</td>
+            </tr>
+          </table>
+          <p><strong>8 = 00001000</strong></p>
+
+          <!-- Step 3 -->
+          <h4>Step 3: Two’s Complement of 8</h4>
+          <p>
+            Copy from the right up to and including the first 1, then flip the remaining bits.
+          </p>
+          <table>
+            <tr>
+              <th>128</th><th>64</th><th>32</th><th>16</th>
+              <th>8</th><th>4</th><th>2</th><th>1</th>
+            </tr>
+            <tr>
+              <td>1</td><td>1</td><td>1</td><td>1</td>
+              <td>1</td><td>0</td><td>0</td><td>0</td>
+            </tr>
+          </table>
+          <p><strong>−8 = 11111000</strong></p>
+
+          <!-- Step 4 -->
+          <h4>Step 4: Add the Two Binary Numbers</h4>
+          <pre>
+         00010010
+        +11111000
+         --------
+         00001010
+          </pre>
+
+          <!-- Step 5 -->
+          <h4>Step 5: Result</h4>
+          <table>
+            <tr>
+              <th>128</th><th>64</th><th>32</th><th>16</th>
+              <th>8</th><th>4</th><th>2</th><th>1</th>
+            </tr>
+            <tr>
+              <td>0</td><td>0</td><td>0</td><td>0</td>
+              <td>1</td><td>0</td><td>1</td><td>0</td>
+            </tr>
+          </table>
+          <p><strong>Answer: 18 − 8 = 10</strong></p>
+        </div>
+
+         <div class="knowledge-card">
           <h3>Logical Shifts</h3>
           <p>
             A logical left shift adds zeros to the right and discards bits on the left,
@@ -368,192 +566,9 @@
             • A 0 is added to the left<br>
             • The rightmost bit is discarded<br>
             • The value halves <br>
-
-        </div>
-
-        <div class="knowledge-card">
-          <h3>Two’s Complement</h3>
-          <p>
-            To convert a binary number to two’s complement, copy all bits from the right
-            up to and including the first 1, then invert the remaining bits. This method
-            is used to represent negative numbers.
-          </p>
-
-          <h4>Two’s Complement Example</h4>
-
-            <strong>Step 1 Work out the positive 8-bit Binary Number</strong><br>
-            00101010 &nbsp; 42 in denary <br><br>
-
-            <table>
-          <tr>
-            <th>128</th>
-            <th>64</th>
-            <th>32</th>
-            <th>16</th>
-            <th>8</th>
-            <th>4</th>
-            <th>2</th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-        </table>
-
-          <strong>Step 2: Copy from the Right (up to and including the first 1)</strong>
-
-          <table>
-            <tr>
-              <th>128</th>
-              <th>64</th>
-              <th>32</th>
-              <th>16</th>
-              <th>8</th>
-              <th>4</th>
-              <th>2</th>
-              <th>1</th>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-              <td>1</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td style="text-align:center;">↑</td>
-              <td></td>
-            </tr>
-          </table>
-
-            <strong>Step 3 Copy all bits from this <strong>first 1</strong> to the right.</strong>
-
-            <strong>Result (Two’s Complement)</strong><br>
-
-            <table class="binary-bits-table" border="1" cellpadding="8" cellspacing="0">
-          <tr>
-            <th>128</th>
-            <th>64</th>
-            <th>32</th>
-            <th>16</th>
-            <th>8</th>
-            <th>4</th>
-            <th>2</th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-            <td>1</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-        </table>
-
-        <p>
-          Denary value: <strong>−42</strong> (signed, two’s complement)
-        </p>
-          </div>
-
-
-        <div class="knowledge-card">
-          <h3>Binary Subtraction Using Two’s Complement</h3>
-          <p>
-            Subtraction in binary is performed by adding the two’s complement of the
-            number being subtracted. For example, 18 − 8 is calculated by adding 18 to
-            the two’s complement of 8.
-          </p>
-
-            <h4>For example</h4>
-              <strong>18 − 8</strong> is calculated by adding 18 to the
-            two’s complement of 8.
-
-          <!-- Step 1 -->
-          <h4>Step 1: Convert 18 to Binary</h4>
-          <table>
-            <tr>
-              <th>128</th><th>64</th><th>32</th><th>16</th>
-              <th>8</th><th>4</th><th>2</th><th>1</th>
-            </tr>
-            <tr>
-              <td>0</td><td>0</td><td>0</td><td>1</td>
-              <td>0</td><td>0</td><td>1</td><td>0</td>
-            </tr>
-          </table>
-          <p><strong>18 = 00010010</strong></p>
-
-          <!-- Step 2 -->
-          <h4>Step 2: Convert 8 to Binary</h4>
-          <table>
-            <tr>
-              <th>128</th><th>64</th><th>32</th><th>16</th>
-              <th>8</th><th>4</th><th>2</th><th>1</th>
-            </tr>
-            <tr>
-              <td>0</td><td>0</td><td>0</td><td>0</td>
-              <td>1</td><td>0</td><td>0</td><td>0</td>
-            </tr>
-          </table>
-          <p><strong>8 = 00001000</strong></p>
-
-          <!-- Step 3 -->
-          <h4>Step 3: Two’s Complement of 8</h4>
-          <p>
-            Copy from the right up to and including the first 1, then flip the remaining bits.
-          </p>
-          <table>
-            <tr>
-              <th>128</th><th>64</th><th>32</th><th>16</th>
-              <th>8</th><th>4</th><th>2</th><th>1</th>
-            </tr>
-            <tr>
-              <td>1</td><td>1</td><td>1</td><td>1</td>
-              <td>1</td><td>0</td><td>0</td><td>0</td>
-            </tr>
-          </table>
-          <p><strong>−8 = 11111000</strong></p>
-
-          <!-- Step 4 -->
-          <h4>Step 4: Add the Two Binary Numbers</h4>
-          <pre>
-         00010010
-        +11111000
-         --------
-         00001010
-          </pre>
-
-          <!-- Step 5 -->
-          <h4>Step 5: Result</h4>
-          <table>
-            <tr>
-              <th>128</th><th>64</th><th>32</th><th>16</th>
-              <th>8</th><th>4</th><th>2</th><th>1</th>
-            </tr>
-            <tr>
-              <td>0</td><td>0</td><td>0</td><td>0</td>
-              <td>1</td><td>0</td><td>1</td><td>0</td>
-            </tr>
-          </table>
-          <p><strong>Answer: 18 − 8 = 10</strong></p>
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-data-shifts-QC.html">Quick Check</a></div>
+</div>
         </div>
 
         <div class="knowledge-card">
@@ -604,8 +619,12 @@
             • The sign of the number is preserved<br>
             • The value is divided by 2
 
-           </div>
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-data-number-bases-QC.html">Quick Check</a></div>
+</div>
 
+
+           </div>
 
         <div class="knowledge-card">
           <h3>Logical vs Arithmetic Shift Right</h3>
@@ -615,7 +634,6 @@
             signed binary numbers.
           </p>
         </div>
-
 
         <div class="knowledge-card">
           <h3>Bitmap Images</h3>
@@ -647,8 +665,12 @@
             Metadata is data about data, such as filename, file format, dimensions,
             resolution, colour depth, and date last modified.
           </p>
-        </div>
 
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-data-image-QC.html">Quick Check</a></div>
+</div>
+
+        </div>
 
         <div class="knowledge-card">
           <h3>Sound Sampling</h3>
@@ -668,6 +690,11 @@
             Sound file size is calculated using:
             Bit depth × Sample rate × Length of sound × Number of channels.
           </p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-data-sound-QC.html">Quick Check</a></div>
+</div>
+
         </div>
 
         <div class="knowledge-card">
@@ -688,16 +715,20 @@
             Lossy compression permanently removes some data to greatly reduce file size.
             It is commonly used for images, audio, and video where small losses are unnoticeable.
           </p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-data-compression-QC.html">Quick Check</a></div>
+</div>
+
         </div>
 
 </div>
 
-    <button id="printBtn" type="button">
+<button id="printBtn" type="button">
   Print this worksheet
 </button>
 
 </main>
-
 
 <footer>
     © <span id="year"></span> StudyHub CS

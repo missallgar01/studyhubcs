@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Binary Shifts QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+<style>
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+.wordbank span{background:#e0e0e0;padding:5px 8px;margin:5px;border-radius:4px;display:inline-block;}
+.score{font-size:1.2rem;font-weight:bold;margin-top:1rem;}
+</style>
+</head>
+<body>
+<main>
+<h1>Binary Shifts</h1>
+
+<div id="mcq"></div>
+
+<p>A logical shift inserts <select id="gap1"></select>.</p>
+<p>An arithmetic shift copies the <select id="gap2"></select>.</p>
+<p>Shifting left multiplies by <select id="gap3"></select>.</p>
+<p>Shifting right divides by <select id="gap4"></select>.</p>
+<p>The MSB represents the <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain the difference between logical and arithmetic shift.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="score"></div>
+
+<script>
+const mcqData=[
+{q:"1. Logical shift inserts:",o:["1","0","Sign bit"],a:"0"},
+{q:"2. Arithmetic shift keeps:",o:["LSB","MSB","All bits"],a:"MSB"},
+{q:"3. Shift left multiplies by:",o:["2","4","10"],a:"2"},
+{q:"4. Shift right divides by:",o:["2","4","10"],a:"2"},
+{q:"5. MSB represents:",o:["Value","Sign","Colour"],a:"Sign"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={gap1:"0",gap2:"MSB",gap3:"2",gap4:"2",gap5:"sign"};
+const wordBank=["0","MSB","2","sign"];
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let scoreVal=0;
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+if(sel===m.a){scoreVal++;document.getElementById(`f${i}`).innerHTML="✔";document.getElementById(`f${i}`).className="correct";}
+});
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) scoreVal++;
+}
+gapFeedback.innerHTML="✔ Gaps marked";
+let t=explain.value.toLowerCase();
+let marks=0;
+if(t.includes("logical")) marks++;
+if(t.includes("arithmetic")) marks++;
+scoreVal+=marks;
+explainFeedback.innerHTML=marks+"/2";
+score.innerHTML="Score: "+scoreVal+"/12";
+}
+</script>
+</main>
+</body>
+</html>

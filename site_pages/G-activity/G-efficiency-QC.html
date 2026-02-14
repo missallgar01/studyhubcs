@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Software Quick Check</title>
+<title>Algorithm Efficiency Quick Check</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
 
@@ -30,7 +30,7 @@
 <body>
 <main>
 
-<h1>💻 Software – Systems & Operating Systems</h1>
+<h1>📊 Algorithm Efficiency Quick Check</h1>
 
 <!-- ================= MCQ ================= -->
 
@@ -44,15 +44,15 @@
 <div class="section">
 <h2>Fill in the Gaps (5)</h2>
 
-<p>Systems software controls the <select id="gap1"></select> and provides an interface between hardware and software.</p>
+<p>Algorithm efficiency describes how much <select id="gap1"></select> and memory an algorithm uses.</p>
 
-<p>An operating system provides a <select id="gap2"></select> for the user.</p>
+<p>Linear search checks each item <select id="gap2"></select> from the start.</p>
 
-<p>Memory management moves data between RAM and <select id="gap3"></select>.</p>
+<p>Binary search requires the data to be <select id="gap3"></select>.</p>
 
-<p>Process scheduling uses <select id="gap4"></select> to allocate CPU time.</p>
+<p>Binary search uses <select id="gap4"></select> and conquer.</p>
 
-<p>An audit trail records changes made to software in <select id="gap5"></select> order.</p>
+<p>Merge sort is an <select id="gap5"></select> algorithm.</p>
 
 <div class="wordbank" id="wordbank"></div>
 <div id="gapFeedback"></div>
@@ -63,7 +63,7 @@
 
 <div class="section">
 <h2>Explain (2)</h2>
-<p>Explain why process scheduling is needed in a multitasking operating system.</p>
+<p>Explain why binary search is more efficient than linear search for large data sets.</p>
 <textarea id="explain" rows="4" cols="60"></textarea>
 <div id="explainFeedback"></div>
 </div>
@@ -79,60 +79,60 @@
 
 const mcqData = [
 {
-q:"1. What is systems software?",
+q:"1. What does algorithm efficiency measure?",
 o:[
-"Software that maintains and controls hardware",
-"Software used to create documents",
-"Software used for entertainment"
+"Time and memory usage",
+"Screen size",
+"Programming language"
 ],
-a:"Software that maintains and controls hardware"
+a:"Time and memory usage"
 },
 {
-q:"2. Which is an example of application software?",
+q:"2. In the worst case, linear search may require:",
 o:[
-"Word processing software",
-"Operating system",
-"Device driver"
+"1 comparison",
+"1000 comparisons (for 1000 items)",
+"10 comparisons"
 ],
-a:"Word processing software"
+a:"1000 comparisons (for 1000 items)"
 },
 {
-q:"3. What does the operating system manage?",
+q:"3. Binary search works by:",
 o:[
-"Only the CPU",
-"Hardware and software resources",
-"Only application software"
+"Checking every item",
+"Divide and conquer",
+"Reversing the list"
 ],
-a:"Hardware and software resources"
+a:"Divide and conquer"
 },
 {
-q:"4. Which function allows users to log in?",
+q:"4. Which algorithm is NOT suitable for large data sets?",
 o:[
-"User management",
-"Memory management",
-"File compression"
+"Bubble sort",
+"Binary search",
+"Merge sort"
 ],
-a:"User management"
+a:"Bubble sort"
 },
 {
-q:"5. What does a device driver do?",
+q:"5. Merge sort requires:",
 o:[
-"Controls a peripheral device",
-"Stores data permanently",
-"Deletes files automatically"
+"No memory",
+"Extra memory",
+"Sorted data only"
 ],
-a:"Controls a peripheral device"
+a:"Extra memory"
 }
 ];
 
 /* ================= WORD BANK ================= */
 
 const wordBank = [
-"hardware",
-"user interface",
-"virtual memory",
-"time slices",
-"chronological"
+"time",
+"one by one",
+"sorted",
+"divide",
+"out-of-place"
 ];
 
 /* ================= GENERATE MCQ ================= */
@@ -172,18 +172,24 @@ let score=0;
 mcqData.forEach((m,i)=>{
 let sel=document.querySelector(`input[name="mcq${i}"]:checked`)?.value;
 let fb=document.getElementById(`f${i}`);
-if(sel===m.a){score++;fb.innerHTML="✔️ Correct";fb.className="correct";}
-else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
+if(sel===m.a){
+    score++;
+    fb.innerHTML="✔️ Correct";
+    fb.className="correct";
+}else{
+    fb.innerHTML=`❌ Answer: ${m.a}`;
+    fb.className="incorrect";
+}
 });
 
 /* ---- GAPS ---- */
 
 const gapAnswers={
-gap1:"hardware",
-gap2:"user interface",
-gap3:"virtual memory",
-gap4:"time slices",
-gap5:"chronological"
+gap1:"time",
+gap2:"one by one",
+gap3:"sorted",
+gap4:"divide",
+gap5:"out-of-place"
 };
 
 for(let g in gapAnswers){
@@ -198,15 +204,15 @@ document.getElementById("gapFeedback").innerHTML="✔️ Gaps marked.";
 let text=document.getElementById("explain").value.toLowerCase();
 let marks=0;
 
-if(text.includes("multiple") || text.includes("more than one")) marks++;
-if(text.includes("time slice") || text.includes("cpu time") || text.includes("switching")) marks++;
+if(text.includes("halve") || text.includes("divide")) marks++;
+if(text.includes("fewer comparisons") || text.includes("less comparisons") || text.includes("faster")) marks++;
 
 score+=marks;
 
 document.getElementById("explainFeedback").innerHTML=
 marks===2?"✔️ 2/2":
 marks===1?"✔️ 1/2":
-"❌ 0/2 – It allows multiple applications to run by allocating CPU time.";
+"❌ 0/2 – Binary search halves the data each time and uses fewer comparisons.";
 
 document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/12`;
 

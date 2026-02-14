@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Data Compression QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+<style>
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+.wordbank span{background:#e0e0e0;padding:5px 8px;margin:5px;border-radius:4px;display:inline-block;}
+.score{font-size:1.2rem;font-weight:bold;margin-top:1rem;}
+</style>
+</head>
+<body>
+<main>
+<h1>Data Compression</h1>
+
+<div id="mcq"></div>
+
+<p><select id="gap1"></select> compression removes no data.</p>
+<p>Lossy compression removes <select id="gap2"></select> data.</p>
+<p>Compression reduces <select id="gap3"></select> size.</p>
+<p>Streaming commonly uses <select id="gap4"></select> compression.</p>
+<p>ZIP files use <select id="gap5"></select> compression.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one advantage of compression.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="score"></div>
+
+<script>
+const mcqData=[
+{q:"1. Lossless compression:",o:["Removes data","Keeps all data","Adds data"],a:"Keeps all data"},
+{q:"2. Lossy compression is used for:",o:["Text files","Images and audio","Passwords"],a:"Images and audio"},
+{q:"3. Compression reduces:",o:["Quality always","File size","Resolution"],a:"File size"},
+{q:"4. Streaming uses:",o:["Lossless","Lossy","None"],a:"Lossy"},
+{q:"5. ZIP is:",o:["Lossy","Lossless","Streaming"],a:"Lossless"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={gap1:"Lossless",gap2:"some",gap3:"file",gap4:"lossy",gap5:"lossless"};
+const wordBank=["Lossless","some","file","lossy","lossless"];
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let scoreVal=0;
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+if(sel===m.a){scoreVal++;document.getElementById(`f${i}`).innerHTML="✔";document.getElementById(`f${i}`).className="correct";}
+});
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) scoreVal++;
+}
+gapFeedback.innerHTML="✔ Gaps marked";
+let t=explain.value.toLowerCase();
+let marks=0;
+if(t.includes("reduce")) marks++;
+if(t.includes("storage")||t.includes("faster")) marks++;
+scoreVal+=marks;
+explainFeedback.innerHTML=marks+"/2";
+score.innerHTML="Score: "+scoreVal+"/12";
+}
+</script>
+</main>
+</body>
+</html>
