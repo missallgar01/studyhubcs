@@ -1,230 +1,424 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boolean Expressions</title>
+  <meta charset="UTF-8">
+  <title>Hardware – Revision Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../../css/main.css" />
 </head>
 
+<style>
+.on {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+.off {
+        background-color: #ddd;
+    }
+
+.output {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+.wire {
+        stroke: #888;
+        stroke-width: 4;
+    }
+
+.active {
+        stroke: #4CAF50 !important;
+    }
+svg text {
+    fill: #ffffff;
+    font-weight: bold;
+}
+
+.highlight {
+    background-color: #06952c;
+}
+
+/* Override table styling ONLY on this page */
+
+body table {
+    width: auto !important;
+    table-layout: auto !important;
+    margin: 10px auto;
+}
+
+body table th,
+body table td {
+    padding: 8px 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+</style>
+
 <body>
 <div class="back-container">
-    <a href="../A-studynotes.html">← Back</a>
+    <a href="../G-studynotes.html">← Back</a>
   </div>
 <header>
-   <h1>Boolean Logic – Study Notes</h1>
+  <h1>Topic 1 Boolean Logic – Study Notes</h1>
 
 </header>
 
 <main>
 
- <div class="vertical-knowledge">
+<div class="vertical-knowledge">
+<div class="knowledge-card">
+  <h2>AND Gate (∧) </h2>
+  <p>Output is 1 only when both inputs are 1.</p>
 
-      <h2>Boolean Expressions – Notes</h2>
+  <table>
+      <tr>
+          <th>
+              <button onclick="toggleAND('A')" id="andA" class="off">A = 0</button>
+              <button onclick="toggleAND('B')" id="andB" class="off">B = 0</button></th>
+          <th>
+              <svg width="300" height="160">
+                <path d="M120 40 L170 40 A40 40 0 0 1 170 120 L120 120 Z"
+                 fill="#e6e6e6" stroke="#333" stroke-width="3"/>
+                <line id="andWireA" x1="40" y1="65" x2="120" y2="65" class="wire"/>
+                <line id="andWireB" x1="40" y1="95" x2="120" y2="95" class="wire"/>
+                <line id="andWireQ" x1="210" y1="80" x2="280" y2="80" class="wire"/>
+                <text x="20" y="70" fill="#000">A</text>
+                <text x="20" y="100" fill="#000">B</text>
+                <text x="285" y="85" fill="#000">Q</text>
+               </svg>
+          </th>
+          <th>
+          <div>Output: <span id="andOutput">0</span></div>
+          </th>
+      </tr>
+  </table>
 
-      <!-- Card 1: Gates, symbols & truth tables -->
-      <div class="knowledge-card">
-        <h3>Logic Gates, Symbols & Truth Tables</h3>
+  <h2>Truth Table</h2>
+  <table>
+    <tr><th>A</th><th>B</th><th>Q</th></tr>
+   <tr id="andRow0"><td>0</td><td>0</td><td>0</td></tr>
+    <tr id="andRow1"><td>0</td><td>1</td><td>0</td></tr>
+    <tr id="andRow2"><td>1</td><td>0</td><td>0</td></tr>
+    <tr id="andRow3"><td>1</td><td>1</td><td>1</td></tr>
+  </table>
+</div>
+
+<div class="knowledge-card">
+  <h2>OR Gate (V) </h2>
+  <p>Output is 1 when at least one input is 1.</p>
+  <table>
+      <tr>
+          <th>
+                <button onclick="toggleOR('A')" id="orA" class="off">A = 0</button>
+                <button onclick="toggleOR('B')" id="orB" class="off">B = 0</button>
+          </th>
+          <th>
+              <svg width="360" height="200" viewBox="0 0 360 200">
+
+              <!-- Traditional OR Gate Shape -->
+              <path d="
+                M110 40
+                Q160 100 110 160
+                A130 90 0 0 0 290 100
+                A130 90 0 0 0 110 40
+                Z"
+                fill="#ffffff"
+                stroke="#000"
+                stroke-width="3"/>
+
+              <!-- Input Wires -->
+              <line id="orWireA" x1="30" y1="75" x2="125" y2="75" class="wire"/>
+                  <line id="orWireB" x1="30" y1="125" x2="125" y2="125" class="wire"/>
+
+              <!-- Output Wire -->
+              <line id="orWireQ" x1="290" y1="100" x2="330" y2="100" class="wire"/>
+
+            </svg>
+          </th>
+          <th>
+                <div>Output: <span id="orOutput">0</span></div>
+          </th>
+      </tr>
+  </table>
+
+  <h2>Truth Table</h2>
+  <table>
+    <tr><th>A</th><th>B</th><th>Q</th></tr>
+    <tr id="orRow0"><td>0</td><td>0</td><td>0</td></tr>
+    <tr id="orRow1"><td>0</td><td>1</td><td>1</td></tr>
+    <tr id="orRow2"><td>1</td><td>0</td><td>1</td></tr>
+    <tr id="orRow3"><td>1</td><td>1</td><td>1</td></tr>
+  </table>
+</div>
 
 
-        <p>Boolean logic works with variables that can only be <strong>0 (false)</strong> or
-           <strong>1 (true)</strong>. We combine them using logic gates:</p>
+ <div class="knowledge-card">
+  <h2>NOT Gate (¬)</h2>
+  <p>Output is the inverse of input A.</p>
+  <table>
+     <tr>
+          <th>
+                <button onclick="toggleNOT()" id="notA" class="off">A = 0</button>
+          </th>
+          <th>
+              <svg width="300" height="160">
+                <polygon points="120,40 120,120 190,80"
+             fill="#e6e6e6" stroke="#333" stroke-width="3"/>
+            <circle cx="205" cy="80" r="8"
+            fill="#fff" stroke="#333" stroke-width="3"/>
+             <line id="notWireA" x1="40" y1="80" x2="120" y2="80" class="wire"/>
+            <line id="notWireQ" x1="213" y1="80" x2="280" y2="80" class="wire"/>
+            <text x="20" y="85" fill="#000">A</text>
+            <text x="285" y="85" fill="#000">Q</text>
+            </svg>
+          </th>
+          <th>
+                <div>Output: <span id="notOutput">1</span></div>
+          </th>
+   </tr>
+     </table>
 
-        <table class="truthtable">
-          <thead>
-          <tr>
-            <th>Gate</th>
-            <th>Symbol</th>
-            <th>Expression</th>
-            <th>Meaning</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
+  <h2>Truth Table</h2>
+  <table>
+    <tr><th>A</th><th>Q</th></tr>
+    <tr id="notRow0"><td>0</td><td>1</td></tr>
+    <tr id="notRow1"><td>1</td><td>0</td></tr>
+  </table>
+</div>
+
+    <div class="knowledge-card">
+  <h2>XOR Gate (⊻)</h2>
+  <p>Output is 1 only when the inputs are different.</p>
+
+  <p><strong>Difference between OR and XOR:</strong> OR is 1 when at least one input is 1;
+           XOR is 1 only when <em>exactly one</em> input is 1 (not both).</p>
+  <table>
+    <tr>
+      <td>
+        <button onclick="toggleXOR('A')" id="xorA" class="off">A = 0</button>
+        <button onclick="toggleXOR('B')" id="xorB" class="off">B = 0</button>
+      </td>
+
+      <td>
+        <svg width="360" height="200" viewBox="0 0 360 200">
+
+          <!-- Extra XOR curve -->
+          <path d="
+            M90 40
+            Q140 100 90 160"
+            fill="none"
+            stroke="#000"
+            stroke-width="3"/>
+
+          <!-- Main OR-style body -->
+          <path d="
+            M110 40
+            Q160 100 110 160
+            A130 90 0 0 0 290 100
+            A130 90 0 0 0 110 40
+            Z"
+            fill="#ffffff"
+            stroke="#000"
+            stroke-width="3"/>
+
+          <!-- Input wires -->
+          <line id="xorWireA" x1="30" y1="75" x2="120" y2="75" class="wire"/>
+          <line id="xorWireB" x1="30" y1="125" x2="120" y2="125" class="wire"/>
+
+          <!-- Output wire -->
+          <line id="xorWireQ" x1="290" y1="100" x2="330" y2="100" class="wire"/>
+
+          <!-- Labels -->
+          <text x="10" y="80">A</text>
+          <text x="10" y="130">B</text>
+          <text x="335" y="105">Q</text>
+
+        </svg>
+      </td>
+
+      <td>
+        <div>Output: <span id="xorOutput">0</span></div>
+      </td>
+    </tr>
+  </table>
+
+  <h3>Truth Table</h3>
+  <table>
+    <tr><th>A</th><th>B</th><th>Q</th></tr>
+    <tr id="xorRow0"><td>0</td><td>0</td><td>0</td></tr>
+    <tr id="xorRow1"><td>0</td><td>1</td><td>1</td></tr>
+    <tr id="xorRow2"><td>1</td><td>0</td><td>1</td></tr>
+    <tr id="xorRow3"><td>1</td><td>1</td><td>0</td></tr>
+  </table>
+</div>
+
+
+<div class="knowledge-card">
+
+<h2>Interactive Circuit: Q = NOT(A) AND B</h2>
+
+    <table>
+        <tr>
+
+           <td>
+              <button id="btnA" class="off" onclick="toggleA()">A = 0</button>
+                <button id="btnB" class="off" onclick="toggleB()">B = 0</button>
+           </td>
+
             <td>
-            <figure>
-    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="AND gate">
-      <rect x="0" y="0" width="220" height="140" fill="white"/>
-      <!-- inputs -->
-      <line x1="10" y1="45" x2="70" y2="45" stroke="#000" stroke-width="4"/>
-      <line x1="10" y1="95" x2="70" y2="95" stroke="#000" stroke-width="4"/>
-      <!-- body -->
-      <path d="M70 25 L120 25 A45 45 0 0 1 120 115 L70 115 Z"
-            fill="#fff" stroke="#000" stroke-width="4" />
-      <!-- output -->
-      <line x1="165" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
-    </svg>
-    <figcaption>AND</figcaption>
-  </figure>
+                <svg width="800" height="200">
+
+                  <!-- A input wire -->
+                  <line id="wireA" x1="50" y1="70" x2="140" y2="70" class="wire"/>
+
+                  <!-- NOT Gate -->
+                  <polygon points="140,40 140,100 210,70"
+                           fill="#fff" stroke="#000" stroke-width="3"/>
+                  <circle cx="220" cy="70" r="7"
+                          fill="#fff" stroke="#000" stroke-width="3"/>
+
+                  <!-- NOT output wire -->
+                  <line id="wireNotOut" x1="227" y1="70" x2="330" y2="70" class="wire"/>
+
+                  <!-- B input wire -->
+                  <line id="wireB" x1="50" y1="140" x2="330" y2="140" class="wire"/>
+
+                  <!-- AND Gate -->
+                  <path d="M330 40 L380 40 A50 50 0 0 1 380 140 L330 140 Z"
+                        fill="#fff" stroke="#000" stroke-width="3"/>
+
+                  <!-- Output wire -->
+                  <line id="wireQ" x1="430" y1="90" x2="520" y2="90" class="wire"/>
+
+                  <!-- Labels -->
+                  <text x="30" y="75">A</text>
+                  <text x="30" y="145">B</text>
+                  <text x="525" y="95">Q</text>
+
+                </svg>
 
             </td>
-            <td>∧</td>
-            <td>A ∧ B</td>
-            <td>True only if <strong>both</strong> inputs are 1.</td>
-          </tr>
-          <tr>
-            <td><figure>
-    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="OR gate">
-      <rect x="0" y="0" width="220" height="140" fill="white"/>
-      <!-- input -->
-      <line x1="10" y1="70" x2="70" y2="70" stroke="#000" stroke-width="4"/>
-      <!-- body -->
-      <path d="M70 30
-               Q105 70 70 110
-               Q120 110 165 70
-               Q120 30 70 30 Z"
-            fill="#fff" stroke="#000" stroke-width="4"/>
-      <!-- output -->
-      <line x1="175" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
-    </svg>
-    <figcaption>OR</figcaption>
-  </figure></td>
-            <td>∨</td>
-            <td>A ∨ B</td>
-            <td>True if <strong>at least one</strong> input is 1.</td>
-          </tr>
-          <tr>
-            <td>  <figure>
-    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="XOR gate">
-      <rect x="0" y="0" width="220" height="140" fill="white"/>
-      <!-- input -->
-      <line x1="10" y1="70" x2="70" y2="70" stroke="#000" stroke-width="4"/>
-      <!-- extra XOR curve -->
-      <path d="M62 30 Q97 70 62 110" fill="none" stroke="#000" stroke-width="4"/>
-      <!-- body (OR-like) -->
-      <path d="M70 30
-               Q105 70 70 110
-               Q120 110 165 70
-               Q120 30 70 30 Z"
-            fill="#fff" stroke="#000" stroke-width="4"/>
-      <!-- output -->
-      <line x1="175" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
-    </svg>
-    <figcaption>XOR</figcaption>
-  </figure></td>
-            <td><u>∨</u></td>
-            <td>A <u>∨</u> B</td>
-            <td>True if <strong>either</strong> input is 1 but <strong>not both</strong>.</td>
-          </tr>
-          <tr>
-            <td> <!-- NOT -->
-  <figure>
-    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="NOT gate">
-      <rect x="0" y="0" width="220" height="140" fill="white"/>
-      <!-- input -->
-      <line x1="10" y1="70" x2="70" y2="70" stroke="#000" stroke-width="4"/>
-      <!-- triangle -->
-      <path d="M70 30 L150 70 L70 110 Z" fill="#fff" stroke="#000" stroke-width="4"/>
-      <!-- bubble -->
-      <circle cx="160" cy="70" r="8" fill="#fff" stroke="#000" stroke-width="4"/>
-      <!-- output -->
-      <line x1="168" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
-    </svg>
-    <figcaption>NOT</figcaption>
-  </figure></td>
-            <td>¬</td>
-            <td>¬A</td>
-            <td>Flips the value of A (0 → 1, 1 → 0).</td>
-          </tr>
-          <tr>
-            <td>Equivalence</td>
-            <td>≡</td>
-            <td>A ≡ B</td>
-            <td>True if A and B have the <strong>same</strong> truth value.</td>
-          </tr>
-          <tr>
-            <td><!-- NAND -->
-<figure>
-  <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="NAND gate">
-    <rect x="0" y="0" width="220" height="140" fill="white"/>
+            <td>  <div>Output: <span id="QOutput">1</span></div></td>
+        </tr>
 
-    <!-- inputs -->
-    <line x1="10" y1="45" x2="70" y2="45" stroke="#000" stroke-width="4"/>
-    <line x1="10" y1="95" x2="70" y2="95" stroke="#000" stroke-width="4"/>
+    </table>
 
-    <!-- AND body -->
-    <path d="M70 25 L120 25 A45 45 0 0 1 120 115 L70 115 Z"
-          fill="#fff" stroke="#000" stroke-width="4" />
+<h3>Truth Table</h3>
 
-    <!-- NOT bubble -->
-    <circle cx="150" cy="70" r="8" fill="#fff" stroke="#000" stroke-width="4"/>
+<table id="truthTable">
+<tr>
+  <th>A</th>
+  <th>B</th>
+  <th>NOT A</th>
+  <th>Q = NOT(A) ∧ B</th>
+</tr>
+<tr id="row0"><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+<tr id="row1"><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+<tr id="row2"><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+<tr id="row3"><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+</table>
 
-    <!-- output -->
-    <line x1="158" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
-  </svg>
-  <figcaption>NAND</figcaption>
-</figure></td>
-            <td>¬(A ∧ B)</td>
-            <td>A NAND B</td>
-            <td>Opposite of AND – only 0 when both inputs are 1.</td>
-          </tr>
-          </tbody>
-        </table>
-
-        <h4>Key truth tables</h4>
-<div class="grid">
-          <table class="truthtable">
-            <thead><tr><th colspan="3">AND (A ∧ B)</th></tr></thead>
-            <tbody>
-            <tr><th>A</th><th>B</th><th>Output</th></tr>
-            <tr><td>0</td><td>0</td><td>0</td></tr>
-            <tr><td>0</td><td>1</td><td>0</td></tr>
-            <tr><td>1</td><td>0</td><td>0</td></tr>
-            <tr><td>1</td><td>1</td><td>1</td></tr>
-            </tbody>
-          </table>
-
-          <table class="truthtable">
-            <thead><tr><th colspan="3">OR (A ∨ B)</th></tr></thead>
-            <tbody>
-            <tr><th>A</th><th>B</th><th>Output</th></tr>
-            <tr><td>0</td><td>0</td><td>0</td></tr>
-            <tr><td>0</td><td>1</td><td>1</td></tr>
-            <tr><td>1</td><td>0</td><td>1</td></tr>
-            <tr><td>1</td><td>1</td><td>1</td></tr>
-            </tbody>
-          </table>
-
-
-
-          <table class="truthtable">
-            <thead><tr><th colspan="2">NOT (¬A)</th></tr></thead>
-            <tbody>
-            <tr><th>A</th><th>Output</th></tr>
-            <tr><td>0</td><td>1</td></tr>
-            <tr><td>1</td><td>0</td></tr>
-            </tbody>
-          </table>
-
-          <table class="truthtable">
-            <thead><tr><th colspan="3">XOR (A <u>V</u> B)</th></tr></thead>
-            <tbody>
-            <tr><th>A</th><th>B</th><th>Output</th></tr>
-            <tr><td>0</td><td>0</td><td>0</td></tr>
-            <tr><td>0</td><td>1</td><td>1</td></tr>
-            <tr><td>1</td><td>0</td><td>1</td></tr>
-            <tr><td>1</td><td>1</td><td>0</td></tr>
-            </tbody>
-          </table>
-
-
-        <table class="truthtable">
-          <thead><tr><th colspan="3">NAND (¬(A ∧ B))</th></tr></thead>
-          <tbody>
-          <tr><th>A</th><th>B</th><th>Output</th></tr>
-          <tr><td>0</td><td>0</td><td>1</td></tr>
-          <tr><td>0</td><td>1</td><td>1</td></tr>
-          <tr><td>1</td><td>0</td><td>1</td></tr>
-          <tr><td>1</td><td>1</td><td>0</td></tr>
-          </tbody>
-        </table>
 </div>
-        <p><strong>Difference between OR and XOR:</strong> OR is 1 when at least one input is 1;
-           XOR is 1 only when <em>exactly one</em> input is 1 (not both).</p>
 
-      </div>
+<div class="knowledge-card">
 
-      <!-- Card 2: From circuits to expressions -->
+  <h2>NOR Gate</h2>
+  <p><strong>Description:</strong> The output is 1 only when both inputs are 0.</p>
+  <p><strong>Boolean Expression:</strong> Q = ¬(A V B)</p>
+
+    <table>
+        <tr>
+            <td>
+                <button onclick="toggleNOR('A')" id="norA" class="off">A = 0</button>
+                <button onclick="toggleNOR('B')" id="norB" class="off">B = 0</button>
+
+            </td>
+            <td>
+            <svg width="800" height="220">
+
+              <!-- OR Gate (Shifted Right) -->
+              <path d="
+                M230 40
+                Q280 100 230 160
+                A130 90 0 0 0 410 100
+                A130 90 0 0 0 230 40
+                Z"
+                fill="#ffffff"
+                stroke="#000"
+                stroke-width="3"/>
+
+              <!-- Input Wires (Shifted Right) -->
+              <line id="norWireA"
+                    x1="120" y1="85"
+                    x2="250" y2="85"
+                    class="wire"/>
+
+              <line id="norWireB"
+                    x1="120" y1="135"
+                    x2="250" y2="135"
+                    class="wire"/>
+
+              <!-- OR Output Wire (Adjusted to new position) -->
+              <line id="norWireP"
+                    x1="410" y1="110"
+                    x2="480" y2="110"
+                    class="wire"/>
+
+              <!-- NOT Gate (unchanged position) -->
+              <polygon points="480,70 480,150 560,110"
+                       fill="#ffffff"
+                       stroke="#000"
+                       stroke-width="4"/>
+
+              <!-- Inversion Bubble -->
+              <circle cx="575"
+                      cy="110"
+                      r="12"
+                      fill="#ffffff"
+                      stroke="#000"
+                      stroke-width="4"/>
+
+              <!-- Final Output Wire -->
+              <line id="norWireQ"
+                    x1="587"
+                    y1="110"
+                    x2="670"
+                    y2="110"
+                    class="wire"/>
+
+                <!-- Labels -->
+                  <text x="90" y="80">A</text>
+                  <text x="90" y="150">B</text>
+                  <text x="700" y="110">Q</text>
+
+            </svg>
+            </td>
+            <td>
+                <div>Output: <span id="norOutput">1</span></div>
+
+            </td>
+        </tr>
+
+    </table>
+
+
+  <h3>Truth Table</h3>
+  <table>
+    <tr>
+      <th>A</th>
+      <th>B</th>
+      <th>A V B</th>
+      <th>Q = ¬(A V B)</th>
+    </tr>
+    <tr id="norRow0"><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr id="norRow1"><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+    <tr id="norRow2"><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+    <tr id="norRow3"><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+  </table>
+</div>
+
+     <!-- Card 2: From circuits to expressions -->
       <div class="knowledge-card">
         <h3>From Logic Diagrams to Boolean Expressions</h3>
 
@@ -294,7 +488,7 @@
            given descriptions or circuits.</p>
       </div>
 
-      <!-- Card 4: Simplifying Boolean expressions -->
+     <!-- Card 4: Simplifying Boolean expressions -->
       <div class="knowledge-card">
         <h3>Simplifying Boolean Expressions</h3>
         <p>We use Boolean algebra rules to shorten expressions or make them easier to
@@ -680,6 +874,7 @@
            registers, counters and other sequential circuits.</p>
       </div>
     </div>
+</div>
 
 <button id="printBtn" type="button">
   Print this worksheet
@@ -687,9 +882,212 @@
 
 </main>
 
+
 <footer>
     © <span id="year"></span> StudyHub CS
   </footer>
+
+<script>
+
+// =============================
+// HELPERS
+// =============================
+function setWire(id, state) {
+    const wire = document.getElementById(id);
+    if (wire) wire.classList.toggle("active", state === 1);
+}
+
+function setOutput(id, value) {
+    const output = document.getElementById(id);
+    if (output) output.textContent = value;
+}
+
+function setButton(id, value) {
+    const btn = document.getElementById(id);
+    if (btn) {
+        btn.textContent = btn.textContent.split("=")[0] + "= " + value;
+        btn.className = value ? "on" : "off";
+    }
+}
+
+function highlightRow(prefix, index, total) {
+    for (let i = 0; i < total; i++) {
+        const row = document.getElementById(prefix + i);
+        if (row) row.classList.remove("highlight");
+    }
+    const active = document.getElementById(prefix + index);
+    if (active) active.classList.add("highlight");
+}
+
+// =============================
+// AND
+// =============================
+let andA = 0, andB = 0;
+
+function toggleAND(input) {
+    if (input === 'A') andA ^= 1;
+    else andB ^= 1;
+
+    setButton("andA", andA);
+    setButton("andB", andB);
+
+    const Q = andA && andB ? 1 : 0;
+    setOutput("andOutput", Q);
+
+    setWire("andWireA", andA);
+    setWire("andWireB", andB);
+    setWire("andWireQ", Q);
+
+    highlightRow("andRow", (andA << 1) | andB, 4);
+}
+
+// =============================
+// OR
+// =============================
+let orA = 0, orB = 0;
+
+function toggleOR(input) {
+    if (input === 'A') orA ^= 1;
+    else orB ^= 1;
+
+    setButton("orA", orA);
+    setButton("orB", orB);
+
+    const Q = orA || orB ? 1 : 0;
+    setOutput("orOutput", Q);
+
+    setWire("orWireA", orA);
+    setWire("orWireB", orB);
+    setWire("orWireQ", Q);
+
+    highlightRow("orRow", (orA << 1) | orB, 4);
+}
+
+// =============================
+// NOT
+// =============================
+let notA = 0;
+
+function toggleNOT() {
+    notA ^= 1;
+
+    setButton("notA", notA);
+
+    const Q = notA ? 0 : 1;
+    setOutput("notOutput", Q);
+
+    setWire("notWireA", notA);
+    setWire("notWireQ", Q);
+
+    highlightRow("notRow", notA, 2);
+}
+
+// =============================
+// NOT(A) AND B CIRCUIT
+// =============================
+let circuitA = 0;
+let circuitB = 0;
+
+function toggleA() {
+    circuitA ^= 1;
+    setButton("btnA", circuitA);
+    updateCircuit();
+}
+
+function toggleB() {
+    circuitB ^= 1;
+    setButton("btnB", circuitB);
+    updateCircuit();
+}
+
+function updateCircuit() {
+    const notA = circuitA ? 0 : 1;
+    const Q = notA && circuitB ? 1 : 0;
+
+    setOutput("QOutput", Q);
+
+    setWire("wireA", circuitA);
+    setWire("wireNotOut", notA);
+    setWire("wireB", circuitB);
+    setWire("wireQ", Q);
+
+    highlightRow("row", (circuitA << 1) | circuitB, 4);
+}
+
+updateCircuit();
+
+// =============================
+// NOR
+// =============================
+let norA = 0, norB = 0;
+
+function toggleNOR(input) {
+    if (input === 'A') norA ^= 1;
+    else norB ^= 1;
+
+    setButton("norA", norA);
+    setButton("norB", norB);
+
+    const P = norA || norB ? 1 : 0;
+    const Q = P ? 0 : 1;
+
+    setOutput("norOutput", Q);
+
+    setWire("norWireA", norA);
+    setWire("norWireB", norB);
+    setWire("norWireP", P);
+    setWire("norWireQ", Q);
+
+    highlightRow("norRow", (norA << 1) | norB, 4);
+}
+
+// =============================
+// XOR
+// =============================
+let xorA = 0, xorB = 0;
+
+function toggleXOR(input) {
+    if (input === 'A') xorA ^= 1;
+    else xorB ^= 1;
+
+    setButton("xorA", xorA);
+    setButton("xorB", xorB);
+
+    const Q = xorA ^ xorB ? 1 : 0;
+
+    setOutput("xorOutput", Q);
+
+    setWire("xorWireA", xorA);
+    setWire("xorWireB", xorB);
+    setWire("xorWireQ", Q);
+
+    highlightRow("xorRow", (xorA << 1) | xorB, 4);
+}
+
+// =============================
+// NAND
+// =============================
+let nandA = 0, nandB = 0;
+
+function toggleNAND(input) {
+    if (input === 'A') nandA ^= 1;
+    else nandB ^= 1;
+
+    setButton("nandA", nandA);
+    setButton("nandB", nandB);
+
+    const Q = !(nandA && nandB) ? 1 : 0;
+
+    setOutput("nandOutput", Q);
+
+    setWire("nandWireA", nandA);
+    setWire("nandWireB", nandB);
+    setWire("nandWireQ", Q);
+
+    highlightRow("nandRow", (nandA << 1) | nandB, 4);
+}
+</script>
+
 
 <script src="../js/booklets.js"></script>
 <div id="command-words"></div>

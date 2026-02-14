@@ -3,16 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Networks Page 1 – Types & Hardware</title>
+<link rel="stylesheet" href="../../css/main.css" />
 <style>
-body{font-family:Arial;background:#f4f9ff;padding:2rem}
-.section{background:white;padding:1rem;margin-bottom:1rem;border-radius:6px}
-.correct{color:green;font-weight:bold}
-.incorrect{color:red;font-weight:bold}
-button{padding:0.5rem 1rem;margin-top:1rem}
-.score{font-size:1.2rem;font-weight:bold}
+
+
+.correct { color: green; font-weight: bold; }
+.incorrect { color: red; font-weight: bold; }
+
+.wordbank span {
+  display: inline-block;
+  background: #e0e0e0;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.score {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
 </style>
 </head>
 <body>
+<main>
 
 <h1>🌐 Networks – Types & Hardware</h1>
 
@@ -40,7 +54,7 @@ button{padding:0.5rem 1rem;margin-top:1rem}
 
 <button onclick="markQuiz()">Mark</button>
 <div class="score" id="scoreDisplay"></div>
-
+</main>
 <script>
 const mcqData=[
 {q:"1. A WAN covers:",o:["Large geographical areas","One building","One room"],a:"Large geographical areas"},
