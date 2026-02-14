@@ -88,7 +88,7 @@
             <strong>every item</strong> in a list until the required data is found or the end
             of the list is reached.
           </p>
-        <figure><img src="images/CT/linear.png" height="147" width="382"/></figure>
+        <figure><img src="images/CT/linear.png"width="50%"/></figure>
           <p>
             The search starts at the <strong>beginning of the array or list</strong> and moves
             through it <strong>item by item</strong>. The linear search is
@@ -110,14 +110,8 @@
           </p>
          </div>
 
-<h1>Linear Search Step-Through Visualiser</h1>
-
-<!-- ================================================= -->
-<!-- ================= LINEAR SEARCH ================= -->
-<!-- ================================================= -->
-
-<div class="knowledge-card">
-<h2>Linear Search</h2>
+        <div class="knowledge-card">
+<h3>Linear Search Step-Through Visualiser</h3>
 
 <pre id="linearCode">
 1 alist = [1, 2, 5, 7, 11, 14]
@@ -158,7 +152,7 @@
 </table>
 </div>
 
-         <div class="knowledge-card">
+        <div class="knowledge-card">
           <h3>Binary Search Algorithm</h3>
 
           <p>
@@ -169,6 +163,8 @@
           <p>
             For a binary search to work, the <strong>list must be sorted</strong>.
           </p>
+
+         <figure><img src="images/CT/binary.png" width="50%"/></figure>
 
           <p><strong>Steps for a binary search:</strong></p>
           <ol>
@@ -189,7 +185,7 @@
 
          </div>
 
-<div class="knowledge-card">
+        <div class="knowledge-card">
 <h2>Binary SearchStep-Through Visualiser</h2>
 
 <pre id="binaryCode">
@@ -241,11 +237,10 @@
 </table>
 </div>
 
-         <div class="knowledge-card">
-          <p><strong>Efficiency of searching algorithms:</strong></p>
         <div class="knowledge-card">
+            <p><strong>Efficiency of searching algorithms:</strong></p>
           <h3>Efficiency of Searching Algorithms</h3>
-        <figure><img src="images/CT/img_binarysearch_timecomplexity.png" height="444" width="505"/></figure>
+        <figure><img src="images/CT/img_binarysearch_timecomplexity.png" width="50%"/></figure>
           <table>
             <thead>
               <tr>
@@ -272,12 +267,11 @@
           </table>
         </div>
 
-
-         <div class="knowledge-card">
+        <div class="knowledge-card">
           <h3>Bubble Sort Algorithm</h3>
 
           <p><strong>Describe the steps of the bubble sort:</strong></p>
-        <figure><img src="images/CT/bubble.png" height="650" width="1093"/></figure>
+        <figure><img src="images/CT/bubble.png" width="50%"/></figure>
           <ol>
             <li>Start at the beginning of the list.</li>
             <li>
@@ -309,7 +303,7 @@
           </p>
         </div>
 
-<div class="knowledge-card">
+        <div class="knowledge-card">
 <h2>Bubble Sort Step-Through Visualiser</h2>
 
 <pre id="bubbleCode">
@@ -379,7 +373,6 @@
 
          <div class="knowledge-card">
           <h3>Bubble Sort vs Merge Sort</h3>
-        <figure><img src="images/CT/comparison.png" height="420" width="724"/></figure>
           <table>
             <thead>
               <tr>
@@ -432,6 +425,53 @@
             </tbody>
           </table>
         </div>
+
+        <div class="knowledge-card">
+  <h3>Bubble Sort vs Merge Sort Efficiency</h3>
+
+  <p>
+    This chart shows how the running time increases as the number of values (n) grows.
+  </p>
+
+  <svg width="700" height="400" style="background:#f4f4f4;">
+
+    <!-- Axes -->
+    <line x1="60" y1="350" x2="650" y2="350" stroke="black" stroke-width="2"/>
+    <line x1="60" y1="350" x2="60" y2="40" stroke="black" stroke-width="2"/>
+
+    <!-- Axis Labels -->
+    <text x="300" y="390" font-size="14">Number of values (n)</text>
+    <text x="15" y="200" font-size="14" transform="rotate(-90 20,200)">Time</text>
+
+    <!-- Bubble Sort O(n²) -->
+    <path d="M60 350 Q 200 300 300 220 T 650 60"
+          fill="none"
+          stroke="#d62728"
+          stroke-width="3" />
+
+    <text x="460" y="80" fill="#d62728" font-size="14">
+      Bubble Sort – O(n²)
+    </text>
+
+    <!-- Merge Sort O(n log n) -->
+    <path d="M60 350 Q 200 310 300 270 T 650 180"
+          fill="none"
+          stroke="#1f77b4"
+          stroke-width="3" />
+
+    <text x="430" y="200" fill="#1f77b4" font-size="14">
+      Merge Sort – O(n log n)
+    </text>
+
+  </svg>
+
+  <h4>What This Shows</h4>
+  <ul>
+    <li><strong>Bubble Sort (O(n²))</strong> grows very quickly and becomes slow for large lists.</li>
+    <li><strong>Merge Sort (O(n log n))</strong> grows much more slowly.</li>
+    <li>For large data sets, Merge Sort is significantly more efficient.</li>
+  </ul>
+</div>
 
         <div class="knowledge-card">
   <h3>Algorithm Efficiency</h3>

@@ -1,500 +1,410 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Algorithms</title>
+  <meta charset="UTF-8">
+  <title>Hardware – Revision Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../../css/main.css" />
-</head>
 
+</head>
+<style>
+
+.highlight {
+  background: #1273da !important;
+  color: black !important;
+}
+
+.mid-highlight {
+  background: #00bfff !important;
+  color: black !important;
+  box-shadow: 0 0 12px #00bfff !important;
+}
+
+.compare-highlight {
+  background: #1273da !important;
+  color: black !important;
+}
+
+.swap-highlight {
+  background: #00bfff !important;
+  color: black !important;
+  box-shadow: 0 0 10px #00bfff !important;
+}
+
+.array-container {
+  display: grid;
+  justify-content: center;
+  margin: 20px 0;
+  border: 2px solid black;
+}
+
+.array-row {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+    color: black;
+}
+
+.array-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 1px solid black;
+  background: white;
+  color: black;
+}
+
+.index-label {
+  width: 50px;
+  text-align: center;
+  font-size: 12px;
+  border: 1px solid black;
+  background: #f4f4f4;
+}
+
+</style>
 <body>
 <div class="back-container">
     <a href="../A-studynotes.html">← Back</a>
   </div>
 <header>
-   <h1>Algorithms – Study Notes</h1>
+  <h1>Algorithms – Study Notes</h1>
+
 </header>
 
 <main>
-<div class = "vertical-knowledge">
-    <div class="knowledge-card">
-  <h3>Binary Search vs Linear Search — Comparison</h3>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Feature</th>
-        <th>Linear Search</th>
-        <th>Binary Search</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Works on</td>
-        <td>Any list</td>
-        <td>Sorted lists only</td>
-      </tr>
-      <tr>
-        <td>Method</td>
-        <td>Checks each item in turn</td>
-        <td>Repeatedly halves the list</td>
-      </tr>
-      <tr>
-        <td>Best for</td>
-        <td>Small or unsorted lists</td>
-        <td>Large sorted lists</td>
-      </tr>
-      <tr>
-        <td>Time complexity</td>
-        <td><code>O(N)</code></td>
-        <td><code>O(log N)</code></td>
-      </tr>
-      <tr>
-        <td>Main advantage</td>
-        <td>Simple and flexible</td>
-        <td>Very fast on large datasets</td>
-      </tr>
-      <tr>
-        <td>Main disadvantage</td>
-        <td>Slow on large lists</td>
-        <td>Requires sorted data</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+ <div class="vertical-knowledge">
 
         <div class="knowledge-card">
-          <h3>Linear Search — Pseudocode</h3>
-
-            <img src="images/algorithms/linear.gif" height="274" width="816"/>
-            <pre>
-        letters_list = ['A','F','B','E','D','G','C']
-        position = 0
-        found = False
-        search_item = INPUT
-
-        WHILE position < LENGTH(letters_list) AND found == False
-          IF letters_list[position] == search_item THEN
-            PRINT "Item found at position", position
-            found = True
-          ELSE
-            position = position + 1
-          ENDIF
-        ENDWHILE
-
-        IF found == False THEN
-          PRINT "Item not found"
-        ENDIF
-          </pre>
-
-          <p><strong>Complexity:</strong> <code>O(N)</code></p>
-        </div>
-
-        <div class="knowledge-card">
-
-
-            <img src="images/algorithms/binary.png" width="70%"/>
-            <h3>Binary Search — Pseudocode</h3>
-
-          <pre>
-        mylist = [1, 2, 5, 7, 11, 14]
-        item = INPUT
-        found = False
-        first = 0
-        last = LENGTH(mylist) - 1
-
-        WHILE found == False AND first <= last
-          midpoint = (first + last) DIV 2
-
-          IF mylist[midpoint] == item THEN
-            PRINT "Item found at index", midpoint
-            found = True
-          ELSE
-            IF item < mylist[midpoint] THEN
-              last = midpoint - 1
-            ELSE
-              first = midpoint + 1
-            ENDIF
-          ENDIF
-        ENDWHILE
-          </pre>
-
-          <p><strong>Complexity:</strong> <code>O(log N)</code></p>
-        </div>
-
-        <div class="knowledge-card">
-          <h3>Trace Table — Binary Search (Search for 50)</h3>
-
-          <p><strong>List:</strong> <code>[1, 5, 20, 35, 50, 65, 70]</code></p>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Step</th>
-                <th>first</th>
-                <th>last</th>
-                <th>midpoint</th>
-                <th>value</th>
-                <th>Comparison</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>0</td>
-                <td>6</td>
-                <td>3</td>
-                <td>35</td>
-                <td>35 &lt; 50</td>
-                <td>first = 4</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>4</td>
-                <td>6</td>
-                <td>5</td>
-                <td>65</td>
-                <td>65 &gt; 50</td>
-                <td>last = 4</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>4</td>
-                <td>4</td>
-                <td>4</td>
-                <td>50</td>
-                <td>50 == 50</td>
-                <td>Found</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="knowledge-card">
-          <h3>Trace Table — Linear Search (Search for 5)</h3>
-
-          <p><strong>List:</strong> <code>[10, 8, 1, 21, 7, 32, 5, 11, 0]</code></p>
-
-          <table>
-            <thead>
-              <tr>
-                <th>Step</th>
-                <th>position</th>
-                <th>value</th>
-                <th>Comparison</th>
-                <th>Found?</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>0</td><td>10</td><td>≠ 5</td><td>No</td></tr>
-              <tr><td>2</td><td>1</td><td>8</td><td>≠ 5</td><td>No</td></tr>
-              <tr><td>3</td><td>2</td><td>1</td><td>≠ 5</td><td>No</td></tr>
-              <tr><td>4</td><td>3</td><td>21</td><td>≠ 5</td><td>No</td></tr>
-              <tr><td>5</td><td>4</td><td>7</td><td>≠ 5</td><td>No</td></tr>
-              <tr><td>6</td><td>5</td><td>32</td><td>≠ 5</td><td>No</td></tr>
-              <tr><td>7</td><td>6</td><td>5</td><td>= 5</td><td>Yes</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="knowledge-card">
-  <h3>Bubble Sort</h3>
-
-  <p>
-    Bubble sort works by repeatedly comparing adjacent items in a list.
-    If the item on the right is smaller than the item on the left,
-    the two values are swapped.
-  </p>
-
-  <p>
-    This process is repeated until a complete pass through the list
-    occurs with no swaps, meaning the list is sorted.
-  </p>
-
-  <h4>How Bubble Sort Works</h4>
-  <ul>
-    <li>Compare the first and second items</li>
-    <li>Swap if the first is greater than the second</li>
-    <li>Move to the next pair</li>
-    <li>Repeat passes until no swaps occur</li>
-    <li>Largest values gradually move to the end of the list</li>
-  </ul>
-
-
-            <img src="images/algorithms/bubble.jpg" height="400" width="668"/><h4>Algorithm (Pseudocode)</h4>
-  <pre>
-swapMade = True
-
-WHILE swapMade == True
-  swapMade = False
-  position = 0
-
-  FOR position = 0 TO listLength - 2
-    IF list[position] > list[position + 1] THEN
-      temp = list[position]
-      list[position] = list[position + 1]
-      list[position + 1] = temp
-      swapMade = True
-    ENDIF
-  NEXT position
-
-ENDWHILE
-  </pre>
-
-  <p>
-    The loop continues until a full pass is completed with
-    <code>swapMade</code> remaining <code>False</code>.
-  </p>
-
-  <h4>Advantages</h4>
-  <ul>
-    <li>Simple to understand and implement</li>
-    <li>Works well for very small lists</li>
-  </ul>
-
-  <h4>Disadvantages</h4>
-  <ul>
-    <li>
-      Even when the list is almost sorted, comparisons must still be made
-    </li>
-    <li>
-      Requires multiple passes through the data
-    </li>
-    <li>
-      Very inefficient for large data sets
-    </li>
-  </ul>
-
-  <p>
-    <strong>Complexity:</strong> <code>O(n²)</code> — polynomial
-  </p>
-</div>
-
-        <div class="knowledge-card">
-  <h3>Bubble Sort – Trace Table</h3>
-
-  <p>
-    Trace the bubble sort algorithm on the following list:
-  </p>
-
-  <p><strong>Initial list:</strong> <code>[65, 40, 30, 10, 100, 6]</code></p>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Pass</th>
-        <th>Comparison</th>
-        <th>List State</th>
-        <th>Swap?</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>65 &gt; 40</td>
-        <td>[40, 65, 30, 10, 100, 6]</td>
-        <td>Yes</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>65 &gt; 30</td>
-        <td>[40, 30, 65, 10, 100, 6]</td>
-        <td>Yes</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>65 &gt; 10</td>
-        <td>[40, 30, 10, 65, 100, 6]</td>
-        <td>Yes</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>65 &lt; 100</td>
-        <td>[40, 30, 10, 65, 100, 6]</td>
-        <td>No</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>100 &gt; 6</td>
-        <td>[40, 30, 10, 65, 6, 100]</td>
-        <td>Yes</td>
-      </tr>
-
-      <tr>
-        <td>2</td>
-        <td>40 &gt; 30</td>
-        <td>[30, 40, 10, 65, 6, 100]</td>
-        <td>Yes</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>40 &gt; 10</td>
-        <td>[30, 10, 40, 65, 6, 100]</td>
-        <td>Yes</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>40 &lt; 65</td>
-        <td>[30, 10, 40, 65, 6, 100]</td>
-        <td>No</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>65 &gt; 6</td>
-        <td>[30, 10, 40, 6, 65, 100]</td>
-        <td>Yes</td>
-      </tr>
-
-      <tr>
-        <td>3</td>
-        <td>30 &gt; 10</td>
-        <td>[10, 30, 40, 6, 65, 100]</td>
-        <td>Yes</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>30 &lt; 40</td>
-        <td>[10, 30, 40, 6, 65, 100]</td>
-        <td>No</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>40 &gt; 6</td>
-        <td>[10, 30, 6, 40, 65, 100]</td>
-        <td>Yes</td>
-      </tr>
-
-      <tr>
-        <td>4</td>
-        <td>30 &gt; 6</td>
-        <td>[10, 6, 30, 40, 65, 100]</td>
-        <td>Yes</td>
-      </tr>
-
-      <tr>
-        <td>5</td>
-        <td>10 &gt; 6</td>
-        <td>[6, 10, 30, 40, 65, 100]</td>
-        <td>Yes</td>
-      </tr>
-
-      <tr>
-        <td>6</td>
-        <td>No swaps in pass</td>
-        <td>[6, 10, 30, 40, 65, 100]</td>
-        <td>No</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p>
-    The algorithm stops when a full pass is completed with no swaps.
-  </p>
-</div>
-
-        <div class="knowledge-card">
-          <h3>Insertion Sort</h3>
+          <h3>Linear Search Algorithm</h3>
 
           <p>
-            Insertion sort is used to sort a “live” list of data.
-            It builds a sorted section of the list one item at a time by inserting
-            each new value into its correct position among the already-sorted values.
+            A <strong>linear search</strong> is a <strong>very simple searching algorithm</strong>.
+            It is often described as a <strong>brute force</strong> method because it checks
+            <strong>every item</strong> in a list until the required data is found or the end
+            of the list is reached.
+          </p>
+        <figure><img src="images/algorithms/linear.gif" width="50%"/></figure>
+          <p>
+            The search starts at the <strong>beginning of the array or list</strong> and moves
+            through it <strong>item by item</strong>. The linear search is
+            <strong>sequential</strong>.
           </p>
 
-          <h4>How Insertion Sort Works</h4>
+          <p><strong>Steps for a linear search:</strong></p>
           <ol>
-            <li>Start by looking at the second item in the list.</li>
-            <li>Compare it to the items before it and insert it into the correct place.</li>
-            <li>Move to the next item and repeat until the end of the list is reached.</li>
+            <li>Start at the first item in the list</li>
+            <li>Compare the item with the search value</li>
+            <li>If they are the same, stop the search</li>
+            <li>If they are not the same, move to the next item</li>
+            <li>Repeat until the item is found or the end of the list is reached</li>
           </ol>
 
-
-            <img src="images/algorithms/insertion.jpg"  width="60%"/><h4>Algorithm (OCR-style Pseudocode)</h4>
-          <pre>
-        FOR position = 1 TO LENGTH(array) - 1
-          currentValue = array[position]
-          pos = position
-
-          WHILE pos > 0 AND array[pos - 1] > currentValue
-            array[pos] = array[pos - 1]
-            pos = pos - 1
-          ENDWHILE
-
-          array[pos] = currentValue
-        NEXT position
-          </pre>
-
-          <h4>Advantages</h4>
-          <ul>
-            <li>Very high performance on small lists.</li>
-            <li>Works well on “live” data where items are still arriving.</li>
-          </ul>
-
-          <h4>Disadvantages</h4>
-          <ul>
-            <li>Poor performance on large lists.</li>
-            <li>Not as fast as merge sort for large data sets.</li>
-          </ul>
-
-          <p><strong>Complexity:</strong> <code>O(n²)</code> — polynomial</p>
-        </div>
+          <p>
+            If the search reaches the end of the list without finding the item,
+            the program reports that the item was <strong>not found</strong>.
+          </p>
+         </div>
 
         <div class="knowledge-card">
-          <h3>Insertion Sort – Trace Table (Exam Practice)</h3>
+<h3>Linear Search Step-Through Visualiser</h3>
+
+<pre id="linearCode">
+1 alist = [1, 2, 5, 7, 11, 14]
+2 position = 0
+3 found = False
+4 item = input()
+5 WHILE position < length AND found == False
+6     IF item == alist[position] THEN
+7         print("Item found")
+8         found = True
+9     ELSE
+10        position = position + 1
+11    ENDIF
+12 END WHILE
+13 IF found == False THEN
+14     print("Item not found")
+15 ENDIF
+</pre>
+
+<input id="linearArray" value="10,8,1,21,7,32,5,11,0">
+<input id="linearTarget" value="5">
+<button onclick="startLinear()">Start</button>
+<button onclick="nextLinear()">Next Step</button>
+
+<div id="linearVisual" class="array-container"></div>
+
+<table id="linearTable">
+<thead>
+<tr>
+<th>Step</th>
+<th>Position</th>
+<th>Value</th>
+<th>Comparison</th>
+<th>Found</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+        <div class="knowledge-card">
+          <h3>Binary Search Algorithm</h3>
 
           <p>
-            Trace insertion sort on the list:
-            <code>[8, 5, 7, 1, 9, 3]</code>
+            A <strong>binary search</strong> is a <strong>divide and conquer</strong> algorithm.
+            It works by repeatedly splitting a list in half to find a target value.
           </p>
 
+          <p>
+            For a binary search to work, the <strong>list must be sorted</strong>.
+          </p>
+
+          <figure><img src="images/algorithms/binary.png" width="50%"/></figure>
+
+
+          <p><strong>Steps for a binary search:</strong></p>
+          <ol>
+            <li>Sort the list</li>
+            <li>Find the midpoint of the list</li>
+            <li>If the search item is found, stop</li>
+            <li>If the search item is less than the midpoint, search the left sub-list</li>
+            <li>If the search item is greater than the midpoint, search the right sub-list</li>
+            <li>Repeat until the item is found</li>
+          </ol>
+
+          <p>
+            The midpoint is found by adding the start and end index values and using
+            <strong>DIV</strong> to return a whole number (rounded down).
+          </p>
+
+          <p><strong>Example:</strong> <code>mid = (start + end) DIV 2</code></p>
+
+         </div>
+
+        <div class="knowledge-card">
+<h2>Binary SearchStep-Through Visualiser</h2>
+
+<pre id="binaryCode">
+1 alist = [1,2,5,7,11,14]
+2 item = input()
+3 found = False
+4 first = 0
+5 last = length - 1
+6 WHILE found == False AND first <= last
+7     midPoint = (first + last) DIV 2
+8     IF item == alist[midPoint] THEN
+9         print("Item found at location", midPoint)
+10        found = True
+11    ELSE
+12        IF item < alist[midPoint] THEN
+13            last = midPoint - 1
+14        ELSE
+15            first = midPoint + 1
+16        ENDIF
+17    ENDIF
+18 END WHILE
+19 IF found == False THEN
+20     print("Item not found")
+21 ENDIF
+</pre>
+
+<input id="binaryArray" value="1,2,5,7,11,14">
+<input id="binaryTarget" value="7">
+
+<button onclick="startBinary()">Start</button>
+<button onclick="nextBinary()">Next Step</button>
+
+<h4>Array (with Index)</h4>
+<div id="binaryVisual" class="array-container"></div>
+
+<table id="binaryTable">
+<thead>
+<tr>
+<th>Step</th>
+<th>First</th>
+<th>Last</th>
+<th>MidPoint</th>
+<th>Value</th>
+<th>Compare</th>
+<th>Found</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+        <div class="knowledge-card">
+            <p><strong>Efficiency of searching algorithms:</strong></p>
+          <h3>Efficiency of Searching Algorithms</h3>
+        <figure><img src="images/algorithms/img_binarysearch_timecomplexity.png" height="444" width="505"/></figure>
           <table>
             <thead>
               <tr>
-                <th>Pass (position)</th>
-                <th>currentValue</th>
-                <th>Shifts / Insertion</th>
-                <th>List State After Pass</th>
+                <th>Linear</th>
+                <th>Binary</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
-                <td>5</td>
-                <td>8 shifts right → insert 5 at index 0</td>
-                <td>[5, 8, 7, 1, 9, 3]</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>7</td>
-                <td>8 shifts right → insert 7 at index 1</td>
-                <td>[5, 7, 8, 1, 9, 3]</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>1</td>
-                <td>8, 7, 5 shift right → insert 1 at index 0</td>
-                <td>[1, 5, 7, 8, 9, 3]</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>9</td>
-                <td>No shifts needed → 9 stays in place</td>
-                <td>[1, 5, 7, 8, 9, 3]</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>3</td>
-                <td>9, 8, 7, 5 shift right → insert 3 at index 1</td>
-                <td>[1, 3, 5, 7, 8, 9]</td>
+                <td>
+                  Checks against each item until match using brute force, making it a slow algorithm.<br><br>
+                  Works well on small, unsorted lists<br><br>
+                  It can be improved by sorting the list first and can find an item quicker.<br><br>
+                  Program requires less code
+                </td>
+                <td>
+                  Splits lists and checks each half using divide and conquer<br><br>
+                  List must be <strong>sorted</strong><br><br>
+                  Much quicker than a linear search because the data that needs to be searched halves with each step.<br><br>
+                  Program requires more code
+                </td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="knowledge-card">
+          <h3>Bubble Sort Algorithm</h3>
+
+          <p><strong>Describe the steps of the bubble sort:</strong></p>
+        <figure><img src="images/algorithms/bubble.jpg" width="50%"/></figure>
+          <ol>
+            <li>Start at the beginning of the list.</li>
+            <li>
+              <strong>Compare</strong> the first value with the next value.
+              If the first value is larger, <strong>swap</strong> the two values.
+            </li>
+            <li>
+              Move to the <strong>next value</strong> in the list and compare it with the one after it.
+              Swap if the value is bigger.
+            </li>
+            <li>
+              Continue until there are <strong>no more items to compare</strong>.
+            </li>
+            <li>
+              Go back to the <strong>start of the list</strong>.
+            </li>
+            <li>
+              <strong>Repeat until no swaps are made</strong>.
+            </li>
+          </ol>
 
           <p>
-            Each pass grows the sorted portion on the left side of the list.
+            Each complete run through the list is called a <strong>pass</strong>.
+          </p>
+
+          <p>
+            The bubble sort continues until a full pass is made with
+            <strong>no values swapped</strong>. At this point, the list is sorted.
           </p>
         </div>
+
+        <div class="knowledge-card">
+<h2>Bubble Sort Step-Through Visualiser</h2>
+
+<pre id="bubbleCode">
+1 swapMade = True
+2 WHILE swapMade == True
+3     swapMade = False
+4     FOR position = 0 TO listLength - 2
+5         IF list[position] > list[position+1] THEN
+6             temp = list[position]
+7             list[position] = list[position+1]
+8             list[position+1] = temp
+9             swapMade = True
+10        ENDIF
+11    END FOR
+12 END WHILE
+</pre>
+
+<input id="bubbleArray" value="7,4,2,9,1">
+<button onclick="startBubble()">Start</button>
+<button onclick="nextBubble()">Next Step</button>
+
+<h3>Array (with Index)</h3>
+<div id="bubbleVisual"  class="array-container"></div>
+
+<table id="bubbleTable">
+<thead>
+<tr>
+<th>Step</th>
+<th>Position</th>
+<th>Comparison</th>
+<th>Swap Made</th>
+<th>Array State</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+</div>
+
+        <div class="knowledge-card">
+  <h3>Insertion Sort Algorithm</h3>
+
+  <p>
+    <strong>Insertion sort</strong> works by building a sorted section of the list
+    one item at a time.
+  </p>
+
+  <p>
+    It takes each item and <strong>inserts it into the correct position</strong>
+    in the part of the list that is already sorted.
+  </p>
+
+  <ol>
+    <li>Start from the second item in the list.</li>
+    <li>Store the current value.</li>
+    <li>Compare it with values before it.</li>
+    <li>Shift larger values to the right.</li>
+    <li>Insert the value in the correct position.</li>
+    <li>Repeat until the list is sorted.</li>
+  </ol>
+
+        <figure><img src="images/algorithms/insertion.jpg" height="300" width="500"/></figure>
+</div>
+
+        <div class="knowledge-card">
+<h2>Insertion Sort Step-Through Visualiser</h2>
+
+<pre id="insertionCode">
+1 FOR i = 1 TO listLength - 1
+2     key = list[i]
+3     j = i - 1
+4     WHILE j >= 0 AND list[j] > key
+5         list[j + 1] = list[j]
+6         j = j - 1
+7     END WHILE
+8     list[j + 1] = key
+9 END FOR
+</pre>
+
+<input id="insertionArray" value="7,4,2,9,1">
+<button onclick="startInsertion()">Start</button>
+<button onclick="nextInsertion()">Next Step</button>
+
+<h3>Array (with Index)</h3>
+<div id="insertionVisual" class="array-container"></div>
+
+<table id="insertionTable">
+<thead>
+<tr>
+<th>Step</th>
+<th>i</th>
+<th>j</th>
+<th>Key</th>
+<th>Array State</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+</div>
 
         <div class="knowledge-card">
           <h3>Merge Sort</h3>
@@ -601,45 +511,58 @@ ENDWHILE
             <li>Repeat on the left and right sublists</li>
           </ul>
 
+            <img src="images/algorithms/quick.jpg" width="50%"/><h4>Algorithm </h4>
 
-            <img src="images/algorithms/quick.jpg" width="70%"/><h4>Algorithm (OCR-Style Pseudocode)</h4>
+        <h3>Quick Sort (First Element as Pivot)</h3>
 
-         <pre>
-        FUNCTION partition(list, first, last)
-            pivotValue = list[first]
-            leftMark = first + 1
-            rightMark = last
-            done ← FALSE
+<pre id="quickCode">
+1 PROCEDURE quickSort(list, low, high)
+2     // Only sort if there is more than one item
+3     IF low < high THEN
+4         // Partition the list and find the pivot position
+5         pivotIndex = partition(list, low, high)
+6
+7         // Recursively sort the left sub-list
+8         quickSort(list, low, pivotIndex - 1)
+9
+10        // Recursively sort the right sub-list
+11        quickSort(list, pivotIndex + 1, high)
+12    ENDIF
 
-            WHILE done = FALSE
-                WHILE leftMark <= rightMark AND list[leftMark] <= pivotValue
-                    leftMark = leftMark + 1
-                ENDWHILE
-
-                WHILE list[rightMark] >= pivotValue AND rightMark >= leftMark
-                    rightMark = rightMark − 1
-                ENDWHILE
-
-                IF rightMark < leftMark THEN
-                    done = TRUE
-                ELSE
-                    SWAP list[leftMark] WITH list[rightMark]
-                ENDIF
-            ENDWHILE
-
-            SWAP list[first] WITH list[rightMark]
-            RETURN rightMark
-        ENDFUNCTION
-
-             PROCEDURE quickSortHelper(list, first, last)
-            IF first < last THEN
-                splitPoint = partition(list, first, last)
-                quickSortHelper(list, first, splitPoint − 1)
-                quickSortHelper(list, splitPoint + 1, last)
-            ENDIF
-        ENDPROCEDURE
-            </pre>
-
+13 FUNCTION partition(list, low, high)
+14    // Choose the first element as the pivot
+15    pivot = list[low]
+16
+17    // Set pointers
+18    left = low + 1
+19    right = high
+20
+21    // Move pointers until they cross
+22    WHILE left <= right
+23
+24        // Move left pointer right while values are smaller than pivot
+25        WHILE list[left] <= pivot
+26            left = left + 1
+27        END WHILE
+28
+29        // Move right pointer left while values are larger than pivot
+30        WHILE list[right] > pivot
+31            right = right - 1
+32        END WHILE
+33
+34        // Swap values if left pointer is still before right pointer
+35        IF left < right THEN
+36            swap(list[left], list[right])
+37        ENDIF
+38
+39    END WHILE
+40
+41    // Place pivot in its correct sorted position
+42    swap(list[low], list[right])
+43
+44    // Return the pivot's final index
+45    RETURN right
+</pre>
 
           <h4>Advantages</h4>
           <ul>
@@ -673,6 +596,176 @@ ENDWHILE
             <li>Repeats until all sublists contain one element</li>
           </ul>
         </div>
+
+        <div class="knowledge-card">
+  <h3>Efficiency of Sorting Algorithms</h3>
+
+  <p>
+    The <strong>efficiency</strong> of a sorting algorithm describes how its
+    performance changes as the size of the list increases.
+  </p>
+
+  <p>
+    Efficiency is measured using <strong>Big-O notation</strong>.
+    Big-O shows how the number of operations grows as
+    <em>n</em> (the number of items in the list) increases.
+  </p>
+
+  <h4>What Is Time Complexity?</h4>
+  <p>
+    <strong>Time complexity</strong> describes how the number of comparisons
+    or operations increases as the list gets larger.
+  </p>
+
+  <ul>
+    <li>
+      <strong>O(n)</strong> – Linear growth.
+      If the list doubles, the work roughly doubles.
+    </li>
+    <li>
+      <strong>O(n²)</strong> – Quadratic growth.
+      If the list doubles, the work becomes about four times larger.
+      This becomes very slow for large lists.
+    </li>
+    <li>
+      <strong>O(n log n)</strong> – Efficient growth.
+      Much faster than O(n²) for large data sets.
+    </li>
+  </ul>
+
+  <h4>What Is Space Complexity?</h4>
+  <p>
+    <strong>Space complexity</strong> describes how much extra memory
+    an algorithm needs.
+  </p>
+
+  <ul>
+    <li>Bubble Sort – O(1) (no extra list needed)</li>
+    <li>Insertion Sort – O(1)</li>
+    <li>Merge Sort – O(n) (uses extra lists)</li>
+  </ul>
+
+  <h4>Sorting Algorithm Comparison</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Algorithm</th>
+        <th>Time Complexity</th>
+        <th>Space Complexity</th>
+        <th>Efficient for Large Lists?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bubble Sort</td>
+        <td>O(n²)</td>
+        <td>O(1)</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Insertion Sort</td>
+        <td>O(n²)</td>
+        <td>O(1)</td>
+        <td>No (unless nearly sorted)</td>
+      </tr>
+      <tr>
+        <td>Merge Sort</td>
+        <td>O(n log n)</td>
+        <td>O(n)</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Quick Sort</td>
+        <td>O(n log n) average</td>
+        <td>O(log n)</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Key Exam Points</h4>
+  <ul>
+    <li>O(n²) algorithms become very slow for large data sets.</li>
+    <li>O(n log n) algorithms are more efficient and preferred for large lists.</li>
+    <li>Merge sort is faster but uses more memory.</li>
+    <li>Insertion sort can be efficient if the list is nearly sorted.</li>
+    <li>Big-O describes growth rate, not exact speed in seconds.</li>
+  </ul>
+</div>
+
+        <div class="knowledge-card">
+  <h3>Sorting Algorithm Time Complexity Comparison</h3>
+
+  <p>
+    This graph compares how the running time increases as the number of values (n) grows.
+  </p>
+
+  <svg width="750" height="420" style="background:#f4f4f4;">
+
+    <!-- Axes -->
+    <line x1="60" y1="370" x2="700" y2="370" stroke="black" stroke-width="2"/>
+    <line x1="60" y1="370" x2="60" y2="40" stroke="black" stroke-width="2"/>
+
+    <!-- Axis Labels -->
+    <text x="320" y="405" font-size="14">Number of values (n)</text>
+    <text x="15" y="220" font-size="14" transform="rotate(-90 20,220)">Time</text>
+
+    <!-- Bubble Sort O(n²) -->
+    <path d="M60 370 Q 200 310 320 220 T 700 60"
+          fill="none"
+          stroke="#d62728"
+          stroke-width="3" />
+    <text x="520" y="85" fill="#d62728" font-size="14">
+      Bubble Sort – O(n²)
+    </text>
+
+    <!-- Insertion Sort O(n²) -->
+    <path d="M60 370 Q 200 330 320 260 T 700 110"
+          fill="none"
+          stroke="#ff7f0e"
+          stroke-width="3" />
+    <text x="520" y="125" fill="#ff7f0e" font-size="14">
+      Insertion Sort – O(n²)
+    </text>
+
+    <!-- Merge Sort O(n log n) -->
+    <path d="M60 370 Q 200 330 320 290 T 700 200"
+          fill="none"
+          stroke="#1f77b4"
+          stroke-width="3" />
+    <text x="500" y="215" fill="#1f77b4" font-size="14">
+      Merge Sort – O(n log n)
+    </text>
+
+    <!-- Quick Sort O(n log n) average -->
+    <path d="M60 370 Q 200 320 320 280 T 700 180"
+          fill="none"
+          stroke="#9467bd"
+          stroke-width="3"
+          stroke-dasharray="6,4" />
+    <text x="500" y="175" fill="#9467bd" font-size="14">
+      Quick Sort – O(n log n) average
+    </text>
+
+  </svg>
+
+  <h4>What This Shows</h4>
+  <ul>
+    <li><strong>Bubble and Insertion</strong> are O(n²) and become slow for large lists.</li>
+    <li><strong>Merge and Quick</strong> are O(n log n) and are much more efficient.</li>
+    <li>The gap between O(n²) and O(n log n) becomes very large as n increases.</li>
+  </ul>
+
+  <h4>Key GCSE Comparison Points</h4>
+  <ul>
+    <li>Bubble Sort – Simple but inefficient.</li>
+    <li>Insertion Sort – Better for nearly sorted lists.</li>
+    <li>Merge Sort – Fast and consistent but uses extra memory.</li>
+    <li>Quick Sort – Usually the fastest in practice.</li>
+  </ul>
+
+</div>
 
         <div class="knowledge-card">
           <h3>Shortest Path Algorithms</h3>
@@ -931,21 +1024,527 @@ ENDWHILE
 
                <p>Final path: H → G → L → E</p>
         </div>
-</div>
 
-     <button id="printBtn" type="button">
+    </div>
+
+ <button id="printBtn" type="button">
   Print this worksheet
 </button>
+
+
 </main>
 
 
 <footer>
     © <span id="year"></span> StudyHub CS
   </footer>
+<script>
+/* =========================================================
+   UNIVERSAL HIGHLIGHT FUNCTION
+========================================================= */
+
+function highlight(codeId, line){
+  const lines = document.getElementById(codeId).innerText.split("\n");
+  document.getElementById(codeId).innerHTML =
+    lines.map((l,i)=>`<div class="${i+1===line?'highlight':''}">${l}</div>`).join("");
+}
+
+/* =========================================================
+   LINEAR SEARCH
+========================================================= */
+
+let linearData = [];
+let linearPosition = 0;
+let linearFound = false;
+let linearItem;
+let linearStep = 1;
+let linearFinished = false;
+
+function renderLinear(highlightIndex = -1) {
+  const container = document.getElementById("linearVisual");
+  container.innerHTML = "";
+
+  const indexRow = document.createElement("div");
+  indexRow.className = "array-row";
+
+  const valueRow = document.createElement("div");
+  valueRow.className = "array-row";
+
+  linearData.forEach((value, index) => {
+
+    // Index cell
+    const indexCell = document.createElement("div");
+    indexCell.className = "index-label";
+    indexCell.innerText = index;
+    indexRow.appendChild(indexCell);
+
+    // Value cell
+    const box = document.createElement("div");
+    box.className = "array-box";
+    box.innerText = value;
+
+    if (index === highlightIndex) {
+      box.classList.add("highlight");   // light blue
+    }
+
+    valueRow.appendChild(box);
+  });
+
+  container.appendChild(indexRow);
+  container.appendChild(valueRow);
+}
+
+function startLinear(){
+  linearData = document.getElementById("linearArray").value.split(",").map(Number);
+  linearItem = Number(document.getElementById("linearTarget").value);
+
+  linearPosition = 0;
+  linearFound = false;
+  linearStep = 1;
+  linearFinished = false;
+
+  document.querySelector("#linearTable tbody").innerHTML = "";
+  renderLinear();
+  highlight("linearCode", 3);
+}
+
+function nextLinear(){
+  if (linearFinished) return;
+
+  if (linearPosition < linearData.length && !linearFound) {
+
+    highlight("linearCode", 5);
+    renderLinear(linearPosition);
+
+    const value = linearData[linearPosition];
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${linearStep++}</td>
+      <td>${linearPosition}</td>
+      <td>${value}</td>
+      <td>${value === linearItem ? "=" : "≠"} ${linearItem}</td>
+      <td>${linearFound}</td>
+    `;
+    document.querySelector("#linearTable tbody").appendChild(row);
+
+    if (value === linearItem) {
+      highlight("linearCode", 6);
+      linearFound = true;
+      linearFinished = true;
+    } else {
+      highlight("linearCode", 9);
+      linearPosition++;
+    }
+
+  } else {
+    highlight("linearCode", 12);
+    linearFinished = true;
+  }
+}
+
+/* =========================================================
+   BINARY SEARCH
+========================================================= */
+
+let binaryData = [];
+let binaryFirst, binaryLast, binaryMid;
+let binaryItem;
+let binaryFound = false;
+let binaryStep = 1;
+let binaryFinished = false;
+
+function renderBinary(mid = -1){
+  const container = document.getElementById("binaryVisual");
+  container.innerHTML = "";
+
+  const indexRow = document.createElement("div");
+  indexRow.className = "array-row";
+
+  const valueRow = document.createElement("div");
+  valueRow.className = "array-row";
+
+  binaryData.forEach((value,index)=>{
+
+    // Index cell
+    const indexCell=document.createElement("div");
+    indexCell.className="index-label";
+    indexCell.innerText=index;
+    indexRow.appendChild(indexCell);
+
+    // Value cell
+    const box=document.createElement("div");
+    box.className="array-box";
+    box.innerText=value;
+
+    if(index===mid){
+      box.classList.add("mid-highlight");
+    }
+
+    valueRow.appendChild(box);
+  });
+
+  container.appendChild(indexRow);
+  container.appendChild(valueRow);
+}
+
+function startBinary(){
+  binaryData=document.getElementById("binaryArray").value.split(",").map(Number);
+  binaryItem=Number(document.getElementById("binaryTarget").value);
+
+  binaryFirst=0;
+  binaryLast=binaryData.length-1;
+  binaryFound=false;
+  binaryStep=1;
+  binaryFinished=false;
+
+  document.querySelector("#binaryTable tbody").innerHTML="";
+  renderBinary();
+  highlight("binaryCode",3);
+}
+
+function nextBinary(){
+  if(binaryFinished) return;
+
+  if(!binaryFound && binaryFirst<=binaryLast){
+
+    highlight("binaryCode",7);
+
+    binaryMid=Math.floor((binaryFirst+binaryLast)/2);
+    renderBinary(binaryMid);
+
+    const sum=binaryFirst+binaryLast;
+
+    const row=document.createElement("tr");
+    row.innerHTML=`
+      <td>${binaryStep++}</td>
+      <td>${binaryFirst}</td>
+      <td>${binaryLast}</td>
+      <td>
+        (${binaryFirst}+${binaryLast}) DIV 2<br>
+        = ${sum} DIV 2<br>
+        = ${binaryMid}
+      </td>
+      <td>${binaryData[binaryMid]}</td>
+      <td>${binaryItem===binaryData[binaryMid]?"=":(binaryItem<binaryData[binaryMid]?"<":">")}</td>
+      <td>${binaryFound}</td>
+    `;
+    document.querySelector("#binaryTable tbody").appendChild(row);
+
+    if(binaryItem===binaryData[binaryMid]){
+      highlight("binaryCode",9);
+      binaryFound=true;
+      binaryFinished=true;
+    }else{
+      highlight("binaryCode",12);
+      if(binaryItem<binaryData[binaryMid]){
+        highlight("binaryCode",13);
+        binaryLast=binaryMid-1;
+      }else{
+        highlight("binaryCode",15);
+        binaryFirst=binaryMid+1;
+      }
+    }
+
+  }else{
+    highlight("binaryCode",19);
+    binaryFinished=true;
+  }
+}
+
+/* =========================================================
+   BUBBLE SORT (FULL FIXED VERSION)
+========================================================= */
+
+let bubbleData=[];
+let bubbleSwapMade;
+let bubblePosition;
+let bubbleStep=1;
+let bubbleFinished=false;
+let bubbleInPass=false;
+
+let bubbleSwapping=false;
+let bubbleSwapStage=0;
+let bubbleTemp=null;
+
+function renderBubble(highlights = []) {
+  const container = document.getElementById("bubbleVisual");
+  container.innerHTML = "";
+
+  const indexRow = document.createElement("div");
+  indexRow.className = "array-row";
+
+  const valueRow = document.createElement("div");
+  valueRow.className = "array-row";
+
+  bubbleData.forEach((value, index) => {
+
+    // Index cell
+    const indexCell = document.createElement("div");
+    indexCell.className = "index-label";
+    indexCell.innerText = index;
+    indexRow.appendChild(indexCell);
+
+    // Value cell
+    const box = document.createElement("div");
+    box.className = "array-box";
+    box.innerText = value;
+
+    if (highlights.includes(index)) {
+      box.classList.add("highlight");   // light blue
+    }
+
+    valueRow.appendChild(box);
+  });
+
+  container.appendChild(indexRow);
+  container.appendChild(valueRow);
+}
+
+function startBubble(){
+  bubbleData=document.getElementById("bubbleArray").value.split(",").map(Number);
+
+  bubbleSwapMade=true;
+  bubblePosition=0;
+  bubbleStep=1;
+  bubbleFinished=false;
+  bubbleInPass=false;
+  bubbleSwapping=false;
+  bubbleSwapStage=0;
+
+  document.querySelector("#bubbleTable tbody").innerHTML="";
+  renderBubble();
+  highlight("bubbleCode",1);
+}
+
+function nextBubble(){
+  if(bubbleFinished) return;
+
+  if(!bubbleInPass && !bubbleSwapping){
+
+    if(!bubbleSwapMade){
+      highlight("bubbleCode",12);
+      bubbleFinished=true;
+      return;
+    }
+
+    highlight("bubbleCode",3);
+    bubbleSwapMade=false;
+    bubblePosition=0;
+    bubbleInPass=true;
+    return;
+  }
+
+  if(bubbleSwapping){
+
+    if(bubbleSwapStage===1){
+      highlight("bubbleCode",6);
+      bubbleTemp=bubbleData[bubblePosition];
+      bubbleSwapStage++;
+      return;
+    }
+
+    if(bubbleSwapStage===2){
+      highlight("bubbleCode",7);
+      bubbleData[bubblePosition]=bubbleData[bubblePosition+1];
+      renderBubble([bubblePosition,bubblePosition+1]);
+      bubbleSwapStage++;
+      return;
+    }
+
+    if(bubbleSwapStage===3){
+      highlight("bubbleCode",8);
+      bubbleData[bubblePosition+1]=bubbleTemp;
+      renderBubble([bubblePosition,bubblePosition+1]);
+      bubbleSwapStage++;
+      return;
+    }
+
+    if(bubbleSwapStage===4){
+      highlight("bubbleCode",9);
+      bubbleSwapMade=true;
+
+      const row=document.createElement("tr");
+      row.innerHTML=`
+        <td>${bubbleStep++}</td>
+        <td>${bubblePosition}</td>
+        <td>SWAP</td>
+        <td>${bubbleSwapMade}</td>
+        <td>${bubbleData.join(", ")}</td>
+      `;
+      document.querySelector("#bubbleTable tbody").appendChild(row);
+
+      bubbleSwapping=false;
+      bubbleSwapStage=0;
+      bubblePosition++;
+      return;
+    }
+  }
+
+  if(bubblePosition<bubbleData.length-1){
+
+    highlight("bubbleCode",5);
+    renderBubble([bubblePosition,bubblePosition+1]);
+
+    const comparison=`${bubbleData[bubblePosition]} > ${bubbleData[bubblePosition+1]}`;
+
+    if(bubbleData[bubblePosition]>bubbleData[bubblePosition+1]){
+      bubbleSwapping=true;
+      bubbleSwapStage=1;
+      return;
+    }else{
+      const row=document.createElement("tr");
+      row.innerHTML=`
+        <td>${bubbleStep++}</td>
+        <td>${bubblePosition}</td>
+        <td>${comparison}</td>
+        <td>${bubbleSwapMade}</td>
+        <td>${bubbleData.join(", ")}</td>
+      `;
+      document.querySelector("#bubbleTable tbody").appendChild(row);
+      bubblePosition++;
+    }
+
+  }else{
+    highlight("bubbleCode",11);
+    bubbleInPass=false;
+  }
+}
+
+/* =========================================================
+   INSERTION SORT
+========================================================= */
+
+let insertionData = [];
+let insertionI;
+let insertionJ;
+let insertionKey;
+let insertionStep = 1;
+let insertionFinished = false;
+let insertionStage = 0;
+
+function renderInsertion(highlights = []) {
+  const container = document.getElementById("insertionVisual");
+  container.innerHTML = "";
+
+  const indexRow = document.createElement("div");
+  indexRow.className = "array-row";
+
+  const valueRow = document.createElement("div");
+  valueRow.className = "array-row";
+
+  insertionData.forEach((value, index) => {
+
+    const indexCell = document.createElement("div");
+    indexCell.className = "index-label";
+    indexCell.innerText = index;
+    indexRow.appendChild(indexCell);
+
+    const box = document.createElement("div");
+    box.className = "array-box";
+    box.innerText = value;
+
+    if (highlights.includes(index)) {
+      box.classList.add("highlight");
+    }
+
+    valueRow.appendChild(box);
+  });
+
+  container.appendChild(indexRow);
+  container.appendChild(valueRow);
+}
+
+function startInsertion() {
+  insertionData = document.getElementById("insertionArray")
+    .value.split(",").map(Number);
+
+  insertionI = 1;
+  insertionStep = 1;
+  insertionFinished = false;
+  insertionStage = 0;
+
+  document.querySelector("#insertionTable tbody").innerHTML = "";
+  renderInsertion();
+  highlight("insertionCode", 1);
+}
+
+function nextInsertion() {
+
+  if (insertionFinished) return;
+
+  if (insertionI >= insertionData.length) {
+    insertionFinished = true;
+    return;
+  }
+
+  if (insertionStage === 0) {
+    highlight("insertionCode", 2);
+    insertionKey = insertionData[insertionI];
+    insertionJ = insertionI - 1;
+    insertionStage = 1;
+    return;
+  }
+
+  if (insertionStage === 1) {
+
+    highlight("insertionCode", 4);
+
+    if (insertionJ >= 0 && insertionData[insertionJ] > insertionKey) {
+
+      highlight("insertionCode", 5);
+      insertionData[insertionJ + 1] = insertionData[insertionJ];
+
+      renderInsertion([insertionJ, insertionJ + 1]);
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${insertionStep++}</td>
+        <td>${insertionI}</td>
+        <td>${insertionJ}</td>
+        <td>${insertionKey}</td>
+        <td>${insertionData.join(", ")}</td>
+      `;
+      document.querySelector("#insertionTable tbody").appendChild(row);
+
+      insertionJ--;
+      return;
+
+    } else {
+      insertionStage = 2;
+      return;
+    }
+  }
+
+  if (insertionStage === 2) {
+
+    highlight("insertionCode", 8);
+    insertionData[insertionJ + 1] = insertionKey;
+
+    renderInsertion([insertionJ + 1]);
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${insertionStep++}</td>
+      <td>${insertionI}</td>
+      <td>${insertionJ}</td>
+      <td>${insertionKey}</td>
+      <td>${insertionData.join(", ")}</td>
+    `;
+    document.querySelector("#insertionTable tbody").appendChild(row);
+
+    insertionI++;
+    insertionStage = 0;
+  }
+}
 
 
+
+
+
+</script>
 <script src="../js/booklets.js"></script>
-
+<div id="command-words"></div>
 
 </body>
 </html>
