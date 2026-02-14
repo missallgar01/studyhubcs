@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OOP</title>
+<link rel="stylesheet" href="../../css/main.css" />
+</head>
+<body>
+<div class="back-container">
+<a href="../A-studynotes.html">← Back</a>
+</div>
+<header>
+ <h1>OOP– Revision Booklet</h1>
+
+</header>
+<main>
+
+ <div class="vertical-knowledge">
+
+<h2>OOP – Notes</h2>
+
+<div class="knowledge-card">
+
+    <table class="oop-keywords">
+  <tr>
+    <th>Keyword</th>
+    <th>Definition</th>
+  </tr>
+
+  <tr>
+    <td><strong>Class</strong></td>
+    <td>
+      A blueprint for creating objects that defines attributes (data) and methods (behaviour).
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Object</strong></td>
+    <td>
+      An <strong>instance of a class</strong> with specific values for its attributes.
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Encapsulation</strong></td>
+    <td>
+      Hiding an object’s data and only allowing controlled access through methods
+      (getters and setters).
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Inheritance</strong></td>
+    <td>
+      A child class inherits attributes and methods from a parent class, promoting code reuse.
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Polymorphism</strong></td>
+    <td>
+      The ability for methods to take multiple forms, either by method overloading or
+      method overriding.
+      <br><br>
+      <strong>Method Overriding</strong> – When a child class redefines a method inherited
+      from the parent class to change its behaviour.
+      <br><br>
+      <strong>Method Overloading</strong> – When multiple methods in the same class have
+      the same name but different parameters.
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Abstraction</strong></td>
+    <td>
+      Hiding complex implementation details and exposing only essential features to the user.
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Constructor</strong></td>
+    <td>
+      A special method that is automatically called when an object is created, used to
+      initialise attributes.
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Getter Method</strong></td>
+    <td>
+      A method that retrieves (gets) the value of an attribute.
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Setter Method</strong></td>
+    <td>
+      A method that updates (sets) the value of an attribute.
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Public</strong></td>
+    <td>
+      Allows attributes and methods to be accessed from anywhere.
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Private</strong></td>
+    <td>
+      Restricts access to attributes and methods within the same class.
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Protected</strong></td>
+    <td>
+      Allows access within the class and its subclasses.
+    </td>
+  </tr>
+</table>
+</div>
+<div class="knowledge-card">
+
+
+    <table>
+<colgroup>
+    <col width="40%">
+    <col width="20%">
+    <col width="40%">
+  </colgroup>
+  <tr>
+    <th>Object pseudocode</th>
+    <th>Explanation</th>
+    <th>Python Code</th>
+  </tr>
+
+  <tr>
+    <td>class Pet</td>
+    <td>
+      A class will contain class variables, constructor method and methods
+    </td>
+    <td>
+<pre>
+class Pet(object):
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      private petName<br>
+      private petType<br>
+      private petAge
+    </td>
+    <td>
+      Define the class variables: public or private<br>
+      Private – means only accessible within the class<br>
+      Public – means outside the class<br>
+      Protected – means can be shared with any child classes
+    </td>
+    <td>
+      Not required in python but in the exam add a comment next to the attribute
+      to make it clear it is private, for example:
+<pre>
+self.age = pAge   # private
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      public procedure new(pName, pType, age)<br><br>
+      petName = pName<br>
+      petType = pType<br>
+      petAge = pAge<br><br>
+      end procedure
+    </td>
+    <td>
+      Constructor method for pets class<br><br>
+      This is what will happen when you create a new instance of pet
+      (known as an object)<br><br>
+      Must use correct declaration appropriate name and <strong>new</strong><br><br>
+      Include any parameters required for creating a new object
+    </td>
+    <td>
+<pre>
+def __init__(self, pName, pType, pAge):
+    self.petName = pName   # private
+    self.petType = pType   # private
+    self.petAge  = pAge    # private
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      public function getName()<br>
+      &nbsp;&nbsp;return petName<br>
+      end function<br><br>
+
+      public procedure setName(pName)<br>
+      &nbsp;&nbsp;petName = pName<br>
+      end procedure
+    </td>
+    <td>
+      Methods are usually public.<br><br>
+      It can be a procedure or function (return something).<br><br>
+      Getter methods are used to <strong>return</strong> an object’s attribute.<br><br>
+      Setter methods are used to change an attribute.
+    </td>
+    <td>
+<pre>
+def getName(self):
+    return self.petName
+
+def setName(self, name):
+    self.petName = name
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      myPet = new Pet("Buster", "Dog", 3)
+    </td>
+    <td>
+      This is used to create a new instance of Pet
+      (class instantiation) in the main program
+    </td>
+    <td>
+<pre>
+myPet = Pet("lily", "dog", 3)
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      print(myPet.getName())
+    </td>
+    <td>
+      This is how you use a method within a class
+    </td>
+    <td>
+<pre>
+print(myPet.getName())
+myPet.setName("Fred")
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      private procedure humanAge()<br><br>
+      &nbsp;&nbsp;humanAge = petAge * 7<br>
+      &nbsp;&nbsp;print(humanAge)<br><br>
+      end procedure
+    </td>
+    <td>
+      This method is private as it is only to be accessed within the Dog class
+    </td>
+    <td>
+<pre>
+def humanAge(self):
+    humanAge = self.petAge * 7
+    print(humanAge)
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      myDog = new Dog("Buster", "Dog", 3, "Border terrier")
+    </td>
+    <td>
+      <strong>Main Program:</strong><br>
+      Create a new instance of dog using all the constructor parameters.
+    </td>
+    <td>
+<pre>
+myDog = Dog("Buster", "Dog", 4, "Border terrier")
+</pre>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      print(myDog.getName())<br>
+      myDog.humanAge()
+    </td>
+    <td>
+      In the main program, you can then use methods
+      in the dog class and pet class.
+    </td>
+    <td>
+<pre>
+print(myDog.getName())
+myDog.humanAge()
+</pre>
+    </td>
+  </tr>
+</table>
+    </div>
+<div class="knowledge-card">
+  <h2>Below is an example of a Pet Class and inheritance</h2>
+  <p>
+    Inheritance allows a class to inherit properties and behaviours from another class,
+    reducing code duplication.
+  </p>
+
+  <!-- Class Diagram: Pet -->
+  <table class="class-diagram">
+
+    <tr>
+      <th colspan="1">Class: Pet</th>
+    </tr>
+    <tr>
+      <td>
+        private petName: string<br>
+        private petType: string<br>
+        private petAge: int
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Constructor new (pName, pType, pAge)<br>
+        getName()<br>
+        setName(pName)
+      </td>
+    </tr>
+  </table>
+
+<pre>
+class Pet()
+    private petName
+    private petType
+    private petAge
+
+# Constructor
+public procedure new(pName, pType, pAge)
+    petName = pName
+    petType = pType
+    petAge = pAge
+end procedure
+
+# Getter methods return the value of an attribute
+public function getName()
+    return petName
+end function
+
+# Setter methods let you change the value of an attribute
+public procedure setName(pName)
+    petName = pName
+end procedure
+
+--------------------------------------------
+
+# main program
+myPet = new Pet("Buster", "dog", 5)
+print(myPet.getName())
+myPet.setName("Bob")
+</pre>
+
+<hr>
+
+
+  <h3>Inheritance Example</h3>
+
+  <p><strong>Parent Class (Super Class)</strong></p>
+
+  <!-- Parent Class Diagram -->
+  <table class="class-diagram" border="1">
+    <tr>
+      <th>Class: Pet</th>
+    </tr>
+    <tr>
+      <td>
+        private petName: string<br>
+        private petType: string<br>
+        private petAge: int
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Constructor new (pName, pType, pAge)<br>
+        getName()<br>
+        setName(name)
+      </td>
+    </tr>
+  </table>
+
+  <p align="centre">↑</p>
+
+  <p><strong>Child Class</strong></p>
+
+  <!-- Child Class Diagram -->
+  <table border="1" class="class-diagram">
+    <tr>
+      <th>Class: Dog</th>
+    </tr>
+    <tr>
+      <td>
+        private breed: string
+      </td>
+    </tr>
+    <tr>
+      <td>
+        humanAge()
+      </td>
+    </tr>
+  </table>
+
+<pre>
+class dog inherits pet
+    private breed
+
+    public procedure new(pName, pType, pAge, pBreed)
+        super(pName, pType, pAge)
+        breed = pBreed
+    end procedure
+
+    public procedure humanAge()
+        humanAge = petAge * 7
+        print(humanAge)
+    end procedure
+end class
+</pre>
+
+<hr>
+
+  <h3>Polymorphism and Method Overriding</h3>
+
+  <!-- UML Tables -->
+  <table class="class-diagram">
+    <tr>
+      <th>Class: Pet</th>
+    </tr>
+    <tr>
+      <td>
+        private petName: string<br>
+        private petType: string<br>
+        private petAge: int
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Constructor new (pName, pType, pAge)<br>
+        getName()<br>
+        setName(name)<br>
+        display()
+      </td>
+    </tr>
+  </table>
+
+  <p>↑</p>
+
+  <table class="class-diagram">
+    <tr>
+      <th>Class: Dog</th>
+    </tr>
+    <tr>
+      <td>
+        private breed: string
+      </td>
+    </tr>
+    <tr>
+      <td>
+        humanAge()<br>
+        display()
+      </td>
+    </tr>
+  </table>
+
+        <br>
+      <h3>Polymorphism</h3>
+       <p>Polymorphism lets the same method name work in different ways, either in different
+        classes or with different parameters in the same class.</p>
+
+      <h3>Method Overriding</h3>
+      <p>  A child class replaces a method from the parent class with its own version.</p>
+
+
+  <br>
+
+ Parent Class – Pets
+
+<pre>
+procedure display()
+    print("Name", petName)
+    print("Type", petType)
+    print("Age", petAge)
+end procedure
+</pre>
+
+  <br>
+Child Class – Dogs
+
+<pre>
+procedure display()
+    print("Name", self.name)
+    print("Type", petType)
+    print("Age", petAge)
+    print("Breed", breed)
+end procedure
+</pre>
+
+</div>
+</div>
+
+
+
+    <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+ </main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

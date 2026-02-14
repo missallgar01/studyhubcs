@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OOP</title>
+<link rel="stylesheet" href="../../css/main.css" />
+</head>
+<body>
+<div class="back-container">
+<a href="../A-studynotes.html">← Back</a>
+</div>
+<header>
+ <h1>OOP– Knowledge Check</h1>
+<p>
+    Write your answers in the boxes provided.</p>
+   <p> Click <strong>Show answer</strong> to reveal model answers.
+  </p>
+</header>
+<main>
+<button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
+<div class="vertical-knowledge">
+
+<h2>Check Your Understanding – Questions</h2>
+
+
+<!-- =======================
+TOPIC – Object-Oriented Programming
+ ======================= -->
+<div class="rev-card qa-card">
+<p>1. A large health centre employs a number of nurses, each with a qualification. Some nurses are senior nurses, and these are paid an extra fee in addition to their salary.
+
+The diagram below shows part of the system used.
+</p>
+<img src="images/oop/hc-class.png"/>
+<p>1(a)(i). State the type of diagram shown. [1]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer">
+<p>Class diagram</p>
+</div>
+<p>1(a)(ii). State the term that describes setSalary(), setQualification() or setExtraFee(). [1]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer">
+<p>Method (or operation)</p>
+</div>
+<p>1(a)(iii). Explain the meaning of the arrows in the diagram, using an example. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer">
+<ul>
+<li>The arrows show inheritance</li>
+<li>For example, Nurse is a subclass of Staff (or Staff is a superclass of Nurse)</li>
+</ul>
+</div>
+<p>1(a)(iv).Mary Jones is a new employee at the health centre. State why the program statement Jones.setSalary(12000) is not valid. [1]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer">
+<p>
+      Jones is the value of an attribute and is not defined as an object of the Staff class.
+    </p>
+</div>
+<p>
+    1(a)(v). v.	You may assume that thisSeniorNurse has been correctly defined as an object of SeniorNurse, and that x is a number.
+      Explain why the program statement thisSeniorNurse.setSalary(x) is valid
+    even though setSalary() is not shown in the SeniorNurse part of the diagram. [3]
+  </p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer">
+<ul>
+<li>The method setSalary() is defined in the Staff class</li>
+<li>Nurse is a subclass of Staff</li>
+<li>SeniorNurse is a subclass of Nurse</li>
+<li>SeniorNurse inherits setSalary() from Staff via Nurse</li>
+</ul>
+</div>
+</div>
+<div class="rev-card qa-card">
+<p>2. Christoff is writing a program to simulate a city using object-oriented programming. He is designing classes to store different types of buildings and their location on the road. He has created the following plan for some of the buildings:
+Part of the declaration for the class building is shown.
+<img src="images/oop/buildingclass.png"/>
+    12. Complete the pseudocode declaration for the class building by filling in the
+    missing statements. [5]
+  </p>
+<pre>
+class building
+    private numberFloors
+    private width
+    private ………………………………………………………………………
+    public procedure new(pFloors, pWidth, pHeight)
+        numberFloors = ………………………………………………………………………
+        width = pWidth
+        height = pHeight
+    endprocedure
+    public function getNumberFloors()
+        return ………………………………………………………………………
+    endfunction
+    public function setNumberFloors(pFloors)
+        /sets the value of numberFloors when the parameter is &gt;= 1
+        /returns true if numberFloors is successfully changed,
+        /returns false otherwise
+        if pFloors &gt;= 1 then
+            numberFloors = ………………………………………………………………………
+            return true
+        else
+            return ………………………………………………………………………
+        endif
+    endfunction
+endclass
+</pre>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>class building
+    private numberFloors
+    private width
+    private height
+
+    public procedure new(pFloors, pWidth, pHeight)
+        numberFloors = pFloors
+        width = pWidth
+        height = pHeight
+    endprocedure
+
+    public function getNumberFloors()
+        return numberFloors
+    endfunction
+
+    public function setNumberFloors(pFloors)
+        if pFloors &gt;= 1 then
+            numberFloors = pFloors
+            return true
+        else
+            return false
+        endif
+    endfunction
+endclass</pre></td><td><pre>class Building:
+    def __init__(self, pFloors, pWidth, pHeight):
+        self.numberFloors = pFloors
+        self.width = pWidth
+        self.height = pHeight
+
+    def getNumberFloors(self):
+        return self.numberFloors
+
+    def setNumberFloors(self, pFloors):
+        # sets numberFloors if pFloors &gt;= 1
+        # returns True if changed, False otherwise
+        if pFloors &gt;= 1:
+            self.numberFloors = pFloors
+            return True
+        else:
+            return False</pre></td></tr></table></div>
+</div>
+<!-- =======================
+     TOPIC – Board Game (Full question context + answers)
+     ======================= -->
+<div class="rev-card qa-card">
+<!-- Board game scenario laid out in an HTML table (matches the screenshot layout) -->
+<table class="game-spec">
+<tr>
+<!-- LEFT COLUMN -->
+<td class="col left">
+<p class="title">
+        3. Kim is writing an object-oriented program for a <u>four player</u> board game. The board has 26 squares that
+        players move around
+      </p>
+<!-- Board diagram (outer ring with 26 squares + deck in the middle) -->
+<table border="1">
+  <tr>
+    <td>Start</td>
+    <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
+  </tr>
+
+  <tr>
+    <td>25</td>
+    <td colspan="6" rowspan="5"></td>
+    <td>8</td>
+  </tr>
+
+  <tr>
+    <td>24</td>
+    <td>9</td>
+  </tr>
+
+  <tr>
+    <td>23</td>
+    <td>10</td>
+  </tr>
+
+  <tr>
+    <td>22</td>
+    <td>11</td>
+  </tr>
+
+  <tr>
+    <td>21</td>
+    <td>12</td>
+  </tr>
+
+  <tr>
+    <td>20</td>
+    <td>19</td><td>18</td><td>17</td><td>16</td><td>15</td><td>14</td>
+    <td>Miss a<br>turn</td>
+  </tr>
+</table>
+<div class="left-text">
+<p>Each player takes it in turn to roll two dice.</p>
+<p>They then move that number of spaces on the board.</p>
+<p>If they roll a double (both dice have the same value), they then take a card from the deck.</p>
+<p>
+          The deck contains <strong>40 cards</strong> that each include a sentence (such as “You have won the lottery”).
+          The sentence on the card determines if money is given or taken away from the player.
+        </p>
+</div>
+</td>
+<!-- RIGHT COLUMN -->
+<td>
+<div>
+<!-- Animal card (box) -->
+<table>
+<tr><td><strong>Name = Squirrel</strong><br/>Level = 0</td></tr>
+<tr><td>ImageLink: squirrel.bmp</td></tr>
+<tr>
+<td>
+              Level 0 stop = £10<br/>
+              Level 1 stop = £50<br/>
+              Level 2 stop = £100<br/>
+              Level 3 stop = £500
+            </td>
+</tr>
+<tr><td><strong>Cost = £1000</strong></td></tr>
+<tr><td>Owned = free</td></tr>
+</table>
+<!-- Explanation text beside animal card -->
+<div>
+<p>
+            Each square (apart from Start and Miss a turn) has an animal associated with it that the player can purchase,
+            if it has not been purchased already, for example square 6 has a Squirrel.
+          </p>
+<p>
+            This shows an example of one of these animals. Once a player has purchased the animal, any opposing player which
+            subsequently lands on the square/animal has to pay a fine.
+          </p>
+<p>
+            Each animal can be upgraded, with each upgrade the game charges more each time a player stops on them.
+          </p>
+</div>
+</div>
+<div>
+<p>
+          For example, with no upgrade the level 0 squirrel costs £10 when a player stops on it. If £1000 is paid to upgrade,
+          the squirrel is then a level 1 animal and now charges £50 for a stop.
+        </p>
+<p>The cost to purchase and upgrade the animal is the same.</p>
+<p>Each animal can be upgraded to a maximum of level 3.</p>
+<p>
+          When a player lands on, or passes the square ‘Start’ (<strong>position 0</strong>), they receive £500.
+          If they land on ‘Miss a turn’ (<strong>position 13</strong>), they miss their next turn.
+        </p>
+</div>
+</td>
+</tr>
+</table>
+<p>
+        A class, <strong>Player</strong>, stores the <strong>player’s ID</strong> (P1, P2, P3, P4),
+        their <strong>current board position</strong> and the amount of <strong>money</strong> they have.
+      </p>
+<p>
+        This shows a class diagram for Player. A class diagram describes a class.
+        It contains the class name, followed by the attributes, then the methods.
+      </p>
+<!-- Player class diagram -->
+<table class="class-diagram">
+<tr><th>Player</th></tr>
+<tr>
+<td>
+            playerID: STRING<br/>
+            boardPosition: INTEGER<br/>
+            money: INTEGER
+          </td>
+</tr>
+<tr>
+<td>
+            constructor()<br/>
+            getPosition()<br/>
+            setPosition(position)<br/>
+            getMoney()<br/>
+            setMoney(amount)
+          </td>
+</tr>
+</table>
+<p>
+        The constructor creates a new instance of Player, taking the
+        <strong>player’s ID as a parameter</strong>.
+        The board position is set to <strong>0</strong>, and money to <strong>£2000</strong>.
+      </p>
+<div class="question-context">
+<p>(a) Write, using pseudocode, the constructor method for the Player class. [3]</p>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer">
+    <table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>public procedure new(pID)
+    playerID = pID
+    position = 0
+    money = 2000
+endprocedure</pre></td><td>
+
+    <pre>
+
+    class Player:
+    def __init__(self, pID):
+        self.playerID = pID
+        self.position = 0
+        self.money = 2000
+
+    </pre></td></tr></table>
+</div>
+</div>
+<div class="rev-card qa-card">
+<td class="right-col">
+<p class="intro">
+        (b) A class, <strong>Animal</strong>, define the attributes and methods for the animals stored in each square.
+      </p>
+<p>
+        Fig. 5.4 shows a class diagram for Animal.
+      </p>
+<p>
+        The constructor takes the <strong>required data as parameters</strong> and then sets
+        <strong>currentLevel</strong> to <strong>0</strong>, and assigns the parameters as the
+        remaining attributes for the new object.
+      </p>
+<!-- Animal class diagram -->
+<table class="class-diagram">
+<tr><th>Animal</th></tr>
+<tr>
+<td>
+            name: STRING<br/>
+            currentLevel: INTEGER<br/>
+            cost: INTEGER<br/>
+            L0: REAL<br/>
+            L1: REAL<br/>
+            L2: REAL<br/>
+            L3: REAL<br/>
+            imageLink: STRING<br/>
+            setSquare: INTEGER<br/>
+            owned: STRING
+          </td>
+</tr>
+<tr>
+<td>
+            constructor()<br/>
+            getCost()<br/>
+            upgrade(player)<br/>
+            getCurrentLevel()<br/>
+            setOwned(player)<br/>
+            getOwned()<br/>
+            getAmountToCharge()<br/>
+            getName()
+          </td>
+</tr>
+</table>
+<div class="question-context">
+<p>Write, using pseudocode, the constructor method for the Animal class. [4]</p>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>public procedure new(pName, pCost, pOwner)
+    name = pName
+    cost = pCost
+    owner = pOwner
+    currentLevel = 0
+endprocedure</pre></td><td><pre>class Animal:
+    def __init__(self, pName, pCost, pOwner):
+        self.name = pName
+        self.cost = pCost
+        self.owner = pOwner
+        self.currentLevel = 0</pre></td></tr></table></div>
+    </div>
+<div class="rev-card qa-card">
+<!-- RIGHT COLUMN : ANIMAL -->
+<div class="question-context">
+<p> (c) Create an instance of Animal for the Squirrel on square number 6. [2]</p>
+<p>
+      Write, using pseudocode, the code to create an instance of Animal for the Squirrel,
+      positioned on square number 6, for the constructor function.
+    </p>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>board[6] = new Animal("Squirrel", 1000, null)</pre></td><td><pre>board[6] = Animal("Squirrel", 1000, None)</pre></td></tr></table></div>
+</div>
+<div class="rev-card qa-card">
+<div class="question-context">
+<p>(d) Complete, using pseudocode, the function to move the player and handle special rules. [6]</p>
+<p>
+      The board is stored as a 1D array, <code>board</code>, of data type <code>Animal</code>.
+      The spaces at 0 and 13 are left as empty elements that are checked using separate functions.
+    </p>
+<p><strong>Complete the function to:</strong></p>
+<ul>
+<li>Roll both dice</li>
+<li>Move the player the dice total number of spaces</li>
+<li>If a double is rolled, call the procedure <code>pickDeck</code></li>
+<li>Add £500 if they have passed or landed on Start</li>
+<li>Call the procedure <code>missAGo</code> if they land on space 13 <em>or</em> call <code>checkAnimal</code></li>
+<li>Return the new position</li>
+</ul>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>function takeTurn(currentPlayer)
+    dice1 = RANDOM(1,6)
+    dice2 = RANDOM(1,6)
+    move = dice1 + dice2
+
+    newPos = currentPlayer.position + move
+
+    if newPos &gt;= 26 then
+        newPos = newPos - 26
+        currentPlayer.money = currentPlayer.money + 500
+    endif
+
+    if dice1 == dice2 then
+        pickDeck(currentPlayer)
+    endif
+
+    if newPos == 13 then
+        missAGo(currentPlayer)
+    else
+        checkAnimal(currentPlayer)
+    endif
+
+    return newPos
+endfunction</pre></td><td><pre>import random
+
+def takeTurn(currentPlayer):
+    dice1 = random.randint(1, 6)
+    dice2 = random.randint(1, 6)
+    move = dice1 + dice2
+
+    newPos = currentPlayer.position + move
+
+    if newPos &gt;= 26:
+        newPos = newPos - 26
+        currentPlayer.money = currentPlayer.money + 500
+
+    if dice1 == dice2:
+        pickDeck(currentPlayer)
+
+    if newPos == 13:
+        missAGo(currentPlayer)
+    else:
+        checkAnimal(currentPlayer)
+
+    return newPos</pre></td></tr></table></div>
+</div>
+<div class="rev-card qa-card">
+<table class="card-spec">
+<tr>
+<!-- LEFT COLUMN -->
+<td class="left-col">
+<p class="intro">
+       4. The deck is stored as a zero-indexed 1D array, named <strong>deck</strong>, of type <strong>Card</strong>.
+      </p>
+<p class="intro">
+        The class diagram for Card:
+      </p>
+<p class="explanation">
+        The array, <strong>deck</strong>, is treated as a <strong>queue</strong>, with a variable,
+        <strong>headPointer</strong>, identifying the first card in the deck.
+        When a card has been used, the head pointer increases to move to the next position.
+        If the end of the deck is reached, the head pointer returns to <strong>0</strong> and starts again.
+      </p>
+<p class="intro">
+        The procedure <u>pickDeck</u>:
+      </p>
+<ul class="bullets">
+<li>takes the current player as a parameter</li>
+<li>outputs the text to be displayed from the first card in the <strong>queue</strong></li>
+<li>adds or subtracts the amount to/from the current player's money</li>
+<li>increases the head pointer</li>
+</ul>
+</td>
+<!-- RIGHT COLUMN -->
+<td class="right-col">
+<table class="class-diagram">
+<tr>
+<th>Card</th>
+</tr>
+<tr>
+<td>
+            textToDisplay: STRING<br/>
+            amount: INTEGER
+          </td>
+</tr>
+<tr>
+<td>
+            constructor()<br/>
+            getTextToDisplay()<br/>
+            getAmount()
+          </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<div class="question-context">
+<p>(a) Write, using pseudocode, the procedure <code>pickDeck</code>. [6]</p>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>procedure pickDeck(currentPlayer)
+    output deck[headPointer].getText()
+    currentPlayer.money =
+        currentPlayer.money + deck[headPointer].getAmount()
+
+    headPointer = headPointer + 1
+    if headPointer == LENGTH(deck) then
+        headPointer = 0
+    endif
+endprocedure</pre></td><td><pre>def pickDeck(currentPlayer):
+    global headPointer, deck
+    print(deck[headPointer].getText())
+    currentPlayer.money = currentPlayer.money + deck[headPointer].getAmount()
+
+    headPointer += 1
+    if headPointer == len(deck):
+        headPointer = 0</pre></td></tr></table></div>
+</div>
+<div class="rev-card qa-card">
+<p>(b) Write, using pseudocode, the procedure <code>checkAnimal</code>. [10]</p>
+<div class="question-context">
+<p><strong>The procedure <code>checkAnimal</code>:</strong></p>
+<ul>
+<li>Takes the current player as a parameter</li>
+<li>Accesses the data for the animal at the player’s position in the array <code>board</code></li>
+<li>
+        If the animal is free, asks the player if they would like to purchase the animal and outputs its
+        name and cost; if they choose to buy, call <code>purchase(player, animal)</code>
+</li>
+<li>
+        If that player owns the animal and it is not at level 3, ask if they would like to upgrade;
+        if yes, call the animal’s method <code>upgrade(currentPlayer)</code>
+</li>
+<li>
+        If a different player owns the animal, call <code>getAmountToCharge()</code> for that animal,
+        then send this value and the current player to <code>chargeStay(currentPlayer, amount)</code>
+</li>
+</ul>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>procedure checkAnimal(currentPlayer)
+    animal = board[currentPlayer.position]
+
+    if animal.owner == null then
+        output animal.name, animal.cost
+        if playerChoosesToBuy then
+            purchase(currentPlayer, animal)
+        endif
+
+    elseif animal.owner == currentPlayer AND animal.currentLevel &lt; 3 then
+        if playerChoosesToUpgrade then
+            animal.upgrade(currentPlayer)
+        endif
+
+    elseif animal.owner != currentPlayer then
+        amount = animal.getAmountToCharge()
+        chargeStay(currentPlayer, amount)
+    endif
+endprocedure</pre></td><td><pre>def checkAnimal(currentPlayer):
+    animal = board[currentPlayer.position]
+
+    if animal.owner is None:
+        print(animal.name, animal.cost)
+        if playerChoosesToBuy:
+            purchase(currentPlayer, animal)
+
+    elif animal.owner == currentPlayer and animal.currentLevel &lt; 3:
+        if playerChoosesToUpgrade:
+            animal.upgrade(currentPlayer)
+
+    elif animal.owner != currentPlayer:
+        amount = animal.getAmountToCharge()
+        chargeStay(currentPlayer, amount)</pre></td></tr></table></div>
+</div>
+<!-- =======================
+     TOPIC – TreasureQuest (Questions + Answers)
+     Source: Treasure quest grid ans.pdf
+     ======================= -->
+<h2>5. TreasureQuest </h2>
+<div class="rev-card qa-card">
+<table class="treasurequest-spec">
+<tr>
+<!-- LEFT COLUMN -->
+<td class="left-col">
+<p class="heading">
+        Dave is writing an object-oriented program for a four-player board game called <u>TreasureQuest</u>.
+        The board has 100 squares that players move around.
+      </p>
+<!-- Board layout -->
+<table class="board">
+<tr>
+<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+</tr>
+<tr>
+<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+</tr>
+<tr>
+<td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+</tr>
+<tr>
+<td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td><td>39</td><td>40</td>
+</tr>
+<tr>
+<td>41</td><td>42</td><td>43</td><td>44</td><td>45</td><td>46</td><td>47</td><td>48</td><td>49</td><td>50</td>
+</tr>
+<tr>
+<td>51</td><td>52</td><td>53</td><td>54</td><td>55</td><td>56</td><td>57</td><td>58</td><td>59</td><td>60</td>
+</tr>
+<tr>
+<td>61</td><td>62</td><td>63</td><td>64</td><td>65</td><td>66</td><td>67</td><td>68</td><td>69</td><td>70</td>
+</tr>
+<tr>
+<td>71</td><td>72</td><td>73</td><td>74</td><td>75</td><td>76</td><td>77</td><td>78</td><td>79</td><td>80</td>
+</tr>
+<tr>
+<td>81</td><td>82</td><td>83</td><td>84</td><td>85</td><td>86</td><td>87</td><td>88</td><td>89</td><td>90</td>
+</tr>
+<tr>
+<td>91</td><td>92</td><td>93</td><td>94</td><td>95</td><td>96</td><td>97</td><td>98</td><td>99</td><td>100</td>
+</tr>
+</table>
+<!-- Treasure cards -->
+
+<p>Each player takes it in turns to roll a dice. They can then move up to that number of squares, horizontally and vertically, in any direction on the board.</p>
+<p>If they roll a six, they also get to take a ‘Treasure Card’ from the deck.</p>
+<p>The deck contains 50 cards that each contain a surprise, for example “You find 10 gold coins” or “You lose 25 gold coins”.</p>
+<p>Once a player has moved and picked up any treasure cards, they roll another dice to determine whether a monster is generated.</p>
+<p>If they roll below five, a monster is generated and must be fought.</p>
+<p>If defeated, the player gains gold coins and the square is marked explored.</p>
+<p>If the monster defeats the player, they return to square 1.</p>
+<p>The game ends when all squares have been explored. The winning player has the most gold coins.</p>
+
+</td>
+</table>
+<p class="heading">
+        A class, <strong>Player</strong>, stores the player’s ID (P1, P2, P3, P4), their current position on the board and
+        the number of gold coins they have.
+      </p>
+<p>
+        This shows a class diagram for Player. A class diagram describes a class. It contains the class name,
+        followed by the attributes, then the methods.
+      </p>
+<p>
+        The constructor creates a new instance of Player, taking the player’s name as a parameter.
+        The board position is set to 1, health points to 10 and gold coins to 0.
+      </p>
+<!-- Class diagram -->
+<table class="class-diagram">
+<tr><th colspan="1">Player</th></tr>
+<tr>
+<td>
+            playerName: STRING<br/>
+            boardPosition: INTEGER<br/>
+            healthPoints: INTEGER<br/>
+            goldCoins: INTEGER
+          </td>
+</tr>
+<tr>
+<td>
+            constructor()<br/>
+            getPosition()<br/>
+            setPosition(position)<br/>
+            getHealthPoints()<br/>
+            setHealthPoints(amount)<br/>
+            getCoins()<br/>
+            setCoins(amount)
+          </td>
+</tr>
+</table>
+
+<div class="question-context">
+<p>(a) Write, using pseudocode, the constructor method for the Player class. [3]</p>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>public procedure new(self, playerID)
+  self.playerName = playerID
+  self.boardPosition = 1
+  self.healthPoints = 10
+  self.goldCoins = 0
+endprocedure</pre></td><td><pre>class Player:
+    def __init__(self, playerID):
+        self.playerName = playerID
+        self.boardPosition = 1
+        self.healthPoints = 10
+        self.goldCoins = 0</pre></td></tr></table></div>
+    </div>
+
+
+
+    <div class="rev-card qa-card">
+<table>
+<tr>
+<td class="content">
+<p class="intro">
+        A class, <strong>Monster</strong>, defines the attributes and methods for the monsters that are generated for
+        players to fight against.
+      </p>
+<p class="intro">
+        Fig. 1.3 shows a class diagram for Monster.
+      </p>
+<!-- Class Diagram -->
+<table class="class-diagram">
+<tr>
+<th class="class-title">Monster</th>
+</tr>
+<tr>
+<td class="attributes">
+            type: STRING<br/>
+            imageLink: STRING<br/>
+            boardPosition: INTEGER<br/>
+            healthPoints: INTEGER<br/>
+            goldCoins: INTEGER
+          </td>
+</tr>
+<tr>
+<td class="methods">
+            constructor()<br/>
+            getHealthPoints()<br/>
+            setHealthPoints(amount)<br/>
+            getGoldCoins()
+          </td>
+</tr>
+</table>
+<p class="explanation">
+        The constructor takes the required data as parameters. It then sets
+        <strong>healthPoints</strong> to a <strong>random number between 1 and 5</strong>
+        and <strong>goldCoins</strong> to the value of <strong>healthPoints multiplied by ten</strong>.
+      </p>
+</td>
+</tr>
+</table>
+<div class="question-context">
+<p>(b) Write, using pseudocode, the constructor method for the Monster class. [4]</p>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>public procedure new(self, monsterType, monsterImageLink)
+  self.type = monsterType
+  self.imageLink = monsterImageLink
+  self.healthPoints = random(1, 5)
+  self.goldCoins = healthPoints * 10
+endprocedure</pre></td><td><pre>import random
+
+class Monster:
+    def __init__(self, monsterType, monsterImageLink):
+        self.type = monsterType
+        self.imageLink = monsterImageLink
+        self.healthPoints = random.randint(1, 5)
+        self.goldCoins = self.healthPoints * 10</pre></td></tr></table></div>
+</div>
+<div class="rev-card qa-card">
+<p>(c) Write, using pseudocode, the code to create an instance of Monster for an Orc. The image is saved as <code>orc.bmp</code>. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>orc1 = new Monster("Orc", "orc.bmp")</pre></td><td><pre>orc1 = Monster("Orc", "orc.bmp")</pre></td></tr></table></div>
+</div>
+<div class="rev-card qa-card">
+<p>(d) The board is stored as a 1D array, <code>board</code>, of data type <code>Monster</code>.
+      Explain why this data type is suitable. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer">
+<ul>
+<li>Squares need to hold instances of the <code>Monster</code> class when monsters are generated</li>
+<li>No other information needs to be stored in the board squares</li>
+</ul>
+</div>
+</div>
+<div class="rev-card qa-card">
+<p>(e) Complete, using pseudocode, the function that is called to generate monsters. [4]</p>
+<pre>
+function generateMonster()
+  array monsterTypes = [
+    ["Orc", "orc.bmp"],
+    ["Goblin", "goblin.bmp"],
+    ["Skeleton", "skeleton.bmp"],
+    ["Vampire", "vampire.bmp"]
+  ]
+  randomType = ___________________
+  newMonster = new Monster(__________________________,__________________________)
+    monsterTypes[randomType, 0],
+    monsterTypes[randomType, 1]
+  )
+  ____________ _______________
+endfunction
+    </pre>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer">
+   <pre>function generateMonster()
+  array monsterTypes = [
+    ["Orc", "orc.bmp"],
+    ["Goblin", "goblin.bmp"],
+    ["Skeleton", "skeleton.bmp"],
+    ["Vampire", "vampire.bmp"]
+  ]
+  randomType = random(0, 3)
+  newMonster = new Monster(
+    monsterTypes[randomType, 0],
+    monsterTypes[randomType, 1]
+  )
+  return newMonster
+endfunction</pre></div>
+</div>
+
+
+<div class="rev-card qa-card">
+<table class="treasurecard-spec">
+<tr>
+<td class="content">
+<p class="intro">
+        The Treasure Card deck is stored as a zero-indexed 1D array, named <u>deck</u>, of type <u>TreasureCard</u>.
+      </p>
+<p class="intro">
+        Fig. 1.4 shows a class diagram for <u>TreasureCard</u>.
+      </p>
+<!-- Class Diagram -->
+<table class="class-diagram">
+<tr>
+<th class="class-title">TreasureCard</th>
+</tr>
+<tr>
+<td class="attributes">
+            textToDisplay: STRING<br/>
+            goldCoins: INTEGER
+          </td>
+</tr>
+<tr>
+<td class="methods">
+            constructor()<br/>
+            getTextToDisplay()<br/>
+            getGoldCoins()
+          </td>
+</tr>
+</table>
+<p class="explanation">
+        The array, <strong>deck</strong>, is treated as a <strong>queue</strong>, with a variable,
+        <strong>topPointer</strong>, identifying the first card in the deck. When a card has been used,
+        the <strong>head pointer</strong> increases to move to the next position. If the end of the deck is reached,
+        the procedure <strong>shuffleDeck</strong> is called to shuffle the cards in the deck before resetting the
+        <strong>top pointer</strong> to 0.
+      </p>
+<p class="intro">
+        The procedure <u>pickCard</u>:
+      </p>
+<ul class="bullet-points">
+<li>Takes the <strong>current player</strong> as a parameter</li>
+<li>Outputs the text to be displayed from the first card in the queue</li>
+<li>Adds or subtracts the correct amount to/from the current player’s gold coins</li>
+<li>Increases the top pointer</li>
+</ul>
+</td>
+</tr>
+</table>
+<div class="question-context">
+<p>(f) Write, using pseudocode, the procedure <code>pickCard</code>. [7]</p>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>procedure pickCard(currentPlayer)
+  output(deck[topPointer].getTextToDisplay())
+  amount = deck[topPointer].getGoldCoins()
+  currentPlayer.setGoldCoins(currentPlayer.getGoldCoins() + amount)
+  topPointer = topPointer + 1
+  if topPointer == 50 then
+    shuffleDeck()
+    topPointer = 0
+  endif
+endprocedure</pre></td><td><pre>def pickCard(currentPlayer):
+    global topPointer, deck
+    print(deck[topPointer].getTextToDisplay())
+    amount = deck[topPointer].getGoldCoins()
+    currentPlayer.setGoldCoins(currentPlayer.getGoldCoins() + amount)
+
+    topPointer += 1
+    if topPointer == 50:
+        shuffleDeck()
+        topPointer = 0</pre></td></tr></table></div>
+</div>
+<div class="rev-card qa-card">
+<p>(g) Write, using pseudocode, the procedure <code>shuffleDeck</code>. [4]</p>
+<div class="question-context">
+<p>
+      The procedure <code>shuffleDeck</code> randomly swaps two cards at a time.
+      The process is repeated <strong>100</strong> times.
+    </p>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>procedure shuffleDeck()
+  for i = 1 to 100
+    firstCard = random(0, 49)
+    secondCard = random(0, 49)
+    temp = deck[firstCard]
+    deck[firstCard] = deck[secondCard]
+    deck[secondCard] = temp
+  next i
+endprocedure</pre></td><td><pre>import random
+
+def shuffleDeck():
+    global deck
+    for _ in range(100):
+        firstCard = random.randint(0, 49)
+        secondCard = random.randint(0, 49)
+        deck[firstCard], deck[secondCard] = deck[secondCard], deck[firstCard]</pre></td></tr></table></div>
+</div>
+<div class="rev-card qa-card">
+<p>(h) Write, using pseudocode, the procedure <code>fight</code>. [10]</p>
+<div class="question-context">
+<p><strong>The procedure <code>fight</code> must:</strong></p>
+<ul>
+<li>Take the current player as a parameter</li>
+<li>Access the monster at the player’s position</li>
+<li>If no monster is present, inform the player and award 10 gold coins</li>
+<li>While both have health points, roll dice and deduct health accordingly</li>
+<li>If the player is defeated, restore health to 5 and move to square 1</li>
+<li>If the monster is defeated, award gold coins</li>
+</ul>
+</div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle">Show answer</button>
+<div class="answer"><table class="code-compare"><tr><th>Pseudocode</th><th>Python</th></tr><tr><td><pre>procedure fight(currentPlayer)
+
+    position = currentPlayer.getPosition()
+
+    if board[position] == Null/none then
+        output("You explore the area finding 10 gold coins")
+        currentPlayer.setGoldCoins(
+            currentPlayer.getGoldCoins() + 10
+        )
+
+    else
+        while currentPlayer.getHealthPoints() &gt; 0
+          and board[position].getHealthPoints() &gt; 0
+
+            playerDice = random(1, 6)
+            monsterDice = random(1, 6)
+
+            if playerDice &gt; monsterDice then
+                board[position].setHealthPoints(
+                    board[position].getHealthPoints() - 1
+                )
+
+            elseif monsterDice &gt; playerDice then
+                currentPlayer.setHealthPoints(
+                    currentPlayer.getHealthPoints() - 1
+                )
+            endif
+        endwhile
+
+        if board[position].getHealthPoints() == 0 then
+            currentPlayer.setGoldCoins(
+                currentPlayer.getGoldCoins() +
+                board[position].getGoldCoins()
+            )
+        else
+            currentPlayer.setHealthPoints(5)
+            currentPlayer.setPosition(1)
+        endif
+    endif
+
+endProcedure</pre></td><td><pre>import random
+
+def fight(currentPlayer):
+    position = currentPlayer.getPosition()
+
+    if board[position] is None:
+        print("You explore the area finding 10 gold coins")
+        currentPlayer.setGoldCoins(currentPlayer.getGoldCoins() + 10)
+    else:
+        while (currentPlayer.getHealthPoints() &gt; 0 and
+               board[position].getHealthPoints() &gt; 0):
+
+            playerDice = random.randint(1, 6)
+            monsterDice = random.randint(1, 6)
+
+            if playerDice &gt; monsterDice:
+                board[position].setHealthPoints(
+                    board[position].getHealthPoints() - 1
+                )
+            elif monsterDice &gt; playerDice:
+                currentPlayer.setHealthPoints(
+                    currentPlayer.getHealthPoints() - 1
+                )
+
+        if board[position].getHealthPoints() == 0:
+            currentPlayer.setGoldCoins(
+                currentPlayer.getGoldCoins() + board[position].getGoldCoins()
+            )
+        else:
+            currentPlayer.setHealthPoints(5)
+            currentPlayer.setPosition(1)</pre></td></tr></table></div>
+</div>
+
+      <!-- Question 2(a) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>6(a)</strong> A game is being written that makes use of object-oriented programming.
+      A prototype for one part of the game is being designed that includes a character,
+      a road and a prize to collect.
+      <br><br>
+      The road will have 50 spaces that a character can move along.
+      Each space on the road will store a null value or a prize object for the user
+      to collect.
+      <br><br>
+      Each space is numbered sequentially from the first space (position 0) to the
+      last space (position 49) and will not change during the game.
+      <br><br>
+      The road is designed to be a 1-dimensional array with the identifier <code>road</code>.
+      <br><br>
+      Explain why an array is a suitable data structure to represent the road.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>
+        • Has a set/fixed number of values<br>
+        • …and the number of spaces in the road will not change<br>
+        • Stores data of one type<br>
+        • …as the array is only made up of prize objects<br>
+        • Stores data linearly<br>
+        • …match the linear nature of the road<br>
+        • Array contents are mutable<br>
+        • …so prizes can be added/removed from the road<br>
+        • A single identifier is used to directly index<br>
+        • …any position in the road<br>
+        • Can be iterated by index<br>
+        • …to perform an operation on all road positions
+      </p>
+    </div>
+  </div>
+
+  <!-- Question 2(b)(i) -->
+  <div class="rev-card qa-card">
+
+      <p>6(b) The characters and prizes are designed as separate classes. 10 of the spaces on the road will contain an
+instance of the class Prize. The other spaces will be empty.
+The class design for Prize is here.</p>
+
+      <table class="class-diagram">
+  <tr>
+    <th colspan="2">Class: Prize</th>
+  </tr>
+
+  <tr>
+    <th colspan="2">Attributes</th>
+  </tr>
+  <tr>
+    <td>− name</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>− type</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>− value</td>
+    <td>integer</td>
+  </tr>
+
+  <tr>
+    <th colspan="2">Methods</th>
+  </tr>
+  <tr>
+    <td colspan="2">+ new()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getName()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getType()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getValue()</td>
+  </tr>
+</table>
+
+      <p>new() is the constructor method. The name, type and value are passed to the constructor as parameters which
+then assigns these to the attributes.</p>
+
+    <p>
+      <strong>6(b)(i)</strong> The method <code>getName()</code> returns the data in the attribute
+      <code>name</code>.
+      <br><br>
+      Write the method <code>getName()</code> using pseudocode or program code.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <pre><code>
+public function getName()
+  return name
+endfunction
+      </code></pre>
+    </div>
+  </div>
+
+  <!-- Question 2(b)(ii) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>6(b)(ii)</strong> A global 1-dimensional array, <code>allPrizes</code>,
+      stores 10 objects of type <code>Prize</code>.
+      <br><br>
+      The prize in index 3 has the name "Box", the type is "money"
+      and the value is 25.
+      <br><br>
+      Write pseudocode or program code to create a new object for this prize and
+      store it in index 3 of <code>allPrizes</code>.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <pre><code>
+allPrizes[3] = new Prize("Box", "money", 25)
+      </code></pre>
+    </div>
+  </div>
+
+</div>
+
+<div class="rev-card qa-card">
+    <p>
+      <strong>iii.</strong> The game starts with 10 prizes. Each prize is allocated to one space on the road.
+      <br><br>
+      An algorithm needs designing that will generate a random space on the road for each prize.
+      Each road space can only store one prize.
+      <br><br>
+      Describe the decisions that will need to be made in this algorithm and how these will affect the program flow.
+      <br><br>
+      <strong>[3]</strong>
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <p>
+        • Decision - check whether the space already has a prize allocated …<br>
+        • Action if true - another space/number will need to be generated<br>
+        • Action if false - the prize will be stored here<br>
+        <br>
+        • Decision - check if all 10 prizes have been allocated …<br>
+        • Action if true - the algorithm needs to stop generating numbers<br>
+        • Action if false - a new number/space needs to be generated and checked
+      </p>
+
+      <p>
+        Give:<br>
+        • 1 mark for stating a decision<br>
+        • 1 mark for the action required if true<br>
+        • 1 mark for the action required if false
+      </p>
+    </div>
+  </div>
+
+<div class="rev-card qa-card">
+    <p>
+      <strong>6(c)</strong> The class design for <code>Character</code> is here.
+    </p>
+
+
+  <!-- CLASS DIAGRAM: Character -->
+  <div class="knowledge-card">
+    <table class="class-diagram">
+  <tr>
+    <th colspan="2">Class: Character</th>
+  </tr>
+
+  <tr>
+    <th colspan="2">Attributes</th>
+  </tr>
+  <tr>
+    <td>− name</td>
+    <td>string</td>
+  </tr>
+  <tr>
+    <td>− money</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>− experience</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>− roadPosition</td>
+    <td>integer</td>
+  </tr>
+
+  <tr>
+    <th colspan="2">Methods</th>
+  </tr>
+  <tr>
+    <td colspan="2">+ new()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getName()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getMoney()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getExperience()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ getRoadPosition()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ changePosition()</td>
+  </tr>
+  <tr>
+    <td colspan="2">+ updateValues()</td>
+  </tr>
+</table>
+  </div>
+
+    <p>
+      The four get methods return the associated attribute.
+    </p>
+
+    <p>
+      The number of moves is passed to <code>changePosition()</code> as a parameter.
+      The method adds this value to the character’s position on the road.
+    </p>
+
+    <p>
+      The type and value of an object are passed to <code>updateValues()</code> as parameters.
+      If the object is money the value is added to the character’s money.
+      If the type is experience the value is added to experience.
+      If the type is neither money or experience no changes are made.
+    </p>
+
+    <p>
+      <strong>i.</strong> <code>new()</code> is the constructor method.
+      The name of the character is passed into the constructor as a parameter.
+      The constructor then initialises both the experience and road position of the
+      character to 0 and initialises the amount of money to 5.
+    </p>
+
+    <p>
+      Write the constructor method for <code>Character</code> using either pseudocode
+      or program code.
+    </p>
+
+    <p>
+      You do not need to declare the class, the attributes or any other methods.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+
+    <div class="answer">
+
+         <div class="answer-block">
+    <p><strong>1 mark each</strong></p>
+    <p><strong>5</strong></p>
+
+    <p>• Constructor header (any suitable name e.g. new, constructor, create, init)</p>
+    <p>• …taking one parameter only</p>
+    <p>• Initialising name to the parameter</p>
+    <p>• Initialising money to 5</p>
+    <p>• Initialising experience to 0 and roadPosition to 0</p>
+
+    <p><strong>e.g.</strong></p>
+
+    <p><strong>Pseudocode example:</strong></p>
+    <pre><code>
+public procedure new(pName)
+  name = pName
+  experience = 0
+  roadPosition = 0
+  money = 5
+endprocedure
+    </code></pre>
+
+    <p><strong>Python Example:</strong></p>
+    <pre><code>
+def __init__(self, pName):
+  self.__name = pName
+  self.__experience = 0
+  self.__roadPosition = 0
+  self.__money = 5
+    </code></pre>
+
+    <p><strong>C# Example:</strong></p>
+    <pre><code>
+public Character(string pName) {
+  string name = pName;
+  int experience = 0;
+  int roadPosition = 0;
+  int money = 5;
+}
+    </code></pre>
+  </div>
+
+  <div class="answer-block">
+    <p><strong>Allow minor changes to identifiers as long as purpose is clear.</strong></p>
+
+    <p><strong>Allow</strong></p>
+    <pre><code>
+procedure new(pName)
+  this.name = pName
+  ...
+(or similar e.g. self.name)
+    </code></pre>
+
+    <p>
+      Allow two parameters if one is <em>self</em> and the response is clearly in Python.
+    </p>
+
+    <p>
+      The parameter name should be different to the attribute name.
+    </p>
+  </div>
+
+  <div class="answer-block">
+    <p><strong>Examiner’s Comments</strong></p>
+
+    <p>
+      It was clear that those candidates with limited OOP programming knowledge
+      found the writing of a relatively simple constructor method difficult.
+      Those with relevant programming experience often found this to be a very
+      straightforward question.
+    </p>
+
+    <p>
+      Common errors included passing additional values to set the experience,
+      roadPosition and money attributes rather than setting them to the constant
+      values indicated in the question.
+    </p>
+  </div>
+
+
+    </div>
+  </div>
+
+<div class="rev-card qa-card">
+    <p>
+      <strong>ii.</strong> The type and value of a prize are passed as parameters to the method
+      <code>updateValues</code>.
+      If the type is money the value is added to the character’s money.
+      If the type is experience then the value is added to the experience.
+      If the type is neither money or experience no changes are made.
+      <br><br>
+      For example, for the Character <code>player1</code>:
+      <br><br>
+      <code>player1.updateValues("money", 10)</code> updates player1’s money by 10
+      <br><br>
+      <code>player1.updateValues("experience", 5)</code> updates player1’s experience by 5
+      <br><br>
+      <code>player1.updateValues("foo", 9)</code> has no effect on player1.
+      <br><br>
+      Write pseudocode or program code for the method <code>updateValues()</code>.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <pre><code>
+public procedure updateValues(pType, pValue)
+  if pType == "money" then
+    money = money + pValue
+  elseif pType == "experience" then
+    experience = experience + pValue
+  endif
+endprocedure
+      </code></pre>
+
+      <pre><code>
+def updateValues(self, pType, pValue):
+  if pType == "money":
+    money += pValue
+  elif pType == "experience":
+    experience += pValue
+      </code></pre>
+    </div>
+  </div>
+
+<div class="rev-card qa-card">
+    <p>
+      <strong>(d)</strong> This incomplete pseudocode algorithm:
+      <br><br>
+      • creates a new character with the name Jamal<br>
+      • loops until the character reaches the end of the road<br>
+      • generates a random number of spaces to move between 1 and 4 (including 1 and 4)<br>
+      • moves the character and checks if the new space has a prize<br>
+      • updates the character attributes if there is a prize<br>
+      • outputs the character’s new attribute values.
+      <br><br>
+      Complete the pseudocode algorithm.
+    </p>
+
+    <pre><code>
+character1 = new ........................................ ("Jamal")
+newPosition = 0
+
+while newPosition < ....................................
+  move = random(1, 4)  //this will generate a random number between 1 and 4
+  character1.changePosition(move)
+  newPosition = character1.getRoadPosition()
+  if newPosition < 50 and road[....................................] != null then
+    prizeType = road[newPosition].getType()
+    valueAmount = road[newPosition].getValue()
+    character1.updateValues(............................, valueAmount)
+    print("Congratulations you are in position", newPosition, "and found",
+          road[newPosition].getName())
+    print("Money =", character1.getMoney(), "and experience =",
+          character1. ............................ () )
+  endif
+  ............................
+print("You reached the end of the road")
+    </code></pre>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <pre><code>
+character1 = new Character("Jamal")
+newPosition = 0
+
+while newPosition < 50
+  move = random(1, 4)
+  character1.changePosition(move)
+  newPosition = character1.getRoadPosition()
+  if newPosition < 50 and road[newPosition] != null then
+    prizeType = road[newPosition].getType()
+    valueAmount = road[newPosition].getValue()
+    character1.updateValues(prizeType, valueAmount)
+    print("Congratulations you are in position", newPosition, "and found",
+          road[newPosition].getName())
+    print("Money =", character1.getMoney(), "and experience =",
+          character1.getExperience())
+  endif
+endwhile
+
+print("You reached the end of the road")
+      </code></pre>
+    </div>
+  </div>
+
+<div class="rev-card qa-card">
+
+
+    <p>
+      <strong>(e)</strong> The procedure <code>displayRoad()</code> outputs the contents of each space
+      in the road. The number of each space is output with either:
+    </p>
+
+    <p>• the word “empty” if there is no prize</p>
+    <p>• the name of the prize if there is a prize.</p>
+
+    <pre><code>
+01 procedure displayRoad()
+02  for x = 0 to 60
+03      print("Space", y)
+04      if road[x] == null then
+05          print("empty")
+06      elseif
+07          print(road[x].getValue())
+08      endif
+09  next x
+10 endprocedure
+    </code></pre>
+
+    <p>The algorithm contains errors.</p>
+
+    <p>
+      Give the line number of four different errors and write the corrected line
+      for each error.
+    </p>
+
+    <p><strong>Error 1</strong></p>
+    <p>Error line 1 ____________________________________________</p>
+    <p>Correction ____________________________________________</p>
+
+    <p><strong>Error 2</strong></p>
+    <p>Error line 2 ____________________________________________</p>
+    <p>Correction ____________________________________________</p>
+
+    <p><strong>Error 3</strong></p>
+    <p>Error line 3 ____________________________________________</p>
+    <p>Correction ____________________________________________</p>
+
+    <p><strong>Error 4</strong></p>
+    <p>Error line 4 ____________________________________________</p>
+    <p>Correction ____________________________________________</p>
+
+    <p><strong>[4]</strong></p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+    <p><strong>1 mark each</strong></p>
+    <p><strong>4</strong></p>
+
+    <p>• (Line 02) for x = 0 to 49</p>
+    <p>• (Line 03) print("Space", x)</p>
+    <p>• (Line 06) else // elseif</p>
+    <p>&nbsp;&nbsp;road[x] &lt;&gt; null</p>
+    <p>• (Line 07) print(road[x].getName())</p>
+
+    <p>Line 07 allow <code>print(road[x].name)</code></p>
+
+    <p><strong>Examiner’s Comments</strong></p>
+
+    <p>
+      Many candidates scored three or four marks but in general candidates found it
+      harder to identify errors in the code than to complete code in the previous
+      question.
+    </p>
+
+    <p>
+      Some candidates didn’t give the line number but rewrote the incorrect line
+      before giving the corrected line, which was acceptable, although not ideal
+      given the scaffolding.
+    </p>
+  </div>
+
+</div>
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(f)</strong> A programmer is going to create a prototype for one small part of the game.
+    Both <code>road</code> and <code>allPrizes</code> will be needed throughout the whole prototype.
+    The programmer is considering making these global arrays as she thinks it will reduce the
+    development time. Another programmer has suggested that doing this may create some problems
+    when the rest of the game is created at a later stage.
+    <br><br>
+    Compare the use of global and local variables in this program.
+    <br><br>
+    You should include the following in your answer:
+    <br><br>
+    • the use of local and global variables<br>
+    • alternative methods to using global variables<br>
+    • the appropriateness of each to this program design.
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>AO1: Knowledge and Understanding<br>Indicative content</strong></p>
+
+    <p>• Global variables are created when the program starts, all subroutines can access/update the contents</p>
+    <p>• Local variables are created in the subroutine they are created in, they are not accessible directly from any other subroutine</p>
+    <p>• Local variables are removed from memory when the subroutine ends.</p>
+    <p>• Local variables can be passed as parameters to a function to be updated, and then returned to override the original local variable</p>
+    <p>• Local variables can be passed by reference to a subroutine to allow the content of the variable to be updated</p>
+
+    <p><strong>AO2: Application</strong></p>
+
+    <p>• The variables will be stored in memory throughout the whole code execution. However, the amount of data they are storing is relatively low so would not use a lot of memory.</p>
+    <p>• When the game is expanded, the amount of data may increase so it could be memory intensive, especially if graphics are used in the game.</p>
+    <p>• Both arrays are needed throughout the whole game so keeping them as global will make writing the code easier as the programmer will not need to keep passing them as parameters and setting return values.</p>
+    <p>• Only one part of the game is being created initially and therefore the use of global variables would not affect the efficiency greatly. However, when the program expands, it could cause accuracy / testing / debugging and maintenance problems.</p>
+
+    <p><strong>AO3: Evaluation</strong></p>
+
+    <p>• As this is only a prototype, the use of global variables would be beneficial.</p>
+    <p>• However, when the game expands, the use of global variables could create issues such as running out of memory, coupling, testing &amp; debugging problems and maintenance problems.</p>
+    <p>• The programmer may be best to keep the variables as local and then pass them between the different subroutines as parameters byVal and byRef.</p>
+
+    <p><strong>Examiner’s Comments</strong></p>
+
+    <p>
+      Most responses were Level 2 for definitions and some expansion to passing parameters.
+      Very few candidates were able to go into depth about alternatives to global variables
+      such as passing by value and passing by reference in detail or extending to issues such
+      as scalability within a larger more extended game. Few candidates picked up on the fact
+      that this was a more limited prototype that was likely to be expanded on which would
+      require more consideration to be given to variable scope.
+    </p>
+  </div>
+</div>
+
+    <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+ </main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programming</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+   <h1>Programming – Knowledge Check</h1>
+<p>
+    Write your answers in the boxes provided.</p>
+   <p> Click <strong>Show answer</strong> to reveal model answers.
+  </p>
+</header>
+
+<main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
+
+ <div class="vertical-knowledge">
+
+  <h2> Knowledge Check</h2>
+
+  <div class="rev-card qa-card">
+    <h3>1(i). Question</h3>
+
+    <div class="question">
+      <p>Give the name of the parameter in the function <code>enqueue</code>. [1]</p>
+
+      <pre class="code-block"><code>01 function enqueue(item)
+02   if tailPointer &gt;= queue.length then
+03     return false
+04   else
+05     queue[tailPointer] = item
+06     tailPointer = tailPointer + 1
+07     return true
+08   endif
+09 endfunction</code></pre>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Answer:</strong> <code>item</code></p>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>1(ii). Question</h3>
+
+    <div class="question">
+      <p>Give the name of one global variable that is used in the function <code>enqueue</code>. [1]</p>
+
+      <pre class="code-block"><code>01 function enqueue(item)
+02   if tailPointer &gt;= queue.length then
+03     return false
+04   else
+05     queue[tailPointer] = item
+06     tailPointer = tailPointer + 1
+07     return true
+08   endif
+09 endfunction</code></pre>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Answer (one example):</strong> <code>tailPointer</code></p>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>1(iii). Question</h3>
+
+    <div class="question">
+      <p>
+        Describe one benefit and one drawback of using global variables instead of parameter passing in a subroutine.
+        <br />Benefit / Drawback [4]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Benefit (example):</strong> Simpler to program because values do not need to be passed/renamed/moved between subroutines.</p>
+      <p><strong>Drawback (example):</strong> Makes testing/debugging harder (hard to test an individual block), and changing a global can impact other modules / reduce data integrity.</p>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>1(iv). Question</h3>
+
+    <div class="question">
+      <p>
+        The function <code>enqueue</code> can be called by the main program.
+        Explain why the function <code>enqueue</code> returns <code>true</code> or <code>false</code> values, and how this can be used by the main program that calls the function. [3]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Answer (mark-scheme style):</strong></p>
+      <ul>
+        <li><code>false</code> is returned if the queue is full, so the main program will not attempt to add another item (and can output an error/message).</li>
+        <li><code>true</code> is returned if the item is successfully added, so the main program knows the enqueue succeeded (and can continue / try adding more / confirm success).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>1(v). Question</h3>
+
+    <div class="question">
+      <p>
+        The pseudocode function, <code>dequeue</code>, removes and returns the first item in the queue.
+        If the queue is empty, the function returns the string <code>"EMPTY"</code>.
+      </p>
+
+      <pre class="code-block"><code>01 function dequeue(data)
+02   if headPointer != tailPointer then
+03     return "EMPTY"
+04   elseif
+05     value = queue[headPointer]
+06     return value
+07     headPointer = headPointer + 1
+08   endif
+09 endfunction</code></pre>
+
+      <p>
+        The function <code>dequeue</code> has several errors.
+        Identify the line number of any three errors and state the correction required. [3]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Any three valid error+fix pairs (examples):</strong></p>
+      <ul>
+        <li><strong>Line 01:</strong> No need to pass in a parameter → remove <code>(data)</code>.</li>
+        <li><strong>Line 02:</strong> Condition is wrong → should be <code>if headPointer == tailPointer then</code> (empty check).</li>
+        <li><strong>Line 04:</strong> <code>elseif</code> has no condition → replace with <code>else</code>.</li>
+        <li><strong>Lines 06–07:</strong> Increment happens after return → swap order so <code>headPointer = headPointer + 1</code> happens before returning, or move the return after increment as appropriate.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>1(vi). Question</h3>
+
+    <div class="question">
+      <p>
+        The programmer has corrected all of the errors in the function <code>dequeue</code>.
+        The main program repeatedly calls the function <code>dequeue</code> until all of the elements in the queue have been output.
+        Write the main program using pseudocode or program code. [3]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>elementsLeft = true
+while elementsLeft == true
+  value = dequeue()
+  if not(value = "EMPTY") then
+    print(value)
+  else
+    elementsLeft = false
+  endif
+endwhile</code></pre>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>2(a). Question</h3>
+
+    <div class="question">
+      <p>
+        The road is designed to be a one-dimensional array with the identifier
+        <code>road</code>. Explain why an array is a suitable data structure to represent
+        the road. [3]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>The road has a fixed size / known number of spaces.</li>
+        <li>The road is linear, which maps naturally to a one-dimensional array.</li>
+        <li>Each position can be accessed directly using an index (e.g. <code>road[x]</code>).</li>
+        <li>The array can be iterated to process each space on the road.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2(b)(i) -->
+  <div class="rev-card qa-card">
+    <h3>2(b)(i). Question</h3>
+
+    <div class="question">
+      <p>
+        The method <code>getName()</code> returns the data in the attribute <code>name</code>.
+        Write the method <code>getName()</code> using pseudocode or program code. [2]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>public function getName()
+  return name
+endfunction</code></pre>
+    </div>
+  </div>
+
+  <!-- 2(b)(ii) -->
+  <div class="rev-card qa-card">
+    <h3>2(b)(ii). Question</h3>
+
+    <div class="question">
+      <p>
+        The global array <code>allPrizes</code> stores ten objects of type <code>Prize</code>.
+        The prize stored in index 3 has the name <code>"Box"</code>, the type
+        <code>"money"</code> and a value of <code>25</code>.
+        Write the code to create the object and store it in <code>allPrizes[3]</code>. [2]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>allPrizes[3] = new Prize("Box", "money", 25)</code></pre>
+    </div>
+  </div>
+
+  <!-- 2(b)(iii) -->
+  <div class="rev-card qa-card">
+    <h3>2(b)(iii). Question</h3>
+
+    <div class="question">
+      <p>
+        An algorithm will generate a random space on the road for each prize.
+        Each road space can only store one prize.
+        Describe the decisions that must be made and explain how they affect
+        the program flow. [4]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Check whether the randomly selected road space already contains a prize.</li>
+        <li>If it is occupied, generate another random number (loop repeats).</li>
+        <li>If it is empty, place the prize in that road space.</li>
+        <li>Check whether all prizes have been placed; if not, continue looping.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2(c)(i) -->
+  <div class="rev-card qa-card">
+    <h3>2(c)(i). Question</h3>
+
+    <div class="question">
+      <p>
+        <code>new()</code> is the constructor for the class <code>Character</code>.
+        The name is passed in as a parameter.
+        The constructor sets <code>experience</code> and <code>roadPosition</code> to <code>0</code>
+        and sets <code>money</code> to <code>5</code>.
+        Write the constructor method. [4]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>public procedure new(pName)
+  name = pName
+  experience = 0
+  roadPosition = 0
+  money = 5
+endprocedure</code></pre>
+    </div>
+  </div>
+
+  <!-- 2(c)(ii) -->
+  <div class="rev-card qa-card">
+    <h3>2(c)(ii). Question</h3>
+
+    <div class="question">
+      <p>
+        Write the method <code>updateValues(type, value)</code>.
+        If <code>type</code> is <code>"money"</code>, add <code>value</code> to <code>money</code>.
+        If <code>type</code> is <code>"experience"</code>, add <code>value</code> to <code>experience</code>.
+        Otherwise, do nothing. [4]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>public procedure updateValues(pType, pValue)
+  if pType == "money" then
+    money = money + pValue
+  elseif pType == "experience" then
+    experience = experience + pValue
+  endif
+endprocedure</code></pre>
+    </div>
+  </div>
+
+  <!-- 2(d) -->
+  <div class="rev-card qa-card">
+    <h3>2(d). Question</h3>
+
+    <div class="question">
+      <p>
+        Complete the pseudocode for the main program. The program must:
+      </p>
+      <ul>
+        <li>create a character called <code>Jamal</code></li>
+        <li>move the character 1–4 spaces at random</li>
+        <li>check if a prize is found</li>
+        <li>update the character values</li>
+        <li>output the current values</li>
+        <li>stop when the end of the road is reached</li>
+      </ul>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>character1 = new Character("Jamal")
+newPosition = 0
+
+while newPosition &lt; 50
+  move = random(1, 4)
+  character1.changePosition(move)
+  newPosition = character1.getRoadPosition()
+
+  if newPosition &lt; 50 and road[newPosition] != null then
+    prizeType = road[newPosition].getType()
+    prizeValue = road[newPosition].getValue()
+    character1.updateValues(prizeType, prizeValue)
+
+    print("Money =", character1.getMoney())
+    print("Experience =", character1.getExperience())
+  endif
+endwhile</code></pre>
+    </div>
+  </div>
+
+  <!-- 2(e) -->
+  <div class="rev-card qa-card">
+    <h3>2(e). Question</h3>
+
+    <div class="question">
+      <p>
+        The procedure <code>displayRoad()</code> contains several errors.
+        Identify the line number of <strong>four</strong> different errors and
+        state the correction required. [4]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li><strong>Line 02:</strong> Loop bounds incorrect → <code>for x = 0 to 49</code>.</li>
+        <li><strong>Line 03:</strong> Incorrect output syntax → <code>print("Space ", x)</code>.</li>
+        <li><strong>Line 06:</strong> Invalid <code>elseif</code> → replace with <code>else</code>.</li>
+        <li><strong>Line 07:</strong> Incorrect method call → <code>road[x].getName()</code>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2(f) -->
+  <div class="rev-card qa-card">
+    <h3>2(f). Question</h3>
+
+    <div class="question">
+      <p>
+        Compare the use of global and local variables in this program.
+        You should refer to:
+      </p>
+      <ul>
+        <li>the use of local variables</li>
+        <li>the use of global variables</li>
+        <li>alternatives to using global variables</li>
+        <li>why global variables may or may not be appropriate</li>
+      </ul>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>Global variables are accessible throughout the program and remain in memory.</li>
+        <li>Local variables only exist within their scope and improve modularity.</li>
+        <li>Passing variables as parameters (by value or by reference) avoids globals.</li>
+        <li>Globals may be acceptable for small programs but reduce maintainability.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3(a) -->
+  <div class="rev-card qa-card">
+    <h3>3(a). Question</h3>
+
+    <div class="question">
+      <p>A student has written this pseudocode algorithm:</p>
+
+      <pre class="code-block"><code>01 a = 12
+02 do
+03   b = input("Enter a number")
+04 until b &gt;= 0 and b &lt;= 100
+05 for c = 1 to a
+06   print(c * a)
+07 next c</code></pre>
+
+      <p>
+        Rewrite lines 05 to 07 to use a <strong>while</strong> loop instead of a <strong>for</strong> loop.
+        Write your answer using pseudocode or program code. [4]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>c = 1
+while c &lt;= a
+  print(c * a)
+  c = c + 1
+endwhile</code></pre>
+    </div>
+  </div>
+
+  <!-- 3(b)(i) -->
+  <div class="rev-card qa-card">
+    <h3>3(b)(i). Question</h3>
+
+    <div class="question">
+      <p>Describe what is meant by a <strong>variable</strong>. [2]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>A named memory/storage location.</li>
+        <li>Used to store/hold a value that can be changed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3(b)(ii) -->
+  <div class="rev-card qa-card">
+    <h3>3(b)(ii). Question</h3>
+
+    <div class="question">
+      <p>Give the identifiers of <strong>all</strong> the variables used in this program. [1]</p>
+
+      <pre class="code-block"><code>01 a = 12
+02 do
+03   b = input("Enter a number")
+04 until b &gt;= 0 and b &lt;= 100
+05 for c = 1 to a
+06   print(c * a)
+07 next c</code></pre>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Answer:</strong> <code>a</code>, <code>b</code>, <code>c</code></p>
+    </div>
+  </div>
+
+  <!-- 3(c) -->
+  <div class="rev-card qa-card">
+    <h3>3(c). Question</h3>
+
+    <div class="question">
+      <p>
+        The student has used a <code>do</code> loop on line 02.
+        Describe the difference between a <code>do</code> loop and a <code>while</code> loop. [2]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li><strong>While loop:</strong> checks the condition at the start (pre-condition), so it may run zero times.</li>
+        <li><strong>Do loop:</strong> checks the condition at the end (post-condition), so it runs at least once.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4(a) -->
+  <div class="rev-card qa-card">
+    <h3>4(a). Question</h3>
+
+    <div class="question">
+      <p>
+        A class, <code>Board</code>, stores a 10 row by 20 column grid.
+        The constructor initialises each space in the grid to a treasure object with value <code>-1</code>
+        and level as an empty string.
+      </p>
+
+      <p>Complete the pseudocode for the constructor method:</p>
+
+      <pre class="code-block"><code>public procedure new()
+for row = ............................. to 9
+  for column = 0 to .............................
+    ............................. [row, column] = new Treasure(.............................,"")
+  next .............................
+next row
+endprocedure</code></pre>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>public procedure new()
+  for row = 0 to 9
+    for column = 0 to 19
+      grid[row, column] = new Treasure(-1,"")
+    next column
+  next row
+endprocedure</code></pre>
+    </div>
+  </div>
+
+  <!-- 4(b) -->
+  <div class="rev-card qa-card">
+    <h3>4(b). Question</h3>
+
+    <div class="question">
+      <p>
+        Write the procedure <code>guessGrid()</code> that:
+      </p>
+      <ul>
+        <li>takes a <code>Board</code> object as a parameter</li>
+        <li>inputs row and column coordinates</li>
+        <li>outputs <strong>"No treasure"</strong> if the level is an empty string</li>
+        <li>otherwise outputs the treasure level and value</li>
+      </ul>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>procedure guessGrid(gameboard)
+  rCoord = input("Enter R coordinate")
+  cCoord = input("Enter C coordinate")
+  treasureItem = gameBoard.getGridItem(rCoord, cCoord)
+
+  if treasureItem.getLevel() = "" then
+    print("No treasure")
+  else
+    print("This treasure is level ",
+          treasureItem.getLevel(),
+          " with value ",
+          treasureItem.getValue())
+  endif
+endprocedure</code></pre>
+    </div>
+  </div>
+
+  <!-- 4(c) -->
+  <div class="rev-card qa-card">
+    <h3>4(c). Question</h3>
+
+    <div class="question">
+      <p>
+        The main program creates an instance of <code>Board</code>.
+        The programmer is considering declaring this as a global variable
+        or as a local variable and passing it into the subroutines.
+      </p>
+
+      <p>
+        Compare the use of variables and parameters in this game.
+        Include:
+      </p>
+      <ul>
+        <li>what is meant by a local variable and a global variable</li>
+        <li>how local and global variables can be used in this program</li>
+        <li>passing parameters by value and by reference</li>
+      </ul>
+      <p>[9]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li><strong>Local variable:</strong> can only be accessed within the subroutine/main program it is declared within.</li>
+        <li><strong>Global variable:</strong> can be accessed by all subprograms.</li>
+        <li><strong>Parameters:</strong> items passed to a subprogram.</li>
+        <li><strong>Pass by reference:</strong> sends a pointer/reference to the original value; changes persist when control returns.</li>
+        <li><strong>Pass by value:</strong> sends a copy; original is not changed when control returns.</li>
+        <li>If <code>board</code> is local, it must be passed to any subprograms that need to use it.</li>
+        <li>If <code>board</code> needs to be changed, pass by reference so updates persist.</li>
+        <li>If <code>board</code> only needs to be accessed, it can be passed by value.</li>
+        <li>Global uses memory throughout; but board may be needed throughout so may be as efficient as passing it around.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5(i) -->
+  <div class="rev-card qa-card">
+    <h3>5(i). Question</h3>
+
+    <div class="question">
+      <p>
+        Identify one identifier used in the function <code>isInteger()</code>. [1]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p>
+        Any one of:
+        <code>isInteger</code>, <code>number</code>, <code>result</code>, <code>count</code>, <code>asciiValue</code>.
+      </p>
+    </div>
+  </div>
+
+  <!-- 5(ii) -->
+  <div class="rev-card qa-card">
+    <h3>5(ii). Question</h3>
+
+    <div class="question">
+      <p>
+        State the output of the algorithm shown when the input is <code>5</code>. [1]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Answer:</strong> <code>5</code></p>
+    </div>
+  </div>
+
+  <!-- 5(iii) -->
+  <div class="rev-card qa-card">
+    <h3>5(iii). Question</h3>
+
+    <div class="question">
+      <p>
+        State the output of the algorithm shown when the input is <code>3</code>. [1]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Answer:</strong> <code>3</code></p>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>6. Question</h3>
+
+    <div class="question">
+      <p>
+        Describe the key features of a recursive algorithm. You may refer to the function
+        <code>recursiveAlgorithm(value)</code> in your answer. [3]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>The function calls itself (recursion).</li>
+        <li>Each recursive call creates a new copy of values and uses a stack of calls.</li>
+        <li>There is a base case / stopping condition that stops further recursive calls.</li>
+        <li>There may be more than one base case.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>7. Question</h3>
+
+    <div class="question">
+      <p>
+        Complete the table by identifying and describing <strong>three</strong>
+        features of an Integrated Development Environment (IDE) that help a programmer
+        to develop or debug a program. [6]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>
+          <strong>Breakpoints</strong> – allow the program to pause at a specific line
+          so variable values and program state can be inspected.
+        </li>
+        <li>
+          <strong>Step through / single stepping</strong> – executes the program one
+          line at a time to follow program flow and logic.
+        </li>
+        <li>
+          <strong>Variable watch window</strong> – shows current values of variables
+          while the program is running.
+        </li>
+        <li>
+          <strong>Syntax highlighting</strong> – colour-codes keywords, strings and
+          variables to help identify syntax errors.
+        </li>
+        <li>
+          <strong>Auto-complete</strong> – suggests or completes commands/identifiers,
+          reducing typing errors.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 8(i) -->
+  <div class="rev-card qa-card">
+    <h3>8(i). Question</h3>
+
+    <div class="question">
+      <p>State what is meant by a <strong>local variable</strong>. [1]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p>
+        A variable that can only be accessed within the subroutine/block
+        in which it is declared.
+      </p>
+    </div>
+  </div>
+
+  <!-- 8(ii) -->
+  <div class="rev-card qa-card">
+    <h3>8(ii). Question</h3>
+
+    <div class="question">
+      <p>
+        Give one benefit and one drawback of declaring <code>dataArray</code>
+        as a local variable in the main program. [2]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Benefit (one example):</strong></p>
+      <ul>
+        <li>Increases data integrity (other subroutines can’t directly alter it).</li>
+        <li>More efficient memory usage (exists only in its scope).</li>
+      </ul>
+
+      <p><strong>Drawback (one example):</strong></p>
+      <ul>
+        <li>Cannot be accessed directly by other subroutines.</li>
+        <li>Must be passed into a subroutine as a parameter.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>9. Question</h3>
+
+    <div class="question">
+      <p>
+        Describe the purpose of the following lines in the function
+        <code>isInteger()</code>. [3]
+      </p>
+      <ul>
+        <li>Line 03</li>
+        <li>Line 04</li>
+        <li>Line 09</li>
+      </ul>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li>
+          <strong>Line 03:</strong> Iterates through each character/digit in the input.
+        </li>
+        <li>
+          <strong>Line 04:</strong> Gets the ASCII value of the current character.
+        </li>
+        <li>
+          <strong>Line 09:</strong> Returns the Boolean result indicating whether
+          the input represents an integer.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <h3>10. Question</h3>
+
+    <div class="question">
+      <p>
+        Discuss the differences between writing and debugging a program using an IDE
+        and using a text editor with a separate compiler. [9]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li><strong>IDE:</strong> integrates editor, build/compile, run and debugging tools in one environment.</li>
+        <li><strong>IDE writing aids:</strong> syntax highlighting, pretty print/auto-indent, auto-complete, auto-correction.</li>
+        <li><strong>IDE debugging:</strong> breakpoints, stepping/trace, watch window, error diagnostics.</li>
+        <li><strong>Benefit of IDE:</strong> faster development and easier to find logical errors (step through to see variable changes).</li>
+        <li><strong>Text editor + compiler:</strong> fewer built-in aids; compile and debug using separate tools.</li>
+        <li><strong>Benefit of editor approach:</strong> simpler, lower memory/CPU footprint; may suit low-spec systems or quick edits.</li>
+        <li><strong>Evaluation:</strong> IDE reduces errors and speeds debugging; editor can be useful for learning or when resources are limited.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 11(a) -->
+  <div class="rev-card qa-card">
+    <h3>11(a). Question</h3>
+
+    <div class="question">
+      <p>
+        Write the function <code>toBinary(denary)</code> that converts a denary integer
+        in the range 0–255 to its binary representation. [6]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>function toBinary(denary)
+  binaryValue = ""
+  while denary &gt; 0
+    temp = denary MOD 2
+    if temp == 1 then
+      binaryValue = "1" + binaryValue
+    else
+      binaryValue = "0" + binaryValue
+    endif
+    denary = denary DIV 2
+  endwhile
+  return binaryValue
+endfunction</code></pre>
+    </div>
+  </div>
+
+  <!-- 11(b) -->
+  <div class="rev-card qa-card">
+    <h3>11(b). Question</h3>
+
+    <div class="question">
+      <p>
+        Write the main program that repeatedly asks the user to enter a denary value
+        between 1 and 255 until a valid value is entered, then calls <code>toBinary()</code>
+        and outputs the return value. [3]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <pre class="code-block"><code>denary = -1
+while denary &lt; 1 or denary &gt; 255
+  denary = input("Enter denary value between 1 and 255")
+endwhile
+print(toBinary(denary))</code></pre>
+    </div>
+  </div>
+
+  <!-- 12(a)(i) -->
+  <div class="rev-card qa-card">
+    <h3>12(a)(i). Question</h3>
+
+    <div class="question">
+      <p>Identify the construct used on lines 01 to 03 in the algorithm. [1]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Answer:</strong> Sequence</p>
+    </div>
+  </div>
+
+  <!-- 12(a)(ii) -->
+  <div class="rev-card qa-card">
+    <h3>12(a)(ii). Question</h3>
+
+    <div class="question">
+      <p>Identify the construct used on lines 10 to 12 in the algorithm. [1]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p><strong>Answer:</strong> Selection / branching</p>
+    </div>
+  </div>
+
+  <!-- 12(b) -->
+  <div class="rev-card qa-card">
+    <h3>12(b). Question</h3>
+
+    <div class="question">
+      <p>Identify two variables used in this algorithm. [2]</p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <p>
+        Any two of:
+        <code>total</code>, <code>smallest</code>, <code>largest</code>, <code>x</code>,
+        <code>dataArray</code>.
+      </p>
+    </div>
+  </div>
+
+  <!-- 12(c) -->
+  <div class="rev-card qa-card">
+    <h3>12(c). Question</h3>
+
+    <div class="question">
+      <p>
+        The pseudocode contains various errors. Give the line number of
+        <strong>four</strong> different errors and write the corrected line. [4]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer" hidden>
+      <ul>
+        <li><strong>Line 01:</strong> <code>total = 0</code></li>
+        <li><strong>Line 02:</strong> initialise smallest correctly (e.g. <code>smallest = dataArray[0]</code> once data exists)</li>
+        <li><strong>Line 04:</strong> correct loop bounds (e.g. <code>for x = 0 to 19</code>)</li>
+        <li><strong>Line 07:</strong> correct comparison (e.g. <code>if dataArray[x] &gt; largest then</code>)</li>
+        <li><strong>Line 14:</strong> output average correctly (e.g. <code>print("Average = " + total / 20)</code>)</li>
+      </ul>
+    </div>
+  </div>
+
+<div class="rev-card qa-card">
+  <h3>Question 23(a)</h3>
+
+  <p>
+    A recursive pseudocode function, <strong>recursiveAlgorithm()</strong>, is shown.
+  </p>
+
+  <pre>
+function recursiveAlgorithm(value)
+ if value &lt;= 0 then
+  return 1
+ elseif value MOD 2 = 0 then
+  return value + recursiveAlgorithm(value – 3)
+ else
+  return value + recursiveAlgorithm(value – 1)
+ endif
+endfunction
+  </pre>
+
+  <p>
+    Describe the key features of a recursive algorithm.
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>Mark scheme answer:</strong></p>
+    <ul>
+      <li>The algorithm calls itself within its own definition.</li>
+      <li>There is a base case that stops the recursion (e.g. when <code>value &lt;= 0</code>).</li>
+      <li>Each recursive call moves closer to the base case by changing the parameter value.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>Question:</strong><br>
+    Describe how low-level programming differs from procedural programming. <em>[6]</em>
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>Mark scheme points (any suitable):</strong></p>
+    <ul>
+      <li>Low-level programming is usually carried out in <strong>assembly language</strong>.</li>
+      <li>Assembly instructions correspond closely to <strong>machine code</strong> executed on the CPU.</li>
+      <li>Each assembly instruction contains an <strong>opcode</strong> and <strong>operands</strong> (e.g. addresses, values, registers).</li>
+      <li>Low-level programming requires careful consideration of <strong>CPU architecture</strong> / how it works.</li>
+      <li>Procedural programming uses <strong>high-level instructions</strong> (e.g. <code>print</code>), which are translated into multiple low-level instructions by a compiler.</li>
+      <li>High-level control structures (e.g. <code>while</code> / <code>for</code>) have clearer syntax and are generally easier to read and write.</li>
+    </ul>
+  </div>
+</div>
+
+ </div>
+
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

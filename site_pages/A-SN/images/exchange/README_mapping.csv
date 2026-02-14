@@ -1,0 +1,7 @@
+page,img_index,ext,hash,width,height,new_filename
+5,1,jpeg,2a6ef602bf30,797,234,rle-lossless-pixel-compression.jpeg
+13,1,png,81dc7f09b032,726,346,symmetric-encryption-diagram.png
+13,2,jpeg,b35b7d7a2a84,802,463,asymmetric-encryption-diagram.jpeg
+17,1,png,eaab7b44de5a,1100,137,hashing-process-diagram.png
+19,1,png,06cc5873a143,832,743,password-hashing-sequence-diagram.png
+21,1,png,84077ea510e2,720,67,ascii-values-a-z-table.png

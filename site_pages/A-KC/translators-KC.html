@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programming Languages and Translators</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+   <h1>Types of programming languages and Translators– Revision Booklet</h1>
+<p>
+    Write your answers in the boxes provided.</p>
+   <p> Click <strong>Show answer</strong> to reveal model answers.
+  </p>
+</header>
+<main>
+      <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
+
+ <div class="vertical-knowledge">
+
+<h2>Topic A: Opcodes & Mnemonics</h2>
+
+<div class="rev-card qa-card">
+  <p>1. Low-level languages have features which include opcodes and mnemonics. (i) Explain the term opcode.<span class="marks">[0/2]</span></p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Part of an instruction or code</li>
+      <li>Indicates what operation the processor should carry out</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>2. Low-level languages have features which include opcodes and mnemonics. (ii) Explain the term mnemonic, giving an example.<span class="marks">[0/3]</span></p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>A short sequence of letters representing an instruction</li>
+      <li>Easy for humans to remember</li>
+      <li>Example: <strong>ADD</strong> for addition</li>
+    </ul>
+  </div>
+</div>
+
+<!-- =======================
+     TOPIC B – Assembly, HLL, Translators
+     ======================= -->
+<h2>Topic B: Assembly, High-Level Languages & Translators</h2>
+
+<div class="rev-card qa-card">
+  <p>3. What is the difference between Assembly language and a High-Level Language (HLL)?<span class="marks">[0/4]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Assembly uses mnemonics; HLL uses English-like statements</li>
+      <li>Assembly uses an assembler; HLL uses a compiler or interpreter</li>
+      <li>Assembly is one-to-one with machine code; HLL is one-to-many</li>
+      <li>Assembly is machine dependent; HLL is portable</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>4(a). A programmer creates this function using a high-level language. Before the code can be executed, a translator must be used. State the purpose of a translator.<span class="marks">[0/1]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>To convert high-level or assembly code into machine code</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>4(b). A programmer creates this function using a high-level language. Before the code can be executed, a translator must be used. Explain two differences between a compiler and an interpreter.<span class="marks">[0/4]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Compiler translates the whole program; interpreter translates line by line</li>
+      <li>Compiler produces an executable; interpreter does not</li>
+      <li>Compiler reports errors at the end; interpreter reports errors immediately</li>
+      <li>Compiled programs hide source code; interpreted programs expose it</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>5(a). Fig. 3 shows assembly code written using the LMC instruction set.
+      Indicate the programming construct that is not used in Fig. 3.
+
+      <span class="marks">[0/1]</span></p>
+
+    <img src="images/translators/lmc-fig3-program.png" height="365" width="232"/><textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul><li>Iteration</li></ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>5(b). Fig. 3 shows assembly code written using the LMC instruction set. When the program is run, 7 is input by the user. State the value that will be in the memory location Z when the program has run with this input.<span class="marks">[0/1]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul><li>5</li></ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>5(c). Fig. 3 shows assembly code written using the LMC instruction set.
+      Write an equivalent version of the LMC assembly code shown in Fig. 3 for a
+      procedural programming language. You should write your code using pseudocode or program code.<span class="marks">[0/4]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <pre>
+X = input()
+Y = 5
+if X >= Y then
+  Z = Y
+else
+  Z = X
+endif
+    </pre>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>6(b). Fig. 1 shows assembly code written using the Little Man Computer (LMC). The program calculates and outputs the total amount that is donated to a charity in any particular day. Depending on the amount, an additional bonus may be added to each amount donated.
+The program shown in Fig. 1 is run once using three different inputs. Therefore, while the program is running once, it will output the updated total three times. Give the total values that are output when the values 10, 50 and 120 are input into this program.<span class="marks">[0/3]</span></p>
+
+    <img src="images/translators/lmc-charity-donations-program.png" height="506" width="317"/>
+
+    <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+
+       <ul>
+      <li>10 → 10</li>
+      <li>50 → 60</li>
+      <li>120 → 200</li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>6(ii).Write LMC code that will reset the value of the memory location labelled total to zero and then stop the program.<span class="marks">[0/3]</span></p>
+
+
+    <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+      <ul>
+      <li>Establishes a zero value (by use of DAT / SUB)</li>
+      <li>Stores a zero value into total</li>
+      <li>Program stops</li>
+  </ul>
+    <pre>
+LDA ZERO
+STA total
+HLT
+ZERO DAT 0
+total DAT
+    </pre>
+    </pre>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+    <h3>Question</h3>
+
+    <div class="question">
+      <p>
+        The pseudocode algorithm here will take in two numbers from the user,
+        multiply them together using addition and output the result.
+      </p>
+
+      <p>
+        For example, 4 multiplied by 3 would be
+        <code>4 + 4 + 4 = 12</code>.
+      </p>
+
+      <p>You can assume the function input takes in a value as an integer.</p>
+
+      <pre class="code-block"><code>numA = input("Enter first number")
+numB = input("Enter second number")
+answer = 0
+while (numB &gt; 0)
+  answer = answer + numA
+ contribute = numB - 1
+endwhile
+print(answer)</code></pre>
+
+      <p>
+        Write this algorithm in assembly language using the
+        <strong>Little Man Computer (LMC)</strong> instruction set. [6]
+      </p>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer" hidden>
+      <pre class="code-block"><code>        INP
+        STA NUMA
+        INP
+        STA NUMB
+LOOP    LDA NUMB
+        BRZ END
+        SUB ONE
+        STA NUMB
+        LDA ANSWER
+        ADD NUMA
+        STA ANSWER
+        BRA LOOP
+END     LDA ANSWER
+        OUT
+        HLT
+ANSWER  DAT 0
+NUMA    DAT 0
+NUMB    DAT 0
+ONE     DAT 1</code></pre>
+    </div>
+  </div>
+
+<!-- =======================
+     TOPIC D – Addressing Modes
+     ======================= -->
+<h2>Topic D: Addressing Modes</h2>
+
+<div class="rev-card qa-card">
+  <h3>7(a). In Orla&#39;s LMC code, she used direct memory addressing. Give three other modes of memory addressing.<span class="marks">[0/3]</span></h3>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Immediate</li>
+      <li>Indirect</li>
+      <li>Indexed</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>7(b). A Little Man Computer (LMC) assembly language program is stored in memory as shown in Fig. 3.1.
+      In this variant of LMC the symbols &amp; and # are used to denote different modes of addressing.
+      Given that the output is 17, state the addressing mode represented by each symbol: (i) &amp; (ii) #.<span class="marks">[0/2]</span></p>
+
+    <img src="images/translators/lmc-addressing-modes-fig3-1.png" height="319" width="152"/>
+
+    <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>&amp; → Immediate addressing</li>
+      <li># → Indirect addressing</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>8. In assembly language, different modes of addressing memory can be used. Discuss the different modes used. You should include: how the operand value is determined; what an operand of 27 would refer to in that mode; the reasons for requiring multiple modes of addressing.<span class="marks">[0/12]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Immediate: operand is the value itself</li>
+      <li>Direct: operand is the memory address</li>
+      <li>Indirect: operand points to another address</li>
+      <li>Indexed: operand + index register used</li>
+      <li>Multiple modes improve flexibility and efficiency</li>
+    </ul>
+  </div>
+</div>
+
+<!-- =======================
+     TOPIC E – Compilation Process
+     ======================= -->
+<h2>Topic E: Compilation Process</h2>
+
+<div class="rev-card qa-card">
+  <p>9(a). The following source code is written in Python.
+      It contains errors. Using lines of code from the program to illustrate your answer,
+      state two things that would be done during lexical analysis.<span class="marks">[0/2]</span></p>
+
+
+    <img src="images/translators/python-code-with-errors.png" height="404" width="658"/>
+    <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Removes comments</li>
+      <li>Removes unnecessary whitespace</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>9(b). The following source code is written in Python. It contains errors. Using lines of code from the program to illustrate your answer, state two things that would be done during syntax analysis.<span class="marks">[0/2]</span></p>
+
+    <img src="images/translators/python-code-with-errors.png" height="404" width="658"/><textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Variable used before initialisation</li>
+      <li>Misspelt keyword</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>10. The process of compilation involves a number of stages. Name the stage at which each of the following would be detected: (a) an illegal identifier; (b) an arithmetic operator is applied to an operand of the data type Boolean; (c) an operand is omitted from an arithmetic expression.<span class="marks">[0/3]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Illegal identifier → Lexical analysis</li>
+      <li>Boolean arithmetic → Syntax analysis</li>
+      <li>Missing operand → Syntax analysis</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>11. Describe what happens during syntax analysis when code is compiled.<span class="marks">[0/5]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+
+  <h3>Mark Scheme Points</h3>
+
+  <h4>2 Marks from this section</h4>
+  <ul>
+    <li>Statements / tokens are checked…</li>
+    <li>… against the rules / grammar of the language</li>
+    <li>valid example given</li>
+  </ul>
+
+  <h4>3 Marks from this section</h4>
+  <ul>
+    <li>Errors reported as a list</li>
+    <li>Error diagnostics given</li>
+    <li>Detail added to symbol table…</li>
+    <li>…eg data type / scope / address</li>
+    <li>Receives output from lexical analysis / passes code to code generation</li>
+  </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>12(b). Describe the purpose of code optimisation.<span class="marks">[0/2]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <ul>
+      <li>Makes programs run faster</li>
+      <li>Reduces memory and resource usage</li>
+    </ul>
+  </div>
+</div>
+
+<!-- =======================
+     TOPIC F – Linkers, Loaders & Libraries
+     ======================= -->
+<h2>Topic F: Linkers, Loaders & Libraries</h2>
+
+<div class="rev-card qa-card">
+  <p>13(a). What is a linker? (From: “What is a linker and what is a loader?”)<span class="marks">[0/2]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+   <h4>1 mark per bullet (maximum 2)</h4>
+  <ul>
+    <li>Combines / links code / programs to files / software libraries…</li>
+    <li>…to form a single executable file</li>
+    <li>Static linkers combine code and libraries into one file</li>
+    <li>Dynamic linkers link – add addresses to libraries</li>
+  </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>13(b). What is a loader? (From: “What is a linker and what is a loader?”)<span class="marks">[0/2]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+     <h4>1 mark per bullet (maximum 2)</h4>
+  <ul>
+    <li>It is part of the operating system</li>
+    <li>Loads an <strong>executable file</strong> (into memory)…</li>
+    <li>…from secondary storage</li>
+    <li>Loads the required <strong>software libraries</strong></li>
+  </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p>13(c). State three benefits of using library routines when a program is written.<span class="marks">[0/3]</span></p>
+
+  <textarea class="student-answer"></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+
+  <ul>
+    <li>Relatively error free / has already been tested</li>
+    <li>Ready to use / saves time / already been written</li>
+    <li>Used multiple times / common tasks / reduces repeated code</li>
+    <li>Programmer expertise</li>
+  </ul>
+
+  </div>
+</div>
+</div>
+
+ <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

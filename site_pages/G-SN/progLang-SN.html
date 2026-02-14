@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hardware – Revision Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../G-studynotes.html">← Back</a>
+  </div>
+<header>
+  <h1>Topic 3 Programming Languages– Revision</h1>
+
+</header>
+
+<main>
+
+<div class="vertical-knowledge">
+
+<div class="knowledge-card">
+  <h3>High-Level Programming Languages</h3>
+  <p>
+    High-level programming languages are closer to human language and are therefore
+    easier for humans to understand. A translator is used to convert the instructions
+    into code that the computer can understand.
+  </p>
+  <h3>High-Level Language Features</h3>
+  <p>
+    High-level languages allow programs to be written independently of the type
+    of computer system. It is the compiler’s job to translate the code into the
+    correct machine code for a particular computer.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Low-Level Programming Languages</h3>
+  <p>
+    Low-level programming languages include machine code and assembly language.
+    They are difficult for humans to understand but allow direct control of the
+    hardware.
+  </p>
+
+  <h4>Machine Code</h4>
+  <p>
+    Machine code is written in binary (0s and 1s) and can be processed directly
+    by the CPU without needing to be translated. Machine code is specific to
+    a particular processor.
+  </p>
+
+  <h4>Assembly Language</h4>
+  <p>
+    Assembly language uses mnemonics to represent instructions. It requires an
+    assembler to translate the code into binary machine code.
+  </p>
+
+  <h3>Uses of Low-Level Languages</h3>
+  <p>
+    Low-level languages are appropriate for developing operating systems,
+    embedded systems, and hardware device drivers.
+  </p>
+
+  <h4>Advantages of Low-Level Languages</h4>
+  <p>
+    Low-level languages are processor-specific and can manipulate hardware
+    directly. They can be highly optimised, execute quickly, and use minimal
+    memory. Each line of code represents one instruction.
+  </p>
+
+  <h4>Mnemonics</h4>
+  <p>
+    Mnemonics are short words used in assembly language to represent instructions,
+    such as LOAD, ADD, STORE, and MOV.
+  </p>
+
+  <h4>Machine Code Instructions</h4>
+  <p>
+    Machine code instructions are made up of two parts: an operator, which is the
+    instruction, and an operand, which is the value or memory address.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>Program Translators</h3>
+  <p>
+    Program translators convert programs written in high-level or assembly
+    languages into machine code so that they can be run on a computer.
+  </p>
+
+  <h4>Interpreter</h4>
+  <p>
+    An interpreter translates high-level code into machine code one instruction
+    at a time while the program is running. It stops when an error is found, which
+    makes debugging easier, but programs run more slowly.
+  </p>
+
+  <h4>Compiler</h4>
+  <p>
+    A compiler translates all the source code into machine code before the program
+    is run. The machine code is saved as an executable file, allowing programs to
+    run faster and be distributed without the source code.
+  </p>
+
+  <h4>Assembler</h4>
+  <p>
+    An assembler translates assembly language instructions into machine code so
+    that they can be executed by the CPU.
+  </p>
+</div>
+
+<div class="knowledge-card">
+  <h3>High-Level vs Low-Level Languages</h3>
+  <p>
+    High-level languages use English-like instructions and are machine-independent,
+    while low-level languages use mnemonics or binary, are machine-specific, and
+    allow direct control of hardware.
+  </p>
+
+  <h4>Compiler vs Interpreter</h4>
+  <p>
+    A compiler translates all code at once and produces a standalone executable,
+    while an interpreter translates code line by line each time the program runs
+    and reports errors as they occur.
+  </p>
+</div>
+</div>
+
+ <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

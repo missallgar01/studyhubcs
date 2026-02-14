@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exchanging Data</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+  <h1>Compression, encyption and hashing– Study Notes</h1>
+
+</header>
+
+<main>
+
+ <div class="vertical-knowledge">
+
+<h2>Compression, encyption and hashing – Notes</h2>
+
+    <div class="knowledge-card">
+  <h3>Why is Compression Needed in Data Transfer?</h3>
+  <ul>
+    <li>Compression is crucial for reducing file size to facilitate efficient data transfer over the Internet</li>
+    <li>Smaller files result in faster transmission times</li>
+    <li>Reduced file size lowers bandwidth consumption</li>
+  </ul>
+
+  <h3>Comparing Types of Compression</h3>
+  <p>In simplified terms:</p>
+  <ul>
+    <li><strong>Lossy:</strong> Some data is discarded</li>
+    <li><strong>Lossless:</strong> Ensures that nothing is permanently lost and everything can be restored to its original state</li>
+  </ul>
+
+  <h3>Compression Types: Benefits and Drawbacks</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Compression</th>
+        <th>Benefits</th>
+        <th>Drawbacks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Lossy</strong></td>
+        <td>
+          <ul>
+            <li>Greatly reduced file sizes</li>
+            <li>Suitable for media streaming where data loss is acceptable</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Irreversible loss of data quality</li>
+            <li>Not suitable for text or archival storage</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Lossless</strong></td>
+        <td>
+          <ul>
+            <li>Maintains original data</li>
+            <li>Best for text and data that require integrity</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Larger file sizes than lossy compression</li>
+            <li>Requires higher bandwidth when streaming</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Recommending a Type of Compression</h3>
+  <p>To recommend a compression type, evaluate the application’s requirements:</p>
+  <ul>
+    <li>If data integrity is imperative, recommend <strong>lossless compression</strong></li>
+    <li>If achieving a small file size or quick data transfer is prioritised, and some data loss is acceptable, choose <strong>lossy compression</strong></li>
+  </ul>
+
+  <h4>Examiner Tips and Tricks</h4>
+  <p>
+    When asked to recommend a compression type, the choice will always depend on the
+    specific scenario requirements.
+  </p>
+</div>
+
+    <div class="knowledge-card">
+      <h3>What is Run Length Encoding (RLE)?</h3>
+
+      <ul>
+        <li>In A Level Computer Science, run length encoding (RLE) is a form of data compression that condenses identical elements into a single value with a count</li>
+        <li>For a text file, <code>AAAAABBBCCDAA</code> is compressed to <code>4A 3B 2C 1D 2A</code></li>
+        <li>The string <code>5A 3B 2C 1D 2A</code> shows this as ASCII</li>
+        <li>It is used in bitmap images to compress sequences of the same colour</li>
+        <li>For example, a line in an image with 5 red pixels followed by 3 blue pixels could be represented as <code>5R 3B</code></li>
+      </ul>
+
+      <h3>What is Dictionary Coding?</h3>
+
+      <ul>
+        <li>Dictionary coding replaces recurring sequences with shorter, unique codes</li>
+        <li>A dictionary is compiled to map original sequences to special codes</li>
+        <li>This method is effective for both text and binary data</li>
+      </ul>
+
+      <h4>Example of Dictionary Coding</h4>
+
+      <p>
+        Consider the sentence where some algorithm names are repeatedly mentioned:
+      </p>
+
+      <pre>
+    QuickSort is faster than BubbleSort but MergeSort is more stable than QuickSort and BubbleSort
+      </pre>
+
+      <p>The repeated words are:</p>
+      <ul>
+        <li>QuickSort</li>
+        <li>BubbleSort</li>
+        <li>MergeSort</li>
+      </ul>
+
+      <p><strong>Create a dictionary:</strong></p>
+      <ul>
+        <li>Start with an empty dictionary</li>
+        <li>Scan the sentence for recurring sequences</li>
+        <li>The dictionary might look like:</li>
+      </ul>
+
+      <pre>
+    QuickSort: Q
+    BubbleSort: B
+    MergeSort: M
+      </pre>
+
+      <p>The sentence can then be replaced with dictionary values:</p>
+
+      <pre>
+    Original:
+    QuickSort is faster than BubbleSort but MergeSort is more stable than QuickSort and BubbleSort
+
+    Compressed:
+    Q is faster than B but M is more stable than Q and B
+      </pre>
+
+      <p>
+        The original string was 95 characters long, and the dictionary-coded example is
+        53 characters long. The shorter string will require less space in memory or storage.
+      </p>
+
+      <h3>Examiner Tips and Tricks</h3>
+      <ul>
+        <li>RLE and Dictionary Coding serve different needs and have their advantages and disadvantages</li>
+        <li><strong>RLE:</strong> More effective when data has lots of repetition</li>
+        <li><strong>Dictionary Coding:</strong> More versatile but may require more computational resources</li>
+      </ul>
+    </div>
+
+
+    <div class="knowledge-card">
+      <h3>What is Encryption?</h3>
+
+      <ul>
+        <li>In A Level Computer Science, encryption is used to convert readable data into an unreadable format</li>
+        <li>Its primary aim is to secure data from unauthorised access</li>
+        <li>It is a key technique for protecting against cyber-attacks and data breaches</li>
+        <li>Encryption methods use <strong>keys</strong>, which are specialised programs used to scramble or unscramble data</li>
+        <li>Selecting a type of encryption is not a daily choice for most people</li>
+        <li>
+          Modern technology (e.g. web browsers using HTTPS) provides encryption by default,
+          allowing users to transfer sensitive data without consciously choosing encryption methods
+        </li>
+      </ul>
+
+      <h3>Choosing an Encryption Type</h3>
+
+      <ul>
+        <li>
+          <strong>Symmetric encryption</strong> is fast but has key-sharing issues
+        </li>
+        <li>
+          <strong>Asymmetric encryption</strong> is slower but solves the key-sharing problem
+        </li>
+        <li>
+          The choice depends on the situation’s needs and whether <strong>speed</strong> or
+          <strong>security</strong> is more critical
+        </li>
+      </ul>
+
+      <h3>Encryption Types</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Encryption Type</th>
+            <th>Suitable For</th>
+            <th>Reasons to Choose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Symmetric</strong></td>
+            <td>Large files, databases</td>
+            <td>
+              <ul>
+                <li>Fast and efficient for bulk data</li>
+                <li>The same person encrypts and decrypts data (e.g. backups)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Asymmetric</strong></td>
+            <td>Confidential or secret communications</td>
+            <td>
+              <ul>
+                <li>Used for sharing highly secure data</li>
+                <li>Examples include passwords and government communications</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>How Does Symmetric Encryption Work?</h3>
+
+      <ul>
+        <li>The sender uses a key to encrypt the data before transmission</li>
+        <li>The receiver uses the <strong>same key</strong> to decrypt the data</li>
+        <li>It is usually faster, making it ideal for encrypting large amounts of data</li>
+        <li>The main drawback is securely sharing the key between sender and receiver</li>
+        <li>If a bad actor captures the key, all intercepted messages can be decrypted</li>
+      </ul>
+
+      <h3>How Does Asymmetric Encryption Work?</h3>
+
+      <ul>
+        <li>Uses <strong>two keys</strong>: a public key and a private key</li>
+        <li>The public key is used to encrypt data and is shared openly</li>
+        <li>The private key is used to decrypt data and is kept secret</li>
+        <li>Only the receiver can decrypt the data using their private key</li>
+        <li>The public and private keys are mathematically linked</li>
+        <li>It is more complex and typically slower than symmetric encryption</li>
+        <li>Generally used for smaller, highly secure data transfers (e.g. passwords, bank details)</li>
+      </ul>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>What is Hashing?</h3>
+
+      <ul>
+        <li>In A Level Computer Science, hashing converts any data into a fixed-size string of characters</li>
+        <li>This fixed-size output is called a <strong>hash digest</strong></li>
+        <li>The same input will always produce the same hash, ensuring consistency</li>
+        <li>A small change in input produces a significantly different hash, giving sensitivity to change</li>
+      </ul>
+
+      <h4>Example of Hashing</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Input Text</th>
+            <th>Hashing Algorithm</th>
+            <th>Truncated Hash Digest</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>hello123</td>
+            <td>SHA-256</td>
+            <td>8d9389d5a0375bdb6028bc03a880333</td>
+          </tr>
+          <tr>
+            <td>hello124</td>
+            <td>SHA-256</td>
+            <td>9ac12bac3a0843a917b1c4a0f77a7c</td>
+          </tr>
+          <tr>
+            <td>applepie</td>
+            <td>SHA-256</td>
+            <td>6395c6a2522f7e2f75bdc7e31026fb6</td>
+          </tr>
+          <tr>
+            <td>password1</td>
+            <td>SHA-256</td>
+            <td>e99a18c428cb38d5f260853678922e03</td>
+          </tr>
+          <tr>
+            <td>password2</td>
+            <td>SHA-256</td>
+            <td>a00234829205b903319b6a8187fa872b</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Why is Hashing Efficient for Data Retrieval?</h3>
+
+      <ul>
+        <li>A good hash function distributes keys uniformly across a hash table</li>
+        <li>This creates a balanced structure with no inherent order</li>
+        <li>New entries are inserted randomly, avoiding clustering</li>
+        <li>Searching using a hash digest is computationally efficient</li>
+        <li>Hash digests are fixed length, making comparisons faster than variable-length strings</li>
+      </ul>
+
+      <h4>Hash Digest as a Summary</h4>
+      <p>
+        A hash digest acts as a summarised representation of the original data
+        (e.g. an email address).
+      </p>
+
+      <h3>Data Integrity</h3>
+
+      <ul>
+        <li>Hashing is used to verify data integrity</li>
+        <li>If transmitted data is altered due to packet loss or malicious interference, the hash will change</li>
+        <li>Matching hashes indicate the data has not been altered</li>
+        <li>Comparing fixed-size hashes is less computationally expensive than comparing full strings</li>
+      </ul>
+
+      <h3>Hashing for Password Storage</h3>
+
+      <ul>
+        <li>Passwords are hashed when a user signs up</li>
+        <li>The hashed password is stored in the database instead of plaintext</li>
+        <li>During login, the entered password is hashed and compared with the stored hash</li>
+        <li>If the hashes match, the user is authenticated</li>
+        <li>If not, access is denied</li>
+      </ul>
+
+      <h4>Security Benefits of Password Hashing</h4>
+      <ul>
+        <li>Even if a database is compromised, attackers cannot use hashed passwords directly</li>
+        <li>Storing hashes instead of plaintext reduces legal and security risks</li>
+        <li>Users’ raw passwords are never exposed</li>
+        <li>Password verification is fast because the same input always produces the same hash</li>
+      </ul>
+
+      <h3>Comparison of Encryption and Hashing</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Encryption</th>
+            <th>Hashing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Purpose</td>
+            <td>Secure data for transmission or storage</td>
+            <td>Data verification and fast retrieval</td>
+          </tr>
+          <tr>
+            <td>Reversibility</td>
+            <td>Reversible (can be decrypted)</td>
+            <td>Irreversible</td>
+          </tr>
+          <tr>
+            <td>Keys</td>
+            <td>Uses keys for encryption and decryption</td>
+            <td>No keys involved</td>
+          </tr>
+          <tr>
+            <td>Processing Speed</td>
+            <td>Generally slower</td>
+            <td>Generally faster</td>
+          </tr>
+          <tr>
+            <td>Use Cases</td>
+            <td>Secure communication, file storage</td>
+            <td>Password storage, integrity checks</td>
+          </tr>
+          <tr>
+            <td>Algorithm Types</td>
+            <td>Symmetric, Asymmetric</td>
+            <td>MD5, SHA-1, SHA-256, SHA-3</td>
+          </tr>
+          <tr>
+            <td>Output Length</td>
+            <td>Variable length</td>
+            <td>Fixed length</td>
+          </tr>
+          <tr>
+            <td>Typical Operations</td>
+            <td>Encrypt, Decrypt</td>
+            <td>Hash, Verify</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Common Hashing Algorithms</h3>
+
+      <ul>
+        <li><strong>MD5:</strong> Widely used but insecure due to collision vulnerabilities</li>
+        <li><strong>SHA-1:</strong> Previously used in SSL and repositories; now insecure</li>
+        <li><strong>SHA-256:</strong> Commonly used; secure for most practical purposes</li>
+        <li><strong>SHA-3:</strong> Newest SHA family member, offering higher security</li>
+      </ul>
+    </div>
+</div>
+
+
+<button id="printBtn" type="button">
+  Print this worksheet
+</button>
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+</body>
+</html>

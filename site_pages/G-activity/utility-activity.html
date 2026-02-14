@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GCSE Computer Science – Utility Software Assessment</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f9ff;
+  padding: 2rem;
+}
+
+h1 { color: #003366; }
+
+.section {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.correct { color: green; font-weight: bold; }
+.incorrect { color: red; font-weight: bold; }
+
+.wordbank span {
+  display: inline-block;
+  background: #e0e0e0;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.score {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+</style>
+</head>
+<body>
+
+<h1>💻 GCSE Computer Science – Utility Software</h1>
+
+<!-- ================= MCQ ================= -->
+
+<div class="section">
+<h2>1️⃣ Multiple Choice (5 marks)</h2>
+<div id="mcq"></div>
+</div>
+
+<!-- ================= FILL GAPS ================= -->
+
+<div class="section">
+<h2>2️⃣ Fill in the Gaps (5 marks)</h2>
+
+<p>
+Anti-virus software detects and removes <select id="gap1"></select>.
+</p>
+
+<p>
+A firewall acts as a protective <select id="gap2"></select>.
+</p>
+
+<p>
+Defragmentation stores files <select id="gap3"></select> on the disk.
+</p>
+
+<p>
+Disk formatting prepares a storage device for its <select id="gap4"></select>.
+</p>
+
+<p>
+Automatic updates install security <select id="gap5"></select>.
+</p>
+
+<h3>Word Bank:</h3>
+<div class="wordbank" id="wordbank"></div>
+
+<div id="gapFeedback"></div>
+
+</div>
+
+<!-- ================= EXPLAIN ================= -->
+
+<div class="section">
+<h2>3️⃣ Explain Question (2 marks)</h2>
+
+<p>Explain one reason why defragmentation can improve system performance.</p>
+
+<textarea id="explain" rows="4" cols="70"></textarea>
+
+<div id="explainFeedback"></div>
+
+</div>
+
+<button onclick="markQuiz()">Mark My Work</button>
+<button onclick="resetQuiz()">Reset</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= DATA ================= */
+
+const mcqData = [
+{
+q:"1. What is a utility program?",
+options:[
+"A program that performs a specific system task",
+"A game",
+"An application for spreadsheets"
+],
+answer:"A program that performs a specific system task"
+},
+{
+q:"2. What does anti-spyware software prevent?",
+options:[
+"Spyware installation",
+"CPU overheating",
+"Disk formatting"
+],
+answer:"Spyware installation"
+},
+{
+q:"3. What does disk cleanup remove?",
+options:[
+"Temporary and unnecessary files",
+"Operating system",
+"RAM"
+],
+answer:"Temporary and unnecessary files"
+},
+{
+q:"4. What is file compression used for?",
+options:[
+"Reducing file size",
+"Increasing clock speed",
+"Deleting files"
+],
+answer:"Reducing file size"
+},
+{
+q:"5. What does system diagnosis do?",
+options:[
+"Tests for hardware/software problems",
+"Deletes files",
+"Increases storage"
+],
+answer:"Tests for hardware/software problems"
+}
+];
+
+const wordBank = [
+"malware",
+"barrier",
+"contiguously",
+"first use",
+"patches"
+];
+
+/* ================= GENERATE MCQ ================= */
+
+const mcqDiv = document.getElementById("mcq");
+
+mcqData.forEach((item,index)=>{
+  let html = `<p>${item.q}</p>`;
+  item.options.forEach(opt=>{
+    html += `<label>
+      <input type="radio" name="mcq${index}" value="${opt}">
+      ${opt}
+    </label><br>`;
+  });
+  html += `<div id="mcqFeedback${index}"></div><hr>`;
+  mcqDiv.innerHTML += html;
+});
+
+/* ================= WORD BANK ================= */
+
+const wordbankDiv = document.getElementById("wordbank");
+wordBank.forEach(word=>{
+  wordbankDiv.innerHTML += `<span>${word}</span>`;
+});
+
+function populateDropdown(id){
+  const select = document.getElementById(id);
+  select.innerHTML = "<option value=''>Select</option>";
+  wordBank.forEach(word=>{
+    select.innerHTML += `<option value="${word}">${word}</option>`;
+  });
+}
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(populateDropdown);
+
+/* ================= MARKING ================= */
+
+function markQuiz(){
+
+let score = 0;
+
+/* ---- MCQ ---- */
+mcqData.forEach((item,index)=>{
+  let selected = document.querySelector(`input[name="mcq${index}"]:checked`)?.value;
+  let feedback = document.getElementById(`mcqFeedback${index}`);
+
+  if(selected === item.answer){
+    score++;
+    feedback.innerHTML = "✔️ Correct";
+    feedback.className="correct";
+  }else{
+    feedback.innerHTML = `❌ Incorrect – Answer: ${item.answer}`;
+    feedback.className="incorrect";
+  }
+});
+
+/* ---- GAPS ---- */
+
+const gapAnswers = {
+gap1:"malware",
+gap2:"barrier",
+gap3:"contiguously",
+gap4:"first use",
+gap5:"patches"
+};
+
+for(let gap in gapAnswers){
+  let value = document.getElementById(gap).value;
+  if(value === gapAnswers[gap]){
+    score++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML = "✔️ Gaps marked.";
+
+/* ---- EXPLAIN (2 MARKS) ---- */
+
+let explainText = document.getElementById("explain").value.toLowerCase();
+let explainMarks = 0;
+
+if(explainText.includes("contiguous") ||
+   explainText.includes("next to each other"))
+   explainMarks++;
+
+if(explainText.includes("faster") ||
+   explainText.includes("reduce read time") ||
+   explainText.includes("quicker access"))
+   explainMarks++;
+
+score += explainMarks;
+
+let feedbackText;
+
+if(explainMarks === 2){
+  feedbackText = "✔️ 2/2 – Clear link between contiguous storage and faster access.";
+}
+else if(explainMarks === 1){
+  feedbackText = "✔️ 1/2 – Partial explanation. Mention faster read times.";
+}
+else{
+  feedbackText = "❌ 0/2 – You must explain contiguous storage AND faster access.";
+}
+
+document.getElementById("explainFeedback").innerHTML = feedbackText;
+
+/* ---- FINAL SCORE ---- */
+
+document.getElementById("scoreDisplay").innerHTML =
+`Total Score: ${score} / 12`;
+
+}
+
+function resetQuiz(){
+location.reload();
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+   <h1>Data – Study Notes</h1>
+
+</header>
+
+<main>
+
+ <div class="vertical-knowledge">
+    <div class="knowledge-card">
+      <h3>What “data types” are</h3>
+      <p>
+        Computers store everything in <strong>binary</strong>, but different kinds of information
+        (numbers, text, True/False values) are represented in different ways. Choosing the right
+        data type matters because it affects what operations are valid and how data is stored.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Primitive data types</h3>
+      <ul>
+        <li><strong>Integer</strong>: whole numbers (including 0 and negatives); no fractional part.</li>
+        <li><strong>Real / floating point</strong>: can include a fractional part; used for measurements.</li>
+        <li><strong>Character</strong>: a single symbol (letters, digits, punctuation, etc.).</li>
+        <li><strong>String</strong>: a sequence of characters (text; also useful for values like phone numbers where leading zeros matter).</li>
+        <li><strong>Boolean</strong>: only two values: <code class="inline">True</code> or <code class="inline">False</code>.</li>
+      </ul>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Representing positive integers in binary</h3>
+      <p>
+        Binary is base 2. Each bit position represents a power of two. The rightmost bit is the
+        <strong>least significant bit (LSB)</strong>; the leftmost is the <strong>most significant bit (MSB)</strong>.
+      </p>
+
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr>
+            <th>8 (2³)</th><th>4 (2²)</th><th>2 (2¹)</th><th>1 (2⁰)</th>
+          </tr>
+          <tr>
+            <td>1</td><td>1</td><td>0</td><td>1</td>
+          </tr>
+        </table>
+      </div>
+      <p class="small muted">
+        Example: <code class="inline">1101</code> = (8×1)+(4×1)+(2×0)+(1×1) = 13
+      </p>
+
+      <div class="callout">
+        <strong>Bits & bytes:</strong> 1 binary digit = 1 <em>bit</em>. 8 bits = 1 <em>byte</em>. 4 bits is sometimes called a <em>nybble</em>.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Binary ⇄ denary conversion</h3>
+      <p><strong>Binary → denary:</strong> multiply each bit by its place value and sum.</p>
+
+      <div class="hr"></div>
+
+      <p><strong>Denary → binary (place-value method):</strong></p>
+      <div class="steps">
+        <ol>
+          <li>Find the largest power of 2 not exceeding the number.</li>
+          <li>Write the place values down to 1.</li>
+          <li>From MSB to LSB: write 1 if the place value fits, subtract it; otherwise write 0.</li>
+        </ol>
+      </div>
+
+      <p class="small muted">Worked example: convert 47 to binary.</p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+          <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+        </table>
+      </div>
+      <p class="small muted">
+        So 47 = <code class="inline">101111</code>. Often written to a full byte with leading zeros:
+        <code class="inline">00101111</code>.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Binary addition (integers)</h3>
+      <p>Core rules (including any carry-in):</p>
+      <ul>
+        <li><code class="inline">0+0=0</code></li>
+        <li><code class="inline">0+1=1</code></li>
+        <li><code class="inline">1+1=10</code> (write 0, carry 1)</li>
+        <li><code class="inline">1+1+1=11</code> (write 1, carry 1)</li>
+      </ul>
+
+      <p class="small muted">Worked example: <code class="inline">1011</code> + <code class="inline">1110</code></p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><td class="rowlabel">A</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td class="rowlabel">B</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+          <tr><td class="rowlabel">Sum</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        </table>
+      </div>
+      <p class="small muted">Result: <code class="inline">11001</code>. (Good practice: verify by converting to denary.)</p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Negative numbers in binary</h3>
+      <p>
+        To represent negatives, bit patterns follow specific rules. Two key schemes are
+        <strong>sign magnitude</strong> and <strong>two’s complement</strong>.
+      </p>
+
+      <div class="hr"></div>
+
+      <p><strong>Sign magnitude</strong></p>
+      <ul>
+        <li>MSB is the sign: 0 = positive, 1 = negative.</li>
+        <li>Remaining bits are the magnitude (absolute value).</li>
+      </ul>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th>Binary (unsigned)</th><th>+ (sign magnitude)</th><th>− (sign magnitude)</th></tr>
+          <tr><td>10101101</td><td>0 10101101</td><td>1 10101101</td></tr>
+        </table>
+      </div>
+      <p class="small muted">
+        To decode: read sign bit, drop it, convert remainder as normal, then apply the sign.
+      </p>
+
+      <div class="hr"></div>
+
+      <p><strong>Two’s complement</strong></p>
+      <ul>
+        <li>MSB has a negative place value (for 8-bit: MSB represents −128).</li>
+        <li>To make a negative number: invert bits of the positive form, then add 1.</li>
+      </ul>
+      <p class="small muted">Example: represent −7 in 8-bit two’s complement.</p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th>-128</th><th>64</th><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+          <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        </table>
+      </div>
+      <p class="small muted">
+        Value = (−128×1)+64+32+16+8+0+0+1 = −7
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Binary subtraction using two’s complement</h3>
+      <p>
+        Subtraction can be done by adding a negative number:
+        <code class="inline">A − B = A + (−B)</code>.
+      </p>
+      <p class="small muted">
+        Example: 8 − 12 using 5-bit two’s complement (minimum bits needed to represent −12).
+      </p>
+
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th class="rowlabel">Place</th><th>-16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+          <tr><td class="rowlabel">8</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td class="rowlabel">−12</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td class="rowlabel">Sum</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+        </table>
+      </div>
+      <p class="small muted">
+        <code class="inline">11100</code> = −16 + 8 + 4 = −4 (so 8 − 12 = −4).
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Hexadecimal (base 16)</h3>
+      <p>
+        Hex is base 16. Digits are 0–9 then A–F for 10–15. Place values are powers of 16.
+      </p>
+
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th>Denary</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th></tr>
+          <tr><th>Hex</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr>
+        </table>
+      </div>
+
+      <p class="small muted">Example (hex → denary): 4E7F</p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th>4096 (16³)</th><th>256 (16²)</th><th>16 (16¹)</th><th>1 (16⁰)</th></tr>
+          <tr><td>4</td><td>E (14)</td><td>7</td><td>F (15)</td></tr>
+        </table>
+      </div>
+      <p class="small muted">Value = (4×4096)+(14×256)+(7×16)+(15×1) = 20095</p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Converting between hex, binary, and denary</h3>
+      <p><strong>Hex → binary:</strong> convert each hex digit to a 4-bit <em>nybble</em>, then concatenate.</p>
+
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th>Hex</th><th>Denary</th><th>Binary nybble</th></tr>
+          <tr><td>B</td><td>11</td><td>1011</td></tr>
+          <tr><td>2</td><td>2</td><td>0010</td></tr>
+        </table>
+      </div>
+      <p class="small muted">
+        So <code class="inline">B2</code> = <code class="inline">10110010</code>.
+        To get denary, sum place values (128+32+16+2=178).
+      </p>
+
+      <div class="hr"></div>
+
+      <p><strong>Hex → denary:</strong> either go via binary, or use hex place values directly.</p>
+      <p class="small muted">Example: 4C3 = (4×256) + (12×16) + (3×1) = 1219</p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Floating point numbers in binary</h3>
+      <p>
+        Floating point is like scientific notation: a value is stored as
+        <strong>mantissa</strong> × 2<sup><strong>exponent</strong></sup>.
+        The mantissa and exponent are typically stored in two’s complement.
+      </p>
+      <p class="muted small">
+        The binary point for the mantissa is taken to be just after its first bit.
+        So a mantissa like <code class="inline">01100100111</code> represents <code class="inline">0.1100100111</code>.
+      </p>
+
+      <p class="small muted">Example layout: 11-bit mantissa and 6-bit exponent</p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr>
+            <th colspan="11">Mantissa (11 bits)</th>
+            <th colspan="6">Exponent (6 bits)</th>
+          </tr>
+          <tr>
+            <td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td>
+            <td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="callout">
+        <strong>How to decode:</strong> convert exponent to denary, shift the mantissa’s binary point left/right by that amount,
+        then convert the resulting binary number to denary (including fractional place values).
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Floating point example (shift right)</h3>
+      <p class="small muted">
+        If the exponent is +5, move the mantissa’s binary point 5 places to the right.
+        Then convert using powers of two including fractional values.
+      </p>
+
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th><th>·</th><th>1/2</th><th>1/4</th><th>1/8</th><th>1/16</th></tr>
+          <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>·</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+        </table>
+      </div>
+      <p class="small muted">Value = 32 + 16 + 2 + 0.25 + 0.125 + 0.0625 = 50.4375</p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Floating point example (negative + shift left)</h3>
+      <p>
+        If the mantissa sign bit indicates a negative value (two’s complement), treat the mantissa as negative.
+        If the exponent is negative, shift the binary point left.
+      </p>
+      <p class="small muted">
+        Example concept: exponent −3 shifts the binary point 3 places left, increasing the number of leading zeros after the point.
+      </p>
+
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th>1/2</th><th>1/4</th><th>1/8</th><th>1/16</th><th>1/32</th><th>1/64</th><th>1/128</th><th>1/256</th><th>1/512</th></tr>
+          <tr><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+        </table>
+      </div>
+      <p class="small muted">
+        This table shows the idea of converting a shifted fractional binary value using fractional place values.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Normalisation (floating point)</h3>
+      <p>
+        Normalisation makes the mantissa use as much of its available bit-width as possible (maximising precision).
+        A common rule: ensure the mantissa begins <code class="inline">01</code> for positive values or <code class="inline">10</code> for negative values.
+      </p>
+
+      <p class="small muted">Example idea: shift mantissa left until it starts with 01, then decrease exponent by the number of shifts.</p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th colspan="8">Mantissa (8 bits)</th><th colspan="4">Exponent (4 bits)</th></tr>
+          <tr>
+            <td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td>
+            <td>0</td><td>1</td><td>0</td><td>1</td>
+          </tr>
+        </table>
+      </div>
+      <p class="small muted">
+        After shifting mantissa left 2 places → exponent decreases by 2; resulting mantissa begins with 01.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Floating point arithmetic</h3>
+
+      <p><strong>Addition:</strong></p>
+      <ul>
+        <li>Make exponents equal by shifting the mantissa of the number with the smaller exponent (right shift mantissa, increase exponent).</li>
+        <li>Add mantissas.</li>
+        <li>Normalise result if needed.</li>
+      </ul>
+
+      <p class="small muted">Worked-structure example (same exponent after alignment):</p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><th class="rowlabel">Mantissa</th><th colspan="6">bits</th><th class="rowlabel">Exponent</th><th colspan="4">bits</th></tr>
+          <tr><td class="rowlabel">A</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td class="rowlabel"></td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td class="rowlabel">B</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td class="rowlabel"></td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+        </table>
+      </div>
+
+      <div class="hr"></div>
+
+      <p><strong>Subtraction:</strong></p>
+      <ul>
+        <li>Align exponents (same as addition).</li>
+        <li>Convert the mantissa being subtracted into two’s complement.</li>
+        <li>Add mantissas, then normalise.</li>
+      </ul>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Bitwise manipulation and masks</h3>
+
+      <p><strong>Logical shifts</strong></p>
+      <ul>
+        <li><strong>Logical shift left</strong>: move bits left; add zeros on the right. Equivalent to ×2<sup>k</sup> for k shifts (if no overflow).</li>
+        <li><strong>Logical shift right</strong>: move bits right; add zeros on the left. Equivalent to ÷2<sup>k</sup> (integer division for integers).</li>
+      </ul>
+      <p class="small muted">Example: shift left by 3: <code class="inline">10010110</code> → <code class="inline">10010110000</code> (×8)</p>
+
+      <div class="hr"></div>
+
+      <p><strong>Masks with logic operators</strong></p>
+      <p class="muted small">
+        A mask combines two bit patterns using a bitwise operator (AND/OR/XOR) to select, clear, toggle, or test bits.
+      </p>
+
+      <p class="small muted">Example AND mask:</p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><td class="rowlabel">A</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td class="rowlabel">AND</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td class="rowlabel">=</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+        </table>
+      </div>
+      <p class="small muted">AND outputs 1 only where both input bits are 1.</p>
+
+      <p class="small muted">OR and XOR on the same inputs:</p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><td class="rowlabel">A</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td class="rowlabel">OR</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td class="rowlabel">=</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td class="rowlabel">XOR</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td class="rowlabel">=</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        </table>
+      </div>
+      <p class="small muted">OR outputs 1 if either bit is 1; XOR outputs 1 only when bits differ.</p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Character sets for representing text</h3>
+      <p>
+        A <strong>character set</strong> maps numeric codes to characters so text can be stored and displayed.
+        Two common character sets are ASCII and Unicode.
+      </p>
+
+      <p><strong>ASCII</strong></p>
+      <ul>
+        <li>Historically common; uses 7 bits → 128 codes.</li>
+        <li>Examples: ‘A’–‘Z’ map to codes 65–90; ‘a’–‘z’ map to 97–122.</li>
+        <li>Limited for non-English languages and many symbols.</li>
+      </ul>
+
+      <p><strong>Unicode</strong></p>
+      <ul>
+        <li>Designed to cover many languages and symbols.</li>
+        <li>Uses variable-length encodings (depending on format), supporting a very large character space (over a million possible code points).</li>
+      </ul>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Specification checklist (coverage)</h3>
+      <ul>
+        <li>Primitive data types: integer, real, character, string, boolean</li>
+        <li>Represent positive integers in binary</li>
+        <li>Negative numbers: sign magnitude, two’s complement</li>
+        <li>Addition & subtraction of binary integers</li>
+        <li>Represent positive integers in hexadecimal</li>
+        <li>Convert between binary, hexadecimal, denary</li>
+        <li>Floating point representation & normalisation</li>
+        <li>Floating point arithmetic: + / −</li>
+        <li>Bitwise manipulation & masks: shifts, AND/OR/XOR</li>
+        <li>Character sets: ASCII, Unicode</li>
+      </ul>
+    </div>
+ </div>
+
+ <button id="printBtn" type="button">Print this worksheet</button>
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+</body>
+</html>

@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Processor</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Main stylesheet -->
+<link rel="stylesheet" href="../../css/main.css" />
+</head>
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+<h1>Processor – Knowledge Check</h1>
+<p>
+    Write your answers in the boxes provided.</p>
+   <p> Click <strong>Show answer</strong> to reveal model answers.
+  </p>
+</header>
+<main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="tabs">
+    <button
+      id="tabbtn-1"
+      type="button"
+      role="tab"
+      aria-controls="tab-1"
+      aria-selected="true"
+      tabindex="0">
+      Inputs, Outputs, Storage
+    </button>
+
+    <button
+      id="tabbtn-2"
+      type="button"
+      role="tab"
+      aria-controls="tab-2"
+      aria-selected="false"
+      tabindex="-1">
+      Processors
+    </button>
+
+      <button
+      id="tabbtn-3"
+      type="button"
+      role="tab"
+      aria-controls="tab-3"
+      aria-selected="false"
+      tabindex="-1">
+     RAM, ROM and Virtual Storage
+    </button>
+
+      <button
+      id="tabbtn-4"
+      type="button"
+      role="tab"
+      aria-controls="tab-4"
+      aria-selected="false"
+      tabindex="-1">
+      Types of Processors
+    </button>
+
+      <button
+      id="tabbtn-5"
+      type="button"
+      role="tab"
+      aria-controls="tab-5"
+      aria-selected="false"
+      tabindex="-1">
+      CPU Performance
+    </button>
+
+      <button
+      id="tabbtn-6"
+      type="button"
+      role="tab"
+      aria-controls="tab-6"
+      aria-selected="false"
+      tabindex="-1">
+      Secondary Storage
+    </button>
+
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-1"
+      role="tabpanel"
+      aria-labelledby="tabbtn-1">
+
+    <div class="vertical-knowledge">
+
+     <h2>Inputs and outputs </h2>
+     <!-- Question 1 -->
+        <div class="rev-card qa-card">
+          <p>Question 1(a): Define the term hardware. [1]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p>Hardware is the physical, tangible parts of a computer system (e.g. CPU, keyboard).</p>
+          </div>
+        </div>
+
+        <div class="rev-card qa-card">
+          <p>Question 1(b): Define the term software. [1]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p>Software is the programs or instructions that control the hardware and make the computer perform tasks.</p>
+          </div>
+        </div>
+
+     <!-- ================= Input & Output Devices ================= -->
+
+    <div class="rev-card qa-card">
+      <p>State the name of a sensor or input device used in a mobile treasure hunt game and explain why it is used. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li><strong>GPS:</strong> Determines the user’s geographical location.</li>
+          <li><strong>Compass/Magnetometer:</strong> Determines direction faced.</li>
+          <li><strong>Accelerometer:</strong> Detects movement.</li>
+          <li><strong>Touchscreen:</strong> Used to select options and play the game.</li>
+        </ul>
+      </div>
+    </div>
+
+        <!-- Question 2 -->
+        <div class="rev-card qa-card">
+          <p>Question 2: State what is meant by a peripheral and give two examples. [2]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p>A peripheral is a device external to the main computer, connected to it, used for input, output, or storage.</p>
+            <p>Examples include a printer, mouse, keyboard, or scanner.</p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="rev-card qa-card">
+          <p>Question 3: Explain the difference between an input device and an output device, using one example of each. [2]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p>An input device allows data to be entered into the computer (e.g. keyboard).</p>
+            <p>An output device allows the computer to present data or results to the user (e.g. monitor).</p>
+          </div>
+        </div>
+    </div>
+    </div>
+
+    <div
+      id="tab-2"
+      role="tabpanel"
+      aria-labelledby="tabbtn-2"
+      hidden>
+      <div class="vertical-knowledge">
+          <h2>Processors</h2>
+
+          <div class="rev-card qa-card">
+          <p>Describe two special registers, other than the ALU, which are found in the processor. [4]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li><strong>Program Counter (PC):</strong> Stores the address of the next instruction.</li>
+              <li><strong>Memory Address Register (MAR):</strong> Stores the address in memory currently being accessed.</li>
+              <li><strong>Memory Data Register (MDR):</strong> Stores data being transferred to or from memory.</li>
+              <li><strong>Current Instruction Register (CIR):</strong> Stores the instruction currently being executed.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ================= Program Counter ================= -->
+
+        <div class="rev-card qa-card">
+          <p>Explain how the Program Counter (PC) is used in the functioning of the processor. [2]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li>Stores the address of the next instruction.</li>
+              <li>Controls the order in which instructions are fetched and executed.</li>
+              <li>Is incremented after being read.</li>
+              <li>Is altered by jump/branch instructions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ================= Buses ================= -->
+
+        <div class="rev-card qa-card">
+          <p>State three different buses used in a computer system, describing what each is used for. [6]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li><strong>Data bus:</strong> Carries data/information; bidirectional.</li>
+              <li><strong>Address bus:</strong> Carries information about where data is being sent to or collected from.</li>
+              <li><strong>Control bus:</strong> Carries control signals such as read/write.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ================= Fetch-Decode-Execute ================= -->
+
+        <div class="rev-card qa-card">
+          <p>Describe 4 steps in the Fetch–Decode–Execute cycle, including registers and buses. [4]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ol>
+              <li>Address from PC is copied to MAR.</li>
+              <li>MAR sends address via the address bus.</li>
+              <li>Control unit sends read signal.</li>
+              <li>Data is transferred via data bus into MDR.</li>
+              <li>Data is copied from MDR to CIR.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- ================= Embedded Systems & ROM ================= -->
+
+        <div class="rev-card qa-card">
+          <p>Describe what the BIOS does to start up the computer. [3]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li>Contains computer start-up instructions.</li>
+              <li>Loads configuration settings (CMOS/NVRAM).</li>
+              <li>Initialises and checks hardware/peripherals (POST).</li>
+              <li>Finds and loads the operating system.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rev-card qa-card">
+          <p>Describe how an embedded system can make a different use of ROM and why it is an advantage. [2]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li>Stores firmware/configuration/operating instructions.</li>
+              <li>Cannot be overwritten, improving security and reliability.</li>
+              <li>Programs load instantly as they are already in ROM.</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <!-- Question 4 -->
+        <div class="rev-card qa-card">
+          <p>Question 4: Describe the role of the Control Unit (CU), Memory Unit (MU), and Arithmetic Logic Unit (ALU) within the CPU. [6]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p><strong>Control Unit (CU):</strong> Manages the fetch–decode–execute cycle by sending control signals and decoding instructions.</p>
+            <p><strong>Memory Unit (MU):</strong> Stores the operating system, application software, and data currently in use.</p>
+            <p><strong>Arithmetic Logic Unit (ALU):</strong> Performs arithmetic operations (e.g. addition, subtraction) and logical operations (AND, OR).</p>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="rev-card qa-card">
+          <p>Question 5: State two items that would be stored in the memory unit during processing. [2]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p>Examples include:</p>
+            <ul>
+              <li>Part of the operating system currently in use</li>
+              <li>Data files currently being processed</li>
+              <li>Application software currently running</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="rev-card qa-card">
+          <p>Question 6: Explain the role of the following registers: PC, MAR, and CIR. [3]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p><strong>Program Counter (PC):</strong> Holds the address of the next instruction to be fetched.</p>
+            <p><strong>Memory Address Register (MAR):</strong> Holds the memory address of the data or instruction to be accessed.</p>
+            <p><strong>Current Instruction Register (CIR):</strong> Holds the current instruction while it is being decoded and executed.</p>
+          </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="rev-card qa-card">
+          <p>Question 7: Describe the sequence of steps in the Fetch–Decode–Execute cycle. [7]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ol>
+              <li>The CPU copies the contents of the PC into the MAR.</li>
+              <li>The address in the MAR is sent via the address bus.</li>
+              <li>The CU sends a read signal via the control bus.</li>
+              <li>The instruction/data is transferred to the MDR via the data bus.</li>
+              <li>The instruction is copied from the MDR into the CIR.</li>
+              <li>The PC increments to the next instruction.</li>
+              <li>The instruction is decoded and executed.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="rev-card qa-card">
+          <p>Question 8: Explain what is meant by a bus in computer architecture. [1]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p>A bus is a set of parallel wires that transmits groups of bits or signals between CPU components.</p>
+          </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="rev-card qa-card">
+          <p>Question 9: Describe the purpose of the address bus, data bus, and control bus. [6]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p><strong>Address bus:</strong> Carries memory addresses of data or instructions to be accessed.</p>
+            <p><strong>Data bus:</strong> Transfers data and instructions between the CPU, memory, and I/O devices.</p>
+            <p><strong>Control bus:</strong> Carries control signals (e.g. read/write, clock, interrupt) from the CU.</p>
+          </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="rev-card qa-card">
+          <p>Question 10: Distinguish between manual input methods and automatic input methods, giving one example of each. [2]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p><strong>Manual input:</strong> Data entered by a user (e.g. keyboard, mouse).</p>
+            <p><strong>Automatic input:</strong> Data entered without human involvement, usually via sensors (e.g. barcode scanner, RFID).</p>
+          </div>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="rev-card qa-card">
+          <p>Question 11: Sensors are often used in data logging systems. Describe how two different sensors could be used to collect data in a real-world application. [2]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li>A temperature sensor in a greenhouse to monitor climate for plants.</li>
+              <li>A heart rate sensor in a fitness tracker to log a user’s pulse.</li>
+              <li>An accelerometer/gyroscope in a smartphone for motion detection.</li>
+            </ul>
+            <p>(Any two)</p>
+          </div>
+        </div>
+      </div>
+</div>
+
+      <div
+      id="tab-3"
+      role="tabpanel"
+      aria-labelledby="tabbtn-3"
+      hidden>
+
+    <div class="vertical-knowledge">
+    <h2>RAM, ROM and Virtual Memory</h2>
+
+     <!-- ================= RAM and ROM ================= -->
+
+    <div class="rev-card qa-card">
+      <p>RAM and ROM (a): State two differences between RAM and ROM. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>RAM is volatile and loses its contents when power is off, whereas ROM is non-volatile.</li>
+          <li>RAM can be read from and written to, whereas ROM can normally only be read from.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>RAM and ROM (b): Explain why RAM is required in a general-purpose computer system. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Stores programs, data, and the operating system currently in use.</li>
+          <li>Provides fast access for the processor to working data.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>RAM and ROM (c): State one example of software stored in ROM. [1]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <p>Bootstrap program / BIOS.</p>
+      </div>
+    </div>
+
+    <!-- ================= Embedded Systems ================= -->
+
+    <div class="rev-card qa-card">
+      <p>Embedded Systems (a): Explain why the control software is stored in ROM. [3]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>The control software does not need to be changed.</li>
+          <li>ROM cannot normally be altered by the user.</li>
+          <li>The program is immediately available when powered on.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Embedded Systems (b): Explain why it is still necessary for the device to have some RAM. [3]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Provides working memory for the processor.</li>
+          <li>Acts as a buffer when loading or playing back TV signals.</li>
+          <li>Stores data currently being processed or running.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ================= ROM and Start-Up ================= -->
+
+    <div class="rev-card qa-card">
+      <p>ROM and Start-Up: Describe three tasks carried out by software stored in ROM during start-up. [3]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Loads configuration settings (e.g. CMOS/NVRAM).</li>
+          <li>Initialises and checks hardware and peripherals (POST).</li>
+          <li>Reports hardware errors.</li>
+          <li>Determines which drive contains the OS.</li>
+          <li>Loads the bootstrap / OS kernel into RAM.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ================= Virtual Memory ================= -->
+
+    <div class="rev-card qa-card">
+      <p>Virtual Memory (a): Explain what is meant by virtual memory. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Uses secondary storage (e.g. hard disk/SSD) to extend RAM.</li>
+          <li>Stores data and instructions that do not fit into physical RAM.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Virtual Memory (b): Describe how virtual memory allows a large program to run. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ol>
+          <li>Inactive sections of programs/data are swapped out to secondary storage.</li>
+          <li>Active sections are swapped into RAM when required.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Virtual Memory (c): State one disadvantage of using virtual memory. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Slower access speed compared to RAM.</li>
+          <li>May cause disk thrashing if excessive swapping occurs.</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    </div>
+
+      <div
+      id="tab-4"
+      role="tabpanel"
+      aria-labelledby="tabbtn-4"
+      hidden>
+
+    <div class="vertical-knowledge">
+    <h4>Features of Von Neumann and Contemporary Processors</h4>
+
+    <!-- ================= Von Neumann Architecture ================= -->
+
+    <div class="rev-card qa-card">
+      <p>Von Neumann Architecture (a): State two features of the Von Neumann architecture. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Instructions and data are stored in the same memory.</li>
+          <li>Instructions and data share the same buses.</li>
+          <li>Single control unit and single ALU.</li>
+          <li>Uses the fetch–decode–execute cycle.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Von Neumann Architecture (b): Explain one limitation of the Von Neumann architecture. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <p>Only one fetch can occur at a time, so the CPU cannot access instructions and data simultaneously.</p>
+        <p>This causes the Von Neumann bottleneck, limiting performance.</p>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Von Neumann Architecture (c): Give one example of where a Von Neumann architecture might be used. [1]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <p>General-purpose computer such as a PC or laptop.</p>
+      </div>
+    </div>
+
+    <!-- ================= Harvard Architecture ================= -->
+
+    <div class="rev-card qa-card">
+      <p>Harvard Architecture (a): Describe the Harvard architecture. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Physically separate memories for instructions and data.</li>
+          <li>Separate buses allow concurrent access.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Harvard Architecture (b): State one advantage of the Harvard architecture over Von Neumann. [1]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <p>Instructions and data can be accessed at the same time, improving speed.</p>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Harvard Architecture (c): Explain why the Harvard architecture is often used in embedded systems. [3]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Instructions can be stored in ROM while data is stored in RAM.</li>
+          <li>Provides fast and predictable performance.</li>
+          <li>Avoids the Von Neumann bottleneck and is efficient for dedicated devices.</li>
+        </ul>
+      </div>
+    </div>
+
+        <div class="rev-card qa-card">
+      <p>Discuss the use of different computer architectures for different problem solutions. [8]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <h4>Von Neumann Architecture</h4>
+        <ul>
+          <li>Data and instructions stored together in memory.</li>
+          <li>Uses sequential processing following an algorithm.</li>
+          <li>Suitable where steps must occur in a strict order.</li>
+          <li>Suffers from performance limitations due to single processor.</li>
+        </ul>
+
+        <h4>Parallel Processing</h4>
+        <ul>
+          <li>Uses multiple processors or cores.</li>
+          <li>Executes instructions at the same time.</li>
+          <li>Requires complex coordination.</li>
+          <li>Often uses co-processors such as GPUs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ================= Contemporary Processors ================= -->
+
+    <div class="rev-card qa-card">
+      <p>Contemporary Processors (a): State two features that improve performance. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Cache memory</li>
+          <li>Pipelining</li>
+          <li>Multiple cores</li>
+          <li>Hyper-threading / virtual cores</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Contemporary Processors (b): Explain the role of cache memory in a CPU. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <p>Cache is small, high-speed memory close to the CPU.</p>
+        <p>It stores frequently used data and instructions, reducing access to slower RAM.</p>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Contemporary Processors (c): Explain how pipelining improves CPU performance. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Allows overlapping of fetch, decode, and execute stages.</li>
+          <li>Increases instruction throughput.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Contemporary Processors (d): State one difference between a single-core and a multi-core processor. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <p>A single-core processor executes one instruction stream at a time, whereas a multi-core processor can execute multiple instruction streams concurrently.</p>
+      </div>
+    </div>
+
+        <!-- ================= RISC vs CISC ================= -->
+
+    <div class="rev-card qa-card">
+      <p>RISC vs CISC (a): State two features of RISC instruction sets. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Each instruction executes in a single clock cycle.</li>
+          <li>Uses simple instructions of fixed length.</li>
+          <li>Requires more RAM as programs use more instructions.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>RISC vs CISC (b): State two features of CISC instruction sets. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Single instructions may take multiple clock cycles.</li>
+          <li>Uses complex instructions that may perform multiple operations.</li>
+          <li>Requires less RAM as fewer instructions are needed.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>RISC vs CISC (c): Explain why RISC processors are often preferred in mobile and embedded devices. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>More power-efficient due to simpler circuitry.</li>
+          <li>Fast execution of simple instructions suits real-time processing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>RISC vs CISC (d): Explain why CISC processors are often used in general-purpose desktop computers. [2]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Complex instructions make programs simpler and easier to write.</li>
+          <li>Compiler has less work translating high-level code.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ================= Comparison and Application ================= -->
+
+    <div class="rev-card qa-card">
+      <p>Comparison (a): Compare the use of a Von Neumann architecture processor with a Harvard architecture processor. [4]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>Von Neumann uses the same memory and buses for instructions and data.</li>
+          <li>Harvard uses separate memory and buses for instructions and data.</li>
+          <li>Von Neumann suffers from a bottleneck as only one fetch can occur at a time.</li>
+          <li>Harvard can fetch instructions and data simultaneously, so is faster.</li>
+          <li>Von Neumann is common in PCs; Harvard is common in embedded/DSP systems.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rev-card qa-card">
+      <p>Comparison (b): Compare the use of a RISC processor with a CISC processor, giving one application suited to each. [4]</p>
+      <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+      <button class="secondary answer-toggle" type="button">Show answer</button>
+      <div class="answer">
+        <ul>
+          <li>RISC uses simple instructions, one per cycle, is power-efficient, but needs more RAM.</li>
+          <li>CISC uses complex instructions, fewer per program, but may take multiple cycles.</li>
+          <li>RISC is suited to embedded/mobile systems.</li>
+          <li>CISC is suited to general-purpose desktop computers.</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    </div>
+
+      <div
+      id="tab-5"
+      role="tabpanel"
+      aria-labelledby="tabbtn-5"
+      hidden>
+
+           <div class="vertical-knowledge">
+
+        <h4>What affects CPU performance and why?</h4>
+
+        <div class="rev-card qa-card">
+            <h4>Parallel Processing</h4>
+        <h5>(a) Define parallel processing. (2)</h5>
+        <p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p> Parallel processing is when more than one processor works together
+            to perform a single job which is split into tasks.
+          </p>
+          </div>
+        </div>
+
+            <div class="rev-card qa-card">
+        <h5>
+            (b) State two advantages and two disadvantages of parallel processing
+            compared with single-processor systems. (4)
+          </h5>
+
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+
+        <p><strong>Advantages (any two):</strong></p>
+        <ul>
+        <li>Increased speed / multiple instructions processed at once</li>
+        <li>Complex tasks performed more efficiently</li>
+        </ul>
+
+          </div>
+        </div>
+
+            <div class="rev-card qa-card">
+        <p><strong>Disadvantages (any two):</strong></p>
+
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+        <ul>
+        <li>Not suitable for all programs</li>
+        <li>Programs may need to be specially written or rewritten</li>
+        <li>More complex operating system needed for synchronisation</li>
+        </ul>
+          </div>
+        </div>
+
+            <div class="rev-card qa-card">
+        <h4>Co-Processors</h4>
+        <h5>Explain the term co-processor and give one example of its use.</h5>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+        <ul>
+        <li>
+              A co-processor is an additional processor used for a specific task
+            </li>
+        <li>
+              Improves processing speed by working alongside the CPU concurrently
+            </li>
+        <li>
+              Example: maths co-processor / floating-point accelerator /
+              Graphics Processing Unit (GPU)
+            </li>
+        <li>
+              Reduces workload on the CPU
+            </li>
+        </ul>
+          </div>
+        </div>
+
+            <div class="rev-card qa-card">
+        <h4>Graphics Processing Unit (GPU)</h4>
+        <h5>(a) State the main role of a GPU. (1)</h5>
+
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+        <p>
+            A specialised processor for handling graphics and image processing.
+          </p>
+          </div>
+        </div>
+
+            <div class="rev-card qa-card">
+
+           <h5>
+            (b) Explain two reasons why a GPU is used in gaming instead of relying
+            only on the CPU. (4)
+          </h5>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+        <ul>
+        <li>
+              Graphics rendering involves millions of pixels per frame, which is
+              too demanding for the CPU alone
+            </li>
+        <li>
+              A GPU can render images around 60 times per second for smooth gameplay
+            </li>
+        <li>
+              Offloads intensive tasks from the CPU so the CPU can handle other
+              processes
+            </li>
+        </ul>
+              <p><em>(Any two, max 4 marks)</em></p>
+          </div>
+        </div>
+
+            <div class="rev-card qa-card">
+
+        <h5>(c) State one benefit of using a GPU in gaming. (1)</h5>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+         Smoother gameplay / faster image rendering / better visual quality
+          </div>
+        </div>
+
+        <!-- ================= Parallel Processing ================= -->
+
+        <div class="rev-card qa-card">
+          <p>Parallel Processing (a): Define parallel processing. [2]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p>Parallel processing is when more than one processor works together to perform a single job.</p>
+            <p>The job is split into tasks that are processed simultaneously.</p>
+          </div>
+        </div>
+
+        <div class="rev-card qa-card">
+          <p>Parallel Processing (b): State two advantages and two disadvantages of parallel processing compared with single-processor systems. [4]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p><strong>Advantages:</strong></p>
+            <ul>
+              <li>Increased speed as multiple instructions are processed at once.</li>
+              <li>Complex tasks are performed more efficiently.</li>
+            </ul>
+            <p><strong>Disadvantages:</strong></p>
+            <ul>
+              <li>Not suitable for all programs.</li>
+              <li>Programs may need to be specially written or rewritten.</li>
+              <li>More complex operating system needed for synchronisation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ================= Co-Processors ================= -->
+
+        <div class="rev-card qa-card">
+          <p>Co-Processors: Explain the term co-processor and give one example of its use. [3]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li>A co-processor is an additional processor used for a specific task.</li>
+              <li>Works alongside the CPU to improve performance.</li>
+              <li>Examples include a maths co-processor or a GPU.</li>
+              <li>Reduces workload on the CPU.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ================= Graphics Processing Unit ================= -->
+
+        <div class="rev-card qa-card">
+          <p>GPU (a): State the main role of a GPU. [1]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p>A specialised processor for handling graphics and image processing.</p>
+          </div>
+        </div>
+
+        <div class="rev-card qa-card">
+          <p>GPU (b): Explain two reasons why a GPU is used in gaming instead of relying only on the CPU. [4]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li>Graphics rendering involves millions of pixels per frame, which is too demanding for the CPU alone.</li>
+              <li>GPUs can render images many times per second for smooth gameplay.</li>
+              <li>Offloads intensive tasks from the CPU.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rev-card qa-card">
+          <p>GPU (c): State one benefit of using a GPU in gaming. [1]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <p>Smoother gameplay / faster image rendering / better visual quality.</p>
+          </div>
+        </div>
+               <!-- ================= Pipelining ================= -->
+
+        <div class="rev-card qa-card">
+          <p>Explain how pipelining improves the performance of a CPU. [2]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li>Allows overlapping of fetch, decode, and execute stages.</li>
+              <li>Increases the number of instructions processed per unit time.</li>
+              <li>Prevents CPU components from being idle.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ================= Virtual Memory ================= -->
+
+        <div class="rev-card qa-card">
+          <p>Explain what is meant by virtual memory and why it may be needed. [4]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li>Uses secondary storage when RAM is insufficient.</li>
+              <li>Stores instructions and data that do not fit in RAM.</li>
+              <li>Large image files or programs may exceed available RAM.</li>
+              <li>Allows programs to continue running smoothly.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ================= Parallel Processing ================= -->
+
+        <div class="rev-card qa-card">
+          <p>Describe how parallel processing increases computer performance. [3]</p>
+          <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+          <button class="secondary answer-toggle" type="button">Show answer</button>
+          <div class="answer">
+            <ul>
+              <li>Allows multiple instructions to run concurrently.</li>
+              <li>Large tasks can be split into smaller tasks.</li>
+              <li>Different cores can process different parts simultaneously.</li>
+            </ul>
+          </div>
+        </div>
+        </div>
+        </div>
+
+      <div
+      id="tab-6"
+      role="tabpanel"
+      aria-labelledby="tabbtn-6"
+      hidden>
+    <div class="vertical-knowledge">
+    <h2>Storage</h2>
+
+    <div class="rev-card qa-card">
+  <p>
+    Long Answer Question: Modern computers tend to have magnetic or solid-state (flash) hard drives.
+    Discuss which hard drive you would recommend for a keen video games player to use on their desktop PC. [9]
+  </p>
+
+  <textarea class="student-answer" placeholder="Divide your answer into Knowledge & Understanding, Application, and Evaluation..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+
+  <div class="answer">
+    <h4>Knowledge and Understanding</h4>
+    <ul>
+      <li>Magnetic hard drives work by magnetic patterns being read off platters that mechanically spin at high speeds.</li>
+      <li>Flash (solid-state) drives use memory chips and have no moving parts.</li>
+      <li>Magnetic hard drives are cheaper per GB and are available in much larger capacities.</li>
+      <li>Flash drives have much higher read/write speeds than magnetic hard disks.</li>
+      <li>Flash drives consume less power and operate silently.</li>
+    </ul>
+
+    <h4>Application</h4>
+    <ul>
+      <li>Modern games often include large amounts of media, so a gamer needs significant storage space.</li>
+      <li>Games are fast-paced and competitive, so high loading speeds are beneficial.</li>
+      <li>Gamers typically prioritise high-performance components.</li>
+      <li>Magnetic drives can be noisy, whereas solid-state drives operate silently, improving the gaming experience.</li>
+      <li>Hybrid approaches exist that combine large capacity with faster access speeds.</li>
+    </ul>
+
+    <h4>Evaluation</h4>
+    <p>
+      Magnetic hard drives offer excellent value due to their large storage capacities at a low cost, allowing
+      gamers to install many games at once. However, their slower performance can increase loading times.
+    </p>
+    <p>
+      Solid-state drives provide much faster read/write speeds, resulting in quicker game loading and smoother
+      performance, which is highly desirable for gaming. Although SSDs are more expensive per GB, their speed
+      advantage makes them the better choice for a keen gamer.
+    </p>
+    <p>
+      Overall, a solid-state drive is the recommended choice for a gaming desktop, potentially combined with a
+      magnetic drive for additional storage.
+    </p>
+  </div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+ <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

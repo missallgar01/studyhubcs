@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Databases</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+   <h1>Databases – Study Notes</h1>
+
+</header>
+
+<main>
+
+ <div class="vertical-knowledge">
+
+      <div class="knowledge-card">
+      <h3>Relational Databases</h3>
+      <p>
+        A <strong>relational database</strong> stores data in multiple tables.
+        Each table represents a different <strong>entity</strong>, such as a customer,
+        product, or doctor.
+      </p>
+      <p>
+        Tables are linked together using keys, allowing data to be shared without duplication.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A hospital database may contain a <em>Doctor</em> table and a <em>Patient</em> table.
+        These are linked using a DoctorID so each patient can be associated with a doctor.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Entities and Attributes</h3>
+      <p>
+        An <strong>entity</strong> is something about which data is stored.
+        <strong>Attributes</strong> are properties describing that entity.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong>
+        <pre>
+Car(CarID, Age, Price)
+        </pre>
+        <p>
+          Here, <em>Car</em> is the entity and <em>CarID</em>, <em>Age</em>, and <em>Price</em>
+          are attributes.
+        </p>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Flat File Databases</h3>
+      <p>
+        A <strong>flat file database</strong> stores all data in a single table.
+        It is usually based on one entity.
+      </p>
+
+      <ul>
+        <li>Simple to create</li>
+        <li>Hard to maintain</li>
+        <li>High data redundancy</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong>
+        <table>
+          <tr><th>CarID</th><th>Age</th><th>Price</th></tr>
+          <tr><td>Car1</td><td>5 years</td><td>£1500</td></tr>
+          <tr><td>Car2</td><td>2 years</td><td>£2400</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Primary Keys</h3>
+      <p>
+        A <strong>primary key</strong> uniquely identifies each record in a table.
+      </p>
+      <ul>
+        <li>Must be unique</li>
+        <li>Must not be null</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        In the Car table, <code>CarID</code> is the primary key because no two cars share the same ID.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Foreign Keys</h3>
+      <p>
+        A <strong>foreign key</strong> links two tables together.
+        It is a primary key in one table that appears in another table.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        <em>DoctorID</em> is the primary key in the Doctor table and a foreign key
+        in the Patient table.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Secondary Keys</h3>
+      <p>
+        A <strong>secondary key</strong> is used to speed up searching.
+        It does not uniquely identify records.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Patients may be searched by surname rather than PatientID,
+        so surname is indexed as a secondary key.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Entity Relationship Modelling (ERM)</h3>
+      <p>
+        Entity relationship models show how tables are linked.
+      </p>
+
+      <ul>
+        <li><strong>One-to-one</strong> – one record links to one record</li>
+        <li><strong>One-to-many</strong> – one record links to many</li>
+        <li><strong>Many-to-many</strong> – many records link to many</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        One customer can place many orders (one-to-many).
+        Students and courses form a many-to-many relationship.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Normalisation</h3>
+      <p>
+        <strong>Normalisation</strong> is the process of designing a database to reduce redundancy
+        and improve data integrity.
+      </p>
+
+      <ul>
+        <li>Remove duplicate data</li>
+        <li>Ensure consistent data</li>
+        <li>Allow safe insertion and deletion</li>
+      </ul>
+    </div>
+
+    <div class="knowledge-card">
+  <h3>Database Normalisation</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>1NF</th>
+        <th>2NF</th>
+        <th>3NF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li>Every table must have a <strong>primary key</strong></li>
+            <li>All field names must be <strong>unique</strong></li>
+            <li>Values in fields must be from the <strong>same domain</strong></li>
+            <li>Values must be <strong>atomic</strong> (one data item per field)</li>
+            <li><strong>No two records may be identical</strong></li>
+          </ul>
+        </td>
+
+        <td>
+          <ul>
+            <li>Must already be in <strong>1NF</strong></li>
+            <li>Remove any <strong>partial dependencies</strong></li>
+            <li>Fix any <strong>many-to-many</strong> relationships created as a result</li>
+          </ul>
+        </td>
+
+        <td>
+          <ul>
+            <li>Must already be in <strong>2NF</strong></li>
+            <li>Remove any <strong>transitive dependencies</strong></li>
+            <li>Ensure non-key fields are <strong>not dependent on other non-key fields</strong></li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    <div class="knowledge-card">
+      <h3>Indexing</h3>
+      <p>
+        Indexing stores records in a specific order to speed up searches.
+      </p>
+
+      <ul>
+        <li>Primary keys are indexed automatically</li>
+        <li>Secondary keys are indexed for fast searching</li>
+      </ul>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Capturing Data</h3>
+      <p>
+        Data must be captured accurately and efficiently.
+      </p>
+
+      <ul>
+        <li>Manual entry</li>
+        <li>OCR – Optical Character Recognition</li>
+        <li>OMR – Optical Mark Recognition</li>
+        <li>MICR – Magnetic Ink Character Recognition</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Banks use MICR to read cheque numbers, but the amount is entered manually.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Selecting and Managing Data</h3>
+      <p>
+        Not all collected data is needed.
+        Selecting relevant data reduces processing overhead.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A speed camera only records vehicles exceeding the speed limit,
+        ignoring all others.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Exchanging Data</h3>
+      <p>
+        Data exchange is the transfer of data between systems.
+      </p>
+
+      <ul>
+        <li>EDI – Electronic Data Interchange</li>
+        <li>No human interaction required</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A supermarket automatically sends stock data to suppliers using EDI.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>SQL (Structured Query Language)</h3>
+      <p>
+        SQL is a <strong>declarative language</strong> used to manage relational databases.
+      </p>
+
+      <p><strong>SELECT, FROM, WHERE, ORDER BY</strong></p>
+      <pre>
+SELECT MovieTitle, DatePublished
+FROM Movie
+WHERE DatePublished BETWEEN '2000-01-01' AND '2005-12-31'
+ORDER BY DatePublished DESC;
+      </pre>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>JOIN</h3>
+      <p>
+        JOIN combines data from multiple tables using a common attribute.
+      </p>
+
+      <pre>
+SELECT Movie.MovieTitle, Director.DirectorName
+FROM Movie
+JOIN Director
+ON Movie.DirectorName = Director.DirectorName;
+      </pre>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>CREATE, ALTER, INSERT, UPDATE, DELETE</h3>
+
+      <pre>
+CREATE TABLE Student (
+  StudentID INT PRIMARY KEY,
+  Name VARCHAR(30) NOT NULL
+);
+      </pre>
+
+      <pre>
+INSERT INTO Student VALUES (1, 'Alex');
+      </pre>
+
+      <pre>
+UPDATE Student SET Name='Alexa' WHERE StudentID=1;
+      </pre>
+
+      <pre>
+DELETE FROM Student WHERE StudentID=1;
+      </pre>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Referential Integrity</h3>
+      <p>
+        Referential integrity ensures linked data remains consistent.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A customer record cannot be deleted if active orders depend on it.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Transaction Processing and ACID</h3>
+      <ul>
+        <li><strong>Atomicity</strong> – all or nothing</li>
+        <li><strong>Consistency</strong> – maintains database rules</li>
+        <li><strong>Isolation</strong> – transactions don’t interfere</li>
+        <li><strong>Durability</strong> – changes persist after failure</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A bank transfer must either fully complete or not occur at all.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Record Locking and Deadlock</h3>
+      <p>
+        Record locking prevents simultaneous updates.
+      </p>
+
+      <div class="example">
+        <strong>Deadlock Example:</strong><br>
+        User A locks record 1 and waits for record 2.
+        User B locks record 2 and waits for record 1.
+        Neither can proceed.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Redundancy</h3>
+      <p>
+        Redundancy stores multiple copies of data in different locations.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Cloud backups ensure data can be recovered after hardware failure.
+      </div>
+    </div>
+ </div>
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+</body>
+</html>

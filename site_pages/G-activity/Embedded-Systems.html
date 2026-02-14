@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hardware Page 2 – FDE & Embedded</title>
+<style>
+body{font-family:Arial;background:#f4f9ff;padding:2rem}
+.section{background:white;padding:1rem;margin-bottom:1rem;border-radius:6px}
+.correct{color:green;font-weight:bold}
+.incorrect{color:red;font-weight:bold}
+button{padding:0.5rem 1rem;margin-top:1rem}
+.score{font-size:1.2rem;font-weight:bold}
+</style>
+</head>
+<body>
+
+<h1>💻 Hardware – FDE Cycle & Embedded Systems</h1>
+
+<div class="section">
+<h2>MCQ (5)</h2>
+<div id="mcq"></div>
+</div>
+
+<div class="section">
+<h2>Explain (2)</h2>
+<p>Explain the role of the control unit during the FDE cycle.</p>
+<textarea id="explain" rows="4" cols="60"></textarea>
+<div id="explainFeedback"></div>
+</div>
+
+<button onclick="markQuiz()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+const mcqData=[
+{q:"1. FDE stands for:",o:["Fetch Decode Execute","Fast Data Execute","Fetch Data Encrypt"],a:"Fetch Decode Execute"},
+{q:"2. The accumulator stores:",o:["Result","Address","Clock"],a:"Result"},
+{q:"3. Embedded systems:",o:["Perform one specific function","Run all applications","Are servers"],a:"Perform one specific function"},
+{q:"4. A microcontroller contains:",o:["All components on one chip","RAM only","ALU only"],a:"All components on one chip"},
+{q:"5. The PC increments to:",o:["Next instruction","Next bus","Next memory"],a:"Next instruction"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="mcq${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+function markQuiz(){
+let score=0;
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="mcq${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){score++;fb.innerHTML="✔️ Correct";fb.className="correct";}
+else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
+});
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+if(text.includes("decode"))marks++;
+if(text.includes("control signals")||text.includes("control bus"))marks++;
+score+=marks;
+document.getElementById("explainFeedback").innerHTML=
+marks===2?"✔️ 2/2":
+marks===1?"✔️ 1/2":"❌ 0/2";
+document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/7`;
+}
+</script>
+</body>
+</html>

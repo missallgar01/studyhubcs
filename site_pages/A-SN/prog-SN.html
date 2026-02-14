@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programming</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+   <h1>Programming – Study Notes</h1>
+
+</header>
+
+<main>
+
+ <div class="vertical-knowledge">
+
+      <h2>Programming Technigues – Notes</h2>
+
+       <!-- ================================================= -->
+    <!-- PROGRAMMING CONSTRUCTS -->
+    <!-- ================================================= -->
+    <div class="knowledge-card">
+<table>
+  <thead>
+    <tr>
+      <th>Construct</th>
+      <th>OCR Pseudocode</th>
+      <th>Python</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>Variables
+      <ul>
+          <li>Variables are assigned using the = operator.</li>
+          <li>A variable is declared the first time a value is assigned. It assumes the data type of the value it is given.</li>
+          <li>Variables declared inside a function or procedure are local to that subroutine.</li>
+          <li>Variables in the main program can be made global with the keyword global.</li>
+        </ul>
+
+      </td>
+      <td>
+        <pre>x=3
+name="Bob"</pre>
+      </td>
+      <td>
+        <pre>x = 3
+name = "Bob"</pre>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>Global variable
+      <code>global</code> only needed inside functions when modifying.
+      </td>
+      <td>
+        <pre>global userid = 123</pre>
+      </td>
+      <td>
+        <pre>global userid
+userid = 123</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Casting
+      Variables can be typecast using the int str and float functions.
+
+      </td>
+      <td>
+        <pre>str(3)
+int("3")
+float("3.14")</pre>
+      </td>
+      <td>
+        <pre>str(3)
+int("3")
+float("3.14")</pre>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>Output</td>
+      <td>
+        <pre>print("hello")</pre>
+      </td>
+      <td>
+        <pre>print("hello")</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>User Input</td>
+      <td>
+        <pre>name=input("Please enter your name")</pre>
+      </td>
+      <td>
+        <pre>name = input("Please enter your name")</pre>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>For Loop</td>
+      <td>
+        <pre>for i=0 to 7
+ print("Hello")
+next i</pre>
+
+        <p>Will print hello 8 times (0-7 inclusive).</p>
+      </td>
+      <td>
+        <pre>for i in range(8):
+    print("Hello")</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>While Loop</td>
+      <td>
+        <pre>while answer!="computer"
+ answer=input("What is the password?")
+endwhile</pre>
+      </td>
+      <td>
+        <pre>answer = ""
+while answer != "computer":
+    answer = input("What is the password?")</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Do Until Loop</td>
+      <td>
+        <pre>do
+ answer=input("What is the password?")
+until answer=="computer"</pre>
+      </td>
+      <td>
+        <pre>Not supported</pre>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>Selection If / Else
+      Selection will be carried out with if/else and switch/case
+      </td>
+      <td>
+        <pre>if entry=="a" then
+ print("You selected A")
+elseif entry=="b" then
+ print("You selected B")
+else
+ print("Unrecognised selection")
+endif</pre>
+      </td>
+      <td>
+        <pre>if entry == "a":
+    print("You selected A")
+elif entry == "b":
+    print("You selected B")
+else:
+    print("Unrecognised selection")</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Selection Switch / Case</td>
+      <td>
+        <pre>switch entry:
+ case "A":
+  print("You selected A")
+ case "B":
+  print("You selected B")
+ default:
+  print("Unrecognised selection")
+endswitch</pre>
+      </td>
+      <td>
+        <pre>Not supported</pre>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>String Length</td>
+      <td>
+        <pre>someText="Computer Science"
+print(someText.length)</pre>
+      </td>
+      <td>
+        <pre>someText = "Computer Science"
+print(len(someText))</pre>
+        Will display:<br>
+        16
+      </td>
+    </tr>
+
+    <tr>
+      <td>Substring</td>
+      <td>
+        <pre>stringname.subString(startingPosition, numberOfCharacters)</pre>
+        Example:<br>
+        <pre>someText="Computer Science"
+print(someText.substring(3,3))</pre>
+        Will display:<br>
+        put
+      </td>
+      <td>
+        <pre>print(someText[3:6])</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Function
+      Function returns a value.
+      </td>
+      <td>
+        <pre>function triple(number)
+ return number*3
+endfunction
+
+y=triple(7)</pre>
+      </td>
+      <td>
+        <pre>def triple(number):
+    return number * 3
+
+y = triple(7)</pre>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>Procedure</td>
+      <td>
+        <pre>procedure greeting(name)
+ print("hello"+name)
+endprocedure
+
+greeting("Hamish")</pre>
+      </td>
+      <td>
+        <pre>def greeting(name):
+    print("hello" + name)
+
+greeting("Hamish")</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Called from main program <br>
+        Unless stated values passed to subroutines can be assumed to be passed by value. <br>
+          If this is relevant to the question byVal and byRef will be used. In the case below x is passed by value and y is
+        passed by reference.<br>
+        <pre>procedure foobar(x:byVal, y:byRef)</pre>
+      </td>
+      <td>
+        <pre>greeting("Hamish")</pre>
+      </td>
+      <td>
+        <pre>greeting("Hamish")</pre>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>1D Array
+      Arrays are fixed size in OCR.<br>
+          Arrays will be 0 based and declared with the keyword array.<br>
+
+      </td>
+      <td>
+        <pre>array names[5]
+names[0]="Ahmad"
+names[1]="Ben"
+names[2]="Catherine"
+names[3]="Dana"
+names[4]="Elijah"
+print(names[3])</pre>
+      </td>
+      <td>
+        <pre>names = [None]*5
+names[0]="Ahmad"
+names[1]="Ben"
+names[2]="Catherine"
+names[3]="Dana"
+names[4]="Elijah"
+print(names[3])</pre>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>2D Array</td>
+      <td>
+        <pre>Array board[8,8]
+board[0,0]="rook"</pre>
+      </td>
+      <td>
+        <pre>board = [[None]*8 for i in range(8)]
+board[0][0] = "rook"</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Read File<br>
+      To open a file to read from openRead is used and readLine to return a line of text from the file.
+
+      </td>
+      <td>
+        The following program makes x the first line of sample.txt<br>
+        <pre>myFile = openRead("sample.txt")
+x = myFile.readLine()
+myFile.close()</pre>
+      </td>
+      <td>
+        <pre>myFile = open("sample.txt","r")
+x = myFile.readline()
+myFile.close()</pre>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>Write File<br>
+      'w' overwrites file.<br>
+      'a' appends to file<br>
+      </td>
+      <td>
+        To open a file to write to openWrite is used and writeLine to add a line of text to the file. In the program below hello world is made the contents of sample.txt (any previous contents are
+overwritten).<br>
+        <pre>myFile = openWrite("sample.txt")
+myFile.writeLine("Hello World")
+myFile.close()</pre>
+      </td>
+      <td>
+        <pre>myFile = open("sample.txt","w")
+myFile.write("Hello World\n")
+myFile.close()</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Class &amp; Constructor</td>
+      <td>
+        Constructors will be procedures with the name new.<br>
+        <pre>class Pet
+ private name
+ public procedure new(givenName)
+  name=givenName
+ endprocedure
+endclass</pre>
+      </td>
+      <td>
+        <pre>class Pet:
+    def __init__(self, givenName):
+        self._name = givenName #private attribute</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Inheritance</td>
+      <td>
+        Inheritance is denoted by the inherits keyword, superclass methods will be called with the keyword super. i.e. super.methodName(parameters) in the case of the constructor this would be
+super.new()<br>
+        <pre>class Dog inherits Pet
+ private breed
+ public procedure new(givenName, givenBreed)
+  super.new(givenName)
+  breed=givenBreed
+ endprocedure
+endclass</pre>
+      </td>
+      <td>
+        <pre>class Dog(Pet):
+    def __init__(self, givenName, givenBreed):
+        super().__init__(givenName)
+        self._breed = givenBreed</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Declare object</td>
+      <td>
+        To create an instance of an object the following format is usedobjectName = new className(parameters)<br>
+        class Dog inherits Pet<br>
+        <pre>myDog = new Dog(“Fido”,”Scottish Terrier”)</pre>
+      </td>
+      <td>
+        <pre>myDog = Dog(“Fido”,”Scottish Terrier”)</pre>
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+</div>
+
+    <div class="knowledge-card">
+      <h3>Programming Constructs</h3>
+      <p>
+        Programming constructs control the flow of execution in a program.
+        Structured programming uses three fundamental constructs:
+        <strong>sequence</strong>, <strong>branching</strong>, and <strong>iteration</strong>.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Sequence</h3>
+      <p>
+        Sequence means instructions are executed one after another,
+        from top to bottom, in the order they appear.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong>
+        <pre>
+x = 5
+y = 3
+z = x + y
+print(z)
+        </pre>
+        <p>The program always prints <code>8</code> because the steps are fixed.</p>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Branching (Selection)</h3>
+      <p>
+        Branching allows different paths to be taken depending on a condition.
+        This is implemented using <code>IF</code> statements.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong>
+        <pre>
+if mark >= 50:
+  print("Pass")
+else:
+  print("Fail")
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Iteration (Loops)</h3>
+      <p>
+        Iteration repeats a block of code.
+        There are two main types.
+      </p>
+
+      <p><strong>Count-controlled iteration</strong></p>
+      <pre>
+for i in range(0, 10):
+  print(i)
+      </pre>
+
+      <p><strong>Condition-controlled iteration</strong></p>
+      <pre>
+while x <= 20:
+  print("Not true")
+  x = x + 1
+      </pre>
+    </div>
+
+    <div class="knowledge-card">
+  <h3>Exam Style Question – Programming Constructs</h3>
+
+  <p>
+    Sally is a classroom teacher. She would like a program to be able to organise
+    where students will sit in her classroom. A plan of her classroom is shown.
+  </p>
+
+  <p>
+    Sally would like to increase the security of her program by adding a password
+    to enter the program. She has created the procedure <code>checkPassword</code>
+    to do this.
+  </p>
+
+  <pre>
+procedure checkPassword()
+  correctPassword = "ComputerScience12"
+  check = false
+  while check == false
+    enteredPassword = input("Enter Password")
+    if enteredPassword == correctPassword then
+      check = true
+    endif
+  endwhile
+endprocedure
+  </pre>
+
+  <h4>Question 1</h4>
+  <p>
+    Identify the programming construct used on lines 06 to 08 in the procedure
+    <code>checkPassword</code>. <strong>[1]</strong>
+  </p>
+
+  <p><strong>Answer:</strong> Selection</p>
+
+  <h4>Question 2</h4>
+  <p>
+    Sally has used a <code>while</code> loop on line 04 of the procedure
+    <code>checkPassword</code>.
+    Explain why Sally has used a <code>while</code> loop instead of a
+    <code>for</code> loop. <strong>[2]</strong>
+  </p>
+
+  <ul>
+    <li>The number of user attempts is not known.</li>
+    <li>The code must continue until the correct password is entered.</li>
+    <li>A while loop repeats until a condition is met.</li>
+    <li>A for loop repeats a fixed number of times.</li>
+    <li>A for loop may continue even after the correct password is entered.</li>
+  </ul>
+
+  <h4>Question 3</h4>
+  <p>
+    Sally could have used a <code>do until</code> loop instead of a
+    <code>while</code> loop.
+  </p>
+
+  <p>
+    Rewrite lines 04 to 09 of the procedure <code>checkPassword</code>
+    using a <code>do until</code> loop instead of a <code>while</code> loop.
+    <strong>[3]</strong>
+  </p>
+
+  <pre>
+do
+  enteredPassword = input("Enter Password")
+  if enteredPassword == correctPassword then
+    check = true
+  endif
+until check == true
+  </pre>
+
+  <h4>Mark Points</h4>
+  <ul>
+    <li>Correct use of <code>do</code> at the start of the loop.</li>
+    <li>Correct use of <code>until</code> at the end of the loop.</li>
+    <li>Correct logic for inputting and checking the password.</li>
+  </ul>
+</div>
+
+    <div class="knowledge-card">
+  <h3>Exam Style Question – Denary to Binary Conversion</h3>
+
+  <p>
+    A function, <code>toBinary()</code>, is needed to calculate the binary value
+    of a denary integer between 0 and 255.
+  </p>
+
+  <p><strong>toBinary()</strong> needs to:</p>
+  <ul>
+    <li>Take an integer value as a parameter</li>
+    <li>Divide the number by 2 repeatedly, storing a 1 if there is a remainder
+        and a 0 if there is not</li>
+    <li>Combine the remainder values (first to last, running right to left)
+        to create the binary number</li>
+    <li>Return the binary number</li>
+  </ul>
+
+  <p>
+    For example, to convert <strong>25</strong> to a binary number the steps are
+    as follows:
+  </p>
+
+  <pre>
+25 / 2 = 12   remainder 1
+12 / 2 = 6    remainder 0
+6 / 2 = 3     remainder 0
+3 / 2 = 1     remainder 1
+1 / 2 = 0     remainder 1
+  </pre>
+
+  <p>
+    Return value = <strong>11001</strong>
+  </p>
+
+  <p>
+    Write the function <code>toBinary()</code>.
+    You should write your function using pseudocode or program code.
+    <strong>[6]</strong>
+  </p>
+
+  <h4>Mark Scheme (1 mark per bullet)</h4>
+  <ul>
+    <li>Function header taking a parameter</li>
+    <li>Appropriate loop (e.g. until value is 0)</li>
+    <li>Division by 2 and finding the remainder (e.g. MOD)</li>
+    <li>Correctly adding 1 or 0</li>
+    <li>Appending digits correctly / final string reversed</li>
+    <li>Reducing the value inside the loop</li>
+    <li>Returning the calculated value</li>
+  </ul>
+
+  <h4>Pseudocode</h4>
+  <pre>
+function toBinary(denary)
+  binaryValue = ""
+
+  while denary > 0
+    temp = denary MOD 2
+
+    if temp == 1 then
+      binaryValue = "1" + binaryValue
+    else
+      binaryValue = "0" + binaryValue
+    endif
+
+    denary = denary DIV 2
+  endwhile
+
+  return binaryValue
+endfunction
+  </pre>
+
+  <h4>Python</h4>
+  <pre>
+def toBinary(denary):
+    binaryValue = ""
+
+    while denary > 0:
+        temp = denary % 2
+
+        if temp == 1:
+            binaryValue = "1" + binaryValue
+        else:
+            binaryValue = "0" + binaryValue
+
+        denary = denary // 2
+
+    return binaryValue
+  </pre>
+</div>
+
+    <!-- ================================================= -->
+    <!-- RECURSION -->
+    <!-- ================================================= -->
+
+    <div class="knowledge-card">
+      <h3>Recursion</h3>
+      <p>
+        Recursion occurs when a subroutine calls itself.
+        It must always include a <strong>base case</strong>
+        to stop infinite calls.
+      </p>
+
+      <div class="example">
+        <strong>Example: Factorial</strong>
+        <pre>
+function factorial(n):
+  if n == 0 or n == 1:
+    return 1
+  else:
+    return n * factorial(n - 1)
+end function
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Recursion vs Iteration</h3>
+      <table>
+        <tr>
+          <th>Recursion</th>
+          <th>Iteration</th>
+        </tr>
+        <tr>
+          <td>Often shorter and clearer</td>
+          <td>Usually more memory efficient</td>
+        </tr>
+        <tr>
+          <td>Uses call stack</td>
+          <td>Uses loops</td>
+        </tr>
+        <tr>
+          <td>Risk of stack overflow</td>
+          <td>No stack overflow risk</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Call Stack and Stack Frames</h3>
+      <p>
+        Each recursive call creates a <strong>stack frame</strong>
+        storing parameters, local variables, and return addresses.
+        Frames are removed as the recursion unwinds.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Calculating <code>factorial(4)</code> creates stack frames for
+        4 → 3 → 2 → 1 before returning values.
+      </div>
+    </div>
+
+
+    <div class="knowledge-card">
+  <h3>Data Types</h3>
+
+  <p>
+    <strong>Data types</strong> determine what value a variable can hold and the operations
+    that can be performed on that variable.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Data Type</th>
+        <th>Example</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Integer</td>
+        <td><code>age = 12</code></td>
+        <td>A whole number</td>
+      </tr>
+      <tr>
+        <td>Float (Real)</td>
+        <td><code>height = 1.52</code></td>
+        <td>A number with a decimal point</td>
+      </tr>
+      <tr>
+        <td>Character</td>
+        <td><code>a = 'a'</code></td>
+        <td>A single letter, number, or symbol</td>
+      </tr>
+      <tr>
+        <td>String</td>
+        <td><code>name = "Bart"</code></td>
+        <td>Multiple characters</td>
+      </tr>
+      <tr>
+        <td>Boolean</td>
+        <td>
+          <code>a = True</code><br>
+          <code>b = False</code>
+        </td>
+        <td>Has two values: true or false</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    <!-- ================================================= -->
+    <!-- VARIABLES -->
+    <!-- ================================================= -->
+
+    <div class="knowledge-card">
+  <h3>Scope of Variables</h3>
+
+  <p>
+    <strong>Scope</strong> is the section of code in which a variable can be accessed.
+    A local variable within a subroutine can only be accessed within that subroutine,
+    whereas global variables can be accessed across the whole program.
+  </p>
+
+  <h4>Local Variables</h4>
+  <ul>
+    <li>Only work inside the subroutine where they are created.</li>
+    <li>Deleted when the subroutine finishes.</li>
+    <li>Help keep subroutines independent and organised.</li>
+  </ul>
+
+  <h4>Global Variables</h4>
+  <ul>
+    <li>Can be used anywhere in the program.</li>
+    <li>Helpful for shared values.</li>
+    <li>Risk of accidental changes.</li>
+    <li>Stay in memory until the program ends, using more space.</li>
+  </ul>
+</div>
+
+    <div class="knowledge-card">
+      <h3>Local Variables</h3>
+      <p>
+        Local variables are defined inside a subroutine and can only
+        be accessed within that subroutine.
+      </p>
+
+      <div class="example">
+        <pre>
+function add():
+  total = 0   // local variable
+  total = total + 5
+end function
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Global Variables</h3>
+      <p>
+        Global variables are accessible throughout the entire program.
+        They persist for the program’s lifetime.
+      </p>
+
+      <div class="example">
+        <pre>
+score = 0   // global variable
+
+function increase():
+  score = score + 1
+end function
+        </pre>
+      </div>
+
+      <p>
+        Using many global variables is discouraged because they can be
+        overwritten accidentally and consume memory longer.
+      </p>
+    </div>
+
+    <!-- ================================================= -->
+    <!-- MODULARITY -->
+    <!-- ================================================= -->
+
+    <div class="knowledge-card">
+      <h3>Modularity</h3>
+      <p>
+        Modularity breaks a large program into smaller,
+        self-contained modules.
+      </p>
+
+      <ul>
+        <li>Easier to understand</li>
+        <li>Easier to test and maintain</li>
+        <li>Encourages reuse</li>
+      </ul>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Top-Down Design (Stepwise Refinement)</h3>
+      <p>
+        A problem is repeatedly broken into smaller sub-problems
+        until each can be solved independently.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A booking system is divided into:
+        login → search → reserve → confirm.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Functions vs Procedures</h3>
+      <table>
+        <tr>
+          <th>Function</th>
+          <th>Procedure</th>
+        </tr>
+        <tr>
+          <td>Returns one value</td>
+          <td>Does not have to return a value</td>
+        </tr>
+        <tr>
+          <td>Used in expressions</td>
+          <td>Performs actions</td>
+        </tr>
+      </table>
+
+      <div class="example">
+        <pre>
+function isEven(n):
+  return n MOD 2 == 0
+end function
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Parameter Passing</h3>
+      <p>
+        Parameters can be passed <strong>by value</strong>
+        or <strong>by reference</strong>.
+      </p>
+
+      <ul>
+        <li><strong>By value</strong>: a copy is passed (default in exams)</li>
+        <li><strong>By reference</strong>: the original value is modified</li>
+      </ul>
+
+      <div class="example">
+        <pre>
+function multiply(x:byVal, y:byRef)
+        </pre>
+      </div>
+    </div>
+
+
+    <div class="knowledge-card">
+  <h3>Working with Strings</h3>
+
+  <h4>Strings</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Operation</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Get length of a string</td>
+        <td><code>len("Hello")</code></td>
+      </tr>
+      <tr>
+        <td>Character to character code</td>
+        <td><code>asc("a")</code></td>
+      </tr>
+      <tr>
+        <td>Character code to character</td>
+        <td><code>CHR(101)</code></td>
+      </tr>
+      <tr>
+        <td>String to integer</td>
+        <td><code>a = INT("12")</code></td>
+      </tr>
+      <tr>
+        <td>String to float</td>
+        <td><code>a = FLOAT("12.3")</code></td>
+      </tr>
+      <tr>
+        <td>Integer to string</td>
+        <td><code>a = STR(12)</code></td>
+      </tr>
+      <tr>
+        <td>Real to string</td>
+        <td><code>a = STR(12.3)</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Substrings</h4>
+  <p>
+    Substrings are used to select parts of a string.
+  </p>
+
+  <p><strong>Example:</strong> <code>student = "Harry Potter"</code></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Code</th>
+        <th>Output</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Output the first two characters</td>
+        <td><code>print(student[0:2])</code></td>
+        <td>Ha</td>
+      </tr>
+      <tr>
+        <td>Output the first three characters</td>
+        <td><code>print(student[:3])</code></td>
+        <td>Har</td>
+      </tr>
+      <tr>
+        <td>Output characters 2–4</td>
+        <td><code>print(student[2:5])</code></td>
+        <td>rry</td>
+      </tr>
+      <tr>
+        <td>Output the last three characters</td>
+        <td><code>print(student[-3:])</code></td>
+        <td>ter</td>
+      </tr>
+      <tr>
+        <td>Output a middle section</td>
+        <td><code>print(student[4:-3])</code></td>
+        <td>y Pot</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    <strong>Note:</strong> A negative index is counted from the end of the string.
+  </p>
+</div>
+
+    <div class="knowledge-card">
+  <h3>Exam Style Question – String Validation</h3>
+
+  <p>
+    The function <code>validateAnswer</code> takes in the random letters
+    as an array of letters and the player’s answer as a string.
+  </p>
+
+  <p>
+    It checks whether the word entered only contains letters from the
+    10 random letters, with each letter being used only once.
+    (At this stage the program does not check if the answer is a real word.)
+  </p>
+
+  <p>
+    The function returns a score out of 10 for a valid word,
+    or 0 for an invalid word.
+  </p>
+
+  <h4>Example</h4>
+  <ul>
+    <li>If the random letters are <code>OPXCMURETN</code></li>
+    <li>The word <strong>COMPUTER</strong> returns <strong>8</strong></li>
+    <li>The word <strong>POST</strong> returns <strong>0</strong> (no S)</li>
+    <li>The word <strong>RETURN</strong> returns <strong>0</strong> (only one R available)</li>
+  </ul>
+
+  <p>
+    Complete the function <code>validateAnswer(answer, randomLetters[])</code>.
+    <strong>[6]</strong>
+  </p>
+
+  <h4>Mark Scheme</h4>
+  <ul>
+    <li>Traverses every letter of the answer</li>
+    <li>Traverses the randomLetters array</li>
+    <li>Checks each answer letter against random letters</li>
+    <li>Returns 0 if a letter does not occur</li>
+    <li>Returns 0 if a letter occurs too many times</li>
+    <li>Returns answer length for a valid word</li>
+  </ul>
+
+  <h4>Solution (Pseudocode)</h4>
+  <pre>
+function validateAnswer(answer, randomLetters)
+  valid = True
+  score = 0
+
+  lengthAnswer = len(answer)
+  lengthRandom = len(randomLetters)
+  index = 0
+
+  while (valid == True) and (index < lengthAnswer)
+    numChar = 0
+    currentLetter = answer[index:index+1]
+
+    for i = 0 to lengthRandom - 1
+      if currentLetter == randomLetters[i] then
+        numChar = numChar + 1
+      endif
+    next i
+
+    if numChar == 0 then
+      valid = False
+    endif
+
+    index = index + 1
+  endwhile
+
+  if valid == True then
+    score = lengthAnswer
+  endif
+
+  return score
+endfunction
+  </pre>
+
+  <p>
+    Example call:
+  </p>
+  <pre>
+print(validateAnswer("POST", "OPXCMURETN"))
+  </pre>
+</div>
+
+
+    <div class="knowledge-card">
+  <h3>Working with Text Files</h3>
+
+  <h4>Opening Files</h4>
+  <p>
+    Before reading from, writing to, appending to, or modifying a file,
+    the file must first be opened.
+  </p>
+
+  <pre>
+open(filename, access_mode)
+  </pre>
+
+  <p>
+    There are a range of access modes depending on what we want to do to the file.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Access Mode</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>r</td>
+        <td>Opens a file for reading only</td>
+      </tr>
+      <tr>
+        <td>w</td>
+        <td>
+          Opens a file for writing only.
+          Creates a new file if one does not exist.
+          Overwrites the file if it already exists.
+        </td>
+      </tr>
+      <tr>
+        <td>a</td>
+        <td>
+          Appends to the end of a file.
+          Creates a new file if one does not exist.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Reading Text Files</h4>
+
+  <p><strong>read</strong> – reads the whole file into a single string</p>
+  <pre>
+f = open("file.txt", "r")
+print(f.read())
+f.close()
+  </pre>
+
+  <p><strong>readline</strong> – reads one line at a time</p>
+  <pre>
+f = open("file.txt", "r")
+print(f.readline())
+print(f.readline())
+print(f.readline())
+f.close()
+  </pre>
+
+  <p><strong>readlines</strong> – reads the whole file into a list</p>
+  <pre>
+f = open("file.txt", "r")
+print(f.readlines())
+f.close()
+  </pre>
+
+  <h4>Writing Text Files</h4>
+
+  <p><strong>Writing single lines</strong></p>
+  <pre>
+file = open("days.txt", "w")
+file.write("Monday\n")
+file.write("Tuesday\n")
+file.write("Wednesday\n")
+file.close()
+  </pre>
+
+  <p><strong>Writing from a list</strong></p>
+  <pre>
+say = ["How\n", "are\n", "you\n"]
+file = open("say.txt", "w")
+file.writelines(say)
+file.close()
+  </pre>
+</div>
+
+   <div class="knowledge-card">
+  <h3>Exam Style Question – File Handling</h3>
+
+  <p>
+    Albert runs a competition each week in his local village hall.
+    He would like a program that allows the winner to enter their
+    telephone number, which is then checked and written into a text file.
+  </p>
+
+  <p>The rules for Albert’s program are as follows:</p>
+  <ol>
+    <li>The telephone number is entered and checked to ensure the first digit is 0.</li>
+    <li>If the first digit is not 0, print “Needs To Start With 0”.</li>
+    <li>
+      If the first digit is 0, the telephone number is passed into an
+      existing function <code>checkLength</code>.
+      This returns true if the number is long enough.
+    </li>
+    <li>If the number is long enough, it is written into a file called <code>winner.txt</code>.</li>
+    <li>If the number is not long enough, print “Not Long Enough”.</li>
+  </ol>
+
+  <p>
+    Complete the procedure <code>competitionWinner</code> so that it meets
+    the rules of Albert’s program. <strong>[5]</strong>
+  </p>
+
+  <h4>Solution (Pseudocode)</h4>
+  <pre>
+procedure competitionWinner()
+
+  telNum = input("Enter Telephone Number")
+
+  if telNum[0] == "0" then
+    length = checkLength(telNum)
+
+    if length == true then
+      myfile = open("winner.txt", "w")
+      myfile.write(telNum)
+      myfile.close()
+    else
+      print("Not Long Enough")
+    endif
+
+  else
+    print("Needs To Start With 0")
+  endif
+
+endprocedure
+  </pre>
+
+  <h4>Mark Scheme (1 mark per bullet, max 5)</h4>
+  <ul>
+    <li>Correct logic for inputting the telephone number</li>
+    <li>Correct check that the telephone number starts with 0</li>
+    <li>Passing the number into <code>checkLength</code></li>
+    <li>Opening, writing to, and closing <code>winner.txt</code> correctly</li>
+    <li>Correct output of error messages</li>
+  </ul>
+</div>
+
+    <!-- ================================================= -->
+    <!-- IDE -->
+    <!-- ================================================= -->
+
+    <div class="knowledge-card">
+      <h3>Integrated Development Environments (IDEs)</h3>
+      <p>
+        An IDE provides tools to help programmers write,
+        test, and debug code efficiently.
+      </p>
+
+      <ul>
+        <li>Source code editor</li>
+        <li>Syntax highlighting</li>
+        <li>Autocompletion</li>
+      </ul>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>IDE Debugging Tools</h3>
+      <ul>
+        <li><strong>Stepping</strong> – execute code line by line</li>
+        <li><strong>Breakpoints</strong> – pause execution at chosen lines</li>
+        <li><strong>Variable watch</strong> – observe values in real time</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Using a breakpoint to find where a loop stops updating a variable correctly.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+  <h3>High Level Programming Languages</h3>
+
+  <ul>
+    <li>Much easier to learn, write, and debug.</li>
+    <li>Examples include Python, Java, and C.</li>
+    <li>
+      Code written in these languages must be translated into machine code
+      before it can be executed.
+    </li>
+  </ul>
+
+  <h4>Advantages</h4>
+  <ul>
+    <li>Much more widely understood and used.</li>
+    <li>Easier to learn, code in, and understand.</li>
+    <li>Much quicker to produce usable code.</li>
+    <li>More support and learning resources are available.</li>
+    <li>Easier to debug and find issues.</li>
+  </ul>
+
+  <h4>Disadvantages</h4>
+  <ul>
+    <li>Less flexible.</li>
+    <li>Must be translated before being executed.</li>
+    <li>Very difficult to write and understand.</li>
+    <li>Much more time-consuming to produce code.</li>
+  </ul>
+</div>
+
+     <div class="knowledge-card">
+  <h3>Programming Standards</h3>
+
+  <ul>
+    <li>
+      No function should be longer than a single page of code.
+      This reduces complexity and improves readability.
+    </li>
+    <li>
+      Variable identifiers must follow a standard naming convention.
+      This helps others understand the code, reduces duplication,
+      and makes maintenance easier.
+    </li>
+    <li>
+      Each function must have a single entry point.
+      This reduces complexity and makes bugs easier to locate.
+    </li>
+    <li>
+      Variables should not be set up outside the scope of a function.
+      This limits where bugs may occur and prevents problems spreading
+      across multiple modules.
+    </li>
+    <li>Code must be correctly indented.</li>
+    <li>
+      Global variables should use upper case with underscores,
+      e.g. <code>UPPER_CASE_WITH_UNDERSCORES</code>.
+    </li>
+    <li>
+      In Python, function names should be lowercase.
+    </li>
+    <li>
+      Comment code appropriately.
+      Avoid line-by-line comments as they reduce readability.
+    </li>
+  </ul>
+</div>
+
+    <div class="knowledge-card">
+  <h3>Test Data</h3>
+
+  <p>
+    Programs must be tested with a range of different input data
+    to ensure they work as expected under all conditions.
+  </p>
+
+  <p>Input data should be checked to ensure values are:</p>
+  <ul>
+    <li>Within a certain range</li>
+    <li>In the correct format</li>
+    <li>The correct length</li>
+    <li>The correct data type (e.g. integer, float, string)</li>
+  </ul>
+
+  <p>
+    Programs are tested using normal, erroneous, and boundary data.
+  </p>
+
+  <h4>Normal Data</h4>
+  <p>
+    Data that is expected to be entered.
+    For example, the age of a secondary school pupil would typically
+    be an integer between 11 and 19.
+  </p>
+
+  <h4>Erroneous Data</h4>
+  <p>
+    Data that is clearly incorrect.
+    For example, entering 40 as the age of a school pupil.
+    The program should identify this as invalid and respond sensibly
+    without crashing.
+  </p>
+
+  <h4>Boundary Data</h4>
+  <p>
+    Data at the extreme limits of acceptable values.
+    For example, ages of 10, 11, 19, or 20.
+  </p>
+</div>
+
+     <div class="knowledge-card">
+  <h3>Debugging</h3>
+
+  <h4>Syntax Errors</h4>
+  <p>
+    Errors in the code that prevent the program from running.
+    These include missing brackets, spelling mistakes,
+    and other typographical errors.
+  </p>
+
+  <h4>Runtime Errors</h4>
+  <p>
+    Errors that occur while the program is running.
+    For example, attempting to access a memory location
+    that does not exist, such as an invalid array index.
+  </p>
+
+  <h4>Logical Errors</h4>
+  <p>
+    The program runs to completion but produces incorrect output.
+    These errors are often caused by incorrect calculations
+    or faulty logic.
+  </p>
+</div>
+
+    <!-- ================================================= -->
+    <!-- OBJECT ORIENTED TECHNIQUES -->
+    <!-- ================================================= -->
+
+    <div class="knowledge-card">
+      <h3>Object-Oriented Programming (OOP)</h3>
+      <p>
+        OOP is based on <strong>classes</strong> and <strong>objects</strong>.
+        A class defines the state and behaviour of an object.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Classes and Objects</h3>
+      <p>
+        A <strong>class</strong> is a template.
+        An <strong>object</strong> is an instance of a class.
+      </p>
+
+      <div class="example">
+        <pre>
+class Car:
+  colour
+  speed
+
+myCar = Car()
+        </pre>
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Encapsulation</h3>
+      <p>
+        Encapsulation hides internal data by making attributes private
+        and controlling access using public methods.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A bank account balance can only be changed using
+        deposit and withdraw methods.
+      </div>
+    </div>
+
+
+       <!-- =========================
+     1.2.4 Programming Paradigms & Procedural Languages
+     ========================= -->
+
+    <div class="knowledge-card">
+      <h3>1.2.4 Programming paradigms and procedural languages</h3>
+      <p>
+        A <strong>programming paradigm</strong> is a style / way of programming used to classify programming languages.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Do you remember?</h3>
+      <p>
+        A <strong>paradigm</strong> is a way of thinking that is suited to solve a particular problem.
+      </p>
+      <p><strong>Types of programming paradigm include:</strong></p>
+      <ul>
+        <li><strong>Procedural</strong> (also known as imperative)</li>
+        <li><strong>Object-Oriented Programming (OOP)</strong></li>
+        <li><strong>Low-level programming</strong></li>
+      </ul>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Procedural programming (imperative)</h3>
+      <p>
+        Code is written and runs one instruction at a time. Key programming constructs are:
+        <strong>sequence</strong> (running code line by line), <strong>selection</strong> (if statements) and
+        <strong>iteration</strong> (loops). <strong>Subroutines</strong> (procedures and functions) are also available.
+      </p>
+    </div>
+
+
+<!-- =========================
+     Comparison table (Procedural vs OOP)
+     ========================= -->
+    <div class="knowledge-card">
+    <table>
+      <caption><strong>Comparison of procedural programming with object-oriented programming (OOP)</strong></caption>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Procedural</th>
+          <th>Object-oriented</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Iteration, selection and sequences</strong></td>
+          <td>These are the key control structures in procedural programming.</td>
+          <td>The same control structures exist in OOP; they are used <strong>inside objects</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Storing data items</strong></td>
+          <td><strong>Variables</strong>.</td>
+          <td>Variables are known as <strong>attributes</strong> or <strong>properties</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Subroutines</strong></td>
+          <td><strong>Procedures</strong> and <strong>functions</strong>.</td>
+          <td><strong>Methods</strong> (work in the same way as procedures and functions).</td>
+        </tr>
+        <tr>
+          <td><strong>Design style</strong></td>
+          <td>Programs are written <strong>top to bottom</strong>.</td>
+          <td>
+            <strong>Classes</strong> and <strong>objects</strong> encapsulate data (in <strong>attributes</strong>)
+            and routines (in <strong>methods</strong>).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+            </div>
+    <div class="knowledge-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>Procedural Programming</th>
+          <th>Object-Oriented Programming (OOP)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Main focus</strong></td>
+          <td>Procedures / functions</td>
+          <td>Objects (data + methods)</td>
+        </tr>
+        <tr>
+          <td><strong>Program structure</strong></td>
+          <td>Top-down structure</td>
+          <td>Bottom-up structure</td>
+        </tr>
+        <tr>
+          <td><strong>Data handling</strong></td>
+          <td>Data and procedures are separate</td>
+          <td>Data and methods are bundled together</td>
+        </tr>
+        <tr>
+          <td><strong>Reusability</strong></td>
+          <td>Limited reuse of code</td>
+          <td>High reusability using classes and inheritance</td>
+        </tr>
+        <tr>
+          <td><strong>Security</strong></td>
+          <td>Less secure (data often global)</td>
+          <td>More secure using encapsulation</td>
+        </tr>
+        <tr>
+          <td><strong>Ease of maintenance</strong></td>
+          <td>Harder to maintain in large programs</td>
+          <td>Easier to maintain and extend</td>
+        </tr>
+        <tr>
+          <td><strong>Scalability</strong></td>
+          <td>Less suitable for large projects</td>
+          <td>Well suited to large and complex systems</td>
+        </tr>
+        <tr>
+          <td><strong>Examples of languages</strong></td>
+          <td>C, Pascal</td>
+          <td>Java, Python, C++</td>
+        </tr>
+      </tbody>
+    </table>
+          </div>
+</div>
+</div>
+
+
+<button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

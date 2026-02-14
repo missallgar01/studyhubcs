@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Algorithm Step Visualizer</title>
+   <link rel="stylesheet" href="../../css/main.css" />
+
+<style>
+.controls {
+  margin-bottom: 1rem;
+}
+
+#indexRow, #arrayContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0.5rem 0;
+    color: #000000;
+}
+
+.index {
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: #666;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.current { background: #ffeb3b; }
+.checked { background: #ff6b6b; color: white; }
+
+
+.code-line {
+  display: block;
+  padding: 2px 6px;
+}
+
+.highlight-line {
+  background: #264f78;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="back-container">
+    <a href="../G-booklets.html">← Back</a>
+  </div>
+<header>
+  <h1>Searching Algorithms</h1>
+
+</header>
+
+<main>
+<h1>🔁 Bubble Sort Step Visualiser</h1>
+
+<div class="controls">
+  <button onclick="startSort()">Start</button>
+  <button id="nextBtn" onclick="nextStep()" disabled>Next Step</button>
+</div>
+
+<div id="indexRow"></div>
+<div id="arrayContainer"></div>
+
+<h2>📊 Trace Table</h2>
+<table>
+  <thead>
+    <tr id="traceHeader"></tr>
+  </thead>
+  <tbody id="traceBody"></tbody>
+</table>
+
+<h2>🐍 Python Code</h2>
+<pre id="codeBlock"></pre>
+
+<script>
+
+let originalArray = [8, 3, 5, 1, 9, 6, 2, 7];
+let array = [...originalArray];
+let steps = [];
+let currentStep = 0;
+let sortFinished = false;
+
+const container = document.getElementById("arrayContainer");
+const indexRow = document.getElementById("indexRow");
+const traceBody = document.getElementById("traceBody");
+const traceHeader = document.getElementById("traceHeader");
+const codeBlock = document.getElementById("codeBlock");
+
+/* ---------------- RENDER ---------------- */
+
+function renderArray() {
+  container.innerHTML = "";
+  indexRow.innerHTML = "";
+
+  array.forEach((num, i) => {
+
+    const index = document.createElement("div");
+    index.className = "index";
+    index.textContent = i;
+    indexRow.appendChild(index);
+
+    const box = document.createElement("div");
+    box.className = "box";
+    box.id = "box-" + i;
+    box.textContent = num;
+    container.appendChild(box);
+  });
+}
+
+function highlightBoxes(i, j, className) {
+  document.querySelectorAll(".box")
+    .forEach(b => b.className = "box");
+
+  document.getElementById("box-" + i)?.classList.add(className);
+  document.getElementById("box-" + j)?.classList.add(className);
+}
+
+function highlightLine(index) {
+  document.querySelectorAll(".code-line")
+    .forEach(l => l.classList.remove("highlight-line"));
+
+  document.getElementById("line-" + index)?.classList.add("highlight-line");
+}
+
+function setCode(lines) {
+  codeBlock.innerHTML = "";
+  lines.forEach((line, i) => {
+    const span = document.createElement("span");
+    span.className = "code-line";
+    span.id = "line-" + i;
+    span.textContent = line;
+    codeBlock.appendChild(span);
+  });
+}
+
+/* ---------------- CONTROL ---------------- */
+
+function startSort() {
+
+  steps = [];
+  currentStep = 0;
+  sortFinished = false;
+
+  array = [...originalArray];
+  renderArray();
+  traceBody.innerHTML = "";
+
+  prepareBubble();
+
+  document.getElementById("nextBtn").disabled = false;
+}
+
+function nextStep() {
+
+  if (sortFinished || currentStep >= steps.length) return;
+
+  steps[currentStep]();
+  currentStep++;
+
+  if (currentStep >= steps.length) {
+    sortFinished = true;
+    document.getElementById("nextBtn").disabled = true;
+  }
+}
+
+/* ---------------- BUBBLE SORT ---------------- */
+
+function prepareBubble() {
+
+  const code = [
+"def bubble_sort(arr):",
+"    for i in range(len(arr)):",
+"        for j in range(0, len(arr)-i-1):",
+"            if arr[j] > arr[j+1]:",
+"                arr[j], arr[j+1] = arr[j+1], arr[j]"
+  ];
+
+  setCode(code);
+
+  traceHeader.innerHTML =
+    "<th>Pass</th><th>j</th><th>Compare</th><th>Swap?</th>";
+
+  let arr = [...array];
+
+  steps.push(() => highlightLine(0));
+
+  for (let i = 0; i < arr.length; i++) {
+
+    steps.push(() => highlightLine(1));
+
+    for (let j = 0; j < arr.length - i - 1; j++) {
+
+      steps.push(() => {
+        highlightLine(2);
+        highlightBoxes(j, j+1, "current");
+      });
+
+      const shouldSwap = arr[j] > arr[j+1];
+
+      steps.push(() => highlightLine(3));
+
+      steps.push(() => {
+
+        let swapText = "No";
+
+        if (shouldSwap) {
+          highlightLine(4);
+          highlightBoxes(j, j+1, "checked");
+
+          [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+          array = [...arr];
+          renderArray();
+
+          swapText = "Yes";
+        }
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${i+1}</td>
+          <td>${j}</td>
+          <td>${arr[j]} & ${arr[j+1]}</td>
+          <td>${swapText}</td>
+        `;
+        traceBody.appendChild(row);
+      });
+    }
+  }
+}
+
+/* ---------------- INIT ---------------- */
+
+renderArray();
+
+</script>
+
+<script src="../js/booklets.js"></script>
+
+</body>
+</html>

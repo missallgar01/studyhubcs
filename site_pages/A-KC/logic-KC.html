@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boolean Expressions</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+   <h1>Boolean Logic – Knowledge Check</h1>
+<p>
+    Write your answers in the boxes provided.</p>
+   <p> Click <strong>Show answer</strong> to reveal model answers.
+  </p>
+</header>
+
+<main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
+ <div class="vertical-knowledge">
+
+      <h2>Boolean Expressions </h2>
+      <h2>Check Your Understanding – Questions</h2>
+
+<div class="rev-card qa-card">
+  <p><strong>Question</strong></p>
+
+  <p>
+    A computer scientist has created the following logic circuit shown in
+    <strong>Fig. 6</strong>.
+  </p>
+
+  <figure>
+    <img src="images/logic/fig6.png" alt="Logic circuit diagram showing NOT(A OR B) XOR C">
+    <figcaption>Fig. 6</figcaption>
+  </figure>
+
+  <p>
+    <strong>(i)</strong> Give the Boolean expression that represents the logic circuit.
+    <br>
+    Do <strong>not</strong> attempt to simplify the expression.
+  </p>
+
+  <p>
+    <strong>(ii)</strong> Complete the truth table for the logic circuit shown in Fig. 6.
+  </p>
+
+  <table class="truthtable">
+    <thead>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>P</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td>0</td><td>0</td><td></td></tr>
+      <tr><td>0</td><td>0</td><td>1</td><td></td></tr>
+      <tr><td>0</td><td>1</td><td>0</td><td></td></tr>
+      <tr><td>0</td><td>1</td><td>1</td><td></td></tr>
+      <tr><td>1</td><td>0</td><td>0</td><td></td></tr>
+      <tr><td>1</td><td>0</td><td>1</td><td></td></tr>
+      <tr><td>1</td><td>1</td><td>0</td><td></td></tr>
+      <tr><td>1</td><td>1</td><td>1</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+
+    <p><strong>(i) Boolean expression</strong></p>
+    <p>
+      NOT(A OR B) XOR C<br>
+      ¬(A ∨ B) ⊕ C
+    </p>
+
+    <p><strong>(ii) Completed truth table</strong></p>
+
+    <table class="truthtable">
+      <thead>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>P</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+      </tbody>
+    </table>
+
+    <p><em>[3 marks]</em></p>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p><strong>Question</strong></p>
+
+  <p>
+    Daniel is an engineer. He has created the following logic circuit as shown.
+  </p>
+
+  <figure>
+    <img src="images/logic/daniel-circuit.png"
+         alt="Logic circuit where D = A AND B and X = D XOR C">
+    <figcaption>Logic circuit diagram</figcaption>
+  </figure>
+
+  <p>
+    Complete the truth table below for the logic circuit shown.
+  </p>
+
+  <table class="truthtable">
+    <thead>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>X</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0</td><td>0</td><td>0</td><td></td><td></td></tr>
+      <tr><td>0</td><td>0</td><td>1</td><td></td><td></td></tr>
+      <tr><td>0</td><td>1</td><td>0</td><td></td><td></td></tr>
+      <tr><td>0</td><td>1</td><td>1</td><td></td><td></td></tr>
+      <tr><td>1</td><td>0</td><td>0</td><td></td><td></td></tr>
+      <tr><td>1</td><td>0</td><td>1</td><td></td><td></td></tr>
+      <tr><td>1</td><td>1</td><td>0</td><td></td><td></td></tr>
+      <tr><td>1</td><td>1</td><td>1</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+
+    <p>
+      <strong>D</strong> is the result of <strong>A AND B</strong><br>
+      <strong>X</strong> is the result of <strong>D XOR C</strong>
+    </p>
+
+    <table class="truthtable">
+      <thead>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+          <th>X</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+      </tbody>
+    </table>
+
+    <p><em>[4 marks]</em></p>
+  </div>
+</div>
+
+
+          <div class="rev-card qa-card">
+  <p><strong>Question</strong></p>
+
+  <p>
+    The following Karnaugh map represents another logic circuit.
+  </p>
+
+  <figure>
+    <img src="images/logic/k1.png" alt="4-variable Karnaugh map for AB across columns and CD across rows">
+    <figcaption>Karnaugh Map</figcaption>
+  </figure>
+
+  <p><strong>(b)</strong> Use this Karnaugh map to find the simplified expression for this circuit.</p>
+
+  <p><strong>Step 1:</strong> Highlight the groups on the K-map.</p>
+  <p><strong>Step 2:</strong> Write the simplified Boolean expression.</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+
+    <p><strong>Step 1 (correct highlighting)</strong></p>
+    <figure>
+      <img src="images/logic/k1ans.png" alt="Highlighted groups on the Karnaugh map">
+      <figcaption>Correct grouping</figcaption>
+    </figure>
+
+    <p><strong>Step 2 (simplified expression)</strong></p>
+    <p>
+      ¬A ∧ ¬C &nbsp; ∨ &nbsp; A ∧ ¬D
+      <br>
+      <small>NOT A AND NOT C &nbsp; OR &nbsp; A AND NOT D</small>
+    </p>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <p><strong>Question</strong></p>
+
+  <p>Draw the logic gate represented by the K map below. Show your working.</p>
+
+  <figure>
+    <img src="images/logic/k2.png" alt="Karnaugh map with AB across columns and CD across rows">
+    <figcaption>Karnaugh Map</figcaption>
+  </figure>
+
+  <p><strong>Step 1:</strong> Group the 1s.</p>
+  <p><strong>Step 2:</strong> Write the simplified Boolean expression.</p>
+  <p><strong>Step 3:</strong> Draw the logic circuit / gate that matches your expression.</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+
+    <p><strong>Step 1 (correct grouping)</strong></p>
+    <figure>
+      <img src="images/logic/k2ans.png" alt="Correctly grouped 1s on the Karnaugh map">
+      <figcaption>Correct highlighting</figcaption>
+    </figure>
+
+    <p><strong>Step 2 (simplified expression)</strong></p>
+    <p>
+      (¬A ∧ ¬C) ∨ (A ∧ C)
+      <br>
+      <small>NOT A AND NOT C  OR  A AND C</small>
+    </p>
+
+    <p><strong>Step 3 (what gate is this?)</strong></p>
+    <p>
+      This simplifies to an <strong>XNOR gate</strong> between <strong>A</strong> and <strong>C</strong>
+      (output is 1 when A and C are the same).
+    </p>
+
+    <p><strong>Equivalent forms:</strong></p>
+    <ul>
+      <li>A ⊙ C (XNOR)</li>
+      <li>¬(A ⊕ C)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <p><strong>Question</strong></p>
+
+  <p>
+    An electronics engineer needs a circuit with the following logic:
+  </p>
+
+  <p><strong>(A ∧ B) ∨ (¬A ∧ B) ∨ (¬C ∧ ¬D)</strong></p>
+
+  <p>
+    Complete and use the Karnaugh map below to simplify the expression above.
+  </p>
+
+  <figure>
+    <img src="images/logic/k3.png" alt="Blank 4-variable Karnaugh map with AB across columns and CD across rows">
+    <figcaption>Karnaugh map template</figcaption>
+  </figure>
+
+  <p><strong>Step 1:</strong> Fill in the K-map with 1s and 0s.</p>
+  <p><strong>Step 2:</strong> Group the 1s to form the largest possible groups.</p>
+  <p><strong>Step 3:</strong> Write the simplified Boolean expression.</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+
+    <p><strong>Completed K-map + grouping</strong></p>
+    <figure>
+      <img src="images/logic/k3ans.png" alt="Completed Karnaugh map with highlighted groups leading to simplification">
+      <figcaption>Correct filling and grouping</figcaption>
+    </figure>
+
+    <p><strong>Simplified expression</strong></p>
+    <p>
+      <strong>B ∨ (¬C ∧ ¬D)</strong>
+      <br>
+      <small>B OR (NOT C AND NOT D)</small>
+    </p>
+  </div>
+</div>
+
+        <!-- Q2 -->
+        <div class="rev-card qa-card">
+          <h3>1. OR vs XOR</h3>
+          <p>Explain the difference in the function of an <strong>OR</strong> gate and an
+             <strong>XOR</strong> gate.</p>
+
+          <textarea class="student-answer" placeholder="Write your explanation here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p>An OR gate outputs 1 if <strong>at least one</strong> of its inputs is 1.
+               An XOR gate outputs 1 if <strong>exactly one</strong> input is 1 – it is 0 when
+               both inputs are 0 and also 0 when both are 1.</p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="rev-card qa-card">
+          <h3>2. Worked simplification</h3>
+          <p>Simplify the Boolean expression
+             <code>(¬C ∧ ¬D) ∨ (C ∧ ¬D)</code> and show your working, naming the rules you use.</p>
+
+          <textarea class="student-answer" placeholder="Show your steps here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <ol>
+              <li>Common factor ¬D in both terms:<br>
+                  (¬C ∧ ¬D) ∨ (C ∧ ¬D) ≡ ¬D ∧ (¬C ∨ C)</li>
+              <li>Use general OR rule ¬X ∨ X = 1:<br>
+                  ¬D ∧ (¬C ∨ C) ≡ ¬D ∧ 1</li>
+              <li>Use general AND rule X ∧ 1 = X:<br>
+                  ¬D ∧ 1 ≡ ¬D</li>
+            </ol>
+            <p><strong>Final answer:</strong> ¬D</p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="rev-card qa-card">
+          <h3>3. De Morgan’s law</h3>
+          <p>Simplify the expression so that it does not contain any negation over brackets:<br>
+             <strong>Q ≡ ¬(¬A ∧ ¬B)</strong><br>
+             Show each step and name the Boolean rule you use.</p>
+
+          <textarea class="student-answer" placeholder="Write your steps here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <ol>
+              <li>Apply De&nbsp;Morgan’s law:<br>
+                  ¬(¬A ∧ ¬B) ≡ ¬(¬A) ∨ ¬(¬B)</li>
+              <li>Use double negation:<br>
+                  ¬(¬A) ≡ A and ¬(¬B) ≡ B</li>
+            </ol>
+            <p><strong>So:</strong> Q ≡ A ∨ B</p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="rev-card qa-card">
+          <h3>4. Factoring an expression</h3>
+          <p>Using Boolean algebra rules, simplify the expression:<br>
+             <strong>(E ∧ F) ∨ (E ∧ G)</strong></p>
+
+          <textarea class="student-answer" placeholder="Write your simplification here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p>Factor out the common term E (reverse distribution):</p>
+            <p>(E ∧ F) ∨ (E ∧ G) ≡ E ∧ (F ∨ G)</p>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="rev-card qa-card">
+          <h3>5. Using absorption</h3>
+          <p>Using the rules for manipulating Boolean expressions, simplify:</p>
+          <p><strong>A ∧ B ∨ A ∧ (B ∨ C) ∨ B ∧ (B ∨ C)</strong></p>
+
+          <textarea class="student-answer" placeholder="Show your full working here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p>One possible route (summarised):</p>
+            <ol>
+              <li>Distribute where needed and combine like terms so that
+                  A∧B terms and B∧C terms are grouped.</li>
+              <li>Use absorption: (A ∧ B) ∨ B ≡ B and (B ∧ C) ∨ B ≡ B.</li>
+            </ol>
+            <p><strong>Final simplified expression:</strong> B ∨ (A ∧ C)</p>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="rev-card qa-card">
+          <h3>6. Challenge simplification</h3>
+          <p>
+            Simplify the following Boolean expression using De&nbsp;Morgan’s Laws and other
+            Boolean rules. Show enough steps to justify your answer:
+          </p>
+          <p><strong>¬(A ∧ B) ∨ ¬(A ∧ (B ∨ C)) ∨ (B ∧ (B ∨ C))</strong></p>
+
+          <textarea class="student-answer" placeholder="Write your challenge solution here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p>After applying De&nbsp;Morgan’s Laws, distribution, absorption and the general
+               AND/OR rules, every possible combination of A, B and C makes the expression
+               true.</p>
+            <p><strong>Final answer:</strong> 1 (the expression is always true)</p>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="rev-card qa-card">
+          <h3>7. D-type flip-flop</h3>
+
+            <img src="images/logic/flipflop.png" height="480" width="702"/>
+            <p>(a) State what a D-type flip-flop does.<br>
+
+
+             (b) When can the output change?<br>
+             (c) Why is a flip-flop useful in digital systems?</p>
+
+          <textarea class="student-answer" placeholder="Write your answers here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p><strong>(a)</strong> It stores the value of one bit: the output Q copies the
+               input D at certain times and then holds that value.</p>
+            <p><strong>(b)</strong> In a D-type flip-flop, Q can only change on the
+               <strong>rising edge</strong> of the clock pulse.</p>
+            <p><strong>(c)</strong> Because it holds its value between clock ticks, it can be
+               used as a 1-bit memory cell or register stage inside counters, registers and
+               other sequential circuits.</p>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="rev-card qa-card">
+          <h3>8. Half adder</h3>
+          <p>(a) Complete the truth table for a half adder with inputs A and B and outputs
+             Sum S and Carry C.<br>
+             (b) Write Boolean expressions for S and C.</p>
+
+          <textarea class="student-answer" placeholder="Construct the table and expressions here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p><strong>Truth table:</strong></p>
+            <table>
+              <thead>
+                <tr><th>A</th><th>B</th><th>S</th><th>C</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Expressions:</strong></p>
+            <ul>
+              <li>S = A ⊕ B</li>
+              <li>C = A ∧ B</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="rev-card qa-card">
+          <h3>9. Full adder circuit</h3>
+          <p>A logic circuit has three inputs A, B and C<sub>in</sub> and two outputs S and
+             C<sub>out</sub>.</p>
+
+            <img src="images/logic/adderQ.png" height="335" width="533"/>
+            <p>(a) Explain what the circuit does, referring to A, B, C<sub>in</sub>, S and
+             C<sub>out</sub> in your answer.<br>
+             (b) Write Boolean expressions for S and C<sub>out</sub>.</p>
+
+          <textarea class="student-answer" placeholder="Describe the circuit and give the expressions..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+          <div class="answer">
+            <p><strong>(a)</strong> It is a <strong>full adder</strong>. It adds the three
+               1-bit inputs A, B and C<sub>in</sub> together. The output S is the least
+               significant bit of the sum, and C<sub>out</sub> is the carry-out bit produced
+               when the total is 2 or 3.</p>
+            <p><strong>(b)</strong> One common form is:</p>
+            <ul>
+              <li>S = A <u>V</u> B <u>V</u> C<sub>in</sub></li>
+              <li>C<sub>out</sub> = (A ∧ B) ∨ ((A ∨ B) ∧ C<sub>in</sub>)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

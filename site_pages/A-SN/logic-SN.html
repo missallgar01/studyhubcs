@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boolean Expressions</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+   <h1>Boolean Logic – Study Notes</h1>
+
+</header>
+
+<main>
+
+ <div class="vertical-knowledge">
+
+      <h2>Boolean Expressions – Notes</h2>
+
+      <!-- Card 1: Gates, symbols & truth tables -->
+      <div class="knowledge-card">
+        <h3>Logic Gates, Symbols & Truth Tables</h3>
+
+
+        <p>Boolean logic works with variables that can only be <strong>0 (false)</strong> or
+           <strong>1 (true)</strong>. We combine them using logic gates:</p>
+
+        <table class="truthtable">
+          <thead>
+          <tr>
+            <th>Gate</th>
+            <th>Symbol</th>
+            <th>Expression</th>
+            <th>Meaning</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+            <figure>
+    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="AND gate">
+      <rect x="0" y="0" width="220" height="140" fill="white"/>
+      <!-- inputs -->
+      <line x1="10" y1="45" x2="70" y2="45" stroke="#000" stroke-width="4"/>
+      <line x1="10" y1="95" x2="70" y2="95" stroke="#000" stroke-width="4"/>
+      <!-- body -->
+      <path d="M70 25 L120 25 A45 45 0 0 1 120 115 L70 115 Z"
+            fill="#fff" stroke="#000" stroke-width="4" />
+      <!-- output -->
+      <line x1="165" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+    </svg>
+    <figcaption>AND</figcaption>
+  </figure>
+
+            </td>
+            <td>∧</td>
+            <td>A ∧ B</td>
+            <td>True only if <strong>both</strong> inputs are 1.</td>
+          </tr>
+          <tr>
+            <td><figure>
+    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="OR gate">
+      <rect x="0" y="0" width="220" height="140" fill="white"/>
+      <!-- input -->
+      <line x1="10" y1="70" x2="70" y2="70" stroke="#000" stroke-width="4"/>
+      <!-- body -->
+      <path d="M70 30
+               Q105 70 70 110
+               Q120 110 165 70
+               Q120 30 70 30 Z"
+            fill="#fff" stroke="#000" stroke-width="4"/>
+      <!-- output -->
+      <line x1="175" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+    </svg>
+    <figcaption>OR</figcaption>
+  </figure></td>
+            <td>∨</td>
+            <td>A ∨ B</td>
+            <td>True if <strong>at least one</strong> input is 1.</td>
+          </tr>
+          <tr>
+            <td>  <figure>
+    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="XOR gate">
+      <rect x="0" y="0" width="220" height="140" fill="white"/>
+      <!-- input -->
+      <line x1="10" y1="70" x2="70" y2="70" stroke="#000" stroke-width="4"/>
+      <!-- extra XOR curve -->
+      <path d="M62 30 Q97 70 62 110" fill="none" stroke="#000" stroke-width="4"/>
+      <!-- body (OR-like) -->
+      <path d="M70 30
+               Q105 70 70 110
+               Q120 110 165 70
+               Q120 30 70 30 Z"
+            fill="#fff" stroke="#000" stroke-width="4"/>
+      <!-- output -->
+      <line x1="175" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+    </svg>
+    <figcaption>XOR</figcaption>
+  </figure></td>
+            <td><u>∨</u></td>
+            <td>A <u>∨</u> B</td>
+            <td>True if <strong>either</strong> input is 1 but <strong>not both</strong>.</td>
+          </tr>
+          <tr>
+            <td> <!-- NOT -->
+  <figure>
+    <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="NOT gate">
+      <rect x="0" y="0" width="220" height="140" fill="white"/>
+      <!-- input -->
+      <line x1="10" y1="70" x2="70" y2="70" stroke="#000" stroke-width="4"/>
+      <!-- triangle -->
+      <path d="M70 30 L150 70 L70 110 Z" fill="#fff" stroke="#000" stroke-width="4"/>
+      <!-- bubble -->
+      <circle cx="160" cy="70" r="8" fill="#fff" stroke="#000" stroke-width="4"/>
+      <!-- output -->
+      <line x1="168" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+    </svg>
+    <figcaption>NOT</figcaption>
+  </figure></td>
+            <td>¬</td>
+            <td>¬A</td>
+            <td>Flips the value of A (0 → 1, 1 → 0).</td>
+          </tr>
+          <tr>
+            <td>Equivalence</td>
+            <td>≡</td>
+            <td>A ≡ B</td>
+            <td>True if A and B have the <strong>same</strong> truth value.</td>
+          </tr>
+          <tr>
+            <td><!-- NAND -->
+<figure>
+  <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" aria-label="NAND gate">
+    <rect x="0" y="0" width="220" height="140" fill="white"/>
+
+    <!-- inputs -->
+    <line x1="10" y1="45" x2="70" y2="45" stroke="#000" stroke-width="4"/>
+    <line x1="10" y1="95" x2="70" y2="95" stroke="#000" stroke-width="4"/>
+
+    <!-- AND body -->
+    <path d="M70 25 L120 25 A45 45 0 0 1 120 115 L70 115 Z"
+          fill="#fff" stroke="#000" stroke-width="4" />
+
+    <!-- NOT bubble -->
+    <circle cx="150" cy="70" r="8" fill="#fff" stroke="#000" stroke-width="4"/>
+
+    <!-- output -->
+    <line x1="158" y1="70" x2="210" y2="70" stroke="#000" stroke-width="4"/>
+  </svg>
+  <figcaption>NAND</figcaption>
+</figure></td>
+            <td>¬(A ∧ B)</td>
+            <td>A NAND B</td>
+            <td>Opposite of AND – only 0 when both inputs are 1.</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <h4>Key truth tables</h4>
+<div class="grid">
+          <table class="truthtable">
+            <thead><tr><th colspan="3">AND (A ∧ B)</th></tr></thead>
+            <tbody>
+            <tr><th>A</th><th>B</th><th>Output</th></tr>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td></tr>
+            </tbody>
+          </table>
+
+          <table class="truthtable">
+            <thead><tr><th colspan="3">OR (A ∨ B)</th></tr></thead>
+            <tbody>
+            <tr><th>A</th><th>B</th><th>Output</th></tr>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td></tr>
+            </tbody>
+          </table>
+
+
+
+          <table class="truthtable">
+            <thead><tr><th colspan="2">NOT (¬A)</th></tr></thead>
+            <tbody>
+            <tr><th>A</th><th>Output</th></tr>
+            <tr><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td></tr>
+            </tbody>
+          </table>
+
+          <table class="truthtable">
+            <thead><tr><th colspan="3">XOR (A <u>V</u> B)</th></tr></thead>
+            <tbody>
+            <tr><th>A</th><th>B</th><th>Output</th></tr>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td></tr>
+            </tbody>
+          </table>
+
+
+        <table class="truthtable">
+          <thead><tr><th colspan="3">NAND (¬(A ∧ B))</th></tr></thead>
+          <tbody>
+          <tr><th>A</th><th>B</th><th>Output</th></tr>
+          <tr><td>0</td><td>0</td><td>1</td></tr>
+          <tr><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td>1</td><td>0</td><td>1</td></tr>
+          <tr><td>1</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+</div>
+        <p><strong>Difference between OR and XOR:</strong> OR is 1 when at least one input is 1;
+           XOR is 1 only when <em>exactly one</em> input is 1 (not both).</p>
+
+      </div>
+
+      <!-- Card 2: From circuits to expressions -->
+      <div class="knowledge-card">
+        <h3>From Logic Diagrams to Boolean Expressions</h3>
+
+        <!-- Optional circuit image from KO page 2 -->
+        <figure>
+          <img src="images/logic/boolean-multi-gate-example.png"
+               alt="Multi-gate logic circuit for Q = NOT A OR (B AND C) from the Boolean Logic KO sheet." />
+          <figcaption>Example circuit for Q = ¬A ∨ (B ∧ C).</figcaption>
+        </figure>
+
+        <p>Multiple logic gates can be connected together to produce an output based on
+           several inputs. The circuit on the KO (page 2) is represented by:</p>
+        <p>Q = ¬A ∨ (B ∧ C)</p>
+        <p>or, in words, <em>Q is true if NOT A is true, or B AND C are both true</em>.
+           Evaluate the brackets first: ANDs inside, then OR / XOR outside.</p>
+
+        <h4>Writing expressions from a diagram</h4>
+          <figure>
+           <img src="images/logic/boolean-multi-gate-example.png"/>
+          </figure>
+        <ol>
+          <li>Identify each sub-gate:
+            <ul>
+              <li>Top AND gate: <strong>(A ∧ B)</strong></li>
+              <li>Bottom AND gate: <strong>(B ∧ ¬C)</strong></li>
+            </ul>
+          </li>
+          <li>These two outputs feed an OR gate, so the final expression is:<br>
+              <strong>P = (A ∧ B) ∨ (B ∧ ¬C)</strong></li>
+        </ol>
+        <p>Always work <strong>from left to right</strong> and <strong>inside the circuit first</strong>, then
+           combine the intermediate signals.</p>
+      </div>
+
+      <!-- Card 3: Defining problems with Boolean logic -->
+      <div class="knowledge-card">
+        <h3>Defining Problems with Boolean Logic</h3>
+
+        <!-- Optional boiler / process image from KO page 3 -->
+      <figure>
+          <img src="images/logic/boolean-boiler-and-chemical-example.png"
+               alt="Boiler safety and chemical alarm examples showing how real problems can be represented with Boolean logic." />
+          <figcaption>Real-world examples: boiler valve and chemical alarm.</figcaption>
+      </figure>
+
+        <p>We can model real situations using Boolean variables and logic.</p>
+
+        <h4>Example 1 – Boiler safety</h4>
+        <p>A boiler has a temperature sensor (T) and a pressure sensor (P). If either is too
+           high, a valve (V) closes.</p>
+          <ul>
+          <li>Let T = 1 if temperature too high, 0 otherwise.</li>
+          <li>Let P = 1 if pressure too high, 0 otherwise.</li>
+        </ul>
+        <p>Then: <strong>V = T ∨ P</strong> – the valve closes if T or P is 1.</p>
+
+        <h4>Example 2 – Chemical process alarm</h4>
+        <p>A chemical process sounds an alarm (A) when a dangerous situation occurs:</p>
+        <ul>
+          <li>either <strong>temperature ≥ 100 °C AND rotator is OFF</strong></li>
+          <li>or <strong>PH &gt; 6 AND temperature &lt; 100 °C</strong></li>
+        </ul>
+        <p>Using Boolean values for each condition, the alarm expression becomes:</p>
+        <p class="maths">A = (T ∧ ¬R) ∨ (P ∧ ¬T)</p>
+        <p>Truth tables can then be completed to test every possible combination of inputs,
+           as shown on KO page 3. This is the same skill you need in exam questions when
+           given descriptions or circuits.</p>
+      </div>
+
+      <!-- Card 4: Simplifying Boolean expressions -->
+      <div class="knowledge-card">
+        <h3>Simplifying Boolean Expressions</h3>
+        <p>We use Boolean algebra rules to shorten expressions or make them easier to
+           implement as logic circuits. </p>
+
+<table class="truthtable">
+  <thead>
+    <tr>
+      <th>Rule name</th>
+      <th>Original expression</th>
+      <th>Simplified form</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="4"><strong>AND</strong></td>
+      <td>X AND 1</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>X AND 0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>X AND X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>NOT X AND X</td>
+      <td>0</td>
+    </tr>
+
+    <tr>
+      <td rowspan="4"><strong>OR</strong></td>
+      <td>X OR 0</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>X OR 1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>X OR X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>NOT X OR X</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="truthtable">
+  <thead>
+    <tr>
+      <th>Rule name</th>
+      <th>Original expression</th>
+      <th>Simplified form</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- De Morgan's Law -->
+    <tr>
+      <td rowspan="2">
+        <strong>De&nbsp;Morgan’s Law</strong><br>
+        Flip AND ↔ OR, move NOT inside
+      </td>
+      <td>¬(A ∧ B)</td>
+      <td>¬A ∨ ¬B</td>
+    </tr>
+    <tr>
+      <td>¬(A ∨ B)</td>
+      <td>¬A ∧ ¬B</td>
+    </tr>
+
+    <!-- Distribution -->
+    <tr>
+      <td rowspan="2">
+        <strong>Distribution</strong><br>
+        Expanding brackets
+      </td>
+      <td>A ∧ (B ∨ C)</td>
+      <td>(A ∧ B) ∨ (A ∧ C)</td>
+    </tr>
+    <tr>
+      <td>A ∨ (B ∧ C)</td>
+      <td>(A ∨ B) ∧ (A ∨ C)</td>
+    </tr>
+
+    <!-- Reverse distribution -->
+    <tr>
+      <td rowspan="2">
+        <strong>Reverse distribution (factoring)</strong><br>
+        Factor out common term
+      </td>
+      <td>(A ∧ B) ∨ (A ∧ C)</td>
+      <td>A ∧ (B ∨ C)</td>
+    </tr>
+    <tr>
+      <td>(A ∨ B) ∧ (A ∨ C)</td>
+      <td>A ∨ (B ∧ C)</td>
+    </tr>
+
+    <!-- Association -->
+    <tr>
+      <td rowspan="2">
+        <strong>Association</strong><br>
+        Brackets removable
+      </td>
+      <td>(A ∧ B) ∧ C</td>
+      <td>A ∧ B ∧ C</td>
+    </tr>
+    <tr>
+      <td>(A ∨ B) ∨ C</td>
+      <td>A ∨ B ∨ C</td>
+    </tr>
+
+    <!-- Commutation -->
+    <tr>
+      <td rowspan="2">
+        <strong>Commutation</strong><br>
+        Order doesn’t matter
+      </td>
+      <td>A ∨ B</td>
+      <td>B ∨ A</td>
+    </tr>
+    <tr>
+      <td>A ∧ B</td>
+      <td>B ∧ A</td>
+    </tr>
+
+    <!-- Double negation -->
+    <tr>
+      <td>
+        <strong>Double negation</strong><br>
+        Two NOTs cancel
+      </td>
+      <td>¬¬A</td>
+      <td>A</td>
+    </tr>
+
+    <!-- Absorption -->
+    <tr>
+      <td rowspan="2">
+        <strong>Absorption</strong><br>
+        If A is true, result is true
+      </td>
+      <td>A ∧ (A ∨ B)</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>A ∨ (A ∧ B)</td>
+      <td>A</td>
+    </tr>
+
+  </tbody>
+</table>
+
+       <!-- Worked Example: Boolean Simplification -->
+<table class="boolean-laws">
+  <caption><strong>Worked Example: Boolean Simplification</strong></caption>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Explanation</th>
+      <th>Expression</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Original</strong></td>
+      <td>Given expression</td>
+      <td>(¬C ∧ ¬D) ∨ (C ∧ ¬D)</td>
+    </tr>
+    <tr>
+      <td><strong>Step 1</strong></td>
+      <td>Identify the repeated term in both brackets</td>
+      <td>Common term: ¬D</td>
+    </tr>
+    <tr>
+      <td><strong>Step 2</strong></td>
+      <td>Factor out the common term (reverse distribution / factoring)</td>
+      <td>¬D ∧ (¬C ∨ C)</td>
+    </tr>
+    <tr>
+      <td><strong>Step 3</strong></td>
+      <td>Apply General OR rule: NOT X OR X = 1</td>
+      <td>¬D ∧ 1</td>
+    </tr>
+    <tr>
+      <td><strong>Final</strong></td>
+      <td>Simplified expression</td>
+      <td><strong>¬D</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- More simplified versions -->
+<table class="boolean-laws">
+  <caption><strong>More simplified versions of Boolean expressions</strong></caption>
+  <thead>
+    <tr>
+      <th>Original expression</th>
+      <th>Simplified expression</th>
+      <th>Rule(s) applied</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>¬¬A</td>
+      <td>A</td>
+      <td>Double negation</td>
+    </tr>
+    <tr>
+      <td>¬A ∧ ¬B</td>
+      <td>¬(A ∨ B)</td>
+      <td>De&nbsp;Morgan’s Law</td>
+    </tr>
+    <tr>
+      <td>A ∨ (A ∧ B) ∨ ¬A</td>
+      <td>1</td>
+      <td>Absorption, Complement</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+
+      <!-- Card 5: Karnaugh maps -->
+      <div class="knowledge-card">
+        <h3>Karnaugh Maps (K-maps)</h3>
+       <h3>The four-variable problem</h3>
+
+<ul>
+  <li>A K Map is a tool that is used for simplifying Boolean algebra expressions.</li>
+  <li>A visual method of grouping together expressions with common factors.</li>
+  <li>The format of the map makes it easy to identify and eliminate redundant terms.</li>
+  <li>They are used in digital logic design, such as simplifying the logic of digital circuits.</li>
+</ul>
+
+<ol>
+  <li>
+    <strong>Grouping the 1’s</strong>
+    <ul>
+      <li>Make rectangular groups.</li>
+      <li>Make groups that are as large as possible.</li>
+      <li>Make groups that contain either 8, 4, 2, or 1 ones.</li>
+      <li>Groups can overlap (some 1s can be in multiple groups).</li>
+      <li>The Karnaugh map grid “wraps round” in all directions, so groups can wrap round edges.</li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>Write a term for each group</strong> by finding the variables that stay the same in that group.
+    If a variable is 0 in the group, use <strong>NOT</strong> of it.
+  </li>
+
+  <li>
+    <strong>OR</strong> the group terms together to form the simplified expression (use <strong>∨</strong>).
+  </li>
+</ol>
+
+          <h3>Example: Give a simplified version of the expression using the Karnaugh map</h3>
+
+<p>You must show your working <strong>[3]</strong>.</p>
+
+           <!-- Optional K-map image from KO page 4 -->
+      <figure>
+
+          <img src="images/logic/kmap1.png" height="209" width="242"/>
+      </figure>
+<p>
+  Looking at the <strong>group of 8</strong> in the middle of the map:
+  for all the cells in the group, the variable <strong>B</strong> is always <strong>1</strong>.
+</p>
+
+<p>
+  The other 3 variables change across the group (for some cells they are 0 and for others they are 1),
+  so they are eliminated.
+</p>
+
+<p><strong>So this group simplifies to:</strong> <strong>B</strong></p>
+
+<p>
+  Looking at the other <strong>group of 8</strong>:
+  for all the cells in this group, <strong>C</strong> is always <strong>0</strong>,
+  but the other 3 variables can be 1 or 0 in this group, so they are eliminated.
+</p>
+
+<p><strong>So this group simplifies to:</strong> <strong>¬C</strong></p>
+
+<p><strong>Final simplified expression:</strong> <strong>B ∨ ¬C</strong></p>
+
+<hr>
+
+<h3>Example 2: Wrap around</h3>
+ <!-- Optional K-map image from KO page 4 -->
+      <figure>
+
+          <img src="images/logic/kmap2.png" height="294" width="298"/>
+
+      </figure>
+<p><strong>Simplified expression:</strong> <strong>¬B</strong></p>
+
+ </div>
+
+
+      <!-- Card 6: Adders -->
+      <div class="knowledge-card">
+        <h3>Half Adders & Full Adders</h3>
+
+        <!-- Optional adder diagram from KO page 6 -->
+        <figure>
+          <img src="images/logic/boolean-half-full-adder.png"
+               alt="Half adder and full adder circuits and truth tables from the Boolean Logic KO sheet." />
+          <figcaption>Half adder and full adder circuits and truth tables.</figcaption>
+</figure>
+
+        <p>A <strong>half adder</strong> adds two 1-bit inputs A and B. It has two outputs,
+           <strong>Sum (S)</strong> and <strong>Carry (C)</strong>.</p>
+
+        <table>
+          <thead>
+          <tr><th>A</th><th>B</th><th>S (sum)</th><th>C (carry)</th></tr>
+          </thead>
+          <tbody>
+          <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+          <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+
+        <ul>
+          <li>S = A <u>V</u> B (XOR gate)</li>
+          <li>C = A ∧ B (AND gate)</li>
+        </ul>
+
+        <p>A <strong>full adder</strong> also has a carry-in bit C<sub>in</sub> and produces a
+           carry-out C<sub>out</sub>.</p>
+
+          <img src="images/logic/fulladder.png" width="50%"/>
+          <ul>
+          <li>S = A <u>V</u> B <u>V</u> C<sub>in</sub></li>
+          <li>C<sub>out</sub> = (A ∧ B) ∨ ((A ∨ B) ∧ C<sub>in</sub>)</li>
+        </ul>
+        <p>By chaining full adders together, we can build multi-bit binary adders.</p>
+      </div>
+
+      <!-- Card 7: D-type flip-flops -->
+      <div class="knowledge-card">
+        <h3>D-type Flip-Flops</h3>
+
+        <!-- Optional flip-flop diagram from KO page 6 -->
+    <figure>
+          <img src="images/logic/boolean-d-flipflop-and-clock.png"
+               alt="Diagram of a D-type flip flop and clock signal from the Boolean Logic KO sheet." />
+          </p>
+           <p>
+            <img src="images/logic/boolean-d-flipflop-and-clock2.png"
+               alt="Diagram of a D-type flip flop and clock signal from the Boolean Logic KO sheet." />
+            </p>
+               <p>
+               <img src="images/logic/boolean-d-flipflop-and-clock3.png"
+               alt="Diagram of a D-type flip flop and clock signal from the Boolean Logic KO sheet." />
+            </p>
+          <figcaption>D-type flip-flop and clock waveform.</figcaption>
+        </figure>
+
+
+        <p>A <strong>flip-flop</strong> is a logic circuit that can <strong>store one bit</strong>
+           of information. The KO focuses on the D-type flip-flop. </p>
+        <ul>
+          <li>Inputs: data input D and clock input (CK).</li>
+          <li>Output: Q (and often the inverse ¬Q).</li>
+          <li>For a D-type, Q copies the value of D <strong>only on the rising edge</strong> of
+              the clock pulse.</li>
+          <li>Between clock edges, Q holds its value, so the circuit behaves as a 1-bit memory
+              cell or register stage.</li>
+        </ul>
+        <p>Flip-flops are often built using NAND gates, and they form the building blocks of
+           registers, counters and other sequential circuits.</p>
+      </div>
+    </div>
+
+<button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

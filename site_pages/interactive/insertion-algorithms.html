@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insertion Sort Demo</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f9ff;
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  color: #003366;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#arrayContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.4s ease;
+}
+
+.sorted {
+  background: #2196f3;
+  color: white;
+}
+
+.key {
+  background: #4caf50;
+  color: white;
+}
+
+.shift {
+  background: #ff6b6b;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔁 Insertion Sort JavaScript Demo</h1>
+
+<button onclick="startSort()">Start</button>
+<button onclick="resetArray()">Reset</button>
+
+<div id="arrayContainer"></div>
+
+<script>
+
+let originalArray = [8, 3, 5, 1, 9, 6, 2, 7];
+let array = [...originalArray];
+
+let i = 1;
+let j = 0;
+let key = null;
+let sorting = false;
+
+const container = document.getElementById("arrayContainer");
+
+/* -------- RENDER -------- */
+
+function renderArray(highlightKey = null, highlightShift = null) {
+
+  container.innerHTML = "";
+
+  array.forEach((num, index) => {
+    const box = document.createElement("div");
+    box.className = "box";
+    box.textContent = num;
+
+    if (index < i) box.classList.add("sorted");
+    if (index === highlightKey) box.classList.add("key");
+    if (index === highlightShift) box.classList.add("shift");
+
+    container.appendChild(box);
+  });
+}
+
+/* -------- RESET -------- */
+
+function resetArray() {
+  array = [...originalArray];
+  i = 1;
+  sorting = false;
+  renderArray();
+}
+
+/* -------- SORT STEP LOGIC -------- */
+
+function startSort() {
+  if (sorting) return;
+  sorting = true;
+  insertionStep();
+}
+
+function insertionStep() {
+
+  if (i >= array.length) {
+    sorting = false;
+    renderArray();
+    return;
+  }
+
+  key = array[i];
+  j = i - 1;
+
+  renderArray(i);
+
+  setTimeout(() => shiftStep(), 600);
+}
+
+function shiftStep() {
+
+  if (j >= 0 && array[j] > key) {
+
+    renderArray(i, j);
+
+    setTimeout(() => {
+      array[j + 1] = array[j];
+      j--;
+      shiftStep();
+    }, 600);
+
+  } else {
+
+    array[j + 1] = key;
+    i++;
+
+    setTimeout(() => insertionStep(), 600);
+  }
+}
+
+/* -------- INIT -------- */
+
+renderArray();
+
+</script>
+
+</body>
+</html>
