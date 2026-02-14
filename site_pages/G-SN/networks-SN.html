@@ -76,7 +76,7 @@
     to a network.
   </p>
 
-    <table class="network-hardware-table" border="1" cellpadding="8" cellspacing="0">
+    <table>
   <tr>
     <th>Hardware</th>
     <th>Purpose</th>
@@ -130,11 +130,15 @@
     </td>
   </tr>
 </table>
+
+    <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-networks-hardware-QC.html">Quick Check</a></div>
+</div>
 </div>
 
 <div class="knowledge-card">
   <h3>Transmission Media</h3>
-  <table class="transmission-media-table" border="1" cellpadding="8" cellspacing="0">
+  <table>
   <tr>
     <th>Transmission Media</th>
     <th>Description</th>
@@ -218,10 +222,12 @@
     on a LAN. Devices also have IP addresses, which can change and are used to
     route data across networks such as the internet.
   </p>
+</div>
+
 <div class="knowledge-card">
   <h3>IP Address and MAC Address (with Examples)</h3>
 
-  <table class="address-table" border="1" cellpadding="8" cellspacing="0">
+  <table>
     <tr>
       <th>Address Type</th>
       <th>What it is</th>
@@ -258,7 +264,6 @@
     </tr>
   </table>
 
-</div>
 
 </div>
 
@@ -271,7 +276,7 @@
     <li>Limited bandwidth available to wireless devices.</li>
     <li>The number of devices connected to the network sharing the bandwidth.</li>
   </ul>
-</div>
+    </div>
 
 <div class="knowledge-card">
   <h3>Network Speed</h3>
@@ -460,6 +465,9 @@
     </td>
   </tr>
 </table>
+    <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-networks-QC.html">Quick Check</a></div>
+</div>
 </div>
 
 <div class="knowledge-card">
@@ -511,6 +519,10 @@
     The sequence numbers are used to place packets back into the correct order.
     If any packets are missing or corrupted, they are requested again.
   </p>
+
+    <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-packet-switching-QC.html">Quick Check</a></div>
+</div>
 </div>
 
 <div class="knowledge-card">
@@ -627,6 +639,9 @@
     </td>
   </tr>
 </table>
+    <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-protocols-QC.html">Quick Check</a></div>
+</div>
 </div>
 
 <div class="knowledge-card">
@@ -692,10 +707,14 @@
 </table>
 
   </p>
+
+    <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-network-security-QC.html">Quick Check</a></div>
+</div>
 </div>
 </div>
 
-    <button id="printBtn" type="button">
+<button id="printBtn" type="button">
   Print this worksheet
 </button>
 
@@ -706,6 +725,12 @@
     © <span id="year"></span> StudyHub CS
   </footer>
 
+<!-- PDF MODAL -->
+<div id="pdfModal">
+  <div class="pdf-modal-content">
+    <iframe id="pdfFrame"></iframe>
+  </div>
+</div>
 
 <script src="../js/booklets.js"></script>
 <div id="command-words"></div>
