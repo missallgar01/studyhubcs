@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Floating Point QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Floating Point Representation – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>The mantissa stores the <select id="gap1"></select> number.</p>
+
+<p>The exponent stores how far the binary point is <select id="gap2"></select>.</p>
+
+<p>Normalised floating point starts with <select id="gap3"></select>.</p>
+
+<p>Floating point allows representation of very <select id="gap4"></select> or very small numbers.</p>
+
+<p>Floating point can suffer from loss of <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one limitation of floating point representation.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Floating point is used to represent:",o:["Integers only","Real numbers","Characters"],a:"Real numbers"},
+{q:"2. The exponent controls the:",o:["Sign","Binary point position","Base"],a:"Binary point position"},
+{q:"3. In normalised form, the mantissa usually begins with:",o:["0.1","1","0"],a:"0.1"},
+{q:"4. Floating point is useful for:",o:["Very large numbers","Only small numbers","ASCII values"],a:"Very large numbers"},
+{q:"5. Limited mantissa size causes:",o:["Overflow","Precision loss","Encryption"],a:"Precision loss"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"fractional",
+gap2:"moved",
+gap3:"0.1",
+gap4:"large",
+gap5:"precision"
+};
+
+const wordBank=["fractional","moved","0.1","large","precision"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("rounding") || text.includes("precision")) marks++;
+if(text.includes("limited") || text.includes("mantissa")) marks++;
+
+total+=marks;
+
+document.getElementById("explainFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML="Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

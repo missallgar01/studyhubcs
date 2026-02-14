@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IDE QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Integrated Development Environment (IDE) – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>IDE stands for <select id="gap1"></select>.</p>
+
+<p>Syntax highlighting improves <select id="gap2"></select> of code.</p>
+
+<p>A <select id="gap3"></select> pauses execution at a specific line.</p>
+
+<p>The <select id="gap4"></select> tool allows step-by-step execution of code.</p>
+
+<p>Auto-complete helps reduce <select id="gap5"></select> errors.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain how a debugger helps a programmer find errors.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. An IDE is used to:",o:["Store files only","Write and test code","Connect networks"],a:"Write and test code"},
+{q:"2. Syntax highlighting helps by:",o:["Speeding CPU","Making code easier to read","Encrypting data"],a:"Making code easier to read"},
+{q:"3. A breakpoint is used to:",o:["Delete code","Pause execution","Compile code"],a:"Pause execution"},
+{q:"4. A debugger allows programmers to:",o:["Step through code","Increase RAM","Sort arrays"],a:"Step through code"},
+{q:"5. Auto-complete reduces:",o:["Logical errors","Syntax errors","Runtime errors"],a:"Syntax errors"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+  html+=`<p>${m.q}</p>`;
+  m.o.forEach(opt=>{
+    html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+  });
+  html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"Integrated Development Environment",
+gap2:"readability",
+gap3:"breakpoint",
+gap4:"debugger",
+gap5:"syntax"
+};
+
+const wordBank=[
+"Integrated Development Environment",
+"readability",
+"breakpoint",
+"debugger",
+"syntax"
+];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+  let sel=document.getElementById(id);
+  sel.innerHTML="<option></option>";
+  wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+  let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+  let fb=document.getElementById(`f${i}`);
+  if(sel===m.a){
+    total++;
+    fb.innerHTML="✔";
+    fb.className="correct";
+  }else{
+    fb.innerHTML="✘";
+    fb.className="incorrect";
+  }
+});
+
+/* GAPS */
+for(let g in answers){
+  if(document.getElementById(g).value===answers[g]){
+    total++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("step")||text.includes("line")) marks++;
+if(text.includes("variable")||text.includes("inspect")||text.includes("trace")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

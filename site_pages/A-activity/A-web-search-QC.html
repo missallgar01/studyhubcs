@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Search Engines & PageRank QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Search Engines & PageRank – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A web <select id="gap1"></select> automatically scans websites.</p>
+
+<p>Search engines store webpage information in an <select id="gap2"></select>.</p>
+
+<p><select id="gap3"></select> help search engines understand page content.</p>
+
+<p>PageRank increases when a page has many incoming <select id="gap4"></select>.</p>
+
+<p>The damping factor represents the probability a user will continue <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain why a link from a high-ranked website improves PageRank more than a link from a low-ranked website.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. A web crawler is used to:",o:["Design websites","Scan and index websites","Encrypt webpages"],a:"Scan and index websites"},
+{q:"2. Indexing allows search engines to:",o:["Store webpage data","Delete websites","Increase RAM"],a:"Store webpage data"},
+{q:"3. Keywords are important because they:",o:["Improve hardware speed","Help match searches","Encrypt data"],a:"Help match searches"},
+{q:"4. PageRank measures:",o:["Website colour","Page importance","File size"],a:"Page importance"},
+{q:"5. More high-quality incoming links:",o:["Reduce ranking","Increase ranking","Delete ranking"],a:"Increase ranking"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"crawler",
+gap2:"index",
+gap3:"Keywords",
+gap4:"links",
+gap5:"clicking"
+};
+
+const wordBank=["crawler","index","Keywords","links","clicking"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("important")||text.includes("authority")||text.includes("trust")) marks++;
+if(text.includes("weighted")||text.includes("value")||text.includes("more influence")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

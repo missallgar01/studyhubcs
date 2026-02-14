@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Normalisation QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Normalisation – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>First Normal Form removes repeating <select id="gap1"></select>.</p>
+<p>Second Normal Form removes <select id="gap2"></select> dependency.</p>
+<p>Third Normal Form removes <select id="gap3"></select> dependency.</p>
+<p>Normalisation reduces data <select id="gap4"></select>.</p>
+<p>A table must have a <select id="gap5"></select> to be in 1NF.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why normalisation improves database efficiency.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. 1NF ensures:",o:["Primary key exists","No repeating groups","Foreign key exists"],a:"No repeating groups"},
+{q:"2. 2NF removes:",o:["Transitive dependency","Partial dependency","All keys"],a:"Partial dependency"},
+{q:"3. 3NF removes:",o:["Partial dependency","Transitive dependency","Primary keys"],a:"Transitive dependency"},
+{q:"4. Normalisation helps reduce:",o:["Security","Redundancy","Indexes"],a:"Redundancy"},
+{q:"5. Normalisation improves:",o:["Data integrity","Screen resolution","Encryption"],a:"Data integrity"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"groups",
+gap2:"partial",
+gap3:"transitive",
+gap4:"redundancy",
+gap5:"primary key"
+};
+
+const wordBank=["groups","partial","transitive","redundancy","primary key"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+let t=explain.value.toLowerCase();
+let marks=0;
+if(t.includes("redundancy")) marks++;
+if(t.includes("integrity")||t.includes("consistency")) marks++;
+total+=marks;
+
+explainFeedback.innerHTML=marks+"/2";
+scoreDisplay.innerHTML="Score: "+total+"/12";
+}
+
+</script>
+</main>
+</body>
+</html>

@@ -1,0 +1,103 @@
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-ethics-laws-QC.html">Quick Check</a></div>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Computing Laws QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Computing Laws – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>The Data Protection Act protects <select id="gap1"></select> data.</p>
+<p>Unauthorised access is illegal under the <select id="gap2"></select>.</p>
+<p>Copyright law protects intellectual <select id="gap3"></select>.</p>
+<p>GDPR requires data to be kept <select id="gap4"></select> and up to date.</p>
+<p>RIPA allows monitoring with a legal <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why the Computer Misuse Act is important.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. GDPR replaced:",o:["CMA","DPA 1998","RIPA"],a:"DPA 1998"},
+{q:"2. Guessing someone’s password is:",o:["Legal","Illegal under CMA","GDPR offence only"],a:"Illegal under CMA"},
+{q:"3. Copying software without permission breaks:",o:["CMA","Copyright law","RIPA"],a:"Copyright law"},
+{q:"4. Data must not be kept longer than:",o:["1 year","Necessary","5 years"],a:"Necessary"},
+{q:"5. CMA includes unauthorised:",o:["Access","Encryption","Sorting"],a:"Access"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"personal",
+gap2:"Computer Misuse Act",
+gap3:"property",
+gap4:"accurate",
+gap5:"warrant"
+};
+
+const wordBank=["personal","Computer Misuse Act","property","accurate","warrant"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+let t=explain.value.toLowerCase();
+let marks=0;
+if(t.includes("protect")) marks++;
+if(t.includes("illegal")||t.includes("unauthorised")) marks++;
+total+=marks;
+
+explainFeedback.innerHTML=marks+"/2";
+scoreDisplay.innerHTML="Score: "+total+"/12";
+}
+
+</script>
+</main>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Character Sets QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Character Sets – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>ASCII is a <select id="gap1"></select>-bit character set.</p>
+
+<p>Unicode was created to support more <select id="gap2"></select>.</p>
+
+<p>A character set maps characters to binary <select id="gap3"></select>.</p>
+
+<p>Extended ASCII uses <select id="gap4"></select> bits.</p>
+
+<p>Unicode can represent far more <select id="gap5"></select> than ASCII.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why ASCII is no longer sufficient for modern computing.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. ASCII originally uses:",o:["7 bits","8 bits","16 bits"],a:"7 bits"},
+{q:"2. ASCII can represent:",o:["All languages","English characters only","Images"],a:"English characters only"},
+{q:"3. Extended ASCII uses:",o:["6 bits","8 bits","32 bits"],a:"8 bits"},
+{q:"4. Unicode was developed to:",o:["Compress data","Support multiple languages","Encrypt data"],a:"Support multiple languages"},
+{q:"5. Unicode uses:",o:["Only 7 bits","Variable length encoding","Only 8 bits"],a:"Variable length encoding"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"7",
+gap2:"languages",
+gap3:"codes",
+gap4:"8",
+gap5:"characters"
+};
+
+const wordBank=["7","languages","codes","8","characters"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("limited") || text.includes("127") || text.includes("128")) marks++;
+if(text.includes("languages") || text.includes("symbols") || text.includes("emoji")) marks++;
+
+total+=marks;
+
+document.getElementById("explainFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML="Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

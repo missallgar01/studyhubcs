@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BIOS QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>BIOS & Boot Process – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>BIOS stands for <select id="gap1"></select>.</p>
+
+<p>The <select id="gap2"></select> checks hardware during startup.</p>
+
+<p>The <select id="gap3"></select> loads the operating system into memory.</p>
+
+<p>BIOS is stored in <select id="gap4"></select> memory.</p>
+
+<p>BIOS is an example of <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain what happens during the boot process.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. POST checks:",o:["Software updates","Hardware components","Internet speed"],a:"Hardware components"},
+{q:"2. BIOS is stored in:",o:["RAM","ROM","Cache"],a:"ROM"},
+{q:"3. The bootstrap loader:",o:["Deletes files","Loads the OS","Formats disks"],a:"Loads the OS"},
+{q:"4. If POST fails:",o:["System boots normally","Error is reported","Internet connects"],a:"Error is reported"},
+{q:"5. BIOS is classified as:",o:["Application software","Firmware","Utility software"],a:"Firmware"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"Basic Input Output System",
+gap2:"POST",
+gap3:"bootstrap loader",
+gap4:"ROM",
+gap5:"firmware"
+};
+
+const wordBank=[
+"Basic Input Output System",
+"POST",
+"bootstrap loader",
+"ROM",
+"firmware"
+];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("post")||text.includes("hardware")) marks++;
+if(text.includes("load")||text.includes("operating system")||text.includes("bootstrap")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

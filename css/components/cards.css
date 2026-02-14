@@ -237,3 +237,22 @@ textarea.input {
   resize: vertical;
   display: block;
 }
+
+/* ==========================
+   Activity sheets
+   ========================== */
+
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+.score{font-size:1.2rem;font-weight:bold;margin-top:1rem;}
+.wordbank span{
+  background:#e0e0e0;
+  padding:5px 8px;
+  margin:5px;
+  border-radius:4px;
+  display:inline-block;
+    color:#0f172a;
+}
+input[type="text"]{
+  padding:5px;
+}

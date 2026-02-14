@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>System vs Application Software QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>System vs Application Software – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>System software manages computer <select id="gap1"></select>.</p>
+
+<p>Application software performs specific <select id="gap2"></select> for users.</p>
+
+<p>An operating system is a type of <select id="gap3"></select> software.</p>
+
+<p>Microsoft Word is an example of <select id="gap4"></select> software.</p>
+
+<p>System software allows hardware and <select id="gap5"></select> to communicate.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain one difference between system software and application software.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Which is system software?",o:["Operating system","Word processor","Spreadsheet"],a:"Operating system"},
+{q:"2. Application software is designed to:",o:["Manage hardware","Perform user tasks","Boot the computer"],a:"Perform user tasks"},
+{q:"3. The BIOS is classified as:",o:["Application software","System software","Utility software"],a:"System software"},
+{q:"4. A web browser is:",o:["System software","Application software","Firmware"],a:"Application software"},
+{q:"5. Without system software, a computer would:",o:["Run normally","Not function properly","Run faster"],a:"Not function properly"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"resources",
+gap2:"tasks",
+gap3:"system",
+gap4:"application",
+gap5:"software"
+};
+
+const wordBank=["resources","tasks","system","application","software"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("manage")||text.includes("hardware")) marks++;
+if(text.includes("task")||text.includes("user")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

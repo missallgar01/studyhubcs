@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Transactions, Data Handling & Performance QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Transactions, Data Handling & Performance – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>ACID stands for Atomicity, Consistency, Isolation and <select id="gap1"></select>.</p>
+
+<p>Atomicity means a transaction either fully completes or <select id="gap2"></select>.</p>
+
+<p>A deadlock occurs when two transactions wait for each <select id="gap3"></select>.</p>
+
+<p>An <select id="gap4"></select> improves database search performance.</p>
+
+<p>OCR stands for Optical Character <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why indexing improves database performance.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. Durability ensures data:",o:["Is encrypted","Is permanently saved","Is sorted"],a:"Is permanently saved"},
+{q:"2. Isolation ensures transactions:",o:["Run independently","Are deleted","Are encrypted"],a:"Run independently"},
+{q:"3. Record locking prevents:",o:["Data access","Concurrent conflicts","Indexing"],a:"Concurrent conflicts"},
+{q:"4. OMR is used to read:",o:["Handwriting","Marked answers","Magnetic ink"],a:"Marked answers"},
+{q:"5. EDI is used for:",o:["Data encryption","Electronic data exchange","Indexing"],a:"Electronic data exchange"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"Durability",
+gap2:"fails",
+gap3:"other",
+gap4:"index",
+gap5:"Recognition"
+};
+
+const wordBank=["Durability","fails","other","index","Recognition"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+let t=explain.value.toLowerCase();
+let marks=0;
+if(t.includes("faster")||t.includes("speed")) marks++;
+if(t.includes("search")||t.includes("locate")) marks++;
+total+=marks;
+
+explainFeedback.innerHTML=marks+"/2";
+scoreDisplay.innerHTML="Score: "+total+"/12";
+}
+
+</script>
+
+</main>
+</body>
+</html>

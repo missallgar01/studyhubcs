@@ -1,0 +1,102 @@
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-database-keys-QC.html">Quick Check</a></div>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Keys & Relationships QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Keys & Relationships – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A <select id="gap1"></select> uniquely identifies a record.</p>
+<p>A foreign key links to a <select id="gap2"></select> in another table.</p>
+<p>A one-to-many relationship means one record relates to <select id="gap3"></select> records.</p>
+<p>Referential integrity ensures links between tables remain <select id="gap4"></select>.</p>
+<p>A secondary key is used for <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why primary keys are important.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. A primary key must be:",o:["Unique","Repeated","Encrypted"],a:"Unique"},
+{q:"2. A foreign key creates a:",o:["Table","Relationship","Attribute"],a:"Relationship"},
+{q:"3. Many-to-many relationships require:",o:["Single table","Link table","Primary key removal"],a:"Link table"},
+{q:"4. Referential integrity prevents:",o:["Duplicate records","Broken links","Sorting"],a:"Broken links"},
+{q:"5. Secondary keys are mainly used for:",o:["Searching","Deletion","Encryption"],a:"Searching"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"primary key",
+gap2:"primary key",
+gap3:"many",
+gap4:"valid",
+gap5:"searching"
+};
+
+const wordBank=["primary key","many","valid","searching"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+let t=explain.value.toLowerCase();
+let marks=0;
+if(t.includes("unique")) marks++;
+if(t.includes("identify")) marks++;
+total+=marks;
+
+explainFeedback.innerHTML=marks+"/2";
+scoreDisplay.innerHTML="Score: "+total+"/12";
+}
+
+</script>
+</main>
+</body>
+</html>

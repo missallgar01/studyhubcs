@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Computational Methods QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Computational Methods – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>Breaking a problem into smaller parts is called <select id="gap1"></select>.</p>
+
+<p>Divide and conquer works by dividing, conquering and <select id="gap2"></select>.</p>
+
+<p>Abstraction removes unnecessary <select id="gap3"></select>.</p>
+
+<p>A heuristic gives a <select id="gap4"></select>-enough solution.</p>
+
+<p>Data mining finds hidden <select id="gap5"></select> in data.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one advantage of performance modelling.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Problem recognition involves:",o:["Writing code","Identifying requirements","Sorting data"],a:"Identifying requirements"},
+{q:"2. Backtracking is commonly used in:",o:["Maze solving","File compression","Rendering images"],a:"Maze solving"},
+{q:"3. Pipelining improves:",o:["Security","Efficiency","Storage"],a:"Efficiency"},
+{q:"4. Visualisation helps identify:",o:["Bugs only","Patterns and trends","Encryption keys"],a:"Patterns and trends"},
+{q:"5. Heuristics guarantee:",o:["Optimal solution","Good-enough solution","Correct solution always"],a:"Good-enough solution"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"decomposition",
+gap2:"merge",
+gap3:"detail",
+gap4:"good",
+gap5:"patterns"
+};
+
+const wordBank=["decomposition","merge","detail","good","patterns"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("cost") || text.includes("cheaper")) marks++;
+if(text.includes("safe") || text.includes("faster") || text.includes("predict")) marks++;
+
+total+=marks;
+
+document.getElementById("explainFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML="Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

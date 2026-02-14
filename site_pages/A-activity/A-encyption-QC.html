@@ -1,0 +1,139 @@
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-bigo-QC.html">Quick Check</a></div>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Encryption & Hashing QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Encryption & Hashing – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (4)</h3>
+
+<p>Symmetric encryption uses <select id="gap1"></select> key.</p>
+
+<p>Asymmetric encryption uses a public and <select id="gap2"></select> key.</p>
+
+<p>A hash function produces a fixed-length <select id="gap3"></select>.</p>
+
+<p>Hashing is mainly used to verify data <select id="gap4"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (4)</h3>
+
+<p>Explain the difference between encryption and hashing.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Symmetric encryption uses:",o:["Two keys","One key","No key"],a:"One key"},
+{q:"2. RSA is an example of:",o:["Symmetric encryption","Asymmetric encryption","Hashing"],a:"Asymmetric encryption"},
+{q:"3. Hashing is:",o:["Reversible","Irreversible","Encrypted only"],a:"Irreversible"},
+{q:"4. Encryption protects:",o:["Confidentiality","File size","Speed"],a:"Confidentiality"},
+{q:"5. Hashes are commonly used for:",o:["Password storage","Video streaming","Compression"],a:"Password storage"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"one",
+gap2:"private",
+gap3:"digest",
+gap4:"integrity"
+};
+
+const wordBank=["one","private","digest","integrity"];
+
+["gap1","gap2","gap3","gap4"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION (4 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("encryption") && text.includes("reversible")) marks++;
+if(text.includes("hash") && text.includes("irreversible")) marks++;
+if(text.includes("confidentiality")) marks++;
+if(text.includes("integrity")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=
+marks+"/4";
+
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/13";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

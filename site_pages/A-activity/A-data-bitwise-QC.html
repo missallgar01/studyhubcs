@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bitwise Operations QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Bitwise Operations & Shifts – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A logical shift left multiplies a binary number by <select id="gap1"></select>.</p>
+
+<p>A logical shift right divides a binary number by <select id="gap2"></select>.</p>
+
+<p>Bitwise AND outputs 1 only if <select id="gap3"></select> bits are 1.</p>
+
+<p>XOR outputs 1 when bits are <select id="gap4"></select>.</p>
+
+<p>A bit mask is commonly used to <select id="gap5"></select> specific bits.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one practical use of bitwise operations.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. 1 AND 1 equals:",o:["0","1","10"],a:"1"},
+{q:"2. 1 OR 0 equals:",o:["0","1","10"],a:"1"},
+{q:"3. 1 XOR 1 equals:",o:["0","1","2"],a:"0"},
+{q:"4. Logical shift left by 1 multiplies by:",o:["1","2","10"],a:"2"},
+{q:"5. Logical shift right by 1 divides by:",o:["2","4","2 (integer division)"],a:"2 (integer division)"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"2",
+gap2:"2",
+gap3:"both",
+gap4:"different",
+gap5:"isolate"
+};
+
+const wordBank=["2","both","different","isolate"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("mask") || text.includes("permission") || text.includes("graphics")) marks++;
+if(text.includes("efficient") || text.includes("fast")) marks++;
+
+total+=marks;
+
+document.getElementById("explainFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML="Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

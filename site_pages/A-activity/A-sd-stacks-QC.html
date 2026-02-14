@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stacks QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Stacks – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A stack follows the <select id="gap1"></select> principle.</p>
+<p>Adding to a stack is called <select id="gap2"></select>.</p>
+<p>Removing from a stack is called <select id="gap3"></select>.</p>
+<p>Stacks are used in <select id="gap4"></select> (e.g., function calls).</p>
+<p>The top of the stack is tracked using a <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. LIFO stands for:",o:["Last In First Out","Last In Final Output","Linked Input File Order"],a:"Last In First Out"},
+{q:"2. Stacks are used for:",o:["Queues","Recursion","Sorting only"],a:"Recursion"},
+{q:"3. Push operation:",o:["Removes item","Adds item","Deletes stack"],a:"Adds item"},
+{q:"4. Pop operation:",o:["Adds item","Removes item","Sorts stack"],a:"Removes item"},
+{q:"5. Stacks can be implemented using:",o:["Arrays","Linked lists","Both"],a:"Both"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"LIFO",
+gap2:"push",
+gap3:"pop",
+gap4:"recursion",
+gap5:"pointer"
+};
+
+const wordBank=["LIFO","push","pop","recursion","pointer"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+scoreDisplay.innerHTML="Score: "+total+"/10";
+}
+
+</script>
+</main>
+</body>
+</html>

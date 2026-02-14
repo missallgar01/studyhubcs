@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Data Transmission QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Data Transmission – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A packet consists of a header, payload and <select id="gap1"></select>.</p>
+
+<p>The <select id="gap2"></select> contains routing information such as IP address.</p>
+
+<p>Even parity ensures the total number of 1s is <select id="gap3"></select>.</p>
+
+<p>A <select id="gap4"></select> is used to detect errors in transmitted data.</p>
+
+<p><select id="gap5"></select> transmission sends one bit at a time.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain why packet switching is efficient.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Packet switching sends data in:",o:["Large blocks","Packets","Single cables"],a:"Packets"},
+{q:"2. A checksum is used to:",o:["Encrypt data","Detect errors","Route packets"],a:"Detect errors"},
+{q:"3. Serial transmission is best for:",o:["Short distances","Long distances","Noisy networks only"],a:"Long distances"},
+{q:"4. Full duplex allows:",o:["One-way communication","Two-way simultaneous communication","No communication"],a:"Two-way simultaneous communication"},
+{q:"5. A parity bit helps detect:",o:["Single-bit errors","All errors","No errors"],a:"Single-bit errors"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"footer",
+gap2:"header",
+gap3:"even",
+gap4:"checksum",
+gap5:"Serial"
+};
+
+const wordBank=["footer","header","even","checksum","Serial"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("efficient")||text.includes("multiple")) marks++;
+if(text.includes("re-route")||text.includes("different route")||text.includes("reassemble")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

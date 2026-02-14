@@ -70,108 +70,211 @@
 </table>
 </div>
 
- <div class="knowledge-card">
+      <div class="knowledge-card">
+            <h3>Networking Hardware</h3>
 
-     <h3>Packet Transmission</h3>
-
-
-     <img src="images/networks/packetswitching.png" width="50%"/>
-     <table class="knowledge-table">
+<table class="knowledge-table">
   <thead>
     <tr>
-      <th>Aspect</th>
-      <th>Packet Switching</th>
-      <th>Circuit Switching</th>
+      <th>Hardware</th>
+      <th>Function</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Definition</strong></td>
-      <td>Data is broken into packets and transmitted independently.</td>
-      <td>Data is transmitted in a continuous stream using a dedicated communication path.</td>
-    </tr>
-    <tr>
-      <td><strong>Efficiency</strong></td>
-      <td>Very efficient use of the network as each channel is only used for a short time.</td>
-      <td>Lower efficiency as a dedicated path is maintained even when no data is being transmitted.</td>
-    </tr>
-    <tr>
-      <td><strong>Reliability and Error Detection</strong></td>
-      <td>If an error occurs, only a small identifiable packet is affected and can be retransmitted easily.</td>
-      <td>Less flexible in handling network failures as the dedicated path must be re-established if broken.</td>
-    </tr>
-    <tr>
-      <td><strong>Interception</strong></td>
-      <td>More secure from interception because packets can take different routes.</td>
-      <td>Less secure as all data travels along one dedicated data stream.</td>
-    </tr>
-    <tr>
-      <td><strong>Use Cases</strong></td>
-      <td>Best for data that can tolerate some delay, such as emails and web pages.</td>
-      <td>Ideal for real-time services like voice calls or video conferencing that require low latency.</td>
-    </tr>
-  </tbody>
-</table>
-
-     <table class="knowledge-table">
-  <thead>
-    <tr>
-      <th>Topic</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Packet Structure</strong></td>
+      <td><strong>Router</strong></td>
       <td>
-        Each packet is composed of:
         <ul>
-          <li><strong>Header</strong> – control information</li>
-          <li><strong>Payload</strong> – the actual data</li>
-          <li><strong>Footer (Trailer)</strong> – error-checking information</li>
+          <li>Connects networks together</li>
+          <li>Assigns IP addresses to devices</li>
+          <li>Examines data packets and forwards them</li>
         </ul>
       </td>
     </tr>
     <tr>
-      <td><strong>Header Information</strong></td>
+      <td><strong>Cable / Ethernet</strong></td>
       <td>
         <ul>
-          <li><strong>Source IP address</strong> – identifies the sender</li>
-          <li><strong>Destination IP address</strong> – identifies the recipient</li>
-          <li><strong>Sequence number</strong> – helps reassemble packets in the correct order</li>
-          <li><strong>Protocol</strong> – identifies the transport protocol (e.g. TCP, UDP)</li>
-          <li><strong>Packet length</strong> – shows the size of the packet</li>
-          <li><strong>Checksum</strong> – used for error detection</li>
+          <li>Carries digital data from one device/NIC to the next</li>
+          <li>Connects wired devices to the network</li>
         </ul>
       </td>
     </tr>
     <tr>
-      <td><strong>Steps of Sending a Packet</strong></td>
+      <td><strong>Gateway</strong></td>
       <td>
-        <ol>
-          <li><strong>Data is split</strong> – data is broken into small packets</li>
-          <li><strong>Header is added</strong> – source/destination address, order number, and error-checking info</li>
-          <li><strong>Packets are sent</strong> – packets travel through routers, possibly using different routes</li>
-          <li><strong>Packets arrive</strong> – the receiver reassembles them in order</li>
-          <li><strong>Error check & acknowledgement</strong> – missing or corrupted packets are requested again</li>
-        </ol>
+        <ul>
+          <li>Connects different types of networks</li>
+          <li>Translates protocols from one network to another</li>
+        </ul>
       </td>
     </tr>
     <tr>
-      <td><strong>Exam Tips</strong></td>
+      <td><strong>Bridge</strong></td>
       <td>
         <ul>
-          <li>Avoid talking about <strong>speed of data transmission</strong> when comparing packet and circuit switching</li>
-          <li>Speed does not usually gain marks and may be explicitly stated as not creditworthy</li>
-          <li>Instead, talk about <strong>bit rates</strong>, <strong>bandwidth</strong>, or <strong>efficiency</strong></li>
+          <li>Provides a link between local area networks</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Firewall</strong></td>
+      <td>
+        <ul>
+          <li>Filters traffic coming in and out of a network</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Wireless Access Point (WAP)</strong></td>
+      <td>
+        <ul>
+          <li>Allows wireless devices to communicate with each other</li>
+          <li>Sends and receives radio waves</li>
+          <li>Examines data packets and forwards them</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Repeater</strong></td>
+      <td>
+        <ul>
+          <li>Receives a signal and retransmits it</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Switch</strong></td>
+      <td>
+        <ul>
+          <li>Connects multiple wired devices to the network</li>
+          <li>Receives data and forwards it to the intended recipient</li>
+          <li>Examines data packets and forwards them</li>
+          <li>Routes data based on MAC addresses</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Network Interface Card (NIC)</strong></td>
+      <td>
+        <ul>
+          <li>Gives each device a MAC address / unique ID</li>
+          <li>Allows a computer system to interface with a network</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
+
       </div>
 
- <div class="knowledge-card">
+       <div class="knowledge-card">
+        <h3>Client-server vs Peer to Peer</h3>
+      <table class="knowledge-table">
+  <thead>
+    <tr>
+      <th>Client–Server
+
+<p></p>
+          <img src="images/networks/c-s.png"  width="50%"/></th>
+      <th>Peer-to-Peer
+
+<p></p>
+          <img src="images/networks/p-to-p.png"  width="50%"/></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Description</strong>
+        <ul>
+          <li>One computer acts as a server (e.g. file server).</li>
+          <li>The server manages the network.</li>
+        </ul>
+      </td>
+      <td>
+        <strong>Description</strong>
+        <ul>
+          <li>No central server – all computers have equal status (peers).</li>
+          <li>Each computer can act as both client and server.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Server</strong>
+        <ul>
+          <li>Manages network security.</li>
+          <li>Stores user login details and access rights.</li>
+          <li>Controls access to software, files, and hardware (e.g. printers).</li>
+          <li>Has large storage (hard disk) and high RAM for multitasking.</li>
+        </ul>
+      </td>
+      <td>
+        <strong>Capabilities</strong>
+        <ul>
+          <li>Each computer can share files.</li>
+          <li>Can send print jobs to another computer with a printer.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Clients</strong>
+        <ul>
+          <li>Computers used by authorised users.</li>
+          <li>Users log in to access files and applications.</li>
+          <li>Users can usually log in from any client on the network.</li>
+          <li>Access rights determine what a user can do (e.g. teachers vs students).</li>
+        </ul>
+      </td>
+      <td>
+        <strong>Pros</strong>
+        <ul>
+          <li>Simple to set up – best for small networks (10 computers or fewer).</li>
+          <li>No need for a dedicated server.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Pros</strong>
+        <ul>
+          <li><strong>Centralised management:</strong> Easier to manage security, updates, and resources.</li>
+          <li>Centralised security and access control.</li>
+          <li>Servers handle complex tasks, allowing clients to run more efficiently.</li>
+        </ul>
+      </td>
+      <td>
+        <strong>Cons</strong>
+        <ul>
+          <li>Less security – each computer manages its own security.</li>
+          <li>Difficult backups – files must be backed up individually.</li>
+          <li>Lacks advanced features of client-server networks.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Cons</strong>
+        <ul>
+          <li>If the server goes down, all clients are affected.</li>
+          <li>High hardware and maintenance costs.</li>
+          <li>Requires specialist staff.</li>
+          <li>Requires a stable network – slow networks reduce performance.</li>
+        </ul>
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-networks-QC.html">Quick Check</a></div>
+</div>
+      </div>
+
+        <div class="knowledge-card">
         <h3>Data Transmission and Error Detection</h3>
 
 <p>
@@ -221,7 +324,6 @@
       </div>
 
     <div class="knowledge-card">
-
 
 <h3>Checksum</h3>
 
@@ -372,108 +474,9 @@
   </tbody>
 </table>
 
-
-      </div>
-
-    <div class="knowledge-card">
-            <h3>Networking Hardware</h3>
-
-<table class="knowledge-table">
-  <thead>
-    <tr>
-      <th>Hardware</th>
-      <th>Function</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Router</strong></td>
-      <td>
-        <ul>
-          <li>Connects networks together</li>
-          <li>Assigns IP addresses to devices</li>
-          <li>Examines data packets and forwards them</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Cable / Ethernet</strong></td>
-      <td>
-        <ul>
-          <li>Carries digital data from one device/NIC to the next</li>
-          <li>Connects wired devices to the network</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Gateway</strong></td>
-      <td>
-        <ul>
-          <li>Connects different types of networks</li>
-          <li>Translates protocols from one network to another</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Bridge</strong></td>
-      <td>
-        <ul>
-          <li>Provides a link between local area networks</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Firewall</strong></td>
-      <td>
-        <ul>
-          <li>Filters traffic coming in and out of a network</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Wireless Access Point (WAP)</strong></td>
-      <td>
-        <ul>
-          <li>Allows wireless devices to communicate with each other</li>
-          <li>Sends and receives radio waves</li>
-          <li>Examines data packets and forwards them</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Repeater</strong></td>
-      <td>
-        <ul>
-          <li>Receives a signal and retransmits it</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Switch</strong></td>
-      <td>
-        <ul>
-          <li>Connects multiple wired devices to the network</li>
-          <li>Receives data and forwards it to the intended recipient</li>
-          <li>Examines data packets and forwards them</li>
-          <li>Routes data based on MAC addresses</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Network Interface Card (NIC)</strong></td>
-      <td>
-        <ul>
-          <li>Gives each device a MAC address / unique ID</li>
-          <li>Allows a computer system to interface with a network</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-networks-transmission-QC.html">Quick Check</a></div>
+</div>
       </div>
 
     <div class="knowledge-card">
@@ -603,108 +606,225 @@ It is divided into four layers:</p>
     </tr>
   </tbody>
 </table>
-          </div>
 
-    <div class="knowledge-card">
-        <h3>Client-server vs Peer to Peer</h3>
-      <table class="knowledge-table">
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-networks-protocols-QC.html">Quick Check</a></div>
+</div>
+</div>
+  <div class="knowledge-card">
+
+     <h3>Packet Transmission</h3>
+
+
+     <img src="images/networks/packetswitching.png" width="50%"/>
+     <table class="knowledge-table">
   <thead>
     <tr>
-      <th>Client–Server
-
-<p></p>
-          <img src="images/networks/c-s.png"  width="50%"/></th>
-      <th>Peer-to-Peer
-
-<p></p>
-          <img src="images/networks/p-to-p.png"  width="50%"/></th>
+      <th>Aspect</th>
+      <th>Packet Switching</th>
+      <th>Circuit Switching</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>
-        <strong>Description</strong>
-        <ul>
-          <li>One computer acts as a server (e.g. file server).</li>
-          <li>The server manages the network.</li>
-        </ul>
-      </td>
-      <td>
-        <strong>Description</strong>
-        <ul>
-          <li>No central server – all computers have equal status (peers).</li>
-          <li>Each computer can act as both client and server.</li>
-        </ul>
-      </td>
+      <td><strong>Definition</strong></td>
+      <td>Data is broken into packets and transmitted independently.</td>
+      <td>Data is transmitted in a continuous stream using a dedicated communication path.</td>
     </tr>
     <tr>
-      <td>
-        <strong>Server</strong>
-        <ul>
-          <li>Manages network security.</li>
-          <li>Stores user login details and access rights.</li>
-          <li>Controls access to software, files, and hardware (e.g. printers).</li>
-          <li>Has large storage (hard disk) and high RAM for multitasking.</li>
-        </ul>
-      </td>
-      <td>
-        <strong>Capabilities</strong>
-        <ul>
-          <li>Each computer can share files.</li>
-          <li>Can send print jobs to another computer with a printer.</li>
-        </ul>
-      </td>
+      <td><strong>Efficiency</strong></td>
+      <td>Very efficient use of the network as each channel is only used for a short time.</td>
+      <td>Lower efficiency as a dedicated path is maintained even when no data is being transmitted.</td>
     </tr>
     <tr>
-      <td>
-        <strong>Clients</strong>
-        <ul>
-          <li>Computers used by authorised users.</li>
-          <li>Users log in to access files and applications.</li>
-          <li>Users can usually log in from any client on the network.</li>
-          <li>Access rights determine what a user can do (e.g. teachers vs students).</li>
-        </ul>
-      </td>
-      <td>
-        <strong>Pros</strong>
-        <ul>
-          <li>Simple to set up – best for small networks (10 computers or fewer).</li>
-          <li>No need for a dedicated server.</li>
-        </ul>
-      </td>
+      <td><strong>Reliability and Error Detection</strong></td>
+      <td>If an error occurs, only a small identifiable packet is affected and can be retransmitted easily.</td>
+      <td>Less flexible in handling network failures as the dedicated path must be re-established if broken.</td>
     </tr>
     <tr>
-      <td>
-        <strong>Pros</strong>
-        <ul>
-          <li><strong>Centralised management:</strong> Easier to manage security, updates, and resources.</li>
-          <li>Centralised security and access control.</li>
-          <li>Servers handle complex tasks, allowing clients to run more efficiently.</li>
-        </ul>
-      </td>
-      <td>
-        <strong>Cons</strong>
-        <ul>
-          <li>Less security – each computer manages its own security.</li>
-          <li>Difficult backups – files must be backed up individually.</li>
-          <li>Lacks advanced features of client-server networks.</li>
-        </ul>
-      </td>
+      <td><strong>Interception</strong></td>
+      <td>More secure from interception because packets can take different routes.</td>
+      <td>Less secure as all data travels along one dedicated data stream.</td>
     </tr>
     <tr>
-      <td>
-        <strong>Cons</strong>
-        <ul>
-          <li>If the server goes down, all clients are affected.</li>
-          <li>High hardware and maintenance costs.</li>
-          <li>Requires specialist staff.</li>
-          <li>Requires a stable network – slow networks reduce performance.</li>
-        </ul>
-      </td>
-      <td></td>
+      <td><strong>Use Cases</strong></td>
+      <td>Best for data that can tolerate some delay, such as emails and web pages.</td>
+      <td>Ideal for real-time services like voice calls or video conferencing that require low latency.</td>
     </tr>
   </tbody>
 </table>
+
+     <table class="knowledge-table">
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Packet Structure</strong></td>
+      <td>
+        Each packet is composed of:
+        <ul>
+          <li><strong>Header</strong> – control information</li>
+          <li><strong>Payload</strong> – the actual data</li>
+          <li><strong>Footer (Trailer)</strong> – error-checking information</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Header Information</strong></td>
+      <td>
+        <ul>
+          <li><strong>Source IP address</strong> – identifies the sender</li>
+          <li><strong>Destination IP address</strong> – identifies the recipient</li>
+          <li><strong>Sequence number</strong> – helps reassemble packets in the correct order</li>
+          <li><strong>Protocol</strong> – identifies the transport protocol (e.g. TCP, UDP)</li>
+          <li><strong>Packet length</strong> – shows the size of the packet</li>
+          <li><strong>Checksum</strong> – used for error detection</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Steps of Sending a Packet</strong></td>
+      <td>
+        <ol>
+          <li><strong>Data is split</strong> – data is broken into small packets</li>
+          <li><strong>Header is added</strong> – source/destination address, order number, and error-checking info</li>
+          <li><strong>Packets are sent</strong> – packets travel through routers, possibly using different routes</li>
+          <li><strong>Packets arrive</strong> – the receiver reassembles them in order</li>
+          <li><strong>Error check & acknowledgement</strong> – missing or corrupted packets are requested again</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Exam Tips</strong></td>
+      <td>
+        <ul>
+          <li>Avoid talking about <strong>speed of data transmission</strong> when comparing packet and circuit switching</li>
+          <li>Speed does not usually gain marks and may be explicitly stated as not creditworthy</li>
+          <li>Instead, talk about <strong>bit rates</strong>, <strong>bandwidth</strong>, or <strong>efficiency</strong></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    <div class="knowledge-card">
+        <h3>DNS</h3>
+        <p>The Domain Name System (DNS) translates human-readable website addresses (URLs) into numerical IP addresses, which computers use to communicate over the internet. The process involves multiple steps:</p>
+
+            <img src="images/networks/dns.png" height="250" width="793"/>
+            <table class="knowledge-table">
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. User enters URL</td>
+      <td>The browser sends a request to resolve the domain name to an IP address.</td>
+    </tr>
+    <tr>
+      <td>2. DNS Resolver Checks Cache</td>
+      <td>If the IP is found in the local cache, it is returned immediately. Otherwise, the request continues.</td>
+    </tr>
+    <tr>
+      <td>3. Query to TLD Name Server</td>
+      <td>If the resolver lacks the IP, it queries the TLD Name Server (e.g. .com, .org).</td>
+    </tr>
+    <tr>
+      <td>4. Query to Authoritative Name Server</td>
+      <td>If necessary, the request is forwarded to the Authoritative Name Server holding the actual IP.</td>
+    </tr>
+    <tr>
+      <td>5. IP Address Returned</td>
+      <td>The authoritative server responds with the correct IP address.</td>
+    </tr>
+    <tr>
+      <td>6. Browser Connects to Website</td>
+      <td>The browser uses the IP to establish a connection and load the web page.</td>
+    </tr>
+    <tr>
+      <td>7. Error Handling</td>
+      <td>If no match is found, an error is returned (e.g. “Site Not Found”).</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-networks-packets-QC.html">Quick Check</a></div>
+</div>
+</div>
+
+     <div class="knowledge-card">
+        <h3>Keeping Data Secure</h3>
+        <h3>Data Protection and Network Security</h3>
+
+<p>
+  The <strong>Data Protection Act 1998</strong> requires organisations to keep data safe.
+  Security measures include <strong>firewalls</strong>, <strong>proxy servers</strong>,
+  <strong>encryption</strong>, and <strong>authentication</strong>.
+</p>
+
+<h4>Firewall</h4>
+
+<p>
+  A <strong>firewall</strong> blocks unauthorised access to a system. It allows only approved
+  users to access certain data while keeping others out.
+</p>
+
+<h4>Proxy Server</h4>
+
+<p>
+  A <strong>proxy server</strong> sits between users and the main server. It checks user
+  permissions before granting access to data, adding an extra layer of security.
+</p>
+
+<h4>How it Works:</h4>
+
+<ol>
+  <li>A user requests data.</li>
+  <li>The firewall checks if the user has permission.</li>
+  <li>If valid, the proxy server retrieves the data and sends it back.</li>
+  <li>Users cannot access the main server directly.</li>
+</ol>
+
+<h4>VPN</h4>
+
+<p>
+  Public Wi-Fi is risky, so encrypt your communications for safety.
+</p>
+
+<p><strong>Best solution:</strong> Use a <strong>VPN (Virtual Private Network)</strong>.</p>
+
+<ul>
+  <li>Encrypts all your internet activity.</li>
+  <li>Hides your IP address (useful for accessing geo-restricted content).</li>
+  <li>Costs just a few pounds per month.</li>
+</ul>
+
+<h4>How it works:</h4>
+
+<ol>
+  <li>Install VPN software.</li>
+  <li>Connect to a public network.</li>
+  <li>The VPN verifies your identity and encrypts data.</li>
+</ol>
+
+<h4>Important Note</h4>
+
+<p>
+  No system is <strong>100% secure</strong>!
+</p>
+
+<ul>
+  <li>Check VPN terms — some providers log data.</li>
+  <li>Employees at VPN companies could still pose risks.</li>
+</ul>
       </div>
 
     <div class="knowledge-card">
@@ -775,124 +895,17 @@ It is divided into four layers:</p>
     </tr>
   </tbody>
 </table>
-      </div>
 
-    <div class="knowledge-card">
-        <h3>Keeping Data Secure</h3>
-        <h3>Data Protection and Network Security</h3>
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-networks-security-QC.html">Quick Check</a></div>
+</div>
 
-<p>
-  The <strong>Data Protection Act 1998</strong> requires organisations to keep data safe.
-  Security measures include <strong>firewalls</strong>, <strong>proxy servers</strong>,
-  <strong>encryption</strong>, and <strong>authentication</strong>.
-</p>
-
-<h4>Firewall</h4>
-
-<p>
-  A <strong>firewall</strong> blocks unauthorised access to a system. It allows only approved
-  users to access certain data while keeping others out.
-</p>
-
-<h4>Proxy Server</h4>
-
-<p>
-  A <strong>proxy server</strong> sits between users and the main server. It checks user
-  permissions before granting access to data, adding an extra layer of security.
-</p>
-
-<h4>How it Works:</h4>
-
-<ol>
-  <li>A user requests data.</li>
-  <li>The firewall checks if the user has permission.</li>
-  <li>If valid, the proxy server retrieves the data and sends it back.</li>
-  <li>Users cannot access the main server directly.</li>
-</ol>
-
-<h4>VPN</h4>
-
-<p>
-  Public Wi-Fi is risky, so encrypt your communications for safety.
-</p>
-
-<p><strong>Best solution:</strong> Use a <strong>VPN (Virtual Private Network)</strong>.</p>
-
-<ul>
-  <li>Encrypts all your internet activity.</li>
-  <li>Hides your IP address (useful for accessing geo-restricted content).</li>
-  <li>Costs just a few pounds per month.</li>
-</ul>
-
-<h4>How it works:</h4>
-
-<ol>
-  <li>Install VPN software.</li>
-  <li>Connect to a public network.</li>
-  <li>The VPN verifies your identity and encrypts data.</li>
-</ol>
-
-<h4>Important Note</h4>
-
-<p>
-  No system is <strong>100% secure</strong>!
-</p>
-
-<ul>
-  <li>Check VPN terms — some providers log data.</li>
-  <li>Employees at VPN companies could still pose risks.</li>
-</ul>
-      </div>
-
-    <div class="knowledge-card">
-        <h3>DNS</h3>
-        <p>The Domain Name System (DNS) translates human-readable website addresses (URLs) into numerical IP addresses, which computers use to communicate over the internet. The process involves multiple steps:</p>
-
-            <img src="images/networks/dns.png" height="250" width="793"/>
-            <table class="knowledge-table">
-  <thead>
-    <tr>
-      <th>Step</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1. User enters URL</td>
-      <td>The browser sends a request to resolve the domain name to an IP address.</td>
-    </tr>
-    <tr>
-      <td>2. DNS Resolver Checks Cache</td>
-      <td>If the IP is found in the local cache, it is returned immediately. Otherwise, the request continues.</td>
-    </tr>
-    <tr>
-      <td>3. Query to TLD Name Server</td>
-      <td>If the resolver lacks the IP, it queries the TLD Name Server (e.g. .com, .org).</td>
-    </tr>
-    <tr>
-      <td>4. Query to Authoritative Name Server</td>
-      <td>If necessary, the request is forwarded to the Authoritative Name Server holding the actual IP.</td>
-    </tr>
-    <tr>
-      <td>5. IP Address Returned</td>
-      <td>The authoritative server responds with the correct IP address.</td>
-    </tr>
-    <tr>
-      <td>6. Browser Connects to Website</td>
-      <td>The browser uses the IP to establish a connection and load the web page.</td>
-    </tr>
-    <tr>
-      <td>7. Error Handling</td>
-      <td>If no match is found, an error is returned (e.g. “Site Not Found”).</td>
-    </tr>
-  </tbody>
-</table>
 </div>
 </div>
 </div>
 
 
-    <button id="printBtn" type="button">
+<button id="printBtn" type="button">
   Print this worksheet
 </button>
 

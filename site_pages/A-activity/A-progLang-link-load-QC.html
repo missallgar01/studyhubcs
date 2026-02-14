@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Linking & Loading QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Linking & Loading – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>The <select id="gap1"></select> combines object files into a single executable.</p>
+
+<p>The <select id="gap2"></select> places the executable into memory.</p>
+
+<p>Compiled files are called <select id="gap3"></select> files.</p>
+
+<p>External code is stored in <select id="gap4"></select> libraries.</p>
+
+<p>An executable must be loaded into <select id="gap5"></select> before it runs.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain the difference between a linker and a loader.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. The linker resolves:",o:["Syntax errors","External references","Encryption keys"],a:"External references"},
+{q:"2. The loader places programs into:",o:["Source files","RAM","Registers only"],a:"RAM"},
+{q:"3. Object files are created by:",o:["Loader","Compiler","User"],a:"Compiler"},
+{q:"4. Libraries contain:",o:["Reusable code","Passwords","IP addresses"],a:"Reusable code"},
+{q:"5. Without linking, programs may:",o:["Run faster","Fail due to missing references","Encrypt automatically"],a:"Fail due to missing references"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"linker",
+gap2:"loader",
+gap3:"object",
+gap4:"library",
+gap5:"memory"
+};
+
+const wordBank=["linker","loader","object","library","memory"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("combine")||text.includes("object files")) marks++;
+if(text.includes("memory")||text.includes("ram")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

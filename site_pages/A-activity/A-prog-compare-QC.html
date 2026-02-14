@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Programming Paradigms QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>1.2.4 Programming Paradigms & Procedural Languages – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A programming <select id="gap1"></select> is a style or approach to writing programs.</p>
+
+<p>Procedural programming follows a <select id="gap2"></select>-by-step approach.</p>
+
+<p>Procedural programs are typically organised into <select id="gap3"></select>.</p>
+
+<p>Procedural programming mainly focuses on <select id="gap4"></select> rather than objects.</p>
+
+<p>In procedural programming, instructions are executed in <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one characteristic of procedural programming.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. A programming paradigm is:",o:["A compiler","A style of programming","A data type"],a:"A style of programming"},
+{q:"2. Procedural programming is based on:",o:["Objects","Procedures and functions","Graphics only"],a:"Procedures and functions"},
+{q:"3. Procedural programming usually follows:",o:["Random execution","Top-down design","Bottom-up hardware design"],a:"Top-down design"},
+{q:"4. Which is a procedural language?",o:["Python","HTML","SQL"],a:"Python"},
+{q:"5. Procedural programming focuses on:",o:["Data hiding","Step-by-step instructions","Inheritance"],a:"Step-by-step instructions"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+  html+=`<p>${m.q}</p>`;
+  m.o.forEach(opt=>{
+    html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+  });
+  html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"paradigm",
+gap2:"step",
+gap3:"subroutines",
+gap4:"procedures",
+gap5:"sequence"
+};
+
+const wordBank=["paradigm","step","subroutines","procedures","sequence"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+  let sel=document.getElementById(id);
+  sel.innerHTML="<option></option>";
+  wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+  let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+  let fb=document.getElementById(`f${i}`);
+  if(sel===m.a){
+    total++;
+    fb.innerHTML="✔";
+    fb.className="correct";
+  }else{
+    fb.innerHTML="✘";
+    fb.className="incorrect";
+  }
+});
+
+/* GAPS */
+for(let g in answers){
+  if(document.getElementById(g).value===answers[g]){
+    total++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("step")||text.includes("sequence")) marks++;
+if(text.includes("subroutine")||text.includes("procedure")||text.includes("function")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

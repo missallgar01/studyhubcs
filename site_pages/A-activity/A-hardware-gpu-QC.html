@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GPU QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Graphics Processing Unit (GPU) – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A GPU is specialised for <select id="gap1"></select> processing.</p>
+
+<p>GPUs are designed to handle many operations <select id="gap2"></select>.</p>
+
+<p>A GPU is an example of a <select id="gap3"></select> processor.</p>
+
+<p>GPUs are especially useful in <select id="gap4"></select> and gaming applications.</p>
+
+<p>Using a GPU can reduce the workload on the <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why a GPU is more suitable than a CPU for rendering graphics.</p>
+
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. A GPU is mainly designed for:",o:["File storage","Graphics rendering","Boot processes"],a:"Graphics rendering"},
+{q:"2. GPUs are effective because they:",o:["Have very high clock speeds only","Contain many smaller cores","Replace RAM"],a:"Contain many smaller cores"},
+{q:"3. GPUs are particularly useful for:",o:["Parallel tasks","Single calculations","Text editing only"],a:"Parallel tasks"},
+{q:"4. A GPU can improve performance in:",o:["Gaming","Video editing","Both"],a:"Both"},
+{q:"5. Compared to a CPU, a GPU typically has:",o:["Fewer cores","More cores","No cores"],a:"More cores"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+  html+=`<p>${m.q}</p>`;
+  m.o.forEach(opt=>{
+    html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+  });
+  html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"graphics",
+gap2:"simultaneously",
+gap3:"parallel",
+gap4:"video editing",
+gap5:"CPU"
+};
+
+const wordBank=["graphics","simultaneously","parallel","video editing","CPU"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+  let sel=document.getElementById(id);
+  sel.innerHTML="<option></option>";
+  wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+  let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+  let fb=document.getElementById(`f${i}`);
+  if(sel===m.a){
+    total++;
+    fb.innerHTML="✔";
+    fb.className="correct";
+  }else{
+    fb.innerHTML="✘";
+    fb.className="incorrect";
+  }
+});
+
+/* GAPS */
+for(let g in answers){
+  if(document.getElementById(g).value===answers[g]){
+    total++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("many cores")||text.includes("parallel")) marks++;
+if(text.includes("simultaneous")||text.includes("multiple calculations")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

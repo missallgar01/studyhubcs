@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Errors, Testing & Validation QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Errors, Testing & Validation – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A syntax error is found before the program is <select id="gap1"></select>.</p>
+
+<p>A logic error produces the wrong <select id="gap2"></select>.</p>
+
+<p>A runtime error occurs during program <select id="gap3"></select>.</p>
+
+<p>Boundary testing checks values at the <select id="gap4"></select> of valid input.</p>
+
+<p>A range check ensures a value falls between a minimum and <select id="gap5"></select> value.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain the difference between validation and verification.</p>
+
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. A syntax error is caused by:",o:["Incorrect grammar in code","Wrong calculation","Invalid input"],a:"Incorrect grammar in code"},
+{q:"2. A logic error:",o:["Stops program immediately","Produces incorrect output","Prevents compilation"],a:"Produces incorrect output"},
+{q:"3. A runtime error occurs when:",o:["Compiling","Executing","Saving file"],a:"Executing"},
+{q:"4. Boundary testing checks:",o:["Middle values","Extreme values","Invalid values only"],a:"Extreme values"},
+{q:"5. A presence check ensures:",o:["Data is within range","Data exists","Data is numeric"],a:"Data exists"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+  html+=`<p>${m.q}</p>`;
+  m.o.forEach(opt=>{
+    html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+  });
+  html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"executed",
+gap2:"output",
+gap3:"execution",
+gap4:"limits",
+gap5:"maximum"
+};
+
+const wordBank=["executed","output","execution","limits","maximum"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+  let sel=document.getElementById(id);
+  sel.innerHTML="<option></option>";
+  wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+  let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+  let fb=document.getElementById(`f${i}`);
+  if(sel===m.a){
+    total++;
+    fb.innerHTML="✔";
+    fb.className="correct";
+  }else{
+    fb.innerHTML="✘";
+    fb.className="incorrect";
+  }
+});
+
+/* GAPS */
+for(let g in answers){
+  if(document.getElementById(g).value===answers[g]){
+    total++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("validation") && text.includes("data")) marks++;
+if(text.includes("verification") && (text.includes("check")||text.includes("correct"))) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

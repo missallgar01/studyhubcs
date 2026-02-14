@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Boolean Laws QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Boolean Laws – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Simplify (5)</h3>
+
+<p>X AND 1 = <input type="text" id="s1"></p>
+<p>X OR 0 = <input type="text" id="s2"></p>
+<p>NOT (A AND B) = <input type="text" id="s3"></p>
+<p>A AND A = <input type="text" id="s4"></p>
+<p>(A AND B) OR (A AND C) = <input type="text" id="s5"></p>
+
+<div id="feedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. X OR 1 =",o:["0","1"],a:"1"},
+{q:"2. X AND 0 =",o:["0","1"],a:"0"},
+{q:"3. NOT NOT A =",o:["A","0"],a:"A"},
+{q:"4. A OR A =",o:["A","0"],a:"A"},
+{q:"5. De Morgan converts AND to:",o:["OR","NOT"],a:"OR"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+if(sel===m.a) total++;
+});
+
+if(s1.value==="X") total++;
+if(s2.value==="X") total++;
+if(s3.value==="¬A OR ¬B") total++;
+if(s4.value==="A") total++;
+if(s5.value==="A AND (B OR C)") total++;
+
+scoreDisplay.innerHTML="Score: "+total+"/10";
+}
+
+</script>
+</main>
+</body>
+</html>

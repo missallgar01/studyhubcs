@@ -415,6 +415,97 @@ for i in range(len(numArray)):
 
   </tbody>
 </table>
+
+  <h3>IDE features</h3>
+
+            <div class="knowledge-card">
+
+  <h3>Integrated Development Environment (IDE)</h3>
+
+  <p>
+    An <strong>IDE</strong> is software that provides tools to
+    <strong>write, test and debug programs</strong> in one place.
+  </p>
+
+  <hr>
+
+  <h4>Core IDE Features</h4>
+
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+      <th>Why It Is Useful</th>
+    </tr>
+
+    <tr>
+      <td><strong>Code Editor</strong></td>
+      <td>Area where programmers write and edit source code.</td>
+      <td>Organised workspace for efficient development.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Syntax Highlighting</strong></td>
+      <td>Displays keywords, variables and strings in different colours.</td>
+      <td>Makes code easier to read and spot errors.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Auto-complete</strong></td>
+      <td>Suggests keywords or variable names while typing.</td>
+      <td>Speeds up coding and reduces syntax errors.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Error Detection</strong></td>
+      <td>Highlights syntax errors before running the program.</td>
+      <td>Prevents wasted time fixing basic mistakes.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Interpreter / Compiler</strong></td>
+      <td>Translates source code into executable form.</td>
+      <td>Allows programs to be tested and run.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Debugger</strong></td>
+      <td>Tool to run code step-by-step.</td>
+      <td>Helps find logic errors.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Breakpoints</strong></td>
+      <td>Pause execution at a specific line.</td>
+      <td>Allows inspection of variable values.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Variable Watch</strong></td>
+      <td>Displays variable values during execution.</td>
+      <td>Helps track how data changes.</td>
+    </tr>
+
+  </table>
+
+  <hr>
+
+  <h4>Why IDEs Improve Development</h4>
+
+  <ul>
+    <li>Increase productivity</li>
+    <li>Reduce errors</li>
+    <li>Improve code readability</li>
+    <li>Support debugging and testing</li>
+  </ul>
+
+</div>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-prog-ide-QC.html">Quick Check</a></div>
+</div>
+
+
 </div>
 
     </div>
@@ -616,6 +707,11 @@ for i in range(len(numArray)):
     Data types can be changed within a program. This is called
     <strong>casting</strong>.
   </p>
+
+    <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-prog-data-QC.html">Quick Check</a></div>
+</div>
+
 </div>
 
 </div>
@@ -627,7 +723,54 @@ for i in range(len(numArray)):
       aria-labelledby="tabbtn-loops">
       <!-- REVISION CONTENT HERE -->
 
+      <div class="knowledge-card">
+  <h3>Selection</h3>
 
+  <p><strong>What is selection?</strong></p>
+  <ul>
+    <li>
+      <strong>Selection</strong> is when the <strong>flow of a program is changed</strong>
+      depending on a set of conditions.
+    </li>
+    <li>
+      The result of a condition determines <strong>which lines or blocks of code
+      are run next</strong>.
+    </li>
+    <li>
+      Selection is commonly used for <strong>validation</strong>,
+      <strong>calculations</strong>, and responding to a <strong>user’s choices</strong>.
+    </li>
+  </ul>
+
+  <p><strong>Ways to write selection statements:</strong></p>
+  <ul>
+    <li>
+      <strong>IF… THEN… ELSE</strong> – conditions are tested sequentially
+    </li>
+    <li>
+      <strong>CASE / SWITCH</strong> – an expression is tested against multiple
+      constant values
+    </li>
+  </ul>
+
+  <hr>
+
+  <h4>Example (Python – IF / ELIF / ELSE)</h4>
+
+  <pre><code>
+if answer == "Yes":
+    print("Correct")
+elif answer == "No":
+    print("Wrong")
+else:
+    print("Error")
+  </code></pre>
+
+  <p>
+    In this example, the program checks the value of <code>answer</code> and
+    runs different code depending on whether the condition is met.
+  </p>
+</div>
 
 <div class="knowledge-card">
   <h3>Repetition – FOR Loops (Python)</h3>
@@ -695,54 +838,7 @@ for x in range(10, -1, -1):
   </ul>
 </div>
 
-      <div class="knowledge-card">
-  <h3>Selection</h3>
 
-  <p><strong>What is selection?</strong></p>
-  <ul>
-    <li>
-      <strong>Selection</strong> is when the <strong>flow of a program is changed</strong>
-      depending on a set of conditions.
-    </li>
-    <li>
-      The result of a condition determines <strong>which lines or blocks of code
-      are run next</strong>.
-    </li>
-    <li>
-      Selection is commonly used for <strong>validation</strong>,
-      <strong>calculations</strong>, and responding to a <strong>user’s choices</strong>.
-    </li>
-  </ul>
-
-  <p><strong>Ways to write selection statements:</strong></p>
-  <ul>
-    <li>
-      <strong>IF… THEN… ELSE</strong> – conditions are tested sequentially
-    </li>
-    <li>
-      <strong>CASE / SWITCH</strong> – an expression is tested against multiple
-      constant values
-    </li>
-  </ul>
-
-  <hr>
-
-  <h4>Example (Python – IF / ELIF / ELSE)</h4>
-
-  <pre><code>
-if answer == "Yes":
-    print("Correct")
-elif answer == "No":
-    print("Wrong")
-else:
-    print("Error")
-  </code></pre>
-
-  <p>
-    In this example, the program checks the value of <code>answer</code> and
-    runs different code depending on whether the condition is met.
-  </p>
-</div>
 
     <div class="knowledge-card">
   <h3>Repetition – WHILE Loops (Python)</h3>
@@ -897,6 +993,11 @@ if not valid:
     Operators are essential for performing calculations, comparisons,
     and making decisions in programs.
   </p>
+
+    <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-prog-selection-loops-QC.html">Quick Check</a></div>
+</div>
+
 </div>
 
  </div>
@@ -1182,6 +1283,12 @@ print(flightCost(3, "economy"))
 total = flightCost(3, "economy")
 print(total)
   </code></pre>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-prog-sub-QC.html">Quick Check</a></div>
+</div>
+
+
 </div>
 
     </div>
@@ -1462,6 +1569,12 @@ print(array_2d[1][2])  # Output: 6
       <strong>Always refer to the example given</strong> before answering
     </li>
   </ul>
+
+     <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-prog-array-QC.html">Quick Check</a></div>
+</div>
+
+
 </div>
     </div>
 
@@ -1713,6 +1826,11 @@ print("Hello, " + Name)
       <strong>data type</strong>.
     </li>
   </ul>
+
+     <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-prog-strings-QC.html">Quick Check</a></div>
+</div>
+
 </div>
 </div>
 <div
@@ -1861,6 +1979,10 @@ file.write("New line")
     Using the wrong mode (especially <code>"w"</code>) can permanently
     delete file contents.
   </p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-prog-files-QC.html">Quick Check</a></div>
+</div>
 </div>
 </div>
 </div>
@@ -2014,6 +2136,11 @@ else:
     This logic error would be identified by testing with
     <strong>boundary values</strong> such as 11, 18, or values outside the range.
   </p>
+
+          <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-prog-errors-QC.html">Quick Check</a></div>
+</div>
+
 </div>
 
  </div>
@@ -2216,9 +2343,17 @@ if not found:
     print("User not found")
 </code>
   </pre>
+
+       <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-prog-validation-QC.html">Quick Check</a></div>
+</div>
+
+
 </div>
 </div>
 </div>
+
+
 
 </div>
 </div>

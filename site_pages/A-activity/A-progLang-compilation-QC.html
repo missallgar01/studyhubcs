@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Compilation Stages QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Compilation Stages – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p><select id="gap1"></select> analysis breaks source code into tokens.</p>
+
+<p><select id="gap2"></select> analysis checks grammar rules.</p>
+
+<p><select id="gap3"></select> analysis checks meaning and data types.</p>
+
+<p>The <select id="gap4"></select> stores identifiers and their attributes.</p>
+
+<p>After analysis stages, <select id="gap5"></select> produces object code.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain why syntax analysis is important during compilation.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Lexical analysis identifies:",o:["Tokens","Hardware faults","Encryption keys"],a:"Tokens"},
+{q:"2. Syntax analysis checks:",o:["Grammar","Performance","Security"],a:"Grammar"},
+{q:"3. Semantic analysis checks:",o:["Meaning","Binary code","File size"],a:"Meaning"},
+{q:"4. Optimisation aims to:",o:["Reduce efficiency","Improve efficiency","Remove variables randomly"],a:"Improve efficiency"},
+{q:"5. Code generation creates:",o:["Source code","Machine code","Comments"],a:"Machine code"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"Lexical",
+gap2:"Syntax",
+gap3:"Semantic",
+gap4:"symbol table",
+gap5:"code generation"
+};
+
+const wordBank=["Lexical","Syntax","Semantic","symbol table","code generation"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("grammar")) marks++;
+if(text.includes("error")||text.includes("invalid")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

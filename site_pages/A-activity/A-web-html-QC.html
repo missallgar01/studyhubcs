@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML Fundamentals QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>HTML Fundamentals – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>HTML stands for <select id="gap1"></select>.</p>
+
+<p>The <select id="gap2"></select> section contains visible webpage content.</p>
+
+<p>The <select id="gap3"></select> tag defines the title shown in the browser tab.</p>
+
+<p>The <select id="gap4"></select> attribute specifies the destination of a hyperlink.</p>
+
+<p>The <select id="gap5"></select> attribute specifies the file location of an image.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain the difference between the &lt;head&gt; and &lt;body&gt; sections of a webpage.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. HTML is used to:",o:["Style webpages","Structure webpages","Add server security"],a:"Structure webpages"},
+{q:"2. Which tag creates a hyperlink?",o:["<img>","<a>","<ul>"],a:"<a>"},
+{q:"3. Which tag is used for an unordered list?",o:["<ol>","<ul>","<li> only"],a:"<ul>"},
+{q:"4. The <img> tag requires which attribute?",o:["href","src","class"],a:"src"},
+{q:"5. Which section contains metadata?",o:["<body>","<head>","<footer>"],a:"<head>"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt.replace(/</g,"&lt;").replace(/>/g,"&gt;")}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"HyperText Markup Language",
+gap2:"body",
+gap3:"title",
+gap4:"href",
+gap5:"src"
+};
+
+const wordBank=[
+"HyperText Markup Language",
+"body",
+"title",
+"href",
+"src"
+];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a.replace(/</g,"&lt;").replace(/>/g,"&gt;")){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("metadata")||text.includes("title")||text.includes("not visible")) marks++;
+if(text.includes("visible")||text.includes("content")||text.includes("displayed")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

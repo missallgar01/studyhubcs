@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Programming Constructs QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Programming Constructs – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p><select id="gap1"></select> means instructions are executed in order.</p>
+
+<p><select id="gap2"></select> allows a program to choose between different paths.</p>
+
+<p><select id="gap3"></select> repeats a block of code.</p>
+
+<p>A FOR loop is usually <select id="gap4"></select>-controlled.</p>
+
+<p>A WHILE loop is <select id="gap5"></select>-controlled.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one difference between a FOR loop and a WHILE loop.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Which construct executes code in order?",o:["Selection","Sequence","Iteration"],a:"Sequence"},
+{q:"2. IF statements are an example of:",o:["Selection","Iteration","Casting"],a:"Selection"},
+{q:"3. Loops are used for:",o:["Declaring variables","Repeating code","Opening files"],a:"Repeating code"},
+{q:"4. A FOR loop is best used when:",o:["Repetitions are known","Repetitions are unknown","No condition exists"],a:"Repetitions are known"},
+{q:"5. A WHILE loop continues until:",o:["A number ends","A condition becomes false","Memory fills"],a:"A condition becomes false"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+  html+=`<p>${m.q}</p>`;
+  m.o.forEach(opt=>{
+    html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+  });
+  html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"Sequence",
+gap2:"Selection",
+gap3:"Iteration",
+gap4:"count",
+gap5:"condition"
+};
+
+const wordBank=["Sequence","Selection","Iteration","count","condition"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+  let sel=document.getElementById(id);
+  sel.innerHTML="<option></option>";
+  wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+  let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+  let fb=document.getElementById(`f${i}`);
+  if(sel===m.a){
+    total++;
+    fb.innerHTML="✔";
+    fb.className="correct";
+  }else{
+    fb.innerHTML="✘";
+    fb.className="incorrect";
+  }
+});
+
+/* GAPS */
+for(let g in answers){
+  if(document.getElementById(g).value===answers[g]){
+    total++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("count")||text.includes("fixed")) marks++;
+if(text.includes("condition")||text.includes("unknown")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

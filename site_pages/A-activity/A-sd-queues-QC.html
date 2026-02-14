@@ -1,0 +1,88 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Queues QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Queues – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A queue follows the <select id="gap1"></select> principle.</p>
+<p>Adding to a queue is called <select id="gap2"></select>.</p>
+<p>Removing from a queue is called <select id="gap3"></select>.</p>
+<p>Queues are commonly used in <select id="gap4"></select> systems.</p>
+<p>The front of the queue is tracked using a <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. FIFO stands for:",o:["First In First Out","Final In First Out","Fast Input Function Output"],a:"First In First Out"},
+{q:"2. Enqueue operation:",o:["Removes item","Adds item","Sorts queue"],a:"Adds item"},
+{q:"3. Dequeue operation:",o:["Adds item","Removes item","Deletes queue"],a:"Removes item"},
+{q:"4. Queues are used in:",o:["Printing systems","Stack overflow","Encryption"],a:"Printing systems"},
+{q:"5. Circular queues improve:",o:["Memory usage","Sorting","Encryption"],a:"Memory usage"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"FIFO",
+gap2:"enqueue",
+gap3:"dequeue",
+gap4:"scheduling",
+gap5:"pointer"
+};
+
+const wordBank=["FIFO","enqueue","dequeue","scheduling","pointer"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+scoreDisplay.innerHTML="Score: "+total+"/10";
+}
+
+</script>
+</main>
+</body>
+</html>

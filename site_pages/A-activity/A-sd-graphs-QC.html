@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Graphs QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Graphs – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>Graphs consist of vertices and <select id="gap1"></select>.</p>
+<p>A directed graph has <select id="gap2"></select> edges.</p>
+<p>Weights represent <select id="gap3"></select> between vertices.</p>
+<p>An adjacency matrix stores connections in a <select id="gap4"></select>.</p>
+<p>Dijkstra’s algorithm finds the <select id="gap5"></select> path.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. Vertices are also called:",o:["Edges","Nodes","Pointers"],a:"Nodes"},
+{q:"2. Undirected graphs have:",o:["One-way edges","Two-way edges","No edges"],a:"Two-way edges"},
+{q:"3. Weighted graphs include:",o:["Costs","Colours","Indexes"],a:"Costs"},
+{q:"4. Adjacency list stores:",o:["Matrix only","Connected nodes","Sorted nodes"],a:"Connected nodes"},
+{q:"5. Graph traversal includes:",o:["BFS and DFS","Push and Pop","Sort and Merge"],a:"BFS and DFS"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"edges",
+gap2:"directed",
+gap3:"costs",
+gap4:"matrix",
+gap5:"shortest"
+};
+
+const wordBank=["edges","directed","costs","matrix","shortest"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+scoreDisplay.innerHTML="Score: "+total+"/10";
+}
+
+</script>
+</main>
+</body>
+</html>

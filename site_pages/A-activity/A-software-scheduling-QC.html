@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Scheduling Algorithms QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Scheduling Algorithms – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>The purpose of scheduling is to share <select id="gap1"></select> time fairly.</p>
+
+<p><select id="gap2"></select> scheduling runs processes in arrival order.</p>
+
+<p><select id="gap3"></select> gives each process a fixed time slice.</p>
+
+<p><select id="gap4"></select> selects the process with the shortest execution time.</p>
+
+<p><select id="gap5"></select> occurs when a process is continually delayed.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain one advantage and one disadvantage of round robin scheduling.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. FCFS stands for:",o:["Fast CPU First Serve","First Come First Served","File Control First System"],a:"First Come First Served"},
+{q:"2. Round robin uses:",o:["Priority only","Time slices","Longest job first"],a:"Time slices"},
+{q:"3. SJF aims to:",o:["Reduce average waiting time","Increase delays","Ignore short jobs"],a:"Reduce average waiting time"},
+{q:"4. Starvation happens when:",o:["A process never gets CPU time","RAM is full","The system shuts down"],a:"A process never gets CPU time"},
+{q:"5. Scheduling improves:",o:["CPU utilisation","Hard disk size","Screen resolution"],a:"CPU utilisation"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"CPU",
+gap2:"FCFS",
+gap3:"Round Robin",
+gap4:"SJF",
+gap5:"Starvation"
+};
+
+const wordBank=["CPU","FCFS","Round Robin","SJF","Starvation"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("fair")||text.includes("equal")||text.includes("time slice")) marks++;
+if(text.includes("overhead")||text.includes("slow")||text.includes("context switch")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

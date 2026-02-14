@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Open vs Closed Source QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Open vs Closed Source Software – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>Open source software provides access to the <select id="gap1"></select> code.</p>
+
+<p>Closed source software is controlled by a <select id="gap2"></select>.</p>
+
+<p>Open source software can usually be freely <select id="gap3"></select> and modified.</p>
+
+<p>Closed source software often provides professional <select id="gap4"></select>.</p>
+
+<p>Licensing terms determine how software can be <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain one advantage and one disadvantage of open source software.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Open source software allows users to:",o:["View the source code","Hide the code","Encrypt automatically"],a:"View the source code"},
+{q:"2. Closed source software is usually:",o:["Free to modify","Proprietary","Public domain"],a:"Proprietary"},
+{q:"3. An advantage of open source software is:",o:["High cost","Customisation","Restricted access"],a:"Customisation"},
+{q:"4. A disadvantage of open source software may be:",o:["Limited support","Too secure","No updates"],a:"Limited support"},
+{q:"5. Closed source software often provides:",o:["No updates","Official technical support","No documentation"],a:"Official technical support"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"source",
+gap2:"company",
+gap3:"distributed",
+gap4:"support",
+gap5:"used"
+};
+
+const wordBank=["source","company","distributed","support","used"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("custom")||text.includes("free")||text.includes("flexible")) marks++;
+if(text.includes("support")||text.includes("security")||text.includes("risk")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

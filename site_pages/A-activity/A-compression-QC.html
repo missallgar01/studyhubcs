@@ -1,0 +1,140 @@
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-compression-QC.html">Quick Check</a></div>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Compression QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Compression – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (4)</h3>
+
+<p>Lossy compression permanently <select id="gap1"></select> data.</p>
+
+<p>Lossless compression preserves data <select id="gap2"></select>.</p>
+
+<p>RLE works best when data contains lots of <select id="gap3"></select>.</p>
+
+<p>Dictionary coding replaces repeated <select id="gap4"></select> with shorter codes.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Calculation (4)</h3>
+
+<p>1. Compress using RLE: AAAABB</p>
+<input type="text" id="calc1">
+
+<p>2. Compress using RLE: AABBBCCCC</p>
+<input type="text" id="calc2">
+
+<div id="calcFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Lossless compression is best for:",o:["Video","Text files","Streaming only"],a:"Text files"},
+{q:"2. Lossy compression results in:",o:["Exact copy","Quality loss","Encryption"],a:"Quality loss"},
+{q:"3. Compression reduces:",o:["File size","Security","Processing speed"],a:"File size"},
+{q:"4. RLE stores:",o:["Index and pointer","Count and value","Encrypted key"],a:"Count and value"},
+{q:"5. Dictionary coding requires:",o:["Hash function","Dictionary","Public key"],a:"Dictionary"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"discards",
+gap2:"exactly",
+gap3:"repetition",
+gap4:"sequences"
+};
+
+const wordBank=["discards","exactly","repetition","sequences"];
+
+["gap1","gap2","gap3","gap4"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* CALCULATIONS */
+
+let calcMarks=0;
+
+if(document.getElementById("calc1").value==="4A 2B") calcMarks+=2;
+if(document.getElementById("calc2").value==="2A 3B 4C") calcMarks+=2;
+
+total+=calcMarks;
+
+document.getElementById("calcFeedback").innerHTML=
+"Calculation Marks: "+calcMarks+"/4";
+
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

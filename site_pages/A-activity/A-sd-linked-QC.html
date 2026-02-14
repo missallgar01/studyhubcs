@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Linked Lists QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Linked Lists – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A linked list is a <select id="gap1"></select> data structure.</p>
+<p>Each node contains data and a <select id="gap2"></select>.</p>
+<p>The first node is called the <select id="gap3"></select>.</p>
+<p>Linked lists are stored in <select id="gap4"></select> memory locations.</p>
+<p>Traversal follows the <select id="gap5"></select> from node to node.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. Linked lists are:",o:["Static","Dynamic","Immutable"],a:"Dynamic"},
+{q:"2. Nodes are connected using:",o:["Indexes","Pointers","Arrays"],a:"Pointers"},
+{q:"3. Linked lists allow:",o:["Fast random access","Efficient insertion","No resizing"],a:"Efficient insertion"},
+{q:"4. The final node contains a:",o:["Null pointer","Index 0","Primary key"],a:"Null pointer"},
+{q:"5. Linked lists are slower for:",o:["Insertion","Traversal","Random access"],a:"Random access"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"dynamic",
+gap2:"pointer",
+gap3:"head",
+gap4:"non-contiguous",
+gap5:"pointer"
+};
+
+const wordBank=["dynamic","pointer","head","non-contiguous"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+scoreDisplay.innerHTML="Score: "+total+"/10";
+}
+
+</script>
+</main>
+</body>
+</html>

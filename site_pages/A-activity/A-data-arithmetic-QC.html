@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Binary Arithmetic QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+
+</head>
+<body>
+<main>
+
+<h1>Binary Arithmetic – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (3)</h3>
+
+<p>1 + 1 in binary equals <select id="gap1"></select>.</p>
+
+<p>1 + 1 + 1 equals <select id="gap2"></select>.</p>
+
+<p>Overflow occurs when a result cannot fit in the available number of <select id="gap3"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Calculation (4 marks)</h3>
+
+<p>1. 1011 + 0101 =</p>
+<input type="text" id="calc1">
+
+<p>2. 1100 − 0011 =</p>
+<input type="text" id="calc2">
+
+<div id="calcFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. 0 + 1 equals:",o:["0","1","10"],a:"1"},
+{q:"2. 1 + 1 equals:",o:["1","10","11"],a:"10"},
+{q:"3. 1 + 1 + 1 equals:",o:["10","11","100"],a:"11"},
+{q:"4. 1010 + 0001 equals:",o:["1011","1001","1110"],a:"1011"},
+{q:"5. 1000 + 1000 (4-bit) causes:",o:["Underflow","Overflow","No change"],a:"Overflow"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"10",
+gap2:"11",
+gap3:"bits"
+};
+
+const wordBank=["10","11","bits"];
+
+["gap1","gap2","gap3"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* CALCULATIONS */
+
+let calcMarks=0;
+
+/* 1011 + 0101 = 10000 */
+if(document.getElementById("calc1").value==="10000") calcMarks+=2;
+
+/* 1100 - 0011 = 1001 */
+if(document.getElementById("calc2").value==="1001") calcMarks+=2;
+
+total+=calcMarks;
+
+document.getElementById("calcFeedback").innerHTML=
+"Calculation Marks: "+calcMarks+"/4";
+
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

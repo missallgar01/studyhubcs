@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Protocols & TCP/IP QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Protocols & TCP/IP – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A <select id="gap1"></select> is a set of rules for communication.</p>
+
+<p>TCP operates at the <select id="gap2"></select> layer.</p>
+
+<p>HTTPS is secure because it uses <select id="gap3"></select>.</p>
+
+<p>A <select id="gap4"></select> number identifies a specific service on a device.</p>
+
+<p>The Application layer provides services to <select id="gap5"></select> programs.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain why TCP is more reliable than UDP.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. HTTP is used for:",o:["Email","Web pages","File compression"],a:"Web pages"},
+{q:"2. UDP is best for:",o:["Streaming","Secure transactions","Email storage"],a:"Streaming"},
+{q:"3. SMTP is used to:",o:["Send email","Receive web pages","Route packets"],a:"Send email"},
+{q:"4. TCP ensures reliability through:",o:["Encryption","Handshaking","Compression"],a:"Handshaking"},
+{q:"5. IP is responsible for:",o:["Routing","Encryption","Authentication"],a:"Routing"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"protocol",
+gap2:"Transport",
+gap3:"encryption",
+gap4:"port",
+gap5:"application"
+};
+
+const wordBank=["protocol","Transport","encryption","port","application"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("acknowledgement")||text.includes("ack")) marks++;
+if(text.includes("retransmit")||text.includes("error checking")||text.includes("reliable")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

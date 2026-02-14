@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shortest Path QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+<h1>Shortest Path Algorithms</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps</h3>
+
+<p>Dijkstra’s algorithm works on <select id="gap1"></select> graphs.</p>
+<p>It always selects the smallest <select id="gap2"></select> distance.</p>
+<p>A* uses a <select id="gap3"></select> function.</p>
+<p>A* can be faster because it uses an estimate of the remaining <select id="gap4"></select>.</p>
+<p>Both algorithms work on <select id="gap5"></select> graphs.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain the difference between Dijkstra and A*.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. Dijkstra finds:",o:["Longest path","Shortest path","Random path"],a:"Shortest path"},
+{q:"2. A* uses:",o:["Encryption","Heuristic","Bubble sort"],a:"Heuristic"},
+{q:"3. Dijkstra always selects:",o:["Largest weight","Smallest weight","Random node"],a:"Smallest weight"},
+{q:"4. A* is often:",o:["Slower","Same speed","Faster"],a:"Faster"},
+{q:"5. These algorithms use:",o:["Trees","Graphs","Arrays only"],a:"Graphs"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+const answers={
+gap1:"weighted",
+gap2:"tentative",
+gap3:"heuristic",
+gap4:"distance",
+gap5:"weighted"
+};
+
+const wordBank=["weighted","tentative","heuristic","distance"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+if(text.includes("heuristic")) marks++;
+if(text.includes("estimate")||text.includes("faster")) marks++;
+total+=marks;
+
+document.getElementById("explainFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML="Score: "+total+"/12";
+}
+
+</script>
+</main>
+</body>
+</html>

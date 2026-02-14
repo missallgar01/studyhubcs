@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Files & Persistent Storage QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Files & Persistent Storage – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>Opening a file in mode "r" allows you to <select id="gap1"></select> from the file.</p>
+
+<p>Opening a file in mode "w" will <select id="gap2"></select> existing content.</p>
+
+<p>Mode "a" allows you to <select id="gap3"></select> to the end of a file.</p>
+
+<p>Files should be <select id="gap4"></select> after use.</p>
+
+<p>Data stored in files is <select id="gap5"></select>, meaning it remains after power off.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one risk of using write mode ("w") when opening a file.</p>
+
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Mode 'r' is used to:",o:["Write to file","Read from file","Delete file"],a:"Read from file"},
+{q:"2. Mode 'w' will:",o:["Append data","Overwrite file","Read only"],a:"Overwrite file"},
+{q:"3. Mode 'a' will:",o:["Append to file","Delete file","Lock file"],a:"Append to file"},
+{q:"4. Files are stored in:",o:["RAM","Secondary storage","Cache"],a:"Secondary storage"},
+{q:"5. Persistent storage means:",o:["Temporary data","Data saved permanently","Volatile memory"],a:"Data saved permanently"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+  html+=`<p>${m.q}</p>`;
+  m.o.forEach(opt=>{
+    html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+  });
+  html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"read",
+gap2:"overwrite",
+gap3:"append",
+gap4:"closed",
+gap5:"persistent"
+};
+
+const wordBank=["read","overwrite","append","closed","persistent"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+  let sel=document.getElementById(id);
+  sel.innerHTML="<option></option>";
+  wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+  let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+  let fb=document.getElementById(`f${i}`);
+  if(sel===m.a){
+    total++;
+    fb.innerHTML="✔";
+    fb.className="correct";
+  }else{
+    fb.innerHTML="✘";
+    fb.className="incorrect";
+  }
+});
+
+/* GAPS */
+for(let g in answers){
+  if(document.getElementById(g).value===answers[g]){
+    total++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("delete")||text.includes("lost")) marks++;
+if(text.includes("existing data")||text.includes("overwrite")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

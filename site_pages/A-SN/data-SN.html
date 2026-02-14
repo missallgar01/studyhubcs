@@ -35,6 +35,11 @@
         <li><strong>String</strong>: a sequence of characters (text; also useful for values like phone numbers where leading zeros matter).</li>
         <li><strong>Boolean</strong>: only two values: <code class="inline">True</code> or <code class="inline">False</code>.</li>
       </ul>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-data-datatypes-QC.html">Quick Check</a></div>
+</div>
+
     </div>
 
     <div class="knowledge-card">
@@ -89,27 +94,10 @@
         So 47 = <code class="inline">101111</code>. Often written to a full byte with leading zeros:
         <code class="inline">00101111</code>.
       </p>
-    </div>
 
-    <div class="knowledge-card">
-      <h3>Binary addition (integers)</h3>
-      <p>Core rules (including any carry-in):</p>
-      <ul>
-        <li><code class="inline">0+0=0</code></li>
-        <li><code class="inline">0+1=1</code></li>
-        <li><code class="inline">1+1=10</code> (write 0, carry 1)</li>
-        <li><code class="inline">1+1+1=11</code> (write 1, carry 1)</li>
-      </ul>
-
-      <p class="small muted">Worked example: <code class="inline">1011</code> + <code class="inline">1110</code></p>
-      <div class="diagram-wrap">
-        <table class="diagram">
-          <tr><td class="rowlabel">A</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
-          <tr><td class="rowlabel">B</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
-          <tr><td class="rowlabel">Sum</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-        </table>
-      </div>
-      <p class="small muted">Result: <code class="inline">11001</code>. (Good practice: verify by converting to denary.)</p>
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-data-binary-QC.html">Quick Check</a></div>
+</div>
     </div>
 
     <div class="knowledge-card">
@@ -153,6 +141,31 @@
       <p class="small muted">
         Value = (−128×1)+64+32+16+8+0+0+1 = −7
       </p>
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-signed-number-QC.html">Quick Check</a></div>
+</div>
+
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Binary addition (integers)</h3>
+      <p>Core rules (including any carry-in):</p>
+      <ul>
+        <li><code class="inline">0+0=0</code></li>
+        <li><code class="inline">0+1=1</code></li>
+        <li><code class="inline">1+1=10</code> (write 0, carry 1)</li>
+        <li><code class="inline">1+1+1=11</code> (write 1, carry 1)</li>
+      </ul>
+
+      <p class="small muted">Worked example: <code class="inline">1011</code> + <code class="inline">1110</code></p>
+      <div class="diagram-wrap">
+        <table class="diagram">
+          <tr><td class="rowlabel">A</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td class="rowlabel">B</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+          <tr><td class="rowlabel">Sum</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+        </table>
+      </div>
+      <p class="small muted">Result: <code class="inline">11001</code>. (Good practice: verify by converting to denary.)</p>
     </div>
 
     <div class="knowledge-card">
@@ -176,51 +189,12 @@
       <p class="small muted">
         <code class="inline">11100</code> = −16 + 8 + 4 = −4 (so 8 − 12 = −4).
       </p>
-    </div>
 
-    <div class="knowledge-card">
-      <h3>Hexadecimal (base 16)</h3>
-      <p>
-        Hex is base 16. Digits are 0–9 then A–F for 10–15. Place values are powers of 16.
-      </p>
 
-      <div class="diagram-wrap">
-        <table class="diagram">
-          <tr><th>Denary</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th></tr>
-          <tr><th>Hex</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr>
-        </table>
-      </div>
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-arithmetic-QC.html">Quick Check</a></div>
+</div>
 
-      <p class="small muted">Example (hex → denary): 4E7F</p>
-      <div class="diagram-wrap">
-        <table class="diagram">
-          <tr><th>4096 (16³)</th><th>256 (16²)</th><th>16 (16¹)</th><th>1 (16⁰)</th></tr>
-          <tr><td>4</td><td>E (14)</td><td>7</td><td>F (15)</td></tr>
-        </table>
-      </div>
-      <p class="small muted">Value = (4×4096)+(14×256)+(7×16)+(15×1) = 20095</p>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Converting between hex, binary, and denary</h3>
-      <p><strong>Hex → binary:</strong> convert each hex digit to a 4-bit <em>nybble</em>, then concatenate.</p>
-
-      <div class="diagram-wrap">
-        <table class="diagram">
-          <tr><th>Hex</th><th>Denary</th><th>Binary nybble</th></tr>
-          <tr><td>B</td><td>11</td><td>1011</td></tr>
-          <tr><td>2</td><td>2</td><td>0010</td></tr>
-        </table>
-      </div>
-      <p class="small muted">
-        So <code class="inline">B2</code> = <code class="inline">10110010</code>.
-        To get denary, sum place values (128+32+16+2=178).
-      </p>
-
-      <div class="hr"></div>
-
-      <p><strong>Hex → denary:</strong> either go via binary, or use hex place values directly.</p>
-      <p class="small muted">Example: 4C3 = (4×256) + (12×16) + (3×1) = 1219</p>
     </div>
 
     <div class="knowledge-card">
@@ -290,6 +264,12 @@
       <p class="small muted">
         This table shows the idea of converting a shifted fractional binary value using fractional place values.
       </p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-floating-QC.html">Quick Check</a></div>
+</div>
+
+
     </div>
 
     <div class="knowledge-card">
@@ -312,6 +292,10 @@
       <p class="small muted">
         After shifting mantissa left 2 places → exponent decreases by 2; resulting mantissa begins with 01.
       </p>
+
+        <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-normalising-QC.html">Quick Check</a></div>
+</div>
     </div>
 
     <div class="knowledge-card">
@@ -341,6 +325,11 @@
         <li>Convert the mantissa being subtracted into two’s complement.</li>
         <li>Add mantissas, then normalise.</li>
       </ul>
+
+        <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-floating-arith-QC.html">Quick Check</a></div>
+</div>
+
     </div>
 
     <div class="knowledge-card">
@@ -381,6 +370,10 @@
         </table>
       </div>
       <p class="small muted">OR outputs 1 if either bit is 1; XOR outputs 1 only when bits differ.</p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-bitwise-QC.html">Quick Check</a></div>
+</div>
     </div>
 
     <div class="knowledge-card">
@@ -419,6 +412,11 @@
         <li>Character sets: ASCII, Unicode</li>
       </ul>
     </div>
+
+  <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-charcters-QC.html">Quick Check</a></div>
+</div>
+
  </div>
 
  <button id="printBtn" type="button">Print this worksheet</button>

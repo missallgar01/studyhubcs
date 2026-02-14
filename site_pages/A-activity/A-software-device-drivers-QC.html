@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Device Drivers QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Device Drivers – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A device driver allows the operating system to communicate with <select id="gap1"></select>.</p>
+
+<p>Drivers act as a <select id="gap2"></select> between hardware and software.</p>
+
+<p>Without the correct driver, hardware may not <select id="gap3"></select> properly.</p>
+
+<p>Drivers must be compatible with the <select id="gap4"></select> system.</p>
+
+<p>Updating drivers can improve performance and fix <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain why different printers require different device drivers.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. A device driver is:",o:["Hardware","Software","Firmware only"],a:"Software"},
+{q:"2. Drivers allow the OS to:",o:["Delete files","Control hardware","Increase RAM"],a:"Control hardware"},
+{q:"3. If a driver is missing:",o:["Hardware may not function","The CPU stops","Internet disconnects"],a:"Hardware may not function"},
+{q:"4. Drivers are specific to:",o:["Device type","Internet speed","Screen size"],a:"Device type"},
+{q:"5. Updating drivers may:",o:["Fix bugs","Increase compatibility","Improve performance","All of these"],a:"All of these"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"hardware",
+gap2:"interface",
+gap3:"function",
+gap4:"operating",
+gap5:"bugs"
+};
+
+const wordBank=["hardware","interface","function","operating","bugs"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("different")||text.includes("specific")||text.includes("hardware")) marks++;
+if(text.includes("instructions")||text.includes("communication")||text.includes("compatibility")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Recursion QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Recursion – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>Recursion occurs when a function <select id="gap1"></select> itself.</p>
+
+<p>A recursive function must include a <select id="gap2"></select> case.</p>
+
+<p>Each recursive call creates a new <select id="gap3"></select> frame.</p>
+
+<p>If there is no base case, a <select id="gap4"></select> overflow may occur.</p>
+
+<p>Recursion can often be replaced with a <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one advantage and one disadvantage of recursion.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Recursion involves:",o:["Loops only","A function calling itself","Global variables"],a:"A function calling itself"},
+{q:"2. The base case is needed to:",o:["Start the program","Stop recursion","Increase memory"],a:"Stop recursion"},
+{q:"3. Recursive calls are stored in the:",o:["Heap","Stack","File"],a:"Stack"},
+{q:"4. Without a base case:",o:["Program runs faster","Stack overflow occurs","Nothing changes"],a:"Stack overflow occurs"},
+{q:"5. Recursion is commonly used in:",o:["Sorting algorithms","Colour changes","File modes"],a:"Sorting algorithms"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+  html+=`<p>${m.q}</p>`;
+  m.o.forEach(opt=>{
+    html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+  });
+  html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"calls",
+gap2:"base",
+gap3:"stack",
+gap4:"stack",
+gap5:"loop"
+};
+
+const wordBank=["calls","base","stack","loop"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+  let sel=document.getElementById(id);
+  sel.innerHTML="<option></option>";
+  wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+  let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+  let fb=document.getElementById(`f${i}`);
+  if(sel===m.a){
+    total++;
+    fb.innerHTML="✔";
+    fb.className="correct";
+  }else{
+    fb.innerHTML="✘";
+    fb.className="incorrect";
+  }
+});
+
+/* GAPS */
+for(let g in answers){
+  if(document.getElementById(g).value===answers[g]){
+    total++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("clear")||text.includes("elegant")||text.includes("shorter")) marks++;
+if(text.includes("memory")||text.includes("stack")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

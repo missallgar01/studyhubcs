@@ -19,7 +19,7 @@
 
  <div class="vertical-knowledge">
 
-      <div class="knowledge-card">
+    <div class="knowledge-card">
       <h3>Relational Databases</h3>
       <p>
         A <strong>relational database</strong> stores data in multiple tables.
@@ -77,6 +77,10 @@ Car(CarID, Age, Price)
           <tr><td>Car2</td><td>2 years</td><td>£2400</td></tr>
         </table>
       </div>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-database-QC.html">Quick Check</a></div>
+</div>
     </div>
 
     <div class="knowledge-card">
@@ -121,6 +125,9 @@ Car(CarID, Age, Price)
         Patients may be searched by surname rather than PatientID,
         so surname is indexed as a secondary key.
       </div>
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-database-keys-QC.html">Quick Check</a></div>
+</div>
     </div>
 
     <div class="knowledge-card">
@@ -197,7 +204,124 @@ Car(CarID, Age, Price)
       </tr>
     </tbody>
   </table>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-database-normalisation-QC.html">Quick Check</a></div>
 </div>
+
+</div>
+
+    <div class="knowledge-card">
+      <h3>SQL (Structured Query Language)</h3>
+      <p>
+        SQL is a <strong>declarative language</strong> used to manage relational databases.
+      </p>
+
+      <p><strong>SELECT, FROM, WHERE, ORDER BY</strong></p>
+      <pre>
+SELECT MovieTitle, DatePublished
+FROM Movie
+WHERE DatePublished BETWEEN '2000-01-01' AND '2005-12-31'
+ORDER BY DatePublished DESC;
+      </pre>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>JOIN</h3>
+      <p>
+        JOIN combines data from multiple tables using a common attribute.
+      </p>
+
+      <pre>
+SELECT Movie.MovieTitle, Director.DirectorName
+FROM Movie
+JOIN Director
+ON Movie.DirectorName = Director.DirectorName;
+      </pre>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>CREATE, ALTER, INSERT, UPDATE, DELETE</h3>
+
+      <pre>
+CREATE TABLE Student (
+  StudentID INT PRIMARY KEY,
+  Name VARCHAR(30) NOT NULL
+);
+      </pre>
+
+      <pre>
+INSERT INTO Student VALUES (1, 'Alex');
+      </pre>
+
+      <pre>
+UPDATE Student SET Name='Alexa' WHERE StudentID=1;
+      </pre>
+
+      <pre>
+DELETE FROM Student WHERE StudentID=1;
+      </pre>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-database-sql-QC.html">Quick Check</a></div>
+</div>
+
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Referential Integrity</h3>
+      <p>
+        Referential integrity ensures linked data remains consistent.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A customer record cannot be deleted if active orders depend on it.
+      </div>
+
+
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Transaction Processing and ACID</h3>
+      <ul>
+        <li><strong>Atomicity</strong> – all or nothing</li>
+        <li><strong>Consistency</strong> – maintains database rules</li>
+        <li><strong>Isolation</strong> – transactions don’t interfere</li>
+        <li><strong>Durability</strong> – changes persist after failure</li>
+      </ul>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        A bank transfer must either fully complete or not occur at all.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Record Locking and Deadlock</h3>
+      <p>
+        Record locking prevents simultaneous updates.
+      </p>
+
+      <div class="example">
+        <strong>Deadlock Example:</strong><br>
+        User A locks record 1 and waits for record 2.
+        User B locks record 2 and waits for record 1.
+        Neither can proceed.
+      </div>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Redundancy</h3>
+      <p>
+        Redundancy stores multiple copies of data in different locations.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong><br>
+        Cloud backups ensure data can be recovered after hardware failure.
+      </div>
+    </div>
 
     <div class="knowledge-card">
       <h3>Indexing</h3>
@@ -259,115 +383,15 @@ Car(CarID, Age, Price)
         <strong>Example:</strong><br>
         A supermarket automatically sends stock data to suppliers using EDI.
       </div>
-    </div>
 
-    <div class="knowledge-card">
-      <h3>SQL (Structured Query Language)</h3>
-      <p>
-        SQL is a <strong>declarative language</strong> used to manage relational databases.
-      </p>
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-database-transactions-QC.html">Quick Check</a></div>
+</div>
 
-      <p><strong>SELECT, FROM, WHERE, ORDER BY</strong></p>
-      <pre>
-SELECT MovieTitle, DatePublished
-FROM Movie
-WHERE DatePublished BETWEEN '2000-01-01' AND '2005-12-31'
-ORDER BY DatePublished DESC;
-      </pre>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>JOIN</h3>
-      <p>
-        JOIN combines data from multiple tables using a common attribute.
-      </p>
-
-      <pre>
-SELECT Movie.MovieTitle, Director.DirectorName
-FROM Movie
-JOIN Director
-ON Movie.DirectorName = Director.DirectorName;
-      </pre>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>CREATE, ALTER, INSERT, UPDATE, DELETE</h3>
-
-      <pre>
-CREATE TABLE Student (
-  StudentID INT PRIMARY KEY,
-  Name VARCHAR(30) NOT NULL
-);
-      </pre>
-
-      <pre>
-INSERT INTO Student VALUES (1, 'Alex');
-      </pre>
-
-      <pre>
-UPDATE Student SET Name='Alexa' WHERE StudentID=1;
-      </pre>
-
-      <pre>
-DELETE FROM Student WHERE StudentID=1;
-      </pre>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Referential Integrity</h3>
-      <p>
-        Referential integrity ensures linked data remains consistent.
-      </p>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        A customer record cannot be deleted if active orders depend on it.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Transaction Processing and ACID</h3>
-      <ul>
-        <li><strong>Atomicity</strong> – all or nothing</li>
-        <li><strong>Consistency</strong> – maintains database rules</li>
-        <li><strong>Isolation</strong> – transactions don’t interfere</li>
-        <li><strong>Durability</strong> – changes persist after failure</li>
-      </ul>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        A bank transfer must either fully complete or not occur at all.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Record Locking and Deadlock</h3>
-      <p>
-        Record locking prevents simultaneous updates.
-      </p>
-
-      <div class="example">
-        <strong>Deadlock Example:</strong><br>
-        User A locks record 1 and waits for record 2.
-        User B locks record 2 and waits for record 1.
-        Neither can proceed.
-      </div>
-    </div>
-
-    <div class="knowledge-card">
-      <h3>Redundancy</h3>
-      <p>
-        Redundancy stores multiple copies of data in different locations.
-      </p>
-
-      <div class="example">
-        <strong>Example:</strong><br>
-        Cloud backups ensure data can be recovered after hardware failure.
-      </div>
     </div>
  </div>
 
-        <button id="printBtn" type="button">
+<button id="printBtn" type="button">
   Print this worksheet
 </button>
 

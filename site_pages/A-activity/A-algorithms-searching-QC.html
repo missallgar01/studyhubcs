@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Searching QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+<h1>Searching Algorithms</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps</h3>
+
+<p>Linear search checks each item <select id="gap1"></select> by one.</p>
+<p>Binary search requires the list to be <select id="gap2"></select>.</p>
+<p>Binary search uses <select id="gap3"></select> and conquer.</p>
+<p>Worst case linear search checks <select id="gap4"></select> items.</p>
+<p>Binary search halves the <select id="gap5"></select> each time.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why binary search is more efficient than linear search.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+const mcqData=[
+{q:"1. Linear search starts at:",o:["Middle","End","Beginning"],a:"Beginning"},
+{q:"2. Binary search works on:",o:["Unsorted data","Sorted data","Encrypted data"],a:"Sorted data"},
+{q:"3. Worst case linear search (1000 items):",o:["10 checks","1000 checks","1 check"],a:"1000 checks"},
+{q:"4. Binary search reduces the data by:",o:["Half","Double","One item"],a:"Half"},
+{q:"5. Best case binary search:",o:["One comparison","100 comparisons","Half list"],a:"One comparison"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+const answers={
+gap1:"one",
+gap2:"sorted",
+gap3:"divide",
+gap4:"all",
+gap5:"data"
+};
+
+const wordBank=["one","sorted","divide","all","data"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+if(text.includes("halve")||text.includes("divide")) marks++;
+if(text.includes("fewer")||text.includes("faster")) marks++;
+total+=marks;
+
+document.getElementById("explainFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML="Score: "+total+"/12";
+}
+</script>
+</main>
+</body>
+</html>

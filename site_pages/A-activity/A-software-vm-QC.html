@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Virtual Machines QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Virtual Machines – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A virtual machine allows multiple operating systems to run on one <select id="gap1"></select> machine.</p>
+
+<p>The software that manages virtual machines is called a <select id="gap2"></select>.</p>
+
+<p>The main operating system is called the <select id="gap3"></select> OS.</p>
+
+<p>The operating system running inside a VM is called the <select id="gap4"></select> OS.</p>
+
+<p>Virtual machines can improve <select id="gap5"></select> by isolating systems.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain one benefit and one drawback of using virtual machines.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. A virtual machine is:",o:["Physical hardware","Software simulation of a computer","A network cable"],a:"Software simulation of a computer"},
+{q:"2. A hypervisor is used to:",o:["Encrypt data","Manage virtual machines","Increase RAM physically"],a:"Manage virtual machines"},
+{q:"3. Virtual machines are useful for:",o:["Testing software safely","Reducing electricity usage only","Replacing CPUs"],a:"Testing software safely"},
+{q:"4. A drawback of virtual machines is:",o:["High resource usage","No flexibility","No isolation"],a:"High resource usage"},
+{q:"5. VMs improve security through:",o:["Isolation","Faster CPUs","Smaller hard drives"],a:"Isolation"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"physical",
+gap2:"hypervisor",
+gap3:"host",
+gap4:"guest",
+gap5:"security"
+};
+
+const wordBank=["physical","hypervisor","host","guest","security"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("test")||text.includes("isolate")||text.includes("secure")) marks++;
+if(text.includes("slow")||text.includes("resource")||text.includes("performance")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

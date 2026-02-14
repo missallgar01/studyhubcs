@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Efficiency QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+<h1>Algorithm Efficiency</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps</h3>
+
+<p>Efficiency measures time and <select id="gap1"></select> usage.</p>
+<p>Worst case means the <select id="gap2"></select> number of operations.</p>
+<p>Binary search has approximately <select id="gap3"></select> complexity.</p>
+<p>Bubble sort worst case is <select id="gap4"></select>.</p>
+<p>Merge sort requires extra <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why bubble sort is inefficient for large data sets.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. Big-O notation measures:",o:["Memory only","Performance growth","Storage size"],a:"Performance growth"},
+{q:"2. Linear search complexity is:",o:["O(1)","O(n)","O(log n)"],a:"O(n)"},
+{q:"3. Binary search complexity is:",o:["O(n²)","O(log n)","O(n)"],a:"O(log n)"},
+{q:"4. Bubble sort worst case is:",o:["O(n)","O(n²)","O(log n)"],a:"O(n²)"},
+{q:"5. Merge sort complexity is:",o:["O(n log n)","O(n²)","O(1)"],a:"O(n log n)"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+const answers={
+gap1:"memory",
+gap2:"maximum",
+gap3:"O(log n)",
+gap4:"O(n²)",
+gap5:"memory"
+};
+
+const wordBank=["memory","maximum","O(log n)","O(n²)"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+if(text.includes("n²")||text.includes("many comparisons")) marks++;
+if(text.includes("large")) marks++;
+total+=marks;
+
+document.getElementById("explainFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML="Score: "+total+"/12";
+}
+
+</script>
+</main>
+</body>
+</html>

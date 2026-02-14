@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Types of Application Software QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Types of Application Software – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>A <select id="gap1"></select> is used to analyse numerical data.</p>
+
+<p>A <select id="gap2"></select> stores structured data in tables.</p>
+
+<p><select id="gap3"></select> software is used to create slideshows.</p>
+
+<p>An <select id="gap4"></select> helps programmers write and debug code.</p>
+
+<p><select id="gap5"></select> software allows multiple operating systems to run on one machine.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain why a business might use database software instead of a spreadsheet.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Which software is best for writing letters?",o:["Spreadsheet","Word processor","Database"],a:"Word processor"},
+{q:"2. Which software is used for financial modelling?",o:["Presentation","Spreadsheet","IDE"],a:"Spreadsheet"},
+{q:"3. Which software is used to manage large amounts of structured data?",o:["Database","Word processor","Browser"],a:"Database"},
+{q:"4. An IDE is primarily used for:",o:["Editing images","Developing programs","Browsing websites"],a:"Developing programs"},
+{q:"5. Presentation software is used to:",o:["Create slides","Store records","Defragment disks"],a:"Create slides"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"spreadsheet",
+gap2:"database",
+gap3:"presentation",
+gap4:"IDE",
+gap5:"virtualisation"
+};
+
+const wordBank=["spreadsheet","database","presentation","IDE","virtualisation"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 marks) */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("large")||text.includes("structured")||text.includes("relationships")) marks++;
+if(text.includes("efficient")||text.includes("search")||text.includes("query")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

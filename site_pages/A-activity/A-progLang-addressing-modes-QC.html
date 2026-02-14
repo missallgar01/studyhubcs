@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Addressing Modes QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+
+</head>
+<body>
+<main>
+
+<h1>Addressing Modes – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p><select id="gap1"></select> addressing uses the value directly in the instruction.</p>
+
+<p><select id="gap2"></select> addressing uses the memory address provided.</p>
+
+<p><select id="gap3"></select> addressing uses a memory location that contains another address.</p>
+
+<p><select id="gap4"></select> addressing uses a register plus an offset.</p>
+
+<p><select id="gap5"></select> addressing stores the operand inside a CPU register.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain one advantage of indexed addressing.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Immediate addressing:",o:["Uses value directly","Uses pointer","Uses register only"],a:"Uses value directly"},
+{q:"2. Direct addressing:",o:["Uses memory address","Uses literal value","Uses no operand"],a:"Uses memory address"},
+{q:"3. Indirect addressing:",o:["Uses address of address","Uses register only","Uses constant"],a:"Uses address of address"},
+{q:"4. Indexed addressing is useful for:",o:["Arrays","Passwords","Encryption only"],a:"Arrays"},
+{q:"5. Register addressing stores data in:",o:["RAM","CPU register","Hard drive"],a:"CPU register"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"Immediate",
+gap2:"Direct",
+gap3:"Indirect",
+gap4:"Indexed",
+gap5:"Register"
+};
+
+const wordBank=["Immediate","Direct","Indirect","Indexed","Register"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("array")||text.includes("loop")) marks++;
+if(text.includes("offset")||text.includes("efficient")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

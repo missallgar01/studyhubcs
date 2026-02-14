@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CPU Performance QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>CPU Performance – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>Clock speed is measured in <select id="gap1"></select>.</p>
+
+<p>Increasing the number of <select id="gap2"></select> allows more tasks to run at the same time.</p>
+
+<p><select id="gap3"></select> memory stores frequently used data close to the CPU.</p>
+
+<p>A GPU is designed for <select id="gap4"></select> processing.</p>
+
+<p>Running multiple tasks at once is called <select id="gap5"></select> processing.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain why increasing clock speed alone does not always improve overall system performance.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. Clock speed measures:",o:["Memory size","Cycles per second","Storage capacity"],a:"Cycles per second"},
+{q:"2. More CPU cores allow:",o:["More parallel tasks","Less RAM use","Fewer processes"],a:"More parallel tasks"},
+{q:"3. Cache memory improves performance by:",o:["Reducing access time","Increasing disk size","Replacing RAM"],a:"Reducing access time"},
+{q:"4. A GPU is specialised for:",o:["File storage","Graphics processing","Booting systems"],a:"Graphics processing"},
+{q:"5. A system bottleneck occurs when:",o:["All components are balanced","One component limits performance","Cache increases"],a:"One component limits performance"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+  html+=`<p>${m.q}</p>`;
+  m.o.forEach(opt=>{
+    html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+  });
+  html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"GHz",
+gap2:"cores",
+gap3:"cache",
+gap4:"graphics",
+gap5:"parallel"
+};
+
+const wordBank=["GHz","cores","cache","graphics","parallel"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+  let sel=document.getElementById(id);
+  sel.innerHTML="<option></option>";
+  wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+  let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+  let fb=document.getElementById(`f${i}`);
+  if(sel===m.a){
+    total++;
+    fb.innerHTML="✔";
+    fb.className="correct";
+  }else{
+    fb.innerHTML="✘";
+    fb.className="incorrect";
+  }
+});
+
+/* GAPS */
+for(let g in answers){
+  if(document.getElementById(g).value===answers[g]){
+    total++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("cores")||text.includes("cache")||text.includes("ram")) marks++;
+if(text.includes("bottleneck")||text.includes("other components")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

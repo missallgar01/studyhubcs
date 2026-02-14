@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Arrays QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Arrays – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>An array stores values of the same <select id="gap1"></select>.</p>
+<p>Array elements are accessed using an <select id="gap2"></select>.</p>
+<p>Arrays are stored in <select id="gap3"></select> memory locations.</p>
+<p>A 2D array stores data in rows and <select id="gap4"></select>.</p>
+<p>Static data structures have a fixed <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. Arrays are:",o:["Dynamic","Static","Unordered"],a:"Static"},
+{q:"2. Lists are:",o:["Static","Dynamic","Immutable"],a:"Dynamic"},
+{q:"3. Tuples are:",o:["Mutable","Immutable","Resizable"],a:"Immutable"},
+{q:"4. Arrays allow:",o:["Direct indexing","Pointer traversal only","No indexing"],a:"Direct indexing"},
+{q:"5. Arrays are best for:",o:["Frequent resizing","Fast indexed access","Linked traversal"],a:"Fast indexed access"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"data type",
+gap2:"index",
+gap3:"contiguous",
+gap4:"columns",
+gap5:"size"
+};
+
+const wordBank=["data type","index","contiguous","columns","size"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+scoreDisplay.innerHTML="Score: "+total+"/10";
+}
+
+</script>
+</main>
+</body>
+</html>

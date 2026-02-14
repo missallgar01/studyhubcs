@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LMC QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Little Man Computer – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>The <select id="gap1"></select> stores the current working value.</p>
+
+<p>The <select id="gap2"></select> holds the address of the next instruction.</p>
+
+<p><select id="gap3"></select> stores a value from the accumulator into memory.</p>
+
+<p><select id="gap4"></select> branches to a new instruction unconditionally.</p>
+
+<p><select id="gap5"></select> stops program execution.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Trace Question (2)</h3>
+
+<p>Program:</p>
+<pre>
+INP
+ADD 10
+OUT
+HLT
+</pre>
+
+<p>If input = 5 and mailbox 10 contains 3, what is output?</p>
+<input type="text" id="traceAnswer">
+<div id="traceFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. LDA loads a value into the:",o:["Mailbox","Accumulator","Program Counter"],a:"Accumulator"},
+{q:"2. ADD 15 will:",o:["Add value in mailbox 15","Add 15 directly","Store 15"],a:"Add value in mailbox 15"},
+{q:"3. BRZ will branch when:",o:["Accumulator is zero","Accumulator is positive","Program ends"],a:"Accumulator is zero"},
+{q:"4. STA stores the value from:",o:["Mailbox","Accumulator","Input"],a:"Accumulator"},
+{q:"5. INP instruction:",o:["Outputs value","Takes user input","Stops program"],a:"Takes user input"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"Accumulator",
+gap2:"Program Counter",
+gap3:"STA",
+gap4:"BRA",
+gap5:"HLT"
+};
+
+const wordBank=["Accumulator","Program Counter","STA","BRA","HLT"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* TRACE (2 marks) */
+
+let trace = parseInt(document.getElementById("traceAnswer").value);
+let traceMarks = 0;
+
+if(trace === 8) traceMarks = 2;
+
+total += traceMarks;
+
+document.getElementById("traceFeedback").innerHTML = traceMarks + "/2";
+document.getElementById("scoreDisplay").innerHTML =
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

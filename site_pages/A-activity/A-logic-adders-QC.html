@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Adders QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Adders – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>Half adder Sum uses <input type="text" id="g1"></p>
+<p>Half adder Carry uses <input type="text" id="g2"></p>
+<p>Full adders include a <input type="text" id="g3"></p>
+<p>Carry-out depends on <input type="text" id="g4"></p>
+<p>Binary addition may require <input type="text" id="g5"></p>
+
+<div id="feedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. Half adder has:",o:["1 input","2 inputs"],a:"2 inputs"},
+{q:"2. Full adder has:",o:["2 inputs","3 inputs"],a:"3 inputs"},
+{q:"3. Sum output uses:",o:["XOR","AND"],a:"XOR"},
+{q:"4. Carry output uses:",o:["AND","OR"],a:"AND"},
+{q:"5. Full adder handles:",o:["Carry-in","Encryption"],a:"Carry-in"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+if(sel===m.a) total++;
+});
+
+if(g1.value.toUpperCase()==="XOR") total++;
+if(g2.value.toUpperCase()==="AND") total++;
+if(g3.value.toLowerCase().includes("carry")) total++;
+if(g4.value.toLowerCase().includes("inputs")) total++;
+if(g5.value.toLowerCase().includes("carry")) total++;
+
+scoreDisplay.innerHTML="Score: "+total+"/10";
+}
+
+</script>
+</main>
+</body>
+</html>

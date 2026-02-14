@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS Styling QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>CSS Styling – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>CSS stands for <select id="gap1"></select>.</p>
+
+<p>CSS is used to control the <select id="gap2"></select> of a webpage.</p>
+
+<p>An external stylesheet is linked using the <select id="gap3"></select> tag.</p>
+
+<p>A CSS <select id="gap4"></select> selects which HTML elements are styled.</p>
+
+<p>Separating CSS from HTML improves <select id="gap5"></select> and maintainability.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain one advantage of using an external stylesheet.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. CSS is used to:",o:["Structure content","Style webpages","Run databases"],a:"Style webpages"},
+{q:"2. Which symbol selects a class?",o:["#",".","*"],a:"."},
+{q:"3. Which symbol selects an ID?",o:["#",".","@"],a:"#"},
+{q:"4. background-color changes the:",o:["Font","Background","Layout structure"],a:"Background"},
+{q:"5. CSS improves:",o:["Visual design","Search engine ranking directly","Server security"],a:"Visual design"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"Cascading Style Sheets",
+gap2:"appearance",
+gap3:"link",
+gap4:"selector",
+gap5:"consistency"
+};
+
+const wordBank=[
+"Cascading Style Sheets",
+"appearance",
+"link",
+"selector",
+"consistency"
+];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("consistent")||text.includes("multiple pages")||text.includes("reuse")) marks++;
+if(text.includes("easier")||text.includes("maintain")||text.includes("update")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

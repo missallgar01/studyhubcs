@@ -1,0 +1,103 @@
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../A-activity/A-ethics-QC.html">Quick Check</a></div>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ethics QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>Moral & Ethical Issues – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>Automation can reduce human <select id="gap1"></select>.</p>
+<p>AI systems may show <select id="gap2"></select>.</p>
+<p>E-waste contributes to environmental <select id="gap3"></select>.</p>
+<p>Monitoring behaviour raises concerns about <select id="gap4"></select>.</p>
+<p>Accessibility design supports users with <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one ethical issue with automated decision making.</p>
+<textarea id="explain"></textarea>
+<div id="explainFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. AI may cause:",o:["Bias","Encryption","Sorting"],a:"Bias"},
+{q:"2. Self-checkouts affect:",o:["Employment","Encryption","Indexing"],a:"Employment"},
+{q:"3. Data centres consume large amounts of:",o:["Water","Energy","Paper"],a:"Energy"},
+{q:"4. Targeted ads use:",o:["Encryption","Profiling","Sorting"],a:"Profiling"},
+{q:"5. Colour design must consider:",o:["Culture","Speed","Memory"],a:"Culture"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"employment",
+gap2:"bias",
+gap3:"damage",
+gap4:"privacy",
+gap5:"disabilities"
+};
+
+const wordBank=["employment","bias","damage","privacy","disabilities"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+let t=explain.value.toLowerCase();
+let marks=0;
+if(t.includes("bias")||t.includes("unfair")) marks++;
+if(t.includes("no human")||t.includes("automatic")) marks++;
+total+=marks;
+
+explainFeedback.innerHTML=marks+"/2";
+scoreDisplay.innerHTML="Score: "+total+"/12";
+}
+
+</script>
+</main>
+</body>
+</html>

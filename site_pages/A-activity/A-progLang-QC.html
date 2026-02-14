@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>High vs Low-Level Languages QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>High vs Low-Level Languages – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>High-level languages are generally more <select id="gap1"></select> across different systems.</p>
+
+<p>Low-level languages are closer to <select id="gap2"></select> code.</p>
+
+<p>Machine code is written in <select id="gap3"></select>.</p>
+
+<p>High-level languages provide greater <select id="gap4"></select> from hardware.</p>
+
+<p>Low-level languages usually execute <select id="gap5"></select> than high-level languages.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+
+<p>Explain one advantage of high-level languages over low-level languages.</p>
+<textarea id="explain" rows="4"></textarea>
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= MCQ ================= */
+
+const mcqData=[
+{q:"1. High-level languages are easier to:",o:["Read","Encrypt","Compile manually"],a:"Read"},
+{q:"2. Low-level languages are:",o:["Hardware dependent","Portable","Platform independent"],a:"Hardware dependent"},
+{q:"3. Machine code consists of:",o:["English words","Binary","Mnemonics only"],a:"Binary"},
+{q:"4. High-level languages require:",o:["Assembler","Translator","No conversion"],a:"Translator"},
+{q:"5. Assembly language uses:",o:["Mnemonics","Binary only","No instructions"],a:"Mnemonics"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"portable",
+gap2:"machine",
+gap3:"binary",
+gap4:"abstraction",
+gap5:"faster"
+};
+
+const wordBank=["portable","machine","binary","abstraction","faster"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let total=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){
+total++;
+fb.innerHTML="✔";
+fb.className="correct";
+}else{
+fb.innerHTML="✘";
+fb.className="incorrect";
+}
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]){
+total++;
+}
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("read")||text.includes("maintain")||text.includes("easier")) marks++;
+if(text.includes("portable")||text.includes("less hardware dependent")) marks++;
+
+total+=marks;
+
+document.getElementById("examFeedback").innerHTML=marks+"/2";
+document.getElementById("scoreDisplay").innerHTML=
+"Total Score: "+total+"/12";
+
+}
+
+</script>
+
+</main>
+</body>
+</html>

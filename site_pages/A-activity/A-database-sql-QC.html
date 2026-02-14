@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SQL QC</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<main>
+
+<h1>SQL – Quick Check</h1>
+
+<div id="mcq"></div>
+
+<h3>Fill in the Gaps (5)</h3>
+
+<p>The command used to retrieve data is <select id="gap1"></select>.</p>
+<p>To remove a record you use <select id="gap2"></select>.</p>
+<p>To modify existing data you use <select id="gap3"></select>.</p>
+<p>To create a new table you use <select id="gap4"></select>.</p>
+<p>To combine tables you use <select id="gap5"></select>.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Write an SQL statement to select all fields from a table called Students.</p>
+<input type="text" id="sqlAnswer">
+<div id="examFeedback"></div>
+
+<button onclick="mark()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. WHERE is used to:",o:["Sort data","Filter data","Delete data"],a:"Filter data"},
+{q:"2. ORDER BY is used to:",o:["Sort results","Join tables","Delete records"],a:"Sort results"},
+{q:"3. INSERT is used to:",o:["Remove records","Add records","Modify records"],a:"Add records"},
+{q:"4. DELETE removes:",o:["Tables","Records","Fields only"],a:"Records"},
+{q:"5. JOIN is used to:",o:["Combine tables","Create tables","Encrypt tables"],a:"Combine tables"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
+html+=`<div id="f${i}"></div><hr>`;
+});
+mcq.innerHTML=html;
+
+const answers={
+gap1:"SELECT",
+gap2:"DELETE",
+gap3:"UPDATE",
+gap4:"CREATE",
+gap5:"JOIN"
+};
+
+const wordBank=["SELECT","DELETE","UPDATE","CREATE","JOIN"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+});
+
+wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+function mark(){
+let total=0;
+
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){total++;fb.innerHTML="✔";fb.className="correct";}
+else{fb.innerHTML="✘";fb.className="incorrect";}
+});
+
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) total++;
+}
+
+let sql=document.getElementById("sqlAnswer").value.toUpperCase();
+let marks=0;
+if(sql.includes("SELECT")) marks++;
+if(sql.includes("*") && sql.includes("FROM STUDENTS")) marks++;
+total+=marks;
+
+examFeedback.innerHTML=marks+"/2";
+scoreDisplay.innerHTML="Score: "+total+"/12";
+}
+
+</script>
+</main>
+</body>
+</html>
