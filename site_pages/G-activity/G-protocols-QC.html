@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Networks Page 1 – Types & Hardware</title>
+<title>Networks Page 4 – Protocols</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
 
@@ -16,6 +16,7 @@
   padding: 5px 10px;
   margin: 5px;
   border-radius: 4px;
+      color: #0f172a;
 }
 
 .score {
@@ -28,7 +29,7 @@
 <body>
 <main>
 
-<h1>🌐 Networks – Types & Hardware</h1>
+<h1>🌐 Networks – Protocols & TCP/IP</h1>
 
 <div class="section">
 <h2>MCQ (5)</h2>
@@ -36,18 +37,8 @@
 </div>
 
 <div class="section">
-<h2>Fill in the Gaps (5)</h2>
-<p>A LAN covers a <select id="gap1"><option>small</option></select> area.</p>
-<p>A WAN connects multiple <select id="gap2"><option>LANs</option></select>.</p>
-<p>A <select id="gap3"><option>switch</option></select> connects devices within a LAN.</p>
-<p>A <select id="gap4"><option>router</option></select> connects different networks.</p>
-<p>A NIC has a unique <select id="gap5"><option>MAC</option></select> address.</p>
-<div id="gapFeedback"></div>
-</div>
-
-<div class="section">
 <h2>Explain (2)</h2>
-<p>Explain one disadvantage of wireless networks.</p>
+<p>Explain why HTTPS is more secure than HTTP.</p>
 <textarea id="explain" rows="4" cols="60"></textarea>
 <div id="explainFeedback"></div>
 </div>
@@ -56,12 +47,13 @@
 <div class="score" id="scoreDisplay"></div>
 </main>
 <script>
+
 const mcqData=[
-{q:"1. A WAN covers:",o:["Large geographical areas","One building","One room"],a:"Large geographical areas"},
-{q:"2. A WAP provides:",o:["Wireless access","Cable only","Storage"],a:"Wireless access"},
-{q:"3. Latency is:",o:["Delay","Speed","Bandwidth"],a:"Delay"},
-{q:"4. Bandwidth measures:",o:["Data per second","Security","Distance"],a:"Data per second"},
-{q:"5. IP addresses are used to:",o:["Route traffic","Store data","Encrypt"],a:"Route traffic"}
+{q:"1. HTTP is used for:",o:["Web pages","Emails","File transfer"],a:"Web pages"},
+{q:"2. HTTPS uses:",o:["Encryption","Compression","Checksum only"],a:"Encryption"},
+{q:"3. FTP is used for:",o:["File transfer","Routing","Encryption"],a:"File transfer"},
+{q:"4. SMTP is used to:",o:["Send emails","Receive emails","Browse web"],a:"Send emails"},
+{q:"5. TCP ensures:",o:["Reliable delivery","Speed only","Security only"],a:"Reliable delivery"}
 ];
 
 let html="";
@@ -84,13 +76,13 @@ else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
 });
 let text=document.getElementById("explain").value.toLowerCase();
 let marks=0;
-if(text.includes("interference")||text.includes("security"))marks++;
-if(text.includes("slower")||text.includes("less reliable"))marks++;
+if(text.includes("encrypt"))marks++;
+if(text.includes("secure")||text.includes("protect"))marks++;
 score+=marks;
 document.getElementById("explainFeedback").innerHTML=
 marks===2?"✔️ 2/2":
 marks===1?"✔️ 1/2":"❌ 0/2";
-document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/12`;
+document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/7`;
 }
 </script>
 </body>

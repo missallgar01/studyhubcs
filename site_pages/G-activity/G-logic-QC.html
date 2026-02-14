@@ -2,11 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>GCSE Computer Science – Software Assessment</title>
-
+<title>GCSE Computer Science – Logic Gates</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
-
 
 .correct { color: green; font-weight: bold; }
 .incorrect { color: red; font-weight: bold; }
@@ -17,6 +15,7 @@
   padding: 5px 10px;
   margin: 5px;
   border-radius: 4px;
+    color:#000000;
 }
 
 .score {
@@ -26,10 +25,10 @@
 }
 </style>
 </head>
+
 <body>
 <main>
-
-<h1>💻 GCSE Computer Science – Software Assessment</h1>
+<h1>🧠 GCSE Computer Science – Logic Gates Quick Check</h1>
 
 <!-- ================= MCQ ================= -->
 
@@ -44,23 +43,23 @@
 <h2>2️⃣ Fill in the Gaps (5 marks)</h2>
 
 <p>
-Software designed to maintain and control hardware is called <select id="gap1"></select>.
+An AND gate outputs 1 only when <select id="gap1"></select>.
 </p>
 
 <p>
-An operating system manages <select id="gap2"></select> between processes.
+A NOT gate has <select id="gap2"></select> input.
 </p>
 
 <p>
-Defragmentation rearranges files so they are stored <select id="gap3"></select>.
+An OR gate outputs 1 when <select id="gap3"></select>.
 </p>
 
 <p>
-A device driver allows the operating system to communicate with a <select id="gap4"></select>.
+A NOT gate <select id="gap4"></select> the input.
 </p>
 
 <p>
-Authentication checks a user's <select id="gap5"></select>.
+NOT 1 equals <select id="gap5"></select>.
 </p>
 
 <h3>Word Bank:</h3>
@@ -70,79 +69,65 @@ Authentication checks a user's <select id="gap5"></select>.
 
 </div>
 
-<!-- ================= EXPLAIN ================= -->
-
-<div class="section">
-<h2>3️⃣ Explain Question (2 marks)</h2>
-
-<p>Explain one way that process scheduling improves system performance.</p>
-
-<textarea id="explain" rows="4" cols="70"></textarea>
-
-<div id="explainFeedback"></div>
-
-</div>
-
 <button onclick="markQuiz()">Mark My Work</button>
 <button onclick="resetQuiz()">Reset</button>
 
 <div class="score" id="scoreDisplay"></div>
+
 </main>
+
 <script>
 
 /* ================= DATA ================= */
 
 const mcqData = [
 {
-q:"1. Which type of software controls hardware and provides a user interface?",
-options:["Operating system","Utility program","Application software"],
-answer:"Operating system"
-},
-{
-q:"2. Which is an example of utility software?",
-options:["Compression software","Word processor","Spreadsheet"],
-answer:"Compression software"
-},
-{
-q:"3. What does multitasking allow?",
+q:"1. When does an AND gate output 1?",
 options:[
-"Multiple applications to run by switching between processes",
-"Multiple CPUs to run at once",
-"Permanent storage of files"
+"When both inputs are 1",
+"When at least one input is 1",
+"When the input is 0"
 ],
-answer:"Multiple applications to run by switching between processes"
+answer:"When both inputs are 1"
 },
 {
-q:"4. What does file management allow a user to do?",
+q:"2. When does an OR gate output 1?",
 options:[
-"Create, rename and delete files",
-"Increase RAM size",
-"Control clock speed"
+"When both inputs are 0",
+"When at least one input is 1",
+"When inputs are the same"
 ],
-answer:"Create, rename and delete files"
+answer:"When at least one input is 1"
 },
 {
-q:"5. What does an audit trail record?",
-options:[
-"Changes made to software",
-"CPU temperature",
-"Internet history"
-],
-answer:"Changes made to software"
+q:"3. Which gate reverses the input?",
+options:["AND","OR","NOT"],
+answer:"NOT"
+},
+{
+q:"4. What is the output of NOT 1?",
+options:["0","1","2"],
+answer:"0"
+},
+{
+q:"5. What is the output of 1 OR 0?",
+options:["0","1","2"],
+answer:"1"
 }
 ];
 
 const wordBank = [
-"systems software",
-"memory",
-"contiguously",
-"peripheral",
-"username and password"
+"both inputs are 1",
+"at least one input is 1",
+"one",
+"reverses",
+"0"
 ];
 
 /* ================= GENERATE MCQ ================= */
 
 const mcqDiv = document.getElementById("mcq");
+mcqDiv.innerHTML = "";
 
 mcqData.forEach((item,index)=>{
   let html = `<p>${item.q}</p>`;
@@ -159,6 +144,8 @@ mcqData.forEach((item,index)=>{
 /* ================= WORD BANK ================= */
 
 const wordbankDiv = document.getElementById("wordbank");
+wordbankDiv.innerHTML = "";
+
 wordBank.forEach(word=>{
   wordbankDiv.innerHTML += `<span>${word}</span>`;
 });
@@ -197,11 +184,11 @@ mcqData.forEach((item,index)=>{
 /* ---- GAPS ---- */
 
 const gapAnswers = {
-gap1:"systems software",
-gap2:"memory",
-gap3:"contiguously",
-gap4:"peripheral",
-gap5:"username and password"
+gap1:"both inputs are 1",
+gap2:"one",
+gap3:"at least one input is 1",
+gap4:"reverses",
+gap5:"0"
 };
 
 for(let gap in gapAnswers){
@@ -213,41 +200,10 @@ for(let gap in gapAnswers){
 
 document.getElementById("gapFeedback").innerHTML = "✔️ Gaps marked.";
 
-/* ---- EXPLAIN (2 MARKS) ---- */
-
-let explainText = document.getElementById("explain").value.toLowerCase();
-let explainMarks = 0;
-
-if(explainText.includes("time slice") ||
-   explainText.includes("switching") ||
-   explainText.includes("queue"))
-   explainMarks++;
-
-if(explainText.includes("efficient") ||
-   explainText.includes("performance") ||
-   explainText.includes("multiple applications"))
-   explainMarks++;
-
-score += explainMarks;
-
-let feedbackText;
-
-if(explainMarks === 2){
-  feedbackText = "✔️ 2/2 – Clear explanation of time slicing or switching improving efficiency.";
-}
-else if(explainMarks === 1){
-  feedbackText = "✔️ 1/2 – Partial explanation. Mention time slices or switching.";
-}
-else{
-  feedbackText = "❌ 0/2 – You must mention time slices or switching between processes.";
-}
-
-document.getElementById("explainFeedback").innerHTML = feedbackText;
-
 /* ---- FINAL SCORE ---- */
 
 document.getElementById("scoreDisplay").innerHTML =
-`Total Score: ${score} / 12`;
+`Total Score: ${score} / 10`;
 
 }
 

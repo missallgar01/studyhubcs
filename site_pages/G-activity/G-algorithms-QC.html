@@ -2,8 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>GCSE Computer Science – Utility Software Assessment</title>
-
+<title>GCSE Computer Science – Sorting & Searching</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
 
@@ -17,6 +16,7 @@
   padding: 5px 10px;
   margin: 5px;
   border-radius: 4px;
+      color: #0f172a;
 }
 
 .score {
@@ -28,8 +28,7 @@
 </head>
 <body>
 <main>
-
-<h1>💻 GCSE Computer Science – Utility Software</h1>
+<h1>📊 GCSE Computer Science – Sorting & Searching</h1>
 
 <!-- ================= MCQ ================= -->
 
@@ -44,23 +43,23 @@
 <h2>2️⃣ Fill in the Gaps (5 marks)</h2>
 
 <p>
-Anti-virus software detects and removes <select id="gap1"></select>.
+Bubble sort is described as <select id="gap1"></select> because it repeats the same task.
 </p>
 
 <p>
-A firewall acts as a protective <select id="gap2"></select>.
+Each run through a bubble sort list is called a <select id="gap2"></select>.
 </p>
 
 <p>
-Defragmentation stores files <select id="gap3"></select> on the disk.
+Merge sort uses the <select id="gap3"></select> method.
 </p>
 
 <p>
-Disk formatting prepares a storage device for its <select id="gap4"></select>.
+Binary search requires the list to be <select id="gap4"></select>.
 </p>
 
 <p>
-Automatic updates install security <select id="gap5"></select>.
+Linear search checks each item <select id="gap5"></select>.
 </p>
 
 <h3>Word Bank:</h3>
@@ -75,7 +74,7 @@ Automatic updates install security <select id="gap5"></select>.
 <div class="section">
 <h2>3️⃣ Explain Question (2 marks)</h2>
 
-<p>Explain one reason why defragmentation can improve system performance.</p>
+<p>Explain one reason why binary search is more efficient than linear search.</p>
 
 <textarea id="explain" rows="4" cols="70"></textarea>
 
@@ -94,58 +93,54 @@ Automatic updates install security <select id="gap5"></select>.
 
 const mcqData = [
 {
-q:"1. What is a utility program?",
+q:"1. When does bubble sort stop?",
 options:[
-"A program that performs a specific system task",
-"A game",
-"An application for spreadsheets"
+"When a pass makes no swaps",
+"After one pass",
+"When halfway through"
 ],
-answer:"A program that performs a specific system task"
+answer:"When a pass makes no swaps"
 },
 {
-q:"2. What does anti-spyware software prevent?",
-options:[
-"Spyware installation",
-"CPU overheating",
-"Disk formatting"
-],
-answer:"Spyware installation"
+q:"2. Which sorting algorithm uses divide and conquer?",
+options:["Merge sort","Bubble sort","Linear search"],
+answer:"Merge sort"
 },
 {
-q:"3. What does disk cleanup remove?",
+q:"3. What must happen before a binary search?",
 options:[
-"Temporary and unnecessary files",
-"Operating system",
-"RAM"
+"The list must be sorted",
+"The list must be reversed",
+"The list must be shuffled"
 ],
-answer:"Temporary and unnecessary files"
+answer:"The list must be sorted"
 },
 {
-q:"4. What is file compression used for?",
+q:"4. Linear search is described as:",
 options:[
-"Reducing file size",
-"Increasing clock speed",
-"Deleting files"
+"Brute force",
+"Divide and conquer",
+"Recursive only"
 ],
-answer:"Reducing file size"
+answer:"Brute force"
 },
 {
-q:"5. What does system diagnosis do?",
+q:"5. Merge sort uses more:",
 options:[
-"Tests for hardware/software problems",
-"Deletes files",
-"Increases storage"
+"Memory",
+"CPU cores",
+"Clock speed"
 ],
-answer:"Tests for hardware/software problems"
+answer:"Memory"
 }
 ];
 
 const wordBank = [
-"malware",
-"barrier",
-"contiguously",
-"first use",
-"patches"
+"brute force",
+"pass",
+"divide and conquer",
+"sorted",
+"sequentially"
 ];
 
 /* ================= GENERATE MCQ ================= */
@@ -205,11 +200,11 @@ mcqData.forEach((item,index)=>{
 /* ---- GAPS ---- */
 
 const gapAnswers = {
-gap1:"malware",
-gap2:"barrier",
-gap3:"contiguously",
-gap4:"first use",
-gap5:"patches"
+gap1:"brute force",
+gap2:"pass",
+gap3:"divide and conquer",
+gap4:"sorted",
+gap5:"sequentially"
 };
 
 for(let gap in gapAnswers){
@@ -226,13 +221,13 @@ document.getElementById("gapFeedback").innerHTML = "✔️ Gaps marked.";
 let explainText = document.getElementById("explain").value.toLowerCase();
 let explainMarks = 0;
 
-if(explainText.includes("contiguous") ||
-   explainText.includes("next to each other"))
+if(explainText.includes("halve") ||
+   explainText.includes("half"))
    explainMarks++;
 
 if(explainText.includes("faster") ||
-   explainText.includes("reduce read time") ||
-   explainText.includes("quicker access"))
+   explainText.includes("fewer comparisons") ||
+   explainText.includes("efficient"))
    explainMarks++;
 
 score += explainMarks;
@@ -240,13 +235,13 @@ score += explainMarks;
 let feedbackText;
 
 if(explainMarks === 2){
-  feedbackText = "✔️ 2/2 – Clear link between contiguous storage and faster access.";
+  feedbackText = "✔️ 2/2 – Clear explanation about halving the data each step.";
 }
 else if(explainMarks === 1){
-  feedbackText = "✔️ 1/2 – Partial explanation. Mention faster read times.";
+  feedbackText = "✔️ 1/2 – Partial explanation. Mention halving the data.";
 }
 else{
-  feedbackText = "❌ 0/2 – You must explain contiguous storage AND faster access.";
+  feedbackText = "❌ 0/2 – You must explain that binary search halves the data each step.";
 }
 
 document.getElementById("explainFeedback").innerHTML = feedbackText;

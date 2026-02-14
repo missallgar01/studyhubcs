@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Networks Page 4 – Protocols</title>
+<title>Networks Page 5 – Security</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
 
@@ -16,6 +16,7 @@
   padding: 5px 10px;
   margin: 5px;
   border-radius: 4px;
+      color: #0f172a;
 }
 
 .score {
@@ -28,7 +29,7 @@
 <body>
 <main>
 
-<h1>🌐 Networks – Protocols & TCP/IP</h1>
+<h1>🔐 Networks – Security</h1>
 
 <div class="section">
 <h2>MCQ (5)</h2>
@@ -37,7 +38,7 @@
 
 <div class="section">
 <h2>Explain (2)</h2>
-<p>Explain why HTTPS is more secure than HTTP.</p>
+<p>Explain one way encryption improves network security.</p>
 <textarea id="explain" rows="4" cols="60"></textarea>
 <div id="explainFeedback"></div>
 </div>
@@ -48,11 +49,11 @@
 <script>
 
 const mcqData=[
-{q:"1. HTTP is used for:",o:["Web pages","Emails","File transfer"],a:"Web pages"},
-{q:"2. HTTPS uses:",o:["Encryption","Compression","Checksum only"],a:"Encryption"},
-{q:"3. FTP is used for:",o:["File transfer","Routing","Encryption"],a:"File transfer"},
-{q:"4. SMTP is used to:",o:["Send emails","Receive emails","Browse web"],a:"Send emails"},
-{q:"5. TCP ensures:",o:["Reliable delivery","Speed only","Security only"],a:"Reliable delivery"}
+{q:"1. A firewall:",o:["Blocks unauthorised access","Stores files","Routes packets"],a:"Blocks unauthorised access"},
+{q:"2. Phishing attempts to:",o:["Trick users","Encrypt data","Improve speed"],a:"Trick users"},
+{q:"3. Malware is:",o:["Malicious software","Encryption","Routing protocol"],a:"Malicious software"},
+{q:"4. MAC filtering uses:",o:["MAC addresses","IP addresses","Passwords only"],a:"MAC addresses"},
+{q:"5. Authentication verifies:",o:["Identity","Speed","Encryption"],a:"Identity"}
 ];
 
 let html="";
@@ -76,7 +77,7 @@ else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
 let text=document.getElementById("explain").value.toLowerCase();
 let marks=0;
 if(text.includes("encrypt"))marks++;
-if(text.includes("secure")||text.includes("protect"))marks++;
+if(text.includes("unauthorised")||text.includes("secure"))marks++;
 score+=marks;
 document.getElementById("explainFeedback").innerHTML=
 marks===2?"✔️ 2/2":

@@ -343,7 +343,7 @@ function openPdfModal(file, titleText) {
   const title  = document.getElementById("pdfTitle");
 
   if (frame)  frame.src = file || "";
-  if (title)  title.textContent = titleText || "Knowledge Organiser";
+
   if (modal)  modal.classList.add("active");
 }
 
