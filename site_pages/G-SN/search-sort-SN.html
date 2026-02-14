@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hardware – Revision Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<style>
+
+.highlight {
+  background: #1273da !important;
+  color: black !important;
+}
+
+.mid-highlight {
+  background: #00bfff !important;
+  color: black !important;
+  box-shadow: 0 0 12px #00bfff !important;
+}
+
+.compare-highlight {
+  background: #1273da !important;
+  color: black !important;
+}
+
+.swap-highlight {
+  background: #00bfff !important;
+  color: black !important;
+  box-shadow: 0 0 10px #00bfff !important;
+}
+
+.array-container {
+  display: grid;
+  justify-content: center;
+  margin: 20px 0;
+  border: 2px solid black;
+}
+
+.array-row {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+    color: black;
+}
+
+.array-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 1px solid black;
+  background: white;
+  color: black;
+}
+
+.index-label {
+  width: 50px;
+  text-align: center;
+  font-size: 12px;
+  border: 1px solid black;
+  background: #f4f4f4;
+}
+
+</style>
+<body>
+<div class="back-container">
+    <a href="../G-studynotes.html">← Back</a>
+  </div>
+<header>
+  <h1>Topic 1 Computational Thinking Algorithms – Revision</h1>
+
+</header>
+
+<main>
+
+ <div class="vertical-knowledge">
+
+         <div class="knowledge-card">
+          <h3>Linear Search Algorithm</h3>
+
+          <p>
+            A <strong>linear search</strong> is a <strong>very simple searching algorithm</strong>.
+            It is often described as a <strong>brute force</strong> method because it checks
+            <strong>every item</strong> in a list until the required data is found or the end
+            of the list is reached.
+          </p>
+        <figure><img src="images/CT/linear.png" height="147" width="382"/></figure>
+          <p>
+            The search starts at the <strong>beginning of the array or list</strong> and moves
+            through it <strong>item by item</strong>. The linear search is
+            <strong>sequential</strong>.
+          </p>
+
+          <p><strong>Steps for a linear search:</strong></p>
+          <ol>
+            <li>Start at the first item in the list</li>
+            <li>Compare the item with the search value</li>
+            <li>If they are the same, stop the search</li>
+            <li>If they are not the same, move to the next item</li>
+            <li>Repeat until the item is found or the end of the list is reached</li>
+          </ol>
+
+          <p>
+            If the search reaches the end of the list without finding the item,
+            the program reports that the item was <strong>not found</strong>.
+          </p>
+         </div>
+
+<h1>Linear Search Step-Through Visualiser</h1>
+
+<!-- ================================================= -->
+<!-- ================= LINEAR SEARCH ================= -->
+<!-- ================================================= -->
+
+<div class="knowledge-card">
+<h2>Linear Search</h2>
+
+<pre id="linearCode">
+1 alist = [1, 2, 5, 7, 11, 14]
+2 position = 0
+3 found = False
+4 item = input()
+5 WHILE position < length AND found == False
+6     IF item == alist[position] THEN
+7         print("Item found")
+8         found = True
+9     ELSE
+10        position = position + 1
+11    ENDIF
+12 END WHILE
+13 IF found == False THEN
+14     print("Item not found")
+15 ENDIF
+</pre>
+
+<input id="linearArray" value="10,8,1,21,7,32,5,11,0">
+<input id="linearTarget" value="5">
+<button onclick="startLinear()">Start</button>
+<button onclick="nextLinear()">Next Step</button>
+
+<div id="linearVisual" class="array-container"></div>
+
+<table id="linearTable">
+<thead>
+<tr>
+<th>Step</th>
+<th>Position</th>
+<th>Value</th>
+<th>Comparison</th>
+<th>Found</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+         <div class="knowledge-card">
+          <h3>Binary Search Algorithm</h3>
+
+          <p>
+            A <strong>binary search</strong> is a <strong>divide and conquer</strong> algorithm.
+            It works by repeatedly splitting a list in half to find a target value.
+          </p>
+
+          <p>
+            For a binary search to work, the <strong>list must be sorted</strong>.
+          </p>
+
+          <p><strong>Steps for a binary search:</strong></p>
+          <ol>
+            <li>Sort the list</li>
+            <li>Find the midpoint of the list</li>
+            <li>If the search item is found, stop</li>
+            <li>If the search item is less than the midpoint, search the left sub-list</li>
+            <li>If the search item is greater than the midpoint, search the right sub-list</li>
+            <li>Repeat until the item is found</li>
+          </ol>
+
+          <p>
+            The midpoint is found by adding the start and end index values and using
+            <strong>DIV</strong> to return a whole number (rounded down).
+          </p>
+
+          <p><strong>Example:</strong> <code>mid = (start + end) DIV 2</code></p>
+
+         </div>
+
+<div class="knowledge-card">
+<h2>Binary SearchStep-Through Visualiser</h2>
+
+<pre id="binaryCode">
+1 alist = [1,2,5,7,11,14]
+2 item = input()
+3 found = False
+4 first = 0
+5 last = length - 1
+6 WHILE found == False AND first <= last
+7     midPoint = (first + last) DIV 2
+8     IF item == alist[midPoint] THEN
+9         print("Item found at location", midPoint)
+10        found = True
+11    ELSE
+12        IF item < alist[midPoint] THEN
+13            last = midPoint - 1
+14        ELSE
+15            first = midPoint + 1
+16        ENDIF
+17    ENDIF
+18 END WHILE
+19 IF found == False THEN
+20     print("Item not found")
+21 ENDIF
+</pre>
+
+<input id="binaryArray" value="1,2,5,7,11,14">
+<input id="binaryTarget" value="7">
+
+<button onclick="startBinary()">Start</button>
+<button onclick="nextBinary()">Next Step</button>
+
+<h4>Array (with Index)</h4>
+<div id="binaryVisual" class="array-container"></div>
+
+<table id="binaryTable">
+<thead>
+<tr>
+<th>Step</th>
+<th>First</th>
+<th>Last</th>
+<th>MidPoint</th>
+<th>Value</th>
+<th>Compare</th>
+<th>Found</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+         <div class="knowledge-card">
+          <p><strong>Efficiency of searching algorithms:</strong></p>
+        <div class="knowledge-card">
+          <h3>Efficiency of Searching Algorithms</h3>
+        <figure><img src="images/CT/img_binarysearch_timecomplexity.png" height="444" width="505"/></figure>
+          <table>
+            <thead>
+              <tr>
+                <th>Linear</th>
+                <th>Binary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Checks against each item until match using brute force, making it a slow algorithm.<br><br>
+                  Works well on small, unsorted lists<br><br>
+                  It can be improved by sorting the list first and can find an item quicker.<br><br>
+                  Program requires less code
+                </td>
+                <td>
+                  Splits lists and checks each half using divide and conquer<br><br>
+                  List must be <strong>sorted</strong><br><br>
+                  Much quicker than a linear search because the data that needs to be searched halves with each step.<br><br>
+                  Program requires more code
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+         <div class="knowledge-card">
+          <h3>Bubble Sort Algorithm</h3>
+
+          <p><strong>Describe the steps of the bubble sort:</strong></p>
+        <figure><img src="images/CT/bubble.png" height="650" width="1093"/></figure>
+          <ol>
+            <li>Start at the beginning of the list.</li>
+            <li>
+              <strong>Compare</strong> the first value with the next value.
+              If the first value is larger, <strong>swap</strong> the two values.
+            </li>
+            <li>
+              Move to the <strong>next value</strong> in the list and compare it with the one after it.
+              Swap if the value is bigger.
+            </li>
+            <li>
+              Continue until there are <strong>no more items to compare</strong>.
+            </li>
+            <li>
+              Go back to the <strong>start of the list</strong>.
+            </li>
+            <li>
+              <strong>Repeat until no swaps are made</strong>.
+            </li>
+          </ol>
+
+          <p>
+            Each complete run through the list is called a <strong>pass</strong>.
+          </p>
+
+          <p>
+            The bubble sort continues until a full pass is made with
+            <strong>no values swapped</strong>. At this point, the list is sorted.
+          </p>
+        </div>
+
+<div class="knowledge-card">
+<h2>Bubble Sort Step-Through Visualiser</h2>
+
+<pre id="bubbleCode">
+1 swapMade = True
+2 WHILE swapMade == True
+3     swapMade = False
+4     FOR position = 0 TO listLength - 2
+5         IF list[position] > list[position+1] THEN
+6             temp = list[position]
+7             list[position] = list[position+1]
+8             list[position+1] = temp
+9             swapMade = True
+10        ENDIF
+11    END FOR
+12 END WHILE
+</pre>
+
+<input id="bubbleArray" value="7,4,2,9,1">
+<button onclick="startBubble()">Start</button>
+<button onclick="nextBubble()">Next Step</button>
+
+<h3>Array (with Index)</h3>
+<div id="bubbleVisual"  class="array-container"></div>
+
+<table id="bubbleTable">
+<thead>
+<tr>
+<th>Step</th>
+<th>Position</th>
+<th>Comparison</th>
+<th>Swap Made</th>
+<th>Array State</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+</div>
+
+         <div class="knowledge-card">
+          <h3>Merge Sort Algorithm</h3>
+
+          <p>
+            <strong>Merge sort</strong> sorts a list of data by <strong>splitting the list into two halves</strong>,
+            then splitting again and again until only <strong>single-element sub-arrays</strong> remain.
+            These are then <strong>merged back together in order</strong>.
+          </p>
+
+          <p>
+            Merge sort is <strong>very fast on large data sets</strong> but
+            <strong>uses more memory</strong> than other sorting algorithms.
+          </p>
+
+          <p><strong>Steps of the merge sort:</strong></p>
+          <ol>
+            <li>Split the array into sub-arrays containing one element.</li>
+            <li>Merge each sub-array into a new, sorted array.</li>
+            <li>Repeat this process until a single, fully sorted array is produced.</li>
+          </ol>
+
+          <p><strong>Output:</strong> A sorted array.</p>
+
+
+                <figure><img src="images/CT/merge.gif" height="166" width="380"/></figure>
+
+            </div>
+
+         <div class="knowledge-card">
+          <h3>Bubble Sort vs Merge Sort</h3>
+        <figure><img src="images/CT/comparison.png" height="420" width="724"/></figure>
+          <table>
+            <thead>
+              <tr>
+                <th>Bubble Sort</th>
+                <th>Merge Sort</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Uses a <strong>brute force</strong> approach by repeatedly starting at the
+                  beginning of the list and comparing values until a solution is found.
+                </td>
+                <td>
+                  Uses a <strong>divide and conquer</strong> approach by breaking the problem
+                  into smaller sub-problems, solving them, and combining the results.
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  An <strong>in-place sort</strong> because it does not create copies of the array
+                  and does not require additional memory.
+                </td>
+                <td>
+                  Creates copies of sub-lists during sorting, so
+                  <strong>additional memory</strong> is required.
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Requires a <strong>large number of comparisons</strong>, making it unsuitable
+                  for large lists.
+                </td>
+                <td>
+                  The number of comparisons grows slowly as the list size increases,
+                  making it <strong>efficient for large data sets</strong>.
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Simple algorithm that usually takes <strong>less time to write</strong>.
+                </td>
+                <td>
+                  More complex algorithm that takes <strong>longer to write and debug</strong>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="knowledge-card">
+  <h3>Algorithm Efficiency</h3>
+
+  <h4>What is algorithm efficiency?</h4>
+  <ul>
+    <li>
+      <strong>Algorithm efficiency</strong> describes how much
+      <strong>time</strong> and <strong>memory</strong> an algorithm takes to complete.
+    </li>
+    <li>
+      There is often <strong>more than one algorithm</strong> that can solve the same problem.
+    </li>
+    <li>
+      Some algorithms are <strong>faster</strong> or use <strong>less memory</strong> than others,
+      depending on the situation.
+    </li>
+  </ul>
+
+  <p><strong>Example data set:</strong></p>
+  <p>
+    7 &nbsp; 8 &nbsp; 4 &nbsp; 11 &nbsp; 2 &nbsp; 16 &nbsp; 27 &nbsp; 3
+  </p>
+
+  <hr>
+
+  <h4>Linear Search – Best and Worst Case</h4>
+  <ul>
+    <li>
+      <strong>Best case:</strong> The item being searched for is the
+      <strong>first item</strong> in the list.
+    </li>
+    <li>
+      <strong>Worst case:</strong> The item is the
+      <strong>last item</strong> in the list or is <strong>not present</strong>.
+    </li>
+    <li>
+      Linear search checks <strong>each item one by one</strong> from the start.
+    </li>
+    <li>
+      For a list of 1000 items, the worst case could require
+      <strong>1000 comparisons</strong>.
+    </li>
+  </ul>
+
+  <hr>
+
+  <h4>Binary Search – Best and Worst Case</h4>
+  <ul>
+    <li>
+      <strong>Best case:</strong> The item is found after
+      <strong>one comparison</strong>.
+    </li>
+    <li>
+      <strong>Worst case:</strong> The item is found in the
+      <strong>final comparison</strong>.
+    </li>
+    <li>
+      Binary search uses <strong>divide and conquer</strong>,
+      halving the data each time.
+    </li>
+    <li>
+      Even with 1000 items, binary search would need
+      <strong>around 10 comparisons</strong>.
+    </li>
+    <li>
+      <strong>Important:</strong> The data <strong>must be sorted</strong> first.
+    </li>
+  </ul>
+
+  <p><strong>Sorted version of the data:</strong></p>
+  <p>
+    2 &nbsp; 3 &nbsp; 4 &nbsp; 7 &nbsp; 8 &nbsp; 11 &nbsp; 16 &nbsp; 27
+  </p>
+
+  <hr>
+
+  <h4>Bubble Sort – Best and Worst Case</h4>
+  <ul>
+    <li>
+      <strong>Best case:</strong> The data is already in order or almost in order.
+    </li>
+    <li>
+      <strong>Worst case:</strong> The data is in the
+      <strong>reverse order</strong>.
+    </li>
+    <li>
+      Bubble sort makes many comparisons, so it is
+      <strong>not suitable for large data sets</strong>.
+    </li>
+  </ul>
+
+  <hr>
+
+  <h4>Merge Sort – Best and Worst Case</h4>
+  <ul>
+    <li>
+      <strong>Best case:</strong> Data is already sorted or nearly sorted.
+    </li>
+    <li>
+      Merge sort is an <strong>out-of-place algorithm</strong>,
+      meaning it requires <strong>extra memory</strong>.
+    </li>
+    <li>
+      Memory usage depends on the <strong>size of the data</strong>.
+    </li>
+    <li>
+      It works by <strong>splitting data</strong> into smaller parts,
+      then merging them back together in order.
+    </li>
+    <li>
+      Further analysis of merge sort leads into
+      <strong>Big O notation</strong> (A-level content).
+    </li>
+  </ul>
+
+  <p>
+    Choosing the most efficient algorithm can make a program
+    <strong>faster</strong> and more <strong>memory-efficient</strong>.
+  </p>
+</div>
+
+    </div>
+
+ <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+
+</main>
+
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+<script>
+/* =========================================================
+   UNIVERSAL HIGHLIGHT FUNCTION
+========================================================= */
+
+function highlight(codeId, line){
+  const lines = document.getElementById(codeId).innerText.split("\n");
+  document.getElementById(codeId).innerHTML =
+    lines.map((l,i)=>`<div class="${i+1===line?'highlight':''}">${l}</div>`).join("");
+}
+
+/* =========================================================
+   LINEAR SEARCH
+========================================================= */
+
+let linearData = [];
+let linearPosition = 0;
+let linearFound = false;
+let linearItem;
+let linearStep = 1;
+let linearFinished = false;
+
+function renderLinear(highlightIndex = -1) {
+  const container = document.getElementById("linearVisual");
+  container.innerHTML = "";
+
+  const indexRow = document.createElement("div");
+  indexRow.className = "array-row";
+
+  const valueRow = document.createElement("div");
+  valueRow.className = "array-row";
+
+  linearData.forEach((value, index) => {
+
+    // Index cell
+    const indexCell = document.createElement("div");
+    indexCell.className = "index-label";
+    indexCell.innerText = index;
+    indexRow.appendChild(indexCell);
+
+    // Value cell
+    const box = document.createElement("div");
+    box.className = "array-box";
+    box.innerText = value;
+
+    if (index === highlightIndex) {
+      box.classList.add("highlight");   // light blue
+    }
+
+    valueRow.appendChild(box);
+  });
+
+  container.appendChild(indexRow);
+  container.appendChild(valueRow);
+}
+
+function startLinear(){
+  linearData = document.getElementById("linearArray").value.split(",").map(Number);
+  linearItem = Number(document.getElementById("linearTarget").value);
+
+  linearPosition = 0;
+  linearFound = false;
+  linearStep = 1;
+  linearFinished = false;
+
+  document.querySelector("#linearTable tbody").innerHTML = "";
+  renderLinear();
+  highlight("linearCode", 3);
+}
+
+function nextLinear(){
+  if (linearFinished) return;
+
+  if (linearPosition < linearData.length && !linearFound) {
+
+    highlight("linearCode", 5);
+    renderLinear(linearPosition);
+
+    const value = linearData[linearPosition];
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${linearStep++}</td>
+      <td>${linearPosition}</td>
+      <td>${value}</td>
+      <td>${value === linearItem ? "=" : "≠"} ${linearItem}</td>
+      <td>${linearFound}</td>
+    `;
+    document.querySelector("#linearTable tbody").appendChild(row);
+
+    if (value === linearItem) {
+      highlight("linearCode", 6);
+      linearFound = true;
+      linearFinished = true;
+    } else {
+      highlight("linearCode", 9);
+      linearPosition++;
+    }
+
+  } else {
+    highlight("linearCode", 12);
+    linearFinished = true;
+  }
+}
+
+/* =========================================================
+   BINARY SEARCH
+========================================================= */
+
+let binaryData = [];
+let binaryFirst, binaryLast, binaryMid;
+let binaryItem;
+let binaryFound = false;
+let binaryStep = 1;
+let binaryFinished = false;
+
+function renderBinary(mid = -1){
+  const container = document.getElementById("binaryVisual");
+  container.innerHTML = "";
+
+  const indexRow = document.createElement("div");
+  indexRow.className = "array-row";
+
+  const valueRow = document.createElement("div");
+  valueRow.className = "array-row";
+
+  binaryData.forEach((value,index)=>{
+
+    // Index cell
+    const indexCell=document.createElement("div");
+    indexCell.className="index-label";
+    indexCell.innerText=index;
+    indexRow.appendChild(indexCell);
+
+    // Value cell
+    const box=document.createElement("div");
+    box.className="array-box";
+    box.innerText=value;
+
+    if(index===mid){
+      box.classList.add("mid-highlight");
+    }
+
+    valueRow.appendChild(box);
+  });
+
+  container.appendChild(indexRow);
+  container.appendChild(valueRow);
+}
+
+function startBinary(){
+  binaryData=document.getElementById("binaryArray").value.split(",").map(Number);
+  binaryItem=Number(document.getElementById("binaryTarget").value);
+
+  binaryFirst=0;
+  binaryLast=binaryData.length-1;
+  binaryFound=false;
+  binaryStep=1;
+  binaryFinished=false;
+
+  document.querySelector("#binaryTable tbody").innerHTML="";
+  renderBinary();
+  highlight("binaryCode",3);
+}
+
+function nextBinary(){
+  if(binaryFinished) return;
+
+  if(!binaryFound && binaryFirst<=binaryLast){
+
+    highlight("binaryCode",7);
+
+    binaryMid=Math.floor((binaryFirst+binaryLast)/2);
+    renderBinary(binaryMid);
+
+    const sum=binaryFirst+binaryLast;
+
+    const row=document.createElement("tr");
+    row.innerHTML=`
+      <td>${binaryStep++}</td>
+      <td>${binaryFirst}</td>
+      <td>${binaryLast}</td>
+      <td>
+        (${binaryFirst}+${binaryLast}) DIV 2<br>
+        = ${sum} DIV 2<br>
+        = ${binaryMid}
+      </td>
+      <td>${binaryData[binaryMid]}</td>
+      <td>${binaryItem===binaryData[binaryMid]?"=":(binaryItem<binaryData[binaryMid]?"<":">")}</td>
+      <td>${binaryFound}</td>
+    `;
+    document.querySelector("#binaryTable tbody").appendChild(row);
+
+    if(binaryItem===binaryData[binaryMid]){
+      highlight("binaryCode",9);
+      binaryFound=true;
+      binaryFinished=true;
+    }else{
+      highlight("binaryCode",12);
+      if(binaryItem<binaryData[binaryMid]){
+        highlight("binaryCode",13);
+        binaryLast=binaryMid-1;
+      }else{
+        highlight("binaryCode",15);
+        binaryFirst=binaryMid+1;
+      }
+    }
+
+  }else{
+    highlight("binaryCode",19);
+    binaryFinished=true;
+  }
+}
+
+/* =========================================================
+   BUBBLE SORT (FULL FIXED VERSION)
+========================================================= */
+
+let bubbleData=[];
+let bubbleSwapMade;
+let bubblePosition;
+let bubbleStep=1;
+let bubbleFinished=false;
+let bubbleInPass=false;
+
+let bubbleSwapping=false;
+let bubbleSwapStage=0;
+let bubbleTemp=null;
+
+function renderBubble(highlights = []) {
+  const container = document.getElementById("bubbleVisual");
+  container.innerHTML = "";
+
+  const indexRow = document.createElement("div");
+  indexRow.className = "array-row";
+
+  const valueRow = document.createElement("div");
+  valueRow.className = "array-row";
+
+  bubbleData.forEach((value, index) => {
+
+    // Index cell
+    const indexCell = document.createElement("div");
+    indexCell.className = "index-label";
+    indexCell.innerText = index;
+    indexRow.appendChild(indexCell);
+
+    // Value cell
+    const box = document.createElement("div");
+    box.className = "array-box";
+    box.innerText = value;
+
+    if (highlights.includes(index)) {
+      box.classList.add("highlight");   // light blue
+    }
+
+    valueRow.appendChild(box);
+  });
+
+  container.appendChild(indexRow);
+  container.appendChild(valueRow);
+}
+
+function startBubble(){
+  bubbleData=document.getElementById("bubbleArray").value.split(",").map(Number);
+
+  bubbleSwapMade=true;
+  bubblePosition=0;
+  bubbleStep=1;
+  bubbleFinished=false;
+  bubbleInPass=false;
+  bubbleSwapping=false;
+  bubbleSwapStage=0;
+
+  document.querySelector("#bubbleTable tbody").innerHTML="";
+  renderBubble();
+  highlight("bubbleCode",1);
+}
+
+function nextBubble(){
+  if(bubbleFinished) return;
+
+  if(!bubbleInPass && !bubbleSwapping){
+
+    if(!bubbleSwapMade){
+      highlight("bubbleCode",12);
+      bubbleFinished=true;
+      return;
+    }
+
+    highlight("bubbleCode",3);
+    bubbleSwapMade=false;
+    bubblePosition=0;
+    bubbleInPass=true;
+    return;
+  }
+
+  if(bubbleSwapping){
+
+    if(bubbleSwapStage===1){
+      highlight("bubbleCode",6);
+      bubbleTemp=bubbleData[bubblePosition];
+      bubbleSwapStage++;
+      return;
+    }
+
+    if(bubbleSwapStage===2){
+      highlight("bubbleCode",7);
+      bubbleData[bubblePosition]=bubbleData[bubblePosition+1];
+      renderBubble([bubblePosition,bubblePosition+1]);
+      bubbleSwapStage++;
+      return;
+    }
+
+    if(bubbleSwapStage===3){
+      highlight("bubbleCode",8);
+      bubbleData[bubblePosition+1]=bubbleTemp;
+      renderBubble([bubblePosition,bubblePosition+1]);
+      bubbleSwapStage++;
+      return;
+    }
+
+    if(bubbleSwapStage===4){
+      highlight("bubbleCode",9);
+      bubbleSwapMade=true;
+
+      const row=document.createElement("tr");
+      row.innerHTML=`
+        <td>${bubbleStep++}</td>
+        <td>${bubblePosition}</td>
+        <td>SWAP</td>
+        <td>${bubbleSwapMade}</td>
+        <td>${bubbleData.join(", ")}</td>
+      `;
+      document.querySelector("#bubbleTable tbody").appendChild(row);
+
+      bubbleSwapping=false;
+      bubbleSwapStage=0;
+      bubblePosition++;
+      return;
+    }
+  }
+
+  if(bubblePosition<bubbleData.length-1){
+
+    highlight("bubbleCode",5);
+    renderBubble([bubblePosition,bubblePosition+1]);
+
+    const comparison=`${bubbleData[bubblePosition]} > ${bubbleData[bubblePosition+1]}`;
+
+    if(bubbleData[bubblePosition]>bubbleData[bubblePosition+1]){
+      bubbleSwapping=true;
+      bubbleSwapStage=1;
+      return;
+    }else{
+      const row=document.createElement("tr");
+      row.innerHTML=`
+        <td>${bubbleStep++}</td>
+        <td>${bubblePosition}</td>
+        <td>${comparison}</td>
+        <td>${bubbleSwapMade}</td>
+        <td>${bubbleData.join(", ")}</td>
+      `;
+      document.querySelector("#bubbleTable tbody").appendChild(row);
+      bubblePosition++;
+    }
+
+  }else{
+    highlight("bubbleCode",11);
+    bubbleInPass=false;
+  }
+}
+</script>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>
