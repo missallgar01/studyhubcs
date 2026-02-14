@@ -2,88 +2,143 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Hardware Page 3 – Memory & Storage</title>
+<title>Storage Quick Check</title>
 <link rel="stylesheet" href="../../css/main.css" />
 <style>
-
-
-.correct { color: green; font-weight: bold; }
-.incorrect { color: red; font-weight: bold; }
-
-.wordbank span {
-  display: inline-block;
-  background: #e0e0e0;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 4px;
-      color: #0f172a;
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+.wordbank span{
+  background:#e0e0e0;
+  padding:5px 8px;
+  margin:5px;
+  border-radius:4px;
+  display:inline-block;
+    color:#0f172a;
 }
-
-.score {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-top: 1rem;
+.score{
+  font-size:1.2rem;
+  font-weight:bold;
+  margin-top:1rem;
 }
 </style>
 </head>
 <body>
 <main>
 
+<h1>💾 Storage Quick Check</h1>
 
-<h1>💾 Hardware – Memory & Storage</h1>
-
-<div class="section">
-<h2>MCQ (5)</h2>
 <div id="mcq"></div>
-</div>
 
-<div class="section">
-<h2>Explain (2)</h2>
-<p>Explain one advantage of solid state storage over magnetic storage.</p>
-<textarea id="explain" rows="4" cols="60"></textarea>
+<h3>Fill in the Gaps (5)</h3>
+
+<p>RAM is <select id="gap1"></select> because data is lost when power is removed.</p>
+
+<p>ROM stores <select id="gap2"></select> instructions.</p>
+
+<p>Magnetic storage uses a read/write <select id="gap3"></select>.</p>
+
+<p>Optical storage uses a <select id="gap4"></select> to create lands and pits.</p>
+
+<p>Solid state storage uses <select id="gap5"></select> flash chips.</p>
+
+<div class="wordbank" id="wordbank"></div>
+<div id="gapFeedback"></div>
+
+<h3>Exam (2)</h3>
+<p>Explain one advantage and one disadvantage of solid state storage.</p>
+<textarea id="explain" rows="4"></textarea>
 <div id="explainFeedback"></div>
-</div>
 
-<button onclick="markQuiz()">Mark</button>
-<div class="score" id="scoreDisplay"></div>
-</main>
+<button onclick="mark()">Mark</button>
+<div class="score" id="score"></div>
+
 <script>
+
+/* ================= MCQ ================= */
+
 const mcqData=[
-{q:"1. RAM is:",o:["Volatile","Permanent","Optical"],a:"Volatile"},
-{q:"2. ROM stores:",o:["Boot instructions","User files","Temporary data"],a:"Boot instructions"},
-{q:"3. Magnetic storage uses:",o:["Magnetised areas","Lasers","Transistors"],a:"Magnetised areas"},
-{q:"4. Optical storage uses:",o:["Laser","Magnet","Electrical charge"],a:"Laser"},
-{q:"5. SSD uses:",o:["NAND flash","Platter","Lens"],a:"NAND flash"}
+{q:"1. Which storage is volatile?",o:["ROM","RAM","SSD"],a:"RAM"},
+{q:"2. Which storage has moving parts?",o:["SSD","Magnetic","ROM"],a:"Magnetic"},
+{q:"3. Which storage uses a laser?",o:["Optical","Magnetic","RAM"],a:"Optical"},
+{q:"4. SSD stands for:",o:["Solid State Drive","Secure Storage Disk","Secondary Storage Device"],a:"Solid State Drive"},
+{q:"5. Which storage can be affected by strong magnets?",o:["Magnetic","Optical","SSD"],a:"Magnetic"}
 ];
 
 let html="";
 mcqData.forEach((m,i)=>{
 html+=`<p>${m.q}</p>`;
 m.o.forEach(opt=>{
-html+=`<label><input type="radio" name="mcq${i}" value="${opt}">${opt}</label><br>`;
+html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
 });
 html+=`<div id="f${i}"></div><hr>`;
 });
 document.getElementById("mcq").innerHTML=html;
 
-function markQuiz(){
-let score=0;
-mcqData.forEach((m,i)=>{
-let sel=document.querySelector(`input[name="mcq${i}"]:checked`)?.value;
-let fb=document.getElementById(`f${i}`);
-if(sel===m.a){score++;fb.innerHTML="✔️ Correct";fb.className="correct";}
-else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
+/* ================= WORD BANK ================= */
+
+const answers={
+gap1:"volatile",
+gap2:"boot",
+gap3:"head",
+gap4:"laser",
+gap5:"NAND"
+};
+
+const wordBank=["volatile","boot","head","laser","NAND"];
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
+let sel=document.getElementById(id);
+sel.innerHTML="<option></option>";
+wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
 });
-let text=document.getElementById("explain").value.toLowerCase();
-let marks=0;
-if(text.includes("no moving parts"))marks++;
-if(text.includes("faster")||text.includes("durable")||text.includes("reliable"))marks++;
-score+=marks;
-document.getElementById("explainFeedback").innerHTML=
-marks===2?"✔️ 2/2":
-marks===1?"✔️ 1/2":"❌ 0/2";
-document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/7`;
+
+document.getElementById("wordbank").innerHTML=
+wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
+
+function mark(){
+
+let scoreVal=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+if(sel===m.a){
+scoreVal++;
+document.getElementById(`f${i}`).innerHTML="✔";
+document.getElementById(`f${i}`).className="correct";
 }
+});
+
+/* GAPS */
+for(let g in answers){
+if(document.getElementById(g).value===answers[g]) scoreVal++;
+}
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM (2 MARKS) */
+
+let t=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+/* advantage */
+if(t.includes("fast")||t.includes("portable")||t.includes("no moving")) marks++;
+
+/* disadvantage */
+if(t.includes("expensive")||t.includes("limited")||t.includes("write")) marks++;
+
+scoreVal+=marks;
+
+document.getElementById("explainFeedback").innerHTML=marks+"/2";
+
+document.getElementById("score").innerHTML="Score: "+scoreVal+"/12";
+
+}
+
 </script>
+
+</main>
 </body>
 </html>

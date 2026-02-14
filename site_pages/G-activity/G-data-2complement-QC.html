@@ -8,18 +8,28 @@
 .correct{color:green;font-weight:bold;}
 .incorrect{color:red;font-weight:bold;}
 .score{font-size:1.2rem;font-weight:bold;margin-top:1rem;}
-.wordbank span{background:#e0e0e0;padding:5px 8px;margin:5px;border-radius:4px;display:inline-block;}
+.wordbank span{
+  background:#e0e0e0;
+  padding:5px 8px;
+  margin:5px;
+  border-radius:4px;
+  display:inline-block;
+    color:#0f172a;
+}
 </style>
 </head>
 <body>
 <main>
+
 <h1>Two's Complement</h1>
 
 <div id="mcq"></div>
 
-<p>To find two's complement:
+<p>
+To find two's complement:
 1. Invert the bits.
-2. Add <select id="gap1"></select>.</p>
+2. Add <select id="gap1"></select>.
+</p>
 
 <p>The MSB represents the <select id="gap2"></select>.</p>
 <p>In 8 bits, the largest positive value is <select id="gap3"></select>.</p>
@@ -35,9 +45,11 @@
 <div id="explainFeedback"></div>
 
 <button onclick="mark()">Mark</button>
-<div class="score" id="score"></div>
+<div class="score" id="scoreDisplay"></div>
 
 <script>
+
+/* ================= MCQ ================= */
 
 const mcqData=[
 {q:"1. What is the first step in two's complement?",o:["Add 1","Invert bits","Divide by 2"],a:"Invert bits"},
@@ -49,41 +61,84 @@ const mcqData=[
 
 let html="";
 mcqData.forEach((m,i)=>{
-html+=`<p>${m.q}</p>`;
-m.o.forEach(opt=>html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`);
-html+=`<div id="f${i}"></div><hr>`;
+  html+=`<p>${m.q}</p>`;
+  m.o.forEach(opt=>{
+    html+=`<label><input type="radio" name="m${i}" value="${opt}">${opt}</label><br>`;
+  });
+  html+=`<div id="f${i}"></div><hr>`;
 });
-mcq.innerHTML=html;
+document.getElementById("mcq").innerHTML=html;
 
-const answers={gap1:"1",gap2:"sign",gap3:"127",gap4:"negative",gap5:"-128"};
+/* ================= WORD BANK ================= */
+
+const answers={
+  gap1:"1",
+  gap2:"sign",
+  gap3:"127",
+  gap4:"negative",
+  gap5:"-128"
+};
+
 const wordBank=["1","sign","127","negative","-128"];
+
 ["gap1","gap2","gap3","gap4","gap5"].forEach(id=>{
-let sel=document.getElementById(id);
-sel.innerHTML="<option></option>";
-wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
+  let sel=document.getElementById(id);
+  sel.innerHTML="<option></option>";
+  wordBank.forEach(w=>sel.innerHTML+=`<option>${w}</option>`);
 });
-wordbank.innerHTML=wordBank.map(w=>`<span>${w}</span>`).join("");
+
+document.getElementById("wordbank").innerHTML=
+  wordBank.map(w=>`<span>${w}</span>`).join("");
+
+/* ================= MARKING ================= */
 
 function mark(){
-let score=0;
-mcqData.forEach((m,i)=>{
-let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
-if(sel===m.a){score++;f${i}.innerHTML="✔";f${i}.className="correct";}
-});
-for(let g in answers){
-if(document.getElementById(g).value===answers[g]) score++;
-}
-gapFeedback.innerHTML="✔ Gaps marked";
 
-let t=explain.value.toLowerCase();
-let marks=0;
-if(t.includes("negative")) marks++;
-if(t.includes("arithmetic")) marks++;
-score+=marks;
-explainFeedback.innerHTML=marks+"/2";
-score.innerHTML="Score: "+score+"/12";
+let totalScore=0;
+
+/* MCQ */
+mcqData.forEach((m,i)=>{
+  let sel=document.querySelector(`input[name="m${i}"]:checked`)?.value;
+  let feedback=document.getElementById(`f${i}`);
+
+  if(sel===m.a){
+    totalScore++;
+    feedback.innerHTML="✔";
+    feedback.className="correct";
+  } else {
+    feedback.innerHTML="✘";
+    feedback.className="incorrect";
+  }
+});
+
+/* GAPS */
+for(let g in answers){
+  if(document.getElementById(g).value===answers[g]){
+    totalScore++;
+  }
 }
+
+document.getElementById("gapFeedback").innerHTML="✔ Gaps marked";
+
+/* EXAM QUESTION */
+
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+
+if(text.includes("negative")) marks++;
+if(text.includes("arithmetic")) marks++;
+
+totalScore+=marks;
+
+document.getElementById("explainFeedback").innerHTML=marks+"/2";
+
+/* FINAL SCORE */
+document.getElementById("scoreDisplay").innerHTML=
+  "Score: "+totalScore+"/12";
+}
+
 </script>
+
 </main>
 </body>
 </html>
