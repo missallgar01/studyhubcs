@@ -9,6 +9,7 @@
 @import "./components/tables.css";
 @import "./components/tabs.css";
 @import "./components/diagrams.css";
+@import "./components/activity.css";
 @import "./features/modals.css";
 @import "./features/iframes.css";
 @import "./features/how-to-answer.css";
