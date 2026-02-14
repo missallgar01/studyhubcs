@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Databases</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+   <h1>Databases – Knowledge Check</h1>
+<p>
+    Write your answers in the boxes provided.</p>
+   <p> Click <strong>Show answer</strong> to reveal model answers.
+  </p>
+</header>
+
+<main>
+<button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+ <h2>Check Your Understanding – Questions</h2>
+ <div class="vertical-knowledge">
+
+   <div class="rev-card qa-card">
+  <h3>Question 1</h3>
+
+  <p>
+    Rosa has recently opened a new leisure centre. Currently she has 150 members,
+    however, she is estimating that this will increase to around 10 000 members.
+  </p>
+
+  <p>
+    Rosa will store members' details in a database. She will also store gym class
+    bookings and appointments with fitness instructors.
+  </p>
+
+  <p>
+    Rosa is considering using either a flat file database or a relational database.
+  </p>
+
+  <p>
+    Discuss the benefits and drawbacks of flat file databases and relational databases
+    and which one would be the most suitable for Rosa.
+  </p>
+
+  <p>You should include the following in your answer:</p>
+  <ul>
+    <li>The features of flat file databases and relational databases</li>
+    <li>The benefits and drawbacks of each type of database</li>
+    <li>Which type of database would be the most suitable for Rosa</li>
+  </ul>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p><strong>Flat file database:</strong></p>
+    <ul>
+      <li>Stores all data in a single table or file</li>
+      <li>Easy to set up and suitable for small amounts of data</li>
+      <li>Can contain redundant (repeated) data</li>
+      <li>Harder to manage and expand as data grows</li>
+      <li>Searching can be slower with large datasets</li>
+    </ul>
+
+    <p><strong>Relational database:</strong></p>
+    <ul>
+      <li>Stores data across multiple related tables</li>
+      <li>Uses primary keys and foreign keys to link data</li>
+      <li>Reduces data duplication</li>
+      <li>Easier to maintain, update, and expand</li>
+      <li>More secure and efficient for large datasets</li>
+    </ul>
+
+    <p>
+      <strong>Conclusion:</strong> A relational database is the most suitable for Rosa
+      because the number of members is expected to grow significantly, and it will
+      efficiently manage bookings and appointments while maintaining data integrity.
+    </p>
+  </div>
+</div>
+
+
+ <div class="rev-card qa-card" >
+  <h3>Stage 2 — Question 2</h3>
+
+  <div class="question">
+    <p><strong>2(a).</strong> State two benefits of using a relational database instead of a flat file database. <strong>[2]</strong></p>
+
+    <p><strong>2(b).</strong> OCRConfectionery is a sweet manufacturing company.</p>
+    <p>They want to use a relational database to store details of the orders their customers make.</p>
+    <p>
+      One customer can order as many different products as they like in the same order. A customer can also place as many orders as they like.
+      One product can be ordered multiple times in the same order or ordered by multiple different customers.
+    </p>
+    <p>
+      Complete the entity relationship diagram to show the relationships between the <strong>Product</strong>, <strong>Customer</strong> and
+      <strong>Order</strong> entities. <strong>[2]</strong>
+    </p>
+
+    <p><strong>2(c).</strong> The order table has these fields:</p>
+    <pre class="code-block">OrderID
+OrderDate
+OrderAmount
+CustomerID
+ProductID</pre>
+
+    <p><strong>i.</strong> State the difference between a primary key and a foreign key. <strong>[2]</strong></p>
+    <p><strong>ii.</strong> State one foreign key in the order table. <strong>[1]</strong></p>
+    <p><strong>iii.</strong> State why CustomerID would not make a suitable primary key in the order table. <strong>[1]</strong></p>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+  <div class="answer" hidden>
+    <p><strong>2(a) (any two):</strong></p>
+    <ul>
+      <li>Less redundancy / less repeated data</li>
+      <li>Improves consistency of data</li>
+      <li>Allows complex queries/searches</li>
+    </ul>
+
+    <p><strong>2(b):</strong></p>
+    <ul>
+      <li>Customer → Order is <strong>one-to-many</strong> (one customer to many orders)</li>
+      <li>Order ↔ Product is <strong>many-to-many</strong>, OR use a link entity (e.g. <em>OrderLine</em>):</li>
+      <li>
+        Order → OrderLine is <strong>one-to-many</strong>, and OrderLine → Product is <strong>many-to-one</strong>
+      </li>
+    </ul>
+
+    <p><strong>2(c)(i):</strong></p>
+    <ul>
+      <li>Primary key: unique identifier; appears once in a table</li>
+      <li>Foreign key: links to a key in another table; may repeat / not unique</li>
+    </ul>
+
+    <p><strong>2(c)(ii):</strong> CustomerID <em>or</em> ProductID</p>
+    <p><strong>2(c)(iii):</strong> CustomerID may contain duplicate values (a customer can have multiple orders).</p>
+  </div>
+</div>
+
+<div class="rev-card qa-card" >
+  <h3>Stage 3 — Question 3</h3>
+
+  <div class="question">
+    <p>
+      <strong>3.</strong> Details of all users that have accessed a robot are stored in a database table called
+      <strong>TblAccessLog</strong>. This table stores the username and user type of each user.
+      When a user accesses the robot, the current date is added to the <strong>DateAccessed</strong> field for that user.
+    </p>
+    <p>A selection of the data from this table is shown here. Username is the key field.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>UserType</th>
+          <th>DateAccessed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mrphy003</td>
+          <td>User</td>
+          <td>08/05/21, 07/06/21, 08/06/21</td>
+        </tr>
+        <tr>
+          <td>Lwis076</td>
+          <td>Admin</td>
+          <td>17/04/21, 19/07/21</td>
+        </tr>
+        <tr>
+          <td>Bbby412</td>
+          <td>NotNeeded</td>
+          <td>01/06/21, 02/07/21, 14/07/21</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>TblAccessLog</strong></p>
+
+    <p><strong>i.</strong> Write an SQL statement to delete all records from the table TblAccessLog for users who have a UserType of <strong>"NotNeeded"</strong>. <strong>[2]</strong></p>
+    <p><strong>ii.</strong> State two requirements for a database to be in First Normal Form (1NF). <strong>[2]</strong></p>
+    <p><strong>iii.</strong> Explain why the structure of TblAccessLog means that this database is not in First Normal Form (1NF). <strong>[2]</strong></p>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+  <div class="answer" hidden>
+    <p><strong>3(i):</strong></p>
+    <pre class="code-block">DELETE FROM TblAccessLog
+WHERE UserType = "NotNeeded"</pre>
+
+    <p><strong>3(ii) (any two):</strong></p>
+    <ul>
+      <li>Each attribute/field name is unique</li>
+      <li>Primary key identified</li>
+      <li>No repeated attributes</li>
+      <li>All data values are atomic (cannot be further split)</li>
+    </ul>
+
+    <p><strong>3(iii):</strong> The <strong>DateAccessed</strong> field contains multiple dates in one field (non-atomic),
+      so it can be split into separate values; therefore it is not in 1NF.</p>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <h3>4(a). Question</h3>
+
+  <p>
+    A relational database supports ACID transactions. ACID stands for Atomicity, Consistency, Isolation and Durability.
+  </p>
+
+  <p><strong>(i)</strong> Describe what is meant by a transaction being durable. [2]</p>
+  <p><strong>(ii)</strong> Give one way that durability can be achieved for a completed transaction. [1]</p>
+  <p><strong>(iii)</strong> Explain how record locking can be used to ensure that the ACID principle of isolation is achieved when carrying out multiple transactions. [3]</p>
+  <p><strong>(iv)</strong> Give one disadvantage of using record locking. [1]</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>(i) Durable means:</strong></p>
+    <ul>
+      <li>Committed transaction data is not lost…</li>
+      <li>…even in case of power/system failure.</li>
+    </ul>
+
+    <p><strong>(ii) One way to achieve durability:</strong></p>
+    <ul>
+      <li>Store completed transactions in secondary storage (not just RAM/cache).</li>
+    </ul>
+
+    <p><strong>(iii) Record locking for isolation:</strong></p>
+    <ul>
+      <li>Concurrent transactions should have the same outcome as if they were completed sequentially.</li>
+      <li>Record locking allows only one user/process to access/modify a record at a time.</li>
+      <li>So data being used/modified by one transaction can’t be modified/read in a way that causes interference.</li>
+    </ul>
+
+    <p><strong>(iv) One disadvantage:</strong></p>
+    <ul>
+      <li>Can cause delays (users wait for access), or can cause deadlock.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <h3>4(b). Question (Fig. 2)</h3>
+
+  <p>
+    A video streaming service uses a relational database. An extract of the data from two tables from this database is shown in Fig. 2.
+    <code>Membership</code> contains data about current memberships that customers hold and <code>Package</code> contains data about different streaming packages available.
+  </p>
+
+  <p><strong>Membership</strong></p>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>FirstName</th>
+        <th>StartDate</th>
+        <th>PackageType</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>User001</td><td>Amaya</td><td>08/05/2016</td><td>Premium</td></tr>
+      <tr><td>User002</td><td>Amit</td><td>06/06/2019</td><td>Basic</td></tr>
+      <tr><td>User003</td><td>Tom</td><td>17/08/2019</td><td>Free</td></tr>
+      <tr><td>User004</td><td>Kareem</td><td>08/08/2017</td><td>Basic</td></tr>
+      <tr><td>User005</td><td>Sarah</td><td>25/03/2020</td><td>Premium</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Package</strong></p>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>PackageType</th>
+        <th>CostPerMonth(&pound;)</th>
+        <th>Adverts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Premium</td><td>12.99</td><td>false</td></tr>
+      <tr><td>Basic</td><td>7.99</td><td>true</td></tr>
+      <tr><td>Free</td><td>0.00</td><td>true</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>(i)</strong> State what is meant by the term ‘primary key’. [1]</p>
+  <p><strong>(ii)</strong> Identify the foreign key used in the database and the table name where this is a foreign key. [2]</p>
+  <p><strong>(iii)</strong> Identify the data type of the <code>CostPerMonth(£)</code> field. [1]</p>
+  <p><strong>(iv)</strong> Give the name of the field that could be stored using a Boolean data type. [1]</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>(i) Primary key:</strong></p>
+    <ul>
+      <li>A field that is unique / does not repeat.</li>
+    </ul>
+
+    <p><strong>(ii) Foreign key + where:</strong></p>
+    <ul>
+      <li><strong>Foreign Key:</strong> PackageType</li>
+      <li><strong>Table Name (where it is a foreign key):</strong> Membership</li>
+    </ul>
+
+    <p><strong>(iii) Data type for CostPerMonth(£):</strong></p>
+    <ul>
+      <li>Float / Floating Point / Real (decimal number).</li>
+    </ul>
+
+    <p><strong>(iv) Boolean field:</strong></p>
+    <ul>
+      <li>Adverts</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <h3>4(c). Question</h3>
+
+  <p>
+    The <code>Adverts</code> field indicates if customers will be shown adverts.
+    <code>true</code> indicates that customers will be shown adverts, and <code>false</code> indicates that adverts are not shown.
+  </p>
+  <p>
+    Write Structured Query Language (SQL) to return the <code>Username</code> and <code>FirstName</code> fields for all customers who see adverts. [5]
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>Answer (example using JOIN):</strong></p>
+    <pre><code>SELECT Username, Firstname
+FROM Membership
+JOIN Package ON Membership.PackageType = Package.PackageType
+WHERE Adverts = true</code></pre>
+
+    <p><strong>Answer (example using WHERE join):</strong></p>
+    <pre><code>SELECT Username, Firstname
+FROM Membership, Package
+WHERE Membership.PackageType = Package.PackageType
+AND Adverts = true</code></pre>
+  </div>
+</div>
+
+<div class="rev-card qa-card">
+  <h3>4(d). Question</h3>
+
+  <p>
+    When new customers join the streaming service, their name, email address and contact details are captured so that they can be entered into the database.
+  </p>
+
+  <p><strong>(i)</strong> Identify <strong>one</strong> method of capturing a new customer’s personal data, describing why this method is suitable. [3]</p>
+  <p><strong>(ii)</strong> Sometimes the company may need to move or backup its data they hold about customers. Identify <strong>two</strong> methods of exchanging data with other computer systems. [2]</p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+  <div class="answer">
+    <p><strong>(i) Method + suitability (example):</strong></p>
+    <ul>
+      <li><strong>Method:</strong> Form / web form</li>
+      <li><strong>Suitability:</strong> Can validate inputs (reduce errors/duplicates), and data can be entered directly into the database with limited manual processing; can be completed from remote locations.</li>
+    </ul>
+
+    <p><strong>(ii) Two methods of exchanging data (any two):</strong></p>
+    <ul>
+      <li>CSV</li>
+      <li>JSON</li>
+      <li>XML</li>
+      <li>SQL</li>
+      <li>APIs</li>
+      <li>EDI</li>
+      <li>RSS</li>
+      <li>SOAP</li>
+    </ul>
+  </div>
+</div>
+
+  <div class="rev-card qa-card">
+  <h3>5. Question</h3>
+
+  <div class="question-text">
+    <p>
+      <strong>5.</strong> Customers’ details are stored in the flat file database table <strong>Customer</strong>.
+      An extract of the table is shown below.
+    </p>
+
+    <div class="table-wrap" style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>CustomerID</th>
+            <th>Surname</th>
+            <th>Title</th>
+            <th>Phone</th>
+            <th>CarReg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>JJ178</td>
+            <td>James</td>
+            <td>Mr</td>
+            <td>(0121) 343223</td>
+            <td>DY51 KKY</td>
+          </tr>
+          <tr>
+            <td>HG876</td>
+            <td>Habbick</td>
+            <td>Miss</td>
+            <td>(01782) 659234</td>
+            <td>PG62 CRG</td>
+          </tr>
+          <tr>
+            <td>EV343</td>
+            <td>Elise</td>
+            <td>Mrs</td>
+            <td>(07834) 123998</td>
+            <td>HN59 GFR</td>
+          </tr>
+          <tr>
+            <td>PG127</td>
+            <td>Pleston</td>
+            <td>Mr</td>
+            <td>(07432) 234543</td>
+            <td>JB67 DSF</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>i.</strong> State what is meant by the term ‘primary key’, identifying the primary key in the table above. <strong>[2]</strong></p>
+    <p><strong>ii.</strong> Write the SQL statement that would show only the <strong>CustomerID</strong> and <strong>Surname</strong> fields for customers with the Title “<strong>Miss</strong>” or “<strong>Mrs</strong>”. <strong>[4]</strong></p>
+    <p><strong>iii.</strong> Describe one problem that would arise with the flat file database structure if a customer wanted to insure more than one car at the same time. <strong>[2]</strong></p>
+    <p>
+      <strong>iv.</strong> Describe how the flat file database structure could be altered to efficiently allow each customer
+      to insure multiple cars at the same time. (You may assume each car is insured to only one customer.) <strong>[5]</strong>
+    </p>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button" onclick="this.nextElementSibling.classList.toggle('show')">
+    Show answer
+  </button>
+
+  <div class="answer">
+    <p><strong>i.</strong></p>
+    <ul>
+      <li>A field with a <strong>unique</strong> value (unique identifier).</li>
+      <li>Primary key in the table: <strong>CustomerID</strong>.</li>
+    </ul>
+
+    <p><strong>ii.</strong></p>
+    <pre><code>SELECT CustomerID, Surname
+FROM Customer
+WHERE Title = "Miss"
+OR Title = "Mrs";</code></pre>
+
+    <p><strong>iii.</strong></p>
+    <ul>
+      <li>Only one customer entry is allowed because <strong>CustomerID</strong> is the key field, so you couldn’t add a second car for the same customer without duplicating customer data.</li>
+      <li>This would cause <strong>redundant/repeated data</strong> and potential <strong>inconsistencies</strong> when updating details.</li>
+    </ul>
+
+    <p><strong>iv.</strong></p>
+    <ul>
+      <li>Add a <strong>second table</strong> (e.g., <strong>Car</strong>/<strong>Vehicle</strong>) to store cars separately from customers.</li>
+      <li>Use the customer table’s primary key (<strong>CustomerID</strong>) as a <strong>foreign key</strong> in the Car/Vehicle table.</li>
+      <li>Create a <strong>one-to-many</strong> relationship: one customer → many cars.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- =========================
+     Question 6
+     ========================= -->
+<div class="rev-card qa-card">
+  <h3>Question 6</h3>
+
+  <div class="question">
+    <p><strong>6(a).</strong> A hotel uses a computer system to keep track of room bookings. The hotel staff are able to query a database to discover which rooms are booked or which rooms are free.</p>
+    <p>The hotel’s computer network uses a <strong>client-server</strong> model.</p>
+
+    <p><strong>i.</strong> Describe what is meant by the term ‘client-server’ in this context. <strong>[3]</strong></p>
+    <p><strong>ii.</strong> Give two advantages of client-server compared to peer-to-peer. <strong>[2]</strong></p>
+
+    <p><strong>(b).</strong> The hotel’s network uses multiple switches. Explain the purpose of a network switch. <strong>[3]</strong></p>
+
+    <p><strong>(c).* </strong>The hotel is concerned about the security of its computer network. Discuss the threats which potentially exist to the hotel’s computer network and how these threats could be eliminated or reduced. <strong>[9]</strong></p>
+
+    <p><strong>(d).</strong> The hotel stores data about rooms, customers and bookings in a database. Each customer can book multiple rooms and each room can be booked multiple times.</p>
+    <p><strong>i.</strong> Draw an Entity Relationship Diagram for this database. <strong>[4]</strong></p>
+    <p><strong>ii.</strong> Define what is meant by the term ‘foreign key’, giving one example of where a foreign key would be used in the hotel booking database. <strong>[3]</strong></p>
+    <p><strong>iii.</strong> Describe two different ways that hashing could be used in this database. <strong>[4]</strong></p>
+
+    <p><strong>(e).</strong> The hotel booking database enforces referential integrity. Explain what is meant by the term ‘referential integrity’ and how this could potentially be broken. <strong>[2]</strong></p>
+  </div>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle" type="button">Show answer</button>
+  <div class="answer" hidden>
+    <p><strong>6(a)(i) Client-server (3 marks):</strong></p>
+    <ul>
+      <li>Client computers connect to a server.</li>
+      <li>The server provides access to a resource/service.</li>
+      <li>Here: hotel staff use client machines to query the database hosted on the server.</li>
+    </ul>
+
+    <p><strong>6(a)(ii) Any two advantages (2 marks):</strong></p>
+    <ul>
+      <li>Easier to manage users/access centrally.</li>
+      <li>Easier to back up centrally.</li>
+      <li>Easier to keep data secure centrally.</li>
+      <li>Technicians can remotely install/monitor.</li>
+      <li>(Also commonly credited) only one point of failure.</li>
+    </ul>
+
+    <p><strong>6(b) Purpose of a switch (3 marks):</strong></p>
+    <ul>
+      <li>Connects computers/devices together on a LAN.</li>
+      <li>Receives packets and uses the destination MAC address in the header.</li>
+      <li>Forwards frames out of the correct port to the intended device (not broadcast to all like a hub).</li>
+    </ul>
+
+    <p><strong>6(c)* Threats + mitigation (indicative points for a high-mark answer):</strong></p>
+    <ul>
+      <li><strong>Malware/viruses</strong> can damage systems/data → anti-malware, updates, least privilege.</li>
+      <li><strong>Spyware/keyloggers</strong> can capture credentials → endpoint protection, staff training, MFA.</li>
+      <li><strong>Phishing</strong> steals data via fake messages → staff education, filters, verification processes.</li>
+      <li><strong>DoS/DDoS</strong> can disrupt bookings → rate limiting, firewalls, DDoS protection services.</li>
+      <li>Use <strong>firewalls</strong>, patching, device restrictions (e.g. USB), segmented/restricted Wi-Fi.</li>
+      <li>Balance security measures with customer experience (e.g. guest IT access).</li>
+    </ul>
+
+    <p><strong>6(d)(i) ERD (4 marks) — textual equivalent:</strong></p>
+    <ul>
+      <li>Entities: <strong>Customer</strong>, <strong>Room</strong>, <strong>Booking</strong> (singular names).</li>
+      <li>Links: Customer → Booking is <strong>one-to-many</strong>; Room → Booking is <strong>one-to-many</strong>.</li>
+      <li>No direct Customer–Room link (Booking acts as the link).</li>
+    </ul>
+
+    <p><strong>6(d)(ii) Foreign key (3 marks):</strong></p>
+    <ul>
+      <li><strong>Definition:</strong> A field that links to the (primary) key in a second table.</li>
+      <li><strong>Example:</strong> CustomerID (or RoomID) stored in the Booking table.</li>
+    </ul>
+
+    <p><strong>6(d)(iii) Hashing uses (4 marks):</strong></p>
+    <ul>
+      <li><strong>Security:</strong> hash passwords in the database so they can’t be read if stolen.</li>
+      <li><strong>Direct access/indexing:</strong> use a hash of an index/key to quickly locate Customer/Room/Booking records.</li>
+    </ul>
+
+    <p><strong>6(e) Referential integrity (2 marks):</strong></p>
+    <ul>
+      <li>Foreign keys must reference an existing/valid primary key (relationships remain consistent).</li>
+      <li>It can be broken if a primary key is deleted/updated without cascading, leaving orphan foreign keys.</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+</body>
+</html>

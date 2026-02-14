@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GCSE Computer Science – Software Assessment</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f9ff;
+  padding: 2rem;
+}
+
+h1 { color: #003366; }
+
+.section {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.correct { color: green; font-weight: bold; }
+.incorrect { color: red; font-weight: bold; }
+
+.wordbank span {
+  display: inline-block;
+  background: #e0e0e0;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.score {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+</style>
+
+</head>
+<body>
+
+<h1>💻 GCSE Computer Science – Software Assessment</h1>
+
+<!-- ================= MCQ ================= -->
+
+<div class="section">
+<h2>1️⃣ Multiple Choice (5 marks)</h2>
+<div id="mcq"></div>
+</div>
+
+<!-- ================= FILL GAPS ================= -->
+
+<div class="section">
+<h2>2️⃣ Fill in the Gaps (5 marks)</h2>
+
+<p>
+Software designed to maintain and control hardware is called <select id="gap1"></select>.
+</p>
+
+<p>
+An operating system manages <select id="gap2"></select> between processes.
+</p>
+
+<p>
+Defragmentation rearranges files so they are stored <select id="gap3"></select>.
+</p>
+
+<p>
+A device driver allows the operating system to communicate with a <select id="gap4"></select>.
+</p>
+
+<p>
+Authentication checks a user's <select id="gap5"></select>.
+</p>
+
+<h3>Word Bank:</h3>
+<div class="wordbank" id="wordbank"></div>
+
+<div id="gapFeedback"></div>
+
+</div>
+
+<!-- ================= EXPLAIN ================= -->
+
+<div class="section">
+<h2>3️⃣ Explain Question (2 marks)</h2>
+
+<p>Explain one way that process scheduling improves system performance.</p>
+
+<textarea id="explain" rows="4" cols="70"></textarea>
+
+<div id="explainFeedback"></div>
+
+</div>
+
+<button onclick="markQuiz()">Mark My Work</button>
+<button onclick="resetQuiz()">Reset</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= DATA ================= */
+
+const mcqData = [
+{
+q:"1. Which type of software controls hardware and provides a user interface?",
+options:["Operating system","Utility program","Application software"],
+answer:"Operating system"
+},
+{
+q:"2. Which is an example of utility software?",
+options:["Compression software","Word processor","Spreadsheet"],
+answer:"Compression software"
+},
+{
+q:"3. What does multitasking allow?",
+options:[
+"Multiple applications to run by switching between processes",
+"Multiple CPUs to run at once",
+"Permanent storage of files"
+],
+answer:"Multiple applications to run by switching between processes"
+},
+{
+q:"4. What does file management allow a user to do?",
+options:[
+"Create, rename and delete files",
+"Increase RAM size",
+"Control clock speed"
+],
+answer:"Create, rename and delete files"
+},
+{
+q:"5. What does an audit trail record?",
+options:[
+"Changes made to software",
+"CPU temperature",
+"Internet history"
+],
+answer:"Changes made to software"
+}
+];
+
+const wordBank = [
+"systems software",
+"memory",
+"contiguously",
+"peripheral",
+"username and password"
+];
+
+/* ================= GENERATE MCQ ================= */
+
+const mcqDiv = document.getElementById("mcq");
+
+mcqData.forEach((item,index)=>{
+  let html = `<p>${item.q}</p>`;
+  item.options.forEach(opt=>{
+    html += `<label>
+      <input type="radio" name="mcq${index}" value="${opt}">
+      ${opt}
+    </label><br>`;
+  });
+  html += `<div id="mcqFeedback${index}"></div><hr>`;
+  mcqDiv.innerHTML += html;
+});
+
+/* ================= WORD BANK ================= */
+
+const wordbankDiv = document.getElementById("wordbank");
+wordBank.forEach(word=>{
+  wordbankDiv.innerHTML += `<span>${word}</span>`;
+});
+
+function populateDropdown(id){
+  const select = document.getElementById(id);
+  select.innerHTML = "<option value=''>Select</option>";
+  wordBank.forEach(word=>{
+    select.innerHTML += `<option value="${word}">${word}</option>`;
+  });
+}
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(populateDropdown);
+
+/* ================= MARKING ================= */
+
+function markQuiz(){
+
+let score = 0;
+
+/* ---- MCQ ---- */
+mcqData.forEach((item,index)=>{
+  let selected = document.querySelector(`input[name="mcq${index}"]:checked`)?.value;
+  let feedback = document.getElementById(`mcqFeedback${index}`);
+
+  if(selected === item.answer){
+    score++;
+    feedback.innerHTML = "✔️ Correct";
+    feedback.className="correct";
+  }else{
+    feedback.innerHTML = `❌ Incorrect – Answer: ${item.answer}`;
+    feedback.className="incorrect";
+  }
+});
+
+/* ---- GAPS ---- */
+
+const gapAnswers = {
+gap1:"systems software",
+gap2:"memory",
+gap3:"contiguously",
+gap4:"peripheral",
+gap5:"username and password"
+};
+
+for(let gap in gapAnswers){
+  let value = document.getElementById(gap).value;
+  if(value === gapAnswers[gap]){
+    score++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML = "✔️ Gaps marked.";
+
+/* ---- EXPLAIN (2 MARKS) ---- */
+
+let explainText = document.getElementById("explain").value.toLowerCase();
+let explainMarks = 0;
+
+if(explainText.includes("time slice") ||
+   explainText.includes("switching") ||
+   explainText.includes("queue"))
+   explainMarks++;
+
+if(explainText.includes("efficient") ||
+   explainText.includes("performance") ||
+   explainText.includes("multiple applications"))
+   explainMarks++;
+
+score += explainMarks;
+
+let feedbackText;
+
+if(explainMarks === 2){
+  feedbackText = "✔️ 2/2 – Clear explanation of time slicing or switching improving efficiency.";
+}
+else if(explainMarks === 1){
+  feedbackText = "✔️ 1/2 – Partial explanation. Mention time slices or switching.";
+}
+else{
+  feedbackText = "❌ 0/2 – You must mention time slices or switching between processes.";
+}
+
+document.getElementById("explainFeedback").innerHTML = feedbackText;
+
+/* ---- FINAL SCORE ---- */
+
+document.getElementById("scoreDisplay").innerHTML =
+`Total Score: ${score} / 12`;
+
+}
+
+function resetQuiz(){
+location.reload();
+}
+
+</script>
+
+</body>
+</html>

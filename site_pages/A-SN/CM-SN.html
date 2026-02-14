@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computational Methods</title>
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+   <h1>Computational Methods – Study Notes</h1>
+
+</header>
+
+<main>
+
+   <div class="vertical-knowledge">
+    <h2>Computational Methods – Notes</h2>
+
+    <div class="knowledge-card">
+      <h3>Computational Methods</h3>
+      <p>
+        This topic covers computational approaches to problem solving, including problem recognition,
+        decomposition, abstraction, divide and conquer, heuristics, backtracking, data mining,
+        performance modelling, pipelining, and visualisation.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Aspect</th>
+        <th>Exam Board Definition</th>
+        <th>Meaning</th>
+        <th>Positives / Negatives</th>
+        <th>Simple Illustrations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Problem Recognition</td>
+        <td>Knowing what the problem is</td>
+        <td>Identifying the key requirements of a solution</td>
+        <td>− Not all problems are suitable for computers</td>
+        <td>Identifying requirements of a mortgage calculator</td>
+      </tr>
+
+      <tr>
+        <td>Backtracking</td>
+        <td>Returning to a previous successful state</td>
+        <td>Trying alternative solutions when one fails</td>
+        <td>
+          + Useful in AI and logic problems<br>
+          − Only useful for sequential problems
+        </td>
+        <td>Checking Wi-Fi after email fails to send</td>
+      </tr>
+
+      <tr>
+        <td>Data Mining</td>
+        <td>Analysing large datasets to discover information</td>
+        <td>Finding hidden patterns and trends</td>
+        <td>
+          + Detects anomalies<br>
+          + Competitive advantage
+        </td>
+        <td>Placing beer next to nappies to increase sales</td>
+      </tr>
+
+      <tr>
+        <td>Heuristics</td>
+        <td>A best-guess approach to problem solving</td>
+        <td>Accepting a good-enough solution to save time</td>
+        <td>
+          + Reduces computation time<br>
+          − May not find the optimal solution
+        </td>
+        <td>Estimating congestion during route planning</td>
+      </tr>
+
+      <tr>
+        <td>Performance Modelling</td>
+        <td>Mathematical analysis to assess efficiency</td>
+        <td>Predicting performance before implementation</td>
+        <td>
+          + Cost-effective and safe<br>
+          − Requires accurate data
+        </td>
+        <td>Simulating exam systems or train networks</td>
+      </tr>
+
+      <tr>
+        <td>Pipelining</td>
+        <td>Output of one process becomes input to another</td>
+        <td>Queuing processes in sequence</td>
+        <td>
+          + Faster execution<br>
+          − Branching may reset pipeline
+        </td>
+        <td>Mixing, baking, cooling and icing a cake</td>
+      </tr>
+
+      <tr>
+        <td>Visualisation</td>
+        <td>Representing reality using diagrams and charts</td>
+        <td>Making data easier to analyse</td>
+        <td>
+          + Easier to spot patterns and relationships
+        </td>
+        <td>Flowcharts, system diagrams, class diagrams</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    <div class="knowledge-card">
+      <h3>Features that make a problem solvable by computational methods</h3>
+      <p>
+        A problem is solvable by computational methods if it can be completed by an algorithm
+        within a realistic and finite time. These problems usually involve calculations, data
+        processing, and well-defined inputs and outputs.
+        <br><br>
+        Some problems are theoretically computable but may be impractical due to excessive
+        processing power, memory requirements, or time constraints.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Problem recognition</h3>
+      <p>
+        Once it is established that a problem is computable, the next step is to identify the problem clearly.
+        Stakeholders define what they want the final system to achieve.
+        <br><br>
+        Problem recognition involves:
+        <ul>
+          <li>Understanding user requirements</li>
+          <li>Analysing strengths and weaknesses of existing solutions</li>
+          <li>Considering types of data involved, including inputs, outputs, and stored data</li>
+        </ul>
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Problem decomposition</h3>
+      <p>
+        Decomposition involves breaking a complex problem into smaller, manageable sub-problems.
+        Each sub-problem can be developed as a self-contained subroutine.
+        <br><br>
+        Benefits include:
+        <ul>
+          <li>Reduced complexity</li>
+          <li>Reuse of existing modules and libraries</li>
+          <li>Parallel development by multiple programmers</li>
+          <li>Simpler testing and debugging</li>
+        </ul>
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Divide and conquer</h3>
+      <p>
+        Divide and conquer is a problem-solving strategy that repeatedly breaks a problem into smaller parts.
+        It consists of three stages:
+        <ul>
+          <li><strong>Divide</strong> – split the problem into smaller sub-problems</li>
+          <li><strong>Conquer</strong> – solve each sub-problem, often recursively</li>
+          <li><strong>Merge</strong> – combine solutions to form the final result</li>
+        </ul>
+        Examples include binary search, merge sort, and quick sort.
+        <br><br>
+        Dividing the problem in half at each stage can lead to logarithmic time complexity (O(log n)),
+        but recursive approaches can risk stack overflow and make debugging more difficult.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Abstraction</h3>
+      <p>
+        Abstraction removes unnecessary detail so the programmer can focus on the core problem.
+        This simplifies problem solving and improves clarity.
+        <br><br>
+        Types of abstraction include:
+        <ul>
+          <li><strong>Representational abstraction</strong> – simplifies data representation</li>
+          <li><strong>Abstraction by generalisation</strong> – groups similar components together</li>
+          <li><strong>Layered abstraction</strong> – divides systems into layers with hidden details</li>
+        </ul>
+        Abstraction allows reuse of code and libraries and enables large projects to be split across teams.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Backtracking</h3>
+      <p>
+        Backtracking is a recursive, depth-first technique used to explore all possible solutions.
+        When a path leads to an invalid solution, the algorithm backtracks to the last valid decision
+        point and tries an alternative.
+        <br><br>
+        Common examples include maze solving and constraint satisfaction problems.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Data mining</h3>
+      <p>
+        Data mining involves analysing large datasets to identify patterns, trends, correlations,
+        or anomalies. Data is often collected from multiple sources.
+        <br><br>
+        Uses include:
+        <ul>
+          <li>Predicting customer behaviour</li>
+          <li>Identifying seasonal trends</li>
+          <li>Supporting business and marketing decisions</li>
+        </ul>
+        Data mining must comply with data protection legislation such as GDPR.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Heuristics</h3>
+      <p>
+        Heuristics are “rule-of-thumb” methods that produce approximate solutions when exact solutions
+        are impractical due to time or resource constraints.
+        <br><br>
+        They do not guarantee optimal solutions but aim to produce good-enough answers quickly.
+        Heuristics are used in artificial intelligence, A* search, machine learning,
+        and solving NP-hard problems such as the Travelling Salesman Problem.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Performance modelling</h3>
+      <p>
+        Performance modelling uses mathematical models to predict how a system will behave under
+        different conditions.
+        <br><br>
+        Advantages include:
+        <ul>
+          <li>Lower cost than real-world testing</li>
+          <li>Faster evaluation</li>
+          <li>Improved safety in critical systems (e.g. aviation)</li>
+        </ul>
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Pipelining</h3>
+      <p>
+        Pipelining divides a process into stages so that multiple tasks can be processed simultaneously.
+        Each stage passes its output to the next, similar to a production line.
+        <br><br>
+        This improves efficiency and speeds up overall processing.
+      </p>
+    </div>
+
+    <div class="knowledge-card">
+      <h3>Visualisation</h3>
+      <p>
+        Visualisation presents data in graphical or structured formats such as graphs, charts,
+        trees, or tables.
+        <br><br>
+        This makes patterns, trends, and anomalies easier to identify, particularly in statistical
+        or large datasets. It is widely used in business decision-making.
+      </p>
+    </div>
+</div>
+
+
+    <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

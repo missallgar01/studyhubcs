@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data Structures</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<div class="back-container">
+<a href="../A-studynotes.html">← Back</a>
+</div>
+<header>
+<h1>Data Structures – Knowledge Check</h1>
+<p>Write your answers in the boxes provided.</p>
+<p>Click <strong>Show answer</strong> to reveal model answers.</p>
+</header>
+<main>
+
+<button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Data Structures tabs">
+    <button
+      id="tabbtn-arrays"
+      type="button"
+      role="tab"
+      aria-controls="tab-arrays"
+      aria-selected="true"
+      tabindex="0">
+      Arrays
+    </button>
+
+    <button
+      id="tabbtn-records"
+      type="button"
+      role="tab"
+      aria-controls="tab-records"
+      aria-selected="false"
+      tabindex="-1">
+      Records
+    </button>
+
+    <button
+      id="tabbtn-linked-lists"
+      type="button"
+      role="tab"
+      aria-controls="tab-linked-lists"
+      aria-selected="false"
+      tabindex="-1">
+      Linked Lists
+    </button>
+
+    <button
+      id="tabbtn-stacks"
+      type="button"
+      role="tab"
+      aria-controls="tab-stacks"
+      aria-selected="false"
+      tabindex="-1">
+      Stacks
+    </button>
+
+    <button
+      id="tabbtn-queues"
+      type="button"
+      role="tab"
+      aria-controls="tab-queues"
+      aria-selected="false"
+      tabindex="-1">
+      Queues
+    </button>
+
+    <button
+      id="tabbtn-binary-trees"
+      type="button"
+      role="tab"
+      aria-controls="tab-binary-trees"
+      aria-selected="false"
+      tabindex="-1">
+      Binary Trees
+    </button>
+
+    <button
+      id="tabbtn-graphs"
+      type="button"
+      role="tab"
+      aria-controls="tab-graphs"
+      aria-selected="false"
+      tabindex="-1">
+      Graphs
+    </button>
+
+    <button
+      id="tabbtn-hash-tables"
+      type="button"
+      role="tab"
+      aria-controls="tab-hash-tables"
+      aria-selected="false"
+      tabindex="-1">
+      Hash Tables
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+
+<div aria-labelledby="tabbtn-arrays" class="panel" id="tab-arrays" role="tabpanel">
+
+ <div class="vertical-knowledge">
+
+ <h3>Arrays, Lists and Tuples</h3>
+
+  <!-- Question 1(i) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>1</strong> Beth records how many steps she has completed over a seven-day period.
+      <br><br>
+      She stores the total number of steps for each day in a text file. For example:
+      <br><br>
+      "9000", "13680", "11254", "8258", "12326", "9244", "7542"
+      <br><br>
+      Beth would like a program that will take the values from the text file and then
+      calculate the average number of steps per day.
+      <br><br>
+      The values from the text file are copied into a 1d-array called <code>steps</code>
+      when the program starts.
+      <br><br>
+      Beth passes the array <code>steps</code> into a function called
+      <code>findAverage</code> which will return the average number of steps.
+      <br><br>
+      <strong>i.</strong> An alternative data structure Beth could have used is a list.
+      <br><br>
+      Describe two differences between a list and an array.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>
+        • An array is static / cannot grow / shrink (at run-time)<br>
+        • A list is dynamic / can grow / shrink<br>
+        • Array values must be of the same type<br>
+        • List values can be of different types
+      </p>
+    </div>
+  </div>
+
+  <!-- Question 1(ii) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>ii.</strong> Write the function <code>findAverage</code> that will accept the array
+      <code>steps</code> as a parameter and then return the average number of steps.
+      <br><br>
+      You should write your answer using pseudocode or program code.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <pre><code>
+function findAverage(steps)
+  total = 0
+  for count = 0 to steps.length - 1
+    total = total + steps[count]
+  next count
+  average = total / 7
+  return average
+end function
+      </code></pre>
+    </div>
+  </div>
+
+
+  <!-- Q3 -->
+  <div class="rev-card qa-card">
+    <p>2. Declare a 2D array towns with 8 rows and 3 columns.</p>
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <pre>
+array towns[8][3] as string</pre>
+    </div>
+  </div>
+
+
+  <div class="rev-card qa-card">
+    <p>3(a). Describe one difference between an array and a list.</p>
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>Array is fixed-size/static (and often single type); list is dynamic (and can hold mixed types).</p>
+    </div>
+  </div>
+
+  <div class="rev-card qa-card">
+    <p>3(b). State how a tuple differs from a list.</p>
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>A tuple is immutable (cannot be changed at runtime); a list is mutable.</p>
+    </div>
+  </div>
+ </div>
+</div>
+ <!----------------------------------------------------Records ------------------------------------------------->
+<div aria-labelledby="tabbtn-records" class="panel" id="tab-records" role="tabpanel">
+<div class="vertical-knowledge">
+<h3>Records</h3>
+
+
+<div class="rev-card qa-card">
+<p>Question</p>
+<p>(a) Describe what is meant by a record structure.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>A record structure stores multiple related items under one name, and the items (fields) can be of different data types.</p>
+</div>
+</div>
+<!-- (b) -->
+<div class="rev-card qa-card">
+<p>Question</p>
+<p>(b) The records for the players are stored in a 1D array. State why a 1D array is a suitable data structure for the records.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>A 1D array allows easy access to each player record using an index, makes it easy to process each record in turn using a loop, and is suitable because the maximum number of players is known.</p>
+</div>
+</div>
+<!-- (c) -->
+<div class="rev-card qa-card">
+<p>Question</p>
+<p>(c) Three data structures are arrays, records and stacks. Identify one other data structure.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Queue (other acceptable answers include list, tuple, tree, graph, or linked list).</p>
+</div>
+</div>
+ </div>
+ </div>
+<!--------------------------------------------------Linked Lists ------------------------------------------------->
+<div aria-labelledby="tabbtn-linked-lists" class="panel" id="tab-linked-lists" role="tabpanel">
+ <div class="vertical-knowledge">
+
+<h3>Linked Lists</h3>
+
+<!-- ================= LINKED LIST – INSERT AT END ================= -->
+<div class="rev-card qa-card">
+<p><strong>1.</strong>A programmer is developing an ordering system for a fast food restaurant. When a member of staff inputs an order, it is added to a linked list for completion by the chefs.</p>
+<p>Each element in a linked list has:</p>
+<ul>
+<li>a pointer, <strong>nodeNo</strong>, which gives the number of that node</li>
+<li>the order number, <strong>orderNo</strong></li>
+<li>a pointer, <strong>next</strong>, that points to the next node in the list</li>
+</ul>
+<p>Fig. 2.1 shows the current contents of the linked list, <strong>orders</strong>. <br/>Ø represents a null pointer.</p>
+<div class="diagram">
+<div class="table-wrap"><table class="data-table">
+<tr>
+<th>nodeNo</th>
+<th>orderNo</th>
+<th>next</th>
+</tr>
+<tr>
+<td>0</td>
+<td>154</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>157</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>155</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>156</td>
+<td>Ø</td>
+</tr>
+</table></div>
+<p><strong>Fig. 2.1</strong></p>
+</div>
+<p><strong>(i)</strong> Order <strong>158</strong> has been made and needs adding to the end of the linked list.</p>
+<p>Add the order, <strong>158</strong>, to the linked list as shown in Fig. 2.1. Show the contents of the linked list in the following table. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<div class="table-wrap"><table class="data-table">
+<tr>
+<th>nodeNo</th>
+<th>orderNo</th>
+<th>next</th>
+</tr>
+<tr>
+<td>0</td>
+<td>154</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>157</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>155</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>156</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>158</td>
+<td>Ø</td>
+</tr>
+</table></div>
+<p><strong>Explanation:</strong><br/>The new node (node 4) is added to the end of the list. The previous last node (node 3) now points to node 4.</p>
+</div>
+</div>
+<!-- ================= END ================= -->
+
+<div class="rev-card qa-card">
+<p><strong>(ii)</strong>Order <strong>159</strong> has been made. This order has a high priority and needs to be the <strong>second</strong> order in the linked list.</p>
+<p>Add the order, <strong>159</strong>, to the original linked list as shown in Fig. 2.1. Show the contents of the linked list in the following table. [3]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<div class="table-wrap"><table class="data-table">
+<tr>
+<th>nodeNo</th>
+<th>orderNo</th>
+<th>next</th>
+</tr>
+<tr>
+<td>0</td>
+<td>154</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>159</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>157</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>155</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>156</td>
+<td>Ø</td>
+</tr>
+</table></div>
+<p><strong>Explanation:</strong><br/>The new node (node 4) is inserted after the first node. Node 0 now points to node 4, and node 4 points to node 1.</p>
+</div>
+</div>
+<!-- ================= TREE → LINKED LIST (ALPHABETICAL) ================= -->
+<div class="rev-card qa-card">
+<p><strong>2.</strong>A program needs to store the names of plants that are in a garden, so they can be easily found and accessed in alphabetical order.</p>
+<p>The data is stored in a tree structure. Part of the tree is shown in Fig. 2.1 The elements in the tree are read into a linked list producing an alphabetised list.</p>
+<div class="table-wrap"><table class="data-table">
+<tr>
+<th>Data item</th>
+<th>Data</th>
+<th>NextPointer</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Begonia</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Daisy</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Hosta</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Lily</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Peony</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Rose</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Sunflower</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+<td></td>
+</tr>
+</table></div>
+<p><strong>(i)</strong> Complete the following table to show the linked list for the data. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<div class="table-wrap"><table class="data-table">
+<tr>
+<th>Data item</th>
+<th>Data</th>
+<th>NextPointer</th>
+</tr>
+<tr><td>0</td><td>Begonia</td><td>1</td></tr>
+<tr><td>1</td><td>Daisy</td><td>2</td></tr>
+<tr><td>2</td><td>Hosta</td><td>3</td></tr>
+<tr><td>3</td><td>Lily</td><td>4</td></tr>
+<tr><td>4</td><td>Peony</td><td>5</td></tr>
+<tr><td>5</td><td>Rose</td><td>6</td></tr>
+<tr><td>6</td><td>Sunflower</td><td>null</td></tr>
+<tr><td>7</td><td></td><td></td></tr>
+<tr><td>8</td><td></td><td></td></tr>
+</table></div>
+</div>
+</div>
+<!-- ================= ADD LAVENDER ================= -->
+<div class="rev-card qa-card">
+<p><strong>(ii)</strong>A new plant, <strong>Lavender</strong>, needs adding to the linked list. The linked list must retain its alphabetical order.</p>
+<p>Complete the table to show the linked list after Lavender is added. [3]</p>
+<div class="table-wrap"><table class="data-table">
+<tr>
+<th>Data item</th>
+<th>Data</th>
+<th>NextPointer</th>
+</tr>
+<tr><td>0</td><td>Begonia</td><td></td></tr>
+<tr><td>1</td><td>Daisy</td><td></td></tr>
+<tr><td>2</td><td>Hosta</td><td></td></tr>
+<tr><td>3</td><td>Lily</td><td></td></tr>
+<tr><td>4</td><td>Peony</td><td></td></tr>
+<tr><td>5</td><td>Rose</td><td></td></tr>
+<tr><td>6</td><td>Sunflower</td><td></td></tr>
+<tr><td>7</td><td></td><td></td></tr>
+</table></div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<div class="table-wrap"><table class="data-table">
+<tr>
+<th>Data item</th>
+<th>Data</th>
+<th>NextPointer</th>
+</tr>
+<tr><td>0</td><td>Begonia</td><td>1</td></tr>
+<tr><td>1</td><td>Daisy</td><td>2</td></tr>
+<tr><td>2</td><td>Hosta</td><td>7</td></tr>
+<tr><td>3</td><td>Lily</td><td>4</td></tr>
+<tr><td>4</td><td>Peony</td><td>5</td></tr>
+<tr><td>5</td><td>Rose</td><td>6</td></tr>
+<tr><td>6</td><td>Sunflower</td><td>null</td></tr>
+<tr><td>7</td><td>Lavender</td><td>3</td></tr>
+</table></div>
+<p>Lavender is inserted between Hosta and Lily to preserve alphabetical order.</p>
+</div>
+</div>
+<!-- ================= REMOVE HOSTA ================= -->
+<div class="rev-card qa-card">
+<p><strong>(iii)</strong>Hosta needs removing from the linked list.</p>
+<p>Explain how a data item is removed from a linked list. Use the removal of <strong>Hosta</strong> in your answer. [4]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Traverse the list to find the item before the one to be removed (Daisy)</li>
+<li>Find the NextPointer of the item being removed (Hosta → 7)</li>
+<li>Update the previous item’s NextPointer to skip Hosta</li>
+<li>Daisy’s NextPointer is updated from 2 to 7 (Lavender)</li>
+</ul>
+</div>
+</div>
+<!-- ================= TRAVERSE & OUTPUT ================= -->
+<div class="rev-card qa-card">
+<p><strong>(iv)</strong>The linked list is stored as a 2D array with the identifier <strong>plantList</strong>. The index of the first element is stored in <strong>firstElement</strong>.</p>
+<p>Write an algorithm to follow the pointers and output the contents of the linked list in alphabetical order. Add comments to explain your code. [5]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>currentElement = firstElement   // start at first node
+
+while currentElement != null    // loop until end of list
+  print(plantList[currentElement, 0])  // output data
+  currentElement = plantList[currentElement, 1] // move to next node
+endwhile</code></pre>
+</div>
+</div>
+</div>
+</div>
+<!----------------------------------------------------Stacks ------------------------------------------------->
+<div aria-labelledby="tabbtn-stacks" class="panel" id="tab-stacks" role="tabpanel">
+
+<div class="vertical-knowledge">
+<h3>Stacks</h3>
+
+<div class="rev-card qa-card">
+<p><strong>1.</strong><br/><br/> A computer program stores data input on a stack named <strong>dataItems</strong>. The stack has two sub-programs to add and remove data items from the stack. The stack is implemented as a 1D array, <strong>dataArray</strong>.</p>
+<p>The current contents of <strong>dataItems</strong> are shown below:</p>
+
+  <table class="stack-diagram">
+    <tr class="top-of-stack">
+      <td class="stack-label">TOP →</td>
+      <td>6</td>
+    </tr>
+
+    <tr><td class="stack-label"></td><td>15</td></tr>
+    <tr><td class="stack-label"></td><td>100</td></tr>
+    <tr><td class="stack-label"></td><td>23</td></tr>
+  </table>
+
+<p>The main program asks a user to push or pop an item from the stack. If the user chooses <strong>push</strong>, the data item is added to the stack. If the user chooses <strong>pop</strong>, the next item is removed from the stack, multiplied by 3 and output.</p>
+<p><strong>Main program:</strong></p>
+<pre><code>userAnswer = input("Would you like to push or pop an item?")
+if userAnswer == "push" then
+  push(input("Enter data item"))
+else
+  print(pop() * 3)
+endif</code></pre>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p><strong>(a)(ii)</strong></p>
+<p><strong>push()</strong></p>
+<ul>
+<li>Check if the stack is full</li>
+<li>If not full, insert the item</li>
+<li>If full, return or output an error</li>
+</ul>
+<p><strong>pop()</strong></p>
+<ul>
+<li>Check if the stack is empty</li>
+<li>If empty, return or output an error</li>
+<li>If not empty, remove and return the top item</li>
+</ul>
+</div>
+</div>
+<div class="rev-card qa-card">
+<p><strong>(b)</strong>The stack is implemented as a 1D array, <strong>dataArray</strong>. Describe how a 1D array can be set up and used to push and pop items as a stack. [3]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>The array size is defined</li>
+<li>A stack pointer is used to point to the top of the stack</li>
+<li>When an item is pushed, the stack pointer is incremented</li>
+<li>When an item is popped, the stack pointer is decremented</li>
+</ul>
+</div>
+</div>
+<!-- ================= QUESTION 2 – STACK (ARRAY IMPLEMENTATION) ================= -->
+<div class="rev-card qa-card">
+<p><strong>2.</strong>A user enters whole numbers into a computer program. Each number entered is placed onto a stack. The stack is created using an array with a maximum of 20 elements.</p>
+<p>Part of the array, <strong>numStack</strong>, is shown when one number has been input. The pointer, <strong>top</strong>, points to the next free space in the stack.</p>
+
+
+  <table class="stack-diagram">
+    <tr>
+      <th class="stack-label"></th>
+      <th>Index</th>
+      <th>stackItem</th>
+    </tr>
+    <tr><td class="stack-label"></td><td>8</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>7</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>6</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>5</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>4</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>3</td><td></td></tr>
+    <tr><td class="stack-label"></td><td>2</td><td></td></tr>
+    <tr class="top-of-stack"> <td class="stack-label">TOP → </td>
+      <td>1</td>
+      <td></td>
+      </tr>
+    <tr><td class="stack-label"></td><td>0</td><td>20</td></tr>
+  </table>
+
+<p>A function, <strong>addItem</strong>, takes a number as a parameter and adds the number to the stack. The function returns true if this was successful, and false if the stack is already full.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p><strong>Understanding:</strong></p>
+<ul>
+<li>The stack uses an array of fixed size (20)</li>
+<li>The top pointer tracks the next free position</li>
+<li>Items are added and removed from the top only</li>
+</ul>
+</div>
+</div>
+<!-- ================= QUESTION 2 (iii) ================= -->
+<div class="rev-card qa-card">
+<p><strong>(iii)</strong>Give one reason why a <strong>function</strong> is used instead of a <strong>procedure</strong> in this scenario. [1]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>A function is used because it returns a value (true or false), whereas a procedure does not return a value.</p>
+</div>
+</div>
+<!-- ================= QUESTION 2 (iv) ================= -->
+<div class="rev-card qa-card">
+<p><strong>(iv)</strong>The function <strong>addItem</strong> is written but incomplete. Complete the function <strong>addItem</strong>. [5]</p>
+<pre><code>function addItem(number)
+  if top = __ then
+    return false
+  else
+    numStack[top] = _________
+    top = _____ + 1
+    ________ _________
+  endif
+endfunction</code></pre>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>function addItem(number)
+  if top = 20 then
+    return false
+  else
+    numStack[top] = number
+    top = top + 1
+    return true
+  endif
+endfunction</code></pre>
+<p><strong>Mark scheme points:</strong></p>
+<ul>
+<li>Correct function header</li>
+<li>Check if stack is full</li>
+<li>Add value to stack</li>
+<li>Increment top pointer</li>
+<li>Return true/false correctly</li>
+</ul>
+</div>
+</div>
+<!-- ================= QUESTION 2 (b) – STACK ENCRYPTION ================= -->
+<div class="rev-card qa-card">
+<p><strong>(b)</strong>An encryption routine reads a line of text from a file, reverses the order of the characters and subtracts 10 from the ASCII value of each letter, then saves the new string into the same file.</p>
+<p>Describe the steps the program would take to encrypt the characters stored in the stack and save them in a single variable. [5]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Pop a character from the stack</li>
+<li>Convert the character to its ASCII value</li>
+<li>Subtract 10 from the ASCII value</li>
+<li>Convert back to a character</li>
+<li>Append/concatenate the character to a variable</li>
+</ul>
+</div>
+</div>
+<!-- ================= STACK (OOP) – PUSH METHOD ================= -->
+<div class="rev-card qa-card">
+<p><strong>(ii)</strong>The method <code>push()</code> accepts an integer as a parameter and adds it to the top of the stack unless the stack is already full.</p>
+<p>If the push is successful the method returns <strong>true</strong>. If the push is unsuccessful due to the stack being full the method returns <strong>false</strong>.</p>
+<p>Write the method <code>push()</code> using either pseudocode or program code. [6]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>function push(value)
+  if pointerValue &lt; 100 then
+    stackArray[pointerValue] = value
+    pointerValue = pointerValue + 1
+    return true
+  else
+    return false
+  endif
+endfunction</code></pre>
+<p><strong>Mark scheme points:</strong></p>
+<ul>
+<li>Correct function header</li>
+<li>Takes a parameter</li>
+<li>Checks if the stack is full</li>
+<li>Adds value to top of stack</li>
+<li>Increments stack pointer</li>
+<li>Returns true or false correctly</li>
+</ul>
+</div>
+</div>
+<!-- ================= END ================= -->
+<!-- ================= STACK (OOP) – OBJECT INSTANTIATION ================= -->
+<div class="rev-card qa-card">
+<p><strong>(iii)</strong> The main program initialises a new object of type <strong>stack</strong> with the identifier <strong>mathsStack</strong>.</p>
+<p>Write pseudocode or program code to declare the object. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>mathsStack = new stack()</code></pre>
+</div>
+</div>
+<!-- ================= STACK (OOP) – PUSH UNTIL FULL ================= -->
+<div class="rev-card qa-card">
+<p><strong>(iv)</strong> The main program needs to:</p>
+<ul>
+<li>take numbers as input from the user</li>
+<li>push them onto the stack <strong>mathsStack</strong> until the stack is full</li>
+<li>output an appropriate message if the stack is full</li>
+</ul>
+<p>Complete the pseudocode algorithm to meet these requirements. [4]</p>
+<pre><code>returnValue = true
+
+while returnValue == __________
+  returnValue = mathsStack.__________(input("Enter Number"))
+  if returnValue == __________ then
+    __________("Stack full")
+  endif
+endwhile</code></pre>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>returnValue = true
+
+while returnValue == true
+  returnValue = mathsStack.push(input("Enter Number"))
+  if returnValue == false then
+    print("Stack full")
+  endif
+endwhile</code></pre>
+</div>
+</div>
+<!-- ================= STACK (OOP) – POP AND TOTAL ================= -->
+<div class="rev-card qa-card">
+<p><strong>(v)</strong> The main program also needs to:</p>
+<ul>
+<li>remove one item from the stack at a time and add this to a total</li>
+<li>output the total every time an item is removed</li>
+<li>stop removing items when either the stack is empty or 20 items have been removed</li>
+</ul>
+<p>Write pseudocode or program code to meet these requirements. [8]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>total = 0
+quantity = 0
+returnValue = 0
+
+while quantity &lt; 20 and returnValue != -1
+  returnValue = mathsStack.pop()
+  if returnValue != -1 then
+    quantity = quantity + 1
+    total = total + returnValue
+    print(total)
+  endif
+endwhile</code></pre>
+</div>
+</div>
+<div class="rev-card qa-card">
+
+<p><strong>3(a).</strong> The contents of a stack are stored in the 1-dimensional array called <strong>numbers</strong>.<br/> <strong>topStack</strong> stores the index of the next free space in the stack.<br/> The array is declared with space for 100 elements.<br/> The function <strong>pop()</strong> returns the next item from the stack and updates the appropriate pointers.<br/> Describe the steps in the function <strong>pop()</strong>. <strong>[4]</strong></p>
+<p><strong>3(b).</strong> The function <strong>push()</strong> inserts its parameter called <strong>dataValue</strong> onto the stack and updates the appropriate pointers.<br/> Complete the function <strong>push()</strong> using pseudocode or program code.</p>
+<pre><code>
+function push(... ......................................)
+     if ................................... ! = 100 then
+      numbers [...................................] = dataValue
+      topStack = topStack + ...................................
+      return true
+     else
+      return false
+     endif
+endfunction</code></pre>
+<p><strong>3(c).</strong> Write an algorithm, using pseudocode or program code, to call the function <strong>push()</strong> with the value <strong>15</strong> and output a message saying <strong>“Added”</strong> if the value was successfully inserted onto the stack or <strong>“Not Added”</strong> if the stack is full. <strong>[4]</strong></p>
+<textarea placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer" hidden="">
+<p><strong>Mark scheme answer</strong></p>
+<p><strong>3(a) pop() steps (any valid wording):</strong></p>
+<ol>
+<li>Check if the stack is empty / check <strong>topStack</strong> is equal to 0.</li>
+<li>If empty, return a suitable value (e.g. -1 / null) or give a warning / do nothing.</li>
+<li>If not empty, decrement <strong>topStack</strong>.</li>
+<li>Return the value in element <strong>topStack</strong> from the array <strong>numbers</strong>.</li>
+</ol>
+<p><strong>3(b) Completed push() function:</strong></p>
+<pre><code>
+function push(dataValue)
+     if topStack != 100 then
+        numbers[topStack] = dataValue
+        topStack = topStack + 1
+        return true
+     else
+        return false
+     endif
+endfunction</code></pre>
+<p><strong>3(c) Example algorithm to push 15 and output message:</strong></p>
+<pre><code>
+result = push(15)
+if result then
+    print("Added")
+else
+    print("Not Added")
+endif</code></pre>
+</div>
+</div>
+</div>
+</div>
+<!----------------------------------------------------Queues------------------------------------------------->
+<div aria-labelledby="tabbtn-queues" class="panel" id="tab-queues" role="tabpanel">
+ <div class="vertical-knowledge">
+<h3>Queues</h3>
+
+<!-- ================= QUESTION 7(a) – QUEUE ================= -->
+<div class="rev-card qa-card">
+<p><strong>1(a).</strong> A program stores a queue of mathematical questions to be asked to a user. The questions are asked in the order they are added. Once a question has been asked it cannot be asked again. New questions are continually added to the end of the queue.</p>
+<p>Describe why a queue is a suitable structure for this program. [3]</p>
+
+  <table class="queue-diagram">
+    <tr class="queue-cells">
+      <td>Q1</td>
+      <td>Q2</td>
+      <td>Q3</td>
+      <td></td>
+    </tr>
+    <tr class="queue-pointers">
+      <td><span class="head">head</span></td>
+      <td></td>
+      <td><span class="tail">tail</span></td>
+      <td></td>
+    </tr>
+  </table>
+
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>A queue operates using FIFO (First In, First Out)</li>
+<li>Questions are retrieved in the order they were added</li>
+<li>New questions are added to the end of the queue</li>
+</ul>
+</div>
+</div>
+<!-- ================= QUESTION 7(b) – REMOVE FROM QUEUE ================= -->
+<div class="rev-card qa-card">
+<p><strong>1(b).</strong> Complete the following algorithm to remove and output the first element in the queue. [4]</p>
+<pre><code>procedure remove()
+  if head == tail + 1 then
+    print("No questions")
+  else
+    print(questions[head])
+    head = head + 1
+  endif
+endprocedure</code></pre>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p><strong>Mark scheme points:</strong></p>
+<ul>
+<li>Check if the queue is empty</li>
+<li>Output an error/message if empty</li>
+<li>Output the element at index <code>head</code></li>
+<li>Increment <code>head</code></li>
+</ul>
+</div>
+</div>
+<!-- ================= END ================= -->
+<!-- ================= QUEUE CLASS DATA STRUCTURE ================= -->
+<div class="rev-card qa-card">
+<p><strong>Queue Class Data Structure</strong><br/><br/> Kamran is writing a program to manipulate the data for a set of items. The items are added to a queue for processing.</p>
+<p>For each item, the program needs to store:</p>
+<ul>
+<li>Item name</li>
+<li>Cost</li>
+<li>Date of arrival</li>
+<li>Transferred (true/false)</li>
+</ul>
+<p>The queue is defined as a class called <strong>itemQueue</strong>. The array <strong>theItems</strong> stores the items. The <strong>head</strong> pointer stores the index of the first element, the <strong>tail</strong> pointer stores the index of the next available space, and <strong>numItems</strong> stores the number of items in the queue.</p>
+<div class="diagram">
+<div class="table-wrap"><table class="queue-diagram">
+<tr>
+<th>Index</th>
+<td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+<td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+</tr>
+<tr>
+<th>Element</th>
+<td></td><td></td><td></td>
+<td>Data</td><td>Data</td><td>Data</td>
+<td>Data</td><td>Data</td><td>Data</td><td>Data</td>
+</tr>
+</table></div>
+<p>Next item will be added at index 0 (circular queue)</p>
+</div>
+</div>
+<!-- ================= (i) ================= -->
+<div class="rev-card qa-card">
+<p><strong>(i)</strong> Define the term <strong>queue</strong>. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>A data structure</li>
+<li>First In, First Out (FIFO)</li>
+</ul>
+</div>
+</div>
+<!-- ================= (ii) ================= -->
+<div class="rev-card qa-card">
+<p><strong>(ii)</strong> The attributes in <strong>itemQueue</strong> are all declared as private. Explain how a private attribute improves the integrity of the data. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>Attributes are encapsulated and accessed only through methods</li>
+<li>Validation can be enforced before data is changed</li>
+<li>Prevents accidental or invalid modification</li>
+</ul>
+</div>
+</div>
+<!-- ================= (iii) ================= -->
+<div class="rev-card qa-card">
+<p><strong>(iii)</strong> The constructor method creates a new instance of <strong>itemQueue</strong> and sets the head, tail and numItems attributes to 0. Write an algorithm for the constructor. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>public procedure new()
+  head = 0
+  tail = 0
+  numItems = 0
+endprocedure</code></pre>
+</div>
+</div>
+<!-- ================= (iv) ================= -->
+<div class="rev-card qa-card">
+<p><strong>(iv)</strong> Write an algorithm for the <strong>enqueue</strong> method. [6]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>public function enqueue(newItem : Items) : boolean
+  if numItems = 10 then
+    print("Error: The queue is full")
+    return false
+  else
+    theItems[tail] = newItem
+    if tail = 9 then
+      tail = 0
+    else
+      tail = tail + 1
+    endif
+    numItems = numItems + 1
+    return true
+  endif
+endfunction</code></pre>
+</div>
+</div>
+<!-- ================= (v) ================= -->
+<div class="rev-card qa-card">
+<p><strong>(v)</strong> Write a programming statement to declare an instance of <strong>itemQueue</strong> called <strong>myItems</strong>. [1]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>myItems = new itemQueue()</p>
+</div>
+</div>
+<!-- ================= (vi) ================= -->
+<div class="rev-card qa-card">
+<p><strong>(vi)</strong> Write a procedure <strong>insertItems()</strong> to ask the user to input item data and add the items to the queue until it is full. [5]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>procedure insertItems()
+  newItem : Items
+  itemCount = myItems.getnumItems()
+
+  while itemCount &lt; 10
+    newItem.itemName = input("Enter the item name")
+    newItem.cost = input("Enter the item cost")
+    newItem.dateArrival = input("Enter the date of arrival")
+    newItem.transferred = input("Has it been transferred?")
+    myItems.enqueue(newItem)
+    itemCount = itemCount + 1
+  endwhile
+
+  myItems.setnumItems(itemCount)
+endprocedure</code></pre>
+</div>
+</div>
+<!-- ================= (vii) ================= -->
+<div class="rev-card qa-card">
+<p><strong>(vii)</strong> When the main program ends, the items and the queue no longer exist. Describe how Kamran could amend the program so the items and queue still exist the next time the program is run. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Store the items and queue in an external file when the program closes, and load them from the file when the program starts.</p>
+</div>
+</div>
+<!-- ================= END ================= -->
+<!-- ================= QUEUE QUESTION 1 ================= -->
+<div class="rev-card qa-card">
+<p><strong>3. </strong>The array queue shown below is set up to hold a small queue. Assume that there is sufficient storage to hold all necessary additions to the queue.</p>
+<p>The table below shows variables that are used to maintain the queue:</p>
+<div class="table-wrap"><table class="data-table">
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>front</td>
+<td>integer</td>
+<td>Pointer to the front element of the queue</td>
+</tr>
+<tr>
+<td>rear</td>
+<td>integer</td>
+<td>Pointer to the rear element of the queue</td>
+</tr>
+<tr>
+<td>queue_full</td>
+<td>Boolean</td>
+<td>Indicates whether the queue is full</td>
+</tr>
+<tr>
+<td>max</td>
+<td>integer</td>
+<td>The maximum size of the queue</td>
+</tr>
+</table></div>
+
+<p>Shown below is an algorithm that is intended to add an item to the queue.</p>
+<pre><code>procedure add_to_queue(item)
+  if rear == max then
+    queue_full = true
+  else
+    front = front + 1
+    queue[front] = item
+  endif
+endprocedure</code></pre>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>This procedure attempts to add an item to the queue but contains a logic error.</p>
+</div>
+</div>
+<!-- ================= PARAMETER ================= -->
+<div class="rev-card qa-card">
+<p>Identify the parameter that is passed to this procedure. [1]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p><strong>item</strong></p>
+</div>
+</div>
+<!-- ================= LOGICAL DECISION ================= -->
+<div class="rev-card qa-card">
+<p>Describe the logical decision that is made. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>The queue is checked to see if it is full</li>
+<li>If it is full, the process stops</li>
+<li>If it is not full, the item is added</li>
+</ul>
+</div>
+</div>
+<!-- ================= LOGIC MISTAKE ================= -->
+<div class="rev-card qa-card">
+<p>This algorithm contains a logic mistake. Explain what the mistake is. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>The front pointer is incremented</li>
+<li>The item is placed at (or near) the front of the queue</li>
+<li>Items should be added at the rear of the queue</li>
+</ul>
+</div>
+</div>
+<!-- ================= CORRECTED ALGORITHM ================= -->
+<div class="rev-card qa-card">
+<p>Rewrite the algorithm to correct the mistake. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<pre><code>rear = rear + 1
+queue[rear] = item</code></pre>
+</div>
+</div>
+
+<!-- ================= QUEUE DATA STRUCTURE THEORY ================= -->
+<div class="rev-card qa-card">
+<p><strong>4.</strong> Describe how an array can be used to implement a queue data structure. [3]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<ul>
+<li>The queue uses a head pointer and a tail pointer</li>
+<li>When an item is enqueued, the tail pointer increments</li>
+<li>When an item is dequeued, the head pointer increments</li>
+</ul>
+</div>
+</div>
+<!-- ================= END ================= -->
+<div class="rev-card qa-card">
+<p><strong>5(a)</strong> The current contents of a queue data structure are shown.</p>
+<p>State the purpose of <strong>headPointer</strong> and <strong>tailPointer</strong> in the queue.</p>
+<textarea placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p><strong>headPointer:</strong> Identifies the first item in the queue / the item to be removed next (dequeue).</p>
+<p><strong>tailPointer:</strong> Identifies the next free space in the queue / where the next item will be added (enqueue).</p>
+</div>
+<hr/>
+<p><strong>(b)</strong> <code>enqueue</code> adds data to the queue and <code>dequeue</code> removes data.</p>
+<p>Show the contents of the queue and the position of both pointers after the following actions:</p>
+<ul>
+<li><code>enqueue(20)</code></li>
+<li><code>dequeue()</code></li>
+<li><code>dequeue()</code></li>
+</ul>
+<textarea placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>The value <strong>20</strong> is added at the position indicated by <strong>tailPointer</strong>.</p>
+<p>Each <strong>dequeue</strong> moves <strong>headPointer</strong> forward by one position.</p>
+<p>The remaining queue contents stay in the same array positions; items are not shifted.</p>
+<p><strong>headPointer</strong> points to the next item to be removed, and <strong>tailPointer</strong> points to the next free space.</p>
+</div>
+<hr/>
+<p><strong>(c)</strong> The queue stores ID numbers of jobs. Some jobs have priority and must be processed first.</p>
+<p>Explain why this queue is not suitable for this program.</p>
+<textarea placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>A queue is a <strong>FIFO (First In, First Out)</strong> structure.</p>
+<p>Jobs cannot be inserted at the front or reordered based on priority.</p>
+<p>Higher-priority jobs cannot be processed before earlier jobs, making a standard queue unsuitable.</p>
+</div>
+</div>
+</div>
+</div>
+<!----------------------------------------------------Binary Trees ------------------------------------------------->
+<div aria-labelledby="tabbtn-binary-trees" class="panel" id="tab-binary-trees" role="tabpanel">
+     <div class="vertical-knowledge">
+
+    <h3>Binary Trees</h3>
+
+<!-- Question 1 -->
+    <h3>Exam Style Questions</h3>
+<div class="rev-card qa-card">
+
+<p>1(a) Describe what is meant by a <strong>binary tree</strong>.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>A binary tree is a hierarchical, non-linear data structure where each node can have a maximum of two children, usually called the left and right child.</p>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="rev-card qa-card">
+<p>1(b) Explain one advantage of using a <strong>binary search tree</strong> instead of a one-dimensional array to store ordered data.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Searching for a value in a balanced binary search tree is faster, with a time complexity of O(log n), compared to O(n) for a one-dimensional array.</p>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="rev-card qa-card">
+
+<p>1(c) State the order in which the nodes of a binary tree are visited during an <strong>in-order traversal</strong>.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Left subtree, root node, right subtree.</p>
+</div>
+</div>
+<div class="rev-card qa-card">
+
+<p>2. A program stores entered data in a binary search tree.<br/> The current contents of the tree are shown:</p>
+<!-- IMAGE PLACEHOLDER: Binary Search Tree (countries incl. Sweden) -->
+<div class="image-placeholder">
+<p><strong><img height="287" src="images/datastructures/Q1.png" width="520"/></strong></p>
+</div>
+<p>A pseudocode algorithm is written to search the tree to determine if the data item “Sweden” is in the tree.<br/> The function currentNode.left() returns the node positioned to the left of currentNode.<br/> The function currentNode.right() returns the node positioned to the right of currentNode.<br/><br/> Complete the algorithm.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>thisNode = getData(currentNode)<br/> if thisNode == searchValue then return true<br/> elseif thisNode &lt; searchValue then<br/> if currentNode.left() != null then return searchForData(currentNode.left(), searchValue)<br/> else return false<br/> else<br/> if currentNode.right() != null then return searchForData(currentNode.right(), searchValue)<br/> else return false</p>
+</div>
+</div>
+<!-- Q1 Preconditions -->
+<div class="rev-card qa-card">
+
+<p>3. Identify two preconditions needed of a tree for this algorithm to work. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>It is a binary tree.<br/> It is ordered / sorted.</p>
+</div>
+</div>
+<!-- Q2(a) -->
+<div class="rev-card qa-card">
+
+<p>4(a). A data structure is shown below in Fig. 4.1.</p>
+<!-- IMAGE PLACEHOLDER: Fig 4.1 graph/tree -->
+<div class="image-placeholder">
+<img src="images/datastructures/q2.png" width="50%"/></div>
+<p>Identify the data structure shown in Fig. 4.1. [1]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Tree / undirected graph</p>
+</div>
+</div>
+<!-- Q2(b) Explanation -->
+<div class="rev-card qa-card">
+
+<p>4(b) Explain the difference between a depth-first (post-order) traversal and a breadth-first traversal. [4]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Depth-first explores one branch fully before backtracking and uses a stack.<br/> Breadth-first visits all nodes at each level before moving down and uses a queue.</p>
+</div>
+</div>
+<!-- Q2(b) Path -->
+<div class="rev-card qa-card">
+<p>5. Show how a depth-first (post-order) traversal would find the path between node A and node X for the structure shown in Fig. 4.1. [6]</p>
+<!-- IMAGE PLACEHOLDER: Fig 4.1 reused -->
+<div class="image-placeholder">
+<img src="images/datastructures/q2.png" width="50%"/></div>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>D → K → L → H → B → G (X)</p>
+</div>
+</div>
+<!-- Q3 -->
+<div class="rev-card qa-card">
+
+<p>6. Kira uses a tree data structure shown in Fig. 1 to identify the range of possible moves the computer can make.</p>
+<!-- IMAGE PLACEHOLDER: Fig 1 game tree -->
+<div class="image-placeholder">
+<p><strong><img src="images/datastructures/q3.png" width="50%"/></strong></p>
+</div>
+<p>Show how a breadth-first traversal would traverse the tree shown in Fig. 1. [4]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>A<br/> B, C, E<br/> D, F, G, H<br/> I, J</p>
+</div>
+</div>
+<!-- Q4 Post-order -->
+<div class="rev-card qa-card">
+
+<p>7. A binary search tree, numbers, stores numbers that are entered into a computer. The contents of the tree are shown below:</p>
+<!-- IMAGE PLACEHOLDER: Numbers BST -->
+<div class="image-placeholder">
+<p><strong><img src="images/datastructures/q4.png" width="50%"/></strong></p>
+</div>
+<p>Explain how a depth-first (post-order) traversal is performed. [5]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Visit left subtree, then right subtree, then root.<br/> Example order: 5, 31, 20, 48, 45, 60, 92, 88, 98, 76, 50</p>
+</div>
+</div>
+<!-- Q4 Breadth-first -->
+<div class="rev-card qa-card">
+
+<p>8. Explain how a breadth-first traversal is performed. [5]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Visit root first, then all children, then grandchildren.<br/> Example order: 50, 45, 76, 20, 48, 60, 98, 5, 31, 88, 92</p>
+</div>
+</div>
+<!-- QUESTION 2(a) -->
+<div class="rev-card qa-card">
+<p>Question</p>
+<p>9(a) A binary search tree is used to store the names of dog breeds.<br/><br/> Fig. 7.1</p>
+<!-- IMAGE PLACEHOLDER -->
+<div class="image-placeholder">
+<p><strong><img src="images/datastructures/q2oop.png" width="50%"/></strong></p>
+</div>
+<p>The breeds Doberman and Dalmatian are added to the tree in that order. Add them to Fig. 7.1. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Doberman is inserted by comparing alphabetically and placed accordingly.<img height="385" src="images/datastructures/q2oopans.png" width="535"/><br/> Dalmatian is then compared and inserted in the correct left/right position based on alphabetical order.</p>
+</div>
+</div>
+<!-- QUESTION 2(b) -->
+<div class="rev-card qa-card">
+
+<p>9(b) Explain how you would determine if the breed <strong>Pug</strong> is in the binary search tree. [3]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Pug &gt; Harrier, so move to the right.<br/> Pug &lt; Rottweiler, so move to the left.<br/> Pug is found in the tree.</p>
+</div>
+</div>
+<!-- QUESTION 2(c) -->
+<div class="rev-card qa-card">
+<p>Question</p>
+<p>9 (c) Explain how you would determine if the breed <strong>Spaniel</strong> is in the binary search tree. [3]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Spaniel &gt; Harrier, so move right.<br/> Spaniel &gt; Rottweiler, so move right.<br/> Spaniel &lt; Whippet but there is no child node, so Spaniel is not in the tree.</p>
+</div>
+</div>
+</div>
+</div>
+<!----------------------------------------------------Graphs ------------------------------------------------->
+ <div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
+ <div class="vertical-knowledge">
+
+     <h3 >Graphs</h3>
+
+<!-- Question 4 -->
+    <H3>Exam Style Questions</H3>
+<div class="rev-card qa-card">
+
+<p>1.  A graph traversal algorithm uses a <strong>queue</strong> and visits nodes level by level. Identify this traversal algorithm.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Breadth-first search (BFS).</p>
+</div>
+</div>
+<!-- Question 5 -->
+<div class="rev-card qa-card">
+
+<p>2. Describe one difference between an <strong>adjacency list</strong> and an <strong>adjacency matrix</strong>.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>An adjacency list stores each node with a list of its connected nodes, while an adjacency matrix uses a two-dimensional array to show connections between all nodes.</p>
+</div>
+</div>
+<!-- Question 6 -->
+<div class="rev-card qa-card">
+
+<p>3. Explain why a <strong>breadth-first search</strong> is suitable for finding the shortest path in an unweighted graph.</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p>Breadth-first search explores nodes level by level, so the first time a node is reached it is via the shortest possible path in an unweighted graph.</p>
+</div>
+</div>
+<div class="rev-card qa-card">
+
+<p>Fig. 5 shows a graph data structure representing a small section of a parcel delivery network. Each node represents an address where deliveries need to be made. The edges show the possible routes and distances between these deliveries.</p>
+<!-- IMAGE PLACEHOLDER: Fig. 5 graph -->
+<div class="img-placeholder" data-figure="Fig. 5">
+<img height="260" src="images/datastructures/qu-graph.png" width="412"/></div>
+<p>Give one reason why the graph is a visualisation of the problem. <strong>[1]</strong></p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p><strong>Mark scheme answer (any one):</strong></p>
+<ul>
+ <li>Symbols are used to represent the address</li>
+<li>The edges represent possible connections between addresses, not the actual physical routes</li>
+</ul>
+</div>
+</div>
+<!-- QUESTION -->
+<div class="rev-card qa-card">
+
+<p>4. A software company is developing a navigation system using an object-oriented
+    programming (OOP) language.
+    The system stores a road network as a graph. Each junction is represented by an object of class <strong>Node</strong>.
+    Each road is represented by an object of class <strong>Edge</strong>. <br/><br/>
+    The Node class has the following methods: <br/> getNeighbours() – returns a list of neighbouring Node objects <br/>
+    getName() – returns the name of the junction <br/><br/>
+    (a) Explain why a <strong>breadth-first search (BFS)</strong> algorithm is suitable for finding the shortest path between two
+    junctions in this graph. [3] <br/><br/>
+
+    (b) The program uses a breadth-first search starting from a given Node.
+    Complete the pseudocode below to implement the BFS algorithm using OOP principles. [6] <br/><br/>
+
+<pre><code>
+procedure bfs(startNode)
+    visited = empty list
+    q = empty queue
+    enqueue(q, startNode)
+    while q is not empty
+        current = dequeue(q)
+        if current not in visited then
+            add current to visited
+            for each neighbour in current.__________()
+                if neighbour not in visited then
+                    __________(q, neighbour)
+                endif
+            endfor
+        endif
+    endwhile
+endprocedure </code></pre>
+
+    <br/><br/>
+
+    (c) State one advantage of implementing this graph traversal using an object-oriented approach rather than a procedural approach. [2]</p>
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+<button class="secondary answer-toggle" type="button">Show answer</button>
+<div class="answer">
+<p><strong>(a)</strong><br/> Breadth-first search explores the graph level by level.<br/> In an unweighted graph, the first time a node is reached is via the shortest path.<br/> Therefore BFS guarantees the shortest path between two nodes. <br/><br/> <strong>(b)</strong><br/> getNeighbours()<br/> enqueue(q, neighbour) <br/><br/> <strong>(c)</strong><br/> Encapsulation means each Node object manages its own data and connections.<br/> This makes the code easier to maintain, reuse, and extend.</p>
+</div>
+</div>
+ </div>
+ </div>
+<!----------------------------------------------------Hash Tables ------------------------------------------------->
+ <div aria-labelledby="tabbtn-hash-tables" class="panel" id="tab-hash-tables" role="tabpanel">
+ <div class="vertical-knowledge">
+
+<h3>Hash Tables</h3>
+
+  <div class="rev-card qa-card">
+    <p>1. Compare BST efficiency vs hash table for searching.</p>
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+    <button class="secondary answer-toggle">Show answer</button>
+    <div class="answer">
+      <p>
+        A hash table is generally faster for lookups (direct access using the hashed key, ideally constant time),
+        while a BST requires comparisons down the tree (typically logarithmic).
+      </p>
+    </div>
+      </div>
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>6(a)</strong> A programmer is writing software for a firewall. She is writing code so that it keeps a track of
+      websites that users are permitted to visit. The software stores the websites’ addresses along with details about who
+      can view them and when.
+    </p>
+
+    <p>The following data is also stored about each website:</p>
+    <ul>
+      <li>Access level needed (1–4)</li>
+      <li>If it is available all the time (<code>true</code>) or just lunch times and out of work hours (<code>false</code>).</li>
+    </ul>
+
+    <p>
+      So a website which is available to users of access level 2 and above, all the time, would have the details
+      <code>[2, true]</code> stored.
+    </p>
+
+    <p>
+      A website accessible to users of access level 3 and above, only outside of work hours, would have the details
+      <code>[3, false]</code> stored.
+    </p>
+
+    <p>
+      A flaw with the current hash function is it tends to generate lots of collisions (addresses that compute to the same hash).
+      Below is a diagram of part of the hash table. The address <code>www.rnd.com</code> with details <code>[2, true]</code> is being
+      added to the hash table.
+    </p>
+
+    <p><strong>Explain how a hash table can be used to handle collisions, referring to the example below.</strong></p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Stored value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>227</td><td></td></tr>
+          <tr><td>228</td><td><code>www.ocr.org.uk : [1, true]</code></td></tr>
+          <tr><td>229</td><td></td></tr>
+          <tr><td>230</td><td><code>www.ppf.nz : [2, false]</code></td></tr>
+          <tr><td>231</td><td></td></tr>
+          <tr><td>232</td><td><code>www.ntf.biz : [4, true]</code></td></tr>
+          <tr><td>234</td><td></td></tr>
+          <tr><td>235</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+    <div class="answer">
+  <p>
+    • <code>www.rnd.com</code> would cause a collision with <code>www.ocr.org.uk</code> / would hash to the same position as
+    <code>www.ocr.org.uk</code> (228).
+    <br><br>
+
+    • <strong>Linear probing</strong> could be used:
+    <br>– Move through the structure one space at a time
+    <br>– …to find the next free space / 229
+    <br><br>
+
+    • <strong>Chaining</strong> could be used:
+    <br>– Each location points (to the start of) a linked list
+    <br>– The new item is added to the end of the linked list / free
+    <br><br>
+
+    • <strong>Overflow area</strong> method:
+    <br>– Points to an overflow area
+    <br>– The new item is stored with the other values in the same area
+    <br><br>
+
+    Accept a separate or annotated diagram showing a method on given example.
+    <br><br>
+
+    (1 per –, max 4)
+      <img src="images/datastructures/Q2hash.png" height="778" width="682"/></p>
+</div>
+  </div>
+
+
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>(b)</strong> The hash function is changed so there are no longer high numbers of collisions.
+      During busy periods the firewall is expected to check several addresses a second.
+      It is anticipated that roughly <strong>10 new addresses</strong> will be added to a whitelist
+      (list of acceptable addresses) each day.
+    </p>
+
+    <p>
+      There is a debate as to whether a <strong>hash table</strong> (with the new hash function)
+      is the best approach, or if the whitelist would be better stored in a <strong>linked list</strong>.
+    </p>
+
+    <p>
+      <strong>Discuss whether a hash table or linked list is better to store acceptable websites.</strong>
+      You should compare how each structure can be searched and has data added and come to a
+      recommendation as to which is better for the whitelist.
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <p>
+        Searching a linked list involves starting at the first node and following the pointers until
+        either the desired value is found, or the end of the list is reached, meaning the item is not
+        in the list.
+      </p>
+
+      <p>
+        As the linked list grows, searching takes longer. If the list doubles in size it will, on
+        average, take twice as long to search. A list of size <em>n</em> takes on average <em>n/2</em>
+        checks, which is <strong>O(n)</strong> (linear complexity).
+      </p>
+
+      <p>
+        Searching a hash table requires the key to be hashed and the correct location accessed.
+        If collisions are ignored, the time taken to find an item remains the same regardless of
+        the size of the whitelist, giving <strong>O(1)</strong> (constant complexity).
+      </p>
+
+      <p>
+        As the whitelist grows, collisions become more likely. Linear probing or chaining means that
+        once a location has been found, the time taken increases with the number of collisions at that
+        location. However, this still performs significantly better than a linked list.
+      </p>
+
+      <p>
+        Adding items to a linked list is constant time if items are added to the end and the last node
+        is stored. If items are added in order, the time to add items increases linearly due to the
+        need to search for the correct position.
+      </p>
+
+      <p>
+        Adding items to a hash table involves hashing the key and placing it in the correct location.
+        This is constant time unless collisions occur, in which case there is an overhead that grows
+        with the number of collisions.
+      </p>
+
+      <p>
+        Overall, a hash table is likely to be the best option, assuming it has enough space and a good
+        hashing algorithm with few collisions. It provides very consistent performance even as the
+        whitelist grows.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="rev-card qa-card">
+    <p>
+      <strong>3.</strong> A coach company offers tours of the UK.
+    </p>
+
+    <p>
+      The program stores records about its customers.
+    </p>
+
+    <p>
+      Often an individual customer’s record needs to be accessed. This is done by
+      searching using the <strong>Customer ID</strong>.
+    </p>
+
+    <p>
+      <strong>
+        Explain why a hash table is better suited than a linked list to store the
+        customer records, particularly as the company acquires more customers.
+      </strong>
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <p>
+        Searching a linked list requires starting at the first node and checking
+        every node until the required record is found or the end of the list is
+        reached.
+      </p>
+
+      <p>
+        As more customers are added, a linked list takes longer to search because
+        more nodes must be checked.
+      </p>
+
+      <p>
+        A hash table allows direct access to the location of a record by hashing
+        the Customer ID.
+      </p>
+
+      <p>
+        The time taken to search a hash table stays the same even as more customer
+        records are added, making it more suitable as the company grows.
+      </p>
+
+      <p>
+        <em>
+          Some candidates may refer to time complexity, describing linked lists as
+          linear <strong>O(n)</strong> and hash tables as constant
+          <strong>O(1)</strong>. These points together gain full credit.
+        </em>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Question 8(a) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>4(a)</strong> A bus runs between two cities. There are a number of stops on the bus route
+      labelled <strong>StopA</strong>, <strong>StopB</strong> and so on.
+      The timetable for the route is represented as a hash table.
+      For each entry in the hash table the key is the bus stop code and the data
+      attached to it is a (zero indexed) array of the times a bus arrives at the stop.
+      The times are stored as strings.
+    </p>
+
+    <p>An extract of the hash table is shown:</p>
+
+    <pre><code>
+times =
+{
+  "StopA": ["06:55", "07:25", "07:55", "08:55", "09:55", "11:55", "14:00", "15:00", "15:30", "16:00"],
+  "StopB": ["06:40", "07:40", "08:40", "09:20", "09:40", "14:00", "15:00", "16:00", "16:30"]
+}
+    </code></pre>
+
+    <p>
+      <code>print(times["StopA"][1])</code> displays <strong>07:25</strong>.
+    </p>
+
+    <p>
+      <strong>State what the code <code>print(times["StopB"][4])</code> displays.</strong>
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <p><strong>09:40</strong></p>
+    </div>
+  </div>
+
+  <!-- Question 8(b) -->
+  <div class="rev-card qa-card">
+    <p>
+      <strong>4(b)</strong> Write a function called <code>timeValue</code> that, given a time stored in
+      a string, returns the equivalent integer (using thousands and hundreds for the hours and tens
+      and units for the minutes).
+    </p>
+
+    <p>
+      The given string should be assumed to represent the time in the 24-hour clock
+      in the format <strong>HH:MM</strong>.
+    </p>
+
+    <p>
+      <code>timeValue("07:55")</code> should return <strong>755</strong><br>
+      <code>timeValue("15:30")</code> should return <strong>1530</strong>
+    </p>
+
+    <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+    <button class="secondary answer-toggle" type="button">Show answer</button>
+
+    <div class="answer">
+      <pre><code>
+function timeValue(givenTime)
+  minutes = int(givenTime.substring(3,2))
+  hours = int(givenTime.substring(0,2)) * 100
+  return hours + minutes
+endfunction
+      </code></pre>
+    </div>
+  </div>
+
+<div class="rev-card qa-card">
+  <p>
+    <strong>(c)</strong> Write code for a function that takes in the name of a stop
+    (<code>stopName</code>) and the current time as an integer
+    (<code>currentTime</code>) in the format described in part (b)
+    (using thousands and hundreds for the hours and tens and units for the minutes).
+    It should return the time of the next available bus in the string format.
+    If there are no more buses available that day it should return the string
+    “No buses”.
+    <br><br>
+    Example <code>nextBus("StopA", 1013)</code> should return “11:55”
+    <br><br>
+    <code>function nextBus(stopName, currentTime)</code>
+  </p>
+
+  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+  <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <p>Correct stop array extracted/referenced in code (1)</p>
+    <p>Sensible attempt to iterate through the array (1)</p>
+    <p>Program returns time of next bus (1)</p>
+    <p>Program returns No Buses when no more buses left. (1)</p>
+    <p>
+      Program runs without an index out of bounds error
+      (You may assume short circuit evaluation i.e. if the array is in the second
+      part of an and condition it won’t be checked if the first half evaluates to false.)
+      (1)
+    </p>
+
+    <pre><code>
+count = 0
+timesLeft = true
+timesList = times[stopName]
+while timesLeft == true and
+timeValue(timesList[count]) < currentTime
+  count = count + 1
+  if count == timesList.length then
+    timesLeft = false
+  endif
+endwhile
+if timesLeft == true then
+  return timesList[count]
+else
+  return "No Buses"
+endif
+    </code></pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>
+</div>
+
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
+
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

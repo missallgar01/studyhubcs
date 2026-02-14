@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Networks Page 3 – Packet Switching</title>
+<style>
+body{font-family:Arial;background:#f4f9ff;padding:2rem}
+.section{background:white;padding:1rem;margin-bottom:1rem;border-radius:6px}
+.correct{color:green;font-weight:bold}
+.incorrect{color:red;font-weight:bold}
+button{padding:0.5rem 1rem;margin-top:1rem}
+.score{font-size:1.2rem;font-weight:bold}
+</style>
+</head>
+<body>
+
+<h1>🌐 Networks – Packet Switching</h1>
+
+<div class="section">
+<h2>MCQ (5)</h2>
+<div id="mcq"></div>
+</div>
+
+<div class="section">
+<h2>Fill in the Gaps (5)</h2>
+<p>Data is split into smaller pieces called <select id="gap1">
+<option>packets</option></select>.</p>
+
+<p>Each packet contains the destination <select id="gap2">
+<option>IP address</option></select>.</p>
+
+<p>A checksum is used for <select id="gap3">
+<option>error checking</option></select>.</p>
+
+<p>Packets may take different <select id="gap4">
+<option>routes</option></select> to reach destination.</p>
+
+<p>Packets are <select id="gap5">
+<option>reassembled</option></select> at the destination.</p>
+
+<div id="gapFeedback"></div>
+</div>
+
+<div class="section">
+<h2>Explain (2)</h2>
+<p>Explain one advantage of packet switching.</p>
+<textarea id="explain" rows="4" cols="60"></textarea>
+<div id="explainFeedback"></div>
+</div>
+
+<button onclick="markQuiz()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+const mcqData=[
+{q:"1. Packet switching improves:",o:["Efficiency","Latency only","Security only"],a:"Efficiency"},
+{q:"2. If one route fails:",o:["Packets can take another route","Transmission stops","Data is lost"],a:"Packets can take another route"},
+{q:"3. A checksum checks:",o:["Errors","Speed","Encryption"],a:"Errors"},
+{q:"4. Packets are reassembled at the:",o:["Destination","Router","Switch"],a:"Destination"},
+{q:"5. Packets contain:",o:["Header and data","Password only","MAC only"],a:"Header and data"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="mcq${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+function markQuiz(){
+let score=0;
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="mcq${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){score++;fb.innerHTML="✔️ Correct";fb.className="correct";}
+else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
+});
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+if(text.includes("efficient")||text.includes("faster"))marks++;
+if(text.includes("route")||text.includes("alternative"))marks++;
+score+=marks;
+document.getElementById("explainFeedback").innerHTML=
+marks===2?"✔️ 2/2":
+marks===1?"✔️ 1/2":"❌ 0/2";
+document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/12`;
+}
+</script>
+</body>
+</html>

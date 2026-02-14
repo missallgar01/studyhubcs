@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data Structures</title>
+<link rel="stylesheet" href="../../css/main.css" />
+
+</head>
+<body>
+<div class="back-container">
+<a href="../A-studynotes.html">← Back</a>
+</div>
+<header>
+<h1>Data Structures – Study Notes</h1>
+
+</header>
+<main>
+
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Data Structures tabs">
+    <button
+      id="tabbtn-arrays"
+      type="button"
+      role="tab"
+      aria-controls="tab-arrays"
+      aria-selected="true"
+      tabindex="0">
+      Arrays
+    </button>
+
+    <button
+      id="tabbtn-records"
+      type="button"
+      role="tab"
+      aria-controls="tab-records"
+      aria-selected="false"
+      tabindex="-1">
+      Records
+    </button>
+
+    <button
+      id="tabbtn-linked-lists"
+      type="button"
+      role="tab"
+      aria-controls="tab-linked-lists"
+      aria-selected="false"
+      tabindex="-1">
+      Linked Lists
+    </button>
+
+    <button
+      id="tabbtn-stacks"
+      type="button"
+      role="tab"
+      aria-controls="tab-stacks"
+      aria-selected="false"
+      tabindex="-1">
+      Stacks
+    </button>
+
+    <button
+      id="tabbtn-queues"
+      type="button"
+      role="tab"
+      aria-controls="tab-queues"
+      aria-selected="false"
+      tabindex="-1">
+      Queues
+    </button>
+
+    <button
+      id="tabbtn-binary-trees"
+      type="button"
+      role="tab"
+      aria-controls="tab-binary-trees"
+      aria-selected="false"
+      tabindex="-1">
+      Binary Trees
+    </button>
+
+    <button
+      id="tabbtn-graphs"
+      type="button"
+      role="tab"
+      aria-controls="tab-graphs"
+      aria-selected="false"
+      tabindex="-1">
+      Graphs
+    </button>
+
+    <button
+      id="tabbtn-hash-tables"
+      type="button"
+      role="tab"
+      aria-controls="tab-hash-tables"
+      aria-selected="false"
+      tabindex="-1">
+      Hash Tables
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+
+<!----------------------------------------------------Arrays ------------------------------------------------->
+ <div aria-labelledby="tabbtn-arrays" class="panel" id="tab-arrays" role="tabpanel">
+
+ <div class="vertical-knowledge">
+
+<h3>Arrays, Lists and Tuples</h3>
+
+<div class="knowledge-card">
+<h3>Static vs Dynamic Data Structures</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Static Data Structure</th>
+<th>Dynamic Data Structure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Definition</strong></td>
+<td>A static data structure has a fixed size that is determined at the time of creation and cannot change during execution.</td>
+<td>A dynamic data structure can grow or shrink at runtime, allocating and deallocating memory as needed.</td>
+</tr>
+<tr>
+<td><strong>Examples</strong></td>
+<td>Array (mutable – can be changed)<br/> Tuple (immutable – cannot be changed)</td>
+<td>List, Linked List, Stack, Queue, Binary Tree, Graph</td>
+</tr>
+<tr>
+<td><strong>Advantages</strong></td>
+<td>• Fixed memory allocation at compile time<br/> • No overhead for resizing<br/> • Faster access via index</td>
+<td>• Flexible size<br/> • Efficient memory usage<br/> • Easy insertion, deletion, and merging</td>
+</tr>
+<tr>
+<td><strong>Disadvantages</strong></td>
+<td>• Fixed size may waste memory<br/> • Cannot grow or shrink during runtime</td>
+<td>• More complex to implement<br/> • Slower access (no direct indexing)<br/> • Extra memory overhead for pointers</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="knowledge-card">
+<h3>No Overhead for Resizing</h3>
+<p>This means that with <strong>static data structures</strong>, since the size is fixed and determined at <strong>compile time</strong>, the program does not need to perform any extra operations to change the size during runtime.</p>
+</div>
+<div class="knowledge-card">
+<h3>Array</h3>
+<p>An <strong>array</strong> is a data structure that stores multiple values of the same data type under a single identifier. Each element is accessed using an index.</p>
+<h4>Key Features:</h4>
+<ul>
+<li>Allows multiple items of data to be stored under one identifier</li>
+<li>Can store data in a table (indexed) structure</li>
+<li>Reduces the need for multiple variables</li>
+</ul>
+<h4>Example Representation:</h4>
+<p>Array Elements: <code>[12, 43, 5, 10, 69]</code><br/> Array Indexes: <code>[0, 1, 2, 3, 4]</code></p>
+</div>
+<div class="knowledge-card">
+<h3>Array vs List vs Tuple</h3>
+<table class="table-wrap">
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Array</th>
+<th>List</th>
+<th>Tuple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Size</strong></td>
+<td>Static (fixed size)</td>
+<td>Dynamic (can grow and shrink)</td>
+<td>Fixed (cannot change at runtime)</td>
+</tr>
+<tr>
+<td><strong>Data Types</strong></td>
+<td>Same data type for all elements</td>
+<td>Can store different data types</td>
+<td>Can store different data types</td>
+</tr>
+<tr>
+<td><strong>Mutability</strong></td>
+<td>Mutable (values can be changed)</td>
+<td>Mutable (elements can be changed, added, removed)</td>
+<td>Immutable (cannot be modified)</td>
+</tr>
+<tr>
+<td><strong>Memory Allocation</strong></td>
+<td>Allocated at compile time</td>
+<td>Allocated at runtime</td>
+<td>Allocated at runtime</td>
+</tr>
+<tr>
+<td><strong>Memory Storage</strong></td>
+<td>Stored in contiguous memory locations</td>
+<td>Stored in non-contiguous memory locations</td>
+<td>Stored in contiguous memory locations</td>
+</tr>
+<tr>
+<td><strong>Access Speed</strong></td>
+<td>Fast sequential and indexed access</td>
+<td>Slower than arrays</td>
+<td>Fast indexed access</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td><pre>
+Array birdName(4)
+birdName[0] = "pigeon"
+birdName[1] = "robin"
+birdName[2] = "blackbird"
+Result:
+["pigeon","robin","blackbird",""]
+</pre>
+</td>
+<td>
+<pre>
+numbers = []
+numbers.append(12)
+numbers.append(8)
+numbers.append(5)
+Result:
+[12, 8, 5]
+numbers.pop()
+Result:
+[12, 8]
+</pre>
+</td>
+<td>
+    <pre>
+# Red colour
+colour = (255, 0, 0)
+    </pre></td>
+</tr>
+<tr>
+<td><strong>Special Notes</strong></td>
+<td>Supports multi-dimensional arrays (e.g., 2D arrays with rows and columns)</td>
+<td>Efficient for frequent insertions and deletions</td>
+<td>No adding, removing, or changing elements</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="knowledge-card">
+<h3>Exam Style Question – 2D Arrays (Column Means)</h3>
+<p>A two-dimensional (2D) array, <code>data</code>, holds numeric data that Karl has entered. The declaration for the array is:</p>
+<pre><code>array data[16, 11]</code></pre>
+<p>The array <code>data</code> has 16 rows and 11 columns. The data in each row is in ascending numerical order.</p>
+<p>Karl needs to analyse the data. He needs to find the mean average of each column of the array. The mean is calculated by adding together the numbers in the column and dividing by the quantity of numbers in the column.</p>
+<p>For example, the first column mean would be: <code>(1 + 3 + 0 + 12) / 4 = 4</code></p>
+<p>Write an algorithm to output the mean value of each column in the array <code>data</code>. <strong>[5]</strong></p>
+<h4>Mark Scheme (1 mark per bullet)</h4>
+<ul>
+<li>Looping through each column</li>
+<li>Looping through each row</li>
+<li>Adding values to a running total</li>
+<li>Calculating the average correctly</li>
+<li>Outputting the average</li>
+</ul>
+<h4>OCR Pseudocode</h4>
+<pre><code>for y = 0 to 10
+  total = 0
+  for x = 0 to 15
+    total = total + data[x, y]
+  next x
+  print(total / 16)
+next y</code></pre>
+<h4>Using <code>range</code> (Python-style)</h4>
+<pre><code>for y in range(11):
+  total = 0
+  for x in range(16):
+    total = total + data[x][y]
+  print(total / 16)</code></pre>
+</div>
+<div class="knowledge-card">
+<h3>Exam Style Question – Declaring a 2D Array</h3>
+<p>A card game uses a set of 52 standard playing cards. There are four suits: hearts, diamonds, clubs, and spades. Each suit has a card with a number from 1 to 13.</p>
+<p>The game randomly gives two players seven cards each. The unallocated cards form the deck.</p>
+<p>Players take turns to turn over a card. A valid move is a card of the same suit or the same number as the last card played.</p>
+<p>The winner is the first player to play all of their cards.</p>
+<p>The cards are held in a 2D array called <code>cards</code>. The first index stores the card number and the second index stores the suit, both as strings.</p>
+<p>Write a pseudocode statement or program code to declare the array <code>cards</code>.</p>
+<pre><code>array cards[7, 4]</code></pre>
+<p>An alternative valid declaration could be:</p>
+<pre><code>array towns[3, 8]</code></pre>
+</div>
+
+</div>
+</div>
+
+<!----------------------------------------------------Records ------------------------------------------------->
+ <div aria-labelledby="tabbtn-records" class="panel" id="tab-records" role="tabpanel">
+
+      <div class="vertical-knowledge">
+
+<div class="knowledge-card">
+<h3>Records and Arrays of Records</h3>
+<h4>Record</h4>
+<ul>
+<li>A record is a data structure that groups together related items of data</li>
+<li>Can store more than one data type together</li>
+<li>A record is an unordered data structure</li>
+<li>Can have multiple instances</li>
+</ul>
+<h4>Example: Player Records</h4>
+<table>
+<tr>
+<th>Player</th>
+<th>Name</th>
+<th>Score</th>
+</tr>
+<tr>
+<td>Player 1</td>
+<td>Olivia</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Player 2</td>
+<td>Luke</td>
+<td>40</td>
+</tr>
+</table>
+<h4>Creating a Record Structure (Pseudocode)</h4>
+<pre><code>RECORD player
+  name : String
+  score : int
+REARRECORD</code></pre>
+<h4>Adding Data to a Record (Pseudocode)</h4>
+<pre><code>Player1 : player
+Player1.name = "Olivia"
+Player1.score = 35</code></pre>
+<hr/>
+<h3>Array of Records</h3>
+<p>Records are treated as data types, so they can be held within a single array. This allows storage of multiple records within the same structure.</p>
+<ul>
+<li>Records can be stored in a 1D array</li>
+<li>Allows easy access, indexing, and manipulation of each record</li>
+<li>1D array can hold multiple items of the same data type (record)</li>
+<li>Maximum number of array elements is known</li>
+</ul>
+<h4>Example: Array of Player Records</h4>
+<table>
+<tr>
+<th>Index</th>
+<th>Name</th>
+<th>Score</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Olivia</td>
+<td>35</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Luke</td>
+<td>40</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Adam</td>
+<td>25</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Alex</td>
+<td>35</td>
+</tr>
+</table>
+<h4>Array of Records Pseudocode</h4>
+<pre><code>Players(100) AS player
+Players(3).name = "Jane"</code></pre>
+<hr/>
+<h3>Record vs Class</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Record</th>
+<th>Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data</strong></td>
+<td>A record is a data structure that stores data together, organised by attributes.</td>
+<td>A class is a record with associated methods. Each object stores attributes together.</td>
+</tr>
+<tr>
+<td><strong>Set up in advance</strong></td>
+<td>Attributes and structure are defined by the programmer for a specific purpose.</td>
+<td>Constructor method defines the class object.</td>
+</tr>
+<tr>
+<td><strong>Store different data types</strong></td>
+<td>Yes (e.g. name, type, age)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Multiple instances</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Accessed by name</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Differences</strong></td>
+<td>oes not include methods</td>
+<td>Includes methods and can control visibility (e.g. private properties)</td>
+</tr>
+</tbody>
+</table>
+
+<p>Question</p>
+<p>A games company has developed a game called <strong>Kidz Arrowz</strong>. Players throw an arrow at a target board and are awarded different points depending on which circle the arrow lands in.</p>
+<p>A computer program is required to keep track of the scores for each competition. The user will enter the number of players, and the name of each player, in that competition to a maximum of <strong>10</strong>.</p>
+<p>The program will then ask for the score of each player in turn. Each competition has <strong>8 rounds</strong>, with each player throwing one arrow each round. The program will then display the <strong>total score</strong> of each player.</p>
+<p>The players are declared as a record structure: </p>
+
+<pre><code>record player(string playerName, integer totalScore)</code></pre>
+</div>
+<!-- Context / stem -->
+
+ </div>
+ </div>
+<!--------------------------------------------------Linked Lists ------------------------------------------------->
+<div aria-labelledby="tabbtn-linked-lists" class="panel" id="tab-linked-lists" role="tabpanel">
+ <div class="vertical-knowledge">
+
+<div class="knowledge-card">
+    <h2>Linked Lists</h2>
+<ul>
+<li>A linked list is a <strong>dynamic data structure</strong> – it can grow and shrink during runtime.</li>
+<li>A linked list can be <strong>unordered</strong> or <strong>ordered</strong> (alphabetical or numerical order).</li>
+<li>A linked list uses <strong>pointers</strong> to order the data.</li>
+<li>The items are <strong>not necessarily held in contiguous memory locations</strong>.</li>
+<li>The physical order in memory may not match the logical order of the list.</li>
+<li>Items can be added and removed <strong>without shifting</strong> any other items.</li>
+<li>Traversing a linked list always begins at the <strong>start / head node</strong>.</li>
+</ul>
+<hr/>
+<h4>Difference Between a Linked List and an Array</h4>
+<p><strong>Pros of linked lists:</strong></p>
+<ul>
+<li>Flexible – elements can be inserted or deleted at any position efficiently.</li>
+<li>Uses dynamic allocation, so the size does not need to be known in advance.</li>
+</ul>
+<p><strong>Cons of linked lists:</strong></p>
+<ul>
+<li>More complex to use and access than arrays.</li>
+<li>Pointers require extra memory.</li>
+<li>Random access is not allowed.</li>
+</ul>
+<hr/>
+<h4>Requirements to Implement a Linked List</h4>
+<ul>
+<li><strong>Node object</strong> – stores the data and a pointer to the next item.</li>
+<li><strong>Start pointer</strong> – used to store the first item.</li>
+<li><strong>Null pointer (Ø)</strong> – specifies the end of the list.</li>
+<li><strong>Free node</strong> – specifies the next free node in the list.</li>
+</ul>
+<hr/>
+<h4>Node Object</h4>
+<pre><code>class Node
+  public procedure new(pData)
+    data = pData          // instance variable to store the data
+    next = None           // instance variable storing address of next node
+  endprocedure
+endclass</code></pre>
+<h4>Using Getter and Setter Methods</h4>
+<pre><code>class node
+
+  public function getData()
+    return data
+  endfunction
+
+  public function getNext()
+    return next
+  endfunction
+
+  public procedure setNext(pNext)
+    next = pNext
+  endprocedure
+
+  public procedure setData(pData)
+    data = pData
+  endprocedure
+
+endclass</code></pre>
+<p>Example usage:</p>
+<pre><code>data = input()
+new_node = new node(data)
+new_node.getData()
+new_node.getNext()
+new_node.setNext(next)
+new_node.setData(data)</code></pre>
+<hr/>
+<h4>Linked List Class</h4>
+<pre><code>class linkedlist
+  private head : node
+
+  public procedure newLinkedList()   // constructor
+    head = null
+  endprocedure
+endclass
+
+my_list = new linkedlist()   // instantiate empty linked list</code></pre>
+<hr/>
+<h4>Inserting a Node (Ordered Linked List)</h4>
+<p>If the list is ordered, the new element must be inserted in the correct position.</p>
+<ol>
+<li>Store the data in the free node.</li>
+<li>Identify where the item should be inserted.</li>
+<li>Update the pointer of the previous item.</li>
+<li>Set the new item’s pointer to the next node.</li>
+<li>Update the free node pointer.</li>
+</ol>
+<pre><code>procedure insert_in_order(data)
+  new_node = new node(data)
+  current = head
+
+  // Case 1: empty list
+  if current == null then
+    head = new_node
+
+  // Case 2: insert before head
+  else if new_node.getData() &lt; current.getData() then
+    new_node.setNext(current)
+    head = new_node
+
+  // Case 3: insert in middle or end
+  else
+    while current.getNext() != null AND
+          current.getNext().getData() &lt; new_node.getData()
+      current = current.getNext()
+    endwhile
+
+    new_node.setNext(current.getNext())
+    current.setNext(new_node)
+  endif
+endprocedure</code></pre>
+<hr/>
+<h4>Unordered Linked List Insertion</h4>
+<p><strong>Insert at Head (fastest method)</strong></p>
+<pre><code>procedure insert_unordered(data)
+  new_node = new node(data)
+  new_node.setNext(head)
+  head = new_node
+endprocedure</code></pre>
+<p><strong>Insert at End</strong></p>
+<pre><code>procedure insert_end(data)
+  new_node = new node(data)
+
+  if head == null then
+    head = new_node
+  else
+    current = head
+    while current.getNext() != null
+      current = current.getNext()
+    endwhile
+    current.setNext(new_node)
+  endif
+endprocedure</code></pre>
+<p>Used when order does not matter (e.g. stack insertion at head, queue insertion at end).</p>
+<hr/>
+<h4>Removing a Node (Delete Algorithm)</h4>
+<ol>
+<li>Traverse the list from the head.</li>
+<li>If the list is empty, stop.</li>
+<li>If the head contains the target data, update the head pointer.</li>
+<li>Otherwise, find the node before the one to delete.</li>
+<li>Update pointers to skip the deleted node.</li>
+</ol>
+<pre><code>procedure delete(data)
+  current = head
+
+  // Case 1: empty list
+  if current == null then
+    return
+
+  // Case 2: delete head
+  else if current.getData() == data then
+    head = current.getNext()
+
+  // Case 3: delete elsewhere
+  else
+    while current.getNext() != null AND
+          current.getNext().getData() != data
+      current = current.getNext()
+    endwhile
+
+    if current.getNext() != null then
+      current.setNext(current.getNext().getNext())
+    endif
+  endif
+endprocedure</code></pre>
+<p><strong>Note:</strong> Nodes do not move in memory; only pointers are updated.</p>
+<hr/>
+<h4>Traversing a Linked List</h4>
+<p>Example task: count how many times a particular name occurs in a linked list.</p>
+<ol>
+<li>Initialise a counter.</li>
+<li>Set current node to the head.</li>
+<li>If pointer is NULL, list is empty.</li>
+<li>Compare data and update counter if matched.</li>
+<li>Move to next node.</li>
+<li>Repeat until NULL is reached.</li>
+</ol>
+<pre><code>procedure traverse()
+  current = head
+  while current != null
+    print(current.getData())
+    current = current.getNext()
+  endwhile
+endprocedure</code></pre>
+<hr/>
+<h4>Searching a Linked List</h4>
+<p>Searching must use a <strong>linear search</strong>.</p>
+<pre><code>function search(item)
+  current = head
+  found = false
+
+  while current != null AND not found
+    if current.getData() == item then
+      found = true
+    else
+      current = current.getNext()
+    endif
+  endwhile
+
+  return found
+endfunction</code></pre>
+</div>
+
+</div>
+</div>
+<!----------------------------------------------------Stacks ------------------------------------------------->
+<div aria-labelledby="tabbtn-stacks" class="panel" id="tab-stacks" role="tabpanel">
+
+<div class="vertical-knowledge">
+<div class="knowledge-card">
+<h3>Stacks &amp; Queues</h3>
+<h4>General Characteristics</h4>
+<ul>
+<li>Linear data structures represented by a sequential collection of elements in a fixed order</li>
+<li>Dynamic size</li>
+<li>Can contain elements of different data types</li>
+<li>Random access of elements is not allowed</li>
+<li>Implemented using a list or linked list</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Stack
+
+<table class="stack-diagram">
+  <tr>
+    <th>Stack</th>
+  </tr>
+  <tr>
+    <td>30 ← top</td>
+  </tr>
+  <tr>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>10</td>
+  </tr>
+</table>
+
+
+</th>
+<th>Queue
+
+<table class="queue-diagram">
+  <tr>
+    <th colspan="3">Queue</th>
+  </tr>
+  <tr>
+    <td>A<br><small>(front)</small></td>
+    <td>B</td>
+    <td>C<br><small>(rear)</small></td>
+  </tr>
+</table>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LIFO</strong> – Last In, First Out</td>
+<td><strong>FIFO</strong> – First In, First Out</td>
+</tr>
+<tr>
+<td>Only the <strong>top</strong> element can be accessed</td>
+<td>Only the <strong>front</strong> element can be accessed</td>
+</tr>
+<tr>
+<td>One pointer: <strong>stack pointer</strong><br/>Points to the topmost (last inserted) element</td>
+<td>Two pointers: <strong>front</strong> and <strong>rear</strong></td>
+</tr>
+<tr>
+<td><strong>push(data)</strong> – Add element to stack<br/> <strong>pop()</strong> – Remove element from stack<br/> <strong>peek()</strong> – View top element without removing<br/> <strong>isFull()</strong> – Check if stack is full<br/> <strong>isEmpty()</strong> – Check if stack is empty</td>
+<td><strong>enqueue(data)</strong> – Add element to the rear<br/> <strong>dequeue()</strong> – Remove element from the front<br/> <strong>isFull()</strong> – Check if queue is full<br/> <strong>isEmpty()</strong> – Check if queue is empty</td>
+</tr>
+<tr>
+<td><strong>Uses:</strong><br/> • Browser history (Back button)<br/> • Undo operations in text editors<br/> • Function call stack (program execution)</td>
+<td><strong>Uses:</strong><br/> • Printer queue (print jobs in order)<br/> • Customer service queue<br/> • Task scheduling (e.g. CPU process queue)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="knowledge-card">
+<h3>Stack Pointer, Push &amp; Pop Algorithms</h3>
+<h4>Stack Pointer</h4>
+<p>The <strong>stack pointer</strong> points to the <strong>top element</strong> in the stack. In some representations (especially in exams), it may instead point to the <strong>next available free space</strong>.</p>
+<hr/>
+<h4>Stack PUSH Algorithm</h4>
+<ol>
+<li>Check if the stack is full.</li>
+<li>If the stack is full, generate an error and exit.</li>
+<li>If the stack is not full, increment <code>top</code> to point to the next empty space.</li>
+<li>Add the data element where <code>top</code> is pointing.</li>
+</ol>
+<h5>Pseudocode: PUSH</h5>
+<pre><code>if isFull() then
+  print "stack overflow"
+else
+  top = top + 1
+  stack[top] = item
+end if</code></pre>
+<h5>isFull() Condition</h5>
+<pre><code>if stack.length == MAX</code></pre>
+<hr/>
+<h4>Stack POP Algorithm</h4>
+<ol>
+<li>Check if the stack is empty.</li>
+<li>If the stack is empty, generate an error and exit.</li>
+<li>If the stack is not empty, access the data at <code>top</code>.</li>
+<li>Decrease <code>top</code> by 1.</li>
+<li>Return the item.</li>
+</ol>
+<h5>Pseudocode: POP</h5>
+<pre><code>if isEmpty() then
+  print "stack underflow"
+else
+  item = stack[top]
+  top = top - 1
+  return item
+end if</code></pre>
+<h5>isEmpty() Condition</h5>
+<pre><code>if top == -1
+if stack.length == 0</code></pre>
+<hr/>
+<h4>Display Items in Stack Algorithm</h4>
+<pre><code>if isEmpty() then
+  print "stack empty"
+else
+  for i = top to 0
+    print stack[i]
+  next i
+end if</code></pre>
+<hr/>
+<h4>Alternative Stack Representation</h4>
+<p>In some exam questions, the <strong>stack pointer</strong> points to the <strong>next available free space</strong> instead of the top item.</p>
+<h5>PUSH (Alternative Representation)</h5>
+<pre><code>if stackPointer &gt; 9 then
+  print "stack overflow"
+else
+  stack[top] = item
+  top = top + 1
+end if</code></pre>
+<h5>POP (Alternative Representation)</h5>
+<pre><code>if stackPointer == 0 then
+  print "stack underflow"
+else
+  top = top - 1
+  item = stack[top]
+  return item
+end if</code></pre>
+<hr/>
+<h4>Exam Notes</h4>
+<ol>
+<li>Check whether the stack pointer refers to the <strong>top item</strong> or the <strong>next empty space</strong>.</li>
+<li>Use the identifiers exactly as given in the question.</li>
+<li>Think carefully when determining <code>isEmpty()</code> and <code>isFull()</code> conditions.</li>
+</ol>
+<h4>Example</h4>
+<p><code>theStack.push("H")</code> places the character <strong>H</strong> onto the stack.</p>
+<h5>Procedure Example: pushToStack</h5>
+<pre><code>procedure pushToStack(message)
+  for x = 0 to message.length - 1
+    messageStack.push(message.substring(x,1))
+  next x
+endprocedure</code></pre>
+</div>
+<div class="knowledge-card">
+<h3>Linear Stack Implementation</h3>
+<table>
+<thead>
+<tr>
+<th>Procedural Linear Stack Implementation</th>
+<th>OOP Linear Stack Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><pre><code>
+# Initialize
+maxsize = 5
+stack = [None, None, None, None, None]
+top = -1
+procedure push(stack, data, top, maxsize)
+    if isfull(top, maxsize) then
+        print("Error: stack is full")
+    else
+        top = top + 1
+        stack[top] = data
+    endif
+    return stack, top
+endprocedure
+
+function pop(stack, top)
+    if isempty(top) then
+        print("Error: stack is empty")
+        return None, top
+    else
+        item = stack[top]
+        top = top - 1
+        return item, top
+    endif
+endfunction
+
+procedure displaystack(stack, top)
+    if isempty(top) then
+        print("Error: stack is empty")
+    else
+        print("Stack contents:")
+        for i = 0 to top
+            print(stack[i])
+        next i endif
+endprocedure
+
+function isfull(top, maxsize)
+    if top == maxsize - 1 then
+        return True
+    else
+        return False
+    endif
+endfunction
+
+function isempty(top)
+    if top == -1 then
+        return True
+    else
+        return False
+    endif
+endfunction
+
+function peek(stack, top)
+    if isempty(top) then
+        return "Error: stack is empty"
+    else return stack[top]
+    endif
+endfunction # Main program stack,
+
+top = push(stack, "cat", top, maxsize)
+displaystack(stack, top)
+item, top = pop(stack, top)
+print("popped item: " + item)
+
+</code></pre></td>
+<td><pre><code>
+class Stack
+  // constructor
+  public procedure new()
+    maxsize = 5
+    s = [None, None, None, None, None]
+    top = -1
+  endprocedure
+
+  public procedure push(data)
+    if isFull() then
+      print("error: stack is full")
+    else
+      top = top + 1
+      s[top] = data
+    endif
+  endprocedure
+
+  public function pop()
+    if isEmpty() then
+      print("error: stack is empty")
+    else
+      item = s[top]
+      top = top - 1
+      return item
+    endif
+  endfunction
+
+  public procedure displayStack()
+    if isEmpty() then
+      print("error: stack is empty")
+    else
+      print("stack contents:")
+      for i = 0 to top
+        print(s[i])
+      next i
+    endif
+  endprocedure
+
+  public function isFull()
+    if top == maxsize - 1 then
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function isEmpty()
+    if top == -1 then
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function peek()
+    if isEmpty() then
+      return "error: stack is empty"
+    else
+      return s[top]
+    endif
+  endfunction
+endclass
+
+# Main program
+s = new Stack()
+s.push("cat")
+s.displayStack()
+print("popped item: " + s.pop())
+
+</code></pre>
+</tr>
+</tbody>
+</table>
+<h4>Key Differences</h4>
+<ul>
+<li><strong>Procedural:</strong> Data and functions are separate; stack and top must be passed between procedures.</li>
+<li><strong>OOP:</strong> Data and methods are bundled together inside a class.</li>
+<li><strong>OOP approach</strong> improves encapsulation, readability, and reusability.</li>
+</ul>
+</div>
+</div>
+</div>
+<!----------------------------------------------------Queues------------------------------------------------->
+<div aria-labelledby="tabbtn-queues" class="panel" id="tab-queues" role="tabpanel">
+ <div class="vertical-knowledge">
+<div class="knowledge-card">
+<h3>Queue Algorithms (Linear Queue)</h3>
+<h4>Enqueue Algorithm</h4>
+<p><strong>enqueue(item)</strong> inserts the given data item at the <strong>rear</strong> of the queue.</p>
+<ol>
+<li>Check if the queue is full.</li>
+<li>If full, output an error and stop.</li>
+<li>Otherwise, increment the rear pointer.</li>
+<li>Insert the new data item at the rear position.</li>
+</ol>
+<h5>Pseudocode: Enqueue</h5>
+<pre><code>if isFull() then
+  print "overflow"
+else
+  rear = rear + 1
+  queue[rear] = data
+end if</code></pre>
+<h5>Working out isFull()</h5>
+<pre><code>if rear == maxSize - 1
+# OR
+if size == MAX</code></pre>
+<hr/>
+<h4>Dequeue Algorithm</h4>
+<p><strong>dequeue()</strong> removes and returns the item at the <strong>front</strong> of the queue.</p>
+<ol>
+<li>Check if the queue is empty.</li>
+<li>If empty, output an error and stop.</li>
+<li>Otherwise, copy the data at the front pointer.</li>
+<li>Increment the front pointer.</li>
+<li>Return the data.</li>
+</ol>
+<h5>Pseudocode: Dequeue</h5>
+<pre><code>if isEmpty() then
+  print "queue is empty"
+else
+  data = queue[front]
+  front = front + 1
+  return data
+end if</code></pre>
+<h5>Working out isEmpty()</h5>
+<pre><code>if front &gt; rear
+# OR
+front = 0
+rear = -1
+
+# OR using size counter
+if size == 0</code></pre>
+<hr/>
+<h4>Displaying a Linear Queue</h4>
+<pre><code>for i = front to rear
+  print queue[i]
+next i</code></pre>
+<hr/>
+<h4>Exam Notes</h4>
+<ul>
+<li>Front and rear pointers may be defined either way around — always follow the exam question’s definition.</li>
+<li>Pointers may be referred to as <strong>front/rear</strong> or <strong>head/tail</strong>.</li>
+<li>The queue may be <strong>linear</strong> or <strong>circular</strong>; this will be stated in the question.</li>
+</ul>
+</div>
+<div class="knowledge-card">
+<h3>Circular Queue Algorithms</h3>
+<p>In a <strong>circular queue</strong>, when items are removed from the front, new data can be added at the rear using the spaces vacated at the front.</p>
+<hr/>
+<h4>Enqueue Algorithm (Circular Queue)</h4>
+<ol>
+<li>Check if the queue is full.</li>
+<li>If full, output an error and stop.</li>
+<li>If the rear pointer equals <code>maxSize - 1</code>, reset rear to <code>0</code>.</li>
+<li>Otherwise, increment the rear pointer by 1.</li>
+<li>Insert the new data item at the rear position.</li>
+<li>Increment <code>size</code> by 1.</li>
+</ol>
+<h5>Pseudocode: Enqueue (Circular)</h5>
+<pre><code>if isFull() then
+  print "overflow"
+else
+  if rear == maxSize - 1 then
+    rear = 0
+  else
+    rear = rear + 1
+  end if
+  queue[rear] = data
+  size = size + 1
+end if</code></pre>
+<h5>isFull() Condition</h5>
+<pre><code>if size == maxSize
+  return True</code></pre>
+<hr/>
+<h4>Dequeue Algorithm (Circular Queue)</h4>
+<ol>
+<li>Check if the queue is empty.</li>
+<li>If empty, output an error and stop (reset front and rear pointers).</li>
+<li>Otherwise, copy data from the front pointer position.</li>
+<li>If front equals <code>maxSize - 1</code>, reset front to <code>0</code>.</li>
+<li>Otherwise, increment the front pointer by 1.</li>
+<li>Decrement <code>size</code> by 1.</li>
+<li>Return the data.</li>
+</ol>
+<h5>Pseudocode: Dequeue (Circular)</h5>
+<pre><code>if isEmpty() then
+  print "empty"
+  front = 0
+  rear = -1
+else
+  data = queue[front]
+  if front == maxSize - 1 then
+    front = 0
+  else
+    front = front + 1
+  end if
+  size = size - 1
+  return data
+end if</code></pre>
+<h5>isEmpty() Condition</h5>
+<pre><code>if size == 0</code></pre>
+<hr/>
+<h4>Displaying a Circular Queue</h4>
+<p>Displaying a circular queue requires wrapping around the array when the end is reached.</p>
+<pre><code>if isEmpty() then
+  print "Queue is empty"
+else
+  temp = front
+  for i = 0 to size - 1
+    print queue[temp]
+    temp = temp + 1
+    if temp == maxSize then
+      temp = 0
+    end if
+  next i
+end if</code></pre>
+<hr/>
+<h4>Exam Notes</h4>
+<ul>
+<li>Front and rear pointers may be defined either way around — follow the exam question carefully.</li>
+<li>Pointers may be referred to as <strong>head/tail</strong> or <strong>front/rear</strong>.</li>
+<li>The queue type (linear or circular) will be specified in the exam question.</li>
+</ul>
+</div>
+<div class="knowledge-card">
+<h3>Priority Queue</h3>
+<p>A <strong>priority queue</strong> is a type of abstract data structure where each element has an associated <strong>priority</strong>. Instead of being processed in the order they were added (as in a normal queue), elements are processed based on their priority.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Each item in the queue has: <ul> <li>A value</li>
+<li>A priority level</li>
+</ul>
+</li>
+<li>The element with the <strong>highest priority</strong> is removed first</li>
+<li>If two elements have the same priority, they are processed in <strong>FIFO (First In, First Out)</strong> order</li>
+</ul>
+<h4>Operations</h4>
+<ul>
+<li><strong>Insert (enqueue)</strong> – Add an element with a priority</li>
+<li><strong>Remove (dequeue)</strong> – Remove the element with the highest priority</li>
+</ul>
+<h4>Implementation</h4>
+<ul>
+<li>Arrays / Lists (less efficient)</li>
+<li>Heaps (more efficient, e.g. binary heap)</li>
+</ul>
+<h4>Example Use Cases</h4>
+<ul>
+<li>Task scheduling (e.g. CPU processes)</li>
+<li>Dijkstra’s algorithm (shortest path in graphs)</li>
+<li>Emergency room triage systems</li>
+</ul>
+<h4>Concept Illustration</h4>
+<p>In a priority queue, the element with the <strong>highest priority</strong> (e.g. <code>2</code>) is dequeued first, while the element with the <strong>lowest priority</strong> (e.g. <code>10</code>) remains until later.</p>
+</div>
+<div class="knowledge-card">
+<h3>Linear Queue Implementation</h3>
+<table>
+<thead>
+<tr>
+<th>Procedural Linear Queue Implementation</th>
+<th>OOP Linear Queue Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><pre><code># Initialize an empty queue
+maxsize = 5
+q = [None, None, None, None, None]
+front = 0
+rear = -1
+
+# Enqueue operation
+function enqueue(q, item, rear, maxsize)
+  if isFull(rear, maxsize) then
+    print("Queue is Full")
+  else
+    rear = rear + 1
+    q[rear] = item
+  endif
+  return q, rear
+endfunction
+
+function isFull(rear, maxsize)
+  if rear == maxsize - 1 then
+    return True
+  else
+    return False
+  endif
+endfunction
+
+# Dequeue operation
+function dequeue(q, front, rear)
+  if isEmpty(front, rear) then
+    front = 0
+    rear = -1
+    print("Queue is empty")
+  else
+    data = q[front]
+    front = front + 1
+  endif
+  return q, front, rear, data
+endfunction
+
+function isEmpty(front, rear)
+  if front &gt; rear then
+    return True
+  else
+    return False
+  endif
+endfunction
+
+# Peek operation
+function peek(q, front)
+  return q[front]
+endfunction
+
+# Display queue
+procedure displayQueue(q, front, rear)
+  for i = front to rear
+    print q[i]
+  next i
+endprocedure
+
+# Main program
+q, rear = enqueue(q, "cat", rear, maxsize)
+displayQueue(q, front, rear)
+q, front, rear, data = dequeue(q, front, rear)</code></pre></td>
+
+<td><pre><code>class Queue
+
+  # Constructor
+  public procedure new()
+    maxsize = 5
+    q = [None, None, None, None, None]
+    front = 0
+    rear = -1
+  endprocedure
+
+  public procedure enqueue(data)
+    if isFull() then
+      print("Queue is Full")
+    else
+      rear = rear + 1
+      q[rear] = data
+    endif
+  endprocedure
+
+  public function isFull()
+    if rear == maxsize - 1 then
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function dequeue()
+    if isEmpty() then
+      print("Queue is empty")
+    else
+      data = q[front]
+      front = front + 1
+      return data
+    endif
+  endfunction
+
+  public function isEmpty()
+    if front &gt; rear then
+      front = 0
+      rear = -1
+      return True
+    else
+      return False
+    endif
+  endfunction
+
+  public function peek()
+    return q[front]
+  endfunction
+
+  public procedure displayQueue()
+    if isEmpty() then
+      print("Queue is empty")
+    else
+      for i = front to rear
+        print q[i]
+      next i
+    endif
+  endprocedure
+
+endclass
+
+# Main program
+q = new Queue()
+q.enqueue("cat")
+q.displayQueue()
+q.dequeue()</code></pre></td>
+
+
+</tr>
+</tbody>
+</table>
+<h4>Key Differences</h4>
+<ul>
+<li><strong>Procedural approach:</strong> Queue data and pointers are passed between functions.</li>
+<li><strong>OOP approach:</strong> Queue data and operations are encapsulated within a class.</li>
+<li><strong>OOP queues</strong> improve modularity, readability, and reuse of code.</li>
+</ul>
+</div>
+
+</div>
+</div>
+<!----------------------------------------------------Binary Trees ------------------------------------------------->
+<div aria-labelledby="tabbtn-binary-trees" class="panel" id="tab-binary-trees" role="tabpanel">
+<div class="vertical-knowledge">
+<!-- TREE OVERVIEW -->
+<div class="knowledge-card">
+<h3>Tree</h3>
+<p>A tree is a non-linear, hierarchical data structure made up of nodes connected by edges. It has one root node and zero or more child nodes. Leaf nodes have no children.</p>
+<figure class="diagram-placeholder">
+<div class="diagram-box">
+<p><strong>Diagram placeholder:</strong> Tree showing root, children, edges and leaf nodes</p>
+<img src="images/datastructures/tree.png" width="70%"/></div>
+<figcaption>Basic tree terminology</figcaption>
+</figure>
+<table >
+<thead>
+<tr>
+<th>Term</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Root</td><td>Top node of the tree</td></tr>
+<tr><td>Node</td><td>Stores a data value</td></tr>
+<tr><td>Edge</td><td>Connection between nodes</td></tr>
+<tr><td>Leaf</td><td>Node with no children</td></tr>
+</tbody>
+</table>
+</div>
+<!-- BINARY SEARCH TREE -->
+<div class="knowledge-card">
+<h3>Binary Search Tree (BST)</h3>
+<p>A BST is a binary tree where values in the left subtree are smaller than the node, and values in the right subtree are larger.</p>
+<figure class="diagram-placeholder">
+<div class="diagram-box">
+<p> BST showing left &lt; root &lt; right</p>
+</div>
+<img height="196" src="images/datastructures/binarytree.png" width="207"/>
+<figcaption>Ordered structure of a BST</figcaption>
+</figure>
+<table >
+<thead>
+<tr>
+<th>Property</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Children</td><td>Maximum of two per node</td></tr>
+<tr><td>Balanced</td><td>Search time O(log n)</td></tr>
+<tr><td>Unbalanced</td><td>Search time degrades to O(n)</td></tr>
+</tbody>
+</table>
+</div>
+<!-- OVERVIEW -->
+<div class="knowledge-card">
+<h3>What is a Binary Tree?</h3>
+<p>A binary tree is a non-linear data structure where each node can have a maximum of two children, called the left child and the right child.</p>
+</div>
+<!-- LINKED NODE IMPLEMENTATION -->
+<div class="knowledge-card">
+<h3>Method 1: Linked-Node Implementation</h3>
+<p>Each node is an object that stores the data and references (pointers) to its left and right children. The tree stores a reference to the root node.</p>
+<figure class="diagram-placeholder">
+<div class="diagram-box">
+<p>Node containing data, left pointer, and right pointer</p>
+<img height="504" src="images/datastructures/nodediagram.png" width="617"/></div>
+<figcaption>Linked-node representation of a binary tree</figcaption>
+</figure>
+<table >
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>data</td><td>Stores the value in the node</td></tr>
+<tr><td>left</td><td>Reference to left child node</td></tr>
+<tr><td>right</td><td>Reference to right child node</td></tr>
+<tr><td>root</td><td>Reference to the first node in the tree</td></tr>
+</tbody>
+</table>
+<img height="228" src="images/datastructures/nodeclass.png"/>
+<pre><code>
+class Node
+private data
+private left
+private right
+
+    procedure new(new_data)
+        data = new_data
+        left = null
+        right = null
+    end procedure
+
+end class
+
+class BinaryTree
+  private root
+
+  procedure new()
+    root = null
+  end procedure
+end class</code></pre>
+</div>
+<!-- ARRAY IMPLEMENTATION -->
+<div class="knowledge-card">
+<h3>Method 2: Array / Table Implementation</h3>
+<p>The binary tree is stored in a table (often a 2D array). Each row represents a node and stores the node’s data and the indexes of its left and right children.</p>
+<figure class="diagram-placeholder">
+<div class="diagram-box">
+<p> Table showing node index, data, left index, right index</p>
+</div>
+<figcaption>Array-based representation of a binary tree</figcaption>
+</figure>
+<table >
+<thead>
+<tr>
+<th>Index</th>
+<th>Data</th>
+<th>Left Child</th>
+<th>Right Child</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>50</td><td>2</td><td>3</td></tr>
+<tr><td>2</td><td>30</td><td>4</td><td>5</td></tr>
+<tr><td>3</td><td>70</td><td>null</td><td>null</td></tr>
+</tbody>
+</table>
+<pre><code>
+# Each row stores: data, leftIndex, rightIndex
+tree[1] = [50, 2, 3]
+tree[2] = [30, 4, 5]
+tree[3] = [70, null, null]</code></pre>
+</div>
+<!-- COMPARISON -->
+<div class="knowledge-card">
+<h3>Comparison of Implementations</h3>
+<table >
+<thead>
+<tr>
+<th>Feature</th>
+<th>Linked-Node</th>
+<th>Array / Table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory size</td>
+<td>Dynamic</td>
+<td>Often fixed</td>
+</tr>
+<tr>
+<td>Insertion &amp; deletion</td>
+<td>Easier</td>
+<td>More complex</td>
+</tr>
+<tr>
+<td>Exam suitability</td>
+<td>Good</td>
+<td>Very common</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- INSERT BST -->
+<div class="knowledge-card">
+<h3>Algorithm: Insert into a Binary Search Tree</h3>
+<img height="105" src="images/datastructures/binarytree2.png" width="439"/>
+<img height="126" src="images/datastructures/binarytree3.png" width="373"/>
+<table >
+<thead>
+<tr>
+<th>Step</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Create a new node</td></tr>
+<tr><td>2</td><td>If root is null, set root = new node</td></tr>
+<tr><td>3</td><td>Compare value and move left or right</td></tr>
+<tr><td>4</td><td>Insert at first null pointer</td></tr>
+</tbody>
+</table>
+<pre><code>
+Procedure insert(new_value)
+  new_node = new Node(new_value)
+
+  if root == null then
+    root = new_node
+    return
+  end if
+
+  current = root
+  parent = null
+
+  while current != null
+    parent = current
+    if new_value &lt; current.data then
+      current = current.left
+    else
+      current = current.right
+    end if
+  end while
+
+  if new_value &lt; parent.data then
+    parent.left = new_node
+  else
+    parent.right = new_node
+  end if
+End procedure</code></pre>
+</div>
+<!-- DELETE FROM A BINARY SEARCH TREE -->
+<div class="knowledge-card">
+<h3>Algorithm: Delete a Node from a Binary Search Tree (BST)</h3>
+<p>Deleting a node from a BST depends on how many children the node has. The tree must remain ordered after deletion.</p>
+<table >
+<thead>
+<tr>
+<th>Case</th>
+<th>Situation</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leaf node</td>
+<td>No children</td>
+<td>Remove the node by setting the parent pointer to null</td>
+</tr>
+<tr>
+<td>One child</td>
+<td>Left or right child only</td>
+<td>Replace the node with its child (parent points to child)</td>
+</tr>
+<tr>
+<td>Two children</td>
+<td>Left and right children</td>
+<td>Find the in-order successor (smallest value in right subtree), copy its value into the node, then delete the successor</td>
+</tr>
+</tbody>
+</table>
+<figure class="diagram-placeholder">
+<div class="diagram-box">
+<p>BST delete cases (leaf, one child, two children)</p>
+<img height="293" src="images/datastructures/deletenode.png" width="511"/></div>
+<figcaption>Three possible cases when deleting a node from a BST</figcaption>
+</figure>
+<pre><code>
+Procedure delete(root, target)
+      current = root
+      parent = null
+
+      # Step 1: Find node to delete
+      while current != null and current.data != target
+        parent = current
+        if target &lt; current.data then
+          current = current.left
+        else
+          current = current.right
+        end if
+      end while
+
+      if current == null then
+        return  # value not found
+      end if
+
+      # Step 2: Case 1 – No children
+      if current.left == null and current.right == null then
+        if parent == null then
+          root = null
+        else if parent.left == current then
+          parent.left = null
+        else
+          parent.right = null
+        end if
+
+      # Step 3: Case 2 – One child
+      else if current.left == null or current.right == null then
+        if current.left != null then
+          child = current.left
+        else
+          child = current.right
+        end if
+
+        if parent == null then
+          root = child
+        else if parent.left == current then
+          parent.left = child
+        else
+          parent.right = child
+        end if
+
+      # Step 4: Case 3 – Two children
+      else
+        successor_parent = current
+        successor = current.right
+
+        while successor.left != null
+          successor_parent = successor
+          successor = successor.left
+        end while
+
+        current.data = successor.data
+
+        if successor_parent.left == successor then
+          successor_parent.left = successor.right
+        else
+          successor_parent.right = successor.right
+        end if
+      end if
+End procedure</code></pre>
+</div>
+<!-- TREE TRAVERSALS -->
+<div class="knowledge-card">
+<h3>Tree Traversals</h3>
+<figure class="diagram-placeholder">
+<div class="diagram-box">
+<img height="196" src="images/datastructures/traversals.png" width="207"/></div>
+</figure>
+<table >
+<thead>
+<tr>
+<th>Traversal</th>
+<th>Order</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Pre-order</td><td>Root → Left → Right</td><td>Copy tree</td></tr>
+<tr><td>In-order</td><td>Left → Root → Right</td><td>Sorted output</td></tr>
+<tr><td>Post-order</td><td>Left → Right → Root</td><td>Delete tree</td></tr>
+<tr><td>Breadth-first</td><td>Level by level</td><td>Shortest path</td></tr>
+</tbody>
+</table>
+</div>
+<!-- PRE-ORDER -->
+<div class="knowledge-card">
+<h3>Algorithm: Pre-order Traversal</h3>
+<pre><code>
+Procedure preorder(node)
+  if node != null then
+    print(node.data)
+    preorder(node.left)
+    preorder(node.right)
+  end if
+End procedure</code></pre>
+</div>
+<!-- IN-ORDER -->
+<div class="knowledge-card">
+<h3>Algorithm: In-order Traversal</h3>
+<pre><code>
+Procedure inorder(node)
+  if node != null then
+    inorder(node.left)
+    print(node.data)
+    inorder(node.right)
+  end if
+End procedure</code></pre>
+</div>
+<!-- POST-ORDER -->
+<div class="knowledge-card">
+<h3>Algorithm: Post-order Traversal</h3>
+<pre><code>
+Procedure postorder(node)
+  if node != null then
+    postorder(node.left)
+    postorder(node.right)
+    print(node.data)
+  end if
+End procedure</code></pre>
+</div>
+<!-- BREADTH-FIRST -->
+<div class="knowledge-card">
+<h3>Algorithm: Breadth-First Traversal</h3>
+<pre><code>
+Procedure breadth_first(root)
+  if root == null then return
+
+  q = queue()
+  q.enqueue(root)
+
+  while q not empty
+    current = q.dequeue()
+    print(current.data)
+
+    if current.left != null then
+      q.enqueue(current.left)
+    end if
+    if current.right != null then
+      q.enqueue(current.right)
+    end if
+  end while
+End procedure</code></pre>
+</div>
+</div>
+</div>
+<!----------------------------------------------------Graphs ------------------------------------------------->
+<div aria-labelledby="tabbtn-graphs" class="ds-panel" hidden="" id="tab-graphs" role="tabpanel">
+    <div class="vertical-knowledge">
+<div class="knowledge-card">
+<h3>Graph</h3>
+<p>A graph models relationships using vertices (nodes) and edges. Graphs do not have a single root node.</p>
+<figure class="diagram-placeholder">
+<div class="diagram-box">
+<img height="143" src="images/datastructures/graph.png" width="331"/></div>
+<figcaption>Basic graph structure</figcaption>
+</figure>
+<table >
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Undirected</td><td>No direction on edges <img height="189" src="images/datastructures/undirected.png" width="515"/></td></tr>
+<tr><td>Directed</td><td>Edges have direction <img height="233" src="images/datastructures/directed.png" width="463"/></td></tr>
+<tr><td>Weighted</td><td>Edges store values (distance, cost) <img height="185" src="images/datastructures/weighted.png" width="412"/></td></tr>
+</tbody>
+</table>
+</div>
+<!-- GRAPH REPRESENTATIONS -->
+<div class="knowledge-card">
+<h3>Graph Representations</h3>
+<figure class="diagram-placeholder">
+<div class="diagram-box">
+</div>
+<figcaption>Two ways to store a graph</figcaption>
+</figure>
+<table >
+<thead>
+<tr>
+<th>Representation</th>
+<th>Description</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Adjacency List</td><td>Lists neighbours for each node</td><td>Sparse graphs</td></tr>
+<tr><td>Adjacency Matrix</td><td>2D array of connections</td><td>Dense graphs</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ADJACENCY LIST -->
+<div class="knowledge-card">
+<h2>Adjacency List and Adjacency Matrix (Example)</h2>
+<h3>Adjacency List</h3>
+<p>Each node stores a list of the nodes it is directly connected to. This graph is <strong>undirected</strong> and <strong>unweighted</strong>.</p>
+<pre><code>
+Graph = {
+  A: [B, C],
+  B: [A, D, E],
+  C: [A, F],
+  D: [B],
+  E: [B, F],
+  F: [C, E]
+}</code></pre>
+<table >
+<thead>
+<tr>
+<th>Node</th>
+<th>Adjacent Nodes</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>A</td><td>B, C</td></tr>
+<tr><td>B</td><td>A, D, E</td></tr>
+<tr><td>C</td><td>A, F</td></tr>
+<tr><td>D</td><td>B</td></tr>
+<tr><td>E</td><td>B, F</td></tr>
+<tr><td>F</td><td>C, E</td></tr>
+</tbody>
+</table>
+</div>
+<!-- ADJACENCY MATRIX -->
+<div class="knowledge-card">
+<h3>Adjacency Matrix</h3>
+<p>Rows and columns represent nodes. A value of <strong>1</strong> means an edge exists, <strong>0</strong> means no edge.</p>
+<table >
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>A</th>
+<td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td>
+</tr>
+<tr>
+<th>B</th>
+<td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td>
+</tr>
+<tr>
+<th>C</th>
+<td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td>
+</tr>
+<tr>
+<th>D</th>
+<td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td>
+</tr>
+<tr>
+<th>E</th>
+<td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
+</tr>
+<tr>
+<th>F</th>
+<td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> The matrix is symmetrical because the graph is undirected.</p>
+</div>
+<!-- BFS vs DFS -->
+<div class="knowledge-card">
+<h3>BFS vs DFS</h3>
+<table >
+<img height="158" src="images/datastructures/dfsgraph.png" width="175"/>
+<img height="180" src="images/datastructures/dfsdiagram.png" width="149"/>.
+
+                          <thead>
+<tr>
+<th>Feature</th>
+<th>BFS</th>
+<th>DFS</th></tr>
+</thead>
+<tbody>
+<tr><td>Data structure</td><td>Queue</td>
+<td>Stack .</td></tr>
+<tr><td>Traversal</td><td>Level by level</td><td>Deep then backtrack</td></tr>
+<tr><td>Best use</td><td>Shortest path</td><td>Explore all paths</td></tr>
+</tbody>
+</table>
+<pre><code>
+Procedure bfs(graph, start)
+  visited = []
+  q = queue()
+  q.enqueue(start)
+
+  while q not empty
+    node = q.dequeue()
+    if node not in visited
+      visited.append(node)
+      for neighbour in graph[node]
+        q.enqueue(neighbour)
+  print(visited)
+End procedure</code></pre>
+<pre><code>
+Procedure dfs(graph, start)
+  visited = []
+  s = stack()
+  s.push(start)
+
+  while s not empty
+    node = s.pop()
+    if node not in visited
+      visited.append(node)
+      for neighbour in reversed(graph[node])
+        s.push(neighbour)
+  print(visited)
+End procedure</code></pre>
+</div>
+<!-- GRAPH USED -->
+<div class="knowledge-card">
+<h3>Example Graph (Used for BFS &amp; DFS)</h3>
+<p>Assume the following adjacency list representation of a graph, starting traversal from node <strong>A</strong>.</p>
+<pre><code>graph = {
+                  A: [B, C],
+                  B: [A, D, E],
+                  C: [A, F],
+                  D: [B],
+                  E: [B, F],
+                  F: [C, E]
+                }</code></pre>
+<figure class="diagram-placeholder">
+<div class="diagram-box">
+<img height="158" src="images/datastructures/dfsgraph.png" width="175"/></div>
+<figcaption>Graph used in traversal examples</figcaption>
+</figure>
+</div>
+<!-- BFS TABLE -->
+<div class="knowledge-card">
+<h3>Breadth-First Search (BFS) – Queue Table</h3>
+<p>BFS explores the graph level by level using a <strong>queue</strong>.</p>
+<table >
+<thead>
+<tr>
+<th>Step</th>
+<th>Current Node</th>
+<th>Queue</th>
+<th>Visited</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>A</td><td>B, C</td><td>A</td></tr>
+<tr><td>2</td><td>B</td><td>C, D, E</td><td>A, B</td></tr>
+<tr><td>3</td><td>C</td><td>D, E, F</td><td>A, B, C</td></tr>
+<tr><td>4</td><td>D</td><td>E, F</td><td>A, B, C, D</td></tr>
+<tr><td>5</td><td>E</td><td>F</td><td>A, B, C, D, E</td></tr>
+<tr><td>6</td><td>F</td><td>—</td><td>A, B, C, D, E, F</td></tr>
+</tbody>
+</table>
+</div>
+<!-- DFS TABLE -->
+<div class="knowledge-card">
+<h3>Depth-First Search (DFS) – Stack Table</h3>
+<p>DFS explores as far as possible down one branch before backtracking, using a <strong>stack</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Current Node</th>
+<th>Stack</th>
+<th>Visited</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>A</td><td>C, B</td><td>A</td></tr>
+<tr><td>2</td><td>B</td><td>C, E, D</td><td>A, B</td></tr>
+<tr><td>3</td><td>D</td><td>C, E</td><td>A, B, D</td></tr>
+<tr><td>4</td><td>E</td><td>C, F</td><td>A, B, D, E</td></tr>
+<tr><td>5</td><td>F</td><td>C</td><td>A, B, D, E, F</td></tr>
+<tr><td>6</td><td>C</td><td>—</td><td>A, B, D, E, F, C</td></tr>
+</tbody>
+</table>
+</div>
+<!-- SUMMARY -->
+<div class="knowledge-card">
+<h3>BFS vs DFS (Graph Traversal Summary)</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>BFS</th>
+<th>DFS</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Data structure</td><td>Queue</td><td>Stack</td></tr>
+<tr><td>Traversal order</td><td>Level by level</td><td>Deep then backtrack</td></tr>
+<tr><td>Visited order (example)</td><td>A, B, C, D, E, F</td><td>A, B, D, E, F, C</td></tr>
+<tr><td>Best use</td><td>Shortest path (unweighted)</td><td>Exploring all paths</td></tr>
+</tbody>
+</table>
+</div>
+
+ </div>
+ </div>
+<!----------------------------------------------------Hash Tables ------------------------------------------------->
+<div aria-labelledby="tabbtn-hash-tables" class="panel" id="tab-hash-tables" role="tabpanel">
+ <div class="vertical-knowledge">
+
+  <div class="knowledge-card">
+    <h3>Hashing</h3>
+    <p>
+      Large collections of data, for example customer records in a database,
+      need to be accessible very quickly without having to look through all the
+      records. This can be done by holding an index of the physical address on
+      the file where the data is held.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Hashing Algorithm</h3>
+    <p>
+      A hashing algorithm is applied to the value in the key field of each record
+      to transform it into an address. One common hashing algorithm is to divide
+      the key by the number of available addresses and take the remainder as the
+      address.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Hash Table</h3>
+    <p>
+      A hash table is a collection of items stored in such a way that they can
+      quickly be located. The hash table could be implemented as an array or list
+      of a given size with a number of empty spaces.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Empty Hash Table Example</h3>
+    <p>
+      An empty hash table that can store a maximum of 11 items is shown, with
+      spaces labelled from 0 to 10.
+    </p>
+    <p>
+      All locations initially contain the value <strong>Empty</strong>.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Storing Items Using Hashing</h3>
+    <p>
+      Items 78, 55, 34, 19 and 29 are stored in the table using division by 11
+      and taking the remainder.
+    </p>
+    <ul>
+      <li>78 → Hash value 1</li>
+      <li>55 → Hash value 0</li>
+      <li>34 → Hash value 1</li>
+      <li>19 → Hash value 8</li>
+      <li>29 → Hash value 7</li>
+    </ul>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Final Hash Table Contents</h3>
+    <p>
+      After insertion, the hash table contains:
+    </p>
+    <ul>
+      <li>Index 0: 55</li>
+      <li>Index 1: 78</li>
+      <li>Index 2: 34</li>
+      <li>Index 7: 29</li>
+      <li>Index 8: 19</li>
+      <li>All other locations remain empty</li>
+    </ul>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Hashing a String</h3>
+    <p>
+      A hash function can be created for alphanumeric strings by using the ASCII
+      code for each character. To hash the word <strong>CAB</strong>, the ASCII
+      values for each letter are added together. If there are 11 spaces in the
+      hash table, the total is divided by 11 and the remainder is taken as the
+      hash value.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Searching for an Item</h3>
+    <p>When searching for an item, the following steps are followed:</p>
+    <ol>
+      <li>Apply the hashing algorithm to the key field of the item</li>
+      <li>Examine the resulting cell in the list</li>
+      <li>If the item is there, return the item</li>
+      <li>If the cell is empty, the item is not in the table</li>
+      <li>
+        If there is another item in that spot, keep moving forward until either
+        the item is found or a blank cell is encountered, indicating that the
+        item is not in the table
+      </li>
+    </ol>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Implementation</h3>
+    <p>
+      Hash tables are used in the implementation of the data structure called
+      a dictionary.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Dictionaries</h3>
+    <p>
+      A dictionary is an abstract data type consisting of associated pairs of
+      items, where each pair consists of a key and a value.
+      In Python, dictionaries are written as comma-separated pairs in the form
+      <strong>key:value</strong> and enclosed in curly braces.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre>
+IDs = {342:'Harry', 634:'Jasmine', 885:'Max', 571:'Sheila'}
+    </pre>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Operations on Dictionaries</h3>
+    <p>
+      It is possible to implement a dictionary using either a static or a
+      dynamic data structure. The implementation needs to include the
+      following operations:
+    </p>
+
+    <pre>
+# Create a new empty dictionary
+my_dict = {}
+
+# Add a new key:value pair to the dictionary
+my_dict["name"] = "Alice"
+print("After adding:", my_dict)
+
+# Return value associated with key 'name'
+value = my_dict.get("name")
+print("Value for 'name':", value)
+
+# Return True or False depending on whether key is in the dictionary
+has_age = "age" in my_dict
+print("Is 'age' a key?", has_age)
+
+# Return the length of the dictionary
+length = len(my_dict)
+    </pre>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Dealing with Collisions</h3>
+    <p>
+      A collision can happen when two keys generate the same hash address.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Linear Probing</h3>
+    <p>
+      Linear probing could be used. Move through the structure one space at a
+      time to find the next free space.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Chaining</h3>
+    <p>
+      Chaining could be used. Each location points to the start of a linked list.
+      The new item is added to the end of the linked list or placed in a free
+      space.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Comparison of Linked Lists and Hash Tables</h3>
+    <p>
+      Overall, a hash table is likely to be the best option (assuming it has
+      enough space and a good hashing algorithm which produces a hash quickly
+      and with few collisions). It will give very consistent performance even
+      as the list grows.
+    </p>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>Linked Lists vs Hash Tables</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Linked List</th>
+          <th>Hash Tables</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Searching a linked list involves starting at the first node and
+            following the pointers until either the desired value is found
+            or the end of the list is reached, meaning the item isn’t in the list.
+          </td>
+          <td>
+            Searching a hash table requires the key to be hashed and the
+            correct location accessed. The time taken is largely dependent
+            on the time to create the hash.
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            The bigger the linked list grows, the longer it takes to search.
+            If a linked list doubles in size, it will on average take twice as
+            long to search. A list of size n takes on average n/2 checks.
+            In Big O notation this is O(n), or linear complexity.
+          </td>
+          <td>
+            If collisions are ignored, the time to find an item stays the same
+            regardless of the size of the list. In other words it has O(1)
+            or constant complexity.
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            If items are added to the end of the linked list and the location
+            of the last node is stored, the new item can be added directly.
+            The time to add items is constant.
+          </td>
+          <td>
+            As the list grows, collisions become more likely. Linear probing
+            and chaining mean that once a location has been found, the time
+            taken grows linearly with the number of collisions at that location.
+            However, this still performs significantly better than a linked list.
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            If items are added in some sort of order, the time to add items
+            grows linearly due to the time spent searching for the correct
+            position.
+          </td>
+          <td>
+            Adding items to a hash table involves hashing the key and placing
+            it in the correct location. This takes a constant amount of time
+            unless collisions occur, in which case there is an overhead that
+            grows with the number of collisions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="tab-print"><button class="print-tab-btn" type="button">🖨️ Print this section</button></div>
+
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

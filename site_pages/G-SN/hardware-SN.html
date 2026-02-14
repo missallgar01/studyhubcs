@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hardware – Revision Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../G-studynotes.html">← Back</a>
+  </div>
+<header>
+  <h1>Hardware – Revision Page</h1>
+
+</header>
+
+<main>
+
+<div class="vertical-knowledge">
+
+      <h2>CPU, Buses &amp; FDE Cycle – Notes</h2>
+
+      <div class="knowledge-card">
+        <h3>Main CPU Components</h3>
+        <ul>
+          <li><strong>Control Unit (CU)</strong> – decodes instructions and sends signals to control how data moves around the CPU and memory.</li>
+          <li><strong>Arithmetic Logic Unit (ALU)</strong> – carries out calculations and logical comparisons (e.g. greater than, less than).</li>
+          <li><strong>Clock</strong> – a signal to synchronise tasks. A clock cycle is known as a <em>tick</em>. Each cycle has a high state and a low state. For each tick of the clock the CPU can process one or more instructions. The more clock ticks there are, the faster instructions can be processed.</li>
+        </ul>
+        <p><img src="images/clock.png" alt="Clock diagram" class="diagram" /></p>
+      </div>
+
+      <div class="knowledge-card">
+        <h3>CPU Registers</h3>
+        <p>Registers are very fast, small memory locations inside the CPU used as temporary stores for instructions and data being processed.</p>
+        <ul>
+          <li><strong>Program Counter (PC)</strong> – keeps track of where the CPU is in the program, points to the next instruction in the cycle.</li>
+          <li><strong>Memory Address Register (MAR)</strong> – holds the address of the instruction or data to be fetched.</li>
+          <li><strong>Memory Data Register (MDR)</strong> – stores the instruction or data that has been fetched from memory.</li>
+          <li><strong>Accumulator (ACC)</strong> – stores the most recent result of processing.</li>
+        </ul>
+      </div>
+
+      <div class="knowledge-card">
+        <h3>Buses</h3>
+        <p>Buses are the communication pathways that carry data, addresses and control signals around the computer.</p>
+        <ul>
+          <li><strong>Address bus</strong> – carries memory addresses, <em>uni-directional</em> (from CPU to memory).</li>
+          <li><strong>Data bus</strong> – carries instructions and data, <em>bi-directional</em> (to and from the CPU).</li>
+          <li><strong>Control bus</strong> – carries commands from the CPU and status messages from devices, <em>bi-directional</em>.</li>
+        </ul>
+        <p><img src="images/cpu.png" alt="CPU diagram" class="diagram" /></p>
+      </div>
+
+      <div class="knowledge-card">
+        <h3>Fetch–Decode–Execute (FDE) Cycle</h3>
+        <p>
+          The <strong>fetch–decode–execute cycle</strong> is the process the CPU uses to run programs:
+        </p>
+        <ol>
+          <li><strong>Fetch:</strong> The address of the next instruction is held in the PC. This address is copied to the MAR. The address bus carries it to main memory. The control bus sends a read signal, and the instruction is transferred along the data bus into the MDR.</li>
+          <li><strong>Decode:</strong> The CU decodes the instruction in the MDR, working out which circuits are needed.</li>
+          <li><strong>Execute:</strong> The instruction is carried out (e.g. ALU performs a calculation, a value is loaded/stored, a jump occurs). The PC is updated to point to the next instruction.</li>
+        </ol>
+        <p><img src="images/FDE.png" alt="Fetch–Decode–Execute cycle diagram" class="diagram" width="80%"/></p>
+      </div>
+
+      <div class="knowledge-card">
+        <h3>Embedded Systems</h3>
+        <p>An <strong>embedded system</strong> is a computer system that is part of a larger device and performs a dedicated function.</p>
+        <ul>
+          <li>Usually has a small processor, limited memory and simple input/output.</li>
+          <li>Examples: washing machines, microwave ovens, robotic vacuum cleaners, car engine management systems.</li>
+          <li>Often uses <strong>firmware</strong> – software stored in ROM.</li>
+        </ul>
+      </div>
+
+  </div>
+
+<button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hardware – Revision Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../G-studynotes.html">← Back</a>
+  </div>
+<header>
+  <h1>Topic 1 Boolean Logic – Revision</h1>
+
+</header>
+
+<main>
+
+<div class="vertical-knowledge">
+<div class="knowledge-card">
+  <h3>AND Gate</h3>
+  <img src="images/and.png"/>
+  <p>Output is 1 only when both inputs are 1.</p>
+
+  <table>
+    <tr><th>A</th><th>B</th><th>Q</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td></tr>
+    <tr><td>1</td><td>0</td><td>0</td></tr>
+    <tr><td>1</td><td>1</td><td>1</td></tr>
+  </table>
+</div>
+
+<div class="knowledge-card">
+  <h3>OR Gate</h3>
+  <img src="images/or.png"/>
+  <p>Output is 1 if at least one input is 1.</p>
+
+  <table>
+    <tr><th>A</th><th>B</th><th>Q</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td></tr>
+    <tr><td>1</td><td>1</td><td>1</td></tr>
+  </table>
+</div>
+
+<div class="knowledge-card">
+  <h3>NOT Gate</h3>
+  <img src="images/not.png"/>
+  <p>Output is the inverse of the input.</p>
+
+  <table>
+    <tr><th>A</th><th>Q</th></tr>
+    <tr><td>0</td><td>1</td></tr>
+    <tr><td>1</td><td>0</td></tr>
+  </table>
+</div>
+
+<div class="knowledge-card">
+  <h3>Logic Circuit: Q = NOT A AND B</h3>
+
+  <img src="images/logic1.png" alt="Logic circuit showing NOT A AND B" />
+
+  <p>
+    Input <strong>A</strong> is first passed through a NOT gate, inverting its value.
+    The output of the NOT gate and input <strong>B</strong> are then passed into an AND gate
+    to produce the output <strong>Q</strong>.
+  </p>
+
+  <p>
+    Boolean expression: <strong>Q = ¬A ∧ B</strong>
+  </p>
+
+  <table>
+    <tr>
+      <th>A</th>
+      <th>B</th>
+      <th>NOT A</th>
+      <th>Q</th>
+    </tr>
+    <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+    <tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+  </table>
+</div>
+
+<div class="knowledge-card">
+  <h3>Logic Circuit: Q = NOT (A OR B)</h3>
+
+  <img src="images/logic2.png" alt="Logic circuit showing NOT (A OR B)" />
+
+  <p>
+    Inputs <strong>A</strong> and <strong>B</strong> are first passed into an OR gate,
+    producing the intermediate output <strong>P</strong>.
+    This output is then passed through a NOT gate to produce the final output <strong>Q</strong>.
+  </p>
+
+  <p>
+    Boolean expression: <strong>Q = ¬(A ∨ B)</strong>
+  </p>
+
+  <table>
+    <tr>
+      <th>A</th>
+      <th>B</th>
+      <th>P = A OR B</th>
+      <th>Q</th>
+    </tr>
+    <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+    <tr><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+  </table>
+</div>
+
+</div>
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

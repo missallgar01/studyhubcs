@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hardware Page 3 – Memory & Storage</title>
+<style>
+body{font-family:Arial;background:#f4f9ff;padding:2rem}
+.section{background:white;padding:1rem;margin-bottom:1rem;border-radius:6px}
+.correct{color:green;font-weight:bold}
+.incorrect{color:red;font-weight:bold}
+button{padding:0.5rem 1rem;margin-top:1rem}
+.score{font-size:1.2rem;font-weight:bold}
+</style>
+</head>
+<body>
+
+<h1>💾 Hardware – Memory & Storage</h1>
+
+<div class="section">
+<h2>MCQ (5)</h2>
+<div id="mcq"></div>
+</div>
+
+<div class="section">
+<h2>Explain (2)</h2>
+<p>Explain one advantage of solid state storage over magnetic storage.</p>
+<textarea id="explain" rows="4" cols="60"></textarea>
+<div id="explainFeedback"></div>
+</div>
+
+<button onclick="markQuiz()">Mark</button>
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+const mcqData=[
+{q:"1. RAM is:",o:["Volatile","Permanent","Optical"],a:"Volatile"},
+{q:"2. ROM stores:",o:["Boot instructions","User files","Temporary data"],a:"Boot instructions"},
+{q:"3. Magnetic storage uses:",o:["Magnetised areas","Lasers","Transistors"],a:"Magnetised areas"},
+{q:"4. Optical storage uses:",o:["Laser","Magnet","Electrical charge"],a:"Laser"},
+{q:"5. SSD uses:",o:["NAND flash","Platter","Lens"],a:"NAND flash"}
+];
+
+let html="";
+mcqData.forEach((m,i)=>{
+html+=`<p>${m.q}</p>`;
+m.o.forEach(opt=>{
+html+=`<label><input type="radio" name="mcq${i}" value="${opt}">${opt}</label><br>`;
+});
+html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+function markQuiz(){
+let score=0;
+mcqData.forEach((m,i)=>{
+let sel=document.querySelector(`input[name="mcq${i}"]:checked`)?.value;
+let fb=document.getElementById(`f${i}`);
+if(sel===m.a){score++;fb.innerHTML="✔️ Correct";fb.className="correct";}
+else{fb.innerHTML=`❌ Answer: ${m.a}`;fb.className="incorrect";}
+});
+let text=document.getElementById("explain").value.toLowerCase();
+let marks=0;
+if(text.includes("no moving parts"))marks++;
+if(text.includes("faster")||text.includes("durable")||text.includes("reliable"))marks++;
+score+=marks;
+document.getElementById("explainFeedback").innerHTML=
+marks===2?"✔️ 2/2":
+marks===1?"✔️ 1/2":"❌ 0/2";
+document.getElementById("scoreDisplay").innerHTML=`Score: ${score}/7`;
+}
+</script>
+</body>
+</html>

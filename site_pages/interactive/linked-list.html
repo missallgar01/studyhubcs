@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linked List Insert Demo</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f9ff;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  color: #003366;
+}
+
+button, input {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+#listContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.node {
+  width: 70px;
+  height: 50px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background: #e0e0e0;
+  position: relative;
+  margin: 0 20px;
+}
+
+.arrow {
+  font-size: 2rem;
+  margin: 0 10px;
+}
+
+.highlight {
+  background: #ffeb3b;
+}
+
+.newNode {
+  background: #4caf50;
+  color: white;
+}
+
+#message {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+</style>
+</head>
+<body>
+
+<h1>🔗 Linked List Insert Visual Demo</h1>
+
+<div>
+  <input type="number" id="valueInput" placeholder="Value">
+  <input type="number" id="positionInput" placeholder="Position (optional)">
+  <button onclick="insertHead()">Insert Head</button>
+  <button onclick="insertTail()">Insert Tail</button>
+  <button onclick="insertAtPosition()">Insert At Position</button>
+</div>
+
+<div id="listContainer"></div>
+
+<div id="message"></div>
+
+<script>
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+let head = null;
+
+function renderList(highlightIndex = null, newNodeIndex = null) {
+
+  const container = document.getElementById("listContainer");
+  container.innerHTML = "";
+
+  let current = head;
+  let index = 0;
+
+  while (current) {
+
+    const nodeDiv = document.createElement("div");
+    nodeDiv.className = "node";
+
+    if (index === highlightIndex)
+      nodeDiv.classList.add("highlight");
+
+    if (index === newNodeIndex)
+      nodeDiv.classList.add("newNode");
+
+    nodeDiv.textContent = current.value;
+    container.appendChild(nodeDiv);
+
+    if (current.next) {
+      const arrow = document.createElement("div");
+      arrow.className = "arrow";
+      arrow.textContent = "→";
+      container.appendChild(arrow);
+    }
+
+    current = current.next;
+    index++;
+  }
+
+  if (!head) {
+    container.innerHTML = "<p>Empty List</p>";
+  }
+}
+
+function insertHead() {
+
+  const value = document.getElementById("valueInput").value;
+  if (!value) return;
+
+  const newNode = new Node(value);
+
+  newNode.next = head;
+  head = newNode;
+
+  document.getElementById("message").textContent =
+    "Inserted at head. New node now points to previous head.";
+
+  renderList(0, 0);
+}
+
+function insertTail() {
+
+  const value = document.getElementById("valueInput").value;
+  if (!value) return;
+
+  const newNode = new Node(value);
+
+  if (!head) {
+    head = newNode;
+    renderList(0, 0);
+    return;
+  }
+
+  let current = head;
+  let index = 0;
+
+  while (current.next) {
+    current = current.next;
+    index++;
+  }
+
+  current.next = newNode;
+
+  document.getElementById("message").textContent =
+    "Inserted at tail. Last node now points to new node.";
+
+  renderList(index + 1, index + 1);
+}
+
+function insertAtPosition() {
+
+  const value = document.getElementById("valueInput").value;
+  const position = parseInt(document.getElementById("positionInput").value);
+
+  if (!value || isNaN(position)) return;
+
+  const newNode = new Node(value);
+
+  if (position === 0) {
+    newNode.next = head;
+    head = newNode;
+    renderList(0, 0);
+    return;
+  }
+
+  let current = head;
+  let index = 0;
+
+  while (current && index < position - 1) {
+    current = current.next;
+    index++;
+  }
+
+  if (!current) {
+    document.getElementById("message").textContent =
+      "Position out of bounds.";
+    return;
+  }
+
+  newNode.next = current.next;
+  current.next = newNode;
+
+  document.getElementById("message").textContent =
+    `Inserted at position ${position}. Rewired pointers.`;
+
+  renderList(position, position);
+}
+
+renderList();
+
+</script>
+
+</body>
+</html>

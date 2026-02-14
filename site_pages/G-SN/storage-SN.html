@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Storage – Revision Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/main.css" />
+</head>
+
+<body>
+<div class="back-container">
+    <a href="../G-studynotes.html">← Back</a>
+  </div>
+<header>
+  <h1>Storage – Revision Page</h1>
+  <h2>Read • Write • Check • Amend</h2>
+  <p class="subtitle">
+    Read the notes, write your own answers, then reveal the model answers to check and improve.
+  </p>
+</header>
+
+<main>
+    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
+
+  <!-- Panels -->
+ <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="Algorithms tabs">
+    <button
+      id="tabbtn-revision"
+      type="button"
+      role="tab"
+      aria-controls="tab-revision"
+      aria-selected="true"
+      tabindex="0">
+      Revision Notes
+    </button>
+
+    <button
+      id="tabbtn-KC"
+      type="button"
+      role="tab"
+      aria-controls="tab-KC"
+      aria-selected="false"
+      tabindex="-1">
+      Knowledge Check
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+    <div
+      id="tab-revision"
+      role="tabpanel"
+      aria-labelledby="tabbtn-revision">
+      <!-- REVISION CONTENT HERE -->
+        <div class="vertical-knowledge">
+</div>
+    </div>
+
+    <div
+      id="tab-KC"
+      role="tabpanel"
+      aria-labelledby="tabbtn-KC"
+      hidden>
+
+      <h2>Knowledge Check</h2>
+
+
+        <div class="rev-card qa-card">
+  <p>
+     Data can be stored in different ways.<br>
+    (i) Describe how data is stored on optical media. (2)<br>
+    (ii) State the type of secondary storage that stores data as electric charges. (1)<br>
+    (Total for question = 3 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>How to answer (DESCRIBE / STATE):</b>
+    <ul>
+      <li>Describe = explain pits/lands and laser</li>
+      <li>State = name storage type</li>
+    </ul>
+  </div>
+
+<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>Laser burns/heats disk surface (1)</li>
+      <li>Creates pits and lands (1)</li>
+      <li>Pits and lands represent binary data (1)</li>
+      <li>Electric charge storage:
+        <ul>
+          <li>Solid state storage (1)</li>
+          <li>Flash storage (1)</li>
+          <li>SSD (allowed)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Optical media stores data as pits and lands created by a laser on the disc surface.
+      These differences represent binary data.
+      Data stored as electric charges is stored in solid-state (flash) storage.
+    </p>
+  </div>
+</div>
+
+          <div class="rev-card qa-card">
+  <p>
+
+    Computers use different types of storage.<br>
+    (i) Non-volatile storage keeps its content when the power is turned off.
+    Give one other reason why computers use non-volatile storage. (1)<br>
+    (ii) State the type of secondary storage media that stores data as a sequence of pits and lands. (1)<br>
+    (Total for question = 2 marks)
+  </p>
+
+  <div class="how-to-answer">
+    <b>Command word focus:</b> GIVE / STATE
+    <ul>
+      <li>One reason for part (i)</li>
+      <li>Name the storage type for part (ii)</li>
+    </ul>
+  </div>
+
+ <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
+
+          <button class="secondary answer-toggle">Show answer</button>
+
+  <div class="answer">
+    <b>Mark scheme – ALL acceptable answers:</b>
+    <ul>
+      <li>(i)
+        <ul>
+          <li>To store data/files/programs (1)</li>
+          <li>To back up data/files (1)</li>
+          <li>To store BIOS/boot/start-up instructions (1)</li>
+          <li>Higher capacity than volatile storage (1)</li>
+          <li>More portable than volatile storage (1)</li>
+        </ul>
+      </li>
+      <li>(ii)
+        <ul>
+          <li>Optical storage (1)</li>
+          <li>CD / DVD / Blu-ray Disc allowed</li>
+        </ul>
+      </li>
+    </ul>
+
+    <b>Model full-marks answer:</b>
+    <p>
+      Non-volatile storage is used to store programs and files.
+      Optical storage stores data as pits and lands.
+    </p>
+  </div>
+</div>
+</div>
+
+
+        <button id="printBtn" type="button">
+  Print this worksheet
+</button>
+
+</main>
+
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>

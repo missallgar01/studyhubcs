@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GCSE Computer Science – Programming Languages</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f9ff;
+  padding: 2rem;
+}
+
+h1 { color: #003366; }
+
+.section {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.correct { color: green; font-weight: bold; }
+.incorrect { color: red; font-weight: bold; }
+
+.wordbank span {
+  display: inline-block;
+  background: #e0e0e0;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.score {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+</style>
+</head>
+<body>
+
+<h1>💻 GCSE Computer Science – Programming Languages</h1>
+
+<!-- ================= MCQ ================= -->
+
+<div class="section">
+<h2>1️⃣ Multiple Choice (5 marks)</h2>
+<div id="mcq"></div>
+</div>
+
+<!-- ================= FILL GAPS ================= -->
+
+<div class="section">
+<h2>2️⃣ Fill in the Gaps (5 marks)</h2>
+
+<p>
+Machine code is written in <select id="gap1"></select>.
+</p>
+
+<p>
+Assembly language requires an <select id="gap2"></select>.
+</p>
+
+<p>
+High-level languages are translated using a <select id="gap3"></select>.
+</p>
+
+<p>
+A compiler translates the <select id="gap4"></select> before execution.
+</p>
+
+<p>
+In machine code, the instruction part is called the <select id="gap5"></select>.
+</p>
+
+<h3>Word Bank:</h3>
+<div class="wordbank" id="wordbank"></div>
+
+<div id="gapFeedback"></div>
+
+</div>
+
+<!-- ================= EXPLAIN ================= -->
+
+<div class="section">
+<h2>3️⃣ Explain Question (2 marks)</h2>
+
+<p>Explain one difference between a compiler and an interpreter.</p>
+
+<textarea id="explain" rows="4" cols="70"></textarea>
+
+<div id="explainFeedback"></div>
+
+</div>
+
+<button onclick="markQuiz()">Mark My Work</button>
+<button onclick="resetQuiz()">Reset</button>
+
+<div class="score" id="scoreDisplay"></div>
+
+<script>
+
+/* ================= DATA ================= */
+
+const mcqData = [
+{
+q:"1. Which language is closest to human language?",
+options:["High-level language","Assembly language","Machine code"],
+answer:"High-level language"
+},
+{
+q:"2. Which language is written in binary?",
+options:["Machine code","Assembly language","Python"],
+answer:"Machine code"
+},
+{
+q:"3. What does an assembler do?",
+options:[
+"Translates assembly language into machine code",
+"Runs programs line by line",
+"Translates high-level language"
+],
+answer:"Translates assembly language into machine code"
+},
+{
+q:"4. Which translator runs code one instruction at a time?",
+options:["Interpreter","Compiler","Assembler"],
+answer:"Interpreter"
+},
+{
+q:"5. Assembly language uses:",
+options:["Mnemonics","Binary only","English sentences"],
+answer:"Mnemonics"
+}
+];
+
+const wordBank = [
+"binary",
+"assembler",
+"translator",
+"entire source code",
+"operator"
+];
+
+/* ================= GENERATE MCQ ================= */
+
+const mcqDiv = document.getElementById("mcq");
+
+mcqData.forEach((item,index)=>{
+  let html = `<p>${item.q}</p>`;
+  item.options.forEach(opt=>{
+    html += `<label>
+      <input type="radio" name="mcq${index}" value="${opt}">
+      ${opt}
+    </label><br>`;
+  });
+  html += `<div id="mcqFeedback${index}"></div><hr>`;
+  mcqDiv.innerHTML += html;
+});
+
+/* ================= WORD BANK ================= */
+
+const wordbankDiv = document.getElementById("wordbank");
+wordBank.forEach(word=>{
+  wordbankDiv.innerHTML += `<span>${word}</span>`;
+});
+
+function populateDropdown(id){
+  const select = document.getElementById(id);
+  select.innerHTML = "<option value=''>Select</option>";
+  wordBank.forEach(word=>{
+    select.innerHTML += `<option value="${word}">${word}</option>`;
+  });
+}
+
+["gap1","gap2","gap3","gap4","gap5"].forEach(populateDropdown);
+
+/* ================= MARKING ================= */
+
+function markQuiz(){
+
+let score = 0;
+
+/* ---- MCQ ---- */
+mcqData.forEach((item,index)=>{
+  let selected = document.querySelector(`input[name="mcq${index}"]:checked`)?.value;
+  let feedback = document.getElementById(`mcqFeedback${index}`);
+
+  if(selected === item.answer){
+    score++;
+    feedback.innerHTML = "✔️ Correct";
+    feedback.className="correct";
+  }else{
+    feedback.innerHTML = `❌ Incorrect – Answer: ${item.answer}`;
+    feedback.className="incorrect";
+  }
+});
+
+/* ---- GAPS ---- */
+
+const gapAnswers = {
+gap1:"binary",
+gap2:"assembler",
+gap3:"translator",
+gap4:"entire source code",
+gap5:"operator"
+};
+
+for(let gap in gapAnswers){
+  let value = document.getElementById(gap).value;
+  if(value === gapAnswers[gap]){
+    score++;
+  }
+}
+
+document.getElementById("gapFeedback").innerHTML = "✔️ Gaps marked.";
+
+/* ---- EXPLAIN (2 MARKS) ---- */
+
+let explainText = document.getElementById("explain").value.toLowerCase();
+let explainMarks = 0;
+
+if(explainText.includes("before execution") ||
+   explainText.includes("whole program") ||
+   explainText.includes("entire"))
+   explainMarks++;
+
+if(explainText.includes("line by line") ||
+   explainText.includes("one instruction at a time"))
+   explainMarks++;
+
+score += explainMarks;
+
+let feedbackText;
+
+if(explainMarks === 2){
+  feedbackText = "✔️ 2/2 – Clear difference between compiler and interpreter.";
+}
+else if(explainMarks === 1){
+  feedbackText = "✔️ 1/2 – Partial explanation. Mention when translation happens.";
+}
+else{
+  feedbackText = "❌ 0/2 – You must explain whole-program vs line-by-line translation.";
+}
+
+document.getElementById("explainFeedback").innerHTML = feedbackText;
+
+/* ---- FINAL SCORE ---- */
+
+document.getElementById("scoreDisplay").innerHTML =
+`Total Score: ${score} / 12`;
+
+}
+
+function resetQuiz(){
+location.reload();
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Processor</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Main stylesheet -->
+<link rel="stylesheet" href="../../css/main.css" />
+</head>
+<body>
+<div class="back-container">
+    <a href="../A-studynotes.html">← Back</a>
+  </div>
+<header>
+<h1>Processor – Revision Booklet</h1>
+
+</header>
+<main>
+    <!-- Wrap the whole tabs+panels block in this -->
+<div class="booklet panels" data-tabs>
+
+  <!-- Tab list -->
+  <div role="tablist" aria-label="tabs">
+    <button
+      id="tabbtn-1"
+      type="button"
+      role="tab"
+      aria-controls="tab-1"
+      aria-selected="true"
+      tabindex="0">
+      Inputs and Outputs
+    </button>
+
+    <button
+      id="tabbtn-2"
+      type="button"
+      role="tab"
+      aria-controls="tab-2"
+      aria-selected="false"
+      tabindex="-1">
+      Processors
+    </button>
+
+      <button
+      id="tabbtn-3"
+      type="button"
+      role="tab"
+      aria-controls="tab-3"
+      aria-selected="false"
+      tabindex="-1">
+     RAM, ROM and Virtual Storage
+    </button>
+
+      <button
+      id="tabbtn-4"
+      type="button"
+      role="tab"
+      aria-controls="tab-4"
+      aria-selected="false"
+      tabindex="-1">
+      Types of Processors
+    </button>
+
+      <button
+      id="tabbtn-5"
+      type="button"
+      role="tab"
+      aria-controls="tab-5"
+      aria-selected="false"
+      tabindex="-1">
+      CPU Performance
+    </button>
+
+      <button
+      id="tabbtn-6"
+      type="button"
+      role="tab"
+      aria-controls="tab-6"
+      aria-selected="false"
+      tabindex="-1">
+      Secondary Storage
+    </button>
+
+  </div>
+
+  <!-- Panels -->
+  <div class="panels">
+   <div
+      id="tab-1"
+      role="tabpanel"
+      aria-labelledby="tabbtn-1">
+     <div class="vertical-knowledge">
+
+    <div class="knowledge-card">
+    <h3>Define the terms hardware and software</h3>
+    <p><strong>Hardware</strong> – physical parts of a computer system</p>
+    <p><strong>Software</strong> – instructions and programs to make the computer work</p>
+    <h3>State what is meant by input and output devices</h3>
+    <p><strong>Input</strong> – hardware used to put data into a computer</p>
+    <p>
+    <strong>Output</strong> – hardware used to get data from a computer,
+        for example a screen, printer, or actuator.
+        An actuator produces physical movement in response to computer signals.
+      </p>
+    <h3>Explain what is meant by a peripheral</h3>
+    <p>
+        A peripheral is external to the computer and connects to the computer,
+        for example a printer, keyboard, or mouse.
+      </p>
+    <table>
+    <thead>
+    <tr>
+    <th colspan="2">Input devices</th>
+    </tr>
+    <tr>
+    <th>Manual</th>
+    <th>Automatic</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>
+    <ul>
+    <li>Keyboards</li>
+    <li>Touch-sensitive keyboards and concept keyboards</li>
+    <li>Touch screens</li>
+    <li>Graphical tablets</li>
+    <li>Mouse</li>
+    <li>Image capture</li>
+    <li>Web cams and microphones</li>
+    <li>Voice recognition</li>
+    <li>Scanners</li>
+    <li>Digital cameras</li>
+    <li>Biometric devices – fingerprint, facial and retinal scanning</li>
+    </ul>
+    </td>
+    <td>
+    <p><strong>Automatic data input methods:</strong></p>
+    <ul>
+    <li>Bar codes</li>
+    <li>Laser scanners</li>
+    <li>Camera-based readers</li>
+    <li>Radio Frequency Identification (RFID)</li>
+    </ul>
+    <p><strong>Data logging:</strong></p>
+    <ul>
+    <li>Heart rate sensor</li>
+    <li>GPS (receiver)</li>
+    <li>Accelerometer / gyroscope / motion sensor</li>
+    <li>Thermometers, light and UV sensors</li>
+    <li>Skin response sensors</li>
+    <li>Magnetometers, gyrometer, ECG etc.</li>
+    </ul>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+
+   <div
+      id="tab-2"
+      role="tabpanel"
+      aria-labelledby="tabbtn-2"
+      hidden>
+       <div class="vertical-knowledge">
+      <div class="knowledge-card">
+<h3>Explain the need for, and use of, registers in the functioning of the processor</h3>
+<h4>Program Counter (PC)</h4>
+<ul>
+<li>
+      Holds the address of the next instruction to be executed by the processor
+    </li>
+</ul>
+<h4>Memory Address Register (MAR)</h4>
+<ul>
+<li>
+      Holds the address of the location where data will be stored or retrieved from memory
+    </li>
+<li>
+      Stores the position/address in memory of the location containing either:
+      <ul>
+<li>the next piece of data to be read, or</li>
+<li>the next instruction to be used</li>
+</ul>
+</li>
+</ul>
+<h4>Memory Data Register (MDR)</h4>
+<ul>
+<li>
+      The contents of the address specified in the MAR are copied to the MDR
+    </li>
+<li>
+      This may be an instruction, operation, or data to be used with an instruction
+    </li>
+<li>
+      It may contain data to be copied to an address
+    </li>
+</ul>
+<h4>Current Instruction Register (CIR)</h4>
+<ul>
+<li>
+      Holds the instruction while it is being decoded and executed
+    </li>
+<li>
+      The contents of the MDR are copied into the CIR if it is an instruction
+    </li>
+<li>
+      The operation code (opcode) is the first part of the instruction
+    </li>
+<li>
+      The remainder of the instruction is the address of the data to be used
+      in the operation, or the data itself if an immediate operand is used
+    </li>
+</ul>
+<h4>Accumulator</h4>
+<ul>
+<li>
+      Holds the data currently being processed
+    </li>
+<li>
+      Results of processing are stored in the accumulator
+    </li>
+<li>
+      The results of arithmetic operations are carried out in the ALU
+    </li>
+<li>
+      All input/output goes through the accumulator
+    </li>
+</ul>
+</div>
+      <div class="knowledge-card">
+    <h4>Describe 4 steps in the Fetch–Decode–Execute (FDE) cycle</h4>
+
+        <img src="images/processors/p02_describe-4-steps-in-the-fde-cycle_01.png" height="351" width="744"/>
+        <ol>
+    <li>
+          The CPU reads the <strong>contents</strong> of the
+          <strong>Program Counter (PC)</strong> to find the
+          <strong>address</strong> of the next instruction to be fetched,
+          decoded, and executed.
+        </li>
+    <li>
+          As soon as it is read, the <strong>PC increments</strong>.
+        </li>
+    <li>
+          The <strong>contents</strong> from the <strong>PC</strong> are then
+          <strong>copied</strong> into the <strong>Memory Address Register (MAR)</strong>.
+        </li>
+    <li>
+          The address in the <strong>MAR</strong> is <strong>sent</strong> across the
+          <strong>address bus</strong> to locate the contents in RAM.
+        </li>
+    <li>
+          The <strong>control unit</strong> sends a read signal across the
+          <strong>control bus</strong> to read from the memory address.
+        </li>
+    <li>
+          The <strong>contents</strong> of this address are
+          <strong>copied</strong> to the <strong>Memory Data Register (MDR)</strong>
+          via the <strong>data bus</strong>.
+        </li>
+    <li>
+          The <strong>MDR</strong> now holds the instruction that must be executed.
+        </li>
+    <li>
+          The instruction in the <strong>MDR</strong> is then
+          <strong>copied</strong> to the <strong>Current Instruction Register (CIR)</strong>,
+          as the MDR may be needed again to complete execution.
+        </li>
+    </ol>
+    <p><strong>Key words:</strong> contents, copied, send / transferred</p>
+    </div>
+      <div class="knowledge-card">
+<h3>Explain the need for, and describe the use of, buses to convey information</h3>
+<ul>
+<li>
+      A bus is a parallel group of wires that is able to transmit groups
+      of bits together from one location or register to another in the processor
+    </li>
+<li>
+<strong>Control bus</strong> – transmits control signals from the
+      control unit to the rest of the processor
+    </li>
+<li>
+<strong>Address bus</strong> – carries the location address to where
+      the data is going
+    </li>
+<li>
+<strong>Data bus</strong> – carries the data from one register to another
+    </li>
+</ul>
+<h3>What is a register?</h3>
+<ul>
+<li>
+      Temporary storage or memory location inside the CPU
+    </li>
+<li>
+      Used for a single, specific purpose
+    </li>
+<li>
+      Has faster access speed than RAM or secondary storage
+    </li>
+</ul>
+</div>
+    </div>
+    </div>
+
+   <div
+      id="tab-3"
+      role="tabpanel"
+      aria-labelledby="tabbtn-3"
+      hidden>
+    <div class="vertical-knowledge">
+    <div class="knowledge-card">
+    <h4>RAM, ROM and Virtual Memory</h4>
+    <!-- PRIMARY MEMORY COMPARISON -->
+    <table>
+    <thead>
+    <tr>
+    <th>Random Access Memory (RAM)</th>
+    <th>Read Only Memory (ROM)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>
+    <ul>
+    <li>Volatile – loses its data when power is removed</li>
+    <li>Read / Write</li>
+    </ul>
+    <p><strong>Type of software:</strong></p>
+    <ul>
+    <li>Application software</li>
+    <li>Operating system</li>
+    <li>User files</li>
+    </ul>
+    <p><strong>Reason:</strong></p>
+    <ul>
+    <li>
+                Allows changes to be made to files currently in use
+              </li>
+    <li>Provides fast access to data</li>
+    </ul>
+    </td>
+    <td>
+    <ul>
+    <li>Non-volatile – does not lose data when power is switched off</li>
+    <li>Read only</li>
+    </ul>
+    <p><strong>Type of software:</strong></p>
+    <ul>
+    <li>Bootstrap program</li>
+    </ul>
+    <p><strong>Reason:</strong></p>
+    <ul>
+    <li>
+                Program is required immediately when the computer is switched on
+              </li>
+    <li>Must always be available</li>
+    </ul>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <!-- EMBEDDED PROCESSORS -->
+    <div class="knowledge-card">
+    <h4>An embedded processor has control systems</h4>
+    <p>
+        Explain why the control software is stored on ROM and explain why it
+        will be necessary to have some RAM.
+      </p>
+    <ul>
+    <li>The control software does not need to be changed</li>
+    <li>Cannot be changed</li>
+    <li>Will not need loading or installing</li>
+    <li>Immediately available when switched on</li>
+    </ul>
+    </div>
+    <!-- ROM AND START-UP PROCESS -->
+    <div class="knowledge-card">
+    <h4>ROM and the start-up process</h4>
+    <ul>
+    <li>Contains the computer start-up instructions</li>
+    <li>Loads settings and configuration (CMOS / NVRAM)</li>
+    <li>
+          Initialises and checks hardware and peripheral devices and carries
+          out a POST check
+        </li>
+    <li>Reports errors</li>
+    <li>Determines the drive on which the operating system is stored</li>
+    <li>Loads the bootstrap / operating system into main memory</li>
+    </ul>
+    </div>
+    <!-- VIRTUAL MEMORY -->
+    <div class="knowledge-card">
+    <h4>What is Virtual Memory?</h4>
+    <ul>
+    <li>Used when the amount of RAM available is insufficient</li>
+    <li>Used to store instructions and data</li>
+    <li>Uses secondary storage</li>
+    </ul>
+    <h4>Drawbacks</h4>
+    <ul>
+    <li>
+          Slower access speeds as sections of programs must be moved from
+          secondary storage to RAM
+        </li>
+    <li>
+    <strong>Disk thrashing</strong> – occurs when RAM is too full and
+          the system repeatedly swaps data between RAM and the hard drive
+        </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+
+   <div
+      id="tab-4"
+      role="tabpanel"
+      aria-labelledby="tabbtn-4"
+      hidden>
+        <div class="vertical-knowledge">
+        <div class="knowledge-card">
+
+        <h4>Features of Von Neumann and Contemporary Processors</h4>
+        <table>
+        <thead>
+        <tr>
+        <th>Von Neumann Architecture<p><img src="images/processors/p06_features-of-von-neumann-and-contemporary-processors_01.png"
+                                            width="50%"/></p></th>
+        <th>Harvard Architecture<p><img src="images/processors/p06_features-of-von-neumann-and-contemporary-processors_02.png"
+                                   width="50%"  /></p></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>
+                Instructions and data stored in the same area of memory
+              </td>
+        <td>
+                Data and instructions are stored in separate memory units
+              </td>
+        </tr>
+        <tr>
+        <td>
+                Fetches data and instructions sequentially and follows the
+                Fetch–Decode–Execute cycle
+              </td>
+        <td>
+                Can fetch data and instructions at the same time
+                (fetching the next instruction while reading or writing data)
+              </td>
+        </tr>
+        <tr>
+        <td>
+                Uses a single bus for both data and instructions
+              </td>
+        <td>
+                Uses different buses for data and instructions
+              </td>
+        </tr>
+        <tr>
+        <td>
+                Single control bus
+              </td>
+        <td>
+                Separate control buses
+              </td>
+        </tr>
+        <tr>
+        <td>
+                Slower due to the <strong>Von Neumann bottleneck</strong>
+                (caused by using the same bus)
+              </td>
+        <td>
+                Faster because data and instructions are accessed
+                <strong>in parallel</strong>
+        </td>
+        </tr>
+        <tr>
+        <td>
+                Used in <strong>general-purpose computers</strong>
+                (e.g. PCs and laptops)
+              </td>
+        <td>
+                Common in <strong>embedded systems</strong> and
+                <strong>microcontrollers</strong>, including
+                Digital Signal Processing (DSP) systems
+              </td>
+        </tr>
+        <tr>
+        <td>
+                Can be optimised using <strong>pipelining</strong>
+        </td>
+        <td>
+                Can use <strong>different word lengths</strong> for data
+                and instructions to optimise memory usage
+              </td>
+        </tr>
+        <tr>
+        <td>
+                Same word length for both data and instructions
+              </td>
+        <td>
+                Different word lengths may be used
+              </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+
+        <div class="knowledge-card">
+        <p>
+        <strong>Exam note:</strong><br/>
+            Do <strong>not</strong> use the phrase
+            “instructions and data are stored in the same memory location”.
+          </p>
+        </div>
+
+        <div class="knowledge-card">
+
+        <h4>Examiner Tips and Tricks</h4>
+        <p>
+        <strong>
+              You will not be asked about specific aspects of
+              “contemporary processor architecture” apart from those on this page.
+            </strong>
+            You may be asked to show an awareness of how contemporary processors
+            differ from a pure Von Neumann architecture in more open questions.
+          </p>
+        <h4>Features of contemporary processors</h4>
+        <ul>
+        <li>
+              Two separate areas of memory — one for instructions and one for data —
+              meaning instructions and data can be accessed <strong>concurrently</strong>
+        </li>
+        <li>
+              Different sets of buses — one for instructions and one for data —
+              allowing instructions and data to be accessed concurrently
+            </li>
+        <li>
+        <strong>Pipelining</strong> — while an instruction is being executed,
+              the next instruction can be decoded and the subsequent one fetched
+            </li>
+        <li>
+        <strong>Use of cache</strong> — a small amount of high-performance memory
+              next to the CPU which stores frequently used data and instructions
+            </li>
+        <li>
+        <strong>Virtual cores / Hyper-threading</strong> — treating one physical
+              core as two virtual cores
+            </li>
+        <li>
+        <strong>Multiple cores</strong> — each core acts as a separate processing unit
+            </li>
+        <li>
+        <strong>Onboard graphics</strong> — built-in circuitry for graphics processing
+            </li>
+        </ul>
+        <p>
+            Modern processors are <strong>hybrids</strong> that combine features of both
+            <strong>Von Neumann</strong> and <strong>Harvard</strong> designs.
+            The main memory (RAM) stores both data and instructions together
+            (like Von Neumann).
+            Inside the CPU, there are <strong>separate caches</strong> for data and
+            instructions (like Harvard).
+            This allows <strong>simultaneous access</strong> to data and instructions
+            for higher performance.
+          </p>
+        </div>
+
+        <div class="knowledge-card">
+        <h4>Contemporary Processors – CISC vs RISC</h4>
+
+            <img src="images/processors/p08_contemporary-processors-cisc-vs-risc_01.jpeg" height="269" width="600"/>
+            <p><strong>Example:</strong></p>
+        <p>
+            Multiply value in memory location <strong>X</strong> by value in memory
+            location <strong>Y</strong>; store result back into location <strong>X</strong>.
+            Registers <strong>A</strong> and <strong>B</strong> are available.
+          </p>
+        <div class="assembly-example">
+        <p><strong>CISC Assembly:</strong></p>
+        <pre>IMUL X, Y</pre>
+        <p><strong>RISC Assembly:</strong></p>
+        <pre>
+        LOAD A, X
+        LOAD B, Y
+        PROD A, B
+        STORE X, A
+            </pre>
+        </div>
+        <table>
+        <thead>
+        <tr>
+        <th>RISC</th>
+        <th>CISC</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Smaller instruction set</td>
+        <td>Larger instruction set</td>
+        </tr>
+        <tr>
+        <td>
+                Requires less complex hardware, little cooling, lower manufacture cost,
+                fewer transistors
+              </td>
+        <td>
+                Requires more complex hardware, more cooling, more expensive to manufacture,
+                more transistors
+              </td>
+        </tr>
+        <tr>
+        <td>One clock cycle to execute an instruction</td>
+        <td>Multiple clock cycles to execute an instruction</td>
+        </tr>
+        <tr>
+        <td>Tends to use less energy</td>
+        <td>Tends to use more energy</td>
+        </tr>
+        <tr>
+        <td>Uses more RAM</td>
+        <td>Uses less RAM</td>
+        </tr>
+        <tr>
+        <td>Easier to pipeline</td>
+        <td>Difficult to pipeline</td>
+        </tr>
+        <tr>
+        <td>
+                Compiler has to do more work to translate code into machine code
+              </td>
+        <td>
+                Compiler has to do less work to translate code into machine code
+              </td>
+        </tr>
+        <tr>
+        <td>Fewer addressing modes (drawback)</td>
+        <td>More addressing modes</td>
+        </tr>
+        <tr>
+        <td>
+                Suitable for applications requiring <strong>high-speed processing</strong>
+                and efficiency, such as embedded systems and mobile devices, due to
+                <strong>faster, simpler instructions</strong>
+        </td>
+        <td>
+                Preferred in <strong>general-purpose computers</strong> where
+                <strong>ease of programming</strong> is important, as complex instructions
+                can simplify software
+              </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+</div>
+
+   <div
+      id="tab-5"
+      role="tabpanel"
+      aria-labelledby="tabbtn-5"
+      hidden>
+        <div class="vertical-knowledge">
+        <div class="knowledge-card">
+
+        <h4>What affects CPU performance and why?</h4>
+        <h5>Cores</h5>
+        <p>
+            The number of cores has an impact on performance. Each core is a processing unit,
+            giving the potential for multiple instructions to be run simultaneously.
+          </p>
+        <p>
+            Depending on the situation, four cores running at 100 MHz may perform better
+            than one core running at 300 MHz.
+          </p>
+        <h5>Cache</h5>
+        <p>
+            The amount of cache (and cache levels) benefits performance.
+            Cache helps reduce the bottleneck caused by RAM being slow.
+          </p>
+        <p>
+            No matter how fast the clock speed is, access time to RAM will always be
+            a limiting factor.
+          </p>
+        <h5>Contemporary processors</h5>
+        <p>
+            Contemporary processors have performance-enhancing features such as
+            pipelining and out-of-order execution.
+          </p>
+        <p>
+            Harvard architecture processors benefit from having separate data and
+            instruction memories.
+          </p>
+        <p>
+            In conclusion, performance cannot be judged solely on clock speed.
+            A processor without cache may be outperformed by a processor with a slower
+            clock speed but access to cache.
+          </p>
+        <p>
+            Processors also include other performance enhancements such as pipelining.
+          </p>
+        </div>
+
+        <div class="knowledge-card">
+        <h4>Pipelining</h4>
+
+            <img src="images/processors/p11_cpu-performance_01.png" height="202" width="624"/>
+            <p>
+            Pipelining is a technique used by some processors to improve performance.
+            Without pipelining, the steps in the Fetch–Execute cycle take place one
+            after the other.
+          </p>
+        <ul>
+        <li>
+              Allows the next instruction to be fetched whilst the previous one is
+              being decoded or executed
+            </li>
+        <li>
+              Allows overlapping of different parts of the Fetch–Decode–Execute cycle
+            </li>
+        <li>
+              Increases throughput — increases the number of instructions processed
+              in a given time period
+            </li>
+        <li>
+              Prevents the CPU from waiting and reduces idle components
+            </li>
+        <li>
+              Common in modern microprocessors used in personal computers
+            </li>
+        <li>
+              Can allow as many as six instructions to be executed simultaneously
+            </li>
+        </ul>
+        </div>
+
+        <div class="knowledge-card">
+        <h4>
+            The performance of a computer system can be improved by adding more RAM
+          </h4>
+        <h5>Explain why adding more RAM improves performance</h5>
+        <ul>
+        <li>
+              Allows more active, running, and temporary data to be stored in RAM
+            </li>
+        <li>
+              Reduces the need to use virtual memory
+            </li>
+        <li>
+              RAM is faster to access than virtual memory or secondary storage
+            </li>
+        <li>
+              Data in virtual memory must be swapped into RAM before use
+            </li>
+        <li>
+              Using RAM rather than virtual memory reduces the risk of disk thrashing
+            </li>
+        <li>
+              Faster boot-up and shutdown times and reduced load/access times
+            </li>
+
+        <li>More than one processor controlled by a complex operating system</li>
+        <li>Working together to perform a single job which is split into tasks</li>
+        <li>Each task may be performed by any processor</li>
+        </ul>
+        </div>
+
+        <div class="knowledge-card">
+            <img src="images/processors/p12_each-task-may-be-performed-by-any-processor_01.jpeg" width="60%"/>
+            <h4>Advantages and disadvantages of a parallel processor compared with a single processor system</h4>
+        <h5>Advantages</h5>
+        <ul>
+        <li>Increased speed — multiple instructions processed at once</li>
+        <li>Complex tasks performed efficiently</li>
+        <li>Allows faster processing</li>
+        <li>More than one instruction (of a program) is processed at the same time</li>
+        <li>Different processors can handle different tasks or parts of the same job</li>
+        </ul>
+        <h5>Disadvantages</h5>
+        <ul>
+        <li>Not suitable for some programs</li>
+        <li>Programs may need to be written specially or rewritten</li>
+        <li>Operating system is more complex</li>
+        <li>Must ensure synchronisation</li>
+        <li>Program must be written in a suitable format</li>
+        <li>Programs are more difficult to test, write, and debug</li>
+        </ul>
+        </div>
+
+        <div class="knowledge-card">
+        <h4>Graphics Card (GPU)</h4>
+
+            <img src="images/processors/p12_each-task-may-be-performed-by-any-processor_02.jpeg" width="70%"/>
+            <ul>
+
+        <li>
+        <strong>Specialised processor</strong> for handling graphics rendering
+              and image processing
+            </li>
+        <li>
+              Acts as a <strong>co-processor</strong>, working alongside the CPU
+            </li>
+        <li>
+              Contains hundreds or thousands of simpler cores designed for
+              <strong>parallel tasks</strong>
+        </li>
+        </ul>
+        <h5>Purpose in Gaming</h5>
+        <ul>
+        <li>
+              Creates 3-D images — builds wireframes, rasterises (fills in pixels),
+              and adds lighting, texture, and colour
+            </li>
+        <li>
+              Handles this process around <strong>60 times per second</strong>
+              for smooth gameplay
+            </li>
+        </ul>
+        <h5>Why it’s Needed</h5>
+        <ul>
+        <li>Over 1 million pixels per screen image at common resolutions</li>
+        <li>Graphics processing is too demanding for the CPU alone</li>
+        <li>Offloads intensive tasks from the CPU to improve overall performance</li>
+        </ul>
+        <h5>Benefits</h5>
+        <ul>
+        <li>Faster image rendering</li>
+        <li>Smoother gameplay</li>
+        <li>Better visual quality and responsiveness</li>
+        </ul>
+        </div>
+
+        <div class="knowledge-card">
+        <h4>Co-processor</h4>
+        <p>
+            In some computer systems, a <strong>co-processor</strong> may be used.
+            A co-processor is:
+          </p>
+        <ul>
+        <li>An additional processor used for a specific task</li>
+        <li>Improves processing speed by executing tasks concurrently</li>
+        <li>
+              Example: maths co-processor / floating-point accelerator
+            </li>
+        </ul>
+        </div>
+
+        <div class="knowledge-card">
+        <h4>Example: Converting a colour image to greyscale using a GPU</h4>
+        <ol>
+        <li>
+        <strong>Split the image</strong> — the GPU divides the image into
+              thousands of small blocks or pixels so each can be worked on separately
+            </li>
+        <li>
+        <strong>Send tasks to many cores</strong> — each GPU core receives
+              a small piece of the image (e.g. one pixel or a group of pixels)
+            </li>
+        <li>
+        <strong>Process pixels in parallel</strong> — all cores run the same
+              instructions (e.g. adjusting colour, brightness, or applying a filter)
+              at the same time on different pixels
+            </li>
+        <li>
+        <strong>Combine the results</strong> — once all cores finish, the GPU
+              combines the processed pixels into a single complete image
+            </li>
+        <li>
+        <strong>Display or save the image</strong> — the final image is sent
+              to the screen or stored in memory
+            </li>
+        </ol>
+        </div>
+
+        <div class="knowledge-card">
+        <table>
+        <thead>
+        <tr>
+        <th>Feature</th>
+        <th>CPU</th>
+        <th>GPU</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><strong>Primary Role</strong></td>
+        <td>General-purpose computing and system control</td>
+        <td>Specialised for graphics rendering and parallel processing</td>
+        </tr>
+        <tr>
+        <td><strong>Architecture</strong>
+
+
+
+        <td>
+                Fewer, more powerful cores designed for sequential tasks
+                <br/><em>(fewer strong cores)</em>
+             <img src="images/processors/p13_feature_01.png" height="213" width="205"/></td>
+        </td>
+        <td>
+                Hundreds or thousands of simpler cores designed for parallel tasks
+                <br/><em>(many weaker cores)</em>
+
+            <img src="images/processors/p13_feature_02.png"  width="70%"/></td>
+        </tr>
+        <tr>
+        <td><strong>Best For</strong></td>
+        <td>
+        <ul>
+        <li>Running operating systems and applications</li>
+        <li>Managing system operations</li>
+        <li>
+                    Tasks that require fast switching between different instructions
+                  </li>
+        <li>
+                    Quickly processing tasks that require interactivity
+                  </li>
+        </ul>
+        </td>
+        <td>
+        <ul>
+        <li>Gaming</li>
+        <li>Video editing</li>
+        <li>3D rendering</li>
+        <li>Machine learning</li>
+        <li>
+                    Running the same instruction on many different data points
+                    simultaneously
+                  </li>
+        <li>
+                    Breaking jobs into separate tasks to process in parallel
+                  </li>
+        </ul>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+
+   </div>
+</div>
+
+   <div
+      id="tab-6"
+      role="tabpanel"
+      aria-labelledby="tabbtn-6"
+      hidden>
+    <div class="vertical-knowledge">
+        <div class="knowledge-card">
+    <table>
+    <thead>
+    <tr>
+    <th>Magnetic Storage</th>
+    <th>Optical Storage</th>
+    <th>Solid State Storage</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>
+    <p><strong>Types:</strong> HDD (internal and external), Magnetic tapes</p>
+    <p><strong>How data is stored and read</strong></p>
+    <p>
+              Data is stored as magnetised regions on a spinning disk (platter).
+              A read/write head changes the magnetic direction to represent
+              binary data (0s and 1s).
+            </p>
+    <p>
+              The data is read using the read/write head that moves across the
+              spinning disk and detects the magnetic changes, converting them
+              into binary data.
+            </p>
+    <p><strong>Advantages</strong></p>
+    <ul>
+    <li>High storage capacity at a lower cost per GB</li>
+    <li>Can be rewritten multiple times</li>
+    <li>Suitable for large-scale data storage (e.g. servers, backups)</li>
+    </ul>
+    <p><strong>Disadvantages</strong></p>
+    <ul>
+    <li>Slower than SSDs due to moving parts</li>
+    <li>Fragile — moving parts can wear out or fail</li>
+    <li>Can be noisy and generate heat</li>
+    </ul>
+    </td>
+    <td>
+    <p><strong>Types:</strong> CDs, DVDs</p>
+    <p><strong>How data is stored and read</strong></p>
+    <p>
+              Data is stored as tiny indentations (pits) and flat areas (lands)
+              on a reflective disc. A laser burns the pattern onto the disc surface.
+            </p>
+    <p>
+              A laser reads the data stored on the disc.
+            </p>
+    <p><strong>Advantages</strong></p>
+    <ul>
+    <li>Small and light, so very portable</li>
+    <li>Inexpensive for distributing media (movies, music, software)</li>
+    <li>Good for long-term archiving if stored properly</li>
+    </ul>
+    <p><strong>Disadvantages</strong></p>
+    <ul>
+    <li>Slower read/write speeds compared to HDDs and SSDs</li>
+    <li>Limited storage capacity per disc (e.g. 4.7GB for a DVD)</li>
+    <li>Easily scratched or damaged, affecting data readability</li>
+    </ul>
+    </td>
+    <td>
+    <p><strong>Types:</strong> SSDs, USB flash drives, Memory cards</p>
+    <p><strong>How data is stored and read</strong></p>
+    <p>
+              Solid-state storage stores data using NAND flash memory chips.
+              Each memory cell holds an electric charge, representing binary
+              data (0s and 1s).
+            </p>
+    <p>
+              To read data, the storage controller sends an electric signal
+              to a memory cell.
+            </p>
+    <p><strong>Charge detection:</strong></p>
+    <ul>
+    <li>If electrons are present, it is read as 0</li>
+    <li>If electrons are absent, it is read as 1</li>
+    </ul>
+    <p><strong>Advantages</strong></p>
+    <ul>
+    <li>Very fast read/write speeds</li>
+    <li>No moving parts — more durable and reliable</li>
+    <li>Energy-efficient and silent</li>
+    <li>Physically small and compact</li>
+    <li>Light and portable</li>
+    </ul>
+    <p><strong>Disadvantages</strong></p>
+    <ul>
+    <li>Smaller capacity than HDDs as more expensive per GB</li>
+    <li>Limited lifespan</li>
+    </ul>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<footer>
+    © <span id="year"></span> StudyHub CS
+  </footer>
+
+<script src="../js/booklets.js"></script>
+<div id="command-words"></div>
+
+</body>
+</html>
