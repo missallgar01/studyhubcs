@@ -12,37 +12,53 @@ body{
 }
 
 .container{
-  width:800px;
+  width:900px;
   margin:20px auto;
 }
 
 .queue{
   display:flex;
   justify-content:center;
-  gap:10px;
+  gap:12px;
   margin:20px 0;
 }
 
 .process{
+  width:100px;
   padding:15px;
-  border-radius:8px;
+  border-radius:10px;
   color:#fff;
   font-weight:bold;
-  width:80px;
 }
 
 .cpu{
-  background:#333;
-  color:#fff;
-  padding:20px;
-  border-radius:10px;
+  width:250px;
   margin:20px auto;
-  width:200px;
+  padding:20px;
+  background:#222;
+  color:#fff;
+  border-radius:12px;
+  font-size:18px;
+}
+
+.timeline{
+  width:100%;
+  height:20px;
+  background:#ddd;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:15px;
+}
+
+.progress{
+  height:100%;
+  width:0%;
+  background:#4CAF50;
 }
 
 button{
   padding:8px 14px;
-  margin:5px;
+  margin:6px;
 }
 
 #status{
@@ -50,8 +66,8 @@ button{
   font-weight:bold;
 }
 
-.completed{
-  opacity:0.4;
+input{
+  width:60px;
 }
 
 </style>
@@ -60,13 +76,24 @@ button{
 
 <h1>Round Robin Scheduling</h1>
 
-<p>Each process gets 2 time units (time slice).</p>
+<p>
+A multitasking operating system executes one process at a time but rapidly
+switches between them using time slices.
+</p>
 
 <div class="container">
+
+<label>Time Slice:
+<input type="number" id="quantum" value="2" min="1">
+</label>
 
 <div class="queue" id="queue"></div>
 
 <div class="cpu" id="cpu">CPU Idle</div>
+
+<div class="timeline">
+  <div class="progress" id="progress"></div>
+</div>
 
 <button onclick="start()">Start</button>
 <button onclick="reset()">Reset</button>
@@ -77,17 +104,15 @@ button{
 
 <script>
 
-const timeSlice = 2;
-
-let processes = [
+let processes=[
   {name:"P1", time:5, color:"#4CAF50"},
   {name:"P2", time:3, color:"#2196F3"},
   {name:"P3", time:6, color:"#FF5722"},
   {name:"P4", time:4, color:"#9C27B0"}
 ];
 
-let queue = [];
-let running = false;
+let queue=[];
+let running=false;
 
 function renderQueue(){
   const q=document.getElementById("queue");
@@ -96,7 +121,7 @@ function renderQueue(){
     const div=document.createElement("div");
     div.className="process";
     div.style.background=p.color;
-    div.innerText=p.name+"\n"+p.time;
+    div.innerHTML=p.name+"<br>"+p.time+" units";
     q.appendChild(div);
   });
 }
@@ -105,11 +130,10 @@ function start(){
 
   if(running) return;
 
-  queue = JSON.parse(JSON.stringify(processes));
+  queue=JSON.parse(JSON.stringify(processes));
   running=true;
-
   document.getElementById("status").innerText=
-  "Round Robin scheduling started...";
+  "Scheduling started...";
 
   runNext();
 }
@@ -124,25 +148,37 @@ function runNext(){
     return;
   }
 
-  const current = queue.shift();
+  const quantum=parseInt(document.getElementById("quantum").value);
+  const current=queue.shift();
 
   document.getElementById("cpu").innerText=
   current.name+" running";
 
-  let runTime = Math.min(timeSlice,current.time);
+  let runTime=Math.min(quantum,current.time);
+  let progressBar=document.getElementById("progress");
+  progressBar.style.width="0%";
 
-  setTimeout(()=>{
+  let step=0;
+  const steps=20;
 
-    current.time -= runTime;
+  const interval=setInterval(()=>{
+    step++;
+    progressBar.style.width=(step/steps*100)+"%";
 
-    if(current.time>0){
-      queue.push(current);
+    if(step>=steps){
+      clearInterval(interval);
+
+      current.time-=runTime;
+
+      if(current.time>0){
+        queue.push(current);
+      }
+
+      renderQueue();
+      runNext();
     }
 
-    renderQueue();
-    runNext();
-
-  },1000);
+  },100);
 
 }
 
@@ -150,6 +186,7 @@ function reset(){
   queue=[];
   renderQueue();
   document.getElementById("cpu").innerText="CPU Idle";
+  document.getElementById("progress").style.width="0%";
   document.getElementById("status").innerText="Reset complete.";
   running=false;
 }

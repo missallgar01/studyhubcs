@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Memory Management Demo</title>
+
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f4f6f9;
+}
+
+.container{
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  margin-top:30px;
+}
+
+.memory{
+  display:grid;
+  grid-template-rows: repeat(8, 50px);
+  gap:6px;
+}
+
+.block{
+  width:150px;
+  height:50px;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  color:#fff;
+}
+
+.empty{ background:#ccc; color:#333; }
+.ram{ background:#4CAF50; }
+.virtual{ background:#FF5722; }
+
+button{
+  padding:8px 14px;
+  margin:6px;
+}
+
+#status{
+  margin-top:15px;
+  font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Memory Management Simulation</h1>
+<p>Demonstrates paging and virtual memory.</p>
+
+<button onclick="addProcess()">Add Process</button>
+<button onclick="addHighPriority()">Add High Priority Process</button>
+<button onclick="reset()">Reset</button>
+
+<div id="status">RAM ready.</div>
+
+<div class="container">
+
+<div>
+<h3>RAM (8 Pages)</h3>
+<div id="ram" class="memory"></div>
+</div>
+
+<div>
+<h3>Virtual Memory (Disk)</h3>
+<div id="virtual" class="memory"></div>
+</div>
+
+</div>
+
+<script>
+
+const ramSize = 8;
+let ram = [];
+let virtual = [];
+let processCount = 1;
+
+function render(){
+
+  const ramDiv=document.getElementById("ram");
+  const virtualDiv=document.getElementById("virtual");
+
+  ramDiv.innerHTML="";
+  virtualDiv.innerHTML="";
+
+  ram.forEach(p=>{
+    const div=document.createElement("div");
+    div.className="block ram";
+    div.innerText=p;
+    ramDiv.appendChild(div);
+  });
+
+  while(ramDiv.children.length<ramSize){
+    const div=document.createElement("div");
+    div.className="block empty";
+    div.innerText="Free";
+    ramDiv.appendChild(div);
+  }
+
+  virtual.forEach(p=>{
+    const div=document.createElement("div");
+    div.className="block virtual";
+    div.innerText=p;
+    virtualDiv.appendChild(div);
+  });
+
+}
+
+function addProcess(){
+
+  const name="P"+processCount++;
+
+  if(ram.length < ramSize){
+    ram.push(name);
+    document.getElementById("status").innerText=
+    name+" loaded into RAM.";
+  } else {
+    const moved=ram.shift();
+    virtual.push(moved);
+    ram.push(name);
+
+    document.getElementById("status").innerText=
+    "RAM full. "+moved+" moved to Virtual Memory. "+name+" loaded.";
+  }
+
+  render();
+}
+
+function addHighPriority(){
+
+  const name="HP"+processCount++;
+
+  if(ram.length < ramSize){
+    ram.unshift(name);
+    document.getElementById("status").innerText=
+    "High priority process loaded into RAM.";
+  } else {
+    const removed=ram.pop();
+    virtual.push(removed);
+    ram.unshift(name);
+
+    document.getElementById("status").innerText=
+    "Lower priority "+removed+" swapped to disk. High priority loaded.";
+  }
+
+  render();
+}
+
+function reset(){
+  ram=[];
+  virtual=[];
+  processCount=1;
+  document.getElementById("status").innerText="System reset.";
+  render();
+}
+
+render();
+
+</script>
+
+</body>
+</html>
