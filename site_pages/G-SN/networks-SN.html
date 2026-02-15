@@ -37,14 +37,15 @@
 </div>
 
 <div class="knowledge-card">
-  <h3>LAN (Local Area Network)</h3>
+    <h3>LAN vs WAN</h3>
+  <h4>LAN (Local Area Network)</h4>
   <p>
     A LAN covers a small geographical area, such as a single building or campus.
     It usually uses infrastructure owned by one organisation and connects devices
     using switches.
   </p>
 
-  <h3>WAN (Wide Area Network)</h3>
+  <h4>WAN (Wide Area Network)</h4>
   <p>
     A WAN covers a large geographical area and connects multiple LANs. It often
     uses third-party infrastructure and connects networks using gateways.
@@ -52,27 +53,23 @@
 </div>
 
 <div class="knowledge-card">
-  <h3>Wired Networks</h3>
+    <h3>Wired vs Wireless</h3>
+  <h4>Wired Networks</h4>
   <p>
     Wired networks use cables to transmit data. They offer higher speeds, greater
     reliability, and improved security, but cables can be difficult to maintain
     in large organisations.
   </p>
 
-  <h3>Wireless Networks</h3>
+  <h4>Wireless Networks</h4>
   <p>
     Wireless networks use radio waves on the 2.4 GHz and 5 GHz frequency bands.
     They allow mobility but can suffer from interference, security issues, and
     slower speeds compared to wired networks.
   </p>
 
-    <div class="truthtable">
-    <div class="links"><a class="btn" data-file="../G-activity/G-network-QC.html">Quick Check</a></div>
-</div>
-</div>
 
-<div class="knowledge-card">
-  <h3>Factors Affecting Wireless Network Performance</h3>
+  <h4>Factors Affecting Wireless Network Performance</h4>
 
   <ul>
     <li>Walls and floors can block or weaken wireless signals.</li>
@@ -80,7 +77,7 @@
     <li>Limited bandwidth available to wireless devices.</li>
     <li>The number of devices connected to the network sharing the bandwidth.</li>
   </ul>
-    </div>
+</div>
 
 <div class="knowledge-card">
   <h3>Network Hardware</h3>
@@ -158,10 +155,8 @@
     on a LAN. Devices also have IP addresses, which can change and are used to
     route data across networks such as the internet.
   </p>
-</div>
 
-<div class="knowledge-card">
-  <h3>IP Address and MAC Address (with Examples)</h3>
+  <h4>IP Address and MAC Address (with Examples)</h4>
 
   <table>
     <tr>
@@ -199,8 +194,6 @@
       </td>
     </tr>
   </table>
-
-
 </div>
 
 <div class="knowledge-card">
@@ -304,7 +297,9 @@
     <td><strong>Star</strong></td>
     <td>
       All devices connect to a central hub or switch.
-      All communication passes through the hub.
+      All communication passes through the switch.
+      <div class="links"><a class="btn" data-file="../G-tools/star.html">Star Demo</a></div>
+
     </td>
     <td>
       Improved security and reliability.<br>
@@ -321,6 +316,8 @@
     <td>
       All devices connect to a single backbone cable.
       Terminators are used at each end of the cable.
+      <div class="links"><a class="btn" data-file="../G-tools/bus.html">Bus Demo</a></div>
+
     </td>
     <td>
       Cheap to install.<br>
@@ -337,6 +334,7 @@
     <td>
       Devices connect directly to each other with no central switch.
       Data can travel via multiple routes.
+      <div class="links"><a class="btn" data-file="../G-tools/mesh.html">Mesh Demo</a></div>
     </td>
     <td>
       Very reliable as multiple routes are available.<br>
@@ -361,11 +359,24 @@
     an IP address.
   </p>
 
-  <h3>DNS (Domain Name System)</h3>
+  <h4>DNS (Domain Name System)</h4>
   <p>
     DNS converts human-readable domain names and website addresses into IP
     addresses so data can be routed correctly.
   </p>
+
+   <h4>How a Website is Requested</h4>
+
+<ol>
+  <li>You type a website address (URL) into the browser.</li>
+  <li>DNS finds the IP address of the website.</li>
+  <li>Your browser sends an HTTP (or HTTPS) request to the web server.</li>
+  <li>The web server sends the webpage data back using HTTP (or HTTPS).</li>
+  <li>Your browser displays the webpage.</li>
+</ol>
+<div class="truthtable">
+ <div class="links"><a class="btn" data-file="../G-tools/web.html">Web Request Demo</a></div>
+</div>
 
  <div class="truthtable">
     <div class="links"><a class="btn" data-file="../G-activity/G-network-internet-QC.html">Quick Check</a></div>
@@ -385,6 +396,9 @@
     Each packet can take a <strong>different route</strong> across the network
     and may arrive at the destination <strong>out of order</strong>.
   </p>
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/packet-switching.html">Packet Switching Demo</a></div>
+</div>
 
   <h4>What information is stored in each packet?</h4>
   <ul>
@@ -537,7 +551,7 @@
   <p>
     Network security includes access control, authentication, physical security,
     firewalls, encryption, and penetration testing to protect networks and data
-    from unauthorised access.
+      from unauthorised access.</p>
 
       <table>
   <tr>
@@ -594,12 +608,11 @@
   </tr>
 </table>
 
-  </p>
-
     <div class="truthtable">
     <div class="links"><a class="btn" data-file="../G-activity/G-network-security-QC.html">Quick Check</a></div>
 </div>
-</div>
+    </div>
+
 
 <div class="knowledge-card">
   <h3>Network Speed</h3>

@@ -10,82 +10,38 @@
 <body>
 
 <header>
-  <h1>Topic 3 Software – Revision</h1>
-  <h2>Read • Write • Check • Amend</h2>
-  <p class="subtitle">
-    Read the notes, write your own answers, then reveal the model answers to check and improve.
-  </p>
+  <h1>Topic 3 Software – Study Notes</h1>
 </header>
 
 <main>
-    <button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
-<!-- Wrap the whole tabs+panels block in this -->
-<div class="booklet panels" data-tabs>
 
-  <!-- Tab list -->
-  <div role="tablist" aria-label="Algorithms tabs">
-    <button
-      id="tabbtn-revision"
-      type="button"
-      role="tab"
-      aria-controls="tab-revision"
-      aria-selected="true"
-      tabindex="0">
-      Revision Notes
-    </button>
+<div class="vertical-knowledge">
 
-    <button
-      id="tabbtn-KC"
-      type="button"
-      role="tab"
-      aria-controls="tab-KC"
-      aria-selected="false"
-      tabindex="-1">
-      Knowledge Check
-    </button>
-  </div>
-
-  <!-- Panels -->
-  <div class="panels">
-    <div
-      id="tab-revision"
-      role="tabpanel"
-      aria-labelledby="tabbtn-revision">
-      <!-- REVISION CONTENT HERE -->
-        <div class="vertical-knowledge">
-
-            <div class="knowledge-card">
+<div class="knowledge-card">
   <h3>Systems Software</h3>
   <p>
     Systems software is software designed to maintain and control the hardware.
     It also provides an interface between the hardware and software.
   </p>
-</div>
 
-<div class="knowledge-card">
   <h3>Operating System</h3>
   <p>
     An operating system controls the hardware and software and provides an
     interface for the user.
   </p>
-</div>
 
-<div class="knowledge-card">
   <h3>Utility Programs</h3>
   <p>
     Utility programs help to maintain the computer.
   </p>
-</div>
 
-<div class="knowledge-card">
+
   <h3>Application Software</h3>
   <p>
     Application software is a collection of one or more programs used to solve
     a specific task.
   </p>
-</div>
 
-<div class="knowledge-card">
   <h3>Types of Application Software</h3>
   <p>
     Examples of application software include word processing software,
@@ -95,114 +51,155 @@
 </div>
 
 <div class="knowledge-card">
-  <h3>Compression Software</h3>
-  <p>
-    Compression software reduces the size of a file stored on secondary storage.
-    Smaller files are easier to transmit across a network as they require fewer
-    packets and take up less storage space.
-  </p>
-</div>
+  <h3>Utility Software</h3>
 
-<div class="knowledge-card">
-  <h3>Defragmentation Software</h3>
-  <p>
-    Defragmentation software takes fragmented files and rearranges the segments
-    so that they run contiguously. This decreases read and write time and speeds
-    up computer performance.
-  </p>
-</div>
+  <table class="utility-table">
+    <tr>
+      <th>Utility</th>
+      <th>Purpose</th>
+      <th>How It Helps</th>
+    </tr>
 
-<div class="knowledge-card">
-  <h3>Other Utility Software</h3>
-  <p>
-    Other utility software includes automatic backup and system updates,
-    anti-virus and firewall software, and disk repair tools used to fix corrupted
-    files.
-  </p>
+    <tr>
+      <td><strong>Compression Software</strong></td>
+      <td>Reduces the size of files stored on secondary storage.</td>
+      <td>
+        Saves storage space.<br>
+        Speeds up file transfer across networks.<br>
+        Requires fewer packets when transmitting.
+      </td>
+    </tr>
 
-    <div class="truthtable">
+    <tr>
+      <td><strong>Defragmentation Software</strong></td>
+      <td>Rearranges fragmented file segments so they are stored contiguously.</td>
+      <td>
+        Reduces disk head movement.<br>
+        Improves read/write speed.<br>
+        Increases overall performance (HDD only).
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Anti-Virus Software</strong></td>
+      <td>Detects, isolates and removes malware.</td>
+      <td>
+        Protects against viruses, worms and trojans.<br>
+        Uses signature databases and heuristics.<br>
+        Quarantines infected files.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Firewall</strong></td>
+      <td>Monitors and filters incoming and outgoing network traffic.</td>
+      <td>
+        Blocks unauthorised access.<br>
+        Filters traffic by IP address and port number.<br>
+        Protects internal networks.
+            <div class="links"><a class="btn" data-file="../G-tools/firewall.html">Firewall Demo</a></div>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Automatic Backup & System Updates</strong></td>
+      <td>Creates copies of data and installs security patches.</td>
+      <td>
+        Prevents data loss.<br>
+        Fixes security vulnerabilities.<br>
+        Keeps software up to date.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>Disk Repair</strong></td>
+      <td>Scans and fixes corrupted sectors or file system errors.</td>
+      <td>
+        Restores damaged files.<br>
+        Prevents data loss.<br>
+        Maintains drive health.
+      </td>
+    </tr>
+
+  </table>
+
+<div class="truthtable">
     <div class="links"><a class="btn" data-file="../G-activity/G-utility-QC.html">Quick Check</a></div>
 </div>
 </div>
 
 <div class="knowledge-card">
-  <h3>User Interface</h3>
+    <h3> Functions of an operating systems</h3>
+
+  <h4>User Interface</h4>
   <p>
     A user interface allows the user to communicate with the hardware.
-    Types of user interface include command line interfaces, graphical user
-    interfaces (GUI), and voice interfaces.
-  </p>
-</div>
+    Types of user interface include:  </p>
+      <ul>
+    <li>Command line interfaces</li>
+    <li>Graphical user interfaces (GUI)</li>
+    <li>Voice interfaces</li>
+</ul>
 
-<div class="knowledge-card">
-  <h3>Memory Management</h3>
+
+  <h4>Memory Management</h4>
   <p>
     Memory management uses paging to allocate sections of RAM to processes.
     Data is moved between RAM and virtual memory to free space and allow
     higher-priority processes to run efficiently.
   </p>
-</div>
 
-<div class="knowledge-card">
-  <h3>Peripheral Management and Drivers</h3>
+  <h4>Peripheral Management and Drivers</h4>
   <p>
     A device driver is a program that controls a peripheral device and allows
     the operating system to communicate with it. A peripheral is an external
     device such as a monitor or keyboard.
   </p>
-</div>
 
-<div class="knowledge-card">
-  <h3>User Management</h3>
+  <h4>User Management</h4>
   <p>
     User management allows users to log on by checking usernames and passwords.
     Users can be added or deleted, permissions can be enforced, and the amount
     of storage each user can access can be controlled.
   </p>
-</div>
 
-<div class="knowledge-card">
-  <h3>File Management</h3>
+
+  <h4>File Management</h4>
   <p>
     File management stores data in a hierarchical structure and allows users
     to create, rename, copy, move, delete, search for, retrieve, and edit
     files and folders.
   </p>
 
-    <div class="truthtable">
-    <div class="links"><a class="btn" data-file="../G-activity/G-software-QC.html">Quick Check</a></div>
-</div>
-
-</div>
-
-<div class="knowledge-card">
-  <h3>Process Scheduling</h3>
+  <h4>Process Scheduling</h4>
   <p>
     A multitasking operating system executes one process at a time but allows
     multiple applications to run by rapidly switching between processes using
     time slices. Processes are held in a queue and controlled by a scheduling
     algorithm.
   </p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-activity/G-software-QC.html">Quick Check</a></div>
+</div>
+
 </div>
 
 <div class="knowledge-card">
-  <h3>Authentication</h3>
+    <h3>Designing Robust Systems</h3>
+  <h4>Authentication</h4>
   <p>
     Authentication is a process used to test that a person is who they claim
     to be.
   </p>
-</div>
 
-<div class="knowledge-card">
-  <h3>Code Reviews</h3>
+  <h4>Code Reviews</h4>
   <p>
     Code reviews involve checking program code with another person to identify
     errors or security issues that may have been missed.
   </p>
-</div>
 
-<div class="knowledge-card">
-  <h3>Audit Trails</h3>
+  <h4>Audit Trails</h4>
   <p>
     An audit trail records changes made to software, including who made the
     change and when. This allows problems or security flaws to be traced and
@@ -210,273 +207,8 @@
   </p>
 </div>
 </div>
-    </div>
 
-    <div
-      id="tab-KC"
-      role="tabpanel"
-      aria-labelledby="tabbtn-KC"
-      hidden>
-      <!-- KNOWLEDGE CHECK CONTENT HERE -->
-           <h2>Check your understanding</h2>
-
-<div class="rev-card qa-card">
-  <p>
-     One function of an operating system is to manage processes.<br>
-    (i) Describe one way the operating system makes sure each process can use the CPU. (2)<br>
-    (ii) Give one other function of an operating system. (1)<br>
-    (Total for question = 3 marks)
-  </p>
-
-  <div class="how-to-answer">
-    <b>How to answer (DESCRIBE / GIVE):</b>
-    <ul>
-      <li>Describe = what happens, step or mechanism</li>
-      <li>Use keywords such as scheduler, time slice, queue</li>
-      <li>For part (ii), just name one function</li>
-    </ul>
-  </div>
-
-<textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-
-  <button class="secondary answer-toggle">Show answer</button>
-
-  <div class="answer">
-    <b>Mark scheme – ALL acceptable answers:</b>
-    <ul>
-      <li>Scheduler controls processes (1)</li>
-      <li>Each process gets a time slice (1)</li>
-      <li>Processes held in a queue (1)</li>
-      <li>Priority ordering (1)</li>
-      <li>Incomplete processes moved to back of queue (1)</li>
-      <li>Other OS functions:
-        <ul>
-          <li>File management (1)</li>
-          <li>Peripheral management (1)</li>
-          <li>User management (1)</li>
-          <li>User interface (1)</li>
-        </ul>
-      </li>
-    </ul>
-
-    <b>Model full-marks answer:</b>
-    <p>
-      The operating system uses a scheduler to allocate a short time slice of CPU time to each process.
-      This ensures all processes get a chance to run.
-      Another function of the operating system is file management.
-    </p>
-  </div>
-</div>
-
-<div class="rev-card qa-card">
-  <p>
-
-    Describe how an operating system organises files and folders.<br>
-    (2)<br>
-    (Total for question = 2 marks)
-  </p>
-
-  <div class="how-to-answer">
-    <b>Command word focus:</b> DESCRIBE
-    <ul>
-      <li>Describe the structure used</li>
-      <li>Explain how files are located within that structure</li>
-    </ul>
-  </div>
-
-  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-
-          <button class="secondary answer-toggle">Show answer</button>
-
-  <div class="answer">
-    <b>Mark scheme – ALL acceptable answers:</b>
-    <ul>
-      <li>Uses a hierarchical/tree structure (1)</li>
-      <li>Has a root node/directory (1)</li>
-      <li>Each position on the tree/path is a directory/sub-directory/folder (1)</li>
-      <li>Each file has a unique path (1)</li>
-      <li>Path is in relation to the root (1)</li>
-    </ul>
-
-    <b>Model full-marks answer:</b>
-    <p>
-      The operating system organises files using a hierarchical folder structure with a root directory.
-      Each file has a unique path showing its location within the folder tree.
-    </p>
-  </div>
-</div>
-
-        <div class="rev-card qa-card">
-  <p>
-
-    One role of the operating system is to allocate memory to processes.<br>
-    Describe how the operating system makes use of virtual memory when there is a shortage of
-    main memory.<br>
-    (2)<br>
-    (Total for question = 2 marks)
-  </p>
-
-  <div class="how-to-answer">
-    <b>Command word focus:</b> DESCRIBE
-    <ul>
-      <li>Explain what happens to inactive processes</li>
-      <li>Explain how they return to RAM when needed</li>
-    </ul>
-  </div>
-
-  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-
-          <button class="secondary answer-toggle">Show answer</button>
-
-  <div class="answer">
-    <b>Mark scheme – ALL acceptable answers:</b>
-    <ul>
-      <li>Processes/programs/instructions/data not using the CPU are moved out of RAM/main memory (1)</li>
-      <li>Moved into secondary storage / hard disk / SSD (1)</li>
-      <li>When needed again, they are swapped back into RAM/main memory (1)</li>
-      <li>RAM/main memory is divided into pages (1)</li>
-      <li>A paging algorithm swaps pages between RAM and secondary storage (1)</li>
-    </ul>
-
-    <b>Model full-marks answer:</b>
-    <p>
-      When RAM is low, the operating system moves inactive processes from RAM to secondary storage.
-      When the process is needed again, it is swapped back into RAM.
-    </p>
-  </div>
-</div>
-<div class="rev-card qa-card">
-  <p>
-
-    File repair is a type of utility software.<br>
-    Explain one reason why file repair software is needed.<br>
-    (2)<br>
-    (Total for question = 2 marks)
-  </p>
-
-  <div class="how-to-answer">
-    <b>Command word focus:</b> EXPLAIN
-    <ul>
-      <li>Give a cause and an effect</li>
-      <li>Link file damage to recovery</li>
-    </ul>
-  </div>
-
-  <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-
-          <button class="secondary answer-toggle">Show answer</button>
-
-  <div class="answer">
-    <b>Mark scheme – ALL acceptable answers:</b>
-    <ul>
-      <li>A file is corrupted (1) and content can be retrieved (1)</li>
-      <li>A file is corrupted because of a hardware fault (1)</li>
-      <li>A file cannot be opened because it is damaged/corrupted (1)</li>
-      <li>Files can be recovered because part of the disk is corrupted (1)</li>
-      <li>Reconstruct files or extract parts of files when part of the disk is corrupted (1)</li>
-    </ul>
-
-    <b>Model full-marks answer:</b>
-    <p>
-      File repair software is needed when files become corrupted, for example due to a hardware
-      fault, so that damaged files can be recovered or reconstructed.
-    </p>
-  </div>
-</div>
-
-<!-- ===================================================== -->
-<!-- Q21 -->
-<!-- ===================================================== -->
-<div class="rev-card qa-card">
-  <p>
-
-    Identify two reasons for using data compression.<br>
-    (2)<br>
-    A Reduces data transfer times<br>
-    B Reduces disk fragmentation<br>
-    C Reduces required storage space<br>
-    D Reduces the chance of data being hacked<br>
-    E Reduces the need for error detection and correction<br>
-    (Total for question = 2 marks)
-  </p>
-
-  <div class="how-to-answer">
-    <b>Command word focus:</b> IDENTIFY
-    <ul>
-      <li>Select two correct options</li>
-    </ul>
-  </div>
-
- <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-
-          <button class="secondary answer-toggle">Show answer</button>
-
-  <div class="answer">
-    <b>Mark scheme – ALL acceptable answers:</b>
-    <ul>
-      <li>A – Reduces data transfer times (1)</li>
-      <li>C – Reduces required storage space (1)</li>
-    </ul>
-
-    <b>Model full-marks answer:</b>
-    <p>
-      A and C.
-    </p>
-  </div>
-</div>
-        <div class="rev-card qa-card">
-  <p>
-
-    Backups are used to protect data.<br>
-    (i) State one reason why backups are needed. (1)<br>
-    (ii) Explain one disadvantage of backing up data off-site. (2)<br>
-    (Total for question = 3 marks)
-  </p>
-
-  <div class="how-to-answer">
-    <b>Command word focus: STATE / EXPLAIN</b>
-    <ul>
-      <li>State = short reason</li>
-      <li>Explain = disadvantage + effect</li>
-    </ul>
-  </div>
-
- <textarea class="student-answer" placeholder="Write your answer here..."></textarea>
-
-          <button class="secondary answer-toggle">Show answer</button>
-
-  <div class="answer">
-    <b>Mark scheme – ALL acceptable answers:</b>
-    <ul>
-      <li><b>(i)</b>
-        <ul>
-          <li>Recover data after hardware failure (1)</li>
-          <li>Recover data after malware attack (1)</li>
-          <li>Recover deleted/corrupted files (1)</li>
-          <li>Disaster recovery (1)</li>
-        </ul>
-      </li>
-      <li><b>(ii)</b>
-        <ul>
-          <li>Data transfer can be slow (1) because it depends on internet speed (1)</li>
-          <li>Security risks during transmission (1)</li>
-          <li>Ongoing cost of off-site storage (1)</li>
-          <li>Reliance on third-party provider (1)</li>
-        </ul>
-      </li>
-    </ul>
-
-    <b>Model full-marks answer:</b>
-    <p>
-      Backups are needed to recover data after a hardware failure.
-      Off-site backups can be slower because data must be transferred over the internet.
-    </p>
-  </div>
-</div>
-    </div>
-
-
-        <button id="printBtn" type="button">
+<button id="printBtn" type="button">
   Print this worksheet
 </button>
 
