@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mesh Network Demo</title>
+
+<style>
+body{font-family:Arial, sans-serif;text-align:center;background:#f4f6f9;}
+svg{background:#fff;border-radius:12px;margin-top:20px;}
+
+.device{cursor:pointer;transition:0.2s;}
+.device:hover{transform:scale(1.05);}
+
+.link{stroke:#999;stroke-width:3;cursor:pointer;}
+.link.failed{stroke:red;stroke-dasharray:8;}
+
+.packet{fill:#ff9800;opacity:0;}
+
+button{margin:6px;padding:8px 14px;}
+
+#status{font-weight:bold;margin-top:10px;}
+
+</style>
+</head>
+<body>
+
+<h1>Mesh Network – Interactive Demo</h1>
+
+<p>Click a device to send data to another device.</p>
+<p>Click a link to simulate link failure.</p>
+
+<button onclick="resetLinks()">Reset Links</button>
+
+<div id="status">Select sender, then receiver.</div>
+
+<svg width="800" height="500">
+
+<!-- Links -->
+<line id="l12" class="link" x1="200" y1="150" x2="600" y2="150" onclick="toggleLink('l12')"/>
+<line id="l13" class="link" x1="200" y1="150" x2="200" y2="400" onclick="toggleLink('l13')"/>
+<line id="l14" class="link" x1="200" y1="150" x2="600" y2="400" onclick="toggleLink('l14')"/>
+<line id="l23" class="link" x1="600" y1="150" x2="200" y2="400" onclick="toggleLink('l23')"/>
+<line id="l24" class="link" x1="600" y1="150" x2="600" y2="400" onclick="toggleLink('l24')"/>
+<line id="l34" class="link" x1="200" y1="400" x2="600" y2="400" onclick="toggleLink('l34')"/>
+
+<!-- Devices -->
+<circle cx="200" cy="150" r="35" fill="#4CAF50"
+        class="device" onclick="selectDevice(1)"/>
+<text x="200" y="155" text-anchor="middle" fill="#fff">A</text>
+
+<circle cx="600" cy="150" r="35" fill="#2196F3"
+        class="device" onclick="selectDevice(2)"/>
+<text x="600" y="155" text-anchor="middle" fill="#fff">B</text>
+
+<circle cx="200" cy="400" r="35" fill="#FF5722"
+        class="device" onclick="selectDevice(3)"/>
+<text x="200" y="405" text-anchor="middle" fill="#fff">C</text>
+
+<circle cx="600" cy="400" r="35" fill="#9C27B0"
+        class="device" onclick="selectDevice(4)"/>
+<text x="600" y="405" text-anchor="middle" fill="#fff">D</text>
+
+<!-- Packet -->
+<circle id="packet" r="8" class="packet"/>
+
+</svg>
+
+<script>
+
+let sender=null;
+
+const positions={
+1:{x:200,y:150},
+2:{x:600,y:150},
+3:{x:200,y:400},
+4:{x:600,y:400}
+};
+
+function selectDevice(id){
+
+ if(sender===null){
+   sender=id;
+   document.getElementById("status").innerText=
+   "Sender selected. Now select receiver.";
+ } else if(sender===id){
+   return;
+ } else {
+   routeData(sender,id);
+   sender=null;
+ }
+}
+
+function toggleLink(id){
+ document.getElementById(id).classList.toggle("failed");
+}
+
+function resetLinks(){
+ document.querySelectorAll(".link").forEach(link=>{
+   link.classList.remove("failed");
+ });
+ document.getElementById("status").innerText="Links reset.";
+}
+
+function routeData(from,to){
+
+ document.getElementById("status").innerText="Routing data...";
+
+ // Direct link ID
+ const linkId="l"+Math.min(from,to)+Math.max(from,to);
+ const link=document.getElementById(linkId);
+
+ if(link && !link.classList.contains("failed")){
+   animatePacket(from,to);
+ } else {
+   // Try alternative route via intermediate node
+   for(let i=1;i<=4;i++){
+     if(i!==from && i!==to){
+       const link1="l"+Math.min(from,i)+Math.max(from,i);
+       const link2="l"+Math.min(i,to)+Math.max(i,to);
+
+       if(!document.getElementById(link1).classList.contains("failed")
+          && !document.getElementById(link2).classList.contains("failed")){
+         animatePacket(from,i,()=>{
+           animatePacket(i,to);
+         });
+         return;
+       }
+     }
+   }
+   document.getElementById("status").innerText="No route available.";
+ }
+}
+
+function animatePacket(from,to,callback){
+
+ const packet=document.getElementById("packet");
+ packet.style.opacity=1;
+ packet.setAttribute("cx",positions[from].x);
+ packet.setAttribute("cy",positions[from].y);
+
+ let step=0;
+ const steps=40;
+ const dx=(positions[to].x-positions[from].x)/steps;
+ const dy=(positions[to].y-positions[from].y)/steps;
+
+ const interval=setInterval(()=>{
+   step++;
+   packet.setAttribute("cx",positions[from].x+dx*step);
+   packet.setAttribute("cy",positions[from].y+dy*step);
+
+   if(step>=steps){
+     clearInterval(interval);
+     if(callback){
+       callback();
+     } else {
+       packet.style.opacity=0;
+       document.getElementById("status").innerText="Delivered successfully.";
+     }
+   }
+ },20);
+}
+
+</script>
+
+</body>
+</html>

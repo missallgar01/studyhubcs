@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Firewall Simulation</title>
+
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f4f6f9;
+}
+
+svg{
+  background:#fff;
+  border-radius:12px;
+  margin-top:20px;
+}
+
+.packet{
+  opacity:0;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.allowed{fill:green;}
+.blocked{fill:red;}
+
+button{
+  margin:6px;
+  padding:8px 14px;
+}
+
+#status{
+  margin-top:15px;
+  font-weight:bold;
+}
+
+#log{
+  margin-top:15px;
+  background:#fff;
+  padding:10px;
+  width:600px;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius:8px;
+  max-height:150px;
+  overflow:auto;
+  text-align:left;
+  font-size:13px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Firewall Simulation Demo</h1>
+
+<p>Firewall Rules:</p>
+<p>✔ Allow Port 80 (HTTP)
+✔ Allow Port 443 (HTTPS)
+❌ Block Port 23 (Telnet)
+❌ Block Suspicious IP 192.168.0.66</p>
+
+<button onclick="sendTraffic('192.168.0.10',80)">Send HTTP (Port 80)</button>
+<button onclick="sendTraffic('192.168.0.20',443)">Send HTTPS (Port 443)</button>
+<button onclick="sendTraffic('192.168.0.30',23)">Send Telnet (Port 23)</button>
+<button onclick="sendTraffic('192.168.0.66',80)">Suspicious IP</button>
+
+<div id="status">Click a traffic type to test the firewall.</div>
+
+<svg width="900" height="300">
+
+<!-- Internet -->
+<ellipse cx="150" cy="150" rx="90" ry="60" fill="#FF5722"/>
+<text x="150" y="155" text-anchor="middle" fill="#fff">Internet</text>
+
+<!-- Firewall -->
+<rect x="380" y="100" width="140" height="100" fill="#c62828"/>
+<text x="450" y="155" text-anchor="middle" fill="#fff">Firewall</text>
+
+<!-- Internal Network -->
+<ellipse cx="750" cy="150" rx="100" ry="60" fill="#4CAF50"/>
+<text x="750" y="155" text-anchor="middle" fill="#fff">Internal Network</text>
+
+<!-- Packet -->
+<text id="packet" class="packet">Packet</text>
+
+</svg>
+
+<div id="log">Firewall Log:</div>
+
+<script>
+
+const allowedPorts=[80,443];
+const blockedIPs=["192.168.0.66"];
+
+function sendTraffic(ip,port){
+
+ const packet=document.getElementById("packet");
+ packet.style.opacity=1;
+ packet.setAttribute("x",150);
+ packet.setAttribute("y",150);
+ packet.textContent=ip+" : "+port;
+
+ document.getElementById("status").innerText=
+ "Traffic incoming from "+ip+" on port "+port;
+
+ animate(150,150,450,150,()=>{
+
+   if(allowedPorts.includes(port) && !blockedIPs.includes(ip)){
+     allowTraffic(ip,port);
+   } else {
+     blockTraffic(ip,port);
+   }
+
+ });
+
+}
+
+function allowTraffic(ip,port){
+
+ const packet=document.getElementById("packet");
+ packet.setAttribute("class","packet allowed");
+
+ document.getElementById("status").innerText=
+ "Traffic allowed.";
+
+ animate(450,150,750,150,()=>{
+   packet.style.opacity=0;
+ });
+
+ log("ALLOWED: "+ip+" on port "+port);
+
+}
+
+function blockTraffic(ip,port){
+
+ const packet=document.getElementById("packet");
+ packet.setAttribute("class","packet blocked");
+
+ document.getElementById("status").innerText=
+ "Traffic BLOCKED by firewall.";
+
+ setTimeout(()=>{
+   packet.style.opacity=0;
+ },600);
+
+ log("BLOCKED: "+ip+" on port "+port);
+
+}
+
+function animate(x1,y1,x2,y2,callback){
+
+ const packet=document.getElementById("packet");
+
+ let step=0;
+ const steps=30;
+ const dx=(x2-x1)/steps;
+ const dy=(y2-y1)/steps;
+
+ const interval=setInterval(()=>{
+   step++;
+   packet.setAttribute("x",x1+dx*step);
+   packet.setAttribute("y",y1+dy*step);
+
+   if(step>=steps){
+     clearInterval(interval);
+     if(callback) callback();
+   }
+ },20);
+}
+
+function log(message){
+
+ const logBox=document.getElementById("log");
+ const entry=document.createElement("div");
+ entry.textContent=message;
+ logBox.appendChild(entry);
+ logBox.scrollTop=logBox.scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>

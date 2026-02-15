@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Round Robin Scheduling Demo</title>
+
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f4f6f9;
+}
+
+.container{
+  width:800px;
+  margin:20px auto;
+}
+
+.queue{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:20px 0;
+}
+
+.process{
+  padding:15px;
+  border-radius:8px;
+  color:#fff;
+  font-weight:bold;
+  width:80px;
+}
+
+.cpu{
+  background:#333;
+  color:#fff;
+  padding:20px;
+  border-radius:10px;
+  margin:20px auto;
+  width:200px;
+}
+
+button{
+  padding:8px 14px;
+  margin:5px;
+}
+
+#status{
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.completed{
+  opacity:0.4;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Round Robin Scheduling</h1>
+
+<p>Each process gets 2 time units (time slice).</p>
+
+<div class="container">
+
+<div class="queue" id="queue"></div>
+
+<div class="cpu" id="cpu">CPU Idle</div>
+
+<button onclick="start()">Start</button>
+<button onclick="reset()">Reset</button>
+
+<div id="status">Click Start to begin scheduling.</div>
+
+</div>
+
+<script>
+
+const timeSlice = 2;
+
+let processes = [
+  {name:"P1", time:5, color:"#4CAF50"},
+  {name:"P2", time:3, color:"#2196F3"},
+  {name:"P3", time:6, color:"#FF5722"},
+  {name:"P4", time:4, color:"#9C27B0"}
+];
+
+let queue = [];
+let running = false;
+
+function renderQueue(){
+  const q=document.getElementById("queue");
+  q.innerHTML="";
+  queue.forEach(p=>{
+    const div=document.createElement("div");
+    div.className="process";
+    div.style.background=p.color;
+    div.innerText=p.name+"\n"+p.time;
+    q.appendChild(div);
+  });
+}
+
+function start(){
+
+  if(running) return;
+
+  queue = JSON.parse(JSON.stringify(processes));
+  running=true;
+
+  document.getElementById("status").innerText=
+  "Round Robin scheduling started...";
+
+  runNext();
+}
+
+function runNext(){
+
+  if(queue.length===0){
+    document.getElementById("cpu").innerText="CPU Idle";
+    document.getElementById("status").innerText=
+    "All processes completed.";
+    running=false;
+    return;
+  }
+
+  const current = queue.shift();
+
+  document.getElementById("cpu").innerText=
+  current.name+" running";
+
+  let runTime = Math.min(timeSlice,current.time);
+
+  setTimeout(()=>{
+
+    current.time -= runTime;
+
+    if(current.time>0){
+      queue.push(current);
+    }
+
+    renderQueue();
+    runNext();
+
+  },1000);
+
+}
+
+function reset(){
+  queue=[];
+  renderQueue();
+  document.getElementById("cpu").innerText="CPU Idle";
+  document.getElementById("status").innerText="Reset complete.";
+  running=false;
+}
+
+renderQueue();
+
+</script>
+
+</body>
+</html>

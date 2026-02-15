@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bus Network Demo</title>
+
+<style>
+body{font-family:Arial, sans-serif;text-align:center;background:#f4f6f9;}
+svg{background:#fff;border-radius:12px;margin-top:20px;}
+
+.device{cursor:pointer;transition:0.2s;}
+.device:hover{transform:scale(1.05);}
+
+.packet{fill:#2196F3;opacity:0;}
+.collision{fill:red;opacity:0;}
+
+button{margin:6px;padding:8px 14px;}
+
+#status{font-weight:bold;margin-top:10px;}
+#stats{margin-top:5px;font-weight:bold;}
+
+.terminator{fill:#555;}
+.broken{stroke:red !important;}
+
+</style>
+</head>
+<body>
+
+<h1>Bus Network – GCSE Interactive Demo</h1>
+
+<p>Click two PCs quickly to cause a collision.</p>
+
+<button onclick="resetNetwork()">Reset</button>
+<button onclick="toggleCable()">Break / Repair Cable</button>
+
+<div id="status">Ready.</div>
+<div id="stats">Collisions: 0</div>
+
+<svg width="900" height="350">
+
+<!-- Backbone Cable -->
+<line id="busCable"
+      x1="80" y1="180"
+      x2="820" y2="180"
+      stroke="#333"
+      stroke-width="8"/>
+
+<!-- Terminators -->
+<rect x="50" y="150" width="30" height="60" class="terminator"/>
+<rect x="820" y="150" width="30" height="60" class="terminator"/>
+
+<!-- PCs -->
+<circle cx="200" cy="100" r="30"
+        fill="#4CAF50"
+        class="device"
+        onclick="sendData(200)"/>
+<text x="200" y="105" text-anchor="middle" fill="#fff">PC1</text>
+
+<circle cx="350" cy="100" r="30"
+        fill="#4CAF50"
+        class="device"
+        onclick="sendData(350)"/>
+<text x="350" y="105" text-anchor="middle" fill="#fff">PC2</text>
+
+<circle cx="500" cy="100" r="30"
+        fill="#4CAF50"
+        class="device"
+        onclick="sendData(500)"/>
+<text x="500" y="105" text-anchor="middle" fill="#fff">PC3</text>
+
+<circle cx="650" cy="100" r="30"
+        fill="#4CAF50"
+        class="device"
+        onclick="sendData(650)"/>
+<text x="650" y="105" text-anchor="middle" fill="#fff">PC4</text>
+
+<!-- Packets -->
+<circle id="packet1" r="7" class="packet"/>
+<circle id="packet2" r="7" class="packet"/>
+
+<!-- Collision Indicator -->
+<circle id="collision"
+        cx="450"
+        cy="180"
+        r="20"
+        class="collision"/>
+
+</svg>
+
+<script>
+
+let transmitting=false;
+let collisionCount=0;
+let cableBroken=false;
+
+function sendData(startX){
+
+ if(cableBroken){
+   document.getElementById("status").innerText="Cable broken! Network down.";
+   return;
+ }
+
+ if(!transmitting){
+   transmitting=true;
+   movePacket("packet1",startX,false);
+ } else {
+   movePacket("packet2",startX,true);
+   triggerCollision();
+ }
+}
+
+function movePacket(id,startX,isSecond){
+
+ const packet=document.getElementById(id);
+ packet.style.opacity=1;
+ packet.setAttribute("cx",startX);
+ packet.setAttribute("cy",180);
+
+ let step=0;
+ const endX=820;
+ const dx=(endX-startX)/50;
+
+ const interval=setInterval(()=>{
+   step++;
+   packet.setAttribute("cx",startX+dx*step);
+
+   if(step>=50){
+     clearInterval(interval);
+     if(!isSecond){
+       document.getElementById("status").innerText="Data transmitted successfully.";
+     }
+     transmitting=false;
+     packet.style.opacity=0;
+   }
+ },20);
+}
+
+function triggerCollision(){
+
+ collisionCount++;
+ document.getElementById("stats").innerText="Collisions: "+collisionCount;
+ document.getElementById("status").innerText="Collision detected! Data lost.";
+
+ const explosion=document.getElementById("collision");
+ explosion.style.opacity=1;
+
+ setTimeout(()=>{
+   explosion.style.opacity=0;
+   document.getElementById("packet1").style.opacity=0;
+   document.getElementById("packet2").style.opacity=0;
+   transmitting=false;
+ },600);
+}
+
+function resetNetwork(){
+ transmitting=false;
+ document.getElementById("packet1").style.opacity=0;
+ document.getElementById("packet2").style.opacity=0;
+ document.getElementById("collision").style.opacity=0;
+ document.getElementById("status").innerText="Ready.";
+}
+
+function toggleCable(){
+ cableBroken=!cableBroken;
+ const cable=document.getElementById("busCable");
+ cable.classList.toggle("broken",cableBroken);
+
+ if(cableBroken){
+   document.getElementById("status").innerText="Backbone cable broken. Entire network fails.";
+ } else {
+   document.getElementById("status").innerText="Cable repaired.";
+ }
+}
+
+</script>
+
+</body>
+</html>

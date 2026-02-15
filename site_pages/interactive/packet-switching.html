@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Packet Switching Demo</title>
+
+<style>
+body{font-family:Arial;text-align:center;background:#f4f6f9;}
+svg{background:#fff;border-radius:12px;margin-top:20px;}
+
+.node{fill:#4CAF50;}
+.server{fill:#607D8B;}
+.router{fill:#3F51B5;}
+
+.packet{opacity:0;font-weight:bold;}
+
+button{margin:8px;padding:8px 14px;}
+
+#status{margin-top:15px;font-weight:bold;}
+#reassembly{margin-top:10px;font-size:18px;}
+
+</style>
+</head>
+<body>
+
+<h1>Packet Switching Demo</h1>
+
+<p>Message: <strong>"HELLO"</strong></p>
+
+<button onclick="start()">Send Message</button>
+
+<div id="status">Click to begin.</div>
+<div id="reassembly"></div>
+
+<svg width="1000" height="500">
+
+<!-- Sender -->
+<circle cx="150" cy="250" r="40" class="node"/>
+<text x="150" y="255" text-anchor="middle" fill="#fff">Sender</text>
+
+<!-- Routers -->
+<circle cx="350" cy="120" r="30" class="router"/>
+<circle cx="350" cy="380" r="30" class="router"/>
+<circle cx="600" cy="250" r="30" class="router"/>
+
+<!-- Receiver -->
+<circle cx="850" cy="250" r="40" class="server"/>
+<text x="850" y="255" text-anchor="middle" fill="#fff">Receiver</text>
+
+<!-- Connections -->
+<line x1="190" y1="250" x2="320" y2="120" stroke="#999"/>
+<line x1="190" y1="250" x2="320" y2="380" stroke="#999"/>
+<line x1="380" y1="120" x2="570" y2="250" stroke="#999"/>
+<line x1="380" y1="380" x2="570" y2="250" stroke="#999"/>
+<line x1="630" y1="250" x2="810" y2="250" stroke="#999"/>
+
+<!-- Packets -->
+<text id="p1" class="packet" fill="red">H</text>
+<text id="p2" class="packet" fill="blue">E</text>
+<text id="p3" class="packet" fill="green">L</text>
+<text id="p4" class="packet" fill="purple">L</text>
+<text id="p5" class="packet" fill="orange">O</text>
+
+</svg>
+
+<script>
+
+const message=["H","E","L","L","O"];
+let received=[];
+
+function start(){
+
+ document.getElementById("status").innerText=
+ "Message split into packets...";
+
+ received=[];
+ document.getElementById("reassembly").innerText="";
+
+ sendPacket("p1",120,delay=0);
+ sendPacket("p2",380,delay=400);
+ sendPacket("p3",120,delay=800);
+ sendPacket("p4",380,delay=1200);
+ sendPacket("p5",120,delay=2000); // delayed packet
+
+}
+
+function sendPacket(id,routeY,delay){
+
+ setTimeout(()=>{
+
+  const packet=document.getElementById(id);
+  packet.style.opacity=1;
+  packet.setAttribute("x",150);
+  packet.setAttribute("y",250);
+
+  let mid1={x:350,y:routeY};
+  let mid2={x:600,y:250};
+  let end={x:850,y:250};
+
+  move(packet,150,250,mid1.x,mid1.y,()=>{
+    move(packet,mid1.x,mid1.y,mid2.x,mid2.y,()=>{
+      move(packet,mid2.x,mid2.y,end.x,end.y,()=>{
+        packet.style.opacity=0;
+        received.push(packet.textContent);
+        updateReassembly();
+      });
+    });
+  });
+
+ },delay);
+
+}
+
+function move(element,x1,y1,x2,y2,callback){
+
+ let step=0;
+ const steps=30;
+ const dx=(x2-x1)/steps;
+ const dy=(y2-y1)/steps;
+
+ const interval=setInterval(()=>{
+   step++;
+   element.setAttribute("x",x1+dx*step);
+   element.setAttribute("y",y1+dy*step);
+
+   if(step>=steps){
+     clearInterval(interval);
+     if(callback) callback();
+   }
+ },20);
+}
+
+function updateReassembly(){
+
+ document.getElementById("status").innerText=
+ "Packets arriving and being reassembled...";
+
+ if(received.length===5){
+   document.getElementById("reassembly").innerText=
+   "Reassembled Message: "+received.join("");
+   document.getElementById("status").innerText=
+   "✅ Message successfully reconstructed.";
+ }
+}
+
+</script>
+
+</body>
+</html>

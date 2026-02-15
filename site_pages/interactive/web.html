@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Requesting a Web Page Demo</title>
+
+<style>
+body{font-family:Arial;text-align:center;background:#f4f6f9;}
+svg{background:#fff;border-radius:12px;margin-top:20px;}
+
+.device{font-weight:bold;}
+.packet{fill:#ff9800;opacity:0;}
+
+button{margin:8px;padding:8px 14px;}
+
+#status{margin-top:15px;font-weight:bold;}
+
+</style>
+</head>
+<body>
+
+<h1>How a Web Page is Requested</h1>
+
+<button onclick="startRequest()">Request Website</button>
+
+<div id="status">Click to begin.</div>
+
+<svg width="1000" height="550">
+
+<!-- LAN -->
+<circle cx="200" cy="300" r="40" fill="#2196F3"/>
+<text x="200" y="305" text-anchor="middle" fill="#fff">PC</text>
+
+<rect x="350" y="260" width="80" height="80" fill="#4CAF50"/>
+<text x="390" y="305" text-anchor="middle" fill="#fff">Switch</text>
+
+<rect x="500" y="260" width="90" height="80" fill="#3F51B5"/>
+<text x="545" y="305" text-anchor="middle" fill="#fff">Router</text>
+
+<!-- Internet -->
+<ellipse cx="700" cy="300" rx="70" ry="50" fill="#FF5722"/>
+<text x="700" y="305" text-anchor="middle" fill="#fff">Internet</text>
+
+<!-- DNS Server -->
+<rect x="820" y="150" width="120" height="70" fill="#9C27B0"/>
+<text x="880" y="190" text-anchor="middle" fill="#fff">DNS Server</text>
+
+<!-- Web Server -->
+<rect x="820" y="380" width="120" height="70" fill="#607D8B"/>
+<text x="880" y="420" text-anchor="middle" fill="#fff">Web Server</text>
+
+<!-- Connections -->
+<line x1="240" y1="300" x2="350" y2="300" stroke="#999" stroke-width="3"/>
+<line x1="430" y1="300" x2="500" y2="300" stroke="#999" stroke-width="3"/>
+<line x1="590" y1="300" x2="630" y2="300" stroke="#999" stroke-width="3"/>
+<line x1="770" y1="300" x2="820" y2="185" stroke="#999" stroke-width="2"/>
+<line x1="770" y1="300" x2="820" y2="415" stroke="#999" stroke-width="2"/>
+
+<!-- Packet -->
+<circle id="packet" r="10" class="packet"/>
+
+</svg>
+
+<script>
+
+const positions={
+ pc:{x:200,y:300},
+ switch:{x:390,y:300},
+ router:{x:545,y:300},
+ internet:{x:700,y:300},
+ dns:{x:880,y:185},
+ server:{x:880,y:415}
+};
+
+function startRequest(){
+
+ document.getElementById("status").innerText=
+ "1️⃣ Browser requests IP address from DNS...";
+
+ // Step 1: PC → DNS
+ animate("pc","switch",()=>{
+   animate("switch","router",()=>{
+     animate("router","internet",()=>{
+       animate("internet","dns",()=>{
+         document.getElementById("status").innerText=
+         "2️⃣ DNS returns IP address...";
+         animate("dns","internet",()=>{
+           animate("internet","router",()=>{
+             animate("router","switch",()=>{
+               animate("switch","pc",()=>{
+                 requestWebServer();
+               });
+             });
+           });
+         });
+       });
+     });
+   });
+ });
+}
+
+function requestWebServer(){
+
+ document.getElementById("status").innerText=
+ "3️⃣ Browser sends HTTP request to Web Server...";
+
+ animate("pc","switch",()=>{
+   animate("switch","router",()=>{
+     animate("router","internet",()=>{
+       animate("internet","server",()=>{
+         document.getElementById("status").innerText=
+         "4️⃣ Server sends webpage data back...";
+         animate("server","internet",()=>{
+           animate("internet","router",()=>{
+             animate("router","switch",()=>{
+               animate("switch","pc",()=>{
+                 document.getElementById("status").innerText=
+                 "✅ Webpage loaded successfully!";
+               });
+             });
+           });
+         });
+       });
+     });
+   });
+ });
+}
+
+function animate(from,to,callback){
+
+ const packet=document.getElementById("packet");
+ packet.style.opacity=1;
+
+ let start=positions[from];
+ let end=positions[to];
+
+ packet.setAttribute("cx",start.x);
+ packet.setAttribute("cy",start.y);
+
+ let step=0;
+ const steps=40;
+ const dx=(end.x-start.x)/steps;
+ const dy=(end.y-start.y)/steps;
+
+ const interval=setInterval(()=>{
+   step++;
+   packet.setAttribute("cx",start.x+dx*step);
+   packet.setAttribute("cy",start.y+dy*step);
+
+   if(step>=steps){
+     clearInterval(interval);
+     if(callback) callback();
+   }
+ },20);
+}
+
+</script>
+
+</body>
+</html>

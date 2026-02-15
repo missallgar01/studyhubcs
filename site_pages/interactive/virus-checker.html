@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Virus Checker Simulation</title>
+
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f4f6f9;
+}
+
+.container{
+  background:#fff;
+  width:700px;
+  margin:20px auto;
+  padding:20px;
+  border-radius:12px;
+}
+
+.file{
+  padding:8px;
+  margin:5px;
+  border-radius:6px;
+  cursor:pointer;
+  background:#e0e0e0;
+}
+
+.file.infected{
+  background:#ffcccc;
+}
+
+.file.clean{
+  background:#ccffcc;
+}
+
+button{
+  padding:8px 14px;
+  margin:10px;
+}
+
+#progressBar{
+  width:100%;
+  height:20px;
+  background:#ddd;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:15px;
+}
+
+#progress{
+  height:100%;
+  width:0%;
+  background:#4CAF50;
+  transition:0.3s;
+}
+
+#status{
+  margin-top:15px;
+  font-weight:bold;
+}
+
+#quarantine{
+  margin-top:20px;
+  background:#fff3cd;
+  padding:10px;
+  border-radius:8px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Virus Checker Simulation</h1>
+
+<div class="container">
+
+<h3>Files on Computer</h3>
+
+<div id="files"></div>
+
+<button onclick="scan()">Run Scan</button>
+
+<div id="progressBar">
+  <div id="progress"></div>
+</div>
+
+<div id="status">Click 'Run Scan' to begin.</div>
+
+<h3>Quarantine</h3>
+<div id="quarantine">No files quarantined.</div>
+
+</div>
+
+<script>
+
+const virusSignatures=["trojan.exe","worm.bat","ransomware.dll"];
+
+let fileSystem=[
+  "homework.docx",
+  "photo.jpg",
+  "trojan.exe",
+  "music.mp3",
+  "game.exe",
+  "worm.bat"
+];
+
+function displayFiles(){
+ const container=document.getElementById("files");
+ container.innerHTML="";
+ fileSystem.forEach(file=>{
+   const div=document.createElement("div");
+   div.className="file";
+   div.id=file;
+   div.innerText=file;
+   container.appendChild(div);
+ });
+}
+
+displayFiles();
+
+function scan(){
+
+ document.getElementById("status").innerText=
+ "Scanning files using signature database...";
+
+ let progress=0;
+ let index=0;
+
+ const interval=setInterval(()=>{
+
+   progress+= (100/fileSystem.length);
+   document.getElementById("progress").style.width=progress+"%";
+
+   if(index<fileSystem.length){
+
+     const file=fileSystem[index];
+     const element=document.getElementById(file);
+
+     if(virusSignatures.includes(file)){
+       element.classList.add("infected");
+       quarantineFile(file);
+     } else {
+       element.classList.add("clean");
+     }
+
+     index++;
+
+   } else {
+     clearInterval(interval);
+     document.getElementById("status").innerText=
+     "Scan complete.";
+   }
+
+ },600);
+
+}
+
+function quarantineFile(file){
+
+ const q=document.getElementById("quarantine");
+
+ if(q.innerText==="No files quarantined."){
+   q.innerHTML="";
+ }
+
+ const div=document.createElement("div");
+ div.innerText=file+" moved to quarantine.";
+ q.appendChild(div);
+
+}
+
+</script>
+
+</body>
+</html>

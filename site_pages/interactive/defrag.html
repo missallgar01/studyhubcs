@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Disk Defragmentation Demo</title>
+
+<style>
+body{
+  font-family:Arial;
+  text-align:center;
+  background:#f4f6f9;
+}
+
+#disk{
+  width:800px;
+  margin:20px auto;
+  display:grid;
+  grid-template-columns: repeat(20, 1fr);
+  gap:4px;
+}
+
+.block{
+  width:35px;
+  height:35px;
+  border-radius:4px;
+  background:#ddd;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+button{
+  margin:8px;
+  padding:8px 14px;
+}
+
+#status{
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.reading{
+  outline:3px solid yellow;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Disk Defragmentation Simulation</h1>
+
+<p>File A is fragmented across the disk.</p>
+
+<button onclick="readFile()">Read File</button>
+<button onclick="defrag()">Defragment Disk</button>
+
+<div id="status">Click 'Read File' to simulate reading fragmented file.</div>
+
+<div id="disk"></div>
+
+<script>
+
+const diskSize = 100;
+const fileBlocks = [2, 15, 23, 44, 61, 77]; // fragmented positions
+let blocks = [];
+
+function createDisk(){
+
+ const disk=document.getElementById("disk");
+ disk.innerHTML="";
+ blocks=[];
+
+ for(let i=0;i<diskSize;i++){
+   const div=document.createElement("div");
+   div.className="block";
+
+   if(fileBlocks.includes(i)){
+     div.style.background="#4CAF50";
+     div.innerText="A";
+   }
+
+   disk.appendChild(div);
+   blocks.push(div);
+ }
+
+}
+
+createDisk();
+
+function readFile(){
+
+ document.getElementById("status").innerText=
+ "Reading fragmented file... (slow)";
+
+ let i=0;
+
+ const interval=setInterval(()=>{
+
+   if(i<fileBlocks.length){
+
+     const index=fileBlocks[i];
+     blocks[index].classList.add("reading");
+
+     setTimeout(()=>{
+       blocks[index].classList.remove("reading");
+     },300);
+
+     i++;
+
+   } else {
+     clearInterval(interval);
+     document.getElementById("status").innerText=
+     "File read complete (multiple disk head movements).";
+   }
+
+ },600);
+
+}
+
+function defrag(){
+
+ document.getElementById("status").innerText=
+ "Defragmenting disk...";
+
+ let newPositions=[2,3,4,5,6,7];
+
+ fileBlocks.forEach((oldIndex,i)=>{
+   blocks[oldIndex].style.background="#ddd";
+   blocks[oldIndex].innerText="";
+ });
+
+ fileBlocks.length=0;
+
+ newPositions.forEach(index=>{
+   blocks[index].style.background="#4CAF50";
+   blocks[index].innerText="A";
+   fileBlocks.push(index);
+ });
+
+ setTimeout(()=>{
+   document.getElementById("status").innerText=
+   "Defragmentation complete. File stored contiguously.";
+ },1000);
+
+}
+
+</script>
+
+</body>
+</html>

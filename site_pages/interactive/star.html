@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Star Network GCSE Interactive</title>
+
+<style>
+body{font-family:Arial, sans-serif;text-align:center;background:#f4f6f9;}
+svg{background:#ffffff;border-radius:12px;margin-top:20px;}
+
+.device{cursor:pointer;transition:0.2s;}
+.device:hover{transform:scale(1.05);}
+
+.switch{fill:#4CAF50;transition:0.3s;}
+.switch.off{fill:#c62828;}
+
+.packet{fill:#ff9800;opacity:0;}
+
+.server-glow{
+  filter: drop-shadow(0 0 12px #4CAF50);
+  transition:0.3s;
+}
+
+button{margin:6px;padding:8px 14px;}
+
+#status{font-weight:bold;margin-top:10px;}
+
+/* Exam Overlay */
+
+#examOverlay{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.exam-box{
+  background:#fff;
+  padding:25px;
+  width:500px;
+  border-radius:10px;
+  max-height:80vh;
+  overflow:auto;
+}
+
+.correct{color:green;font-weight:bold;}
+.incorrect{color:red;font-weight:bold;}
+
+</style>
+</head>
+<body>
+
+<h1>Star Network – GCSE Interactive</h1>
+
+<button onclick="toggleSwitch()">Toggle Switch</button>
+<button onclick="toggleExam()">Enter Exam Mode</button>
+
+<div>
+  <button onclick="setTarget('printer')">Printer</button>
+  <button onclick="setTarget('server')">File Server</button>
+  <button onclick="setTarget('internet')">Internet</button>
+</div>
+
+<div id="status">Select destination then click a device.</div>
+
+<svg width="950" height="600">
+
+<!-- LAN Connections -->
+<line x1="450" y1="300" x2="250" y2="150" stroke="#999" stroke-width="2"/>
+<line x1="450" y1="300" x2="650" y2="150" stroke="#999" stroke-width="2"/>
+<line x1="450" y1="300" x2="250" y2="500" stroke="#999" stroke-width="2"/>
+<line x1="450" y1="300" x2="650" y2="500" stroke="#999" stroke-width="2"/>
+<line x1="450" y1="300" x2="450" y2="80" stroke="#999" stroke-width="2"/>
+<line x1="450" y1="300" x2="820" y2="300" stroke="#999" stroke-width="2"/>
+<line x1="450" y1="300" x2="150" y2="300" stroke="#999" stroke-width="2"/>
+<line x1="450" y1="300" x2="820" y2="410" stroke="#999" stroke-width="2"/>
+
+<!-- Switch -->
+<rect id="switch" x="410" y="270" width="80" height="60"
+      rx="10" class="switch"/>
+<text x="450" y="305" text-anchor="middle" fill="#fff">Switch</text>
+
+<!-- Router -->
+<rect x="780" y="270" width="80" height="60" fill="#3F51B5"/>
+<text x="820" y="305" text-anchor="middle" fill="#fff">Router</text>
+
+<!-- Internet -->
+<ellipse cx="900" cy="300" rx="60" ry="40" fill="#FF5722"/>
+<text x="900" y="305" text-anchor="middle" fill="#fff">Internet</text>
+
+<!-- WAP -->
+<rect x="100" y="260" width="80" height="60" fill="#009688"/>
+<text x="140" y="295" text-anchor="middle" fill="#fff">WAP</text>
+
+<!-- Wireless Device -->
+<circle cx="80" cy="150" r="25" fill="#795548"
+        class="device" onclick="sendData(80,150,true)"/>
+<text x="80" y="155" text-anchor="middle" fill="#fff">WiFi</text>
+
+<!-- PCs -->
+<circle cx="250" cy="150" r="30" fill="#2196F3"
+        class="device" onclick="sendData(250,150,false)"/>
+<text x="250" y="155" text-anchor="middle" fill="#fff">PC1</text>
+
+<circle cx="650" cy="150" r="30" fill="#2196F3"
+        class="device" onclick="sendData(650,150,false)"/>
+<text x="650" y="155" text-anchor="middle" fill="#fff">PC2</text>
+
+<circle cx="250" cy="500" r="30" fill="#2196F3"
+        class="device" onclick="sendData(250,500,false)"/>
+<text x="250" y="505" text-anchor="middle" fill="#fff">PC3</text>
+
+<circle cx="650" cy="500" r="30" fill="#2196F3"
+        class="device" onclick="sendData(650,500,false)"/>
+<text x="650" y="505" text-anchor="middle" fill="#fff">PC4</text>
+
+<!-- Printer -->
+<rect x="420" y="20" width="60" height="40" fill="#9C27B0"/>
+<text x="450" y="45" text-anchor="middle" fill="#fff">Printer</text>
+
+<!-- Server -->
+<rect id="serverBox" x="780" y="380" width="80" height="60" fill="#607D8B"/>
+<text x="820" y="415" text-anchor="middle" fill="#fff">Server</text>
+
+<!-- Packets -->
+<circle id="packet1" r="6" class="packet"/>
+<circle id="packet2" r="6" class="packet"/>
+<circle id="packet3" r="6" class="packet"/>
+
+</svg>
+
+<!-- Exam Overlay -->
+
+<div id="examOverlay">
+  <div class="exam-box">
+    <h2>GCSE Exam Mode</h2>
+    <div id="mcq"></div>
+    <button onclick="mark()">Mark</button>
+    <button onclick="toggleExam()">Close</button>
+    <div id="score"></div>
+  </div>
+</div>
+
+<script>
+
+let switchOn=true;
+let target=null;
+
+const switchPos={x:450,y:300};
+const routerPos={x:820,y:300};
+const wapPos={x:140,y:290};
+
+const destinations={
+ printer:{x:450,y:40},
+ server:{x:820,y:410},
+ internet:{x:900,y:300}
+};
+
+function toggleSwitch(){
+ switchOn=!switchOn;
+ document.getElementById("switch").classList.toggle("off",!switchOn);
+}
+
+function setTarget(t){
+ target=t;
+ document.getElementById("status").innerText="Target: "+t.toUpperCase();
+}
+
+function sendData(x,y,wireless){
+
+ if(!target){alert("Select destination.");return;}
+ if(!switchOn){alert("Switch failure. LAN down.");return;}
+
+ if(wireless){
+   animatePacket("packet1",x,y,wapPos.x,wapPos.y,()=>{
+     animatePacket("packet1",wapPos.x,wapPos.y,switchPos.x,switchPos.y,route);
+   });
+ } else {
+   animatePacket("packet1",x,y,switchPos.x,switchPos.y,route);
+ }
+
+ function route(){
+   if(target==="internet"){
+     animatePacket("packet1",switchPos.x,switchPos.y,routerPos.x,routerPos.y,()=>{
+       animatePacket("packet1",routerPos.x,routerPos.y,destinations.internet.x,destinations.internet.y,finish);
+     });
+   } else if(target==="server"){
+     transferFile();
+   } else {
+     animatePacket("packet1",switchPos.x,switchPos.y,destinations[target].x,destinations[target].y,finish);
+   }
+ }
+
+ function finish(){
+   document.getElementById("packet1").style.opacity=0;
+   document.getElementById("status").innerText="Delivered.";
+ }
+
+}
+
+function transferFile(){
+
+ const server=document.getElementById("serverBox");
+ server.classList.add("server-glow");
+
+ const packets=["packet1","packet2","packet3"];
+
+ let delay=0;
+
+ packets.forEach((id,index)=>{
+
+   setTimeout(()=>{
+     animatePacket(id,switchPos.x,switchPos.y,destinations.server.x,destinations.server.y,()=>{
+       document.getElementById(id).style.opacity=0;
+       if(index===2){
+         server.classList.remove("server-glow");
+         document.getElementById("status").innerText="File transfer complete.";
+       }
+     });
+   },delay);
+
+   delay+=300;
+
+ });
+}
+
+function animatePacket(id,x1,y1,x2,y2,callback){
+ const packet=document.getElementById(id);
+ packet.style.opacity=1;
+ packet.setAttribute("cx",x1);
+ packet.setAttribute("cy",y1);
+
+ let step=0;
+ const steps=30;
+ const dx=(x2-x1)/steps;
+ const dy=(y2-y1)/steps;
+
+ const interval=setInterval(()=>{
+   step++;
+   packet.setAttribute("cx",x1+dx*step);
+   packet.setAttribute("cy",y1+dy*step);
+   if(step>=steps){
+     clearInterval(interval);
+     if(callback) callback();
+   }
+ },20);
+}
+
+/* GCSE MCQ */
+
+const questions=[
+{q:"1. All wired devices connect to the:",o:["Router","Switch","Internet","Printer"],a:"Switch"},
+{q:"2. The router connects the LAN to the:",o:["Printer","Server","WAN","Switch"],a:"WAN"},
+{q:"3. A wireless device connects via:",o:["Router","Switch","WAP","Server"],a:"WAP"},
+{q:"4. If the switch fails:",o:["Only one PC fails","LAN stops working","Internet only fails","Nothing happens"],a:"LAN stops working"},
+{q:"5. The server is used to:",o:["Store files","Provide WiFi","Replace router","Create collisions"],a:"Store files"}
+];
+
+let html="";
+questions.forEach((m,i)=>{
+ html+=`<p>${m.q}</p>`;
+ m.o.forEach(opt=>{
+   html+=`<label><input type="radio" name="q${i}" value="${opt}">${opt}</label><br>`;
+ });
+ html+=`<div id="f${i}"></div><hr>`;
+});
+document.getElementById("mcq").innerHTML=html;
+
+function toggleExam(){
+ const overlay=document.getElementById("examOverlay");
+ overlay.style.display=overlay.style.display==="flex"?"none":"flex";
+}
+
+function mark(){
+ let total=0;
+ questions.forEach((m,i)=>{
+   let sel=document.querySelector(`input[name="q${i}"]:checked`)?.value;
+   let fb=document.getElementById(`f${i}`);
+   if(sel===m.a){
+     total++;
+     fb.innerHTML="✔";
+     fb.className="correct";
+   } else {
+     fb.innerHTML="✘";
+     fb.className="incorrect";
+   }
+ });
+ document.getElementById("score").innerHTML="<h3>Score: "+total+"/5</h3>";
+}
+
+</script>
+
+</body>
+</html>
