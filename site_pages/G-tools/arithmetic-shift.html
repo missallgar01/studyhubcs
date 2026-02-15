@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Arithmetic Shift Demo</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:950px;
+  margin:30px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+}
+
+input{
+  padding:8px;
+  font-size:18px;
+  width:250px;
+  text-align:center;
+  font-family:monospace;
+}
+
+button{
+  padding:8px 14px;
+  margin:8px;
+}
+
+.row{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:10px 0;
+}
+
+.cell{
+  width:50px;
+  padding:12px;
+  border-radius:6px;
+  font-weight:bold;
+  font-family:monospace;
+  background:#eee;
+}
+
+.signBit{
+  background:#673ab7;
+  color:white;
+}
+
+.zeroFill{
+  background:#f44336;
+  color:white;
+}
+
+.output{
+  margin-top:15px;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.warning{
+  color:red;
+  font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Arithmetic Shift (Signed 8-bit)</h1>
+
+<div class="container">
+
+<p>Enter 8-bit signed binary number:</p>
+
+<input type="text" id="binaryInput" value="10011010">
+
+<br>
+
+<label>Shift Amount:
+<input type="number" id="shiftAmount" value="1" min="1" max="7" style="width:60px;">
+</label>
+
+<br>
+
+<button onclick="arithRight()">Arithmetic Right Shift</button>
+<button onclick="arithLeft()">Arithmetic Left Shift</button>
+<button onclick="reset()">Reset</button>
+
+<h3>Original</h3>
+<div class="row" id="originalRow"></div>
+
+<h3>Shifted Result</h3>
+<div class="row" id="resultRow"></div>
+
+<div class="output" id="explanation"></div>
+<div id="overflowMsg"></div>
+
+</div>
+
+<script>
+
+function renderRow(binary,rowId){
+  const row=document.getElementById(rowId);
+  row.innerHTML="";
+
+  for(let i=0;i<8;i++){
+    let div=document.createElement("div");
+    div.className="cell";
+    div.innerText=binary[i];
+
+    if(i===0){
+      div.classList.add("signBit");
+    }
+
+    row.appendChild(div);
+  }
+}
+
+function signedValue(binary){
+  let value=parseInt(binary,2);
+  if(binary[0]==="1"){
+    value=value-256;
+  }
+  return value;
+}
+
+function arithRight(){
+
+  let binary=document.getElementById("binaryInput").value.trim();
+  let shift=parseInt(document.getElementById("shiftAmount").value);
+
+  if(!/^[01]{8}$/.test(binary)){
+    alert("Enter exactly 8 binary digits.");
+    return;
+  }
+
+  renderRow(binary,"originalRow");
+
+  let sign=binary[0];
+  let shifted=binary;
+
+  for(let i=0;i<shift;i++){
+    shifted=sign+shifted.substring(0,7);
+  }
+
+  renderRow(shifted,"resultRow");
+
+  document.getElementById("explanation").innerText=
+    "Arithmetic RIGHT shift by "+shift+"\n"+
+    "Sign bit preserved.\n"+
+    "Denary: "+signedValue(binary)+
+    " → "+signedValue(shifted);
+
+  document.getElementById("overflowMsg").innerText="";
+}
+
+function arithLeft(){
+
+  let binary=document.getElementById("binaryInput").value.trim();
+  let shift=parseInt(document.getElementById("shiftAmount").value);
+
+  if(!/^[01]{8}$/.test(binary)){
+    alert("Enter exactly 8 binary digits.");
+    return;
+  }
+
+  renderRow(binary,"originalRow");
+
+  let shifted=binary.substring(shift)+"0".repeat(shift);
+
+  renderRow(shifted,"resultRow");
+
+  document.getElementById("explanation").innerText=
+    "Arithmetic LEFT shift by "+shift+"\n"+
+    "Sign bit may change (possible overflow).\n"+
+    "Denary: "+signedValue(binary)+
+    " → "+signedValue(shifted);
+
+  if(binary[0]!==shifted[0]){
+    document.getElementById("overflowMsg").innerHTML=
+      "<span class='warning'>Signed overflow occurred.</span>";
+  } else {
+    document.getElementById("overflowMsg").innerText="";
+  }
+}
+
+function reset(){
+  document.getElementById("originalRow").innerHTML="";
+  document.getElementById("resultRow").innerHTML="";
+  document.getElementById("explanation").innerText="";
+  document.getElementById("overflowMsg").innerText="";
+}
+
+arithRight();
+
+</script>
+</body>
+</html>

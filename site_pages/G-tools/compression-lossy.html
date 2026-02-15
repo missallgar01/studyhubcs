@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lossy Compression Demo</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:950px;
+  margin:20px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+}
+
+canvas{
+  border:1px solid #ccc;
+  margin:10px;
+}
+
+.slider{
+  width:300px;
+}
+
+.output{
+  font-weight:bold;
+  margin-top:10px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Lossy Compression Demo (Image Pixelation)</h1>
+
+<p>Lower quality = smaller file size but more detail lost.</p>
+
+<div class="container">
+
+<label>Quality:
+<input type="range" min="1" max="20" value="1"
+       class="slider" id="quality"
+       oninput="applyLossy()">
+</label>
+
+<div>
+<canvas id="original" width="300" height="300"></canvas>
+<canvas id="lossy" width="300" height="300"></canvas>
+</div>
+
+<div class="output" id="stats"></div>
+
+</div>
+
+<script>
+
+const originalCanvas=document.getElementById("original");
+const lossyCanvas=document.getElementById("lossy");
+
+const originalCtx=originalCanvas.getContext("2d");
+const lossyCtx=lossyCanvas.getContext("2d");
+
+function drawOriginal(){
+
+ for(let x=0;x<300;x++){
+   for(let y=0;y<300;y++){
+     originalCtx.fillStyle=`rgb(${x%255},${y%255},150)`;
+     originalCtx.fillRect(x,y,1,1);
+   }
+ }
+
+ applyLossy();
+}
+
+function applyLossy(){
+
+ const blockSize=parseInt(document.getElementById("quality").value);
+
+ const imgData=originalCtx.getImageData(0,0,300,300);
+
+ lossyCtx.clearRect(0,0,300,300);
+
+ for(let y=0;y<300;y+=blockSize){
+   for(let x=0;x<300;x+=blockSize){
+
+     const pixel=originalCtx.getImageData(x,y,1,1).data;
+
+     lossyCtx.fillStyle=`rgb(${pixel[0]},${pixel[1]},${pixel[2]})`;
+     lossyCtx.fillRect(x,y,blockSize,blockSize);
+
+   }
+ }
+
+ const estimatedSize=(300*300)/(blockSize*blockSize);
+
+ document.getElementById("stats").innerText=
+ "Block Size: "+blockSize+
+ " | Estimated File Size: "+Math.round(estimatedSize)+" units"+
+ " | Data permanently removed";
+
+}
+
+drawOriginal();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lossless Text Compression Demo</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:950px;
+  margin:20px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+}
+
+textarea{
+  width:90%;
+  height:80px;
+  font-size:16px;
+}
+
+button{
+  padding:8px 14px;
+  margin:6px;
+}
+
+.output{
+  background:#eee;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+  font-family:monospace;
+  white-space:pre-wrap;
+}
+
+.dict{
+  background:#f1f8e9;
+  padding:10px;
+  border-radius:8px;
+  margin-top:10px;
+  font-family:monospace;
+}
+
+.stats{
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.success{
+  color:green;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Lossless Text Compression (Dictionary Method)</h1>
+
+<div class="container">
+
+<p>Repeated words are stored once in a dictionary.</p>
+
+<textarea id="input">
+cat sat on the mat cat sat on the mat cat sat
+</textarea>
+
+<br>
+
+<button onclick="compress()">Compress</button>
+<button onclick="decompress()">Decompress</button>
+<button onclick="reset()">Reset</button>
+
+<h3>Dictionary</h3>
+<div class="dict" id="dictionary"></div>
+
+<h3>Compressed Output</h3>
+<div class="output" id="compressed"></div>
+
+<h3>Decompressed Output</h3>
+<div class="output" id="decompressed"></div>
+
+<div class="stats" id="stats"></div>
+
+</div>
+
+<script>
+
+let dictionary={};
+let reverseDict={};
+let compressedData="";
+
+function compress(){
+
+ const text=document.getElementById("input").value.trim();
+ if(text.length===0) return;
+
+ dictionary={};
+ reverseDict={};
+ compressedData="";
+
+ const words=text.split(" ");
+ let dictIndex=1;
+
+ words.forEach(word=>{
+   if(!dictionary[word]){
+     dictionary[word]=dictIndex;
+     reverseDict[dictIndex]=word;
+     dictIndex++;
+   }
+   compressedData+=dictionary[word]+" ";
+ });
+
+ displayDictionary();
+ document.getElementById("compressed").innerText=
+   compressedData.trim();
+
+ showStats(text.length,compressedData.length);
+
+}
+
+function displayDictionary(){
+
+ let dictText="";
+ for(let word in dictionary){
+   dictText+=dictionary[word]+" → "+word+"\n";
+ }
+
+ document.getElementById("dictionary").innerText=dictText;
+
+}
+
+function decompress(){
+
+ if(!compressedData) return;
+
+ let result="";
+ const codes=compressedData.trim().split(" ");
+
+ codes.forEach(code=>{
+   result+=reverseDict[code]+" ";
+ });
+
+ document.getElementById("decompressed").innerText=result.trim();
+
+ if(result.trim()===document.getElementById("input").value.trim()){
+   document.getElementById("stats").innerHTML+=
+     "<br><span class='success'>✔ Perfect reconstruction – no data lost.</span>";
+ }
+
+}
+
+function showStats(original,compressed){
+
+ let ratio=(compressed/original).toFixed(2);
+
+ document.getElementById("stats").innerText=
+   "Original size: "+original+
+   " | Compressed size: "+compressed+
+   " | Compression ratio: "+ratio;
+
+}
+
+function reset(){
+ document.getElementById("dictionary").innerText="";
+ document.getElementById("compressed").innerText="";
+ document.getElementById("decompressed").innerText="";
+ document.getElementById("stats").innerText="";
+}
+
+</script>
+
+</body>
+</html>

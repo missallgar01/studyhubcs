@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sound Representation Demo</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:1000px;
+  margin:20px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+}
+
+canvas{
+  border:1px solid #ccc;
+  margin:10px;
+}
+
+.controls{
+  margin:10px 0;
+}
+
+label{
+  margin:0 10px;
+}
+
+.output{
+  font-weight:bold;
+  margin-top:10px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Digital Sound Representation</h1>
+
+<div class="container">
+
+<div class="controls">
+  <label>
+    Sample Rate:
+    <input type="range" min="5" max="100" value="30" id="sampleRate" oninput="draw()">
+  </label>
+
+  <label>
+    Bit Depth:
+    <select id="bitDepth" onchange="draw()">
+      <option value="4">4-bit</option>
+      <option value="8" selected>8-bit</option>
+      <option value="16">16-bit</option>
+    </select>
+  </label>
+</div>
+
+<canvas id="wave" width="800" height="250"></canvas>
+
+<div class="output" id="stats"></div>
+
+</div>
+
+<script>
+
+function draw(){
+
+ const canvas=document.getElementById("wave");
+ const ctx=canvas.getContext("2d");
+
+ ctx.clearRect(0,0,800,250);
+
+ const sampleRate=parseInt(document.getElementById("sampleRate").value);
+ const bitDepth=parseInt(document.getElementById("bitDepth").value);
+
+ const amplitudeLevels=Math.pow(2,bitDepth);
+
+ // Draw analogue wave
+ ctx.beginPath();
+ ctx.strokeStyle="#999";
+ for(let x=0;x<800;x++){
+   const y=125 + 80*Math.sin(x*0.02);
+   if(x===0) ctx.moveTo(x,y);
+   else ctx.lineTo(x,y);
+ }
+ ctx.stroke();
+
+ // Draw digital samples
+ ctx.fillStyle="#4CAF50";
+
+ for(let i=0;i<sampleRate;i++){
+
+   const x=(800/sampleRate)*i;
+   const analogueY=125 + 80*Math.sin(x*0.02);
+
+   // Quantisation
+   const level=Math.round(
+     (analogueY/250)*amplitudeLevels
+   );
+
+   const quantisedY=(level/amplitudeLevels)*250;
+
+   ctx.beginPath();
+   ctx.arc(x,quantisedY,4,0,Math.PI*2);
+   ctx.fill();
+ }
+
+ // File size calculation (1 second mono audio)
+ const fileSize=sampleRate*bitDepth;
+
+ document.getElementById("stats").innerText=
+   "Sample Rate: "+sampleRate+" samples/sec"+
+   " | Bit Depth: "+bitDepth+" bits"+
+   " | Possible Amplitude Levels: "+amplitudeLevels+
+   " | File Size (1 second): "+fileSize+" bits";
+
+}
+
+draw();
+
+</script>
+
+</body>
+</html>

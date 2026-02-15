@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Subprogram Demo</title>
+
+<style>
+body{
+  background:#111;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+h1{ margin-top:20px; }
+
+.box{
+  width:250px;
+  padding:20px;
+  margin:20px auto;
+  border:2px solid white;
+  border-radius:10px;
+  background:#222;
+  transition:0.4s;
+}
+
+.highlight{
+  background:#3498db;
+}
+
+.controls{
+  margin-top:20px;
+}
+
+input{
+  padding:6px;
+  width:80px;
+  margin:5px;
+}
+
+button{
+  padding:6px 12px;
+  margin:5px;
+}
+
+.panel{
+  margin-top:30px;
+  width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  background:#1a1a1a;
+  padding:15px;
+  border-radius:10px;
+  text-align:left;
+}
+
+.python{
+  margin-top:10px;
+  background:#000;
+  padding:12px;
+  font-family:Consolas, monospace;
+  white-space:pre;
+  color:#2ecc71;
+  border-radius:6px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Subprogram (Function) Demo</h1>
+
+<div>
+  Number 1: <input type="number" id="num1">
+  Number 2: <input type="number" id="num2">
+  <button onclick="callFunction()">Call Function</button>
+</div>
+
+<div class="box" id="mainBox">
+  Main Program
+</div>
+
+<div class="box" id="functionBox">
+  Function: add_numbers(a, b)
+</div>
+
+<div class="panel">
+  <div id="explanation"></div>
+  <div class="python" id="pythonCode"></div>
+</div>
+
+<script>
+
+function reset(){
+  document.getElementById("mainBox").classList.remove("highlight");
+  document.getElementById("functionBox").classList.remove("highlight");
+}
+
+/* ================= Call Function ================= */
+
+function callFunction(){
+
+  reset();
+
+  const a=parseInt(document.getElementById("num1").value);
+  const b=parseInt(document.getElementById("num2").value);
+
+  document.getElementById("pythonCode").innerText =
+"def add_numbers(a, b):\n" +
+"    total = a + b\n" +
+"    return total\n\n" +
+"result = add_numbers(" + a + ", " + b + ")";
+
+  /* Highlight Main */
+  document.getElementById("mainBox").classList.add("highlight");
+
+  document.getElementById("explanation").innerText =
+    "The main program calls the function with parameters.";
+
+  setTimeout(()=>{
+
+    document.getElementById("mainBox").classList.remove("highlight");
+    document.getElementById("functionBox").classList.add("highlight");
+
+    document.getElementById("explanation").innerText =
+      "Control moves to the function. Parameters are passed in.";
+
+  },1000);
+
+  setTimeout(()=>{
+
+    const result = a + b;
+
+    document.getElementById("functionBox").classList.remove("highlight");
+    document.getElementById("mainBox").classList.add("highlight");
+
+    document.getElementById("explanation").innerText =
+      "The function returns the value: " + result;
+
+  },2000);
+
+  setTimeout(()=>{
+    document.getElementById("mainBox").classList.remove("highlight");
+  },3000);
+
+}
+
+</script>
+
+</body>
+</html>

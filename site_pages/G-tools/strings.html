@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String Operations Demo</title>
+
+<style>
+body{
+  background:#111;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+h1{ margin-top:20px; }
+
+.stringDisplay{
+  display:flex;
+  justify-content:center;
+  margin:40px 0;
+  flex-wrap:wrap;
+}
+
+.char{
+  width:60px;
+  height:60px;
+  border:2px solid white;
+  margin:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  background:#222;
+  position:relative;
+  transition:0.3s;
+}
+
+.index{
+  position:absolute;
+  bottom:-20px;
+  font-size:12px;
+  color:#aaa;
+}
+
+.highlight{ background:#3498db; }
+
+.controls{
+  margin-top:20px;
+}
+
+input{
+  padding:6px;
+  width:120px;
+  margin:5px;
+}
+
+button{
+  padding:6px 12px;
+  margin:5px;
+}
+
+.panel{
+  margin-top:30px;
+  width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  background:#1a1a1a;
+  padding:15px;
+  border-radius:10px;
+  text-align:left;
+}
+
+.python{
+  margin-top:10px;
+  background:#000;
+  padding:12px;
+  font-family:Consolas, monospace;
+  white-space:pre;
+  color:#2ecc71;
+  border-radius:6px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>String Operations Demo</h1>
+
+<div class="stringDisplay" id="stringDisplay"></div>
+
+<div class="controls">
+  New String: <input type="text" id="stringInput">
+  <br>
+  Index: <input type="number" id="indexInput" min="0">
+  <br>
+  Start: <input type="number" id="startInput" min="0">
+  End: <input type="number" id="endInput" min="0">
+  <br>
+  <button onclick="setString()">Set String</button>
+  <button onclick="getLength()">Length</button>
+  <button onclick="getChar()">Get Char</button>
+  <button onclick="toUpper()">Upper</button>
+  <button onclick="toLower()">Lower</button>
+  <button onclick="substring()">Substring</button>
+  <button onclick="traverse()">Traverse</button>
+</div>
+
+<div class="panel">
+  <div id="explanation"></div>
+  <div class="python" id="pythonCode"></div>
+</div>
+
+<script>
+
+let text = "HELLO";
+
+const display = document.getElementById("stringDisplay");
+
+/* ================= Render ================= */
+
+function renderString(){
+  display.innerHTML="";
+  for(let i=0;i<text.length;i++){
+    const box=document.createElement("div");
+    box.className="char";
+    box.innerText=text[i];
+
+    const index=document.createElement("div");
+    index.className="index";
+    index.innerText=i;
+
+    box.appendChild(index);
+    display.appendChild(box);
+  }
+}
+
+/* ================= Initial ================= */
+
+function showInitial(){
+  document.getElementById("pythonCode").innerText =
+'text = "HELLO"';
+
+  document.getElementById("explanation").innerText =
+    "A string is a sequence of characters.";
+}
+
+/* ================= Set ================= */
+
+function setString(){
+  text=document.getElementById("stringInput").value;
+  renderString();
+
+  document.getElementById("explanation").innerText =
+    "We stored a new string.";
+
+  document.getElementById("pythonCode").innerText =
+'text = "' + text + '"';
+}
+
+/* ================= Length ================= */
+
+function getLength(){
+  document.getElementById("explanation").innerText =
+    "Length tells us how many characters are in the string.";
+
+  document.getElementById("pythonCode").innerText =
+"print(len(text))  # Length = " + text.length;
+}
+
+/* ================= Get Character ================= */
+
+function getChar(){
+  const i=parseInt(document.getElementById("indexInput").value);
+  renderString();
+
+  if(i>=0 && i<text.length){
+    display.children[i].classList.add("highlight");
+
+    document.getElementById("explanation").innerText =
+      "Accessing character at index "+i+".";
+
+    document.getElementById("pythonCode").innerText =
+"print(text[index])";
+  }
+}
+
+/* ================= Upper ================= */
+
+function toUpper(){
+  text=text.toUpperCase();
+  renderString();
+
+  document.getElementById("explanation").innerText =
+    "Converted string to uppercase.";
+
+  document.getElementById("pythonCode").innerText =
+"text = text.upper()";
+}
+
+/* ================= Lower ================= */
+
+function toLower(){
+  text=text.toLowerCase();
+  renderString();
+
+  document.getElementById("explanation").innerText =
+    "Converted string to lowercase.";
+
+  document.getElementById("pythonCode").innerText =
+"text = text.lower()";
+}
+
+/* ================= Substring ================= */
+
+function substring(){
+  const start=parseInt(document.getElementById("startInput").value);
+  const end=parseInt(document.getElementById("endInput").value);
+
+  if(start>=0 && end<=text.length){
+    const sub=text.slice(start,end);
+
+    document.getElementById("explanation").innerText =
+      "Extracted substring from index "+start+" to "+(end-1)+".";
+
+    document.getElementById("pythonCode").innerText =
+"print(text[start:end])  # Result = \"" + sub + "\"";
+  }
+}
+
+/* ================= Traverse ================= */
+
+function traverse(){
+
+  renderString();
+
+  let i=0;
+
+  document.getElementById("pythonCode").innerText =
+"for char in text:\n" +
+"    print(char)";
+
+  const interval=setInterval(()=>{
+
+    Array.from(display.children).forEach(c=>c.classList.remove("highlight"));
+
+    if(i<text.length){
+      display.children[i].classList.add("highlight");
+
+      document.getElementById("explanation").innerText =
+        "Visiting character at index "+i;
+
+      i++;
+    } else {
+      clearInterval(interval);
+      document.getElementById("explanation").innerText =
+        "Traversal complete.";
+    }
+
+  },700);
+}
+
+/* ================= Start ================= */
+
+renderString();
+showInitial();
+
+</script>
+
+</body>
+</html>

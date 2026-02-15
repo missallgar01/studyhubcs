@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Selection Demo</title>
+
+<style>
+body{
+  background:#111;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+h1{ margin-top:20px; }
+
+.flow{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin:40px 0;
+}
+
+.box{
+  width:220px;
+  padding:20px;
+  margin:10px;
+  border-radius:10px;
+  background:#222;
+  border:2px solid white;
+  transition:0.4s;
+}
+
+.decision{
+  transform:rotate(45deg);
+  width:150px;
+  height:150px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:20px 0;
+}
+
+.decision span{
+  transform:rotate(-45deg);
+}
+
+.highlight{
+  background:#3498db;
+}
+
+.truePath{
+  background:#2ecc71;
+}
+
+.falsePath{
+  background:#e74c3c;
+}
+
+input{
+  padding:6px;
+  margin:5px;
+  width:120px;
+}
+
+button{
+  padding:6px 12px;
+  margin:10px;
+}
+
+.panel{
+  margin-top:30px;
+  width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  background:#1a1a1a;
+  padding:15px;
+  border-radius:10px;
+  text-align:left;
+}
+
+.python{
+  margin-top:10px;
+  background:#000;
+  padding:12px;
+  font-family:Consolas, monospace;
+  white-space:pre;
+  color:#2ecc71;
+  border-radius:6px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Selection (IF Statement) Demo</h1>
+
+<div>
+  Enter age: <input type="number" id="ageInput">
+  <button onclick="runSelection()">Run</button>
+</div>
+
+<div class="flow">
+
+  <div class="box" id="startBox">Start</div>
+
+  <div class="box decision" id="decisionBox">
+    <span>age >= 18?</span>
+  </div>
+
+  <div style="display:flex; gap:50px;">
+    <div class="box" id="trueBox">Adult</div>
+    <div class="box" id="falseBox">Minor</div>
+  </div>
+
+</div>
+
+<div class="panel">
+  <div id="explanation"></div>
+  <div class="python" id="pythonCode"></div>
+</div>
+
+<script>
+
+function resetFlow(){
+  document.querySelectorAll(".box").forEach(box=>{
+    box.classList.remove("highlight","truePath","falsePath");
+  });
+}
+
+/* ================= Run Selection ================= */
+
+function runSelection(){
+
+  resetFlow();
+
+  const age=parseInt(document.getElementById("ageInput").value);
+
+  document.getElementById("pythonCode").innerText =
+"age = " + age + "\n\n" +
+"if age >= 18:\n" +
+"    print(\"Adult\")\n" +
+"else:\n" +
+"    print(\"Minor\")";
+
+  /* Highlight Start */
+  document.getElementById("startBox").classList.add("highlight");
+
+  setTimeout(()=>{
+
+    document.getElementById("startBox").classList.remove("highlight");
+    document.getElementById("decisionBox").classList.add("highlight");
+
+  },800);
+
+  setTimeout(()=>{
+
+    document.getElementById("decisionBox").classList.remove("highlight");
+
+    if(age >= 18){
+      document.getElementById("trueBox").classList.add("truePath");
+
+      document.getElementById("explanation").innerText =
+        "Condition is TRUE. The program follows the True branch.";
+    }
+    else{
+      document.getElementById("falseBox").classList.add("falsePath");
+
+      document.getElementById("explanation").innerText =
+        "Condition is FALSE. The program follows the False branch.";
+    }
+
+  },1600);
+
+}
+
+</script>
+
+</body>
+</html>

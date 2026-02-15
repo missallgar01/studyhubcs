@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Two's Complement (Flip After First 1)</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:900px;
+  margin:30px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+}
+
+input{
+  padding:8px;
+  font-size:18px;
+  width:300px;
+  text-align:center;
+  font-family:monospace;
+}
+
+button{
+  padding:8px 14px;
+  margin:10px;
+}
+
+.row{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin:10px 0;
+}
+
+.cell{
+  width:45px;
+  padding:10px;
+  border-radius:6px;
+  font-weight:bold;
+  font-family:monospace;
+}
+
+.original{ background:#eee; }
+.keep{ background:#4CAF50; color:white; }
+.flip{ background:#f44336; color:white; }
+.firstOne{ outline:3px solid orange; }
+
+.steps{
+  margin-top:15px;
+  background:#f1f8e9;
+  padding:10px;
+  border-radius:8px;
+  font-family:monospace;
+  text-align:left;
+}
+
+.output{
+  margin-top:10px;
+  font-weight:bold;
+  font-size:20px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Two's Complement (Flip After First 1)</h1>
+
+<div class="container">
+
+<p>Enter an 8-bit binary number:</p>
+
+<input type="text" id="binaryInput" value="00101100">
+
+<br>
+
+<button onclick="calculate()">Find Two's Complement</button>
+
+<h3>Original</h3>
+<div class="row" id="originalRow"></div>
+
+<h3>Two's Complement Result</h3>
+<div class="row" id="resultRow"></div>
+
+<div class="steps" id="steps"></div>
+<div class="output" id="finalResult"></div>
+
+</div>
+
+<script>
+
+function calculate(){
+
+  let binary=document.getElementById("binaryInput").value.trim();
+
+  if(!/^[01]{8}$/.test(binary)){
+    alert("Enter exactly 8 binary digits.");
+    return;
+  }
+
+  const originalRow=document.getElementById("originalRow");
+  const resultRow=document.getElementById("resultRow");
+  const steps=document.getElementById("steps");
+
+  originalRow.innerHTML="";
+  resultRow.innerHTML="";
+  steps.innerText="";
+
+  let result="";
+  let foundFirstOne=false;
+
+  // Process from RIGHT to LEFT
+  for(let i=7;i>=0;i--){
+
+    let bit=binary[i];
+    let newBit;
+
+    if(!foundFirstOne){
+
+      newBit=bit;
+      result=newBit+result;
+
+      if(bit==="1"){
+        foundFirstOne=true;
+      }
+
+    } else {
+
+      newBit=(bit==="1") ? "0" : "1";
+      result=newBit+result;
+    }
+  }
+
+  // Display original
+  for(let i=0;i<8;i++){
+    let div=document.createElement("div");
+    div.className="cell original";
+    div.innerText=binary[i];
+    originalRow.appendChild(div);
+  }
+
+  // Display result with highlighting
+  foundFirstOne=false;
+
+  for(let i=7;i>=0;i--){
+
+    let div=document.createElement("div");
+    div.innerText=result[i];
+
+    if(!foundFirstOne){
+
+      div.className="cell keep";
+
+      if(binary[i]==="1"){
+        div.classList.add("firstOne");
+        foundFirstOne=true;
+      }
+
+    } else {
+      div.className="cell flip";
+    }
+
+    resultRow.prepend(div);
+  }
+
+  steps.innerText=
+    "Step 1: Start from the right.\n"+
+    "Step 2: Copy bits until the first 1 (inclusive).\n"+
+    "Step 3: Flip all remaining bits to the left.";
+
+  document.getElementById("finalResult").innerText=
+    "Two's Complement: "+result+
+    " (Denary: "+parseInt(result,2)+")";
+
+}
+
+calculate();
+
+</script>
+
+</body>
+</html>

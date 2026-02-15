@@ -10,13 +10,11 @@
 <body>
 
 <header>
-  <h1>Topic 2 Data – Revision</h1>
+  <h1>Topic 2 Data – Study Notes</h1>
 
 </header>
 
 <main>
-<button class="cmd-btn" onclick="openTip()">Exam Marking Tip</button>
-
 
 <!-- Wrap the whole tabs+panels block in this -->
 <div class="booklet panels" data-tabs>
@@ -30,7 +28,7 @@
       aria-controls="tab-KO"
       aria-selected="true"
       tabindex="0">
-      Knowledge Organiser
+      Summary
     </button>
 
     <button
@@ -40,7 +38,7 @@
       aria-controls="tab-IOP"
       aria-selected="false"
       tabindex="-1">
-      Inputs and Outputs
+      Input Output
     </button>
 
           <button
@@ -50,7 +48,7 @@
       aria-controls="tab-loops"
       aria-selected="false"
       tabindex="-1">
-      Selection and Repetition
+      If and Loops
     </button>
 
           <button
@@ -70,7 +68,7 @@
       aria-controls="tab-array"
       aria-selected="false"
       tabindex="-1">
-      Arrays and Records
+      Lists
     </button>
 
           <button
@@ -80,7 +78,7 @@
       aria-controls="tab-strings"
       aria-selected="false"
       tabindex="-1">
-      Working with Strings
+      Strings
     </button>
 
          <button
@@ -90,7 +88,7 @@
       aria-controls="tab-files"
       aria-selected="false"
       tabindex="-1">
-      Working with Files
+      Files
     </button>
 
           <button
@@ -100,7 +98,7 @@
       aria-controls="tab-errors"
       aria-selected="false"
       tabindex="-1">
-      Types of Errors
+      Errors
     </button>
 
           <button
@@ -110,15 +108,15 @@
       aria-controls="tab-validation"
       aria-selected="false"
       tabindex="-1">
-      Input Validation
+      Validation
     </button>
 
   </div>
 
   <!-- Panels -->
-  <div class="panels">
+<div class="panels">
 
-    <div
+<div
       id="tab-KO"
       role="tabpanel"
       aria-labelledby="tabbtn-KO">
@@ -416,101 +414,14 @@ for i in range(len(numArray)):
   </tbody>
 </table>
 
-  <h3>IDE features</h3>
-
-            <div class="knowledge-card">
-
-  <h3>Integrated Development Environment (IDE)</h3>
-
-  <p>
-    An <strong>IDE</strong> is software that provides tools to
-    <strong>write, test and debug programs</strong> in one place.
-  </p>
-
-  <hr>
-
-  <h4>Core IDE Features</h4>
-
-  <table>
-    <tr>
-      <th>Feature</th>
-      <th>Description</th>
-      <th>Why It Is Useful</th>
-    </tr>
-
-    <tr>
-      <td><strong>Code Editor</strong></td>
-      <td>Area where programmers write and edit source code.</td>
-      <td>Organised workspace for efficient development.</td>
-    </tr>
-
-    <tr>
-      <td><strong>Syntax Highlighting</strong></td>
-      <td>Displays keywords, variables and strings in different colours.</td>
-      <td>Makes code easier to read and spot errors.</td>
-    </tr>
-
-    <tr>
-      <td><strong>Auto-complete</strong></td>
-      <td>Suggests keywords or variable names while typing.</td>
-      <td>Speeds up coding and reduces syntax errors.</td>
-    </tr>
-
-    <tr>
-      <td><strong>Error Detection</strong></td>
-      <td>Highlights syntax errors before running the program.</td>
-      <td>Prevents wasted time fixing basic mistakes.</td>
-    </tr>
-
-    <tr>
-      <td><strong>Interpreter / Compiler</strong></td>
-      <td>Translates source code into executable form.</td>
-      <td>Allows programs to be tested and run.</td>
-    </tr>
-
-    <tr>
-      <td><strong>Debugger</strong></td>
-      <td>Tool to run code step-by-step.</td>
-      <td>Helps find logic errors.</td>
-    </tr>
-
-    <tr>
-      <td><strong>Breakpoints</strong></td>
-      <td>Pause execution at a specific line.</td>
-      <td>Allows inspection of variable values.</td>
-    </tr>
-
-    <tr>
-      <td><strong>Variable Watch</strong></td>
-      <td>Displays variable values during execution.</td>
-      <td>Helps track how data changes.</td>
-    </tr>
-
-  </table>
-
-  <hr>
-
-  <h4>Why IDEs Improve Development</h4>
-
-  <ul>
-    <li>Increase productivity</li>
-    <li>Reduce errors</li>
-    <li>Improve code readability</li>
-    <li>Support debugging and testing</li>
-  </ul>
-
-</div>
-
 <div class="truthtable">
     <div class="links"><a class="btn" data-file="../G-activity/G-prog-ide-QC.html">Quick Check</a></div>
 </div>
 
-
+</div>
 </div>
 
-    </div>
-
-    <div
+<div
       id="tab-IOP"
       role="tabpanel"
       aria-labelledby="tabbtn-IOP">
@@ -646,7 +557,92 @@ for i in range(len(numArray)):
   </p>
 </div>
 
-<div class="knowledge-card">
+        <div class="knowledge-card">
+  <h3>Variables and Constants in Python</h3>
+
+  <h4>Variables</h4>
+  <p>
+    A <strong>variable</strong> is a named location in memory used to store data.
+    The value stored in a variable can change during program execution.
+  </p>
+
+  <ul>
+    <li>Created using the assignment operator <code>=</code></li>
+    <li>No need to declare the data type explicitly</li>
+    <li>Variable names are case-sensitive</li>
+  </ul>
+
+  <pre>
+age = 16
+name = "Alex"
+height = 1.75
+  </pre>
+
+  <p>
+    Variables can store different data types such as:
+  </p>
+
+  <ul>
+    <li><strong>int</strong> – whole numbers</li>
+    <li><strong>float</strong> – decimal numbers</li>
+    <li><strong>str</strong> – text</li>
+    <li><strong>bool</strong> – True or False</li>
+  </ul>
+
+  <hr>
+
+  <h4>Constants</h4>
+  <p>
+    A <strong>constant</strong> is a value that should not change during the program.
+    Python does not enforce constants, but programmers use naming conventions
+    to indicate them.
+  </p>
+
+  <ul>
+    <li>Written in <strong>UPPERCASE</strong> by convention</li>
+    <li>Used for fixed values such as tax rates or limits</li>
+  </ul>
+
+  <pre>
+PI = 3.14159
+MAX_SCORE = 100
+VAT_RATE = 0.20
+  </pre>
+
+  <p>
+    Although constants can technically be changed in Python,
+    they <strong>should not</strong> be modified once defined.
+  </p>
+
+  <hr>
+
+  <h4>Key Differences</h4>
+
+  <table>
+    <tr>
+      <th>Variable</th>
+      <th>Constant</th>
+    </tr>
+    <tr>
+      <td>Value can change</td>
+      <td>Value should not change</td>
+    </tr>
+    <tr>
+      <td>Lowercase naming (by convention)</td>
+      <td>UPPERCASE naming (by convention)</td>
+    </tr>
+    <tr>
+      <td>Used for dynamic data</td>
+      <td>Used for fixed values</td>
+    </tr>
+  </table>
+
+  <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/variables.html">Variables Demo</a></div>
+</div>
+</div>
+
+        <div class="knowledge-card">
   <h3>Data Types</h3>
 
   <p>
@@ -716,14 +712,13 @@ for i in range(len(numArray)):
 
 </div>
 
-
-    <div
+<div
       id="tab-loops"
       role="tabpanel"
       aria-labelledby="tabbtn-loops">
       <!-- REVISION CONTENT HERE -->
 
-      <div class="knowledge-card">
+        <div class="knowledge-card">
   <h3>Selection</h3>
 
   <p><strong>What is selection?</strong></p>
@@ -770,9 +765,13 @@ else:
     In this example, the program checks the value of <code>answer</code> and
     runs different code depending on whether the condition is met.
   </p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/selection.html">Selection Demo</a></div>
+</div>
 </div>
 
-<div class="knowledge-card">
+        <div class="knowledge-card">
   <h3>Repetition – FOR Loops (Python)</h3>
 
   <p>
@@ -838,9 +837,7 @@ for x in range(10, -1, -1):
   </ul>
 </div>
 
-
-
-    <div class="knowledge-card">
+        <div class="knowledge-card">
   <h3>Repetition – WHILE Loops (Python)</h3>
 
   <p>
@@ -876,10 +873,13 @@ while colour != "Red":
     WHILE loops are useful when you <strong>do not know in advance</strong>
     how many times the loop will run.
   </p>
+
+              <div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/loops.html">Loops Demo</a></div>
+</div>
 </div>
 
-
-<div class="knowledge-card">
+        <div class="knowledge-card">
   <h3>Arithmetic, Relational & Logical Operators</h3>
 
   <p><strong>What is an operator?</strong></p>
@@ -1002,7 +1002,6 @@ if not valid:
 
  </div>
 
-
     <div
       id="tab-sub"
       role="tabpanel"
@@ -1010,7 +1009,7 @@ if not valid:
       <!-- REVISION CONTENT HERE -->
 
 
-      <div class="knowledge-card">
+        <div class="knowledge-card">
   <h1>Programming Using Pre-Existing Libraries</h1>
 
   <h2>What is a pre-existing library?</h2>
@@ -1123,7 +1122,7 @@ turtle.setpos(0, 30)
   </code></pre>
 </div>
 
-  <div class="knowledge-card">
+        <div class="knowledge-card">
   <h1>Programming Functions &amp; Procedures</h1>
 
   <h2>What are functions and procedures?</h2>
@@ -1174,9 +1173,14 @@ def ageCheck(age):
 
 ageCheck(21)
   </code></pre>
+
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/subprograms.html">Subprograms Demo</a></div>
+</div>
 </div>
 
- <div class="knowledge-card">
+        <div class="knowledge-card">
   <h2>Global vs Local Variables</h2>
 
   <table>
@@ -1241,7 +1245,7 @@ def printValue():
   </table>
 </div>
 
- <div class="knowledge-card">
+        <div class="knowledge-card">
   <h2>Worked Example</h2>
 
   <h3>Question</h3>
@@ -1300,10 +1304,10 @@ print(total)
       hidden>
       <!-- KNOWLEDGE CHECK CONTENT HERE -->
 
-    <div class="knowledge-card">
-  <h3>Data Structures & Arrays</h3>
+        <div class="knowledge-card">
+  <h3>Data Structures</h3>
 
-  <p><strong>What is a data structure?</strong></p>
+  <h4>What is a data structure?</h4>
   <p>
     A <strong>data structure</strong> is a way of <strong>storing and organising data
     under one identifier</strong> so that it can be accessed and used efficiently.
@@ -1348,66 +1352,29 @@ print(total)
 
   <hr>
 
-  <h4>Records & Databases</h4>
+   <h4>Array</h4>
 
-  <p><strong>What is a database?</strong></p>
+  <p><strong>What is an array?</strong></p>
   <ul>
-    <li>A <strong>database</strong> is an organised collection of data</li>
-    <li>It allows easy <strong>storage, retrieval, and management</strong> of data</li>
-    <li>Databases are useful for <strong>large amounts of data</strong> and are stored
-        on <strong>secondary storage</strong></li>
-    <li>Databases can be stored on remote servers so
-        <strong>multiple users</strong> can access them at the same time</li>
-    <li>Data can be <strong>sorted and searched efficiently</strong></li>
-    <li>Databases are <strong>more secure</strong> than text files</li>
-    <li>Databases use <strong>fields</strong> and <strong>records</strong> to organise data</li>
+    <li>An <strong>array</strong> is an organised collection of data</li>
+      <li>It allows the <strong>one</strong> data type </li>
+
   </ul>
 
-<h3>Fields & Records</h3>
+  <h4>Records</h4>
 
-  <p><strong>What are fields and records?</strong></p>
-
+  <p><strong>What is a record?</strong></p>
   <ul>
-    <li>
-      A <strong>field</strong> is <strong>one piece of information</strong> relating to one
-      person, item, or object.
-    </li>
-    <li>
-      In a database, a <strong>field</strong> is represented by a
-      <strong>column</strong>.
-    </li>
-    <li>
-      A <strong>record</strong> is a <strong>collection of fields</strong> relating to one
-      person, item, or object.
-    </li>
-    <li>
-      In a database, a <strong>record</strong> is represented by a
-      <strong>row</strong>.
-    </li>
+    <li>A <strong>record</strong> is an organised collection of data</li>
+    <li>It allows <strong>different</strong> data types to be stored </li>
+
   </ul>
 
-  <p>
-    Together, fields and records are used to organise data efficiently in
-    a database.
-  </p>
 
 </div>
 
-<div class="knowledge-card">
+        <div class="knowledge-card">
   <h3>Arrays (1-Dimensional)</h3>
-
-  <p>
-    An <strong>array</strong> is useful when working with
-    <strong>small amounts of data</strong>.
-    Arrays are stored in <strong>main memory (RAM)</strong>.
-  </p>
-
-  <ul>
-    <li>Used to store information while the <strong>application is in use</strong></li>
-    <li>Can be <strong>more efficient and faster</strong> to search than text files</li>
-  </ul>
-
-  <hr>
 
   <h4>What is an array?</h4>
   <ul>
@@ -1418,7 +1385,9 @@ print(total)
   </ul>
 
   <hr>
-
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/array.html">Array Demo</a></div>
+</div>
   <h4>Array Concepts in Python</h4>
 
   <table>
@@ -1479,7 +1448,7 @@ print(length)     # Output: 5
   </p>
 </div>
 
- <div class="knowledge-card">
+        <div class="knowledge-card">
   <h3>2-Dimensional Arrays (2D Arrays)</h3>
 
   <p><strong>What is a 2-dimensional array?</strong></p>
@@ -1498,6 +1467,10 @@ print(length)     # Output: 5
       <strong>across the columns</strong>.
     </li>
   </ul>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/2Darray.html">2D Array Demo</a></div>
+</div>
 
   <p>
     The <strong>left index</strong> identifies the <strong>row</strong>, and the
@@ -1578,7 +1551,7 @@ print(array_2d[1][2])  # Output: 6
 </div>
     </div>
 
- <div
+     <div
       id="tab-strings"
       role="tabpanel"
       aria-labelledby="tabbtn-strings">
@@ -1602,7 +1575,9 @@ print(array_2d[1][2])  # Output: 6
       <li><strong>Concatenation</strong> (modify)</li>
     </ul>
 
-
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/strings.html">Strings Demo</a></div>
+</div>
   <hr>
 
   <h4>Length</h4>
@@ -1833,14 +1808,15 @@ print("Hello, " + Name)
 
 </div>
 </div>
-<div
+
+     <div
       id="tab-files"
       role="tabpanel"
       aria-labelledby="tabbtn-files">
       <!-- REVISION CONTENT HERE -->
-<div class="vertical-knowledge">
+    <div class="vertical-knowledge">
 
-<div class="knowledge-card">
+        <div class="knowledge-card">
   <h3>Reading & Writing to Text Files</h3>
 
   <p>
@@ -1926,10 +1902,120 @@ file.write("New line")
     Text files are best suited for <strong>small amounts of data</strong>.
     For large or complex data, a <strong>database</strong> is more efficient.
   </p>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/files.html">Files Demo</a></div>
+</div>
 </div>
 
-   <div class="knowledge-card">
-  <h3>Examiner Tips and Tricks – Text Files</h3>
+    <div class="knowledge-card">
+  <h3>Reading and Writing a Record to a File (Python)</h3>
+
+  <h4>What is a Record?</h4>
+  <p>
+    A <strong>record</strong> is a collection of related fields stored together.
+    For example, a student record might contain a name, age, and grade.
+  </p>
+
+  <pre>
+Name,Age,Grade
+Alex,16,A
+  </pre>
+
+  <hr>
+
+  <h4>Writing a Record to a File</h4>
+  <p>
+    Records are commonly written as a single line in a file.
+    Fields are separated using commas (CSV format).
+  </p>
+
+  <pre>
+name = "Alex"
+age = 16
+grade = "A"
+
+file = open("students.txt", "a")
+record = name + "," + str(age) + "," + grade + "\n"
+file.write(record)
+file.close()
+  </pre>
+
+  <ul>
+    <li><strong>"a"</strong> mode appends to the file</li>
+    <li><strong>str(age)</strong> converts numbers to text</li>
+    <li><strong>\n</strong> moves to the next line</li>
+  </ul>
+
+  <hr>
+
+  <h4>Reading Records from a File</h4>
+  <p>
+    When reading records, each line can be split into fields using
+    the <code>split()</code> method.
+  </p>
+
+  <pre>
+file = open("students.txt", "r")
+
+for line in file:
+    line = line.strip()
+    fields = line.split(",")
+
+    name = fields[0]
+    age = fields[1]
+    grade = fields[2]
+
+    print(name, age, grade)
+
+file.close()
+  </pre>
+
+  <ul>
+    <li><strong>strip()</strong> removes newline characters</li>
+    <li><strong>split(",")</strong> separates fields</li>
+    <li>Each field is accessed using an index</li>
+  </ul>
+
+  <hr>
+
+  <h4>Key Points</h4>
+
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Method</th>
+    </tr>
+    <tr>
+      <td>Write new record</td>
+      <td>open(..., "a") + write()</td>
+    </tr>
+    <tr>
+      <td>Overwrite file</td>
+      <td>open(..., "w")</td>
+    </tr>
+    <tr>
+      <td>Read file</td>
+      <td>open(..., "r") + for line in file</td>
+    </tr>
+    <tr>
+      <td>Split fields</td>
+      <td>split(",")</td>
+    </tr>
+  </table>
+
+</div>
+
+<div class="truthtable">
+    <div class="links"><a class="btn" data-file="../G-tools/files.html">Files -Records Demo</a></div>
+</div>
+      </div>
+
+</div>
+
+
+        <div class="knowledge-card">
+        <h3>Examiner Tips and Tricks – Text Files</h3>
 
   <p>
     When opening files in a program, it is very important to use the
@@ -1987,7 +2073,7 @@ file.write("New line")
 </div>
 </div>
 
-<div
+     <div
       id="tab-errors"
       role="tabpanel"
       aria-labelledby="tabbtn-errors">
@@ -2063,6 +2149,89 @@ file.write("New line")
       </tr>
     </tbody>
   </table>
+
+        <h3>IDE features</h3>
+
+            <div class="knowledge-card">
+
+  <h3>Integrated Development Environment (IDE)</h3>
+
+  <p>
+    An <strong>IDE</strong> is software that provides tools to
+    <strong>write, test and debug programs</strong> in one place.
+  </p>
+
+  <hr>
+
+  <h4>Core IDE Features</h4>
+
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+      <th>Why It Is Useful</th>
+    </tr>
+
+    <tr>
+      <td><strong>Code Editor</strong></td>
+      <td>Area where programmers write and edit source code.</td>
+      <td>Organised workspace for efficient development.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Syntax Highlighting</strong></td>
+      <td>Displays keywords, variables and strings in different colours.</td>
+      <td>Makes code easier to read and spot errors.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Auto-complete</strong></td>
+      <td>Suggests keywords or variable names while typing.</td>
+      <td>Speeds up coding and reduces syntax errors.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Error Detection</strong></td>
+      <td>Highlights syntax errors before running the program.</td>
+      <td>Prevents wasted time fixing basic mistakes.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Interpreter / Compiler</strong></td>
+      <td>Translates source code into executable form.</td>
+      <td>Allows programs to be tested and run.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Debugger</strong></td>
+      <td>Tool to run code step-by-step.</td>
+      <td>Helps find logic errors.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Breakpoints</strong></td>
+      <td>Pause execution at a specific line.</td>
+      <td>Allows inspection of variable values.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Variable Watch</strong></td>
+      <td>Displays variable values during execution.</td>
+      <td>Helps track how data changes.</td>
+    </tr>
+
+  </table>
+
+  <hr>
+
+  <h4>Why IDEs Improve Development</h4>
+
+  <ul>
+    <li>Increase productivity</li>
+    <li>Reduce errors</li>
+    <li>Improve code readability</li>
+    <li>Support debugging and testing</li>
+  </ul>
 </div>
 
       <div class="knowledge-card">
@@ -2357,7 +2526,8 @@ if not found:
 
 </div>
 </div>
-        <button id="printBtn" type="button">
+
+<button id="printBtn" type="button">
   Print this worksheet
 </button>
 

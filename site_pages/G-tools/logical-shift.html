@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Logical Shift (Improved)</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:950px;
+  margin:30px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+}
+
+input{
+  padding:8px;
+  font-size:18px;
+  width:250px;
+  text-align:center;
+  font-family:monospace;
+}
+
+button{
+  padding:8px 14px;
+  margin:8px;
+}
+
+.row{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:10px 0;
+}
+
+.cell{
+  width:50px;
+  padding:12px;
+  border-radius:6px;
+  font-weight:bold;
+  font-family:monospace;
+  background:#eee;
+  transition:0.3s;
+}
+
+.shifted{
+  background:#4CAF50;
+  color:white;
+}
+
+.zeroFill{
+  background:#f44336;
+  color:white;
+}
+
+.dropped{
+  background:#ff9800;
+  color:white;
+}
+
+.output{
+  margin-top:15px;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.warning{
+  color:red;
+  font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Logical Shift (8-bit System)</h1>
+
+<div class="container">
+
+<p>Enter 8-bit binary number:</p>
+
+<input type="text" id="binaryInput" value="00110110">
+
+<br>
+
+<label>Shift Amount:
+<input type="number" id="shiftAmount" value="1" min="1" max="7" style="width:60px;">
+</label>
+
+<br>
+
+<button onclick="shiftLeft()">Logical Left</button>
+<button onclick="shiftRight()">Logical Right</button>
+<button onclick="reset()">Reset</button>
+
+<h3>Original</h3>
+<div class="row" id="originalRow"></div>
+
+<h3>Shifted Result</h3>
+<div class="row" id="resultRow"></div>
+
+<div class="output" id="explanation"></div>
+<div id="overflowMsg"></div>
+
+</div>
+
+<script>
+
+function renderRow(binary,rowId){
+
+  const row=document.getElementById(rowId);
+  row.innerHTML="";
+
+  for(let bit of binary){
+    let div=document.createElement("div");
+    div.className="cell";
+    div.innerText=bit;
+    row.appendChild(div);
+  }
+}
+
+function shiftLeft(){
+
+  let binary=document.getElementById("binaryInput").value.trim();
+  let shift=parseInt(document.getElementById("shiftAmount").value);
+
+  if(!/^[01]{8}$/.test(binary)){
+    alert("Enter exactly 8 binary digits.");
+    return;
+  }
+
+  renderRow(binary,"originalRow");
+
+  let dropped=binary.substring(0,shift);
+  let shifted=binary.substring(shift)+"0".repeat(shift);
+
+  displayShift(binary,shifted,dropped,"left",shift);
+}
+
+function shiftRight(){
+
+  let binary=document.getElementById("binaryInput").value.trim();
+  let shift=parseInt(document.getElementById("shiftAmount").value);
+
+  if(!/^[01]{8}$/.test(binary)){
+    alert("Enter exactly 8 binary digits.");
+    return;
+  }
+
+  renderRow(binary,"originalRow");
+
+  let dropped=binary.substring(8-shift);
+  let shifted="0".repeat(shift)+binary.substring(0,8-shift);
+
+  displayShift(binary,shifted,dropped,"right",shift);
+}
+
+function displayShift(original,shifted,dropped,direction,shift){
+
+  const resultRow=document.getElementById("resultRow");
+  resultRow.innerHTML="";
+
+  for(let i=0;i<8;i++){
+
+    let div=document.createElement("div");
+    div.className="cell";
+    div.innerText=shifted[i];
+
+    if(direction==="left" && i>=8-shift){
+      div.classList.add("zeroFill");
+    }
+    if(direction==="right" && i<shift){
+      div.classList.add("zeroFill");
+    }
+
+    resultRow.appendChild(div);
+  }
+
+  let originalValue=parseInt(original,2);
+  let shiftedValue=parseInt(shifted,2);
+
+  document.getElementById("explanation").innerText=
+    "Logical "+direction.toUpperCase()+" shift by "+shift+"\n"+
+    "Dropped bits: "+dropped+"\n"+
+    "Denary: "+originalValue+" → "+shiftedValue;
+
+  if(direction==="left" && dropped.includes("1")){
+    document.getElementById("overflowMsg").innerHTML=
+      "<span class='warning'>Overflow occurred (1 bit lost).</span>";
+  } else {
+    document.getElementById("overflowMsg").innerText="";
+  }
+}
+
+function reset(){
+  document.getElementById("originalRow").innerHTML="";
+  document.getElementById("resultRow").innerHTML="";
+  document.getElementById("explanation").innerText="";
+  document.getElementById("overflowMsg").innerText="";
+}
+
+shiftLeft();
+
+</script>
+</body>
+</html>

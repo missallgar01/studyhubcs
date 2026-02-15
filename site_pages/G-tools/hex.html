@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Binary ⇄ Hex Nibble Demo</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:950px;
+  margin:30px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+}
+
+input{
+  padding:8px;
+  font-size:18px;
+  width:300px;
+  text-align:center;
+  font-family:monospace;
+}
+
+button{
+  padding:8px 14px;
+  margin:10px;
+}
+
+.row{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.block{
+  padding:15px;
+  border-radius:8px;
+  background:#e3f2fd;
+  font-family:monospace;
+  font-size:18px;
+  min-width:60px;
+}
+
+.steps{
+  margin-top:15px;
+  background:#f1f8e9;
+  padding:10px;
+  border-radius:8px;
+  font-family:monospace;
+  text-align:left;
+}
+
+.output{
+  margin-top:10px;
+  font-weight:bold;
+  font-size:20px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Binary ⇄ Hex Conversion (Nibble Method)</h1>
+
+<div class="container">
+
+<!-- BINARY TO HEX -->
+
+<h3>Binary → Hex</h3>
+
+<input type="text" id="binaryInput" value="11111111">
+<br>
+<button onclick="binaryToHex()">Convert</button>
+
+<div class="row" id="binaryNibbles"></div>
+<div class="steps" id="binarySteps"></div>
+<div class="output" id="binaryResult"></div>
+
+<hr>
+
+<!-- HEX TO BINARY -->
+
+<h3>Hex → Binary</h3>
+
+<input type="text" id="hexInput" value="FF">
+<br>
+<button onclick="hexToBinary()">Convert</button>
+
+<div class="row" id="hexBlocks"></div>
+<div class="steps" id="hexSteps"></div>
+<div class="output" id="hexResult"></div>
+
+</div>
+
+<script>
+
+function binaryToHex(){
+
+  let binary=document.getElementById("binaryInput").value.trim();
+
+  if(!/^[01]+$/.test(binary)){
+    alert("Enter binary digits only.");
+    return;
+  }
+
+  while(binary.length % 4 !==0){
+    binary="0"+binary;
+  }
+
+  const nibbleDiv=document.getElementById("binaryNibbles");
+  const stepsDiv=document.getElementById("binarySteps");
+
+  nibbleDiv.innerHTML="";
+  stepsDiv.innerText="";
+
+  let hex="";
+
+  for(let i=0;i<binary.length;i+=4){
+
+    let nibble=binary.substring(i,i+4);
+
+    let block=document.createElement("div");
+    block.className="block";
+    block.innerText=nibble;
+    nibbleDiv.appendChild(block);
+
+    let denary=parseInt(nibble,2);
+    let hexDigit=denary.toString(16).toUpperCase();
+
+    stepsDiv.innerText+=
+      nibble+" → "+denary+" → "+hexDigit+"\n";
+
+    hex+=hexDigit;
+  }
+
+  document.getElementById("binaryResult").innerText=
+    "Hexadecimal: "+hex;
+}
+
+function hexToBinary(){
+
+  let hex=document.getElementById("hexInput").value.trim().toUpperCase();
+
+  if(!/^[0-9A-F]+$/.test(hex)){
+    alert("Enter valid hexadecimal digits (0-9, A-F).");
+    return;
+  }
+
+  const hexDiv=document.getElementById("hexBlocks");
+  const stepsDiv=document.getElementById("hexSteps");
+
+  hexDiv.innerHTML="";
+  stepsDiv.innerText="";
+
+  let binaryResult="";
+
+  for(let i=0;i<hex.length;i++){
+
+    let digit=hex[i];
+    let value=parseInt(digit,16);
+    let binary=value.toString(2).padStart(4,"0");
+
+    let block=document.createElement("div");
+    block.className="block";
+    block.innerText=digit+" → "+binary;
+    hexDiv.appendChild(block);
+
+    stepsDiv.innerText+=
+      digit+" → "+value+" → "+binary+"\n";
+
+    binaryResult+=binary+" ";
+  }
+
+  document.getElementById("hexResult").innerText=
+    "Binary: "+binaryResult.trim();
+}
+
+binaryToHex();
+hexToBinary();
+
+</script>
+</body>
+</html>

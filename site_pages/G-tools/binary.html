@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Binary Conversion Demo</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:900px;
+  margin:20px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+}
+
+input{
+  padding:6px;
+  font-size:16px;
+  width:150px;
+}
+
+button{
+  padding:8px 14px;
+  margin:6px;
+}
+
+.row{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.cell{
+  width:60px;
+  padding:10px;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+.power{
+  background:#ddd;
+}
+
+.bit{
+  background:#eee;
+}
+
+.one{
+  background:#4CAF50;
+  color:#fff;
+}
+
+.zero{
+  background:#f44336;
+  color:#fff;
+}
+
+.output{
+  margin-top:10px;
+  font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Binary Conversion Demo</h1>
+
+<div class="container">
+
+<h3>Denary → Binary</h3>
+
+<input type="number" id="denaryInput" value="13" min="0" max="255">
+<button onclick="convertToBinary()">Convert</button>
+
+<div class="row" id="powers"></div>
+<div class="row" id="bits"></div>
+
+<div class="output" id="binaryResult"></div>
+
+<hr>
+
+<h3>Binary → Denary</h3>
+
+<input type="text" id="binaryInput" value="1101">
+<button onclick="convertToDenary()">Convert</button>
+
+<div class="output" id="denaryResult"></div>
+
+</div>
+
+<script>
+
+const powers=[128,64,32,16,8,4,2,1];
+
+function convertToBinary(){
+
+ let num=parseInt(document.getElementById("denaryInput").value);
+ let original=num;
+
+ const powerRow=document.getElementById("powers");
+ const bitRow=document.getElementById("bits");
+
+ powerRow.innerHTML="";
+ bitRow.innerHTML="";
+
+ powers.forEach(p=>{
+
+   const powerCell=document.createElement("div");
+   powerCell.className="cell power";
+   powerCell.innerText=p;
+   powerRow.appendChild(powerCell);
+
+   const bitCell=document.createElement("div");
+   bitCell.className="cell bit";
+
+   if(num>=p){
+     bitCell.innerText="1";
+     bitCell.classList.add("one");
+     num-=p;
+   } else {
+     bitCell.innerText="0";
+     bitCell.classList.add("zero");
+   }
+
+   bitRow.appendChild(bitCell);
+
+ });
+
+ document.getElementById("binaryResult").innerText=
+   "Binary: "+
+   Array.from(bitRow.children).map(c=>c.innerText).join("");
+
+}
+
+function convertToDenary(){
+
+ const binary=document.getElementById("binaryInput").value;
+ let total=0;
+
+ for(let i=0;i<binary.length;i++){
+   if(binary[binary.length-1-i]==="1"){
+     total+=Math.pow(2,i);
+   }
+ }
+
+ document.getElementById("denaryResult").innerText=
+   "Denary: "+total;
+
+}
+
+convertToBinary();
+
+</script>
+
+</body>
+</html>

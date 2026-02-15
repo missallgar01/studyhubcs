@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Automated Embedded System – Smart Greenhouse</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:1100px;
+  height:450px;
+  margin:30px auto;
+  position:relative;
+}
+
+/* COMPONENTS */
+
+.box{
+  position:absolute;
+  width:230px;
+
+  padding:20px;
+  border-radius:8px;
+}
+
+.sensor{
+  background:#3498db;
+}
+
+.cpu{
+  background:#2ecc71;
+  height:260px;
+  left:430px;
+  top:100px;
+}
+
+.actuator{
+  background:#e67e22;
+}
+
+#tempBox{ left:40px; top:80px; }
+#lightBox{ left:40px; top:230px; }
+
+#fanBox{ right:40px; top:100px; }
+#growBox{ right:40px; top:240px; }
+
+/* DATA LINES */
+.line{
+  position:absolute;
+  height:5px;
+  background:white;
+}
+
+.leftLine1{ left:270px; top:150px; width:160px; }
+.leftLine2{ left:270px; top:300px; width:160px; }
+
+.rightLine1{ left:660px; top:150px; width:160px; }
+.rightLine2{ left:660px; top:300px; width:160px; }
+
+/* DATA PACKET */
+.packet{
+  position:absolute;
+  background:#ff00cc;
+  padding:4px 10px;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+/* CONTROLS */
+button{
+  margin:10px;
+  padding:10px 20px;
+  font-size:16px;
+}
+
+.statusPanel{
+  margin-top:20px;
+  background:#111;
+  padding:15px;
+  border-radius:8px;
+  width:900px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Automated Embedded System – Smart Greenhouse</h1>
+
+<div class="container">
+
+<div class="box sensor" id="tempBox">
+  <h3>Temperature Sensor</h3>
+  <div id="tempValue">Temperature: 25°C</div>
+</div>
+
+<div class="box sensor" id="lightBox">
+  <h3>Light Sensor</h3>
+  <div id="lightValue">Light Level: 60%</div>
+</div>
+
+<div class="box cpu">
+  <h3>Microprocessor</h3>
+  <div id="logicText">Monitoring sensors...</div>
+</div>
+
+<div class="box actuator" id="fanBox">
+  <h3>Cooling Fan</h3>
+  <div id="fanStatus">OFF</div>
+</div>
+
+<div class="box actuator" id="growBox">
+  <h3>Grow Light</h3>
+  <div id="growStatus">OFF</div>
+</div>
+
+<div class="line leftLine1"></div>
+<div class="line leftLine2"></div>
+<div class="line rightLine1"></div>
+<div class="line rightLine2"></div>
+
+</div>
+
+<button onclick="startSystem()">Start System</button>
+<button onclick="stopSystem()">Stop System</button>
+
+<div class="statusPanel" id="systemLog">
+System ready.
+</div>
+
+<script>
+
+let running=false;
+let interval;
+
+let temp=25;
+let light=60;
+
+const tempThreshold=30;
+const lightThreshold=40;
+
+function randomiseSensors(){
+  temp = Math.floor(Math.random()*50);
+  light = Math.floor(Math.random()*100);
+
+  document.getElementById("tempValue").innerText =
+    "Temperature: "+temp+"°C";
+
+  document.getElementById("lightValue").innerText =
+    "Light Level: "+light+"%";
+}
+
+function startSystem(){
+  if(running) return;
+  running=true;
+  interval=setInterval(controlLoop,2000);
+  document.getElementById("systemLog").innerText=
+    "System started. Monitoring continuously...";
+}
+
+function stopSystem(){
+  running=false;
+  clearInterval(interval);
+  document.getElementById("systemLog").innerText=
+    "System stopped.";
+}
+
+function controlLoop(){
+
+  randomiseSensors();
+
+  let log="--- New Cycle ---\n";
+
+  /* TEMPERATURE CONTROL */
+  if(temp > tempThreshold){
+    document.getElementById("fanStatus").innerText="ON";
+    document.getElementById("fanStatus").style.color="lime";
+    log += "Temperature high → Fan ON\n";
+  } else {
+    document.getElementById("fanStatus").innerText="OFF";
+    document.getElementById("fanStatus").style.color="white";
+    log += "Temperature normal → Fan OFF\n";
+  }
+
+  /* LIGHT CONTROL */
+  if(light < lightThreshold){
+    document.getElementById("growStatus").innerText="ON";
+    document.getElementById("growStatus").style.color="lime";
+    log += "Light low → Grow Light ON\n";
+  } else {
+    document.getElementById("growStatus").innerText="OFF";
+    document.getElementById("growStatus").style.color="white";
+    log += "Light sufficient → Grow Light OFF\n";
+  }
+
+  document.getElementById("logicText").innerText=
+    "Processing complete";
+
+  document.getElementById("systemLog").innerText=log;
+}
+
+</script>
+
+</body>
+</html>

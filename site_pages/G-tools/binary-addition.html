@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Binary Addition (Improved)</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:950px;
+  margin:30px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+}
+
+input{
+  padding:8px;
+  font-size:18px;
+  width:220px;
+  text-align:center;
+  font-family:monospace;
+}
+
+button{
+  padding:8px 14px;
+  margin:10px;
+}
+
+.row{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin:5px 0;
+}
+
+.cell{
+  width:45px;
+  padding:10px;
+  border-radius:6px;
+  font-weight:bold;
+  font-family:monospace;
+}
+
+.bit{ background:#eee; }
+.carry{ background:#ffcc80; }
+.result{ background:#4CAF50; color:white; }
+
+.active{
+  outline:3px solid red;
+}
+
+.output{
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.warning{
+  color:red;
+  font-weight:bold;
+}
+
+#explanation{
+  margin-top:10px;
+  font-style:italic;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Binary Addition (Step-by-Step)</h1>
+
+<div class="container">
+
+<input type="text" id="num1" value="10101010">
++
+<input type="text" id="num2" value="01010101">
+
+<br>
+
+<button onclick="startAddition()">Start</button>
+<button onclick="reset()">Reset</button>
+
+<div id="carryRow" class="row"></div>
+<div id="row1" class="row"></div>
+<div id="row2" class="row"></div>
+<hr>
+<div id="resultRow" class="row"></div>
+
+<div class="output" id="finalResult"></div>
+<div id="overflowMsg"></div>
+<div id="explanation"></div>
+
+</div>
+
+<script>
+
+let a,b,maxLen,index,carry,result,carries,interval;
+
+function startAddition(){
+
+  clearInterval(interval);
+
+  a=document.getElementById("num1").value.trim();
+  b=document.getElementById("num2").value.trim();
+
+  if(!/^[01]+$/.test(a) || !/^[01]+$/.test(b)){
+    alert("Enter binary numbers only.");
+    return;
+  }
+
+  maxLen=Math.max(a.length,b.length);
+  a=a.padStart(maxLen,"0");
+  b=b.padStart(maxLen,"0");
+
+  carry=0;
+  result="";
+  carries=new Array(maxLen).fill(0);
+  index=maxLen-1;
+
+  drawRows();
+
+  interval=setInterval(step,1000);
+}
+
+function step(){
+
+  if(index<0){
+    clearInterval(interval);
+
+    if(carry===1){
+      result="1"+result;
+      carries.unshift(1);
+    }
+
+    updateDisplay();
+
+    document.getElementById("finalResult").innerText=
+      "Final Result: "+result+
+      " (Denary: "+parseInt(result,2)+")";
+
+    if(result.length>8){
+      document.getElementById("overflowMsg").innerHTML=
+        "<span class='warning'>Overflow occurred (more than 8 bits).</span>";
+    }
+
+    return;
+  }
+
+  let bitA=parseInt(a[index]);
+  let bitB=parseInt(b[index]);
+
+  let sum=bitA+bitB+carry;
+
+  let explanationText=
+    bitA+" + "+bitB+" + carry("+carry+") = "+sum;
+
+  if(sum===0){
+    result="0"+result;
+    carry=0;
+  }
+  else if(sum===1){
+    result="1"+result;
+    carry=0;
+  }
+  else if(sum===2){
+    result="0"+result;
+    carry=1;
+  }
+  else{
+    result="1"+result;
+    carry=1;
+  }
+
+  carries[index]=carry;
+
+  document.getElementById("explanation").innerText=
+    explanationText+" → write "+result[0]+
+    ", carry "+carry;
+
+  updateDisplay(index);
+
+  index--;
+}
+
+function drawRows(){
+
+  document.getElementById("carryRow").innerHTML="";
+  document.getElementById("row1").innerHTML="";
+  document.getElementById("row2").innerHTML="";
+  document.getElementById("resultRow").innerHTML="";
+
+  for(let i=0;i<maxLen;i++){
+
+    let carryDiv=document.createElement("div");
+    carryDiv.className="cell carry";
+    carryDiv.innerText="0";
+    document.getElementById("carryRow").appendChild(carryDiv);
+
+    let div1=document.createElement("div");
+    div1.className="cell bit";
+    div1.innerText=a[i];
+    document.getElementById("row1").appendChild(div1);
+
+    let div2=document.createElement("div");
+    div2.className="cell bit";
+    div2.innerText=b[i];
+    document.getElementById("row2").appendChild(div2);
+
+    let resDiv=document.createElement("div");
+    resDiv.className="cell result";
+    resDiv.innerText="";
+    document.getElementById("resultRow").appendChild(resDiv);
+  }
+}
+
+function updateDisplay(activeIndex){
+
+  const carryCells=document.getElementById("carryRow").children;
+  const resultCells=document.getElementById("resultRow").children;
+
+  for(let i=0;i<maxLen;i++){
+
+    carryCells[i].innerText=carries[i];
+
+    resultCells[i].innerText=
+      result.padStart(maxLen," ")[i] || "";
+
+    carryCells[i].classList.remove("active");
+    resultCells[i].classList.remove("active");
+  }
+
+  if(activeIndex>=0){
+    carryCells[activeIndex].classList.add("active");
+    resultCells[activeIndex].classList.add("active");
+  }
+}
+
+function reset(){
+  clearInterval(interval);
+  document.getElementById("carryRow").innerHTML="";
+  document.getElementById("row1").innerHTML="";
+  document.getElementById("row2").innerHTML="";
+  document.getElementById("resultRow").innerHTML="";
+  document.getElementById("finalResult").innerText="";
+  document.getElementById("overflowMsg").innerText="";
+  document.getElementById("explanation").innerText="";
+}
+
+</script>
+</body>
+</html>

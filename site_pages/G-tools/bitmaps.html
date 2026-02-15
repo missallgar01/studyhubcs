@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bitmap Image Demo</title>
+
+<style>
+body{
+  background:#000;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  width:950px;
+  margin:20px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+}
+
+canvas{
+  border:1px solid #ccc;
+  margin-top:10px;
+}
+
+.controls{
+  margin:10px 0;
+}
+
+label{
+  margin:0 10px;
+}
+
+.output{
+  margin-top:10px;
+  font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Bitmap Image Simulation</h1>
+
+<div class="container">
+
+<div class="controls">
+  <label>
+    Width:
+    <input type="number" id="width" value="16" min="4" max="64">
+  </label>
+
+  <label>
+    Height:
+    <input type="number" id="height" value="16" min="4" max="64">
+  </label>
+
+  <label>
+    Colour Depth (bits):
+    <select id="depth">
+      <option value="1">1-bit (Black & White)</option>
+      <option value="8">8-bit (256 colours)</option>
+      <option value="24" selected>24-bit (True Colour)</option>
+    </select>
+  </label>
+
+  <button onclick="generate()">Generate Image</button>
+</div>
+
+<canvas id="bitmap" width="320" height="320"></canvas>
+
+<div class="output" id="stats"></div>
+
+</div>
+
+<script>
+
+function generate(){
+
+  const w=parseInt(document.getElementById("width").value);
+  const h=parseInt(document.getElementById("height").value);
+  const depth=parseInt(document.getElementById("depth").value);
+
+  const canvas=document.getElementById("bitmap");
+  const ctx=canvas.getContext("2d");
+
+  const pixelSize=320/Math.max(w,h);
+
+  ctx.clearRect(0,0,320,320);
+
+  for(let y=0;y<h;y++){
+    for(let x=0;x<w;x++){
+
+      let colour;
+
+      if(depth===1){
+        colour=Math.random()>0.5 ? "black":"white";
+      }
+      else if(depth===8){
+        const val=Math.floor(Math.random()*256);
+        colour=`rgb(${val},${val},${val})`;
+      }
+      else{
+        const r=Math.floor(Math.random()*256);
+        const g=Math.floor(Math.random()*256);
+        const b=Math.floor(Math.random()*256);
+        colour=`rgb(${r},${g},${b})`;
+      }
+
+      ctx.fillStyle=colour;
+      ctx.fillRect(x*pixelSize,y*pixelSize,pixelSize,pixelSize);
+    }
+  }
+
+  const fileSizeBits=w*h*depth;
+  const fileSizeBytes=(fileSizeBits/8).toFixed(2);
+
+  document.getElementById("stats").innerText=
+    "Resolution: "+w+" x "+h+
+    " | Colour Depth: "+depth+" bits"+
+    " | File Size: "+fileSizeBits+" bits ("+
+    fileSizeBytes+" bytes)";
+
+}
+
+generate();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>File I/O Demo</title>
+
+<style>
+body{
+  background:#111;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+h1{ margin-top:20px; }
+
+.fileBox{
+  width:400px;
+  margin:40px auto;
+  padding:20px;
+  border:3px solid white;
+  border-radius:10px;
+  background:#222;
+  text-align:left;
+  min-height:120px;
+  white-space:pre-wrap;
+}
+
+.controls{
+  margin-top:20px;
+}
+
+input{
+  padding:6px;
+  width:250px;
+  margin:5px;
+}
+
+button{
+  padding:6px 12px;
+  margin:5px;
+}
+
+.panel{
+  margin-top:30px;
+  width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  background:#1a1a1a;
+  padding:15px;
+  border-radius:10px;
+  text-align:left;
+}
+
+.python{
+  margin-top:10px;
+  background:#000;
+  padding:12px;
+  font-family:Consolas, monospace;
+  white-space:pre;
+  color:#2ecc71;
+  border-radius:6px;
+}
+
+.highlight{
+  background:#3498db;
+  transition:0.3s;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Reading and Writing to Files</h1>
+
+<div class="fileBox" id="fileContent">
+(File is empty)
+</div>
+
+<div class="controls">
+  Text: <input type="text" id="textInput">
+  <br>
+  <button onclick="writeFile()">Write (Overwrite)</button>
+  <button onclick="appendFile()">Append</button>
+  <button onclick="readFile()">Read</button>
+  <button onclick="clearFile()">Clear</button>
+</div>
+
+<div class="panel">
+  <div id="explanation"></div>
+  <div class="python" id="pythonCode"></div>
+</div>
+
+<script>
+
+let fileData = "";
+
+/* ================= Write (Overwrite) ================= */
+
+function writeFile(){
+
+  const text = document.getElementById("textInput").value;
+  fileData = text + "\n";
+
+  updateFileBox();
+
+  document.getElementById("explanation").innerText =
+    "Opening the file in write mode ('w') overwrites existing content.";
+
+  document.getElementById("pythonCode").innerText =
+"file = open('data.txt', 'w')\n" +
+"file.write(\"" + text + "\\n\")\n" +
+"file.close()";
+}
+
+/* ================= Append ================= */
+
+function appendFile(){
+
+  const text = document.getElementById("textInput").value;
+  fileData += text + "\n";
+
+  updateFileBox();
+
+  document.getElementById("explanation").innerText =
+    "Opening the file in append mode ('a') adds new content to the end.";
+
+  document.getElementById("pythonCode").innerText =
+"file = open('data.txt', 'a')\n" +
+"file.write(\"" + text + "\\n\")\n" +
+"file.close()";
+}
+
+/* ================= Read ================= */
+
+function readFile(){
+
+  highlightFile();
+
+  document.getElementById("explanation").innerText =
+    "Opening the file in read mode ('r') reads the file contents.";
+
+  document.getElementById("pythonCode").innerText =
+"file = open('data.txt', 'r')\n" +
+"contents = file.read()\n" +
+"print(contents)\n" +
+"file.close()";
+}
+
+/* ================= Clear ================= */
+
+function clearFile(){
+  fileData = "";
+  updateFileBox();
+  document.getElementById("explanation").innerText =
+    "File cleared.";
+  document.getElementById("pythonCode").innerText = "";
+}
+
+/* ================= Helpers ================= */
+
+function updateFileBox(){
+  const box = document.getElementById("fileContent");
+  box.innerText = fileData || "(File is empty)";
+}
+
+function highlightFile(){
+  const box = document.getElementById("fileContent");
+  box.classList.add("highlight");
+  setTimeout(()=>box.classList.remove("highlight"),400);
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Record File Demo</title>
+
+<style>
+body{
+  background:#111;
+  font-family:Arial;
+  color:white;
+  text-align:center;
+}
+
+h1{ margin-top:20px; }
+
+.fileBox{
+  width:500px;
+  margin:30px auto;
+  padding:20px;
+  border:3px solid white;
+  border-radius:10px;
+  background:#222;
+  text-align:left;
+  min-height:150px;
+  white-space:pre-wrap;
+}
+
+input{
+  padding:6px;
+  margin:5px;
+  width:140px;
+}
+
+button{
+  padding:6px 12px;
+  margin:5px;
+}
+
+.panel{
+  margin-top:30px;
+  width:800px;
+  margin-left:auto;
+  margin-right:auto;
+  background:#1a1a1a;
+  padding:15px;
+  border-radius:10px;
+  text-align:left;
+}
+
+.python{
+  margin-top:10px;
+  background:#000;
+  padding:12px;
+  font-family:Consolas, monospace;
+  white-space:pre;
+  color:#2ecc71;
+  border-radius:6px;
+}
+
+.highlight{
+  background:#3498db;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Reading & Writing Records to a File</h1>
+
+<div>
+  Name: <input type="text" id="nameInput">
+  Age: <input type="number" id="ageInput">
+  Grade: <input type="text" id="gradeInput">
+  <br>
+  <button onclick="writeRecord()">Write (Overwrite)</button>
+  <button onclick="appendRecord()">Append</button>
+  <button onclick="readRecords()">Read All</button>
+  <button onclick="searchRecord()">Search Name</button>
+  <button onclick="clearFile()">Clear File</button>
+</div>
+
+<div class="fileBox" id="fileDisplay">
+(File is empty)
+</div>
+
+<div class="panel">
+  <div id="explanation"></div>
+  <div class="python" id="pythonCode"></div>
+</div>
+
+<script>
+
+let fileData = [];
+
+/* ================= Update Display ================= */
+
+function updateDisplay(){
+  const box = document.getElementById("fileDisplay");
+
+  if(fileData.length === 0){
+    box.innerText = "(File is empty)";
+  } else {
+    box.innerText = fileData.join("\n");
+  }
+}
+
+/* ================= Write (Overwrite) ================= */
+
+function writeRecord(){
+
+  const name = document.getElementById("nameInput").value;
+  const age = document.getElementById("ageInput").value;
+  const grade = document.getElementById("gradeInput").value;
+
+  const record = name + "," + age + "," + grade;
+
+  fileData = [record];
+
+  updateDisplay();
+
+  document.getElementById("explanation").innerText =
+    "File opened in write mode ('w') — previous contents deleted.";
+
+  document.getElementById("pythonCode").innerText =
+"name = \"" + name + "\"\n" +
+"age = " + age + "\n" +
+"grade = \"" + grade + "\"\n\n" +
+"file = open('students.txt', 'w')\n" +
+"file.write(name + ',' + str(age) + ',' + grade + '\\n')\n" +
+"file.close()";
+}
+
+/* ================= Append ================= */
+
+function appendRecord(){
+
+  const name = document.getElementById("nameInput").value;
+  const age = document.getElementById("ageInput").value;
+  const grade = document.getElementById("gradeInput").value;
+
+  const record = name + "," + age + "," + grade;
+
+  fileData.push(record);
+
+  updateDisplay();
+
+  document.getElementById("explanation").innerText =
+    "File opened in append mode ('a') — record added to end.";
+
+  document.getElementById("pythonCode").innerText =
+"file = open('students.txt', 'a')\n" +
+"file.write(name + ',' + str(age) + ',' + grade + '\\n')\n" +
+"file.close()";
+}
+
+/* ================= Read ================= */
+
+function readRecords(){
+
+  updateDisplay();
+
+  document.getElementById("explanation").innerText =
+    "Reading each record and splitting into fields.";
+
+  document.getElementById("pythonCode").innerText =
+"file = open('students.txt', 'r')\n\n" +
+"for line in file:\n" +
+"    line = line.strip()\n" +
+"    fields = line.split(',')\n" +
+"    print(fields)\n\n" +
+"file.close()";
+}
+
+/* ================= Search ================= */
+
+function searchRecord(){
+
+  const searchName = document.getElementById("nameInput").value;
+  const box = document.getElementById("fileDisplay");
+
+  let found = false;
+
+  box.innerHTML = "";
+
+  fileData.forEach(record=>{
+    if(record.startsWith(searchName + ",")){
+      box.innerHTML += "<div class='highlight'>" + record + "</div>";
+      found = true;
+    } else {
+      box.innerHTML += record + "<br>";
+    }
+  });
+
+  document.getElementById("explanation").innerText =
+    found ? "Record found." : "Record not found.";
+
+  document.getElementById("pythonCode").innerText =
+"file = open('students.txt', 'r')\n\n" +
+"for line in file:\n" +
+"    fields = line.split(',')\n" +
+"    if fields[0] == search_name:\n" +
+"        print('Found')\n\n" +
+"file.close()";
+}
+
+/* ================= Clear ================= */
+
+function clearFile(){
+  fileData = [];
+  updateDisplay();
+  document.getElementById("explanation").innerText =
+    "File cleared.";
+  document.getElementById("pythonCode").innerText = "";
+}
+
+</script>
+
+</body>
+</html>
